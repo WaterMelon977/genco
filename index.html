@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP GenCo Exam Study Portal — Mechanical Engineering</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .portal-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Header Card */
+        .portal-header {
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 40px 28px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+        }
+
+        .portal-header h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 26pt;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .portal-header p {
+            font-size: 12pt;
+            color: #E8DACF;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 18pt;
+            color: #4A2E1B;
+            border-bottom: 2px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title span.mark-tag {
+            font-size: 10.5pt;
+            background-color: #8C5A37;
+            color: #FFFDF9;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* Grid Layout */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+
+        /* Topic Card */
+        .topic-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E2D9CC;
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(60, 40, 20, 0.05);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(74, 46, 27, 0.12);
+            border-color: #CBB8A9;
+        }
+
+        .topic-card.active-card {
+            border-left: 5px solid #2E7D32;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F4F9F4 100%);
+        }
+
+        .topic-card.active-card:hover {
+            border-color: #2E7D32;
+        }
+
+        .topic-card.disabled-card {
+            border-left: 5px solid #8C5A37;
+        }
+
+        .card-header-area {
+            margin-bottom: 14px;
+        }
+
+        .topic-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #4A2E1B;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .topic-card.active-card .topic-title {
+            color: #1B5E20;
+        }
+
+        .subtopic-preview {
+            font-size: 9.5pt;
+            color: #665A52;
+            line-height: 1.5;
+        }
+
+        .subtopic-preview ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .subtopic-preview li {
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .subtopic-preview li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #8C5A37;
+            font-weight: bold;
+        }
+
+        .card-footer {
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid #F0ECE6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .status-available {
+            color: #2E7D32;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-available::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #2E7D32;
+            border-radius: 50%;
+        }
+
+        .status-coming-soon {
+            color: #8C5A37;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-link {
+            color: #4A2E1B;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .topic-card:hover .action-link {
+            text-decoration: underline;
+        }
+
+        /* Modal Overlay & Card */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(45, 39, 35, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 36px 32px;
+            max-width: 440px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid #E2D9CC;
+            transform: scale(0.9);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 38pt;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .modal-title {
+            font-size: 15pt;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .modal-desc {
+            font-size: 10pt;
+            color: #5C524A;
+            margin-bottom: 24px;
+            line-height: 1.55;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 10pt;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7A6F68;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="portal-container">
+        <!-- Header -->
+        <div class="portal-header">
+            <h1>AP GenCo Mechanical Exam Portal</h1>
+            <p>Comprehensive Study Notes & Syllabus Topic Guides for Mechanical Engineering Aspirants</p>
+        </div>
+
+        <!-- Section 1: Core Mechanical Branch -->
+        <div class="section-title">
+            Core Mechanical Branch
+            <span class="mark-tag">70 Marks</span>
+        </div>
+
+        <div class="topic-grid">
+            <!-- Strength of Materials -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Strength of Materials')">
+                <div class="card-header-area">
+                    <div class="topic-title">Strength of Materials</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Simple stresses and strains & Hooke's law</li>
+                            <li>Bending & shear stress diagrams</li>
+                            <li>Torsion of shafts & springs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Fluid Mechanics and Machinery -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Fluid Mechanics and Machinery')">
+                <div class="card-header-area">
+                    <div class="topic-title">Fluid Mechanics & Machinery</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Fluid kinematics & dynamics (Bernoulli)</li>
+                            <li>Laminar/turbulent flow & pipe losses</li>
+                            <li>Hydraulic turbines & pumps</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Material Science and Metallurgy (ACTIVE) -->
+            <div class="topic-card active-card" onclick="openTopic('material_science_genco_guide.html')">
+                <div class="card-header-area">
+                    <div class="topic-title">Material Science & Metallurgy</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Structure & properties of materials</li>
+                            <li>Iron-Carbon phase diagram & heat treatment</li>
+                            <li>Alloy steels & powder metallurgy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-available">Available Now</span>
+                    <span class="action-link">Open Guide &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Theory of Machines -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Theory of Machines')">
+                <div class="card-header-area">
+                    <div class="topic-title">Theory of Machines</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Velocity & acceleration analysis</li>
+                            <li>Slider-crank mechanisms & gear trains</li>
+                            <li>Flywheels & governors</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Vibrations -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Vibrations')">
+                <div class="card-header-area">
+                    <div class="topic-title">Vibrations</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Free & forced vibrations with damping</li>
+                            <li>Resonance & vibration isolation</li>
+                            <li>Critical speeds of shafts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Design of Machine Elements -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Design of Machine Elements')">
+                <div class="card-header-area">
+                    <div class="topic-title">Design of Machine Elements</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Static/dynamic loading & failure theories</li>
+                            <li>Fatigue strength & S-N diagram</li>
+                            <li>Design of shafts, gears, bearings & springs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Heat Transfer -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Heat Transfer')">
+                <div class="card-header-area">
+                    <div class="topic-title">Heat Transfer</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Conduction, convection & radiation</li>
+                            <li>Fins, LMTD & NTU heat exchangers</li>
+                            <li>Thermal boundary layer & turbulence</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Thermodynamics -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Thermodynamics')">
+                <div class="card-header-area">
+                    <div class="topic-title">Thermodynamics</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Laws of thermodynamics & Carnot cycle</li>
+                            <li>Pure substances, entropy & availability</li>
+                            <li>Psychrometry & refrigeration principles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Applied Thermodynamics -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Applied Thermodynamics')">
+                <div class="card-header-area">
+                    <div class="topic-title">Applied Thermodynamics</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Compressor classification & operations</li>
+                            <li>I.C. Engines, knocking & fuel ratings</li>
+                            <li>Combustion chambers, lubrication & ignition</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Turbo Machines -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Turbo Machines')">
+                <div class="card-header-area">
+                    <div class="topic-title">Turbo Machines</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Gas & steam turbine principles</li>
+                            <li>Rankine & modified Rankine cycles</li>
+                            <li>Jet propulsion & nozzles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Metal Cutting and Machine Tools -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Metal Cutting & Machine Tools')">
+                <div class="card-header-area">
+                    <div class="topic-title">Metal Cutting & Machine Tools</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Mechanics of machining & cutting forces</li>
+                            <li>Lathes, milling, grinding & NC machines</li>
+                            <li>Micro-finishing (EDM, ECM, USM)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Foundry, Welding, and Forging -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Foundry, Welding & Forging')">
+                <div class="card-header-area">
+                    <div class="topic-title">Foundry, Welding & Forging</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Mould, pattern & riser design</li>
+                            <li>Welding physics, brazing & soldering</li>
+                            <li>Hot/cold forming, forging & extrusion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Production and Operations Management -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Production & Operations Management')">
+                <div class="card-header-area">
+                    <div class="topic-title">Production & Operations Mgmt</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Plant layout, PPC & inventory control</li>
+                            <li>Quality control & cost analysis</li>
+                            <li>Operations research & CAD/CAM basics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Common Syllabus for All Exams -->
+        <div class="section-title">
+            Common Syllabus (General Aptitude & Basics)
+        </div>
+
+        <div class="topic-grid">
+            <!-- Reasoning and General Intelligence -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Reasoning & General Intelligence')">
+                <div class="card-header-area">
+                    <div class="topic-title">Reasoning & General Intelligence</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Analogies, classification & series</li>
+                            <li>Venn diagrams & pattern folding</li>
+                            <li>Coding, decoding & problem solving</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- General Awareness -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('General Awareness')">
+                <div class="card-header-area">
+                    <div class="topic-title">General Awareness</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Current events & scientific matters</li>
+                            <li>Indian history, culture & geography</li>
+                            <li>Economic scene & general policy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Quantitative Aptitude -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Quantitative Aptitude')">
+                <div class="card-header-area">
+                    <div class="topic-title">Quantitative Aptitude</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Number systems, decimals & fractions</li>
+                            <li>Arithmetical concepts & estimation</li>
+                            <li>Applied numerical problem solving</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- English Language and Comprehension -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('English Language & Comprehension')">
+                <div class="card-header-area">
+                    <div class="topic-title">English Language & Comprehension</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Vocabulary, grammar & error spotting</li>
+                            <li>Synonyms, antonyms & idioms</li>
+                            <li>Cloze passage & reading comprehension</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Computer Knowledge/Proficiency -->
+            <div class="topic-card disabled-card" onclick="showComingSoon('Computer Knowledge & Proficiency')">
+                <div class="card-header-area">
+                    <div class="topic-title">Computer Knowledge & Proficiency</div>
+                    <div class="subtopic-preview">
+                        <ul>
+                            <li>Computer basics, CPU & memory</li>
+                            <li>Windows OS, MS Office (Word/Excel/PPT)</li>
+                            <li>Networking, internet & cybersecurity</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-coming-soon">Coming Soon</span>
+                    <span class="action-link">View Topic &rarr;</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; AP GenCo Mechanical Study Guide Portal
+        </footer>
+    </div>
+
+    <!-- Modal Popup for Coming Soon -->
+    <div class="modal-overlay" id="comingSoonModal">
+        <div class="modal-box">
+            <span class="modal-icon">⏳</span>
+            <div class="modal-title" id="modalTopicTitle">Topic Notes Coming Soon</div>
+            <div class="modal-desc" id="modalTopicDesc">Comprehensive high-yield study notes for this section are
+                currently being compiled.</div>
+            <button class="modal-btn" onclick="closeModal()">Got it</button>
+        </div>
+    </div>
+
+    <script>
+        function openTopic(url) {
+            window.location.href = url;
+        }
+
+        function showComingSoon(topicName) {
+            document.getElementById('modalTopicTitle').innerText = topicName;
+            document.getElementById('modalTopicDesc').innerText = `Study notes and revision guides for "${topicName}" are currently under active preparation and will be available soon.`;
+            document.getElementById('comingSoonModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('comingSoonModal').classList.remove('active');
+        }
+
+        // Close modal on clicking outside
+        document.getElementById('comingSoonModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

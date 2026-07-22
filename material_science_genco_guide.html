@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Material Science &amp; Metallurgy Guide - AP GenCo Exam</title>
+<style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm 20mm 15mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.65;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            margin: 0;
+            padding: 35px 15px;
+        }
+
+        /* Box Layout Reader Container */
+        .reader-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 48px 54px;
+            border: 1px solid #E2D9CC;
+            box-shadow: 0 12px 40px rgba(60, 40, 20, 0.08), 0 2px 8px rgba(60, 40, 20, 0.04);
+        }
+
+        /* Document Title Header */
+        .doc-title-card {
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 32px 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
+
+        .doc-title-card h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 24pt;
+            margin: 0 0 10px 0;
+            color: #FFFDF9;
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-title-card .subtitle {
+            font-size: 11.5pt;
+            font-style: italic;
+            color: #E8DACF;
+            margin: 0;
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 18pt;
+            color: #4A2E1B;
+            border-bottom: 2px solid #8C5A37;
+            padding-bottom: 6px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            page-break-after: avoid;
+        }
+
+        h2 {
+            font-size: 15pt;
+            color: #5C3A21;
+            border-bottom: 1.5px dashed #CBB8A9;
+            padding-bottom: 5px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #7A4B2A;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-size: 11pt;
+            color: #4A2E1B;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 14px;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Horizontal rule */
+        hr {
+            border: none;
+            border-top: 1px solid #E0D4C8;
+            margin: 30px 0;
+        }
+
+        /* Point Cards Layout (Replacing Tables) */
+        .point-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 18px 0;
+        }
+
+        .point-card {
+            background-color: #FAF7F2;
+            border: 1px solid #E8DFD3;
+            border-left: 4px solid #8C5A37;
+            border-radius: 8px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .point-card:hover {
+            background-color: #F7F1E7;
+            border-color: #DBCDBB;
+            box-shadow: 0 4px 10px rgba(74, 46, 27, 0.06);
+        }
+
+        .point-card-header {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #4A2E1B;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ECE3D7;
+            padding-bottom: 6px;
+        }
+
+        .point-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .point-card-line {
+            font-size: 9.8pt;
+            color: #362F2B;
+            line-height: 1.5;
+        }
+
+        .point-card-line strong {
+            color: #7A4B2A;
+        }
+
+        /* Callout Boxes */
+        .callout-box {
+            background-color: #F7EFE6;
+            border-left: 4px solid #8C5A37;
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+            page-break-inside: avoid;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            color: #5C3A21;
+            font-size: 10.5pt;
+            margin-bottom: 4px;
+        }
+
+        .callout-content {
+            font-size: 9.8pt;
+            color: #2C2623;
+        }
+
+        /* Checklist Items */
+        ul li.checklist-item {
+            list-style-type: none;
+            margin-left: -15px;
+            padding-left: 5px;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            border: 1.5px solid #8C5A37;
+            border-radius: 3px;
+            margin-right: 8px;
+            vertical-align: middle;
+            background-color: #FFFDF9;
+            text-align: center;
+            line-height: 11px;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #8C5A37;
+        }
+
+        /* Code / Focus */
+        code {
+            font-family: "Consolas", "Courier New", monospace;
+            background-color: #F0E8DF;
+            color: #4A2E1B;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 9pt;
+            border: 1px solid #E0D2C3;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
+            .reader-container {
+                padding: 24px 18px;
+                border-radius: 8px;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: #FFFDF9;
+                padding: 0;
+            }
+            .reader-container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                max-width: 100%;
+            }
+        }
+</style>
+</head>
+<body><div class="reader-container">
+<div class="doc-title-card">
+<div style="margin-bottom: 12px;"><a href="../site/index.html" style="color: #E8DACF; text-decoration: none; font-size: 9.5pt; font-weight: 600; background: rgba(255,255,255,0.12); padding: 4px 12px; border-radius: 20px; display: inline-block;">&larr; Back to Exam Portal</a></div>
+<h1>Material Science &amp; Metallurgy Guide</h1>
+<div class="subtitle">AP GenCo Exam — Mechanical Engineering Comprehensive Study Notes</div>
+</div>
+<h2>Overview</h2>
+<p>This guide covers the official AP GenCo syllabus for Material Science and Metallurgy in the most exam-relevant format. Content is structured around high-frequency MCQ patterns from SSC JE, AE, and state mechanical exams. Each section provides core concepts, key definitions, comparison tables, and quick revision points.</p>
+<hr/>
+<h2>Chapter 1: Structure and Properties of Engineering Materials</h2>
+<h3>1.1 Mechanical Properties – Definitions and Relations</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Elasticity</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Ability to regain original shape/size after load removal</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Measured by Young's modulus (E); higher E = more elastic</div><div class="point-card-line"><strong>• Example: </strong>Steel: high E; Rubber: low E but large recoverable strain</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Stiffness</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Resistance to elastic deformation</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Related to modulus of elasticity</div><div class="point-card-line"><strong>• Example: </strong>Higher E = stiffer material</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Ductility</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Ability to undergo large permanent plastic deformation in tension</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Draw into wires; measured by % elongation</div><div class="point-card-line"><strong>• Example: </strong>Mild steel (most ductile common metal)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Malleability</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Ability to be hammered/rolled into thin sheets without fracture</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Compression-based plasticity</div><div class="point-card-line"><strong>• Example: </strong>Lead (maximum malleability); aluminum</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Toughness</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Total energy absorbed from start of loading to fracture</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Area under <strong>entire</strong> stress-strain curve</div><div class="point-card-line"><strong>• Example: </strong>High toughness = strength + ductility combined</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Resilience</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Elastic energy stored and recovered on unloading</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Area under stress-strain curve up to elastic limit</div><div class="point-card-line"><strong>• Example: </strong>Lower than toughness; reversible deformation only</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hardness</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Resistance to plastic deformation by indentation/scratching</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Not a strength measure; related to yield strength</div><div class="point-card-line"><strong>• Example: </strong>Cast iron, hardened steel</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Brittleness</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Little/no plastic deformation before sudden fracture</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Opposite of ductility</div><div class="point-card-line"><strong>• Example: </strong>Glass, cast iron, ceramics</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Creep</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Slow, time-dependent permanent deformation under constant load</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Requires <strong>both</strong> constant load <strong>and</strong> elevated temperature</div><div class="point-card-line"><strong>• Example: </strong>Common in turbine blades, boilers at high temp</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Fatigue</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Failure under repeated or reversed cyclic stresses</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Occurs below yield stress; represented by S-N curve</div><div class="point-card-line"><strong>• Example: </strong>Rotating shafts, springs, bridges</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Damping Capacity</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Ability to absorb vibration energy</div><div class="point-card-line"><strong>• Key Characteristic: </strong>High in grey cast iron due to graphite flakes</div><div class="point-card-line"><strong>• Example: </strong>Machinery foundations</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hot Hardness</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Definition: </strong>Ability to retain hardness/strength at elevated temperatures</div><div class="point-card-line"><strong>• Key Characteristic: </strong>Critical for cutting tools</div><div class="point-card-line"><strong>• Example: </strong>High-speed steel, tungsten carbide</div></div></div></div>
+<h3>1.2 Material Behavior Classification</h3>
+<p><strong>Isotropic vs Anisotropic</strong></p>
+<ul>
+<li><strong>Isotropic</strong>: Same elastic properties in all directions at a point (most metals when fine-grained; most common in exams)</li>
+<li><strong>Anisotropic</strong>: Properties vary with direction (wood, single crystals, cold-worked metals)</li>
+</ul>
+<p><strong>Homogeneous vs Heterogeneous</strong></p>
+<ul>
+<li><strong>Homogeneous</strong>: Properties same at every point in a given direction (ideal assumption)</li>
+<li><strong>Heterogeneous</strong>: Properties vary from point to point (real materials due to grain structure, segregation)</li>
+</ul>
+<p><strong>Allotropic/Polymorphic Materials</strong></p>
+<ul>
+<li>Material exists in different crystal structures at different temperatures</li>
+<li>Example: Iron — α-iron (BCC) ↔ γ-iron (FCC) ↔ δ-iron (BCC)</li>
+<li>Critical for understanding heat treatment behavior</li>
+</ul>
+<h3>1.3 Stress-Strain Curve Interpretation</h3>
+<ul>
+<li><strong>Elastic region</strong>: Linear, reversible deformation; Young's modulus = stress/strain</li>
+<li><strong>Plastic region</strong>: Non-linear, permanent deformation; strain hardening occurs</li>
+<li><strong>Ultimate Tensile Strength (UTS)</strong>: Maximum stress material can sustain</li>
+<li><strong>Yield point</strong>: Stress at which material transitions from elastic to plastic</li>
+<li><strong>Fracture point</strong>: Final breaking of material</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Key Concept</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li><strong>Toughness</strong> = area under entire curve to fracture (strength + ductility)</li>
+<li><strong>Resilience</strong> = area under curve up to elastic limit (elastic energy only)</li>
+<li><strong>Brittleness</strong> = sudden fracture with minimal plastic zone (glass, cast iron)</li>
+</ul>
+<h3>1.4 Viscoelasticity</h3>
+<ul>
+<li>Material exhibits both viscous (time-dependent) and elastic behavior simultaneously</li>
+<li>Example: Polymers, some composites</li>
+<li>Load → deformation increases with time (like viscous fluid) but also partially recovers (elastic)</li>
+<li>Important for creep-resistant applications</li>
+</ul>
+<hr/>
+<h2>Chapter 2: Bonding in Solids</h2>
+<h3>2.1 Types of Atomic Bonding</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Metallic</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Mechanism: </strong>Valence electrons form "electron sea"; positive ion cores surrounded by mobile electrons</div><div class="point-card-line"><strong>• Characteristics: </strong>Strong, conducts electricity, ductile, malleable, high melting point</div><div class="point-card-line"><strong>• Examples: </strong>All metals (Fe, Cu, Al, Zn)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Covalent</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Mechanism: </strong>Electrons shared between adjacent atoms in fixed positions</div><div class="point-card-line"><strong>• Characteristics: </strong>Directional; very hard and brittle; low electrical conductivity; high melting point</div><div class="point-card-line"><strong>• Examples: </strong>Diamond, Si, SiC, WC</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Ionic</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Mechanism: </strong>Complete electron transfer from one atom to another; electrostatic attraction</div><div class="point-card-line"><strong>• Characteristics: </strong>Brittle; high melting point; conducts in molten state; soluble in polar solvents</div><div class="point-card-line"><strong>• Examples: </strong>NaCl, MgO, Al₂O₃</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Van der Waals</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Mechanism: </strong>Weak attraction between atoms/molecules due to induced dipoles</div><div class="point-card-line"><strong>• Characteristics: </strong>Weak; low melting point; easy to deform</div><div class="point-card-line"><strong>• Examples: </strong>Graphite (between layers), noble gases</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hydrogen</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Mechanism: </strong>Partial covalent/electrostatic bond involving hydrogen</div><div class="point-card-line"><strong>• Characteristics: </strong>Moderate strength; important in polymers and biology</div><div class="point-card-line"><strong>• Examples: </strong>Polymers, water molecules</div></div></div></div>
+<h3>2.2 Relationship Between Bonding and Properties</h3>
+<ul>
+<li><strong>Strong metallic bonding</strong> → high melting point, high electrical/thermal conductivity, ductility</li>
+<li><strong>Covalent bonding</strong> → extreme hardness, brittleness (e.g., diamond, WC cutting tools)</li>
+<li><strong>Ionic bonding</strong> → hard but brittle, high melting point, insulators in solid state</li>
+<li><strong>Weak van der Waals</strong> → low melting point, easy to deform</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">🎯</span> Exam Focus</div>
+<div class="callout-content">: Metallic bonding dominates metals used in engineering; covalent bonds produce the hardest materials (WC, diamond, SiC).</div>
+</div>
+<hr/>
+<h2>Chapter 3: Crystal Structures and Imperfections</h2>
+<h3>3.1 Crystalline vs Amorphous Materials</h3>
+<ul>
+<li><strong>Crystalline</strong>: Atoms arranged in regular, repeating 3D lattice with long-range order</li>
+<li><strong>Amorphous</strong>: Atoms arranged chaotically with no long-range order</li>
+<li>Most metals are crystalline; glasses and some polymers are amorphous</li>
+</ul>
+<h3>3.2 Crystal Lattice Types (Most Common in Metals)</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Simple Cubic (SC)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Atoms/Cell: </strong>1</div><div class="point-card-line"><strong>• Coordination Number (CN): </strong>6</div><div class="point-card-line"><strong>• Atomic Packing Factor (APF): </strong>0.52</div><div class="point-card-line"><strong>• Examples: </strong>Rarely occurs in pure metals</div><div class="point-card-line"><strong>• Notes: </strong>Least dense</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Body-Centred Cubic (BCC)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Atoms/Cell: </strong>2</div><div class="point-card-line"><strong>• Coordination Number (CN): </strong>8</div><div class="point-card-line"><strong>• Atomic Packing Factor (APF): </strong>0.68</div><div class="point-card-line"><strong>• Examples: </strong>α-iron (ferrite), Cr, Mo, W</div><div class="point-card-line"><strong>• Notes: </strong>1 atom at corners + 1 at center</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Face-Centred Cubic (FCC)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Atoms/Cell: </strong>4</div><div class="point-card-line"><strong>• Coordination Number (CN): </strong>12</div><div class="point-card-line"><strong>• Atomic Packing Factor (APF): </strong>0.74</div><div class="point-card-line"><strong>• Examples: </strong>γ-iron (austenite), Cu, Al, Ni, Au</div><div class="point-card-line"><strong>• Notes: </strong>1 atom at corners + 1 on each face</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hexagonal Close-Packed (HCP)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Atoms/Cell: </strong>6</div><div class="point-card-line"><strong>• Coordination Number (CN): </strong>12</div><div class="point-card-line"><strong>• Atomic Packing Factor (APF): </strong>0.74</div><div class="point-card-line"><strong>• Examples: </strong>Zn, Mg, Ti, Co</div><div class="point-card-line"><strong>• Notes: </strong>Two layers in different arrangement</div></div></div></div>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📐</span> Key Formulas</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li><strong>Atoms per unit cell</strong>: Count corner atoms (÷8) + edge atoms (÷4) + face atoms (÷2) + interior atoms (×1)</li>
+<li><strong>APF</strong> = (Volume of atoms in cell) / (Volume of unit cell)</li>
+<li><strong>Highest packing</strong>: FCC and HCP both have APF = 0.74</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">⚠️</span> Exam Trap</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li>BCC has <strong>2 atoms per cell</strong>, not 8 or 9</li>
+<li>FCC has <strong>4 atoms per cell</strong></li>
+<li>Both FCC and HCP have <strong>same APF (0.74)</strong>, but different stacking arrangements</li>
+</ul>
+<h3>3.3 Point Defects (Imperfections in Single Atoms)</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Vacancy</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Description: </strong>Missing atom in lattice position</div><div class="point-card-line"><strong>• Formation: </strong>Thermal activation; created during cooling</div><div class="point-card-line"><strong>• Effect: </strong>Decreases density; increases diffusion rate; important in creep</div><div class="point-card-line"><strong>• Example: </strong>Forms at grain boundaries</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Interstitial</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Description: </strong>Extra atom occupying gap between lattice atoms</div><div class="point-card-line"><strong>• Formation: </strong>Forced insertion (plastic deformation, irradiation)</div><div class="point-card-line"><strong>• Effect: </strong>Increases hardness; local strain distortion</div><div class="point-card-line"><strong>• Example: </strong>Carbon atoms in iron (hardening)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Frenkel Defect</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Description: </strong>Ion displaced from normal site to interstitial position</div><div class="point-card-line"><strong>• Formation: </strong>Common in ionic crystals; thermal activation</div><div class="point-card-line"><strong>• Effect: </strong>Creates vacancy-interstitial pair</div><div class="point-card-line"><strong>• Example: </strong>AgBr, AgCl</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Schottky Defect</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Description: </strong>Pair of missing ions (anion + cation) in ionic crystals</div><div class="point-card-line"><strong>• Formation: </strong>Thermal activation</div><div class="point-card-line"><strong>• Effect: </strong>Maintains electrical neutrality in ionic solids</div><div class="point-card-line"><strong>• Example: </strong>NaCl, MgO</div></div></div></div>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Concept</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li>Interstitials cause <strong>hardening</strong> and <strong>strengthening</strong> (e.g., carbon in steel)</li>
+<li>Vacancies cause <strong>softening</strong> and enable <strong>diffusion</strong> (important in heat treatment)</li>
+</ul>
+<h3>3.4 Line Defects (Dislocations)</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Edge Dislocation</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Symbol: </strong>⊥ (perpendicular symbol)</div><div class="point-card-line"><strong>• Direction: </strong>Perpendicular to slip plane</div><div class="point-card-line"><strong>• Burgers Vector: </strong>Perpendicular to dislocation line</div><div class="point-card-line"><strong>• Effect: </strong>Causes plastic deformation; stress concentration</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Screw Dislocation</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Symbol: </strong>/ (slash)</div><div class="point-card-line"><strong>• Direction: </strong>Parallel to slip plane</div><div class="point-card-line"><strong>• Burgers Vector: </strong>Parallel to dislocation line</div><div class="point-card-line"><strong>• Effect: </strong>Also causes slip; helical atomic arrangement</div></div></div></div>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Key Concept</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li><strong>Burgers vector</strong> = magnitude and direction of deformation caused by dislocation</li>
+<li><strong>Vector sum at any node = 0</strong> (equilibrium condition in dislocation networks)</li>
+<li>Dislocations enable <strong>plastic deformation</strong> in metals; they move when stress applied</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">🎯</span> Exam Focus</div>
+<div class="callout-content">: Dislocations are the primary mechanism for plastic deformation in metals. More dislocations → more work hardening → harder but less ductile.</div>
+</div>
+<h3>3.5 Grain Structure</h3>
+<ul>
+<li>Metal consists of many crystalline regions (grains) with different orientations</li>
+<li>Grain boundary = interface between grains; higher energy than bulk</li>
+<li>Finer grains → higher yield strength, more toughness (Hall-Petch relation: σ = σ₀ + k·d⁻⁰·⁵)</li>
+<li>Coarser grains → lower strength, more brittle</li>
+</ul>
+<hr/>
+<h2>Chapter 4: Structure of Alloys and Iron-Carbon Phase Diagram</h2>
+<h3>4.1 Solid Solutions</h3>
+<p><strong>Substitutional Solid Solution</strong></p>
+<ul>
+<li>Solute atoms replace solvent atoms in lattice positions</li>
+<li>Limited by <strong>Hume-Rothery rules</strong>: size difference &lt;15%, same crystal structure, similar electronegativity</li>
+<li>Example: Cu-Ni system (complete solid solubility)</li>
+</ul>
+<p><strong>Interstitial Solid Solution</strong></p>
+<ul>
+<li>Solute atoms occupy gaps between solvent atoms</li>
+<li>Only possible for small solute atoms (C, N, H in metals)</li>
+<li>Example: Carbon in iron (austenite, martensite)</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Key Property</div>
+<div class="callout-content">: Solid solutions generally <strong>stronger and harder</strong> than pure metals due to lattice distortion by solute atoms.</div>
+</div>
+<h3>4.2 Iron-Carbon Phase Diagram (0–6.67% C at 1 atm)</h3>
+<h4>Critical Temperatures and Phases</h4>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>727°C</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Carbon %: </strong><strong>0.8%</strong></div><div class="point-card-line"><strong>• Reaction: </strong>Austenite (γ-iron) → Solid products</div><div class="point-card-line"><strong>• Products: </strong>Ferrite (α-Fe) + Cementite (Fe₃C)</div><div class="point-card-line"><strong>• Key Name: </strong><strong>Eutectoid</strong></div></div></div><div class="point-card"><div class="point-card-header"><span><strong>1147°C</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Carbon %: </strong><strong>4.3%</strong></div><div class="point-card-line"><strong>• Reaction: </strong>Liquid → Solid products</div><div class="point-card-line"><strong>• Products: </strong>Austenite + Cementite</div><div class="point-card-line"><strong>• Key Name: </strong><strong>Eutectic</strong></div></div></div><div class="point-card"><div class="point-card-header"><span><strong>1538°C</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Carbon %: </strong><strong>0%</strong></div><div class="point-card-line"><strong>• Reaction: </strong>Pure iron melting point</div><div class="point-card-line"><strong>• Products: </strong>Liquid ↔ δ-iron</div><div class="point-card-line"><strong>• Key Name: </strong>—</div></div></div></div>
+<p><strong>Critical Temperatures (for pure iron)</strong>:</p>
+<ul>
+<li>A₄: 1538°C — δ-iron (BCC) ↔ Liquid</li>
+<li>A₃: 1394°C — γ-iron (FCC) ↔ δ-iron (BCC)</li>
+<li>A₂: 912°C — α-iron (BCC) ↔ γ-iron (FCC)</li>
+<li>Curie point: 768°C — Ferromagnetic ↔ Paramagnetic (α-iron loses magnetism)</li>
+</ul>
+<h4>Main Phases in Iron-Carbon System</h4>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Ferrite (α-iron)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Pure Fe or ~0.02% C</div><div class="point-card-line"><strong>• Crystal Structure: </strong>BCC</div><div class="point-card-line"><strong>• Properties: </strong>Soft, ductile, magnetic, low carbon solubility</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>0.02%</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Austenite (γ-iron)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Fe with ~2.1% C max at 1147°C</div><div class="point-card-line"><strong>• Crystal Structure: </strong>FCC</div><div class="point-card-line"><strong>• Properties: </strong>Ductile (at high temp), highest carbon solubility, non-magnetic above 768°C</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>2.1%</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Cementite (Fe₃C)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Iron carbide, 6.67% C</div><div class="point-card-line"><strong>• Crystal Structure: </strong>Orthorhombic</div><div class="point-card-line"><strong>• Properties: </strong>Hard, brittle, non-magnetic</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>Fixed 6.67%</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Martensite</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Supersaturated C in BCC α-Fe</div><div class="point-card-line"><strong>• Crystal Structure: </strong>Tetragonal (distorted BCC)</div><div class="point-card-line"><strong>• Properties: </strong>Very hard, very brittle, needle-like, formed by rapid quenching</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>Up to 2% C retained</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Pearlite</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Ferrite + Cementite lamellae</div><div class="point-card-line"><strong>• Crystal Structure: </strong>Mixture</div><div class="point-card-line"><strong>• Properties: </strong>Medium hardness, medium strength, ductile-brittle transition</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>Microstructure, not phase</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Bainite</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Ferrite + fine cementite</div><div class="point-card-line"><strong>• Crystal Structure: </strong>Mixture</div><div class="point-card-line"><strong>• Properties: </strong>Intermediate hardness/strength, better toughness than martensite</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>Microstructure, not phase</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Ledeburite</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Formula/Composition: </strong>Austenite + Cementite at 1147°C</div><div class="point-card-line"><strong>• Crystal Structure: </strong>Eutectic mixture</div><div class="point-card-line"><strong>• Properties: </strong>Eutectic product (cast iron structure)</div><div class="point-card-line"><strong>• Max Carbon at Room Temp: </strong>—</div></div></div></div>
+<h4>Key Reactions</h4>
+<ol>
+<li>
+<p><strong>Eutectoid (727°C, 0.8% C)</strong>:<br/>
+γ-iron (austenite, 0.8%C) → α-iron (ferrite, 0.02%C) + Fe₃C (cementite, 6.67%C)<br/>
+<em>Produces pearlite (lamellar structure)</em></p>
+</li>
+<li>
+<p><strong>Eutectic (1147°C, 4.3% C)</strong>:<br/>
+Liquid (4.3%C) → γ-iron (2.1%C) + Fe₃C (6.67%C)<br/>
+<em>Produces ledeburite; relevant for cast irons</em></p>
+</li>
+<li>
+<p><strong>Retained Austenite</strong>:<br/>
+Untransformed austenite after quenching; occurs in hypereutectoid steels when martensite finish temp (Mf) is below room temperature.</p>
+</li>
+</ol>
+<h4>Lever Rule (Phase Fractions)</h4>
+<p>When two phases coexist, use:</p>
+<p><strong>W_α = (C_γ − C₀) / (C_γ − C_α) × 100%</strong><br/>
+<em>where C₀ = actual composition, C_α and C_γ = phase compositions at that temperature</em></p>
+<p>Example: At 700°C with 0.5% C:</p>
+<ul>
+<li>Ferrite (α) has ~0.02% C</li>
+<li>Austenite (γ) has ~0.8% C</li>
+<li>W_ferrite = (0.8 − 0.5)/(0.8 − 0.02) × 100% ≈ 38%</li>
+</ul>
+<h3>4.3 Steel Classification</h3>
+<p><strong>Hypoeutectoid Steel</strong> (&lt; 0.8% C):</p>
+<ul>
+<li>Microstructure: Ferrite + Pearlite</li>
+<li>Softer, more ductile, easier to machine</li>
+</ul>
+<p><strong>Eutectoid Steel</strong> (= 0.8% C):</p>
+<ul>
+<li>Microstructure: 100% Pearlite</li>
+<li>Reference point; balanced hardness and ductility</li>
+</ul>
+<p><strong>Hypereutectoid Steel</strong> (0.8% – 2.1% C):</p>
+<ul>
+<li>Microstructure: Cementite (primary) + Pearlite</li>
+<li>Harder, more brittle, prone to retained austenite after quenching</li>
+</ul>
+<p><strong>Cast Iron</strong> (2.1% – 6.67% C):</p>
+<ul>
+<li>Contains eutectic/eutectoid mixtures</li>
+<li>Ledeburite present in as-cast structure</li>
+<li>Gray cast iron (graphite flakes); white cast iron (cementite); ductile iron (graphite nodules)</li>
+</ul>
+<hr/>
+<h2>Chapter 5: Heat Treatment Processes</h2>
+<h3>5.1 Overview Table</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Annealing</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>Above A₃ (critical), then cool slowly</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Furnace cool (slowest)</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Coarse pearlite + ferrite</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Soft, ductile, stress-relieved</div><div class="point-card-line"><strong>• Purpose: </strong>Softening; stress relief; grain refinement</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Normalizing</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>30–50°C above A₃, air cool</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Air cool (faster)</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Fine pearlite + ferrite</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Improved strength/toughness, refined grain</div><div class="point-card-line"><strong>• Purpose: </strong>Refining; stress removal; mechanical property improvement</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hardening</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>Above A₃ (austenite range), quench rapidly</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Quench: brine &gt; water &gt; oil &gt; air</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Martensite (+ retained austenite if fast)</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Hard, brittle</div><div class="point-card-line"><strong>• Purpose: </strong>Maximum hardness for cutting tools, dies</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Tempering</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>150–650°C (below A₁)</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Air cool</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Tempered martensite (sorbite, troostite)</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Reduced brittleness, improved toughness</div><div class="point-card-line"><strong>• Purpose: </strong>Removing quenching stresses; practical hardness</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Spheroidizing</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>Just below A₁ (650°C), prolonged soak</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Slow cool</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Cementite spheroids in ferrite matrix</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Maximum machinability</div><div class="point-card-line"><strong>• Purpose: </strong>Best for machining hypereutectoid steels</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Austempering</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>Quench to 250–450°C, hold isothermally</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Slow</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>100% Bainite</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Good strength + toughness, low distortion</div><div class="point-card-line"><strong>• Purpose: </strong>Producing bainite with minimum cracking risk</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Martempering</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Heating Temperature: </strong>Quench to just above Ms, hold, then air cool</div><div class="point-card-line"><strong>• Cooling Rate: </strong>Controlled</div><div class="point-card-line"><strong>• Microstructure Produced: </strong>Martensite (with reduced residual stress)</div><div class="point-card-line"><strong>• Properties Achieved: </strong>Hard but less cracking than direct quench</div><div class="point-card-line"><strong>• Purpose: </strong>Reducing thermal shock and cracking</div></div></div></div>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📌</span> Quenching Media</div>
+<div class="callout-content">:<br/>
+Brine (fastest) &gt; Water &gt; Oil &gt; Air (slowest)</div>
+</div>
+<h3>5.2 Key Temperatures in Steel</h3>
+<ul>
+<li><strong>A₃ (upper critical)</strong>: Temperature above which all ferrite transforms to austenite (hypoeutectoid steels)</li>
+<li><strong>A₂</strong> (lower critical, eutectoid): 727°C — austenite completely transforms to pearlite (eutectoid composition)</li>
+<li><strong>A₁</strong> (Curie point region): ~768°C — ferromagnetism lost in ferrite</li>
+<li><strong>Ms</strong> (martensite start): Temperature at which martensite formation begins on cooling</li>
+<li><strong>Mf</strong> (martensite finish): Temperature at which martensite formation completes</li>
+</ul>
+<h3>5.3 Microstructures Produced</h3>
+<p><strong>Pearlite</strong>:</p>
+<ul>
+<li>Lamellar (striped) mixture of ferrite and cementite</li>
+<li>Forms from eutectoid decomposition at 727°C</li>
+<li>Coarse pearlite (slow cooling) → softer; fine pearlite (faster cooling) → harder</li>
+</ul>
+<p><strong>Martensite</strong>:</p>
+<ul>
+<li>Supersaturated carbon in distorted BCC iron</li>
+<li>Formed by <strong>rapid quenching</strong> (diffusionless shear transformation)</li>
+<li>Needle-like appearance; very hard; very brittle; metastable phase</li>
+</ul>
+<p><strong>Bainite</strong>:</p>
+<ul>
+<li>Ferrite + fine cementite particles (not lamellar)</li>
+<li>Forms at intermediate temperatures (250–450°C in TTT diagram)</li>
+<li>Better toughness than martensite; less ductile than pearlite</li>
+</ul>
+<p><strong>Sorbite/Troostite</strong>:</p>
+<ul>
+<li>Fine pearlite-like structures resulting from tempering martensite or air cooling</li>
+<li>Intermediate hardness and toughness</li>
+</ul>
+<h3>5.4 TTT (Time-Temperature-Transformation) Diagram</h3>
+<ul>
+<li><strong>S-curve shape</strong>: Shows start and finish times for pearlite, bainite, martensite formation at constant temperature</li>
+<li><strong>Nose of curve</strong>: Fastest transformation point (highest reaction rate)</li>
+<li><strong>Critical cooling rate</strong>: Minimum cooling speed needed to avoid pearlite and form martensite</li>
+<li>Steeper steel composition (higher C, alloy content) → lower critical cooling rate (easier to harden)</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Concept</div>
+<div class="callout-content">:<br/>
+To form martensite, cooling must be fast enough to "bypass" the pearlite nose region.</div>
+</div>
+<hr/>
+<h2>Chapter 6: Alloy Steels</h2>
+<h3>6.1 Purpose of Alloying Elements</h3>
+<p>Alloying elements modify:</p>
+<ul>
+<li><strong>Hardness</strong>: Increase by forming harder phases or solid-solution strengthening</li>
+<li><strong>Strength</strong>: Increase via precipitation hardening or solid-solution strengthening</li>
+<li><strong>Toughness</strong>: Improve by refining grain, reducing brittleness</li>
+<li><strong>Hardenability</strong>: Lower critical cooling rate (deeper hardening into section)</li>
+<li><strong>Wear Resistance</strong>: Increase by forming hard carbides</li>
+<li><strong>Corrosion Resistance</strong>: Improve by forming protective oxide layers</li>
+<li><strong>Temperature Resistance</strong>: Extend temperature range for useful strength (high-speed steel, tool steels)</li>
+</ul>
+<h3>6.2 Common Alloying Elements and Effects</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Carbon (C)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness, strength; decreases ductility; critical to all steels</div><div class="point-card-line"><strong>• Purpose: </strong>Primary hardening element</div><div class="point-card-line"><strong>• Examples: </strong>All steels contain C; 0.2–2.1% range</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Manganese (Mn)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness, strength; improves hardenability; reduces brittleness</div><div class="point-card-line"><strong>• Purpose: </strong>Deoxidizer; strengthener</div><div class="point-card-line"><strong>• Examples: </strong>0.5–1.5% in plain carbon; up to 12% in work-hardening steels</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Chromium (Cr)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness, wear resistance; improves corrosion resistance; forms hard carbides</div><div class="point-card-line"><strong>• Purpose: </strong>Hardening, corrosion resistance; carbide former</div><div class="point-card-line"><strong>• Examples: </strong>Stainless steels (11–18%); tool steels (5–12%)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Molybdenum (Mo)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases strength at high temperature; improves hardenability; refines grain</div><div class="point-card-line"><strong>• Purpose: </strong>High-temperature strength; deep hardening</div><div class="point-card-line"><strong>• Examples: </strong>High-speed steel, high-strength steels (0.3–0.8%)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Vanadium (V)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness, toughness, wear resistance; forms very hard carbides</div><div class="point-card-line"><strong>• Purpose: </strong>Wear resistance; toughness at high hardness</div><div class="point-card-line"><strong>• Examples: </strong>Tool steels (1–5%); high-speed steel</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Nickel (Ni)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases toughness, strength; improves low-temperature impact strength; improves hardenability</div><div class="point-card-line"><strong>• Purpose: </strong>Toughness; deep hardening; low-temp toughness</div><div class="point-card-line"><strong>• Examples: </strong>Nickel steels (2–5%); austenitic stainless (8–12%)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Silicon (Si)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases strength; improves corrosion resistance; deoxidizer</div><div class="point-card-line"><strong>• Purpose: </strong>Deoxidation; spring steel strengthening</div><div class="point-card-line"><strong>• Examples: </strong>Spring steels, stainless steels (0.5–2%)</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Tungsten (W)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness, wear resistance; forms hard carbides; high melting point</div><div class="point-card-line"><strong>• Purpose: </strong>High-speed tool material; wear resistance</div><div class="point-card-line"><strong>• Examples: </strong>High-speed steel (12–18%), tool steels</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Cobalt (Co)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Effect on Steel: </strong>Increases hardness at high temperature; refines carbide structure</div><div class="point-card-line"><strong>• Purpose: </strong>Hot hardness; cutting tool performance</div><div class="point-card-line"><strong>• Examples: </strong>High-speed steel (5–10%); high-temp alloys</div></div></div></div>
+<h3>6.3 Carbide-Forming Elements (Hard Carbides)</h3>
+<p>Strong carbide formers (in decreasing order):</p>
+<ul>
+<li><strong>Tungsten (WC)</strong>: Extremely hard; used in cutting tool inserts</li>
+<li><strong>Vanadium (VC)</strong>: Very hard; improves tool life</li>
+<li><strong>Chromium (Cr₃C₂, Cr₇C₃)</strong>: Hard; improves wear resistance</li>
+<li><strong>Molybdenum (Mo₂C)</strong>: Moderately hard; forms secondary hardening peak on tempering</li>
+</ul>
+<p><strong>Effect</strong>: Carbides remain hard at high temperature → cutting tools maintain hardness at speed.</p>
+<h3>6.4 Common Alloy Steel Types and Applications</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Medium-Carbon Alloy</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.3–0.5; Mn: 0.7–1; Cr/Mo/Ni: 0.5–2</div><div class="point-card-line"><strong>• Properties: </strong>Good toughness + strength balance</div><div class="point-card-line"><strong>• Applications: </strong>Gears, shafts, crankshafts</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>High-Carbon Tool Steel</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.8–1.3; Cr/Mo/V: 1–5</div><div class="point-card-line"><strong>• Properties: </strong>High hardness, wear resistance</div><div class="point-card-line"><strong>• Applications: </strong>Dies, punches, gauges, chisels</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>High-Speed Steel (HSS)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.7–0.8; W: 12–18; Mo: 0.5–1; Cr: 4; V: 1–2; Co: 5–10</div><div class="point-card-line"><strong>• Properties: </strong>Extremely hard at high temperature (hot hardness)</div><div class="point-card-line"><strong>• Applications: </strong>Cutting tools, twist drills, reamers</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Nickel-Chrome Steel</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.3–0.5; Ni: 2–5; Cr: 0.5–1.5</div><div class="point-card-line"><strong>• Properties: </strong>Tough, high strength, deep hardening</div><div class="point-card-line"><strong>• Applications: </strong>Gears, shafts, heavy-duty parts</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Stainless Steel (Austenitic)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: ≤0.1; Cr: 16–18; Ni: 8–12</div><div class="point-card-line"><strong>• Properties: </strong>Corrosion resistant; non-magnetic (austenite); ductile</div><div class="point-card-line"><strong>• Applications: </strong>Cutlery, kitchenware, chemical equipment</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Stainless Steel (Martensitic)</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.1–0.3; Cr: 12–17; Ni: minimal</div><div class="point-card-line"><strong>• Properties: </strong>Hard, corrosion resistant; magnetic (ferrite-based)</div><div class="point-card-line"><strong>• Applications: </strong>Turbine blades, knife blades</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Spring Steel</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 0.5–0.8; Si: 1.5–2; Cr/Mn: 0.5–1.5</div><div class="point-card-line"><strong>• Properties: </strong>High elasticity, good fatigue resistance</div><div class="point-card-line"><strong>• Applications: </strong>Leaf springs, coil springs, wire</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Bearing Steel</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Composition (% Typical): </strong>C: 1.0; Cr: 1.5; very low S, P impurities</div><div class="point-card-line"><strong>• Properties: </strong>Very high hardness, wear resistance, low porosity</div><div class="point-card-line"><strong>• Applications: </strong>Ball bearings, roller bearings</div></div></div></div>
+<h3>6.5 Hardenability</h3>
+<p><strong>Definition</strong>: Ability to form martensite throughout the entire section (depth of hardening).</p>
+<p><strong>Factors Improving Hardenability</strong>:</p>
+<ul>
+<li>Increased carbon content (&gt;0.3% C)</li>
+<li>Alloying elements (Mn, Cr, Mo, Ni, V) — all improve hardenability</li>
+<li>Lower critical cooling rate (easier to achieve martensite even with slower cooling)</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Concept</div>
+<div class="callout-content">: Small alloying element additions can enable hardening with oil/air cooling instead of brine (reduces distortion and cracking).</div>
+</div>
+<hr/>
+<h2>Chapter 7: Manufacture of Iron and Steel (Brief Overview)</h2>
+<h3>7.1 Blast Furnace Process</h3>
+<p><strong>Input</strong>: Iron ore (Fe₂O₃, Fe₃O₄), coke (C), limestone (CaCO₃)</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Ore reduced by CO gas (produced from coke oxidation)</li>
+<li>Coke provides heat and reducing agent</li>
+<li>Limestone forms slag (fuses impurities)</li>
+<li>Molten iron collected at bottom (approx. 4% C, called pig iron or hot metal)</li>
+</ol>
+<p><strong>Output</strong>: Pig iron (cast iron composition; too brittle for most uses)</p>
+<h3>7.2 Steelmaking (Conversion of Pig Iron to Steel)</h3>
+<p><strong>Oxygen Furnace (Converter) Method</strong> (Most Common):</p>
+<ul>
+<li>Blow pure oxygen through molten pig iron</li>
+<li>Carbon, silicon, manganese oxidize and burn out (exothermic, provides heat)</li>
+<li>Limestone added to form slag</li>
+<li>Controlled by adjusting oxygen flow and lime</li>
+<li>Produces steels with C: 0.05–1.5% (lower carbon than pig iron)</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">💡</span> Key Concept</div>
+<div class="callout-content">: Steel is essentially pig iron with most carbon and impurities removed by oxidation.</div>
+</div>
+<h3>7.3 Desulfurization</h3>
+<ul>
+<li>Sulfur is a harmful impurity in steel (causes brittleness at high temperature — "hot shortness")</li>
+<li>Removed by adding calcium carbide (CaC₂) or lime + aluminum</li>
+<li>Forms sulfide slag that floats and is removed</li>
+</ul>
+<hr/>
+<h2>Chapter 8: Powder Metallurgy (Principles)</h2>
+<h3>8.1 Process Sequence (Fixed Order — High Frequency in Exams)</h3>
+<ol>
+<li><strong>Production of Metal Powder</strong>: Atomization, reduction, electrolysis, or mechanical crushing</li>
+<li><strong>Blending/Mixing</strong>: Powders mixed with lubricants (for better flow) and binders (for green strength)</li>
+<li><strong>Compacting/Pressing</strong>: Powder pressed in dies to form "green compact" (shaped, low strength)</li>
+<li><strong>Sintering</strong>: Heating green compact <strong>below melting point</strong> of major constituent</li>
+</ol>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">⚠️</span> Exam Trap</div>
+<div class="callout-content">: Sequence is fixed; any option changing order is wrong.</div>
+</div>
+<h3>8.2 Sintering – Core Concepts</h3>
+<p><strong>Definition</strong>: Heating the green compact at elevated temperature (below melting point) to bond particles and increase density.</p>
+<p><strong>How It Works</strong>:</p>
+<ul>
+<li>Particles <strong>do not melt</strong></li>
+<li>Bonding occurs by <strong>solid-state diffusion</strong> (atomic, surface, or bulk diffusion)</li>
+<li>Atomic bridges form at contact points</li>
+<li>Porosity decreases; density and strength increase</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📌</span> Main Objectives</div>
+<div class="callout-content">:</div>
+</div>
+<ol>
+<li>Bond powder particles together</li>
+<li>Increase density and mechanical strength</li>
+<li>Reduce porosity and brittleness</li>
+<li>Remove oxides from particle surfaces</li>
+</ol>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📌</span> Factors Affecting Sintering</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li><strong>Particle size</strong>: Finer particles sinter faster (larger surface area)</li>
+<li><strong>Compacting pressure</strong>: Higher pressure → more contact area → faster sintering</li>
+<li><strong>Sintering temperature</strong>: Higher temperature → faster diffusion → faster sintering</li>
+<li><strong>Sintering time</strong>: Longer time → more complete bonding</li>
+<li><strong>Atmosphere</strong>: Controlled atmosphere prevents re-oxidation</li>
+</ul>
+<p><strong>Key Fact</strong>: Weight of powder used = weight of green compact (mass conservation).</p>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📌</span> Densification</div>
+<div class="callout-content">: NOT caused by grain growth; caused by particle bonding and pore elimination.</div>
+</div>
+<h3>8.3 Secondary Operations (Finishing Processes)</h3>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Impregnation</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Process: </strong>Soak sintered part in oil or lubricant</div><div class="point-card-line"><strong>• Purpose: </strong>Fills pores with lubricant → imparts self-lubricating property</div><div class="point-card-line"><strong>• Typical Use: </strong>Self-lubricating bearings</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Infiltration</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Process: </strong>Soak in molten metal of lower melting point</div><div class="point-card-line"><strong>• Purpose: </strong>Liquid metal fills pores → increases density and strength</div><div class="point-card-line"><strong>• Typical Use: </strong>Increasing strength of porous parts</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Coining/Sizing</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Process: </strong>Press sintered part to improve dimensions</div><div class="point-card-line"><strong>• Purpose: </strong>Improves dimensional accuracy and surface finish</div><div class="point-card-line"><strong>• Typical Use: </strong>Precision parts</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Heat Treatment</strong></span></div><div class="point-card-body"><div class="point-card-line"><strong>• Process: </strong>Standard heat treatment (annealing, hardening, etc.)</div><div class="point-card-line"><strong>• Purpose: </strong>Further strengthen or improve properties</div><div class="point-card-line"><strong>• Typical Use: </strong>Hardening powder-metal gears</div></div></div></div>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">📌</span> Distinction</div>
+<div class="callout-content">:</div>
+</div>
+<ul>
+<li><strong>Impregnation</strong> → lubrication property</li>
+<li><strong>Infiltration</strong> → densification</li>
+<li><strong>Sintering</strong> is primary process; impregnation/infiltration are secondary</li>
+</ul>
+<h3>8.4 Applications</h3>
+<ul>
+<li>Tungsten carbide (WC) tool bits and inserts (most common)</li>
+<li>Self-lubricating bearings (impregnated with oil)</li>
+<li>Porous filters and sound absorbers</li>
+<li>Complex shapes difficult to machine (net-shape manufacturing)</li>
+<li>Magnetic alloys (iron-cobalt, alnico)</li>
+<li>Refractory materials</li>
+</ul>
+<div class="callout-box">
+<div class="callout-title"><span class="callout-icon">🎯</span> Exam Focus</div>
+<div class="callout-content">: Tungsten carbide tools are the most frequently asked application.</div>
+</div>
+<hr/>
+<h2>Quick Revision Checklist (24-Hour Pre-Exam Review)</h2>
+<h3>Mechanical Properties</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Elasticity = regain shape after load removal (high E = stiffer)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Ductility = tension deformation (wires); Malleability = compression (sheets)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Toughness = total area under stress-strain curve; Resilience = area to elastic limit only</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Creep requires both constant load AND elevated temperature</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Fatigue failure occurs below yield stress (cyclic loading)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Hardness ≠ Strength (hardness is resistance to indentation)</li>
+</ul>
+<h3>Crystal Structures</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> BCC: 2 atoms/cell, CN = 8, APF = 0.68 (α-iron, Cr, Mo, W)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> FCC: 4 atoms/cell, CN = 12, APF = 0.74 (γ-iron, Cu, Al, Ni)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> HCP: 6 atoms/cell, CN = 12, APF = 0.74 (Zn, Mg, Ti)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> FCC and HCP both have highest packing efficiency (0.74)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Isotropic = properties same in all directions</li>
+</ul>
+<h3>Imperfections</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Point defects: Vacancy (missing), Interstitial (extra), Frenkel (displaced ion)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Interstitials harden (e.g., carbon in steel); Vacancies soften and enable diffusion</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Dislocations (edge, screw) enable plastic deformation</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Burgers vector sum at node = 0 (equilibrium)</li>
+</ul>
+<h3>Iron-Carbon Phase Diagram (CRITICAL)</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Eutectoid: 727°C, 0.8% C → Austenite → Pearlite (ferrite + cementite)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Eutectic: 1147°C, 4.3% C → Liquid → Ledeburite (austenite + cementite)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Ferrite: soft, ductile, BCC, ~0.02% C max</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Austenite: FCC, 2.1% C max at 1147°C</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Cementite: 6.67% C (fixed), hard, brittle</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Martensite: supersaturated C in α-iron, very hard, very brittle, needle-like, from rapid quench</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Pearlite: ferrite + cementite lamellae, from eutectoid decomposition</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Bainite: ferrite + fine cementite, from intermediate cooling</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Lever rule: W_phase = (C_other − C₀) / (C_other − C_phase) × 100%</li>
+</ul>
+<h3>Steel Classification</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Hypoeutectoid (&lt;0.8%C): ferrite + pearlite, softer</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Eutectoid (0.8%C): 100% pearlite</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Hypereutectoid (0.8–2.1%C): cementite + pearlite, harder, prone to retained austenite</li>
+</ul>
+<h3>Heat Treatment</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Annealing: heat above A₃, slow cool → soft, ductile, stress-relieved</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Normalizing: heat above A₃, air cool → refined grain, improved strength/toughness</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Hardening: quench rapidly → martensite, hard but brittle</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Tempering: reheat to 150–650°C → removes brittleness, improves toughness</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Spheroidizing: heat just below A₁ → cementite spheroids → maximum machinability</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Quench speed: brine &gt; water &gt; oil &gt; air</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Ms/Mf: Martensite start/finish temperatures</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> TTT diagram: S-curve showing transformation kinetics; critical cooling rate bypasses pearlite nose</li>
+</ul>
+<h3>Alloy Steels</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Carbon: primary hardening element</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Manganese: strengthener, hardenability improver</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Chromium: hardness, wear resistance, corrosion resistance, carbide former</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Molybdenum: high-temp strength, deep hardening</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Vanadium: wear resistance, toughness at high hardness, carbide former</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Nickel: toughness, deep hardening, low-temp impact strength</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Tungsten: extreme hardness, high-speed tool material</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> HSS (High-Speed Steel): W, Mo, Cr, V, Co — extreme hot hardness for cutting tools</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Hardenability = depth of hardening; improved by alloying and carbon content</li>
+</ul>
+<h3>Powder Metallurgy</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Sequence: Production → Blending → Compacting → Sintering (FIXED)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Sintering: heating below melting point; particles bond via diffusion (do NOT melt)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Green compact weight = powder weight (mass conservation)</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Objectives: bonding, density increase, strength, oxide removal</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Impregnation: self-lubrication; Infiltration: densification</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Sintering = primary process; impregnation/infiltration = secondary</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Application: Tungsten carbide tools (most common)</li>
+</ul>
+<h3>Bonding</h3>
+<ul>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Metallic: electron sea, ductile, conducts electricity, high MP</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Covalent: directional, very hard, brittle, high MP</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Ionic: electrostatic, hard but brittle, high MP, insulator in solid</li>
+<li class="checklist-item unchecked"><span class="checkbox"></span> Van der Waals: weakest, low MP, easy to deform</li>
+</ul>
+<hr/>
+<h2>Key Formulas Summary</h2>
+<div class="point-list"><div class="point-card"><div class="point-card-header"><span><strong>Atoms per cell</strong> = (corners ÷ 8) + (edges ÷ 4) + (faces ÷ 2) + interior</span></div><div class="point-card-body"><div class="point-card-line"><strong>• Use: </strong>Count atoms in unit cell</div><div class="point-card-line"><strong>• Example: </strong>BCC = 1 + 1 = 2</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>APF</strong> = (Volume of atoms) / (Volume of cell)</span></div><div class="point-card-body"><div class="point-card-line"><strong>• Use: </strong>Packing efficiency</div><div class="point-card-line"><strong>• Example: </strong>FCC/HCP = 0.74</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Lever Rule</strong>: W_α = (C_γ − C₀) / (C_γ − C_α) × 100%</span></div><div class="point-card-body"><div class="point-card-line"><strong>• Use: </strong>Find phase fractions in two-phase region</div><div class="point-card-line"><strong>• Example: </strong>Ferrite + Pearlite region</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Hall-Petch</strong>: σ_y = σ₀ + k·d⁻⁰·⁵</span></div><div class="point-card-body"><div class="point-card-line"><strong>• Use: </strong>Grain size effect on yield strength</div><div class="point-card-line"><strong>• Example: </strong>Finer grain → higher strength</div></div></div><div class="point-card"><div class="point-card-header"><span><strong>Burgers vector sum</strong> at node = 0</span></div><div class="point-card-body"><div class="point-card-line"><strong>• Use: </strong>Dislocation equilibrium</div><div class="point-card-line"><strong>• Example: </strong>Nodal points in dislocation networks</div></div></div></div>
+<hr/>
+<h2>Last-Minute Memory Aids</h2>
+<p><strong>"SCBFH"</strong> = Steel Composition By carbon-Hardness (increasing order): 0.3% → 0.5% → 0.8% → 1.0% → 1.3% (mild → medium → high)</p>
+<p><strong>"PHASE"</strong> for iron-carbon reactions:</p>
+<ul>
+<li><strong>P</strong>early (727°C, 0.8%)</li>
+<li><strong>H</strong>igh temp (1147°C, 4.3%)</li>
+<li><strong>A</strong>ustenite (FCC, 2.1% max)</li>
+<li><strong>S</strong>tructural (Martensite = quenched, Bainite = intermediate)</li>
+<li><strong>E</strong>utectoid/Eutectic (know both!)</li>
+</ul>
+<p><strong>Quench Speed Ranking</strong>: <strong>Brine-Water-Oil-Air</strong> (fastest → slowest)</p>
+<p><strong>Alloy Elements for Hardening</strong>: <strong>CMVW</strong> (Cr, Mo, V, W) + N, Mn</p>
+<hr/>
+<h2>End of Guide</h2>
+<p>This condensed guide covers all high-frequency concepts for AP GenCo / SSC JE Material Science &amp; Metallurgy exams. Use this for pre-exam revision (24 hours before) and quick concept verification during study sessions. For any topic, return to this guide's section and work through the comparison tables and key points.</p>
+<p><strong>Good luck with your exam!</strong></p>
+</div></body>
+</html>
