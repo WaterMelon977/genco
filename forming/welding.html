@@ -7,7 +7,7 @@
   <script>
 MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true
   },
@@ -19,6 +19,7 @@ MathJax = {
 </script>
   <style>
   * { box-sizing: border-box; }
+
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 11pt;
@@ -29,6 +30,7 @@ MathJax = {
     margin: 0 auto;
     padding: 35px 20px;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: "Bookman Old Style", Georgia, serif;
     color: #4A2E1B;
@@ -36,6 +38,7 @@ MathJax = {
     margin-top: 1.5em;
     margin-bottom: 0.5em;
   }
+
   h1 {
     font-size: 24pt;
     text-align: center;
@@ -46,16 +49,20 @@ MathJax = {
     margin-bottom: 24px;
     box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
   }
+
   h2 {
     font-size: 18pt;
     border-bottom: 2px solid #8C5A37;
     padding-bottom: 6px;
     margin-top: 36px;
   }
+
   h3 { font-size: 14pt; color: #664229; }
   h4 { font-size: 12pt; color: #4A2E1B; }
+
   a { color: #8C5A37; text-decoration: none; }
   a:hover { text-decoration: underline; }
+
   code {
     font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
     background: #EAE1D3;
@@ -63,6 +70,7 @@ MathJax = {
     padding: 0.2em 0.4em;
     border-radius: 4px;
   }
+
   pre {
     background: #F7F3EC;
     border: 1px solid #E2D9CC;
@@ -70,6 +78,7 @@ MathJax = {
     border-radius: 6px;
     overflow-x: auto;
   }
+
   blockquote {
     border-left: 4px solid #8C5A37;
     background-color: #F7F3EC;
@@ -77,6 +86,7 @@ MathJax = {
     margin: 18px 0;
     color: #5C544D;
   }
+
   table {
     border-collapse: collapse;
     width: 100%;
@@ -86,21 +96,35 @@ MathJax = {
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
   }
+
   th, td {
     border: 1px solid #E2D9CC;
     padding: 10px 14px;
     text-align: left;
   }
+
   th {
     background: #4A2E1B;
     color: #FFFDF9;
     font-family: "Bookman Old Style", Georgia, serif;
     font-weight: 600;
   }
+
   tr:nth-child(even) { background-color: #FDFBF7; }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #E2D9CC;
+  }
+
+  /* MathJax overflow guard */
   .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  /* Formula display — NO coloured box */
+
+  /* ── formula-card ─────────────────────────────────────────────────────────
+     PLAIN display only.  NO background-color, NO border, NO border-radius.
+     User mandate: "drop the green background for all the formulas"  */
   .formula-card {
     margin: 20px 0;
     text-align: center;
@@ -110,7 +134,7 @@ MathJax = {
 </style>
 </head>
 <body id="preview">
-  <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+  <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
   <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
   <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">4. Welding & Joining</a>
 </div>
@@ -341,11 +365,11 @@ MathJax = {
 <p><strong>Worked Example 1</strong></p>
 <p><strong>Given:</strong> A DC welding power source has a linear voltage-current (V-I) characteristic with an open-circuit voltage of 80 V and a short-circuit current of 300 A.<br />
 <strong>Find:</strong> Current setting for maximum arc power.</p>
-<p><strong>Solution:</strong>
-1. For a linear power-source characteristic $V = V_{oc} - \left$\frac{V_{oc}}{I_{sc}}\right$I$.
-2. Power $P = V \cdot I = V_{oc} I - \left$\frac{V_{oc}}{I_{sc}}\right$I^2$.
-3. To maximize power, set $\frac{dP}{dI} = V_{oc} - 2\left$\frac{V_{oc}}{I_{sc}}\right$I = 0 \implies I = \frac{I_{sc}}{2}$.
-4. $I = \frac{300}{2} = 150\text{ A}$.
+<p><strong>Solution:</strong><br />
+1. For a linear power-source characteristic $V = V_{oc} - \left(\frac{V_{oc}}{I_{sc}}\right)I$.<br />
+2. Power $P = V \cdot I = V_{oc} I - \left(\frac{V_{oc}}{I_{sc}}\right)I^2$.<br />
+3. To maximize power, set $\frac{dP}{dI} = V_{oc} - 2\left(\frac{V_{oc}}{I_{sc}}\right)I = 0 \implies I = \frac{I_{sc}}{2}$.<br />
+4. $I = \frac{300}{2} = 150\text{ A}$.<br />
 5. <strong>Answer:</strong> 150 A.</p>
 <p><strong>Key Insight:</strong> For any linear V-I power source, maximum arc power always occurs at exactly half the short-circuit current.</p>
 <hr />
