@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jigs_fixtures.md</title>
+  <style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.8;
+    color: #2D2926;
+    background-color: #F0ECE1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+  h3 { font-size: 14pt; color: #664229; }
+  a { color: #8C5A37; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+  pre {
+    background: #F7F3EC;
+    border: 1px solid #E2D9CC;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  blockquote {
+    border-left: 4px solid #8C5A37;
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: #5C544D;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+  th, td {
+    border: 1px solid #E2D9CC;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+  tr:nth-child(even) { background-color: #FDFBF7; }
+  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  /* ── Formula Display Card ── */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .formula-card .MathJax,
+  .formula-card .MathJax_Display {
+    font-size: 1.15em !important;
+  }
+
+</style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body id="preview">
+<div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+  <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+  <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+  <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+  <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
+  <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
+  <a href="jigs_fixtures.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">5. Jigs & Fixtures</a> |
+  <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+</div>
+<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Jigs_and_Fixtures_0"></a>Jigs and Fixtures</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="3">This guide covers jigs and fixtures for AP Genco AE revision, focusing on the points that recur in PYQs: the difference between a jig and a fixture, the 3-2-1 location principle, locating and clamping devices, advantages, and basic design rules. The aim is to keep only the study material and arrange it in a simple revision-friendly order.</p>
+<h2 class="code-line has-line-data" data-line-start="4" data-line-end="5"><a id="QuickReference_Card_4"></a>Quick-Reference Card</h2>
+<h3 class="code-line has-line-data" data-line-start="6" data-line-end="7"><a id="Jig_vs_Fixture_6"></a>Jig vs Fixture</h3>
+<ul>
+<li class="has-line-data" data-line-start="7" data-line-end="8">A jig holds and locates the workpiece and also guides the cutting tool.</li>
+<li class="has-line-data" data-line-start="8" data-line-end="9">A fixture holds and locates the workpiece but does not guide the tool.</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">Jigs are commonly used for drilling, reaming, tapping, and counterboring.</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">Fixtures are commonly used for milling, turning, grinding, shaping, welding, and assembly.</li>
+<li class="has-line-data" data-line-start="11" data-line-end="12">Both improve productivity, accuracy, and interchangeability.</li>
+<li class="has-line-data" data-line-start="12" data-line-end="14">Both reduce the skill required for repeated production.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="14" data-line-end="15"><a id="Location_Principle_14"></a>Location Principle</h3>
+<ul>
+<li class="has-line-data" data-line-start="15" data-line-end="16">The most common location method is the 3-2-1 principle.</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">The workpiece is restrained using 3 points on the primary datum, 2 on the secondary datum, and 1 on the tertiary datum.</li>
+<li class="has-line-data" data-line-start="17" data-line-end="18">The idea is to locate the workpiece completely and prevent unwanted motion.</li>
+<li class="has-line-data" data-line-start="18" data-line-end="19">Locators should be placed as far apart as possible for stability.</li>
+<li class="has-line-data" data-line-start="19" data-line-end="20">Redundant location should be avoided.</li>
+<li class="has-line-data" data-line-start="20" data-line-end="22">Locating points should preferably be on machined surfaces for accuracy.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="22" data-line-end="23"><a id="Clamping_and_Design_22"></a>Clamping and Design</h3>
+<ul>
+<li class="has-line-data" data-line-start="23" data-line-end="24">Clamping must not disturb the location already achieved by the locators.</li>
+<li class="has-line-data" data-line-start="24" data-line-end="25">Clamping force should oppose the cutting force.</li>
+<li class="has-line-data" data-line-start="25" data-line-end="26">Quick-acting clamps such as cam, toggle, pneumatic, and hydraulic types are preferred in mass production.</li>
+<li class="has-line-data" data-line-start="26" data-line-end="27">Clamping should be strong enough to resist cutting forces without deforming the workpiece.</li>
+<li class="has-line-data" data-line-start="27" data-line-end="28">Fool-proofing means the workpiece can be loaded only in the correct orientation.</li>
+<li class="has-line-data" data-line-start="28" data-line-end="30">Jigs and fixtures require rigidity, easy loading and unloading, chip removal, safety, and reasonable cost.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="30" data-line-end="31"><a id="Common_Devices_30"></a>Common Devices</h3>
+<ul>
+<li class="has-line-data" data-line-start="31" data-line-end="32">Template jig: simple plate with holes, used for marking or light drilling.</li>
+<li class="has-line-data" data-line-start="32" data-line-end="33">Plate jig: flat plate with drill bushes; workpiece clamped below.</li>
+<li class="has-line-data" data-line-start="33" data-line-end="34">Leaf or latch jig: hinged leaf with bushes for easier loading.</li>
+<li class="has-line-data" data-line-start="34" data-line-end="35">Box or tumble jig: box-shaped, useful for drilling on multiple faces.</li>
+<li class="has-line-data" data-line-start="35" data-line-end="36">Channel or angle-plate jig: used for angular or channel-shaped work.</li>
+<li class="has-line-data" data-line-start="36" data-line-end="37">Milling fixture: mounted on a milling machine table and resists cutting forces.</li>
+<li class="has-line-data" data-line-start="37" data-line-end="38">Turning fixture: mounted on a lathe faceplate or chuck for non-cylindrical jobs.</li>
+<li class="has-line-data" data-line-start="38" data-line-end="39">Grinding fixture: used for surface or cylindrical grinding.</li>
+<li class="has-line-data" data-line-start="39" data-line-end="40">Welding fixture: holds parts in position for welding.</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42">Assembly fixture: holds components in accurate position during assembly.</li>
+</ul>
+<h2 class="code-line has-line-data" data-line-start="42" data-line-end="43"><a id="Core_Theory_42"></a>Core Theory</h2>
+<h3 class="code-line has-line-data" data-line-start="44" data-line-end="45"><a id="Jig_and_Fixture_Definitions_44"></a>Jig and Fixture Definitions</h3>
+<ul>
+<li class="has-line-data" data-line-start="45" data-line-end="46">A jig is a work-holding device that locates and clamps the workpiece and guides the cutting tool, often with a drill bush.</li>
+<li class="has-line-data" data-line-start="46" data-line-end="47">A fixture only locates and clamps the workpiece; it does not guide the tool.</li>
+<li class="has-line-data" data-line-start="47" data-line-end="48">Jigs are mainly associated with operations where the tool must be guided accurately.</li>
+<li class="has-line-data" data-line-start="48" data-line-end="49">Fixtures are used where the tool path is already controlled by the machine or process.</li>
+<li class="has-line-data" data-line-start="49" data-line-end="51">Modern practice also includes modular fixtures and CNC fixtures for flexibility.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="51" data-line-end="52"><a id="321_Principle_of_Location_51"></a>3-2-1 Principle of Location</h3>
+<ul>
+<li class="has-line-data" data-line-start="52" data-line-end="53">A free body in space has 12 degrees of freedom: 6 linear and 6 rotational.</li>
+<li class="has-line-data" data-line-start="53" data-line-end="54">The 3-2-1 principle uses 3 locators on the primary datum plane, 2 on the secondary plane, and 1 on the tertiary plane.</li>
+<li class="has-line-data" data-line-start="54" data-line-end="55">The principle is also called the six-point location principle.</li>
+<li class="has-line-data" data-line-start="55" data-line-end="56">The arrangement uses three mutually perpendicular planes.</li>
+<li class="has-line-data" data-line-start="56" data-line-end="57">The 3-2-1 arrangement is the standard way to locate a workpiece in a fixture.</li>
+<li class="has-line-data" data-line-start="57" data-line-end="59">Avoid over-constraint, because redundant location creates error rather than improving it.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="59" data-line-end="60"><a id="Locating_Devices_59"></a>Locating Devices</h3>
+<ul>
+<li class="has-line-data" data-line-start="60" data-line-end="61">A diamond pin is used to accommodate variation in centre distance between two holes.</li>
+<li class="has-line-data" data-line-start="61" data-line-end="62">A V-block is used to locate cylindrical jobs.</li>
+<li class="has-line-data" data-line-start="62" data-line-end="63">Locators should support the workpiece without causing distortion.</li>
+<li class="has-line-data" data-line-start="63" data-line-end="65">Locating and clamping are different functions.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="65" data-line-end="66"><a id="Clamping_Principles_65"></a>Clamping Principles</h3>
+<ul>
+<li class="has-line-data" data-line-start="66" data-line-end="67">Clamping force should not move the workpiece away from its located position.</li>
+<li class="has-line-data" data-line-start="67" data-line-end="68">Clamping force should resist the cutting force.</li>
+<li class="has-line-data" data-line-start="68" data-line-end="69">The minimum number of clamps should be used, provided the work remains stable.</li>
+<li class="has-line-data" data-line-start="69" data-line-end="70">Clamp design should allow quick loading and unloading.</li>
+<li class="has-line-data" data-line-start="70" data-line-end="71">Strap clamp is a simple and low-cost clamp.</li>
+<li class="has-line-data" data-line-start="71" data-line-end="73">Diamond pin is a locator, not a clamp.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="73" data-line-end="74"><a id="Advantages_Cost_and_Purpose_73"></a>Advantages, Cost, and Purpose</h3>
+<ul>
+<li class="has-line-data" data-line-start="74" data-line-end="75">Jigs and fixtures improve machining accuracy.</li>
+<li class="has-line-data" data-line-start="75" data-line-end="76">They improve productivity and speed.</li>
+<li class="has-line-data" data-line-start="76" data-line-end="77">They support interchangeability of parts.</li>
+<li class="has-line-data" data-line-start="77" data-line-end="78">They reduce marking, measuring, and repeated setting time.</li>
+<li class="has-line-data" data-line-start="78" data-line-end="79">They reduce dependence on operator skill.</li>
+<li class="has-line-data" data-line-start="79" data-line-end="80">They improve consistency in mass or batch production.</li>
+<li class="has-line-data" data-line-start="80" data-line-end="82">They usually involve high initial cost.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="82" data-line-end="83"><a id="Design_Considerations_82"></a>Design Considerations</h3>
+<ul>
+<li class="has-line-data" data-line-start="83" data-line-end="84">The device should be rigid.</li>
+<li class="has-line-data" data-line-start="84" data-line-end="85">The workpiece should be easy to load and unload.</li>
+<li class="has-line-data" data-line-start="85" data-line-end="87">Chip removal should be easy.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="87" data-line-end="88"><a id="Jig_vs_Fixture_87"></a>Jig vs Fixture</h3>
+<p class="has-line-data" data-line-start="88" data-line-end="89"><a href="https://www.smlease.com/entries/manufacturing/what-are-jig-and-fixture-what-is-the-difference-jigs-vs-fixtures/">Jig vs Fixture Comparison</a></p>
+<h3 class="code-line has-line-data" data-line-start="90" data-line-end="91"><a id="321_Location_Principle_90"></a>3-2-1 Location Principle</h3>
+<p class="has-line-data" data-line-start="91" data-line-end="92"><a href="https://www.dgmfmoldclamps.com/blog/what-is-321-principle-of-location/">3-2-1 Location Principle</a></p>
+<h3 class="code-line has-line-data" data-line-start="93" data-line-end="94"><a id="Drill_Jig_Example_93"></a>Drill Jig Example</h3>
+<p class="has-line-data" data-line-start="94" data-line-end="95"><a href="https://www.slideserve.com/juliestewart/8714387-powerpoint-ppt-presentation">Drill Jig Assembly Diagram</a></p>
+<ul>
+<li class="has-line-data" data-line-start="95" data-line-end="96">Jigs are not used for turning.</li>
+<li class="has-line-data" data-line-start="96" data-line-end="97">Box jigs are not only for milling; they are mainly used for multi-face drilling.</li>
+<li class="has-line-data" data-line-start="97" data-line-end="98">All jigs do not have moving parts.</li>
+<li class="has-line-data" data-line-start="98" data-line-end="99">Clamping force should not act in the same direction as cutting force.</li>
+<li class="has-line-data" data-line-start="99" data-line-end="100">Redundant location is not desirable.</li>
+<li class="has-line-data" data-line-start="100" data-line-end="101">Fool-proofing does not mean error-free calculations; it means incorrect loading is prevented.</li>
+<li class="has-line-data" data-line-start="101" data-line-end="102">Diamond pin is not a clamping device.</li>
+<li class="has-line-data" data-line-start="102" data-line-end="104">Strap clamp is a simple clamp, not a locator.</li>
+</ul>
+<h2 class="code-line has-line-data" data-line-start="104" data-line-end="105"><a id="Diagram_Placeholders_104"></a>Diagram Placeholders</h2>
+<h3 class="code-line has-line-data" data-line-start="106" data-line-end="107"><a id="Jig_vs_Fixture_106"></a>Jig vs Fixture</h3>
+<p class="has-line-data" data-line-start="108" data-line-end="109"><em>Insert diagram link here.</em></p>
+<h3 class="code-line has-line-data" data-line-start="110" data-line-end="111"><a id="321_Location_Principle_110"></a>3-2-1 Location Principle</h3>
+<p class="has-line-data" data-line-start="112" data-line-end="113"><em>Insert diagram link here.</em></p>
+<h3 class="code-line has-line-data" data-line-start="114" data-line-end="115"><a id="Drill_Jig_Example_114"></a>Drill Jig Example</h3>
+<p class="has-line-data" data-line-start="116" data-line-end="117"><em>Insert diagram link here.</em></p>
+<h2 class="code-line has-line-data" data-line-start="118" data-line-end="119"><a id="PYQ_Style_Revision_118"></a>PYQ Style Revision</h2>
+<h3 class="code-line has-line-data" data-line-start="120" data-line-end="121"><a id="Jig_vs_Fixture_120"></a>Jig vs Fixture</h3>
+<ul>
+<li class="has-line-data" data-line-start="121" data-line-end="122">Jig holds, locates, and guides the tool.</li>
+<li class="has-line-data" data-line-start="122" data-line-end="123">Fixture holds and locates only.</li>
+<li class="has-line-data" data-line-start="123" data-line-end="124">Jigs are used for drilling, reaming, and tapping.</li>
+<li class="has-line-data" data-line-start="124" data-line-end="125">Fixtures are used for milling, turning, grinding, welding, and assembly.</li>
+<li class="has-line-data" data-line-start="125" data-line-end="126">Jigs improve speed and reduce marking and measuring.</li>
+<li class="has-line-data" data-line-start="126" data-line-end="127">Fixtures improve rigidity and accuracy during heavier cutting.</li>
+<li class="has-line-data" data-line-start="127" data-line-end="129">The defining difference is tool guidance.</li>
+</ul>
+<p class="has-line-data" data-line-start="129" data-line-end="131">Example:<br>
+Question pattern: Which of the following operations does not use a jig?</p>
+<p class="has-line-data" data-line-start="132" data-line-end="136">(a) Turning<br>
+(b) Drilling<br>
+© Reaming<br>
+(d) Tapping</p>
+<p class="has-line-data" data-line-start="137" data-line-end="138">Reasoning:</p>
+<ol>
+<li class="has-line-data" data-line-start="138" data-line-end="139">Jigs are used for drilling, reaming, and tapping.</li>
+<li class="has-line-data" data-line-start="139" data-line-end="141">Turning does not use a jig.</li>
+</ol>
+<p class="has-line-data" data-line-start="141" data-line-end="142">Answer: (a) Turning</p>
+<h3 class="code-line has-line-data" data-line-start="143" data-line-end="144"><a id="321_Principle_of_Location_143"></a>3-2-1 Principle of Location</h3>
+<ul>
+<li class="has-line-data" data-line-start="144" data-line-end="145">3-2-1 is the most common principle for locating a workpiece in a fixture.</li>
+<li class="has-line-data" data-line-start="145" data-line-end="146">3 points are on the primary datum, 2 on the secondary datum, and 1 on the tertiary datum.</li>
+<li class="has-line-data" data-line-start="146" data-line-end="147">The arrangement is used to control the workpiece in space.</li>
+<li class="has-line-data" data-line-start="147" data-line-end="148">Locators should be as far apart as possible.</li>
+<li class="has-line-data" data-line-start="148" data-line-end="150">Redundant location should be avoided.</li>
+</ul>
+<p class="has-line-data" data-line-start="150" data-line-end="152">Example:<br>
+Question pattern: Which principle is commonly used for locating workpieces in fixtures?</p>
+<p class="has-line-data" data-line-start="153" data-line-end="154">Answer: 3-2-1 principle</p>
+<h3 class="code-line has-line-data" data-line-start="155" data-line-end="156"><a id="Locating_and_Clamping_155"></a>Locating and Clamping</h3>
+<ul>
+<li class="has-line-data" data-line-start="156" data-line-end="157">A diamond pin is used to take care of variation in centre distance between two holes.</li>
+<li class="has-line-data" data-line-start="157" data-line-end="158">A V-block is used for cylindrical jobs.</li>
+<li class="has-line-data" data-line-start="158" data-line-end="159">Clamping force should oppose the cutting force.</li>
+<li class="has-line-data" data-line-start="159" data-line-end="160">Quick-acting clamps are preferred in production.</li>
+<li class="has-line-data" data-line-start="160" data-line-end="161">Strap clamp is a simple and low-cost clamp.</li>
+<li class="has-line-data" data-line-start="161" data-line-end="163">Diamond pin is a locator, not a clamp.</li>
+</ul>
+<p class="has-line-data" data-line-start="163" data-line-end="165">Example:<br>
+Question pattern: Which of the following is a locator, not a clamping device?</p>
+<p class="has-line-data" data-line-start="166" data-line-end="167">Answer: Diamond pin</p>
+<h3 class="code-line has-line-data" data-line-start="168" data-line-end="169"><a id="Advantages_and_Purpose_168"></a>Advantages and Purpose</h3>
+<ul>
+<li class="has-line-data" data-line-start="169" data-line-end="170">Jigs and fixtures increase productivity.</li>
+<li class="has-line-data" data-line-start="170" data-line-end="171">Jigs and fixtures improve accuracy.</li>
+<li class="has-line-data" data-line-start="171" data-line-end="172">Jigs and fixtures improve interchangeability.</li>
+<li class="has-line-data" data-line-start="172" data-line-end="173">Jigs and fixtures reduce operator skill requirement.</li>
+<li class="has-line-data" data-line-start="173" data-line-end="175">They usually need high initial investment.</li>
+</ul>
+<p class="has-line-data" data-line-start="175" data-line-end="177">Example:<br>
+Question pattern: What is a common disadvantage of jigs and fixtures?</p>
+<p class="has-line-data" data-line-start="178" data-line-end="179">Answer: High initial cost</p>
+<h2 class="code-line has-line-data" data-line-start="180" data-line-end="181"><a id="Cram_Sheet_180"></a>Cram Sheet</h2>
+<pre><code class="has-line-data language-text" data-line-start="183" data-line-end="204">JIG     = locates + clamps + guides tool
+FIXTURE = locates + clamps only
+
+3-2-1 principle
+3 on primary datum
+2 on secondary datum
+1 on tertiary datum
+
+Use jigs for drilling, reaming, tapping
+Use fixtures for milling, turning, grinding, welding, assembly
+
+Diamond pin = locator for variation in centre distance
+V-block = locator for cylindrical jobs
+Strap clamp = simple clamp
+
+Clamping force should oppose cutting force
+Fool-proofing = prevents incorrect loading
+
+Advantages: accuracy, productivity, interchangeability, reduced skill
+Limitation: high initial cost
+</code></pre>
+<p class="has-line-data" data-line-start="205" data-line-end="206">Focus first on the difference between jig and fixture, then the 3-2-1 principle, and then the locating and clamping devices. Those are the points that usually decide the MCQ answer.</p>
+
+</body>
+</html>

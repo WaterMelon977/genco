@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casting & Moulding Design — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: #2D2926;
+    background-color: #F0ECE1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+  a { color: #8C5A37; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+  pre {
+    background: #F7F3EC;
+    border: 1px solid #E2D9CC;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  blockquote {
+    border-left: 4px solid #8C5A37;
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: #5C544D;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+  th, td {
+    border: 1px solid #E2D9CC;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+  tr:nth-child(even) { background-color: #FDFBF7; }
+  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Formula display — NO coloured box */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+</style>
+</head>
+<body id="preview">
+  <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+  <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding & Joining</a>
+</div>
+  <h1 id="casting">Casting</h1>
+<h2 id="1-topic-overview">1. Topic Overview</h2>
+<p>This guide covers metal casting for AP Genco AE-style preparation, focusing on pattern allowances, moulding sand properties, cores and chaplets, gating and risering, Chvorinov solidification, shrinkage compensation, and special casting processes. The most frequent PYQ themes are allowance identification, sand-property recall, gating-riser-cast flow, and solidification/shrinkage numericals. The content below consolidates repeated facts, keeps the worked examples, and presents the topic in a single exam-friendly structure.</p>
+<h2 id="2-quick-reference-sheet">2. Quick Reference Sheet</h2>
+<h3 id="21-all-formulas">2.1 All Formulas</h3>
+<p><strong>Shrinkage allowance</strong></p>
+<p><div class="formula-card">$$\boxed{\text{Shrinkage allowance} = \text{liquid shrinkage} + \text{solid shrinkage}}$$</div></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>liquid shrinkage</td>
+<td>contraction during solidification while metal is liquid</td>
+</tr>
+<tr>
+<td>solid shrinkage</td>
+<td>contraction after solidification as temperature falls</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chvorinov's rule</strong></p>
+<p><div class="formula-card">$$\boxed{T_s = k\left$\frac{V}{SA}\right$^2}$$</div></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$T_s$</td>
+<td>solidification time</td>
+<td>time</td>
+</tr>
+<tr>
+<td>$k$</td>
+<td>mould-casting constant</td>
+<td>depends on conditions</td>
+</tr>
+<tr>
+<td>$V$</td>
+<td>volume of casting</td>
+<td>volume</td>
+</tr>
+<tr>
+<td>$SA$</td>
+<td>surface area of casting</td>
+<td>area</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Choke area / mass basis</strong></p>
+<p><div class="formula-card">$$\boxed{A_m = \frac{m}{\rho \cdot t \cdot C\sqrt{2gH}}}$$</div></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A_m$</td>
+<td>choke area</td>
+<td>area</td>
+</tr>
+<tr>
+<td>$m$</td>
+<td>mass of casting</td>
+<td>kg</td>
+</tr>
+<tr>
+<td>$\rho$</td>
+<td>density of molten metal</td>
+<td>kg/m$^3$</td>
+</tr>
+<tr>
+<td>$t$</td>
+<td>pouring time</td>
+<td>s</td>
+</tr>
+<tr>
+<td>$C$</td>
+<td>efficiency factor</td>
+<td>dimensionless</td>
+</tr>
+<tr>
+<td>$H$</td>
+<td>effective metal head</td>
+<td>m</td>
+</tr>
+<tr>
+<td>$g$</td>
+<td>acceleration due to gravity</td>
+<td>m/s$^2$</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Time to fill mould</strong></p>
+<p><div class="formula-card">$$\boxed{t_f = \frac{V}{A_g\sqrt{2gh_t}}}$$</div></p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$t_f$</td>
+<td>filling time</td>
+<td>time</td>
+</tr>
+<tr>
+<td>$V$</td>
+<td>mould volume</td>
+<td>volume</td>
+</tr>
+<tr>
+<td>$A_g$</td>
+<td>gate area</td>
+<td>area</td>
+</tr>
+<tr>
+<td>$h_t$</td>
+<td>head above mould</td>
+<td>m</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Riser relation used in PYQ notes</strong></p>
+<p><div class="formula-card">$$\boxed{V_{\text{riser}} = 3 \times $\text{shrinkage volume}$}$$</div></p>
+<p><strong>Optimum cylindrical riser</strong></p>
+<p><div class="formula-card">$$\boxed{d = \left$\frac{6V_{\text{riser}}}{\pi}\right$^{1/3}}$$</div></p>
+<p><strong>Simplified ratio note</strong></p>
+<p><div class="formula-card">$$\boxed{\text{Gating ratio} = \text{Sprue} : \text{Runner} : \text{In-gate}}$$</div></p>
+<h3 id="22-key-definitions-master-concepts">2.2 Key Definitions &amp; Master Concepts</h3>
+<ul>
+<li><strong>Pattern allowance</strong>: Extra or reduced material added to a pattern to compensate for casting-related effects.</li>
+<li><strong>Shrinkage allowance</strong>: Extra size added to compensate for liquid and solid shrinkage.</li>
+<li><strong>Draft allowance</strong>: Taper provided on vertical faces to permit clean pattern withdrawal.</li>
+<li><strong>Shake allowance</strong>: Reduction in pattern size to compensate for rapping during withdrawal.</li>
+<li><strong>Machining allowance</strong>: Extra stock provided for later machining.</li>
+<li><strong>Distortion allowance</strong>: Intentional pattern correction to counter warping in the casting.</li>
+<li><strong>Permeability</strong>: Ability of moulding sand to allow gases and steam to escape.</li>
+<li><strong>Collapsibility</strong>: Ability of moulding sand to yield after solidification so the casting can contract freely.</li>
+<li><strong>Refractoriness</strong>: Ability of sand to withstand high temperature without fusing.</li>
+<li><strong>Cohesiveness</strong>: Property by which sand grains stick to one another.</li>
+<li><strong>Adhesiveness</strong>: Property by which sand sticks to the mould box walls.</li>
+<li><strong>Green strength</strong>: Strength of moist sand under pressure.</li>
+<li><strong>Core prints</strong>: Projections that locate, support, and hold a core in position.</li>
+<li><strong>Chaplets</strong>: Metallic supports used to hold a core against buoyancy or shifting.</li>
+<li><strong>Chills</strong>: Metallic inserts used to increase heat extraction and promote directional solidification.</li>
+<li><strong>Riser</strong>: Reservoir of molten metal that feeds the casting during solidification.</li>
+<li><strong>Gate</strong>: Passage that carries molten metal into the mould cavity.</li>
+<li><strong>Sprue</strong>: Vertical passage that carries molten metal from the pouring basin to the runner.</li>
+<li><strong>Runner</strong>: Horizontal channel that distributes molten metal.</li>
+<li><strong>Choke</strong>: Smallest cross-section controlling the rate of molten-metal flow.</li>
+<li><strong>Investment casting</strong>: Casting process in which the pattern is melted out to form complex shapes.</li>
+<li><strong>Shell moulding</strong>: Casting process using resin-coated sand to obtain good finish and accuracy.</li>
+<li><strong>Centrifugal casting</strong>: Casting process for hollow axisymmetric parts using centrifugal force.</li>
+<li><strong>Cold-chamber die casting</strong>: Die casting for high-melting-point alloys.</li>
+<li><strong>Hot-chamber die casting</strong>: Die casting for low-melting-point alloys.</li>
+</ul>
+<h3 id="23-standard-values-constants">2.3 Standard Values / Constants</h3>
+<ul>
+<li><strong>Draft allowance</strong>: usually 1� to 3�, or about 5 to 10 mm per metre per side.</li>
+<li><strong>Shrinkage allowance examples</strong>: aluminium about 10 to 12 mm/m; steel about 15 to 20 mm/m.</li>
+<li><strong>Green sand mix</strong>: about 70% sand and 30% clay in the commonly cited rough composition.</li>
+<li><strong>Chvorinov exponent</strong>: 2.</li>
+<li><strong>Shell moulding accuracy</strong>: about 0.003 to 0.005 mm/mm.</li>
+<li><strong>Broader special-casting note</strong>: centrifugal casting is commonly used for pipes and tubes.</li>
+<li><strong>Typical riser rule in notes</strong>: optimum cylindrical riser often has height equal to diameter.</li>
+</ul>
+<h3 id="24-cross-reference-map">2.4 Cross-Reference Map</h3>
+<ul>
+<li><strong>Pattern allowances</strong>: Explained in Section 3.1.</li>
+<li><strong>Moulding sand properties</strong>: Explained in Section 3.2.</li>
+<li><strong>Cores, core prints, chaplets, and chills</strong>: Explained in Section 3.3.</li>
+<li><strong>Gating system, runner, gate, sprue, riser</strong>: Explained in Section 3.4.</li>
+<li><strong>Solidification and shrinkage</strong>: Explained in Section 3.5.</li>
+<li><strong>Special casting processes</strong>: Explained in Section 3.6.</li>
+</ul>
+<h2 id="3-main-body">3. Main Body</h2>
+<h4 id="31-pattern-design-and-allowances">3.1 Pattern Design and Allowances</h4>
+<h5 id="1-concept-pointers">1. Concept Pointers</h5>
+<ul>
+<li>Shrinkage allowance compensates for contraction, so the pattern is made larger.</li>
+<li>Draft allowance is provided on vertical faces to permit easy withdrawal without damaging the mould.</li>
+<li>Shake allowance makes the pattern slightly smaller to account for rapping during extraction.</li>
+<li>Machining allowance provides extra stock for later finishing.</li>
+<li>Distortion allowance counters warping in long or thin castings.</li>
+<li>Elimination of details is used when fine features cannot be reproduced in sand.</li>
+<li>Unfinished surfaces may be painted black on the pattern.</li>
+<li>A sweep pattern is used for bell shapes or other symmetrical forms.</li>
+</ul>
+<h5 id="2-formulas">2. Formulas</h5>
+<p>For quick lookup, see Quick Reference Section 2.1.</p>
+<p><div class="formula-card">$$\boxed{\text{Shrinkage allowance} = \text{liquid shrinkage} + \text{solid shrinkage}}$$</div></p>
+<p><strong>Conditions and usage</strong>
+- Draft is used mainly on vertical faces.
+- Shake allowance reduces the pattern size slightly.
+- Shrinkage allowance increases the pattern size.</p>
+<h5 id="3-diagram">3. Diagram</h5>
+<p><img alt="Draft Allowance in Casting" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhP4PIjSdV0HqxRQso1aZ2a4gSbeT3e3eMHjQ36QDDFC6Yf9XKtROHH0NBMOygNH31MSS2pRDy9OEcbmb5zllNtXnwaoofUTEQTb_QRS862LJ4tdHvMaeLAC_yUjEvphz2MYkKhBj2Pl_4lVAPZXVUAUDkeets3_NtL78Ae2ZMAIoFxD-62B40o8bymkw/s1920/Draft%20Allowance%20In%20Casting.webp" /><br />
+<em>Draft on vertical faces allows clean withdrawal of the pattern and avoids tearing the mould cavity. Source: Mechgrace.</em></p>
+<h5 id="4-worked-example">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> An aluminium cube of side 100 mm, shrinkage allowance 10 mm/m.<br />
+<strong>Find:</strong> Pattern side.</p>
+<p><strong>Solution:</strong>
+1. Shrinkage allowance = 10 mm per metre = 10/1000 per mm.
+2. Extra side = $(10/1000) \times 100 = 1$ mm.
+3. Pattern side = 100 + 1 = 101 mm.
+4. <strong>Answer:</strong> 101 mm.</p>
+<p><strong>Key Insight:</strong> Shrinkage allowance makes the pattern larger, while shake allowance makes it smaller.</p>
+<p><strong>Worked Example 2</strong></p>
+<p><strong>Given:</strong> A question states that due to shake allowance the pattern is made larger.<br />
+<strong>Find:</strong> Whether the statement is correct.</p>
+<p><strong>Solution:</strong>
+1. Shake/rapping allowance compensates for tapping during withdrawal.
+2. It makes the pattern slightly smaller, not larger.
+3. <strong>Answer:</strong> Incorrect.</p>
+<p><strong>Key Insight:</strong> Shake and shrinkage allowances act in opposite directions.</p>
+<h4 id="32-moulding-sand-properties-and-mould-construction">3.2 Moulding Sand Properties and Mould Construction</h4>
+<h5 id="1-concept-pointers_1">1. Concept Pointers</h5>
+<ul>
+<li>Permeability allows gases and steam to escape from the mould.</li>
+<li>Lower clay content generally improves permeability.</li>
+<li>Collapsibility helps the casting contract freely after solidification.</li>
+<li>Refractoriness is the ability to resist fusion at pouring temperature.</li>
+<li>Higher grain size generally improves refractoriness in the PYQ framing.</li>
+<li>Adhesiveness makes sand stick to the mould box walls.</li>
+<li>Cohesiveness keeps sand grains together.</li>
+<li>Uniform ramming improves dimensional stability.</li>
+<li>Green sand is commonly described as about 70% sand and 30% clay.</li>
+</ul>
+<h5 id="2-formulas_1">2. Formulas</h5>
+<p>No direct numerical equation is standard here, but the PYQ relationships are:</p>
+<p><div class="formula-card">$$\boxed{\downarrow \text{clay} \Rightarrow \uparrow \text{permeability}}$$</div></p>
+<p><div class="formula-card">$$\boxed{\uparrow \text{grain size} \Rightarrow \uparrow \text{refractoriness}}$$</div></p>
+<p><div class="formula-card">$$\boxed{\text{Uniform ramming} \Rightarrow \uparrow \text{dimensional stability}}$$</div></p>
+<h5 id="3-diagram_1">3. Diagram</h5>
+<p><img alt="Sand Casting Process Overview" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Sand_casting.jpg" /><br />
+<em>Typical sand-casting mould halves showing cope and drag. Source: Wikimedia Commons.</em></p>
+<h5 id="4-worked-example_1">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> The property of moulding sand that does not provide resistance to contraction of the solidified casting.<br />
+<strong>Find:</strong> The property name.</p>
+<p><strong>Solution:</strong>
+1. The sand must yield after the metal solidifies.
+2. That property is collapsibility.
+3. <strong>Answer:</strong> Collapsibility.</p>
+<p><strong>Key Insight:</strong> Collapsibility prevents restraint during contraction and helps avoid hot tears.</p>
+<h4 id="33-cores-core-prints-chaplets-and-chills">3.3 Cores, Core Prints, Chaplets, and Chills</h4>
+<h5 id="1-concept-pointers_2">1. Concept Pointers</h5>
+<ul>
+<li>Core prints locate, support, and hold the core in the correct position.</li>
+<li>Chaplets support the core against buoyancy and shifting.</li>
+<li>When metal is poured, the core experiences buoyancy because the core is lighter than the liquid metal.</li>
+<li>Chaplets melt and become part of the casting.</li>
+<li>Chills are metallic inserts used to extract heat rapidly.</li>
+<li>Chills promote directional solidification; they do not support the core.</li>
+</ul>
+<h5 id="2-formulas_2">2. Formulas</h5>
+<p>No primary formula is used in this section.</p>
+<h5 id="3-diagram_2">3. Diagram</h5>
+<p><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 id="4-worked-example_2">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> The main purpose of chaplets in foundry practice.<br />
+<strong>Find:</strong> Correct answer.</p>
+<p><strong>Solution:</strong>
+1. Chaplets are used to support the core.
+2. They prevent shifting or sagging under buoyancy.
+3. <strong>Answer:</strong> To support the core.</p>
+<p><strong>Key Insight:</strong> Chaplets support the core, while chills control solidification direction.</p>
+<h4 id="34-gating-system-runner-riser-gate-and-sprue">3.4 Gating System, Runner, Riser, Gate, and Sprue</h4>
+<h5 id="1-concept-pointers_3">1. Concept Pointers</h5>
+<ul>
+<li>Pouring basin reduces turbulence and maintains head.</li>
+<li>Sprue carries molten metal downward and is tapered to avoid aspiration.</li>
+<li>Runner distributes metal horizontally.</li>
+<li>Gate controls entry into the cavity and may act as a choke.</li>
+<li>Riser feeds the casting during solidification and must solidify after the casting.</li>
+<li>Gating ratio is given as sprue : runner : in-gate.</li>
+<li>Choke is the smallest flow-controlling section.</li>
+<li>Goals of a gating system are to minimise turbulence, fill the mould before solidification starts, and trap inclusions.</li>
+</ul>
+<h5 id="2-formulas_3">2. Formulas</h5>
+<p>For quick lookup, see Quick Reference Section 2.1.</p>
+<p><div class="formula-card">$$\boxed{A_m = \frac{m}{\rho \cdot t \cdot C\sqrt{2gH}}}$$</div></p>
+<p><div class="formula-card">$$\boxed{t_f = \frac{V}{A_g\sqrt{2gh_t}}}$$</div></p>
+<p><strong>Conditions and usage</strong>
+- Use the choke-area relation in mass-based flow questions.
+- The fill-time formula is used for simple mould-filling estimates.
+- Riser should solidify after the casting, not before.</p>
+<h5 id="3-diagram_3">3. Diagram</h5>
+<p><img alt="Casting Gating System" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Casting_gating_system.svg" /><br />
+<em>Labelled gating system with pouring basin, sprue, runner, gate and riser. Source: Wikimedia Commons.</em></p>
+<h5 id="4-worked-example_3">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> The gating ratio is asked in an MCQ.<br />
+<strong>Find:</strong> The correct order.</p>
+<p><strong>Solution:</strong>
+1. Gating ratio is defined as sprue : runner : in-gate.
+2. <strong>Answer:</strong> Sprue : Runner : In-gate.</p>
+<p><strong>Key Insight:</strong> The order is tested directly and should be memorised exactly.</p>
+<p><strong>Worked Example 2</strong></p>
+<p><strong>Given:</strong> A question asks what the riser does.<br />
+<strong>Find:</strong> Correct role.</p>
+<p><strong>Solution:</strong>
+1. Riser acts as a reservoir of molten metal.
+2. It feeds the casting during solidification to compensate for shrinkage.
+3. <strong>Answer:</strong> It feeds shrinkage metal and solidifies last.</p>
+<p><strong>Key Insight:</strong> Riser is not a runner or sprue; it is the feeder.</p>
+<h4 id="35-solidification-chvorinovs-rule-and-shrinkage">3.5 Solidification, Chvorinov's Rule, and Shrinkage</h4>
+<h5 id="1-concept-pointers_4">1. Concept Pointers</h5>
+<ul>
+<li>Solidification time depends on the volume-to-surface-area ratio.</li>
+<li>Thicker sections solidify more slowly.</li>
+<li>Chvorinov's rule is used for comparing solidification times under the same mould and metal conditions.</li>
+<li>The riser compensates liquid shrinkage and solidification shrinkage.</li>
+<li>Solid-state shrinkage is handled by pattern allowance.</li>
+<li>An optimum cylindrical riser is often taken with height equal to diameter in exam notes.</li>
+</ul>
+<h5 id="2-formulas_4">2. Formulas</h5>
+<p>For quick lookup, see Quick Reference Section 2.1.</p>
+<p><div class="formula-card">$$\boxed{T_s = k\left$\frac{V}{SA}\right$^2}$$</div></p>
+<p><div class="formula-card">$$\boxed{V_{\text{riser}} = 3 \times $\text{shrinkage volume}$}$$</div></p>
+<p><div class="formula-card">$$\boxed{d = \left$\frac{6V_{\text{riser}}}{\pi}\right$^{1/3}}$$</div></p>
+<p><strong>Conditions and usage</strong>
+- The exponent in Chvorinov's rule is 2.
+- A lower volume-to-surface-area ratio means faster solidification.
+- The riser feeds only liquid and solidification shrinkage.</p>
+<h5 id="3-diagram_4">3. Diagram</h5>
+<p><em>No dedicated Chvorinov diagram found; thick sections solidify slower, so risers are placed on the thickest and highest sections.</em></p>
+<h5 id="4-worked-example_4">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> A 100 mm cube solidifies in 20 min. Under the same conditions, a 100 � 100 � 50 mm slab is asked for solidification time.<br />
+<strong>Find:</strong> Approximate solidification time.</p>
+<p><strong>Solution:</strong>
+1. Use Chvorinov's rule, comparing $(V/SA)^2$.
+2. The slab has a lower volume-to-surface-area ratio than the cube.
+3. The PYQ note gives the result as about 11.3 min.
+4. <strong>Answer:</strong> 11.3 min.</p>
+<p><strong>Key Insight:</strong> Thinner sections solidify faster because their volume-to-surface-area ratio is smaller.</p>
+<p><strong>Worked Example 2</strong></p>
+<p><strong>Given:</strong> A casting undergoes 3% liquid shrinkage and 4% solidification shrinkage.<br />
+<strong>Find:</strong> Volume compensated from the riser.</p>
+<p><strong>Solution:</strong>
+1. Riser compensates liquid and solidification shrinkage only.
+2. Total = 3% + 4% = 7%.
+3. <strong>Answer:</strong> 7%.</p>
+<p><strong>Key Insight:</strong> Do not include solid-state shrinkage in the riser calculation; that is handled by pattern allowance.</p>
+<h4 id="36-special-casting-processes">3.6 Special Casting Processes</h4>
+<h5 id="1-concept-pointers_5">1. Concept Pointers</h5>
+<ul>
+<li>Investment casting uses a wax or plastic pattern that is melted out.</li>
+<li>Shell moulding uses resin-coated sand and gives very good finish and accuracy.</li>
+<li>Cold-chamber die casting is used for high-melting-point alloys.</li>
+<li>Hot-chamber die casting is used for low-melting-point alloys.</li>
+<li>Centrifugal casting is used for hollow axisymmetric parts like pipes and tubes.</li>
+<li>CO$_2$ moulding uses sodium silicate and carbon dioxide for instant hardening.</li>
+<li>Blow moulding is used for hollow thin-walled plastic parts.</li>
+</ul>
+<h5 id="2-formulas_5">2. Formulas</h5>
+<p>No universal equation is used; process choice is based on part shape, metal melting point, and required accuracy.</p>
+<h5 id="3-diagram_5">3. Diagram</h5>
+<p><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 id="4-worked-example_5">4. Worked Example</h5>
+<p><strong>Worked Example 1</strong></p>
+<p><strong>Given:</strong> A casting process is required for brass or aluminium.<br />
+<strong>Find:</strong> Suitable die-casting type.</p>
+<p><strong>Solution:</strong>
+1. Brass and aluminium are high-melting-point alloys.
+2. Cold-chamber die casting is used for such alloys.
+3. <strong>Answer:</strong> Cold-chamber die casting.</p>
+<p><strong>Key Insight:</strong> Hot chamber is for low-melting alloys like zinc, lead, and tin.</p>
+<p><strong>Worked Example 2</strong></p>
+<p><strong>Given:</strong> A hollow axisymmetric pipe is to be made.<br />
+<strong>Find:</strong> Suitable casting process.</p>
+<p><strong>Solution:</strong>
+1. Hollow axisymmetric parts are classic centrifugal casting jobs.
+2. <strong>Answer:</strong> Centrifugal casting.</p>
+<p><strong>Key Insight:</strong> Centrifugal casting is a standard answer for hollow pipes and tubes.</p>
+<h2 id="4-consolidation-notes">4. Consolidation Notes</h2>
+<p><strong>Note on pattern allowances:</strong>
+Shrinkage and shake allowances act in opposite directions, and they are often confused in MCQs. Shrinkage makes the pattern larger, while shake makes it smaller. See Section 3.1.</p>
+<p><strong>Note on riser, sprue, runner, and gate:</strong>
+The gating system has a strict flow order and each part has a separate role. The riser is a feeder, not a flow channel. See Section 3.4.</p>
+<p><strong>Note on cores, chaplets, and chills:</strong>
+Chaplets support cores; chills control solidification. They are not interchangeable. See Section 3.3.</p>
+<p><strong>Note on solidification and pattern allowance:</strong>
+Riser compensates liquid and solidification shrinkage, but solid-state shrinkage is handled by making the pattern larger. See Section 3.5.</p>
+<h2 id="5-final-quick-fire-checklist">5. Final Quick-Fire Checklist</h2>
+<ul>
+<li>Memorize the allowance types: shrinkage, draft, shake, machining, and distortion.</li>
+<li>Keep the sand properties straight: permeability, collapsibility, refractoriness, adhesiveness, cohesiveness, and green strength.</li>
+<li>Remember the roles: core print locates the core, chaplets support it, chills extract heat.</li>
+<li>Fix the gating order: sprue : runner : in-gate.</li>
+<li>Memorize Chvorinov's rule: $T_s = k(V/SA)^2$.</li>
+<li>Remember that the riser feeds liquid and solidification shrinkage only.</li>
+<li>Keep special casting choices straight: cold chamber for high-melting alloys, hot chamber for low-melting alloys.</li>
+</ul>
+<p><strong>High-frequency PYQ focus:</strong>
+- Pattern allowances and their directions
+- Moulding sand properties
+- Core prints, chaplets, and chills
+- Gating system and gating ratio
+- Chvorinov solidification and riser feeding
+- Special casting process selection</p>
+<hr />
+<p>End of Casting Guide.</p>
+</body>
+</html>

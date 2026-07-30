@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>machine_tools_grinding.md</title>
+  <style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.8;
+    color: #2D2926;
+    background-color: #F0ECE1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+  h3 { font-size: 14pt; color: #664229; }
+  a { color: #8C5A37; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code {
+    font-family: "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+  pre {
+    background: #F7F3EC;
+    border: 1px solid #E2D9CC;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  blockquote {
+    border-left: 4px solid #8C5A37;
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: #5C544D;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+  th, td {
+    border: 1px solid #E2D9CC;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+  tr:nth-child(even) { background-color: #FDFBF7; }
+  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+  /* ── Formula Display Card ── */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .formula-card .MathJax,
+  .formula-card .MathJax_Display {
+    font-size: 1.15em !important;
+  }
+
+</style>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\(', '\)']],
+    displayMath: [['$$', '$$'], ['\[', '\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body id="preview">
+<figure style="text-align:center; margin:24px 0;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/CNC_Lathe.png" alt="Engine Lathe Diagram" style="max-width:100%; border-radius:8px; border:1px solid #E2D9CC;">
+  <figcaption style="font-size:10pt; color:#5C544D; margin-top:6px; font-style:italic;">Engine Lathe Machine Tool Components & Motion Controls</figcaption>
+</figure>
+<div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+  <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+  <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+  <a href="machine_tools_grinding.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">2. Machine Tools</a> |
+  <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
+  <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
+  <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs & Fixtures</a> |
+  <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+</div>
+<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Machine_Tools_and_Grinding_0"></a>Machine Tools and Grinding</h1>
+<h2 class="code-line has-line-data" data-line-start="2" data-line-end="3"><a id="1_Topic_Overview_2"></a>1. Topic Overview</h2>
+<p class="has-line-data" data-line-start="3" data-line-end="4">This guide covers the core machine-tool and finishing topics commonly asked in AP Genco AE-style PYQs: lathe operations, drilling, shaping and planing, milling, gear cutting and indexing, grinding, broaching, and the most important finishing-process facts. The highest-frequency questions usually test direct identification, basic formulas, work-holding, step ratios, taper calculations, wheel selection, and process capability. The content below merges repeated notes into one revision-friendly structure and keeps the most useful numerical and conceptual points together.</p>
+<h2 class="code-line has-line-data" data-line-start="5" data-line-end="6"><a id="2_Quick_Reference_Sheet_5"></a>2. Quick Reference Sheet</h2>
+<h3 class="code-line has-line-data" data-line-start="7" data-line-end="8"><a id="21_All_Formulas_7"></a>2.1 All Formulas</h3>
+<p class="has-line-data" data-line-start="9" data-line-end="10"><strong>Cutting speed on lathe or drilling</strong></p>
+<div class="formula-card">$$\boxed{V = \frac{\pi DN}{1000}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(V)</td>
+<td>cutting speed</td>
+<td>m/min</td>
+</tr>
+<tr>
+<td>(D)</td>
+<td>workpiece or drill diameter</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(N)</td>
+<td>spindle speed</td>
+<td>rpm</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="19" data-line-end="20"><strong>Machining time on lathe</strong></p>
+<div class="formula-card">$$\boxed{T_m = \frac{L}{fN}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(T_m)</td>
+<td>machining time</td>
+<td>min</td>
+</tr>
+<tr>
+<td>(L)</td>
+<td>length of cut</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(f)</td>
+<td>feed</td>
+<td>mm/rev</td>
+</tr>
+<tr>
+<td>(N)</td>
+<td>spindle speed</td>
+<td>rpm</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="30" data-line-end="31"><strong>Tailstock set-over for taper turning</strong></p>
+<div class="formula-card">$$\boxed{y = L\sin\alpha}$$</div><div class="formula-card">$$\boxed{y \approx \frac{L(D-d)}{2l_r}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(y)</td>
+<td>tailstock set-over</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(L)</td>
+<td>total job length</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(l_r)</td>
+<td>taper length</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(D)</td>
+<td>larger diameter</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(d)</td>
+<td>smaller diameter</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>$\alpha$</td>
+<td>half taper angle</td>
+<td>degree</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="45" data-line-end="46"><strong>Gearbox progression ratio</strong></p>
+<div class="formula-card">$$\boxed{\phi = \left$\frac{N_{\max}}{N_{\min}}\right$^{\frac{1}{n-1}}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\phi$</td>
+<td>progression ratio</td>
+</tr>
+<tr>
+<td>$N_{\max}$</td>
+<td>maximum spindle speed</td>
+</tr>
+<tr>
+<td>$N_{\min}$</td>
+<td>minimum spindle speed</td>
+</tr>
+<tr>
+<td>(n)</td>
+<td>number of spindle speeds</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="56" data-line-end="57"><strong>Milling table feed and material removal rate</strong></p>
+<div class="formula-card">$$\boxed{f_m = f_t zN}$$</div><div class="formula-card">$$\boxed{\text{MRR} = dbf_m}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(f_m)</td>
+<td>table feed</td>
+<td>mm/min</td>
+</tr>
+<tr>
+<td>(f_t)</td>
+<td>feed per tooth</td>
+<td>mm/tooth</td>
+</tr>
+<tr>
+<td>(z)</td>
+<td>number of teeth engaged</td>
+<td>teeth</td>
+</tr>
+<tr>
+<td>(N)</td>
+<td>spindle speed</td>
+<td>rpm</td>
+</tr>
+<tr>
+<td>(d)</td>
+<td>depth of cut</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(b)</td>
+<td>width of cut</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>MRR</td>
+<td>material removal rate</td>
+<td>mm(^3)/min</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="72" data-line-end="73"><strong>Shaper cutting speed</strong></p>
+<div class="formula-card">$$\boxed{V = \frac{NLC}{1000}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(V)</td>
+<td>cutting speed</td>
+<td>m/min</td>
+</tr>
+<tr>
+<td>(N)</td>
+<td>strokes per minute</td>
+<td>strokes/min</td>
+</tr>
+<tr>
+<td>(L)</td>
+<td>stroke length</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(C)</td>
+<td>cutting time ratio</td>
+<td>dimensionless</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="83" data-line-end="84"><strong>Drilling time with overtravel</strong></p>
+<div class="formula-card">$$\boxed{T = \frac{t+x}{fN}}$$</div><table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(T)</td>
+<td>drilling time</td>
+<td>min</td>
+</tr>
+<tr>
+<td>(t)</td>
+<td>plate thickness</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(x)</td>
+<td>overtravel</td>
+<td>mm</td>
+</tr>
+<tr>
+<td>(f)</td>
+<td>feed</td>
+<td>mm/rev</td>
+</tr>
+<tr>
+<td>(N)</td>
+<td>spindle speed</td>
+<td>rpm</td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="95" data-line-end="96"><strong>Grinding wheel marking</strong></p>
+<div class="formula-card">$$\boxed{\text{Abrasive} - \text{Grain size} - \text{Grade} - \text{Structure} - \text{Bond}}$$</div><p class="has-line-data" data-line-start="99" data-line-end="100"><strong>Broaching accuracy</strong></p>
+<div class="formula-card">$$\boxed{\text{Accuracy} \approx 1\,\mu\text{m}}$$</div><h3 class="code-line has-line-data" data-line-start="103" data-line-end="104"><a id="22_Key_Definitions_Master_Concepts_103"></a>2.2 Key Definitions &amp; Master Concepts</h3>
+<ul>
+<li class="has-line-data" data-line-start="105" data-line-end="106"><strong>Up milling</strong>: Cutter rotates opposite to the feed direction.</li>
+<li class="has-line-data" data-line-start="106" data-line-end="107"><strong>Climb milling</strong>: Cutter rotates in the same direction as the feed.</li>
+<li class="has-line-data" data-line-start="107" data-line-end="108"><strong>Hobbing</strong>: Fast gear-cutting process based on the generating principle.</li>
+<li class="has-line-data" data-line-start="108" data-line-end="109"><strong>Gear shaving</strong>: Finishing operation for gears.</li>
+<li class="has-line-data" data-line-start="109" data-line-end="110"><strong>Simple indexing</strong>: Indexing method based on the standard 40:1 worm ratio.</li>
+<li class="has-line-data" data-line-start="110" data-line-end="111"><strong>Differential indexing</strong>: Used when required divisions cannot be obtained by simple indexing, such as 119 divisions.</li>
+<li class="has-line-data" data-line-start="111" data-line-end="112"><strong>Grade of grinding wheel</strong>: Bond hardness, or the ability of the bond to hold abrasive grains.</li>
+<li class="has-line-data" data-line-start="112" data-line-end="113"><strong>Structure of grinding wheel</strong>: Grain spacing or density.</li>
+<li class="has-line-data" data-line-start="113" data-line-end="114"><strong>Truing</strong>: Restoring the original geometry and concentricity of the grinding wheel.</li>
+<li class="has-line-data" data-line-start="114" data-line-end="115"><strong>Dressing</strong>: Exposing fresh sharp abrasive grains on the wheel face.</li>
+<li class="has-line-data" data-line-start="115" data-line-end="116"><strong>Carborundum</strong>: Silicon carbide, an artificial abrasive.</li>
+<li class="has-line-data" data-line-start="116" data-line-end="117"><strong>Broach</strong>: Multi-tooth cutting tool with roughing, semi-finishing, and finishing teeth.</li>
+<li class="has-line-data" data-line-start="117" data-line-end="118"><strong>Surface broaching</strong>: Broaching operation where either the work or tool moves across the other.</li>
+<li class="has-line-data" data-line-start="118" data-line-end="120"><strong>Centreless grinding</strong>: Grinding process in which the workpiece is not held between centres.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="120" data-line-end="121"><a id="23_Standard_Values_Constants_120"></a>2.3 Standard Values / Constants</h3>
+<ul>
+<li class="has-line-data" data-line-start="122" data-line-end="123"><strong>Milling</strong>: climb milling generally gives better finish but needs backlash-free machine.</li>
+<li class="has-line-data" data-line-start="123" data-line-end="124"><strong>Gear cutting</strong>: hobbing is usually the fastest method.</li>
+<li class="has-line-data" data-line-start="124" data-line-end="125"><strong>Indexing</strong>: 119 divisions commonly requires differential indexing.</li>
+<li class="has-line-data" data-line-start="125" data-line-end="126"><strong>Grinding wheel grades</strong>: A to H are soft, Q to Z are hard.</li>
+<li class="has-line-data" data-line-start="126" data-line-end="127"><strong>Abrasives</strong>: aluminium oxide, silicon carbide, CBN, diamond.</li>
+<li class="has-line-data" data-line-start="127" data-line-end="128"><strong>Carborundum</strong>: the common name for silicon carbide.</li>
+<li class="has-line-data" data-line-start="128" data-line-end="129"><strong>Broaching accuracy</strong>: about 1 micron.</li>
+<li class="has-line-data" data-line-start="129" data-line-end="130"><strong>Flank wear land</strong>: VB about 0.3 to 0.6 mm in tool-life checks.</li>
+<li class="has-line-data" data-line-start="130" data-line-end="131"><strong>Grinding</strong>: soft wheel for hard material; hard wheel for soft material.</li>
+<li class="has-line-data" data-line-start="131" data-line-end="134"><strong>Drilling overtravel</strong>: often a few millimetres for through holes.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="134" data-line-end="135"><a id="25_Additional_HighYield_Notes_134"></a>2.5 Additional High-Yield Notes</h3>
+<ul>
+<li class="has-line-data" data-line-start="136" data-line-end="137"><strong>Knurling</strong>: Produces a roughened pattern on the surface for grip; it does not produce chips in the usual cutting sense.</li>
+<li class="has-line-data" data-line-start="137" data-line-end="138"><strong>Shaper vs planer</strong>: A shaper is used for smaller workpieces, while a planer is used for larger workpieces and heavier cuts.</li>
+<li class="has-line-data" data-line-start="138" data-line-end="139"><strong>Shaper and planer specification</strong>: The size of a shaper is generally specified by the length of stroke; a planer is specified by bed length or table size.</li>
+<li class="has-line-data" data-line-start="139" data-line-end="140"><strong>Horizontal borer vs lathe</strong>: In a lathe, the work rotates and the tool is fed; in a horizontal borer, the tool rotates while the work remains fixed.</li>
+<li class="has-line-data" data-line-start="140" data-line-end="141"><strong>Tool dynamometer</strong>: Used to measure cutting forces.</li>
+<li class="has-line-data" data-line-start="141" data-line-end="142"><strong>Universal rolling mill</strong>: Has horizontal and vertical rolls.</li>
+<li class="has-line-data" data-line-start="142" data-line-end="143"><strong>Burnishing</strong>: Improves finish by plastic deformation rather than cutting; it is different from truing and honing.</li>
+<li class="has-line-data" data-line-start="143" data-line-end="144"><strong>Gang milling</strong>: More than one cutter is mounted on the arbor to machine different surfaces in a single pass.</li>
+<li class="has-line-data" data-line-start="144" data-line-end="145"><strong>Radial rake angle</strong>: For HSS cutters, a positive radial rake is generally preferred in many practical MCQ contexts.</li>
+<li class="has-line-data" data-line-start="145" data-line-end="146"><strong>Honing, lapping, and buffing</strong>: Honing is used for cylindrical holes, lapping uses loose abrasive with very high finish and little heat, and buffing gives a high polish.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="146" data-line-end="147"><a id="26_More_Quick_MCQ_Facts_146"></a>2.6 More Quick MCQ Facts</h3>
+<ul>
+<li class="has-line-data" data-line-start="148" data-line-end="149"><strong>Capstan / turret lathe</strong>: Has no tailstock.</li>
+<li class="has-line-data" data-line-start="149" data-line-end="150"><strong>Internal gears</strong>: Can be produced by gear shaping or broaching, not by hobbing.</li>
+<li class="has-line-data" data-line-start="150" data-line-end="151"><strong>Broaching vs hobbing</strong>: Broaching can make internal gears and splines, while hobbing is generally for external gears.</li>
+<li class="has-line-data" data-line-start="151" data-line-end="152"><strong>External cylindrical grinding</strong>: Used for straight or tapered external surfaces.</li>
+<li class="has-line-data" data-line-start="152" data-line-end="153"><strong>Centreless grinding</strong>: Work advances due to the combined action of the grinding wheel and regulating wheel.</li>
+<li class="has-line-data" data-line-start="153" data-line-end="154"><strong>Tool and cutter grinder</strong>: Used for sharpening multipoint cutters.</li>
+<li class="has-line-data" data-line-start="154" data-line-end="155"><strong>Surface grinding</strong>: Used for flat surfaces.</li>
+<li class="has-line-data" data-line-start="155" data-line-end="156"><strong>Internal cylindrical grinding</strong>: Used for cylindrical or tapered holes.</li>
+</ul>
+<h3 class="code-line has-line-data" data-line-start="156" data-line-end="157"><a id="24_CrossReference_Map_156"></a>2.4 Cross-Reference Map</h3>
+<ul>
+<li class="has-line-data" data-line-start="158" data-line-end="159"><strong>Cutting speed</strong>: Used in lathe, drilling, and shaper sections. See Section 3.1, 3.3, and 3.4.</li>
+<li class="has-line-data" data-line-start="159" data-line-end="160"><strong>Tailstock set-over</strong>: Used in lathe taper turning. See Section 3.1.</li>
+<li class="has-line-data" data-line-start="160" data-line-end="161"><strong>Progression ratio</strong>: Used in lathe gearbox questions. See Section 3.1.</li>
+<li class="has-line-data" data-line-start="161" data-line-end="162"><strong>Table feed and MRR</strong>: Used in milling. See Section 3.5.</li>
+<li class="has-line-data" data-line-start="162" data-line-end="163"><strong>Indexing</strong>: Used in gear cutting. See Section 3.6.</li>
+<li class="has-line-data" data-line-start="163" data-line-end="164"><strong>Truing and dressing</strong>: Used in grinding. See Section 3.7.</li>
+<li class="has-line-data" data-line-start="164" data-line-end="166"><strong>Broaching accuracy</strong>: Used in broaching. See Section 3.8.</li>
+</ul>
+<h2 class="code-line has-line-data" data-line-start="166" data-line-end="167"><a id="3_Main_Body_166"></a>3. Main Body</h2>
+<h4 class="code-line has-line-data" data-line-start="168" data-line-end="169"><a id="31_Lathe_Operations_Work_Holding_Taper_Turning_and_Gearbox_Ratio_168"></a>3.1 Lathe Operations, Work Holding, Taper Turning, and Gearbox Ratio</h4>
+<h5 class="code-line has-line-data" data-line-start="170" data-line-end="171"><a id="1_Concept_Pointers_170"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="171" data-line-end="172">Cutting speed on a lathe depends on work diameter and spindle speed.</li>
+<li class="has-line-data" data-line-start="172" data-line-end="173">Facing uses a radial length of approximately half the work diameter.</li>
+<li class="has-line-data" data-line-start="173" data-line-end="174">Thread cutting is generally done at the slowest spindle speed.</li>
+<li class="has-line-data" data-line-start="174" data-line-end="175">Face plate is used for irregular or complex jobs.</li>
+<li class="has-line-data" data-line-start="175" data-line-end="176">Four-jaw chuck is used for exact centring and odd-shaped work.</li>
+<li class="has-line-data" data-line-start="176" data-line-end="177">Three-jaw chuck is quick but less accurate.</li>
+<li class="has-line-data" data-line-start="177" data-line-end="178">Collets are used for small precision work; mandrels are used for hollow jobs.</li>
+<li class="has-line-data" data-line-start="178" data-line-end="179">Tailstock set-over is the standard taper-turning method when the taper is short.</li>
+<li class="has-line-data" data-line-start="179" data-line-end="181">Gearbox step ratio sets the progression between successive speeds.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="181" data-line-end="182"><a id="2_Formulas_181"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="183" data-line-end="184">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{V = \frac{\pi DN}{1000}}$$</div><div class="formula-card">$$\boxed{T_m = \frac{L}{fN}}$$</div><div class="formula-card">$$\boxed{y = L\sin\alpha}$$</div><div class="formula-card">$$\boxed{y \approx \frac{L(D-d)}{2l_r}}$$</div><div class="formula-card">$$\boxed{\phi = \left$\frac{N_{\max}}{N_{\min}}\right$^{\frac{1}{n-1}}}$$</div><p class="has-line-data" data-line-start="195" data-line-end="196"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="196" data-line-end="197">In facing, the cutting length is approximately the radius.</li>
+<li class="has-line-data" data-line-start="197" data-line-end="198">Tailstock set-over is useful when the taper length is shorter than the job length.</li>
+<li class="has-line-data" data-line-start="198" data-line-end="200">The approximate taper formula is used in standard exam numericals.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="200" data-line-end="201"><a id="3_Diagram_200"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="202" data-line-end="203"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="204" data-line-end="205"><a id="4_Worked_Example_204"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="206" data-line-end="207"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="208" data-line-end="210"><strong>Given:</strong> Diameter $D = 20$ mm, spindle speed $N = 1000$ rpm.<br>
+<strong>Find:</strong> Cutting speed.</p>
+<p class="has-line-data" data-line-start="211" data-line-end="212"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="212" data-line-end="213">Use $V = \pi DN/1000$.</li>
+<li class="has-line-data" data-line-start="213" data-line-end="214">$V = \pi \times 20 \times 1000 / 1000 = 20\pi$ m/min.</li>
+<li class="has-line-data" data-line-start="214" data-line-end="216"><strong>Answer:</strong> $20\pi$ m/min.</li>
+</ol>
+<p class="has-line-data" data-line-start="216" data-line-end="217"><strong>Key Insight:</strong> Always keep units consistent. The common trap is forgetting that the formula gives speed in m/min when D is in mm.</p>
+<p class="has-line-data" data-line-start="218" data-line-end="219"><strong>Worked Example 2</strong></p>
+<p class="has-line-data" data-line-start="220" data-line-end="222"><strong>Given:</strong> Taper length $l_r = 100$ mm, larger diameter $D = 40$ mm, smaller diameter $d = 30$ mm, total job length $L = 200$ mm.<br>
+<strong>Find:</strong> Approximate tailstock set-over.</p>
+<p class="has-line-data" data-line-start="223" data-line-end="224"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="224" data-line-end="225">Use (y \approx \frac{L(D-d)}{2l_r}).</li>
+<li class="has-line-data" data-line-start="225" data-line-end="226">(y \approx \frac{200(40-30)}{2 \times 100} = \frac{2000}{200} = 10) mm.</li>
+<li class="has-line-data" data-line-start="226" data-line-end="228"><strong>Answer:</strong> 10 mm.</li>
+</ol>
+<p class="has-line-data" data-line-start="228" data-line-end="229"><strong>Key Insight:</strong> The taper length is (l_r), not the full job length. That distinction is a frequent exam trap.</p>
+<h4 class="code-line has-line-data" data-line-start="230" data-line-end="231"><a id="32_Drilling_Machines_Drill_Geometry_and_Drilling_Time_230"></a>3.2 Drilling Machines, Drill Geometry, and Drilling Time</h4>
+<h5 class="code-line has-line-data" data-line-start="232" data-line-end="233"><a id="1_Concept_Pointers_232"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="233" data-line-end="234">Drilling is used to produce round holes with a rotating drill.</li>
+<li class="has-line-data" data-line-start="234" data-line-end="235">Overtravel is included when the hole is through the workpiece.</li>
+<li class="has-line-data" data-line-start="235" data-line-end="236">Feed and spindle speed control drilling time.</li>
+<li class="has-line-data" data-line-start="236" data-line-end="237">Drill geometry questions often test the drill point and basic operation sequence.</li>
+<li class="has-line-data" data-line-start="237" data-line-end="239">Drilling is often followed by reaming, tapping, counterboring, countersinking, or boring.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="239" data-line-end="240"><a id="2_Formulas_239"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="241" data-line-end="242">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{T = \frac{t+x}{fN}}$$</div><p class="has-line-data" data-line-start="245" data-line-end="246"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="246" data-line-end="247">(x) is the overtravel allowance, usually a small value for through holes.</li>
+<li class="has-line-data" data-line-start="247" data-line-end="249">In numerical problems, always include overtravel if the hole breaks through the plate.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="249" data-line-end="250"><a id="3_Diagram_249"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="251" data-line-end="252"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="253" data-line-end="254"><a id="4_Worked_Example_253"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="255" data-line-end="256"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="257" data-line-end="259"><strong>Given:</strong> Thickness $t = 20$ mm, overtravel $x = 5$ mm, feed (f = 0.2) mm/rev, speed $N = 500$ rpm.<br>
+<strong>Find:</strong> Drilling time.</p>
+<p class="has-line-data" data-line-start="260" data-line-end="261"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="261" data-line-end="262">Use $T = \frac{t+x}{fN}$.</li>
+<li class="has-line-data" data-line-start="262" data-line-end="263">$T = \frac{20+5}{0.2 \times 500} = \frac{25}{100} = 0.25$ min.</li>
+<li class="has-line-data" data-line-start="263" data-line-end="265"><strong>Answer:</strong> 0.25 min.</li>
+</ol>
+<p class="has-line-data" data-line-start="265" data-line-end="266"><strong>Key Insight:</strong> Overtravel is easy to miss; when the hole goes through the job, it must be included in the numerator.</p>
+<h4 class="code-line has-line-data" data-line-start="267" data-line-end="268"><a id="33_Shaping_and_Planing_267"></a>3.3 Shaping and Planing</h4>
+<h5 class="code-line has-line-data" data-line-start="269" data-line-end="270"><a id="1_Concept_Pointers_269"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="270" data-line-end="271">A shaper uses a reciprocating single-point tool and is suited to smaller workpieces.</li>
+<li class="has-line-data" data-line-start="271" data-line-end="272">A planer is generally used for larger jobs and heavier cuts.</li>
+<li class="has-line-data" data-line-start="272" data-line-end="273">Shaper cutting speed depends on stroke length, strokes per minute, and cutting ratio.</li>
+<li class="has-line-data" data-line-start="273" data-line-end="274">Hydraulic shapers are smoother and can give uniform cutting action.</li>
+<li class="has-line-data" data-line-start="274" data-line-end="275">Mechanical shapers are simpler but less flexible in motion control.</li>
+<li class="has-line-data" data-line-start="275" data-line-end="277">Planers generally allow larger workpieces than shapers.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="277" data-line-end="278"><a id="2_Formulas_277"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="279" data-line-end="280">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{V = \frac{NLC}{1000}}$$</div><p class="has-line-data" data-line-start="283" data-line-end="284"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="284" data-line-end="285">(N) is strokes per minute.</li>
+<li class="has-line-data" data-line-start="285" data-line-end="286">(L) is the stroke length.</li>
+<li class="has-line-data" data-line-start="286" data-line-end="288">(C) is the cutting time ratio.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="288" data-line-end="289"><a id="3_Diagram_288"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="290" data-line-end="291"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="292" data-line-end="293"><a id="4_Worked_Example_292"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="294" data-line-end="295"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="296" data-line-end="298"><strong>Given:</strong> $N = 40$ strokes/min, $L = 300$ mm, (C = 0.5).<br>
+<strong>Find:</strong> Cutting speed.</p>
+<p class="has-line-data" data-line-start="299" data-line-end="300"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="300" data-line-end="301">Use $V = NLC/1000$.</li>
+<li class="has-line-data" data-line-start="301" data-line-end="302">$V = 40 \times 300 \times 0.5 / 1000 = 6$ m/min.</li>
+<li class="has-line-data" data-line-start="302" data-line-end="304"><strong>Answer:</strong> 6 m/min.</li>
+</ol>
+<p class="has-line-data" data-line-start="304" data-line-end="305"><strong>Key Insight:</strong> The cutting ratio matters because the tool cuts only during part of the stroke cycle.</p>
+<h4 class="code-line has-line-data" data-line-start="306" data-line-end="307"><a id="34_Milling_Operations_306"></a>3.4 Milling Operations</h4>
+<h5 class="code-line has-line-data" data-line-start="308" data-line-end="309"><a id="1_Concept_Pointers_308"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="309" data-line-end="310">In up milling, the cutter rotates opposite to feed.</li>
+<li class="has-line-data" data-line-start="310" data-line-end="311">In climb milling, the cutter rotates in the same direction as feed.</li>
+<li class="has-line-data" data-line-start="311" data-line-end="312">Up milling begins with rubbing and chip thickness increases from entry to exit.</li>
+<li class="has-line-data" data-line-start="312" data-line-end="313">Climb milling gives better finish and less tool wear, but requires backlash-free machines.</li>
+<li class="has-line-data" data-line-start="313" data-line-end="314">Milling table feed depends on feed per tooth, number of teeth, and speed.</li>
+<li class="has-line-data" data-line-start="314" data-line-end="315">Material removal rate uses depth of cut, width of cut, and table feed.</li>
+<li class="has-line-data" data-line-start="315" data-line-end="316">In slab milling, chip thickness is directly proportional to feed rate of the workpiece.</li>
+<li class="has-line-data" data-line-start="316" data-line-end="318">Milling cutter is mounted on the arbor.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="318" data-line-end="319"><a id="2_Formulas_318"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="320" data-line-end="321">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{f_m = f_t zN}$$</div><div class="formula-card">$$\boxed{\text{MRR} = dbf_m}$$</div><p class="has-line-data" data-line-start="326" data-line-end="327"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="327" data-line-end="328">Use the feed-per-tooth relation for table-feed numericals.</li>
+<li class="has-line-data" data-line-start="328" data-line-end="330">MRR is usually asked as a direct formula-based calculation.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="330" data-line-end="331"><a id="3_Diagram_330"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="332" data-line-end="333"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="334" data-line-end="335"><a id="4_Worked_Example_334"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="336" data-line-end="337"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="338" data-line-end="340"><strong>Given:</strong> Feed per tooth (f_t = 0.1) mm/tooth, number of teeth $z = 6$, speed $N = 200$ rpm.<br>
+<strong>Find:</strong> Table feed.</p>
+<p class="has-line-data" data-line-start="341" data-line-end="342"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="342" data-line-end="343">Use $f_m = f_t zN$.</li>
+<li class="has-line-data" data-line-start="343" data-line-end="344">$f_m = 0.1 \times 6 \times 200 = 120$ mm/min.</li>
+<li class="has-line-data" data-line-start="344" data-line-end="346"><strong>Answer:</strong> 120 mm/min.</li>
+</ol>
+<p class="has-line-data" data-line-start="346" data-line-end="347"><strong>Key Insight:</strong> Table feed is feed per tooth multiplied by the number of teeth and spindle speed.</p>
+<p class="has-line-data" data-line-start="348" data-line-end="349"><strong>Worked Example 2</strong></p>
+<p class="has-line-data" data-line-start="350" data-line-end="352"><strong>Given:</strong> Depth of cut $d = 2$ mm, width of cut $b = 50$ mm, table feed $f_m = 120$ mm/min.<br>
+<strong>Find:</strong> MRR.</p>
+<p class="has-line-data" data-line-start="353" data-line-end="354"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="354" data-line-end="355">Use $\text{MRR} = dbf_m$.</li>
+<li class="has-line-data" data-line-start="355" data-line-end="356">$\text{MRR} = 2 \times 50 \times 120 = 12000$ mm(^3)/min.</li>
+<li class="has-line-data" data-line-start="356" data-line-end="358"><strong>Answer:</strong> 12000 mm(^3)/min.</li>
+</ol>
+<p class="has-line-data" data-line-start="358" data-line-end="359"><strong>Key Insight:</strong> Be careful with units. If MRR is needed in cm(^3)/min, convert from mm(^3)/min.</p>
+<h4 class="code-line has-line-data" data-line-start="360" data-line-end="361"><a id="35_Gear_Cutting_and_Indexing_360"></a>3.5 Gear Cutting and Indexing</h4>
+<h5 class="code-line has-line-data" data-line-start="362" data-line-end="363"><a id="1_Concept_Pointers_362"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="363" data-line-end="364">Hobbing is a generating process and is the fastest common gear-cutting method.</li>
+<li class="has-line-data" data-line-start="364" data-line-end="365">Gear milling is a form-cutting method and is slower.</li>
+<li class="has-line-data" data-line-start="365" data-line-end="366">Gear shaving is a finishing operation.</li>
+<li class="has-line-data" data-line-start="366" data-line-end="367">Differential indexing is used for awkward numbers of divisions such as 119.</li>
+<li class="has-line-data" data-line-start="367" data-line-end="368">Simple indexing uses the standard 40:1 dividing-head ratio.</li>
+<li class="has-line-data" data-line-start="368" data-line-end="370">Gear shaping can cut internal gears, while hobbing is generally used for external gears.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="370" data-line-end="371"><a id="2_Formulas_370"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="372" data-line-end="373">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{\text{Crank movement} = \frac{40}{N}}$$</div><p class="has-line-data" data-line-start="376" data-line-end="377"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="377" data-line-end="378">(N) is the number of divisions required.</li>
+<li class="has-line-data" data-line-start="378" data-line-end="380">If the required divisions cannot be obtained directly, differential indexing is used.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="380" data-line-end="381"><a id="3_Diagram_380"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="382" data-line-end="383"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="384" data-line-end="385"><a id="4_Worked_Example_384"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="386" data-line-end="387"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="388" data-line-end="390"><strong>Given:</strong> Required number of divisions = 119.<br>
+<strong>Find:</strong> Indexing method.</p>
+<p class="has-line-data" data-line-start="391" data-line-end="392"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="392" data-line-end="393">119 divisions cannot be obtained by simple indexing in the usual way.</li>
+<li class="has-line-data" data-line-start="393" data-line-end="394">Use differential indexing.</li>
+<li class="has-line-data" data-line-start="394" data-line-end="396"><strong>Answer:</strong> Differential indexing.</li>
+</ol>
+<p class="has-line-data" data-line-start="396" data-line-end="397"><strong>Key Insight:</strong> Odd numbers like 119 are classic differential-indexing questions.</p>
+<h4 class="code-line has-line-data" data-line-start="398" data-line-end="399"><a id="36_Grinding_and_Finishing_398"></a>3.6 Grinding and Finishing</h4>
+<h5 class="code-line has-line-data" data-line-start="400" data-line-end="401"><a id="1_Concept_Pointers_400"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="401" data-line-end="402">Surface grinding produces flat surfaces.</li>
+<li class="has-line-data" data-line-start="402" data-line-end="403">External cylindrical grinding produces straight or tapered external surfaces.</li>
+<li class="has-line-data" data-line-start="403" data-line-end="404">Internal cylindrical grinding produces cylindrical or tapered holes.</li>
+<li class="has-line-data" data-line-start="404" data-line-end="405">Centreless grinding does not use centres for work holding.</li>
+<li class="has-line-data" data-line-start="405" data-line-end="406">Tool and cutter grinders are used to sharpen multipoint cutters.</li>
+<li class="has-line-data" data-line-start="406" data-line-end="407">Grinding is a precision finishing process with very small depth of cut.</li>
+<li class="has-line-data" data-line-start="407" data-line-end="408">High grinding speed is desirable because it reduces force per grit and offsets the high negative rake of the grit.</li>
+<li class="has-line-data" data-line-start="408" data-line-end="409">Wheel grade denotes bond hardness, not grain size.</li>
+<li class="has-line-data" data-line-start="409" data-line-end="410">Soft wheel is used for hard material, and hard wheel is used for soft material.</li>
+<li class="has-line-data" data-line-start="410" data-line-end="412">Truing restores wheel geometry; dressing exposes fresh abrasive grains.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="412" data-line-end="413"><a id="2_Formulas_412"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="414" data-line-end="415">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{\text{Abrasive} - \text{Grain size} - \text{Grade} - \text{Structure} - \text{Bond}}$$</div><p class="has-line-data" data-line-start="418" data-line-end="419"><strong>Conditions and usage</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="419" data-line-end="420">Wheel grades are often represented from A to Z, with soft to hard increasing along the alphabet.</li>
+<li class="has-line-data" data-line-start="420" data-line-end="421">Common abrasives include aluminium oxide, silicon carbide, CBN, and diamond.</li>
+<li class="has-line-data" data-line-start="421" data-line-end="423">Carborundum is silicon carbide.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="423" data-line-end="424"><a id="3_Diagram_423"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="425" data-line-end="426"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="427" data-line-end="428"><a id="4_Worked_Example_427"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="429" data-line-end="430"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="431" data-line-end="433"><strong>Given:</strong> A grinding wheel marked <code>A 36 L 5 V</code>.<br>
+<strong>Find:</strong> Meaning of <code>V</code>.</p>
+<p class="has-line-data" data-line-start="434" data-line-end="435"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="435" data-line-end="436">The last symbol in the marking is the bond.</li>
+<li class="has-line-data" data-line-start="436" data-line-end="437"><code>V</code> means vitrified bond.</li>
+<li class="has-line-data" data-line-start="437" data-line-end="439"><strong>Answer:</strong> Vitrified bond.</li>
+</ol>
+<p class="has-line-data" data-line-start="439" data-line-end="440"><strong>Key Insight:</strong> In wheel markings, the final letter is the bond type.</p>
+<p class="has-line-data" data-line-start="441" data-line-end="442"><strong>Worked Example 2</strong></p>
+<p class="has-line-data" data-line-start="443" data-line-end="445"><strong>Given:</strong> The wheel loses its original geometry during use.<br>
+<strong>Find:</strong> Correct operation to restore it.</p>
+<p class="has-line-data" data-line-start="446" data-line-end="447"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="447" data-line-end="448">Restoring geometry and concentricity is truing.</li>
+<li class="has-line-data" data-line-start="448" data-line-end="450"><strong>Answer:</strong> Truing.</li>
+</ol>
+<p class="has-line-data" data-line-start="450" data-line-end="451"><strong>Key Insight:</strong> Truing restores shape; dressing exposes sharp grains. They are not the same.</p>
+<h4 class="code-line has-line-data" data-line-start="452" data-line-end="453"><a id="37_Grinding_Machine_Types_and_Centreless_Grinding_452"></a>3.7 Grinding Machine Types and Centreless Grinding</h4>
+<h5 class="code-line has-line-data" data-line-start="454" data-line-end="455"><a id="1_Concept_Pointers_454"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="455" data-line-end="456">Surface grinding is used for flat surfaces.</li>
+<li class="has-line-data" data-line-start="456" data-line-end="457">External cylindrical grinding is used for straight or tapered external surfaces.</li>
+<li class="has-line-data" data-line-start="457" data-line-end="458">Internal cylindrical grinding is used for internal holes.</li>
+<li class="has-line-data" data-line-start="458" data-line-end="459">Centreless grinding supports the work by a blade and regulating wheel, with no centres.</li>
+<li class="has-line-data" data-line-start="459" data-line-end="460">High velocity in grinding reduces force per grit, offsets negative rake, and lowers overall grinding force.</li>
+<li class="has-line-data" data-line-start="460" data-line-end="462">The workpiece advances in centreless grinding because of the interaction of the grinding wheel and regulating wheel.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="462" data-line-end="463"><a id="2_Formulas_462"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="464" data-line-end="465">No primary numerical formula; this section is mainly identification-based.</p>
+<h5 class="code-line has-line-data" data-line-start="466" data-line-end="467"><a id="3_Diagram_466"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="468" data-line-end="469"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="470" data-line-end="471"><a id="4_Worked_Example_470"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="472" data-line-end="473"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="474" data-line-end="476"><strong>Given:</strong> A workpiece is ground to produce a straight or tapered external surface.<br>
+<strong>Find:</strong> The process.</p>
+<p class="has-line-data" data-line-start="477" data-line-end="478"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="478" data-line-end="479">Straight or tapered external surfaces are made by external cylindrical grinding.</li>
+<li class="has-line-data" data-line-start="479" data-line-end="481"><strong>Answer:</strong> External cylindrical grinding.</li>
+</ol>
+<p class="has-line-data" data-line-start="481" data-line-end="482"><strong>Key Insight:</strong> �Straight or tapered external surface� is the keyword that usually identifies external cylindrical grinding.</p>
+<h4 class="code-line has-line-data" data-line-start="483" data-line-end="484"><a id="38_Broaching_483"></a>3.8 Broaching</h4>
+<h5 class="code-line has-line-data" data-line-start="485" data-line-end="486"><a id="1_Concept_Pointers_485"></a>1. Concept Pointers</h5>
+<ul>
+<li class="has-line-data" data-line-start="486" data-line-end="487">A broach has roughing, semi-finishing, and finishing teeth.</li>
+<li class="has-line-data" data-line-start="487" data-line-end="488">Broaching is very accurate and gives excellent surface finish.</li>
+<li class="has-line-data" data-line-start="488" data-line-end="489">Surface broaching is the operation where either the work or the tool moves across the other.</li>
+<li class="has-line-data" data-line-start="489" data-line-end="490">Broaching can produce internal gears and splines.</li>
+<li class="has-line-data" data-line-start="490" data-line-end="491">Broaching is suitable for complex internal shapes and mass production.</li>
+<li class="has-line-data" data-line-start="491" data-line-end="493">Tooling cost is high, so it becomes economical mainly for larger production runs.</li>
+</ul>
+<h5 class="code-line has-line-data" data-line-start="493" data-line-end="494"><a id="2_Formulas_493"></a>2. Formulas</h5>
+<p class="has-line-data" data-line-start="495" data-line-end="496">For quick lookup, see Quick Reference Section 2.1.</p>
+<div class="formula-card">$$\boxed{\text{Accuracy} \approx 1\,\mu\text{m}}$$</div><h5 class="code-line has-line-data" data-line-start="499" data-line-end="500"><a id="3_Diagram_499"></a>3. Diagram</h5>
+<p class="has-line-data" data-line-start="501" data-line-end="502"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
+<h5 class="code-line has-line-data" data-line-start="503" data-line-end="504"><a id="4_Worked_Example_503"></a>4. Worked Example</h5>
+<p class="has-line-data" data-line-start="505" data-line-end="506"><strong>Worked Example 1</strong></p>
+<p class="has-line-data" data-line-start="507" data-line-end="509"><strong>Given:</strong> A broach has rough, semi-finishing, and finishing teeth.<br>
+<strong>Find:</strong> Whether the statement is correct.</p>
+<p class="has-line-data" data-line-start="510" data-line-end="511"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="511" data-line-end="512">A standard broach does contain all three tooth groups.</li>
+<li class="has-line-data" data-line-start="512" data-line-end="514"><strong>Answer:</strong> Correct.</li>
+</ol>
+<p class="has-line-data" data-line-start="514" data-line-end="515"><strong>Key Insight:</strong> Questions often ask these three tooth groups together as an identification check.</p>
+<p class="has-line-data" data-line-start="516" data-line-end="517"><strong>Worked Example 2</strong></p>
+<p class="has-line-data" data-line-start="518" data-line-end="520"><strong>Given:</strong> Accuracy attainable by broaching.<br>
+<strong>Find:</strong> Typical value.</p>
+<p class="has-line-data" data-line-start="521" data-line-end="522"><strong>Solution:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="522" data-line-end="523">Broaching accuracy is of the order of 1 micron.</li>
+<li class="has-line-data" data-line-start="523" data-line-end="525"><strong>Answer:</strong> About 1 $\mu$m.</li>
+</ol>
+<p class="has-line-data" data-line-start="525" data-line-end="526"><strong>Key Insight:</strong> This is a standard memorization point.</p>
+<h2 class="code-line has-line-data" data-line-start="527" data-line-end="528"><a id="4_Consolidation_Notes_527"></a>4. Consolidation Notes</h2>
+<p class="has-line-data" data-line-start="529" data-line-end="531"><strong>Note on grinding wheel selection:</strong><br>
+The grade rule and the soft-wheel/hard-material rule are frequently tested together. Grade refers to bond hardness, while structure refers to grain spacing. See Section 3.6.</p>
+<p class="has-line-data" data-line-start="532" data-line-end="534"><strong>Note on truing and dressing:</strong><br>
+These are often confused. Truing restores geometry and concentricity; dressing refreshes the abrasive surface. See Section 3.6.</p>
+<p class="has-line-data" data-line-start="535" data-line-end="537"><strong>Note on lathe work holding:</strong><br>
+Face plate, four-jaw chuck, three-jaw chuck, collets, and mandrels are all practical work-holding answers that appear in direct MCQs. See Section 3.1.</p>
+<p class="has-line-data" data-line-start="538" data-line-end="540"><strong>Note on gear cutting:</strong><br>
+Hobbing, gear milling, and gear shaving are commonly compared. Hobbing is the fastest and is a generating process, while shaving is a finishing operation. See Section 3.5.</p>
+<h2 class="code-line has-line-data" data-line-start="541" data-line-end="542"><a id="5_Final_QuickFire_Checklist_541"></a>5. Final Quick-Fire Checklist</h2>
+<ul>
+<li class="has-line-data" data-line-start="542" data-line-end="543">Memorize the lathe speed formula: $V = \pi DN/1000$.</li>
+<li class="has-line-data" data-line-start="543" data-line-end="544">Remember the taper set-over formula: (y \approx L(D-d)/(2l_r)).</li>
+<li class="has-line-data" data-line-start="544" data-line-end="545">Fix the milling relations: $f_m = f_t zN$ and $\text{MRR} = dbf_m$.</li>
+<li class="has-line-data" data-line-start="545" data-line-end="546">Know that hobbing is the fastest gear-cutting method.</li>
+<li class="has-line-data" data-line-start="546" data-line-end="547">Remember that differential indexing is used for odd or awkward divisions like 119.</li>
+<li class="has-line-data" data-line-start="547" data-line-end="548">Keep the grinding rules straight: soft wheel for hard material, hard wheel for soft material.</li>
+<li class="has-line-data" data-line-start="548" data-line-end="550">Remember that broaching accuracy is about 1 micron.</li>
+</ul>
+<p class="has-line-data" data-line-start="550" data-line-end="551"><strong>High-frequency PYQ focus:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="551" data-line-end="552">Lathe cutting speed, taper turning, and work holding</li>
+<li class="has-line-data" data-line-start="552" data-line-end="553">Drilling time with overtravel</li>
+<li class="has-line-data" data-line-start="553" data-line-end="554">Milling feed and MRR</li>
+<li class="has-line-data" data-line-start="554" data-line-end="555">Gear cutting and indexing</li>
+<li class="has-line-data" data-line-start="555" data-line-end="556">Grinding wheel grade, truing, and dressing</li>
+<li class="has-line-data" data-line-start="556" data-line-end="557">Broaching teeth and accuracy</li>
+<li class="has-line-data" data-line-start="557" data-line-end="559">Centreless grinding and high-velocity grinding reasons</li>
+</ul>
+<hr>
+<p class="has-line-data" data-line-start="561" data-line-end="562">End of Machine Tools and Grinding Guide.</p>
+
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metal Cutting & Machine Tools Master Guide - AP GenCo Exam</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- MathJax 3 Engine for LaTeX Math Equations -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-sidebar: #0f172a;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --brand-primary: #2563eb;
+            --brand-dark: #1e40af;
+
+            --callout-concept-bg: #eff6ff;
+            --callout-concept-border: #3b82f6;
+            --callout-concept-text: #1e40af;
+
+            --callout-trap-bg: #fef2f2;
+            --callout-trap-border: #ef4444;
+            --callout-trap-text: #991b1b;
+
+            --callout-focus-bg: #fefce8;
+            --callout-focus-border: #eab308;
+            --callout-focus-text: #854d0e;
+
+            --callout-formula-bg: #f0fdf4;
+            --callout-formula-border: #22c55e;
+            --callout-formula-text: #166534;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.85;
+            color: var(--text-primary);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #10b981);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* App Layout */
+        .app-wrapper { display: flex; min-height: 100vh; }
+
+        /* Floating Sidebar Toggle Button */
+        .sidebar-toggle-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: #0f172a;
+            color: #ffffff;
+            border: 1px solid #334155;
+            border-radius: 30px;
+            padding: 10px 18px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-toggle-btn:hover { background: #1e293b; transform: translateY(-2px); }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            color: #f8fafc;
+            position: fixed;
+            top: 0; bottom: 0; left: 0;
+            z-index: 999;
+            overflow-y: auto;
+            padding: 28px 18px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .sidebar.collapsed { transform: translateX(-100%); }
+
+        .sidebar-header {
+            padding-bottom: 16px;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h2 { font-size: 1.1rem; font-weight: 700; color: #f8fafc; margin: 0 0 6px 0; border: none; padding: 0; }
+        .sidebar-header a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; }
+        .sidebar-header a:hover { color: #38bdf8; }
+
+        .toc-nav { display: flex; flex-direction: column; gap: 4px; }
+        .toc-chapter { font-weight: 700; font-size: 0.85rem; color: #38bdf8; margin-top: 14px; padding: 6px 10px; border-radius: 6px; background: rgba(56, 189, 248, 0.08); text-transform: uppercase; letter-spacing: 0.04em; }
+        .toc-section { font-size: 0.83rem; color: #cbd5e1; text-decoration: none; padding: 6px 10px; border-radius: 6px; display: block; transition: all 0.2s ease; border-left: 2px solid transparent; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .toc-section:hover, .toc-section.active { color: #ffffff; background: rgba(255, 255, 255, 0.1); border-left-color: #38bdf8; }
+
+        /* Main Content Container */
+        .main-content { flex: 1; margin-left: 320px; padding: 40px 24px; transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .main-content.expanded { margin-left: 0; }
+
+        .reader-container { max-width: 920px; margin: 0 auto; background-color: var(--bg-card); border-radius: 16px; padding: 52px 60px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); }
+
+        /* Document Title Card */
+        .doc-title-card { text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 40px 32px; border-radius: 16px; margin-bottom: 32px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15); }
+        .doc-title-card h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 10px 0; color: #ffffff; border: none; padding: 0; letter-spacing: -0.02em; }
+        .doc-title-card .subtitle { font-size: 1.05rem; color: #94a3b8; margin: 0; }
+
+        /* Interactive Sub-Module Tab Selector */
+        .module-selector-container {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 36px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .module-selector-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .module-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .module-tab {
+            padding: 8px 14px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .module-tab:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .module-tab.active {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .module-content-section {
+            display: none;
+        }
+
+        .module-content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography & Headings */
+        p { margin-top: 0; margin-bottom: 24px; color: var(--text-primary); }
+        ul, ol { margin-top: 0; margin-bottom: 28px; padding-left: 28px; }
+        li { margin-bottom: 10px; }
+
+        h2 { font-size: 1.65rem; font-weight: 800; color: #0f172a; margin-top: 48px; margin-bottom: 22px; padding-bottom: 12px; border-bottom: 3px solid #e2e8f0; position: relative; }
+        h2::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 80px; height: 3px; background-color: var(--brand-primary); }
+        h3 { font-size: 1.28rem; font-weight: 700; color: #1e3a8a; margin-top: 36px; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid var(--brand-primary); }
+        h4 { font-size: 1.08rem; font-weight: 600; color: #334155; margin-top: 26px; margin-bottom: 14px; }
+        h5 { font-size: 0.98rem; font-weight: 600; color: #475569; margin-top: 20px; margin-bottom: 10px; }
+        hr { border: none; border-top: 1px solid #e2e8f0; margin: 40px 0; }
+
+        /* Formula Display Card */
+        .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+        .formula-title { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #166534; margin-bottom: 10px; }
+        .formula-body { font-family: 'Fira Code', monospace; font-size: 1.25rem; font-weight: 600; color: #064e3b; background: #ffffff; padding: 10px 20px; border-radius: 8px; display: inline-block; border: 1px solid #a7f3d0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .formula-notes { font-size: 0.88rem; color: #15803d; margin-top: 10px; }
+
+        /* Color-Coded Callouts */
+        .callout-box { padding: 20px 24px; margin: 26px 0; border-radius: 12px; border-left: 5px solid; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02); }
+        .callout-box.concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+        .callout-box.trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+        .callout-box.focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+        .callout-box.formula-box { background-color: var(--callout-formula-bg); border-color: var(--callout-formula-border); color: var(--callout-formula-text); }
+        .callout-title { font-weight: 700; font-size: 1.02rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .callout-content { font-size: 0.98rem; line-height: 1.75; }
+
+        /* Point Grid Cards */
+        .point-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+        .point-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid var(--brand-primary); border-radius: 10px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .point-card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06); }
+        .point-card-header { font-size: 1.02rem; font-weight: 700; color: #0f172a; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9; }
+        .point-card-body { display: flex; flex-direction: column; gap: 8px; }
+        .point-card-line { font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        .point-card-line strong { color: #1e293b; }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin: 24px 0; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        th { background-color: #0f172a; color: #ffffff; font-weight: 600; padding: 12px 16px; text-align: left; }
+        td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; color: var(--text-primary); }
+        tr:nth-child(even) { background-color: #f8fafc; }
+
+        /* Figure Cards */
+        .figure-card { text-align: center; margin: 28px 0; }
+        .figure-card img { max-width: 100%; height: auto; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .figure-caption { font-size: 0.88rem; color: #64748b; margin-top: 10px; font-style: italic; }
+
+        code { font-family: "Fira Code", monospace; background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; border: 1px solid #e2e8f0; }
+
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0 !important; padding: 24px 16px; }
+            .reader-container { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Progress Bar -->
+    <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+
+    <!-- Sidebar Toggle -->
+    <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Toggle Navigation">
+        <span id="sidebarIcon">☰</span> <span id="sidebarText">Contents</span>
+    </button>
+
+    <div class="app-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Metal Cutting Suite</h2>
+                <a href="index.html">&larr; Back to Exam Portal</a>
+            </div>
+            <nav class="toc-nav" id="tocNav"></nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+            <div class="reader-container">
+                <!-- Title Card -->
+                <div class="doc-title-card">
+                    <div style="margin-bottom: 12px;">
+                        <a href="index.html" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 600; background: rgba(255,255,255,0.08); padding: 5px 14px; border-radius: 20px; display: inline-block;">&larr; Back to Exam Portal</a>
+                    </div>
+                    <h1>Metal Cutting & Machine Tools</h1>
+                    <div class="subtitle">AP GenCo Exam — Complete Uncut High-Yield Mechanical Engineering Revision Suite</div>
+                </div>
+
+                <!-- Interactive Sub-Module Selector -->
+                <div class="module-selector-container">
+                    <div class="module-selector-label">📚 Select Sub-Module Content:</div>
+                    <div class="module-tabs">
+                        <button class="module-tab active" onclick="switchModule('metal_cutting')">1. Metal Cutting Fundamentals</button>
+                        <button class="module-tab" onclick="switchModule('grinding')">2. Machine Tools & Grinding</button>
+                        <button class="module-tab" onclick="switchModule('metrology')">3. Metrology & Measurement</button>
+                        <button class="module-tab" onclick="switchModule('nc')">4. NC & CNC Automation</button>
+                        <button class="module-tab" onclick="switchModule('jigs')">5. Jigs & Fixtures</button>
+                        <button class="module-tab" onclick="switchModule('edm')">6. Non-Traditional (EDM/ECM/USM)</button>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 1: Metal Cutting Fundamentals -->
+                <div id="module-metal_cutting" class="module-content-section active">
+                    <h2>1. Metal Cutting Fundamentals</h2>
+                    <p>This guide covers metal cutting fundamentals, tool geometry, chip formation, Merchant theory, Taylor tool-life relation, cutting speed and forces, and tool wear for AP Genco AE-style preparation. The highest-frequency PYQ areas are ASA tool signature, chip thickness ratio, shear angle, Taylor’s equation, cutting speed calculations, force relations, and flank/crater wear identification.</p>
+
+                    <h3>2. Quick Reference Sheet</h3>
+                    <h4>2.1 All Formulas</h4>
+                    
+                    <div class="formula-card">
+                        <div class="formula-title">📌 ASA Tool Signature</div>
+                        <div class="formula-body">\alpha_b - \alpha_s - \gamma_e - \gamma_s - C_e - C_s - r</div>
+                        <div class="formula-notes">$\alpha_b$: back rake | $\alpha_s$: side rake | $\gamma_e$: end relief | $\gamma_s$: side relief | $C_e$: end cutting edge | $C_s$: side cutting edge | $r$: nose radius (mm)</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Lip Angle Formula</div>
+                        <div class="formula-body">\text{Lip angle} = 90^\circ - (\text{rake angle} + \text{clearance angle})</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Chip Thickness Ratio ($r$)</div>
+                        <div class="formula-body">r = \frac{t}{t_c} = \frac{\sin\phi}{\cos(\phi-\alpha)} = \frac{l_c}{l}</div>
+                        <div class="formula-notes">$t$: uncut thickness | $t_c$: cut chip thickness | $l_c$: chip length | $l$: cut length | $\phi$: shear angle | $\alpha$: rake angle</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Merchant Relation & Shear Angle Formula</div>
+                        <div class="formula-body">2\phi + \beta - \alpha = 90^\circ \implies \phi = \frac{\pi}{4} + \frac{\alpha - \beta}{2} \quad \text{and} \quad \tan\phi = \frac{r\cos\alpha}{1-r\sin\alpha}</div>
+                        <div class="formula-notes">$\beta$: friction angle | Minimum power consumption criterion</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Friction Coefficient, Speed, Forces & Power</div>
+                        <div class="formula-body">\mu = \tan\beta = \frac{F_c\sin\alpha + F_t\cos\alpha}{F_c\cos\alpha - F_t\sin\alpha}, \quad V = \frac{\pi D N}{1000}, \quad V_c = V \cdot r</div>
+                        <div class="formula-notes">$F_s = F_c\cos\phi - F_t\sin\phi$, $F_n = F_c\sin\phi + F_t\cos\phi$, $P = F_c \cdot V$</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Taylor's Tool Life Equation</div>
+                        <div class="formula-body">V T^n = C \implies V_1 T_1^n = V_2 T_2^n</div>
+                        <div class="formula-notes">$V$: cutting speed (m/min) | $T$: tool life (min) | Exponents: HSS (0.08–0.2), Carbide (0.2–0.4), Ceramic (0.5–0.7)</div>
+                    </div>
+
+                    <h4>2.2 Key Definitions & Master Concepts</h4>
+                    <ul>
+                        <li><strong>ASA Tool Signature</strong>: Standard order of 7 tool angles/dimensions specified in the American Standards Association system.</li>
+                        <li><strong>Orthogonal Cutting</strong>: Cutting edge is perpendicular to the direction of tool travel, resulting in 2D force state.</li>
+                        <li><strong>Oblique Cutting</strong>: Cutting edge is inclined to tool travel, resulting in 3D chip flow and force components.</li>
+                        <li><strong>Built-up Edge (BUE)</strong>: Layer of work material adhering to the rake face under high friction and temperature at low-to-medium speeds.</li>
+                        <li><strong>Flank Wear</strong>: Progressive wear on clearance faces due to sliding contact/abrasion against machined surface.</li>
+                        <li><strong>Crater Wear</strong>: Wear bowl formed on tool rake face caused primarily by high-temperature solid-state diffusion.</li>
+                    </ul>
+
+                    <h3>3. Main Body - Topic Breakdown</h3>
+                    <h4>3.1 Tool Geometry & ASA Signature</h4>
+                    <p>Tool geometry dictates force components and tool life. In ASA notation, the reference planes are perpendicular to each other. Rake angles control chip flow direction and force magnitude, while relief angles prevent rubbing against the workpiece.</p>
+
+                    <div class="callout-box concept">
+                        <div class="callout-title">💡 ASA Signature Element Order</div>
+                        <div class="callout-content">
+                            Memorize the exact 7-part sequence: <strong>1. Back Rake, 2. Side Rake, 3. End Relief, 4. Side Relief, 5. End Cutting Edge Angle, 6. Side Cutting Edge Angle, 7. Nose Radius</strong>.
+                        </div>
+                    </div>
+
+                    <h4>3.2 Mechanics of Chip Formation</h4>
+                    <p>Chips are produced by localized shear deformation along a shear plane. The three primary chip types are continuous chips (ductile material, high speed, high rake), discontinuous chips (brittle material), and continuous chips with BUE (ductile material, low speed, high friction).</p>
+
+                    <h4>3.3 Merchant's Force Analysis</h4>
+                    <p>Merchant's circle relates cutting force ($F_c$), thrust force ($F_t$), friction force ($F$), normal force ($N$), shear force ($F_s$), and normal force on shear plane ($F_n$). Merchant's expression assumes minimum energy dissipation during machining.</p>
+
+                    <h4>3.4 Tool Life & Wear Mechanisms</h4>
+                    <div class="callout-box trap">
+                        <div class="callout-title">⚠️ Flank Wear vs Crater Wear Traps</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>Flank Wear</strong>: Located on relief face. Primary cause is abrasive friction. Criterion for tool replacement ($VB \approx 0.3 \text{ mm}$).</li>
+                                <li><strong>Crater Wear</strong>: Located on rake face. Primary cause is chemical diffusion at maximum temperature zone away from the cutting tip.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>4. Quick MCQ & PYQ High-Frequency Points</h3>
+                    <div class="point-list">
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>ASA Order</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Elements: </strong>7 fixed elements</div>
+                                <div class="point-card-line"><strong>• Last term: </strong>Nose radius in mm</div>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>Merchant Relation</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Formula: </strong>$2\phi + \beta - \alpha = 90^\circ$</div>
+                                <div class="point-card-line"><strong>• Effect: </strong>Higher $\phi \implies$ lower cutting force</div>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>Heat Distribution</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Trend: </strong>Chip carries maximum heat ($\sim 80\%$)</div>
+                                <div class="point-card-line"><strong>• Shear zone: </strong>Primary heat generation zone</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 2: Machine Tools & Grinding -->
+                <div id="module-grinding" class="module-content-section">
+                    <h2>2. Machine Tools & Grinding</h2>
+                    <p>Covers lathe operations, shaper, planer, slotter, milling machines, drilling machines, and grinding wheel specifications (abrasive type, grain size, grade, structure, bond type).</p>
+
+                    <h3>Quick Reference & Key Formulas</h3>
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Grinding Wheel Marking Standard</div>
+                        <div class="formula-body">\text{Manufacturer} - \text{A} - \text{46} - \text{K} - \text{5} - \text{V} - \text{Suffix}</div>
+                        <div class="formula-notes">A: Abrasive (Aluminium Oxide) | 46: Grain size (Medium) | K: Grade (Medium) | 5: Structure (Dense) | V: Bond (Vitrified)</div>
+                    </div>
+
+                    <div class="callout-box focus">
+                        <div class="callout-title">🎯 Shaper vs Planer Comparison</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>Shaper</strong>: Tool reciprocates, work feeds. Used for small workpieces. Quick return mechanism (velocity during return stroke is higher).</li>
+                                <li><strong>Planer</strong>: Workpiece reciprocates, tool feeds. Used for large heavy workpieces. Table driven by rack and pinion or hydraulic drive.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout-box concept">
+                        <div class="callout-title">💡 Up Milling vs Down Milling</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>Up Milling (Conventional)</strong>: Cutter rotates against work feed. Chip thickness increases from zero to maximum. Tends to lift workpiece.</li>
+                                <li><strong>Down Milling (Climb)</strong>: Cutter rotates with work feed. Chip thickness starts at maximum. Better finish, requires backlash eliminator.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 3: Metrology & Measurement -->
+                <div id="module-metrology" class="module-content-section">
+                    <h2>3. Metrology & Measurement</h2>
+                    <p>Covers standards of measurement, limits, fits, tolerances, linear measurement, angular measurement (sine bar), comparators, LVDT, and surface roughness parameters ($R_a$, $R_z$).</p>
+
+                    <h3>2. Quick Reference Sheet</h3>
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Fundamental Tolerance Unit ($i$)</div>
+                        <div class="formula-body">i = 0.45 \sqrt[3]{D} + 0.001 D \quad (\mu\text{m})</div>
+                        <div class="formula-notes">$D = \sqrt{D_1 \cdot D_2}$ geometric mean diameter of size range step (mm)</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Standard Tolerance IT Grades</div>
+                        <div class="formula-body">\text{IT6} = 10i, \quad \text{IT7} = 16i, \quad \text{IT8} = 25i, \quad \text{IT9} = 40i, \quad \text{IT10} = 64i</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Clearances & Interferences</div>
+                        <div class="formula-body">\text{Min Clearance} = LLH - HLS, \quad \text{Max Clearance} = HLH - LLS</div>
+                        <div class="formula-notes">LLH: Lower Limit Hole | HLH: Higher Limit Hole | LLS: Lower Limit Shaft | HLS: Higher Limit Shaft</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Sine Bar Angular Measurement</div>
+                        <div class="formula-body">\sin\theta = \frac{h}{L} \implies h = L \sin\theta</div>
+                        <div class="formula-notes">$h$: slip gauge stack height | $L$: distance between roller centers</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Least Count Formulas</div>
+                        <div class="formula-body">\text{LC (Vernier)} = 1\text{ MSD} - 1\text{ VSD}, \quad \text{LC (Micrometer)} = \frac{\text{Pitch}}{\text{Number of thimble divisions}}</div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Surface Roughness $R_a$ & Best Wire Size</div>
+                        <div class="formula-body">R_a = \frac{1}{L} \int_0^L |y|\,dx, \quad d = \frac{P}{2}\sec\frac{\alpha}{2}</div>
+                        <div class="formula-notes">$P$: thread pitch | $\alpha$: thread semi-angle</div>
+                    </div>
+
+                    <h3>3. Main Body - Detailed Topic Breakdown</h3>
+                    <h4>3.1 Limits, Fits, Tolerances and Allowance</h4>
+                    <ul>
+                        <li><strong>Tolerance</strong>: Total permissible variation in size ($\text{Upper Limit} - \text{Lower Limit}$).</li>
+                        <li><strong>Allowance</strong>: Intentional difference between mating parts (minimum clearance or maximum interference).</li>
+                        <li><strong>Hole-Basis System</strong>: Basic size is lower limit of hole ($H$-hole lower deviation $= 0$). Most widely used.</li>
+                        <li><strong>Shaft-Basis System</strong>: Basic size is upper limit of shaft ($h$-shaft upper deviation $= 0$).</li>
+                    </ul>
+
+                    <h4>3.2 Taylor's Principle of Limit Gauge Design</h4>
+                    <div class="callout-box focus">
+                        <div class="callout-title">🎯 Taylor's Principle Rules</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>GO Gauge</strong>: Checks maximum material condition (MMC). Must check all related dimensions (length, roundness) simultaneously.</li>
+                                <li><strong>NO-GO Gauge</strong>: Checks least material condition (LMC). Checks only one specific dimension at a time.</li>
+                                <li><strong>Wear Allowance</strong>: Provided only on the GO gauge since it constantly enters workpieces.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>3.3 Linear & Angular Measurement (Sine Bar & Slip Gauges)</h4>
+                    <p>Slip gauges (Gauge blocks) are end standards joined by <strong>wringing</strong> (molecular attraction). Sine bars set angles using $\sin\theta = h/L$. Autocollimators measure very small angular tilt via optical reflection.</p>
+
+                    <h4>3.4 Surface Roughness & Precision Instruments</h4>
+                    <div class="callout-box trap">
+                        <div class="callout-title">⚠️ Surface Roughness Trap</div>
+                        <div class="callout-content">
+                            Higher $R_a$ value indicates a <strong>rougher</strong> surface, while a lower $R_a$ value indicates a smoother finish.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 4: NC & CNC Automation -->
+                <div id="module-nc" class="module-content-section">
+                    <h2>4. NC & CNC Automation</h2>
+                    <p>Covers Numerical Control (NC), Computer Numerical Control (CNC), Direct Numerical Control (DNC), G-codes, M-codes, MCU hardware, open-loop vs closed-loop servo control, and interpolators.</p>
+
+                    <div class="callout-box concept">
+                        <div class="callout-title">💡 Essential G-Codes & M-Codes Master List</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>G00</strong>: Rapid positioning (non-cutting motion)</li>
+                                <li><strong>G01</strong>: Linear interpolation (straight cut at specified feed)</li>
+                                <li><strong>G02</strong>: Circular interpolation Clockwise (CW)</li>
+                                <li><strong>G03</strong>: Circular interpolation Counter-Clockwise (CCW)</li>
+                                <li><strong>G04</strong>: Dwell time</li>
+                                <li><strong>G90 / G91</strong>: Absolute / Incremental positioning mode</li>
+                                <li><strong>M03 / M04 / M05</strong>: Spindle ON CW / Spindle ON CCW / Spindle STOP</li>
+                                <li><strong>M06</strong>: Tool Change | <strong>M08 / M09</strong>: Coolant ON / Coolant OFF</li>
+                                <li><strong>M30</strong>: End of program and rewind</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 5: Jigs & Fixtures -->
+                <div id="module-jigs" class="module-content-section">
+                    <h2>5. Jigs & Fixtures</h2>
+                    <p>Covers differences between jigs and fixtures, 3-2-1 principle of location, clamping devices, drill bushes, and indexing mechanisms.</p>
+
+                    <div class="callout-box focus">
+                        <div class="callout-title">🎯 Jig vs Fixture Core Difference</div>
+                        <div class="callout-content">
+                            <ul>
+                                <li><strong>Jig</strong>: Holds and locates the workpiece AND guides the cutting tool (e.g., drill jig). Usually light, not bolted to table.</li>
+                                <li><strong>Fixture</strong>: Holds and locates the workpiece but DOES NOT guide the cutting tool. Heavy, rigidly clamped/bolted to machine table.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 3-2-1 Principle of Location</div>
+                        <div class="formula-body">\text{Primary (3 pins)} \implies 5 \text{ DOF restricted} \quad | \quad \text{Secondary (2 pins)} \implies 3 \text{ DOF} \quad | \quad \text{Tertiary (1 pin)} \implies 1 \text{ DOF}</div>
+                        <div class="formula-notes">Restricts 9 degrees of freedom out of 12 total 3D degrees of freedom.</div>
+                    </div>
+                </div>
+
+                <!-- SUB-MODULE 6: Non-Traditional Machining -->
+                <div id="module-edm" class="module-content-section">
+                    <h2>6. Non-Traditional Machining (EDM / ECM / USM)</h2>
+                    <p>Covers Electric Discharge Machining (EDM), Electrochemical Machining (ECM), Ultrasonic Machining (USM), Abrasive Jet Machining (AJM), Laser Beam Machining (LBM), and Plasma Arc Machining (PAM).</p>
+
+                    <div class="formula-card">
+                        <div class="formula-title">📌 Faraday's Law of ECM Material Removal Rate</div>
+                        <div class="formula-body">\text{MRR} = \frac{A \cdot I}{z \cdot F} \quad (\text{g/s})</div>
+                        <div class="formula-notes">$A$: atomic weight | $I$: current (A) | $z$: valency | $F$: Faraday's constant (96,500 C/g-eq)</div>
+                    </div>
+
+                    <div class="point-list">
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>EDM (Electric Discharge)</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Mechanism: </strong>Thermal spark erosion</div>
+                                <div class="point-card-line"><strong>• Material: </strong>Conductive materials only</div>
+                                <div class="point-card-line"><strong>• Dielectric: </strong>Kerosene / Deionized water</div>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>ECM (Electrochemical)</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Mechanism: </strong>Anodic dissolution (Faraday's Law)</div>
+                                <div class="point-card-line"><strong>• Tool Wear: </strong>Zero tool wear</div>
+                                <div class="point-card-line"><strong>• Electrolyte: </strong>NaCl / NaNO₃ aqueous solution</div>
+                            </div>
+                        </div>
+                        <div class="point-card">
+                            <div class="point-card-header"><span><strong>USM (Ultrasonic)</strong></span></div>
+                            <div class="point-card-body">
+                                <div class="point-card-line"><strong>• Mechanism: </strong>Abrasive slurry micro-chipping</div>
+                                <div class="point-card-line"><strong>• Application: </strong>Hard & brittle non-conductors (Glass, Quartz)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Module Switcher Tab Script
+        function switchModule(moduleId) {
+            const tabs = document.querySelectorAll('.module-tab');
+            const sections = document.querySelectorAll('.module-content-section');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const targetTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(moduleId));
+            if (targetTab) targetTab.classList.add('active');
+
+            const targetSection = document.getElementById('module-' + moduleId);
+            if (targetSection) targetSection.classList.add('active');
+
+            // Re-generate TOC for selected module
+            generateTOC();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Collapsible Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarIcon = document.getElementById('sidebarIcon');
+        const sidebarText = document.getElementById('sidebarText');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            if (sidebar.classList.contains('collapsed')) {
+                sidebarIcon.textContent = '☰';
+                sidebarText.textContent = 'Contents';
+            } else {
+                sidebarIcon.textContent = '✕';
+                sidebarText.textContent = 'Close';
+            }
+        });
+
+        // Dynamic Table of Contents Generation
+        function generateTOC() {
+            const tocNav = document.getElementById('tocNav');
+            tocNav.innerHTML = '';
+            
+            const activeSection = document.querySelector('.module-content-section.active');
+            if (!activeSection) return;
+
+            const headings = activeSection.querySelectorAll('h2, h3');
+            headings.forEach((heading, index) => {
+                const id = 'heading-' + index;
+                heading.id = id;
+                const link = document.createElement('a');
+                link.href = '#' + id;
+                if (heading.tagName.toLowerCase() === 'h2') {
+                    link.className = 'toc-chapter';
+                    link.textContent = heading.textContent;
+                } else {
+                    link.className = 'toc-section';
+                    link.textContent = heading.textContent;
+                }
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.add('collapsed');
+                        mainContent.classList.add('expanded');
+                        sidebarIcon.textContent = '☰';
+                        sidebarText.textContent = 'Contents';
+                    }
+                });
+                tocNav.appendChild(link);
+            });
+        }
+
+        // Initialize TOC on page load
+        document.addEventListener('DOMContentLoaded', generateTOC);
+
+        // Reading Progress & ScrollSpy
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            progressBar.style.width = Math.min(progress, 100) + '%';
+
+            const activeSection = document.querySelector('.module-content-section.active');
+            if (!activeSection) return;
+
+            const headings = activeSection.querySelectorAll('h2, h3, h4');
+            const tocLinks = document.querySelectorAll('.toc-section, .toc-chapter');
+            let currentSectionId = '';
+
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 140) { currentSectionId = heading.id; }
+            });
+
+            tocLinks.forEach(link => {
+                if (link.getAttribute('href') === '#' + currentSectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

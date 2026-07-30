@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metal Cutting & Machine Tools - AP GenCo Exam Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #2D2926;
+      background-color: #F0ECE1;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header matching index.html */
+    .portal-header {
+      text-align: center;
+      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+      color: #FFFDF9;
+      padding: 40px 28px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+    }
+
+    .portal-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 26pt;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .portal-header p {
+      font-size: 12pt;
+      color: #E8DACF;
+      max-width: 700px;
+      margin: 0 auto 16px auto;
+    }
+
+    .back-btn {
+      display: inline-block;
+      color: #FFFDF9;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 10.5pt;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 6px 16px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .back-btn:hover { background: rgba(255, 255, 255, 0.25); }
+
+    /* Section Title */
+    .section-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 18pt;
+      color: #4A2E1B;
+      border-bottom: 2px solid #8C5A37;
+      padding-bottom: 8px;
+      margin-top: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title span.mark-tag {
+      font-size: 10.5pt;
+      background-color: #8C5A37;
+      color: #FFFDF9;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+    }
+
+    /* Grid Layout matching index.html */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .module-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E2D9CC;
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(60, 40, 20, 0.05);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .module-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(74, 46, 27, 0.12);
+      border-color: #8C5A37;
+    }
+
+    .card-badge {
+      font-size: 9pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #8C5A37;
+      background-color: #F7F3EC;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+      width: fit-content;
+      border: 1px solid #EAE1D3;
+    }
+
+    .card-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 15pt;
+      font-weight: 700;
+      color: #4A2E1B;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 10.5pt;
+      color: #5C544D;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .card-footer {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #8C5A37;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      border-top: 1px solid #F0ECE1;
+      padding-top: 12px;
+    }
+
+    .module-card:hover .card-footer {
+      color: #4A2E1B;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Banner matching Warm Portal Theme -->
+    <header class="portal-header">
+      <a href="index.html" class="back-btn">&larr; Back to AP GenCo Main Portal</a>
+      <h1 style="margin-top: 16px;">Metal Cutting & Machine Tools</h1>
+      <p>Select any of the 6 sub-module guides below to open its complete HTML revision guide:</p>
+    </header>
+
+    <div class="section-title">
+      <span class="mark-tag">6 Sub-Modules</span> Sub-Topic Conversion Guides
+    </div>
+
+    <div class="module-grid">
+      <!-- 1. Metal Cutting Fundamentals -->
+      <a href="metal_cutting_machine_tools.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 1</span>
+          <div class="card-title">Metal Cutting & Machine Tools</div>
+          <div class="card-desc">Mechanics of machining, ASA tool signature, chip thickness ratio, Merchant theory, Taylor tool-life, & forces.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+
+      <!-- 2. Machine Tools & Grinding -->
+      <a href="machine_tools_grinding.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 2</span>
+          <div class="card-title">Machine Tools & Grinding</div>
+          <div class="card-desc">Lathes, shapers, planers, milling methods (up/down milling), drilling, and grinding wheel specifications.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+
+      <!-- 3. Metrology & Measurement -->
+      <a href="metrology.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 3</span>
+          <div class="card-title">Metrology & Measurement</div>
+          <div class="card-desc">Limits, fits, tolerances, Taylor's principle of gauges, sine bar angle measurement, comparators, & Ra surface roughness.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+
+      <!-- 4. NC & CNC Automation -->
+      <a href="NC.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 4</span>
+          <div class="card-title">NC & CNC Automation</div>
+          <div class="card-desc">Numerical control systems, G-codes, M-codes, MCU architecture, servo loops, & interpolators.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+
+      <!-- 5. Jigs & Fixtures -->
+      <a href="jigs_fixtures.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 5</span>
+          <div class="card-title">Jigs & Fixtures</div>
+          <div class="card-desc">Difference between jigs & fixtures, 3-2-1 location principle, locators, clamps, & drill bushes.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+
+      <!-- 6. Non-Traditional Machining -->
+      <a href="EDM_ECM_USM.html" class="module-card">
+        <div>
+          <span class="card-badge">Module 6</span>
+          <div class="card-title">Non-Traditional (EDM/ECM/USM)</div>
+          <div class="card-desc">Spark erosion (EDM), anodic dissolution (ECM), ultrasonic micro-chipping (USM), LBM, EBM, & AJM.</div>
+        </div>
+        <div class="card-footer">Open Guide &rarr;</div>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
