@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeroth, First & Second Laws, Thermodynamic Cycles, Availability & Pure Substances — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="zeroth-first-second-laws-thermodynamic-cycles-availability-pure-substances-comprehensive-reorganized-study-guide">Zeroth, First &amp; Second Laws, Thermodynamic Cycles, Availability &amp; Pure Substances — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Thermodynamic Systems and Properties, Zeroth Law (thermal equilibrium, temperature scales), First Law (energy conservation, closed and open system non-flow/steady-flow equations), Work and Heat in Thermodynamic Processes (isobaric, isochoric, isothermal, adiabatic, polytropic, free expansion, throttling), Ideal Gas Relations $C_p - C_v = R$, Second Law of Thermodynamics (Kelvin-Planck and Clausius statements, equivalence, PMM-II), Carnot Cycle, Refrigerators and Heat Pumps $COP$, Entropy and Clausius Inequality $\oint \frac{\delta Q}{T} \le 0$, Availability (Exergy), Irreversibility $I = T_0 S_{\text{gen}}$, Air-Standard Cycles (Otto, Diesel, Dual), Properties of Pure Substances (dryness fraction $x$, Gibbs phase rule $F = C - P + 2$, critical and triple points), Real Gases (van der Waals equation, compressibility factor $Z$), Joule-Thomson Effect $\mu = (\frac{\partial T}{\partial P})_h$, Thermodynamic Potentials (Helmholtz $F$, Gibbs $G$), Maxwell Relations, Clausius-Clapeyron Equation, and the Born Thermodynamic Square Mnemonic for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-heat-capacity-basic-properties"><strong>1. Heat Capacity &amp; Basic Properties</strong></h4>
+<ul>
+<li><strong>Heat Capacity</strong>:
+  <div class="formula-card">$${\boxed{C = m \cdot c}}$$</div></li>
+<li>$C$: heat capacity ($\text{J/K}$ or $\text{kJ/K}$)</li>
+<li>$m$: mass $\text{kg}$</li>
+<li>$c$: specific heat capacity ($\text{J/kg}\cdot\text{K}$ or $\text{kJ/kg}\cdot\text{K}$)</li>
+</ul>
+<hr />
+<h4 id="2-first-law-of-thermodynamics-energy-conservation"><strong>2. First Law of Thermodynamics &amp; Energy Conservation</strong></h4>
+<ul>
+<li><strong>First Law (Closed System Non-Flow)</strong>:
+  <div class="formula-card">$${\boxed{\Delta U = Q - W}}$$</div></li>
+<li>$\Delta U$: change in internal energy $\text{kJ}$</li>
+<li>$Q$: net heat added to system ($\text{kJ}$; positive in, negative out)</li>
+<li>
+<p>$W$: net work done by system ($\text{kJ}$; positive out, negative in)</p>
+</li>
+<li>
+<p><strong>Differential Form</strong>:
+  <div class="formula-card">$${\boxed{\delta Q = dU + \delta W}}$$</div></p>
+</li>
+<li>
+<p><strong>General Energy Balance</strong>:
+  <div class="formula-card">$${\boxed{Q - W = \Delta U + \Delta KE + \Delta PE}}$$</div></p>
+</li>
+<li>
+<p><strong>Cyclic Process</strong>:
+  <div class="formula-card">$${\boxed{\oint \delta Q = \oint \delta W \implies \oint (\delta Q - \delta W) = 0}}$$</div></p>
+</li>
+<li>
+<p><strong>Enthalpy Definition</strong>:
+  <div class="formula-card">$${\boxed{H = U + P V \quad \text{or} \quad h = u + P v}}$$</div></p>
+</li>
+<li>$H$: enthalpy $\text{kJ}$</li>
+<li>$U$: internal energy $\text{kJ}$</li>
+<li>$P$: absolute pressure $\text{kPa}$</li>
+<li>$V$: volume $\text{m}^3$</li>
+</ul>
+<hr />
+<h4 id="3-work-heat-in-thermodynamic-processes"><strong>3. Work &amp; Heat in Thermodynamic Processes</strong></h4>
+<ul>
+<li>
+<p><strong>Quasi-Static Boundary Work</strong>:
+  <div class="formula-card">$${\boxed{W = \int_{V_1}^{V_2} P \, dV}}$$</div></p>
+</li>
+<li>
+<p><strong>Constant Pressure (Isobaric, $n = 0$)</strong>:
+  <div class="formula-card">$${\boxed{W = P(V_2 - V_1), \quad Q = \Delta H = m C_p (T_2 - T_1)}}$$</div></p>
+</li>
+<li>
+<p><strong>Constant Volume (Isochoric, $n = \infty$)</strong>:
+  <div class="formula-card">$${\boxed{W = 0, \quad Q = \Delta U = m C_v (T_2 - T_1)}}$$</div></p>
+</li>
+<li>
+<p><strong>Isothermal Process (Ideal Gas, $T = \text{const}, n = 1$)</strong>:
+  <div class="formula-card">$${\boxed{W = P_1 V_1 \ln\left(\frac{V_2}{V_1}\right) = m R T \ln\left(\frac{P_1}{P_2}\right), \quad \Delta U = 0 \implies Q = W}}$$</div></p>
+</li>
+<li>
+<p><strong>Reversible Adiabatic (Isentropic, $Q = 0, n = \gamma$)</strong>:
+  <div class="formula-card">$${\boxed{W = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1} = \frac{m R (T_1 - T_2)}{\gamma - 1}, \quad Q = 0 \implies \Delta U = -W}}$$</div>
+  <div class="formula-card">$${\boxed{\frac{T_2}{T_1} = \left(\frac{P_2}{P_1}\right)^{\frac{\gamma-1}{\gamma}} = \left(\frac{V_1}{V_2}\right)^{\gamma-1}}}$$</div></p>
+</li>
+<li>
+<p><strong>Polytropic Process $P V^n = \text{const}$</strong>:
+  <div class="formula-card">$${\boxed{W = \frac{P_1 V_1 - P_2 V_2}{n - 1} = \frac{m R (T_1 - T_2)}{n - 1}}}$$</div>
+  <div class="formula-card">$${\boxed{Q = W \left(\frac{\gamma - n}{\gamma - 1}\right)}}$$</div></p>
+</li>
+<li>
+<p><strong>Free Expansion (Unrestricted expansion into vacuum)</strong>:
+  <div class="formula-card">$${\boxed{Q = 0, \quad W = 0 \implies \Delta U = 0 \implies T_1 = T_2 \quad (\text{Ideal Gas})}}$$</div></p>
+</li>
+<li>
+<p><strong>Throttling Process (Joule-Thomson Expansion through porous plug/valve)</strong>:
+  <div class="formula-card">$${\boxed{Q = 0, \quad W = 0, \quad \Delta KE \approx 0 \implies h_1 = h_2 \quad (\text{Isenthalpic})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-ideal-gas-law-specific-heat-relations"><strong>4. Ideal Gas Law &amp; Specific Heat Relations</strong></h4>
+<ul>
+<li><strong>Ideal Gas Equation of State</strong>:
+  <div class="formula-card">$${\boxed{P V = m R T = n R_u T}}$$</div></li>
+<li>$R = \frac{R_u}{M}$: characteristic gas constant ($\text{kJ/kg}\cdot\text{K}$; Air $R \approx 0.287$, $O_2 R \approx 0.260$)</li>
+<li>
+<p>$R_u$: universal gas constant $8.314 \text{ kJ/kmol}\cdot\text{K}$</p>
+</li>
+<li>
+<p><strong>Mayer's Relation</strong>:
+  <div class="formula-card">$${\boxed{C_p - C_v = R}}$$</div></p>
+</li>
+<li>
+<p><strong>Specific Heat Ratio $\gamma = C_p / C_v$</strong>:
+  <div class="formula-card">$${\boxed{C_p = \frac{\gamma R}{\gamma - 1}, \quad C_v = \frac{R}{\gamma - 1}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-second-law-of-thermodynamics-carnot-cycle-refrigeration"><strong>5. Second Law of Thermodynamics, Carnot Cycle &amp; Refrigeration</strong></h4>
+<ul>
+<li><strong>Carnot Engine Efficiency</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Carnot}} = 1 - \frac{T_L}{T_H} = \frac{W_{\text{net}}}{Q_H} = \frac{Q_H - Q_L}{Q_H}}}$$</div></li>
+<li>
+<p>$T_H, T_L$: absolute source and sink temperatures $\text{K}$</p>
+</li>
+<li>
+<p><strong>Coefficient of Performance (Refrigerator)</strong>:
+  <div class="formula-card">$${\boxed{COP_R = \frac{Q_L}{W_{\text{net}}} = \frac{Q_L}{Q_H - Q_L} \xrightarrow{\text{Carnot}} \frac{T_L}{T_H - T_L}}}$$</div></p>
+</li>
+<li>
+<p><strong>Coefficient of Performance (Heat Pump)</strong>:
+  <div class="formula-card">$${\boxed{COP_{HP} = \frac{Q_H}{W_{\text{net}}} = \frac{Q_H}{Q_H - Q_L} \xrightarrow{\text{Carnot}} \frac{T_H}{T_H - T_L}}}$$</div></p>
+</li>
+<li>
+<p><strong>COP Relationship</strong>:
+  <div class="formula-card">$${\boxed{COP_{HP} = COP_R + 1}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="6-entropy-clausius-inequality-entropy-generation"><strong>6. Entropy, Clausius Inequality &amp; Entropy Generation</strong></h4>
+<ul>
+<li><strong>Clausius Inequality</strong>:
+  <div class="formula-card">$${\boxed{\oint \frac{\delta Q}{T} \le 0}}$$</div></li>
+<li>$\oint \frac{\delta Q}{T} = 0$: Reversible cycle</li>
+<li>$\oint \frac{\delta Q}{T} &lt; 0$: Irreversible possible cycle</li>
+<li>
+<p>$\oint \frac{\delta Q}{T} &gt; 0$: Impossible cycle</p>
+</li>
+<li>
+<p><strong>Entropy Change (Reversible Process)</strong>:
+  <div class="formula-card">$${\boxed{dS = \frac{\delta Q_{\text{rev}}}{T} \implies \Delta S = \int_1^2 \frac{\delta Q_{\text{rev}}}{T}}}$$</div></p>
+</li>
+<li>
+<p><strong>Entropy Generation &amp; Principle of Increase of Entropy</strong>:
+  <div class="formula-card">$${\boxed{S_{\text{gen}} = \Delta S_{\text{system}} + \Delta S_{\text{surroundings}} \ge 0}}$$</div></p>
+</li>
+<li>$S_{\text{gen}} = 0$: Reversible process</li>
+<li>$S_{\text{gen}} &gt; 0$: Irreversible process</li>
+<li>
+<p>$S_{\text{gen}} &lt; 0$: Impossible process</p>
+</li>
+<li>
+<p><strong>Ideal Gas Entropy Change Formulas</strong>:
+  <div class="formula-card">$${\boxed{\Delta s = C_v \ln\left(\frac{T_2}{T_1}\right) + R \ln\left(\frac{v_2}{v_1}\right)}}$$</div>
+  <div class="formula-card">$${\boxed{\Delta s = C_p \ln\left(\frac{T_2}{T_1}\right) - R \ln\left(\frac{P_2}{P_1}\right)}}$$</div>
+  <div class="formula-card">$${\boxed{\Delta s = C_v \ln\left(\frac{P_2}{P_1}\right) + C_p \ln\left(\frac{v_2}{v_1}\right)}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="7-availability-exergy-irreversibility-gouy-stodola-theorem"><strong>7. Availability (Exergy), Irreversibility &amp; Gouy-Stodola Theorem</strong></h4>
+<ul>
+<li><strong>Gouy-Stodola Theorem (Irreversibility / Lost Work)</strong>:
+  <div class="formula-card">$${\boxed{I = T_0 S_{\text{gen}} = W_{\text{rev}} - W_{\text{actual}}}}$$</div></li>
+<li>
+<p>$T_0$: dead-state ambient temperature $\text{K}$</p>
+</li>
+<li>
+<p><strong>Closed System Availability (Non-Flow Exergy)</strong>:
+  <div class="formula-card">$${\boxed{A = \phi_1 - \phi_0 = (U - U_0) - T_0(S - S_0) + P_0(V - V_0)}}$$</div></p>
+</li>
+<li>
+<p><strong>Open System Availability (Flow / Stream Exergy)</strong>:
+  <div class="formula-card">$${\boxed{\psi = (h - h_0) - T_0(s - s_0) + \frac{V^2}{2} + g z}}$$</div></p>
+</li>
+<li>
+<p><strong>Unavailable Energy (UE)</strong>:
+  <div class="formula-card">$${\boxed{\text{UE} = T_0 \Delta S}}$$</div></p>
+</li>
+<li>
+<p><strong>Second-Law Efficiency $\eta_{II}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{II} = \frac{W_{\text{actual}}}{W_{\text{rev}}} = \frac{\eta_{\text{thermal}}}{\eta_{\text{Carnot}}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="8-air-standard-cycles"><strong>8. Air-Standard Cycles</strong></h4>
+<ul>
+<li><strong>Otto Cycle Efficiency (Constant Volume Heat Addition)</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}}}$$</div></li>
+<li>
+<p>$r = \frac{V_1}{V_2}$: compression ratio</p>
+</li>
+<li>
+<p><strong>Diesel Cycle Efficiency (Constant Pressure Heat Addition)</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Diesel}} = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma (\rho - 1)}\right]}}$$</div></p>
+</li>
+<li>$\rho = \frac{V_3}{V_2}$: cutoff ratio $\rho &gt; 1$</li>
+</ul>
+<hr />
+<h4 id="9-pure-substances-phase-rules-dryness-fraction"><strong>9. Pure Substances, Phase Rules &amp; Dryness Fraction</strong></h4>
+<ul>
+<li><strong>Gibbs Phase Rule</strong>:
+  <div class="formula-card">$${\boxed{F = C - P + 2}}$$</div></li>
+<li>$F$: degrees of freedom</li>
+<li>$C$: number of chemical components</li>
+<li>
+<p>$P$: number of phase states in equilibrium</p>
+</li>
+<li>
+<p><strong>Dryness Fraction (Vapour Quality $x$)</strong>:
+  <div class="formula-card">$${\boxed{x = \frac{m_g}{m_g + m_f}}}$$</div></p>
+</li>
+<li>$m_g$: mass of dry saturated vapour $\text{kg}$</li>
+<li>
+<p>$m_f$: mass of saturated liquid water $\text{kg}$</p>
+</li>
+<li>
+<p><strong>Wet Mixture Property Equations</strong>:
+  <div class="formula-card">$${\boxed{v = v_f + x v_{fg} = (1-x)v_f + x v_g}}$$</div>
+  <div class="formula-card">$${\boxed{u = u_f + x u_{fg}}}$$</div>
+  <div class="formula-card">$${\boxed{h = h_f + x h_{fg}}}$$</div>
+  <div class="formula-card">$${\boxed{s = s_f + x s_{fg}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="10-real-gases-van-der-waals-joule-thomson-effect"><strong>10. Real Gases, van der Waals &amp; Joule-Thomson Effect</strong></h4>
+<ul>
+<li><strong>Compressibility Factor $Z$</strong>:
+  <div class="formula-card">$${\boxed{Z = \frac{P v}{R T}}}$$</div></li>
+<li>Ideal Gas: $Z = 1$</li>
+<li>
+<p>van der Waals Gas at Critical Point: $Z_c = \frac{P_c v_c}{R T_c} = 0.375 = \frac{3}{8}$</p>
+</li>
+<li>
+<p><strong>van der Waals Equation of State</strong>:
+  <div class="formula-card">$${\boxed{\left(P + \frac{a}{v^2}\right)(v - b) = R T}}$$</div></p>
+</li>
+<li>$a$: inter-molecular force attraction parameter</li>
+<li>
+<p>$b$: co-volume / molecular volume parameter</p>
+</li>
+<li>
+<p><strong>Joule-Thomson Coefficient $\mu$</strong>:
+  <div class="formula-card">$${\boxed{\mu = \left(\frac{\partial T}{\partial P}\right)_h}}$$</div></p>
+</li>
+<li>$\mu &gt; 0$: Cooling on expansion ($T$ decreases as $P$ drops)</li>
+<li>$\mu &lt; 0$: Heating on expansion ($T$ increases as $P$ drops)</li>
+<li>$\mu = 0$: Inversion curve point / Ideal Gas</li>
+</ul>
+<hr />
+<h4 id="11-thermodynamic-potentials-maxwell-relations-clapeyron-equation"><strong>11. Thermodynamic Potentials, Maxwell Relations &amp; Clapeyron Equation</strong></h4>
+<ul>
+<li>
+<p><strong>Helmholtz Free Energy $F$</strong>:
+  <div class="formula-card">$${\boxed{F = U - T S \implies dF = -S dT - P dV}}$$</div></p>
+</li>
+<li>
+<p><strong>Gibbs Free Energy $G$</strong>:
+  <div class="formula-card">$${\boxed{G = H - T S \implies dG = -S dT + V dP}}$$</div></p>
+</li>
+<li>
+<p><strong>The Four Fundamental Maxwell Relations</strong>:
+  <div class="formula-card">$${\boxed{\left(\frac{\partial T}{\partial V}\right)_S = -\left(\frac{\partial P}{\partial S}\right)_V}}$$</div>
+  <div class="formula-card">$${\boxed{\left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P}}$$</div>
+  <div class="formula-card">$${\boxed{\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial P}{\partial T}\right)_V}}$$</div>
+  <div class="formula-card">$${\boxed{\left(\frac{\partial S}{\partial P}\right)_T = -\left(\frac{\partial V}{\partial T}\right)_P}}$$</div></p>
+</li>
+<li>
+<p><strong>Clausius-Clapeyron Phase Change Slope</strong>:
+  <div class="formula-card">$${\boxed{\frac{dP}{dT} = \frac{h_{fg}}{T (v_g - v_f)} = \frac{\Delta s}{\Delta v}}}$$</div></p>
+</li>
+<li>
+<p><strong>Isobaric Slope on Mollier $h-s$ Chart</strong>:
+  <div class="formula-card">$${\boxed{\left(\frac{\partial h}{\partial s}\right)_P = T}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Thermodynamic System</strong>: A defined quantity of matter or region in space selected for analysis.</li>
+<li><strong>Closed System (Control Mass)</strong>: Fixed mass system where energy (heat and work) crosses boundary, but mass transfer is zero $\Delta m = 0$.</li>
+<li><strong>Open System (Control Volume)</strong>: System where both mass and energy cross the control boundary.</li>
+<li><strong>Isolated System</strong>: System with zero mass transfer and zero energy transfer ($\Delta m = 0, \Delta E = 0$; e.g. Universe).</li>
+<li><strong>Intensive Property</strong>: Property independent of system mass (e.g. Temperature $T$, Pressure $P$, Density $\rho$, Viscosity $\mu$, Specific Enthalpy $h$, Thermal Conductivity $k$).</li>
+<li><strong>Extensive Property</strong>: Property directly proportional to total mass (e.g. Mass $m$, Volume $V$, Internal Energy $U$, Enthalpy $H$, Entropy $S$).</li>
+<li><strong>Point Function (State Function)</strong>: Property dependent ONLY on end states, independent of path history $\oint d\phi = 0$.</li>
+<li><strong>Path Function</strong>: Variable dependent on the specific path taken between states ($\oint \delta Q \neq 0, \oint \delta W \neq 0$; e.g. Heat $Q$, Work $W$).</li>
+<li><strong>Zeroth Law of Thermodynamics</strong>: If two bodies are each in thermal equilibrium with a third body, they are in thermal equilibrium with each other (defines Temperature $T$).</li>
+<li><strong>First Law of Thermodynamics</strong>: Energy can neither be created nor destroyed; for a closed system, $\Delta U = Q - W$.</li>
+<li><strong>Second Law of Thermodynamics</strong>: Sets direction of natural processes and quality of energy. Kelvin-Planck prohibits 100% thermal efficiency; Clausius prohibits spontaneous heat transfer from cold to hot without work.</li>
+<li><strong>Third Law of Thermodynamics (Nernst)</strong>: The entropy of a pure crystalline substance approaches zero at absolute zero temperature $0 \text{ K}$.</li>
+<li><strong>Carnot Cycle</strong>: Fully reversible ideal cycle consisting of two reversible isotherms and two reversible adiabatics (maximum possible efficiency $\eta_{\text{Carnot}} = 1 - T_L/T_H$).</li>
+<li><strong>Entropy $S$</strong>: A property representing molecular disorder and unavailable energy $dS = \delta Q_{\text{rev}}/T$.</li>
+<li><strong>Availability (Exergy)</strong>: Maximum useful work extractable from a system as it transitions reversibly to the dead state $T_0, P_0$.</li>
+<li><strong>Irreversibility $I$</strong>: Work lost due to irreversibilities $I = T_0 S_{\text{gen}}$.</li>
+<li><strong>Triple Point</strong>: Unique state where solid, liquid, and vapour phases coexist in equilibrium (Water: $0.01^\circ\text{C} = 273.16 \text{ K}, 0.611 \text{ kPa}$).</li>
+<li><strong>Critical Point</strong>: State where liquid and vapour boundaries meet; latent heat of vaporisation drops to zero ($h_{fg} = 0$; Water: $374.14^\circ\text{C}, 22.06 \text{ MPa}$).</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
+<ul>
+<li><strong>Standard Atmospheric Pressure</strong>: $1 \text{ atm} = 101.325 \text{ kPa} = 1.01325 \text{ bar} = 760 \text{ mm Hg}$.</li>
+<li><strong>Universal Gas Constant $R_u$</strong>: $8.314 \text{ kJ/kmol}\cdot\text{K}$.</li>
+<li><strong>Characteristic Gas Constant for Air $R_{\text{air}}$</strong>: $0.287 \text{ kJ/kg}\cdot\text{K}$.</li>
+<li><strong>Air Specific Heats</strong>: $C_p = 1.005 \text{ kJ/kg}\cdot\text{K}, C_v = 0.718 \text{ kJ/kg}\cdot\text{K}, \gamma = 1.40$.</li>
+<li><strong>Water Triple Point</strong>: $T = 0.01^\circ\text{C} = 273.16 \text{ K}, P = 0.611 \text{ kPa} = 4.58 \text{ mm Hg}$.</li>
+<li><strong>Water Critical Point</strong>: $T_c = 374.14^\circ\text{C} = 647.14 \text{ K}, P_c = 22.06 \text{ MPa}$.</li>
+<li><strong>van der Waals Critical Compressibility Factor $Z_c$</strong>: $Z_c = \frac{3}{8} = 0.375$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Zeroth Law &amp; Temperature</strong>: Introduced in §3.1, applied to Gas Thermometers in §3.1.</li>
+<li><strong>First Law &amp; Energy</strong>: Formulated in §3.2, applied to Non-Flow Processes in §3.3 and Steady Flow in §3.2.</li>
+<li><strong>Second Law &amp; Entropy</strong>: Statements in §3.4, Entropy $S$ formulated in §3.5, Availability $I = T_0 S_{\text{gen}}$ in §3.6.</li>
+<li><strong>Ideal Gas vs Real Gas</strong>: Ideal gas $Z=1$ in §3.1 &amp; §3.3; Real gas van der Waals &amp; JT effect in §3.9.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-thermodynamic-systems-properties-zeroth-law"><strong>3.1 Thermodynamic Systems, Properties &amp; Zeroth Law</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Systems are classified based on boundary permeability:</li>
+<li><strong>Closed</strong>: Mass fixed $\Delta m = 0$, energy transfers $Q, W$.</li>
+<li><strong>Open</strong>: Mass and energy both cross control volume boundary.</li>
+<li><strong>Isolated</strong>: No mass, no heat, no work $\Delta m = 0, \Delta E = 0$.</li>
+<li>Intensive properties (size-independent) vs Extensive properties (size-dependent). Specific properties (per unit mass) are intensive.</li>
+<li>State functions (point functions) have exact differentials $\oint d\phi = 0$. Path functions (heat, work) have inexact differentials $\oint \delta Q \neq 0$.</li>
+<li>Zeroth Law establishes thermal equilibrium transitivity, forming the theoretical basis for thermometer calibration.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Property Test</strong>: If a quantity depends only on initial and final states, it is a property (point function). If it depends on the process trajectory, it is a path function (heat $Q$, work $W$). System possesses energy, NOT heat or work!</p>
+<p>[!TRAP]
+<strong>Extensive vs Intensive Traps</strong>:
+- Specific volume $v = V/m$, specific enthalpy $h$, specific entropy $s$, and density $\rho = m/V$ are INTENSIVE.
+- Heat capacity $C = m \cdot c$ is EXTENSIVE; specific heat $c$ is INTENSIVE.
+- Thermal conductivity $k$ and viscosity $\mu$ are INTENSIVE properties.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>System Classification Check?
+├─ Is mass crossing the boundary?
+│  ├─ YES → Open System (Control Volume: Turbine, Nozzle, Pump)
+│  └─ NO → Check energy transfer
+│     ├─ Energy crosses boundary → Closed System (Control Mass: Piston-Cylinder without valves)
+│     └─ Energy does NOT cross boundary → Isolated System (Universe, Thermos Flask)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Closed System: $\Delta m = 0$, $Q, W \neq 0$.</li>
+<li>[ ] Open System: Mass &amp; Energy transfer.</li>
+<li>[ ] Isolated System: $\Delta m = 0, \Delta E = 0 \implies \Delta U = 0$.</li>
+<li>[ ] Zeroth Law $\implies$ Temperature concept.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A rigid container holds $2 \text{ kg}$ of air. Heat is added until temperature rises from $300 \text{ K}$ to $400 \text{ K}$. Classify the system and state if volume is intensive or extensive.
+- <strong>Solution</strong>:
+  - Since mass is fixed $2 \text{ kg}$ and rigid walls prevent mass transfer while heat crosses, it is a <strong>Closed System</strong>.
+  - Total volume $V$ is <strong>extensive</strong> (proportional to mass); specific volume $v = V/m$ is <strong>intensive</strong>.
+- <strong>Key Insight</strong>: Rigid boundary means constant volume process $W=0$.</p>
+<hr />
+<h3 id="32-first-law-of-thermodynamics-energy-conservation"><strong>3.2 First Law of Thermodynamics &amp; Energy Conservation</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Energy is conserved in all processes: $\Delta U = Q - W$.</li>
+<li>Sign Convention:</li>
+<li>Heat added to system: $+Q$; Heat rejected by system: $-Q$.</li>
+<li>Work done BY system: $+W$; Work done ON system: $-W$.</li>
+<li>Internal Energy $U$ of an ideal gas depends ONLY on absolute temperature $U = f(T)$.</li>
+<li>Enthalpy $H = U + PV$. For ideal gas, $H = f(T)$ only $h = C_p T$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>First Law for Cyclic Processes</strong>: $\oint \delta Q = \oint \delta W$. Net heat interaction equals net work done over a complete cycle.</p>
+<p>[!TRAP]
+<strong>Free Expansion Energy Conservation</strong>: In free expansion into a vacuum $Q=0, W=0$, $\Delta U = 0$. For an ideal gas, $\Delta U = 0 \implies T_1 = T_2$. However, free expansion is highly IRREVERSIBLE, so entropy increases $\Delta S &gt; 0$!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>First Law Energy Balance?
+├─ Closed System Process → Delta U = Q - W
+├─ Cyclic Process → Integral dQ = Integral dW (Delta U_cycle = 0)
+└─ Ideal Gas Property → U = f(T) only, Delta U = m * C_v * (T2 - T1)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Sign convention: $+Q$ in, $+W$ out.</li>
+<li>[ ] Ideal gas internal energy $U = f(T)$ only.</li>
+<li>[ ] Cyclic process: $\oint \delta Q = \oint \delta W$.</li>
+<li>[ ] Enthalpy $H = U + PV$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A system undergoes a process where it absorbs $50 \text{ kJ}$ of heat while expanding and performing $30 \text{ kJ}$ of work. Calculate the change in internal energy.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${Q = +50 \text{ kJ}, \quad W = +30 \text{ kJ}}$$</div>
+  <div class="formula-card">$${\Delta U = Q - W = 50 - 30 = +20 \text{ kJ}}$$</div>
+- <strong>Key Insight</strong>: Internal energy increases by $20 \text{ kJ}$.</p>
+<hr />
+<h3 id="33-work-heat-in-processes-polytropic-isothermal-adiabatic-free-expansion-throttling"><strong>3.3 Work &amp; Heat in Processes (Polytropic, Isothermal, Adiabatic, Free Expansion, Throttling)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Boundary work $W = \int P dV$ requires quasi-static frictionless path.</li>
+<li>Isobaric $n=0$: $W = P(V_2 - V_1), Q = m C_p \Delta T$.</li>
+<li>Isochoric $n=\infty$: $W = 0, Q = m C_v \Delta T = \Delta U$.</li>
+<li>Isothermal $n=1$: $W = P_1 V_1 \ln(V_2/V_1), \Delta U = 0 \implies Q = W$.</li>
+<li>Reversible Adiabatic $n=\gamma$: $Q = 0, W = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1}$.</li>
+<li>Polytropic $P V^n = \text{const}$: $W = \frac{P_1 V_1 - P_2 V_2}{n - 1}, Q = W \left(\frac{\gamma - n}{\gamma - 1}\right)$.</li>
+<li>Throttling: Isenthalpic process $h_1 = h_2$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Polytropic Index $n$ Map</strong>:
+- $n = 0 \implies$ Isobaric (Horizontal line on P-V chart)
+- $n = 1 \implies$ Isothermal (Hyperbola)
+- $n = \gamma \implies$ Isentropic (Steeper hyperbola than isothermal)
+- $n = \infty \implies$ Isochoric (Vertical line on P-V chart)</p>
+<p>[!TRAP]
+<strong>Throttling vs Free Expansion</strong>:
+- Throttling: $h_1 = h_2$ (Isenthalpic), $Q=0, W=0, \Delta KE \approx 0$.
+- Free Expansion: $U_1 = U_2$ (Isenergetic), $Q=0, W=0$.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Process Work Calculation?
+├─ P = const (Isobaric) → W = P * (V2 - V1)
+├─ V = const (Isochoric) → W = 0
+├─ T = const (Isothermal Ideal Gas) → W = P1*V1*ln(V2/V1)
+├─ Reversible Adiabatic (Q=0) → W = (P1*V1 - P2*V2) / (gamma - 1)
+├─ Polytropic (P*V^n = const) → W = (P1*V1 - P2*V2) / (n - 1)
+└─ Free Expansion / Throttling → W = 0
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Isothermal: $W = P_1 V_1 \ln(V_2/V_1)$.</li>
+<li>[ ] Adiabatic slope is steeper than isothermal on P-V chart $\gamma &gt; 1$.</li>
+<li>[ ] Throttling is isenthalpic $h_1 = h_2$.</li>
+<li>[ ] Free expansion $W = 0, Q = 0$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Air at $200 \text{ kPa}$ and $0.1 \text{ m}^3$ expands isothermally to $0.4 \text{ m}^3$. Calculate work done.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${W = P_1 V_1 \ln\left(\frac{V_2}{V_1}\right) = (200 \times 10^3) \times 0.1 \times \ln\left(\frac{0.4}{0.1}\right) = 20000 \times \ln(4) = 20000 \times 1.3863 = 27726 \text{ J} = 27.73 \text{ kJ}}$$</div>
+- <strong>Key Insight</strong>: In isothermal process of ideal gas, $Q = W = 27.73 \text{ kJ}$.</p>
+<hr />
+<h3 id="34-second-law-of-thermodynamics-carnot-engine-refrigerator-heat-pump"><strong>3.4 Second Law of Thermodynamics, Carnot Engine, Refrigerator &amp; Heat Pump</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Kelvin-Planck Statement: Impossible to construct a device operating in a cycle that produces net work while exchanging heat with a single thermal reservoir (PMM-II impossible).</li>
+<li>Clausius Statement: Impossible to construct a device operating in a cycle that transfers heat from a lower temperature body to a higher temperature body without external work input.</li>
+<li>Carnot cycle provides the upper theoretical limit for thermal efficiency $\eta_{\text{Carnot}} = 1 - T_L/T_H$.</li>
+<li>Heat Pump vs Refrigerator: $COP_{HP} = COP_R + 1$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Carnot Efficiency Principle</strong>: Carnot efficiency depends ONLY on absolute reservoir temperatures ($T_H, T_L$ in Kelvin), completely independent of the working fluid!</p>
+<p>[!TRAP]
+<strong>Absolute Temperature Trap</strong>: ALWAYS convert temperatures to Kelvin $T(\text{K}) = T(^\circ\text{C}) + 273.15$ when calculating Carnot efficiency or COP! Using Celsius gives completely incorrect values.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Thermal Machine Performance?
+├─ Heat Engine → Efficiency eta = W_net / Q_H = 1 - Q_L / Q_H &lt;= 1 - T_L / T_H
+├─ Refrigerator → COP_R = Q_L / W_net &lt;= T_L / (T_H - T_L)
+└─ Heat Pump → COP_HP = Q_H / W_net &lt;= T_H / (T_H - T_L) = COP_R + 1
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Carnot efficiency $\eta = 1 - T_L/T_H$.</li>
+<li>[ ] Temperatures MUST be in Kelvin.</li>
+<li>[ ] $COP_{HP} = COP_R + 1$.</li>
+<li>[ ] PMM-II violates Second Law.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A Carnot heat engine operates between $600^\circ\text{C}$ $873.15 \text{ K}$ and $30^\circ\text{C}$ $303.15 \text{ K}$. Calculate its maximum theoretical efficiency.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_H = 600 + 273.15 = 873.15 \text{ K}, \quad T_L = 30 + 273.15 = 303.15 \text{ K}}$$</div>
+  <div class="formula-card">$${\eta_{\text{Carnot}} = 1 - \frac{303.15}{873.15} = 1 - 0.3472 = 0.6528 = 65.28\%}$$</div>
+- <strong>Key Insight</strong>: Convert Celsius to Kelvin before calculating.</p>
+<hr />
+<h3 id="35-entropy-clausius-inequality-entropy-generation"><strong>3.5 Entropy, Clausius Inequality &amp; Entropy Generation</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Clausius Inequality: $\oint \frac{\delta Q}{T} \le 0$.</li>
+<li>Entropy $S$ is a state property $dS = \delta Q_{\text{rev}}/T$.</li>
+<li>Principle of Entropy Increase: Total entropy of an isolated system (or Universe) never decreases $\Delta S_{\text{universe}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} = S_{\text{gen}} \ge 0$.</li>
+<li>Isentropic process is internally reversible and adiabatic $dS = 0$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Entropy Change of Universe</strong>:
+- Reversible Process: $S_{\text{gen}} = 0 \implies \Delta S_{\text{universe}} = 0$.
+- Irreversible Process: $S_{\text{gen}} &gt; 0 \implies \Delta S_{\text{universe}} &gt; 0$.
+- Impossible Process: $S_{\text{gen}} &lt; 0$.</p>
+<p>[!TRAP]
+<strong>Isentropic vs Adiabatic</strong>: Isentropic means BOTH reversible and adiabatic. An adiabatic process that is irreversible has $S_{\text{gen}} &gt; 0$, so $\Delta S &gt; 0$ (NOT isentropic)!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Entropy Problem?
+├─ Reversible Process → dS = dQ_rev / T, S_gen = 0
+├─ Irreversible Process → S_gen &gt; 0, Delta S_universe &gt; 0
+└─ Ideal Gas Delta S → cv*ln(T2/T1) + R*ln(v2/v1) = cp*ln(T2/T1) - R*ln(P2/P1)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Clausius inequality $\oint \delta Q / T \le 0$.</li>
+<li>[ ] $S_{\text{gen}} \ge 0$ always.</li>
+<li>[ ] Isentropic = Reversible + Adiabatic.</li>
+<li>[ ] T-S area represents heat transfer for reversible process.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Heat transfer of $15 \text{ kJ}$ occurs from a thermal reservoir at $300 \text{ K}$. Calculate the entropy change of the reservoir.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\Delta S_{\text{reservoir}} = \frac{Q}{T} = \frac{+15 \text{ kJ}}{300 \text{ K}} = +0.05 \text{ kJ/K} = +50 \text{ J/K}}$$</div>
+- <strong>Key Insight</strong>: Heat added to a reservoir increases its entropy by $Q/T$.</p>
+<hr />
+<h3 id="36-availability-exergy-irreversibility-lost-work"><strong>3.6 Availability (Exergy), Irreversibility &amp; Lost Work</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Availability (Exergy) is the maximum theoretical useful work obtainable as a system reaches dead state $T_0, P_0$.</li>
+<li>Gouy-Stodola Theorem: Irreversibility $I = T_0 S_{\text{gen}} = W_{\text{rev}} - W_{\text{actual}}$.</li>
+<li>Unavailable Energy $\text{UE} = T_0 \Delta S$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Exergy Destruction</strong>: Energy is conserved (First Law), but Exergy (Availability) is DESTROYED by irreversibilities like friction and finite temperature difference heat transfer!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Availability / Irreversibility Problem?
+├─ Lost Work / Irreversibility → I = T_0 * S_gen = W_rev - W_actual
+├─ Unavailable Energy → UE = T_0 * Delta S
+└─ Second-Law Efficiency → eta_II = W_actual / W_rev
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $I = T_0 S_{\text{gen}}$.</li>
+<li>[ ] Exergy is destroyed, energy is conserved.</li>
+<li>[ ] Dead state: $T_0, P_0$ in equilibrium with environment.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: $150 \text{ kJ}$ of heat is transferred from $800 \text{ K}$ to $400 \text{ K}$ with ambient $T_0 = 300 \text{ K}$. Calculate irreversibility.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${S_{\text{gen}} = \Delta S_{\text{sink}} + \Delta S_{\text{source}} = \frac{150}{400} - \frac{150}{800} = 0.375 - 0.1875 = 0.1875 \text{ kJ/K}}$$</div>
+  <div class="formula-card">$${I = T_0 S_{\text{gen}} = 300 \times 0.1875 = 56.25 \text{ kJ}}$$</div>
+- <strong>Key Insight</strong>: Irreversibility $I = T_0 S_{\text{gen}} = 56.25 \text{ kJ}$.</p>
+<hr />
+<h3 id="37-air-standard-cycles-otto-diesel-dual-cycles"><strong>3.7 Air-Standard Cycles (Otto, Diesel &amp; Dual Cycles)</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Otto Cycle</strong>: Spark-ignition engines, constant volume heat addition $V = \text{const}$. Efficiency $\eta = 1 - \frac{1}{r^{\gamma-1}}$.</li>
+<li><strong>Diesel Cycle</strong>: Compression-ignition engines, constant pressure heat addition $P = \text{const}$. Efficiency $\eta = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma(\rho - 1)}\right]$.</li>
+<li>For same compression ratio $r$: $\eta_{\text{Otto}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Diesel}}$.</li>
+<li>For same peak pressure and heat supply: $\eta_{\text{Diesel}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Otto}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Compression Ratio Comparison</strong>:
+- Same $r$: Otto is most efficient.
+- Same max pressure &amp; temperature: Diesel is most efficient.</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Air-Standard Cycle Check?
+├─ Constant Volume Heat Addition → Otto Cycle (eta = 1 - 1/r^(gamma-1))
+├─ Constant Pressure Heat Addition → Diesel Cycle (eta = 1 - (1/r^(gamma-1)) * [(rho^gamma - 1) / (gamma*(rho-1))])
+└─ Dual Heat Addition → Dual Cycle (Combination of const V and const P)
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Otto cycle: Isochoric heat addition.</li>
+<li>[ ] Diesel cycle: Isobaric heat addition.</li>
+<li>[ ] Same $r \implies \eta_{\text{Otto}} &gt; \eta_{\text{Diesel}}$.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An Otto cycle has a compression ratio $r = 8$ $\gamma = 1.4$. Calculate thermal efficiency.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\eta = 1 - \frac{1}{8^{1.4 - 1}} = 1 - \frac{1}{8^{0.4}} = 1 - \frac{1}{2.2974} = 1 - 0.4352 = 0.5648 = 56.48\%}$$</div>
+- <strong>Key Insight</strong>: Otto efficiency depends only on $r$ and $\gamma$.</p>
+<hr />
+<h3 id="38-properties-of-pure-substances-steam-tables"><strong>3.8 Properties of Pure Substances &amp; Steam Tables</strong></h3>
+<h5 id="1-concept-pointers_7"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Gibbs Phase Rule: $F = C - P + 2$.</li>
+<li>Dryness Fraction $x = \frac{m_g}{m_g + m_f}$.</li>
+<li>Saturated State: Liquid and vapour coexist at constant saturation temperature $T_{\text{sat}}$ for a given $P_{\text{sat}}$.</li>
+<li>Critical Point of Water: $374.14^\circ\text{C}, 22.06 \text{ MPa}$; latent heat $h_{fg} = 0$.</li>
+<li>Triple Point of Water: $0.01^\circ\text{C}, 0.611 \text{ kPa}$; $F = 0$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Property Evaluation in Wet Mixture</strong>:
+- Volume: $v = v_f + x v_{fg}$
+- Enthalpy: $h = h_f + x h_{fg}$
+- Entropy: $s = s_f + x s_{fg}$</p>
+<p>[!TRAP]
+<strong>Latent Heat at Critical Point</strong>: Latent heat of vaporisation $h_{fg}$ is ZERO at the critical point, NOT maximum!</div>
+<h5 id="2-decision-tree_7"><strong>2. Decision Tree</strong></h5>
+<pre><code>Pure Substance State Determination?
+├─ x = 0 → Saturated Liquid (v = v_f, h = h_f)
+├─ 0 &lt; x &lt; 1 → Wet Vapour Mixture (h = h_f + x*h_fg)
+├─ x = 1 → Dry Saturated Vapour (h = h_g)
+└─ T &gt; T_sat at P → Superheated Vapour (Behaves approximately as ideal gas)
+</code></pre>
+<h5 id="3-revision-checklist_7"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Gibbs Phase Rule $F = C - P + 2$.</li>
+<li>[ ] Dryness fraction $x = m_g / (m_g + m_f)$.</li>
+<li>[ ] Water triple point: $0.01^\circ\text{C}, 0.611 \text{ kPa}$.</li>
+<li>[ ] Critical point $h_{fg} = 0$.</li>
+</ul>
+<h5 id="4-worked-examples_7"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A wet steam sample contains $1.5 \text{ kg}$ water liquid in suspension with $48.5 \text{ kg}$ dry steam. Calculate dryness fraction $x$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${m_f = 1.5 \text{ kg}, \quad m_g = 48.5 \text{ kg}}$$</div>
+  <div class="formula-card">$${x = \frac{m_g}{m_g + m_f} = \frac{48.5}{48.5 + 1.5} = \frac{48.5}{50} = 0.97}$$</div>
+- <strong>Key Insight</strong>: Dryness fraction $x = 0.97$ ($97\%$ dry).</p>
+<hr />
+<h3 id="39-real-gases-van-der-waals-equation-joule-thomson-effect"><strong>3.9 Real Gases, van der Waals Equation &amp; Joule-Thomson Effect</strong></h3>
+<h5 id="1-concept-pointers_8"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Compressibility Factor $Z = \frac{P v}{R T}$. For ideal gas $Z = 1$.</li>
+<li>van der Waals equation: $\left(P + \frac{a}{v^2}\right)(v - b) = R T$.</li>
+<li>Joule-Thomson Coefficient $\mu = \left(\frac{\partial T}{\partial P}\right)_h$.</li>
+<li>$\mu &gt; 0 \implies$ Cooling on throttling expansion.</li>
+<li>$\mu &lt; 0 \implies$ Heating on throttling expansion.</li>
+<li>$\mu = 0 \implies$ Inversion temperature point.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>van der Waals Critical Compressibility</strong>: At critical point, van der Waals gas gives $Z_c = \frac{P_c v_c}{R T_c} = 0.375 = \frac{3}{8}$.</div>
+<h5 id="2-decision-tree_8"><strong>2. Decision Tree</strong></h5>
+<pre><code>Joule-Thomson Throttling Effect?
+├─ mu &gt; 0 → Temperature drops on expansion (Cooling)
+├─ mu &lt; 0 → Temperature rises on expansion (Heating: H2, He at room temp)
+└─ mu = 0 → Inversion Temperature / Ideal Gas (No temperature change)
+</code></pre>
+<h5 id="3-revision-checklist_8"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] van der Waals $Z_c = 0.375$.</li>
+<li>[ ] $\mu = (\partial T / \partial P)_h$.</li>
+<li>[ ] $\mu &gt; 0$ means cooling on pressure drop.</li>
+<li>[ ] Ideal gas $\mu = 0$.</li>
+</ul>
+<h5 id="4-worked-examples_8"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: What is the value of the Joule-Thomson coefficient for an ideal gas?
+- <strong>Solution</strong>:
+  - For an ideal gas, enthalpy $h = f(T)$ only. Since throttling is isenthalpic $h = \text{const}$, temperature $T$ must remain constant.
+  - Thus, $\mu = \left(\frac{\partial T}{\partial P}\right)_h = 0$.
+- <strong>Key Insight</strong>: Ideal gas exhibits zero temperature change during throttling $\mu = 0$.</p>
+<hr />
+<h3 id="310-thermodynamic-potentials-maxwell-relations-clapeyron-equation-born-square"><strong>3.10 Thermodynamic Potentials, Maxwell Relations, Clapeyron Equation &amp; Born Square</strong></h3>
+<h5 id="1-concept-pointers_9"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Fundamental Potentials:</li>
+<li>Internal Energy $U(S,V)$</li>
+<li>Enthalpy $H(S,P) = U + PV$</li>
+<li>Helmholtz Free Energy $F(T,V) = U - TS$</li>
+<li>Gibbs Free Energy $G(T,P) = H - TS$</li>
+<li>Clausius-Clapeyron Equation: $\frac{dP}{dT} = \frac{h_{fg}}{T (v_g - v_f)}$ gives phase-change curve slope on $P-T$ diagram.</li>
+<li>Slope of isobar on Mollier $h-s$ chart equals absolute temperature $T$: $\left(\frac{\partial h}{\partial s}\right)_P = T$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Born Thermodynamic Square Mnemonic</strong>:
+- Corners (clockwise from top-left): $S \to P \to V \to T$
+- Sides (clockwise from top): $U$ (top), $H$ (right), $G$ (bottom), $F$ (left)
+- Diagonals give natural variable exact differentials and Maxwell relation signs!</div>
+<h5 id="2-decision-tree_9"><strong>2. Decision Tree</strong></h5>
+<pre><code>Maxwell Relation Identification?
+├─ From dU = T*dS - P*dV → (dT/dV)_S = -(dP/dS)_V
+├─ From dH = T*dS + V*dP → (dT/dP)_S = (dV/dS)_P
+├─ From dF = -S*dT - P*dV → (dS/dV)_T = (dP/dT)_V
+└─ From dG = -S*dT + V*dP → (dS/dP)_T = -(dV/dT)_P
+</code></pre>
+<h5 id="3-revision-checklist_9"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Helmholtz $F = U - TS$.</li>
+<li>[ ] Gibbs $G = H - TS$.</li>
+<li>[ ] 4 Maxwell relations derived from exact differentials.</li>
+<li>[ ] Isobaric slope on Mollier chart $= T$.</li>
+</ul>
+<h5 id="4-worked-examples_9"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Prove that the slope of a constant pressure line on a Mollier $h-s$ diagram equals absolute temperature $T$.
+- <strong>Solution</strong>:
+  - From $T ds = dh - v dp$.
+  - At constant pressure $dp = 0$, $T ds = dh \implies \left(\frac{\partial h}{\partial s}\right)_P = T$.
+- <strong>Key Insight</strong>: Isobaric slope on $h-s$ chart is $T$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What is an isolated system? Give an example.</strong><br />
+A: An isolated system is one in which neither mass nor energy (heat or work) crosses the boundary $\Delta m = 0, \Delta E = 0$. The Universe is the ultimate isolated system; a perfectly insulated thermos flask is a close practical approximation.</p>
+<p><strong>Q2: Differentiate between intensive and extensive properties.</strong><br />
+A: Intensive properties are independent of system mass (e.g. Temperature $T$, Pressure $P$, Density $\rho$, Viscosity $\mu$). Extensive properties are directly additive with mass (e.g. Mass $m$, Volume $V$, Internal Energy $U$, Entropy $S$).</p>
+<p><strong>Q3: State the Zeroth Law of Thermodynamics and its physical significance.</strong><br />
+A: If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other. It provides the theoretical basis for temperature measurement.</p>
+<p><strong>Q4: Why is internal energy $U$ of an ideal gas a function of temperature alone?</strong><br />
+A: Because ideal gas molecules are assumed to exert no inter-molecular attractive forces. Hence, internal potential energy is zero, leaving internal kinetic energy (proportional to absolute temperature $T$) as the sole component of $U$.</p>
+<p><strong>Q5: What is free expansion and what is the work done during free expansion?</strong><br />
+A: Free expansion occurs when a fluid expands into an evacuated space (vacuum) without encountering resisting force. Since resisting pressure $P_{\text{ext}} = 0$, boundary work $W = \int P_{\text{ext}} dV = 0$.</p>
+<p><strong>Q6: What is a throttling process and what property remains constant?</strong><br />
+A: Throttling is an irreversible steady-flow process where fluid passes through a restriction (porous plug, orifice, or partially closed valve) without heat transfer $Q=0$ or external work $W=0$. Enthalpy remains constant ($h_1 = h_2$, isenthalpic).</p>
+<p><strong>Q7: State Kelvin-Planck and Clausius statements of the Second Law.</strong><br />
+A: Kelvin-Planck: It is impossible to construct a heat engine operating in a cycle that produces net work while exchanging heat with a single reservoir. Clausius: It is impossible to construct a cyclic device that transfers heat from a colder body to a hotter body without external work.</p>
+<p><strong>Q8: What is a Perpetual Motion Machine of the Second Kind (PMM-II)?</strong><br />
+A: A hypothetical heat engine that absorbs heat from a single thermal reservoir and converts 100% of it into work $\eta = 100\%$. It violates the Kelvin-Planck statement of the Second Law.</p>
+<p><strong>Q9: Define Carnot efficiency and state the factors it depends on.</strong><br />
+A: $\eta_{\text{Carnot}} = 1 - \frac{T_L}{T_H}$. It is the maximum theoretical efficiency between two reservoirs and depends ONLY on absolute source temperature $T_H$ and sink temperature $T_L$ in Kelvin.</p>
+<p><strong>Q10: What is Clausius Inequality?</strong><br />
+A: $\oint \frac{\delta Q}{T} \le 0$. Equality holds for reversible cycles, less than zero for irreversible cycles, and greater than zero represents an impossible cycle.</p>
+<p><strong>Q11: Define Entropy and state the Principle of Increase of Entropy.</strong><br />
+A: Entropy $S$ is a thermodynamic state property defined by $dS = \delta Q_{\text{rev}}/T$. The total entropy of an isolated system (or Universe) never decreases $\Delta S_{\text{isolated}} \ge 0$.</p>
+<p><strong>Q12: Define Availability (Exergy) and Irreversibility.</strong><br />
+A: Availability is the maximum theoretical useful work extractable as a system transitions reversibly to the dead state $T_0, P_0$. Irreversibility $I$ is work lost due to irreversibilities $I = T_0 S_{\text{gen}}$.</p>
+<p><strong>Q13: Define Dryness Fraction (Vapour Quality) $x$.</strong><br />
+A: The mass fraction of dry saturated vapour in a wet mixture: $x = \frac{m_g}{m_g + m_f}$. $x=0$ for saturated liquid and $x=1$ for dry saturated vapour.</p>
+<p><strong>Q14: What is the significance of the Critical Point of water?</strong><br />
+A: The state $374.14^\circ\text{C}, 22.06 \text{ MPa}$ where saturated liquid and saturated vapour lines meet, and latent heat of vaporisation drops to zero $h_{fg} = 0$.</p>
+<p><strong>Q15: State the Joule-Thomson coefficient $\mu$ and its physical meaning.</strong><br />
+A: $\mu = \left(\frac{\partial T}{\partial P}\right)_h$. $\mu &gt; 0$ indicates fluid cools upon pressure drop; $\mu &lt; 0$ indicates fluid heats upon expansion; $\mu = 0$ corresponds to ideal gases or inversion states.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Free Expansion vs Throttling</strong>:</li>
+<li>Free Expansion: $U_1 = U_2$ (Isenergetic for ideal gas), $Q=0, W=0, \Delta S &gt; 0$.</li>
+<li>Throttling: $h_1 = h_2$ (Isenthalpic), $Q=0, W=0, \Delta S &gt; 0$.</li>
+<li><strong>Isentropic vs Adiabatic</strong>:</li>
+<li>Adiabatic means $Q = 0$.</li>
+<li>Isentropic means BOTH Reversible AND Adiabatic $\Delta S = 0$.</li>
+<li>An irreversible adiabatic process generates entropy $S_{\text{gen}} &gt; 0$, so $\Delta S &gt; 0$ and it is NOT isentropic!</li>
+<li><strong>Mollier Diagram Isobaric Slope</strong>:</li>
+<li>Slope of constant-pressure line on $h-s$ chart is absolute temperature $T$: $\left(\frac{\partial h}{\partial s}\right)_P = T$.</li>
+<li><strong>van der Waals Critical Compressibility</strong>:</li>
+<li>$Z_c = \frac{P_c v_c}{R T_c} = 0.375 = \frac{3}{8}$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize First Law: $\Delta U = Q - W$, Enthalpy $H = U + PV$.</li>
+<li>[ ] Memorize Process Work: Isothermal $W = P_1 V_1 \ln(V_2/V_1)$, Polytropic $W = \frac{P_1 V_1 - P_2 V_2}{n-1}$.</li>
+<li>[ ] Memorize Mayer's Relation: $C_p - C_v = R$, $C_p = \frac{\gamma R}{\gamma-1}$, $C_v = \frac{R}{\gamma-1}$.</li>
+<li>[ ] Memorize Carnot Efficiency &amp; COP: $\eta_{\text{Carnot}} = 1 - T_L/T_H$, $COP_{HP} = COP_R + 1$.</li>
+<li>[ ] Memorize Clausius Inequality: $\oint \delta Q / T \le 0$, $S_{\text{gen}} \ge 0$.</li>
+<li>[ ] Memorize Irreversibility: $I = T_0 S_{\text{gen}}$.</li>
+<li>[ ] Memorize Otto &amp; Diesel Efficiency: $\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}$. Same $r \implies \eta_{\text{Otto}} &gt; \eta_{\text{Diesel}}$.</li>
+<li>[ ] Memorize Pure Substance Points: Triple Point $0.01^\circ\text{C}, 0.611 \text{ kPa}$, Critical Point $374.14^\circ\text{C}, 22.06 \text{ MPa}, h_{fg} = 0$.</li>
+<li>[ ] Memorize Gibbs Phase Rule: $F = C - P + 2$.</li>
+<li>[ ] Memorize van der Waals Critical $Z_c$: $0.375$.</li>
+<li>[ ] Memorize Potentials: Helmholtz $F = U - TS$, Gibbs $G = H - TS$.</li>
+<li>[ ] Memorize Mollier Isobaric Slope: $\left(\frac{\partial h}{\partial s}\right)_P = T$.</li>
+</ul>
+</body>
+</html>

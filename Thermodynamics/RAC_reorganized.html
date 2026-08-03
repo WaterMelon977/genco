@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refrigeration & Air Conditioning (RAC) Principles & Applications — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="refrigeration-air-conditioning-rac-principles-applications-comprehensive-reorganized-study-guide">Refrigeration &amp; Air Conditioning (RAC) Principles &amp; Applications — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Units of Refrigeration $1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$, Reversed Carnot Cycle (Refrigerators &amp; Heat Pumps, $COP_R = \frac{T_L}{T_H - T_L}$, $COP_{HP} = COP_R + 1$), Air Refrigeration Systems (Bell-Coleman / Reversed Brayton Cycle, $COP = \frac{1}{r_p^{(\gamma-1)/\gamma} - 1}$), Vapour Compression Refrigeration Systems (VCRS: enthalpy-based $COP_R = \frac{h_1 - h_4}{h_2 - h_1}$, Heat Rejection Ratio $HRR = 1 + \frac{1}{COP_R}$, operating parameter effects like sub-cooling, superheating, $T_e$, and $T_c$), System Components (compressors, capillary tubes, TEV, condensers, evaporators), Multi-stage &amp; Cascade Systems $T_{\text{opt}} = \sqrt{T_H T_L}$, Refrigerant Designation &amp; Properties ($R-(C-1)(H+1)F$, $R-(700+M)$, ODP, GWP, leak detection), and Vapour Absorption Refrigeration Systems (VARS energy balance $Q_G + Q_E = Q_C + Q_A$, ideal $COP = \frac{T_E}{T_G - T_E} \cdot \frac{T_G - T_O}{T_O}$, $NH_3-H_{2O}$ and $LiBr-H_{2O}$ pairs, Electrolux 3-fluid system) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-units-of-refrigeration-capacity"><strong>1. Units of Refrigeration &amp; Capacity</strong></h4>
+<ul>
+<li><strong>1 Tonne of Refrigeration (Practical)</strong>:
+  <div class="formula-card">$${\boxed{1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min} = 12600 \text{ kJ/h}}}$$</div></li>
+<li>
+<p>Theoretical value: $\approx 3.516 \text{ kW}$ or $232.6 \text{ kJ/min}$ (from latent heat of ice $335 \text{ kJ/kg}$).</p>
+</li>
+<li>
+<p><strong>Power Input from Capacity &amp; $COP$</strong>:
+  <div class="formula-card">$${\boxed{W = \frac{Q_R}{COP}}}$$</div></p>
+</li>
+<li>$W$: power input $\text{kW}$</li>
+<li>$Q_R$: refrigerating capacity $\text{kW} = \text{Tons} \times 3.5$</li>
+<li>$COP$: coefficient of performance (dimensionless)</li>
+</ul>
+<hr />
+<h4 id="2-reversed-carnot-cycle-ideal-refrigerator-heat-pump"><strong>2. Reversed Carnot Cycle (Ideal Refrigerator &amp; Heat Pump)</strong></h4>
+<ul>
+<li><strong>$COP$ of Carnot Refrigerator $COP_R$</strong>:
+  <div class="formula-card">$${\boxed{COP_R = \frac{T_L}{T_H - T_L} = \frac{Q_L}{W} = \frac{Q_L}{Q_H - Q_L}}}$$</div></li>
+<li>$T_L$: absolute evaporator temperature $\text{K}$</li>
+<li>
+<p>$T_H$: absolute condenser temperature $\text{K}$</p>
+</li>
+<li>
+<p><strong>$COP$ of Carnot Heat Pump $COP_{HP}$</strong>:
+  <div class="formula-card">$${\boxed{COP_{HP} = \frac{T_H}{T_H - T_L} = \frac{Q_H}{W} = \frac{Q_H}{Q_H - Q_L}}}$$</div></p>
+</li>
+<li>
+<p><strong>Relation between Heat Pump &amp; Refrigerator $COP$</strong>:
+  <div class="formula-card">$${\boxed{COP_{HP} = COP_R + 1}}$$</div></p>
+</li>
+<li>
+<p><strong>Relation to Carnot Heat Engine Efficiency $\eta_{\text{Carnot}}$</strong>:
+  <div class="formula-card">$${\boxed{COP_R = \frac{1 - \eta_{\text{Carnot}}}{\eta_{\text{Carnot}}}, \quad COP_{HP} = \frac{1}{\eta_{\text{Carnot}}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-air-refrigeration-systems-bell-coleman-reversed-brayton"><strong>3. Air Refrigeration Systems (Bell-Coleman / Reversed Brayton)</strong></h4>
+<ul>
+<li><strong>$COP$ of Ideal Bell-Coleman Air Cycle</strong>:
+  <div class="formula-card">$${\boxed{COP = \frac{1}{r_p^{\frac{\gamma-1}{\gamma}} - 1} = \frac{T_1 - T_4}{(T_2 - T_3) - (T_1 - T_4)}}}$$</div></li>
+<li>$r_p = \frac{P_2}{P_1}$: pressure ratio across compressor / expander</li>
+<li>$\gamma = \frac{C_p}{C_v}$: specific heat ratio (for air $\gamma = 1.40$)</li>
+</ul>
+<hr />
+<h4 id="4-vapour-compression-refrigeration-systems-vcrs"><strong>4. Vapour Compression Refrigeration Systems (VCRS)</strong></h4>
+<ul>
+<li><strong>$COP$ of VCRS Cycle</strong>:
+  <div class="formula-card">$${\boxed{COP_R = \frac{h_1 - h_4}{h_2 - h_1} = \frac{\text{Refrigerating Effect}}{\text{Compressor Work}}}}$$</div></li>
+<li>$h_1$: enthalpy at compressor inlet (saturated/superheated vapour in $\text{kJ/kg}$)</li>
+<li>$h_2$: enthalpy at compressor discharge $\text{kJ/kg}$</li>
+<li>
+<p>$h_3 = h_4$: enthalpy after throttling condenser liquid $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Heat Rejection Ratio $HRR$</strong>:
+  <div class="formula-card">$${\boxed{HRR = \frac{Q_{\text{cond}}}{Q_R} = \frac{h_2 - h_3}{h_1 - h_4} = 1 + \frac{1}{COP_R}}}$$</div></p>
+</li>
+<li>
+<p><strong>Mass Flow Rate of Refrigerant $\dot{m}_r$</strong>:
+  <div class="formula-card">$${\boxed{\dot{m}_r = \frac{Q_R}{h_1 - h_4} = \frac{\text{Capacity in kW}}{h_1 - h_4} \quad (\text{kg/s})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-operating-parameter-effects-modifications"><strong>5. Operating Parameter Effects &amp; Modifications</strong></h4>
+<ul>
+<li>
+<p><strong>Evaporator Temperature ($T_e \uparrow$, fixed $T_c$)</strong>:
+  <div class="formula-card">$${\boxed{T_e \uparrow \implies COP \uparrow, \quad RE \uparrow, \quad W_{\text{compressor}} \downarrow}}$$</div></p>
+</li>
+<li>
+<p><strong>Condenser Temperature ($T_c \uparrow$, fixed $T_e$)</strong>:
+  <div class="formula-card">$${\boxed{T_c \uparrow \implies COP \downarrow, \quad RE \downarrow, \quad W_{\text{compressor}} \uparrow}}$$</div></p>
+</li>
+<li>
+<p><strong>Sub-Cooling (Under-Cooling)</strong>:
+  <div class="formula-card">$${\boxed{RE_{\text{subcooled}} = h_1 - h_4' &gt; h_1 - h_4 \implies COP \uparrow, \quad W \text{ unchanged}}}$$</div></p>
+</li>
+<li>
+<p><strong>Superheating</strong>:
+  <div class="formula-card">$${\boxed{W_{\text{compressor}} \uparrow, \quad \text{Discharge Temperature } T_2 \uparrow, \quad COP \text{ usually } \downarrow}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="6-compressors-multi-stage-cascade-systems"><strong>6. Compressors &amp; Multi-Stage / Cascade Systems</strong></h4>
+<ul>
+<li><strong>Volumetric Efficiency of Reciprocating Compressor $\eta_v$</strong>:
+  <div class="formula-card">$${\boxed{\eta_v = \frac{V_{\text{actual}}}{V_{\text{swept}}} = 1 + C - C \left(\frac{P_2}{P_1}\right)^{\frac{1}{n}}}}$$</div></li>
+<li>
+<p>$C = \frac{V_c}{V_s}$: clearance ratio</p>
+</li>
+<li>
+<p><strong>Optimum Intermediate Temperature for Cascade System</strong>:
+  <div class="formula-card">$${\boxed{T_{\text{opt}} = \sqrt{T_H \cdot T_L}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="7-refrigerant-designation-rules"><strong>7. Refrigerant Designation Rules</strong></h4>
+<ul>
+<li><strong>Organic Halocarbon Compounds $R-a b c$</strong>:
+  <div class="formula-card">$${\boxed{R-(C-1)(H+1)F}}$$</div></li>
+<li>$C$: number of Carbon atoms</li>
+<li>$H$: number of Hydrogen atoms</li>
+<li>$F$: number of Fluorine atoms</li>
+<li>
+<p>Chlorine atoms $Cl = 2(C) + 2 - H - F$ (for alkanes)</p>
+</li>
+<li>
+<p><strong>Inorganic Refrigerants $R-7xx$</strong>:
+  <div class="formula-card">$${\boxed{R-(700 + M)}}$$</div></p>
+</li>
+<li>$M$: molecular weight of compound $\text{g/mol}$</li>
+<li>$R-717 = NH_3 (M=17)$, $R-718 = H_{2O} (M=18)$, $R-744 = CO_2 (M=44)$, $R-729 = \text{Air } (M=29)$</li>
+</ul>
+<hr />
+<h4 id="8-vapour-absorption-refrigeration-systems-vars"><strong>8. Vapour Absorption Refrigeration Systems (VARS)</strong></h4>
+<ul>
+<li><strong>First Law Energy Balance (Pump Work Neglected)</strong>:
+  <div class="formula-card">$${\boxed{Q_G + Q_E = Q_C + Q_A}}$$</div></li>
+<li>$Q_G$: heat supplied in generator $\text{kW}$</li>
+<li>$Q_E$: heat absorbed in evaporator $\text{kW}$</li>
+<li>$Q_C$: heat rejected in condenser $\text{kW}$</li>
+<li>
+<p>$Q_A$: heat rejected in absorber $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Ideal Carnot $COP$ of VARS</strong>:
+  <div class="formula-card">$${\boxed{COP_{\text{ideal}} = \left(\frac{T_E}{T_G - T_E}\right) \left(\frac{T_G - T_O}{T_O}\right) = \eta_{\text{engine}} \times COP_{\text{refrigerator}}}}$$</div></p>
+</li>
+<li>$T_E$: evaporator temperature $\text{K}$</li>
+<li>$T_G$: generator temperature $\text{K}$</li>
+<li>$T_O$: environment / sink / absorber / condenser temperature $\text{K}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Tonne of Refrigeration (TR)</strong>: The rate of heat extraction required to freeze $1000 \text{ kg}$ of pure water at $0^\circ\text{C}$ into ice at $0^\circ\text{C}$ in $24 \text{ hours}$ $1 \text{ TR} = 3.5 \text{ kW}$.</li>
+<li><strong>Coefficient of Performance $COP$</strong>: Ratio of desired refrigerating or heating effect to the net work input ($COP_R = Q_L/W$, $COP_{HP} = Q_H/W$).</li>
+<li><strong>Reversed Carnot Cycle</strong>: The ideal reference cycle operating between two thermal reservoirs; gives maximum theoretical $COP$.</li>
+<li><strong>Bell-Coleman Cycle</strong>: Reversed Brayton / Joule gas refrigeration cycle using air as working fluid.</li>
+<li><strong>Vapour Compression Refrigeration System (VCRS)</strong>: Mechanical refrigeration cycle consisting of Compressor, Condenser, Throttling Valve, and Evaporator.</li>
+<li><strong>Sub-Cooling</strong>: Cooling liquid refrigerant below its saturation temperature at condenser pressure before expansion $COP \uparrow$.</li>
+<li><strong>Superheating</strong>: Heating refrigerant vapour above saturation temperature at evaporator pressure before compression.</li>
+<li><strong>Capillary Tube</strong>: Constant-area restriction throttling device operating on fluid friction and momentum reduction.</li>
+<li><strong>Thermostatic Expansion Valve (TEV)</strong>: Expansion valve regulated by sensing bulb to maintain constant evaporator outlet superheat.</li>
+<li><strong>Ozone Depletion Potential (ODP)</strong>: Measure of a chemical's ability to destroy stratospheric ozone relative to baseline $R-11$ $ODP_{R-11} = 1.0$.</li>
+<li><strong>Azeotrope</strong>: Refrigerant mixture of two or more liquids that boils at a constant temperature with fixed liquid/vapour composition ($R-500$ series).</li>
+<li><strong>Vapour Absorption Refrigeration System (VARS)</strong>: Heat-operated refrigeration system replacing mechanical compressor with Absorber, Generator, and Liquid Pump.</li>
+<li><strong>Electrolux Refrigerator</strong>: Three-fluid domestic absorption system $NH_3, H_{2O}, H_2$ operating completely without any mechanical pump or moving parts.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>1 Tonne of Refrigeration</strong>: $3.5 \text{ kW} = 210 \text{ kJ/min} = 12600 \text{ kJ/h}$.</li>
+<li><strong>Baseline ODP Reference</strong>: $ODP \text{ of } R-11 (\text{CCl}_3\text{F}) = 1.0$.</li>
+<li><strong>Inorganic Codes</strong>: $R-717 (NH_3)$, $R-718 (H_{2O})$, $R-744 (CO_2)$, $R-729 (\text{Air})$.</li>
+<li><strong>Condenser Selection</strong>: Air-cooled $\le 3 \text{ TR}$; Water-cooled $3 - 50 \text{ TR}$; Evaporative $&gt; 50 \text{ TR}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Units &amp; Capacity</strong>: §3.1, applied to VCRS calculation in §3.4.</li>
+<li><strong>Reversed Carnot</strong>: §3.2, used as benchmark for VARS $COP_{\text{ideal}}$ in §3.8.</li>
+<li><strong>Air Refrigeration</strong>: §3.3 (Bell-Coleman cycle).</li>
+<li><strong>VCRS &amp; Operating Parameters</strong>: §3.4 &amp; §3.5.</li>
+<li><strong>System Components &amp; Multi-Stage</strong>: §3.6.</li>
+<li><strong>Refrigerant Properties &amp; Leak Detection</strong>: §3.7.</li>
+<li><strong>VARS &amp; Electrolux</strong>: §3.8.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-units-of-refrigeration-capacity"><strong>3.1 Units of Refrigeration &amp; Capacity</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>$1 \text{ TR}$ is defined as the latent heat absorbed when $1000 \text{ kg}$ $1 \text{ metric ton}$ of water at $0^\circ\text{C}$ freezes into ice at $0^\circ\text{C}$ over $24 \text{ hours}$.</li>
+<li>Latent heat of ice fusion $= 335 \text{ kJ/kg}$.</li>
+<li>Theoretical value $= \frac{1000 \times 335}{24 \times 3600} = 3.877 \text{ kW}$ or $\frac{1000 \times 335}{24 \times 60} = 232.6 \text{ kJ/min}$.</li>
+<li>Practical engineering standard accepted in all competitive exams: $1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$.</li>
+<li>Power required to drive compressor: $W = \frac{Q_R}{COP}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Power Conversion Rule</strong>: Always convert refrigerating capacity from Tons to kW by multiplying by $3.5$ BEFORE dividing by $COP$!</p>
+<p>[!TRAP]
+<strong>Theoretical vs Practical Value Trap</strong>: Unless a question explicitly asks for the "theoretical exact value based on $335 \text{ kJ/kg}$", ALWAYS use $1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Refrigeration Capacity Conversion?
+├─ Is capacity given in Tons of Refrigeration (TR)?
+│  ├─ Multiply by 3.5 → Capacity in kW
+│  └─ Multiply by 210 → Capacity in kJ/min
+└─ Calculate Power Input → W (kW) = Capacity (kW) / COP
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$.</li>
+<li>[ ] Power $W = Q_R / COP$.</li>
+<li>[ ] Heat absorption happens at evaporator.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A refrigeration plant has a capacity of $6 \text{ TR}$ and operates with a $COP = 6$. Calculate the minimum power required to drive the compressor.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${Q_R = 6 \text{ TR} = 6 \times 3.5 = 21 \text{ kW}}$$</div>
+  <div class="formula-card">$${W = \frac{Q_R}{COP} = \frac{21}{6} = 3.5 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: Convert tons to kW $21 \text{ kW}$ before dividing by $COP$.</p>
+<hr />
+<h3 id="32-reversed-carnot-cycle-ideal-refrigerator-heat-pump"><strong>3.2 Reversed Carnot Cycle (Ideal Refrigerator &amp; Heat Pump)</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Reversed Carnot cycle consists of 4 reversible processes:</li>
+<li>Isothermal heat absorption at low temperature $T_L$ (Evaporator).</li>
+<li>Isentropic compression $1 \to 2$.</li>
+<li>Isothermal heat rejection at high temperature $T_H$ (Condenser).</li>
+<li>Isentropic expansion $3 \to 4$.</li>
+<li>Refrigerator desired effect $= Q_L$; Heat Pump desired effect $= Q_H$.</li>
+<li>$COP_R = \frac{T_L}{T_H - T_L}, \quad COP_{HP} = \frac{T_H}{T_H - T_L} = COP_R + 1$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Absolute Temperature Mandate</strong>: Temperatures in Carnot $COP$ formulas MUST ALWAYS be in Kelvin $T(\text{K}) = T(^\circ\text{C}) + 273.15$.</p>
+<p>[!TRAP]
+<strong>Heat Pump vs Refrigerator COP</strong>: $COP_{HP}$ is ALWAYS greater than $COP_R$ by exactly $1.0$ for the same operating temperature limits $COP_{HP} = COP_R + 1$.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Carnot Performance Calculation?
+├─ Refrigerator COP → COP_R = T_L / (T_H - T_L)
+├─ Heat Pump COP → COP_HP = T_H / (T_H - T_L) = COP_R + 1
+└─ Engine Efficiency Relation → COP_R = (1 - eta) / eta, COP_HP = 1 / eta
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Temperatures in Kelvin.</li>
+<li>[ ] $COP_{HP} = COP_R + 1$.</li>
+<li>[ ] Carnot gives maximum theoretical performance.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A Carnot refrigerator operates between $-13^\circ\text{C}$ $260 \text{ K}$ and $27^\circ\text{C}$ $300 \text{ K}$. If it absorbs $1.0 \text{ kW}$ of heat from the cold space, calculate compressor power input and $COP_{HP}$ if run as a heat pump.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_L = -13 + 273 = 260 \text{ K}, \quad T_H = 27 + 273 = 300 \text{ K}}$$</div>
+  <div class="formula-card">$${COP_R = \frac{T_L}{T_H - T_L} = \frac{260}{300 - 260} = \frac{260}{40} = 6.5}$$</div>
+  <div class="formula-card">$${W = \frac{Q_L}{COP_R} = \frac{1.0}{6.5} = 0.1538 \text{ kW}}$$</div>
+  <div class="formula-card">$${COP_{HP} = COP_R + 1 = 6.5 + 1 = 7.5}$$</div>
+- <strong>Key Insight</strong>: $COP_R = 6.5$, $W = 0.1538 \text{ kW}$, $COP_{HP} = 7.5$.</p>
+<hr />
+<h3 id="33-air-refrigeration-systems-bell-coleman-reversed-brayton"><strong>3.3 Air Refrigeration Systems (Bell-Coleman / Reversed Brayton)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Working fluid remains gaseous throughout (no phase change).</li>
+<li>Bell-Coleman cycle comprises:</li>
+<li>Isentropic compression $1 \to 2$.</li>
+<li>Constant-pressure heat rejection $2 \to 3$.</li>
+<li>Isentropic expansion $3 \to 4$.</li>
+<li>Constant-pressure heat absorption $4 \to 1$.</li>
+<li>$COP = \frac{1}{r_p^{\frac{\gamma-1}{\gamma}} - 1}$.</li>
+<li>As pressure ratio $r_p$ increases, $COP$ decreases!</li>
+<li>Used in aircraft refrigeration due to lightweight air medium.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Pressure Ratio Trend</strong>: In gas refrigeration cycles, increasing pressure ratio $r_p$ DECREASES $COP$ (opposite of gas turbine power cycles!).</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Air Refrigeration (Bell-Coleman) Check?
+├─ Is working fluid a gas without phase change? → Bell-Coleman Cycle
+├─ Calculate COP → COP = 1 / (r_p^((gamma-1)/gamma) - 1)
+└─ Pressure Ratio Effect → r_p increases implies COP decreases
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Bell-Coleman uses air (no phase change).</li>
+<li>[ ] $COP = \frac{1}{r_p^{(\gamma-1)/\gamma} - 1}$.</li>
+<li>[ ] Used in aircraft cooling.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An air refrigeration system operating on reversed Brayton cycle has a pressure ratio $r_p = 4$ $\gamma = 1.4$. Calculate its $COP$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\frac{\gamma - 1}{\gamma} = \frac{1.4 - 1}{1.4} = \frac{0.4}{1.4} = \frac{2}{7} \approx 0.2857}$$</div>
+  <div class="formula-card">$${r_p^{\frac{\gamma-1}{\gamma}} = 4^{0.2857} \approx 1.486}$$</div>
+  <div class="formula-card">$${COP = \frac{1}{1.486 - 1} = \frac{1}{0.486} \approx 2.058}$$</div>
+- <strong>Key Insight</strong>: $COP$ depends inversely on $r_p$.</p>
+<hr />
+<h3 id="34-vapour-compression-refrigeration-system-vcrs"><strong>3.4 Vapour Compression Refrigeration System (VCRS)</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Most common commercial cycle with refrigerant phase change.</li>
+<li>Processes:</li>
+<li>Isentropic compression $1 \to 2$.</li>
+<li>Isobaric heat rejection in condenser $2 \to 3$.</li>
+<li>Isenthalpic throttling in expansion valve $3 \to 4, h_3 = h_4$.</li>
+<li>Isobaric heat absorption in evaporator $4 \to 1$.</li>
+<li>$COP_R = \frac{h_1 - h_4}{h_2 - h_1}$.</li>
+<li>Heat Rejection Ratio $HRR = \frac{Q_{\text{cond}}}{Q_R} = 1 + \frac{1}{COP_R}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Throttling Property</strong>: Expansion process $3 \to 4$ is ISENTHALPIC $h_3 = h_4$, NOT isentropic! Vertically straight line on $p-h$ diagram.</p>
+<p>[!TRAP]
+<strong>Flash Chamber Effect</strong>: Flash chamber separates flash gas from liquid after throttling, but does NOT increase the specific refrigerating effect per kg of refrigerant passing through the evaporator!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>VCRS Cycle Property Evaluation?
+├─ Identify Enthalpies → h1 (compressor inlet), h2 (compressor exit), h3=h4 (condenser exit / throttle)
+├─ Compute Refrigerating Effect → RE = h1 - h4
+├─ Compute Compressor Work → W = h2 - h1
+└─ Calculate COP &amp; HRR → COP = (h1 - h4)/(h2 - h1), HRR = 1 + 1/COP
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Throttling is isenthalpic $h_3 = h_4$.</li>
+<li>[ ] $COP_R = \frac{h_1 - h_4}{h_2 - h_1}$.</li>
+<li>[ ] $HRR = 1 + \frac{1}{COP_R}$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a VCRS, enthalpy at compressor inlet is $h_1 = 1200 \text{ kJ/kg}$, compressor exit $h_2 = 1400 \text{ kJ/kg}$, and liquid leaving condenser $h_3 = 200 \text{ kJ/kg}$. Calculate $COP$ and $HRR$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${h_4 = h_3 = 200 \text{ kJ/kg}}$$</div>
+  <div class="formula-card">$${RE = h_1 - h_4 = 1200 - 200 = 1000 \text{ kJ/kg}}$$</div>
+  <div class="formula-card">$${W = h_2 - h_1 = 1400 - 1200 = 200 \text{ kJ/kg}}$$</div>
+  <div class="formula-card">$${COP_R = \frac{RE}{W} = \frac{1000}{200} = 5.0}$$</div>
+  <div class="formula-card">$${HRR = 1 + \frac{1}{COP_R} = 1 + \frac{1}{5} = 1.20}$$</div>
+- <strong>Key Insight</strong>: $COP = 5.0$, $HRR = 1.20$.</p>
+<hr />
+<h3 id="35-operating-parameter-effects-system-modifications"><strong>3.5 Operating Parameter Effects &amp; System Modifications</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Evaporator Temperature $T_e \uparrow$</strong>: Higher suction pressure $\implies$ density of suction gas $\uparrow$, mass flow $\uparrow$, specific volume $\downarrow$, compressor work per kg $\downarrow$, refrigerating effect $\uparrow \implies COP \uparrow$.</li>
+<li><strong>Condenser Temperature $T_c \uparrow$</strong>: Higher discharge pressure $\implies$ compressor work per kg $\uparrow$, refrigerating effect $\downarrow \implies COP \downarrow$.</li>
+<li><strong>Sub-Cooling (Under-Cooling)</strong>: Cooling liquid refrigerant below $T_{\text{sat}}$ before throttling $3 \to 3'$. Increases $RE$ $h_1 - h_4' &gt; h_1 - h_4$ while compressor work stays unchanged $\implies COP \uparrow$.</li>
+<li><strong>Superheating</strong>: Heating suction vapour above $T_{\text{sat}}$ before compression $1 \to 1'$. Increases compressor work and discharge temperature $\implies COP$ usually decreases.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Sub-Cooling Advantage</strong>: Sub-cooling ALWAYS improves $COP$ and increases refrigerating capacity without increasing compressor work!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Parameter Modification Analysis?
+├─ Sub-Cooling Liquid → RE increases, Work unchanged → COP increases
+├─ Increase Evaporator Temp Te → RE increases, Work decreases → COP increases
+├─ Increase Condenser Temp Tc → RE decreases, Work increases → COP decreases
+└─ Superheating Suction Vapour → Work increases, Discharge Temp increases → COP usually decreases
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Sub-cooling increases $COP$.</li>
+<li>[ ] Higher $T_e$ increases $COP$.</li>
+<li>[ ] Higher $T_c$ decreases $COP$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain the effect of liquid sub-cooling on the $COP$ of a VCRS.
+- <strong>Solution</strong>:
+  - Sub-cooling reduces liquid enthalpy at expansion valve inlet $h_3' &lt; h_3 \implies h_4' &lt; h_4$.
+  - Refrigerating effect increases $h_1 - h_4' &gt; h_1 - h_4$.
+  - Compressor work $h_2 - h_1$ remains unaffected.
+  - Therefore, $COP = \frac{RE}{W}$ increases.
+- <strong>Key Insight</strong>: Sub-cooling increases $COP$ by expanding the refrigerating effect.</p>
+<hr />
+<h3 id="36-system-components-expansion-devices-multi-stage-cascade-systems"><strong>3.6 System Components, Expansion Devices &amp; Multi-Stage / Cascade Systems</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Compressors</strong>:</li>
+<li>Hermetic Reciprocating: Sealed motor + compressor unit; used in domestic refrigerators and window ACs.</li>
+<li>Rotary: Used in small capacity systems (&lt; 2 kW); low leakage.</li>
+<li>Centrifugal: Used for large capacity systems (&gt; 100 TR) with low pressure lifts.</li>
+<li><strong>Expansion Devices</strong>:</li>
+<li>Capillary Tube: Fixed restriction; operates via wall friction and momentum drop; low starting torque required; cannot handle variable loads.</li>
+<li>Thermostatic Expansion Valve (TEV): Controls flow to maintain constant superheat at evaporator exit.</li>
+<li><strong>Condenser Types</strong>:</li>
+<li>Air-cooled $\le 3 \text{ TR}$</li>
+<li>Water-cooled $3 - 50 \text{ TR}$</li>
+<li>Evaporative $&gt; 50 \text{ TR}$</li>
+<li><strong>Cascade &amp; Multi-Stage</strong>:</li>
+<li>Used for ultra-low temperatures ($-40^\circ\text{C}$ to $-80^\circ\text{C}$) to limit pressure ratios.</li>
+<li>Optimum intermediate temperature: $T_{\text{opt}} = \sqrt{T_H \cdot T_L}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Capillary Tube Function</strong>: Capillary tube relies on friction and pressure drop across narrow bore tubing. It requires NO moving parts and requires LOW starting torque motors!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Expansion Device &amp; Component Selection?
+├─ Small Domestic Refrigerator / Window AC → Capillary Tube + Hermetic Compressor
+├─ Variable Load Commercial System → Thermostatic Expansion Valve (TEV)
+└─ Ultra-Low Temperature (-40°C to -80°C) → Cascade System (Optimum T_inter = sqrt(T_H * T_L))
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Capillary tube: Fixed restriction, low starting torque.</li>
+<li>[ ] TEV: Maintains constant evaporator exit superheat.</li>
+<li>[ ] Cascade optimum temperature $T_{\text{opt}} = \sqrt{T_H T_L}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A cascade refrigeration system operates between $T_H = 50^\circ\text{C}$ $323 \text{ K}$ and $T_L = -90^\circ\text{C}$ $183 \text{ K}$. Calculate the optimum intermediate temperature.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_{\text{opt}} = \sqrt{T_H \cdot T_L} = \sqrt{323 \times 183} = \sqrt{59109} \approx 243.12 \text{ K}}$$</div>
+  <div class="formula-card">$${T_{\text{opt}}(^\circ\text{C}) = 243.12 - 273.15 = -30.03^\circ\text{C} \approx -30^\circ\text{C}}$$</div>
+- <strong>Key Insight</strong>: Use Kelvin for geometric mean, then convert to Celsius.</p>
+<hr />
+<h3 id="37-refrigerant-designation-properties-leak-detection"><strong>3.7 Refrigerant Designation, Properties &amp; Leak Detection</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>ASHRAE Designation</strong>:</li>
+<li>Organic: $R-(C-1)(H+1)F$.<ul>
+<li>$R-12 (\text{CCl}_2\text{F}_2): C=1 \implies 0, H=0 \implies 1, F=2 \implies R-12$.</li>
+<li>$R-22 (\text{CHClF}_2): C=1 \implies 0, H=1 \implies 2, F=2 \implies R-22$.</li>
+<li>$R-134a (\text{C}_2\text{H}_2\text{F}_4): C=2 \implies 1, H=2 \implies 3, F=4 \implies R-134a$.</li>
+</ul>
+</li>
+<li>Inorganic: $R-(700 + M)$.<ul>
+<li>Ammonia $NH_3, M=17 \implies R-717$.</li>
+<li>Water $H_{2O}, M=18 \implies R-718$.</li>
+<li>Carbon Dioxide $CO_2, M=44 \implies R-744$.</li>
+<li>Air $M=29 \implies R-729$.</li>
+</ul>
+</li>
+<li><strong>Desirable Properties</strong>: High latent heat $h_{fg}$, low freezing point, high critical temperature, positive evaporator pressure (above atmospheric to prevent air ingress), non-toxic, non-flammable.</li>
+<li><strong>Ozone Depletion Potential (ODP)</strong>: Reference baseline $ODP_{\text{R-11}} = 1.0$.</li>
+<li><strong>Leak Detection Methods</strong>:</li>
+<li>Freon / CFC / HCFC / HFC: Halide Torch (flame turns bright green).</li>
+<li>Ammonia $NH_3$: Burning Sulphur Sticks (dense white smoke $NH_{4Cl} / (NH_4)_{2SO}_4$).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Leak Detection Matching</strong>:
+- Halogenated Refrigerants (Freons) $\implies$ Halide Torch (Green Flame)
+- Ammonia $NH_3$ $\implies$ Sulphur Stick (White Smoke)</p>
+<p>[!TRAP]
+<strong>Ammonia &amp; Copper Pipe Incompatibility</strong>: Ammonia ATTACKS copper and copper alloys! Ammonia systems MUST use steel or iron piping!</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Refrigerant Code &amp; Leak Check?
+├─ Organic Chemical Formula → R-(C-1)(H+1)F
+├─ Inorganic Compound → R-(700 + Molecular Weight)
+├─ Leak Test for Freon → Halide Torch (Green Flame)
+└─ Leak Test for Ammonia → Sulphur Stick (White Smoke, Steel Piping Only!)
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $R-11$ has $ODP = 1.0$.</li>
+<li>[ ] $R-717 = NH_3$, $R-718 = H_{2O}$, $R-744 = CO_2$.</li>
+<li>[ ] Halide torch for Freon, Sulphur stick for Ammonia.</li>
+<li>[ ] Ammonia attacks copper $\implies$ Use steel pipes.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Determine the ASHRAE refrigerant designation for Dichlorodifluoromethane $\text{CCl}_2\text{F}_2$.
+- <strong>Solution</strong>:
+  - Formula: $\text{C}_1 \text{H}_0 \text{Cl}_2 \text{F}_2$
+  - $C = 1 \implies C - 1 = 0$
+  - $H = 0 \implies H + 1 = 1$
+  - $F = 2 \implies F = 2$
+  - Designation: $R-012 = R-12$.
+- <strong>Key Insight</strong>: $R-12 = \text{CCl}_2\text{F}_2$.</p>
+<hr />
+<h3 id="38-vapour-absorption-refrigeration-systems-vars-electrolux"><strong>3.8 Vapour Absorption Refrigeration Systems (VARS) &amp; Electrolux</strong></h3>
+<h5 id="1-concept-pointers_7"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>VARS replaces mechanical compressor with Absorber, Generator, and Pump. Low power consumption since pumping liquid requires minimal work compared to compressing gas.</li>
+<li><strong>First Law Energy Balance</strong>:
+  <div class="formula-card">$${\boxed{Q_G + Q_E = Q_C + Q_A}}$$</div></li>
+<li><strong>Ideal Carnot $COP$ of VARS</strong>:
+  <div class="formula-card">$${\boxed{COP_{\text{ideal}} = \left(\frac{T_E}{T_G - T_E}\right) \left(\frac{T_G - T_O}{T_O}\right)}}$$</div></li>
+<li><strong>Refrigerant-Absorbent Pairs</strong>:</li>
+<li>Aqua-Ammonia System: Refrigerant $= NH_3$, Absorbent $= H_{2O}$ (Analyzer &amp; Rectifier required to trap water vapour).</li>
+<li>Lithium Bromide System: Refrigerant $= H_{2O}$, Absorbent $= LiBr$ (Water is refrigerant $\implies$ cannot operate below $0^\circ\text{C}$).</li>
+<li><strong>Electrolux (3-Fluid) Domestic Refrigerator</strong>:</li>
+<li>Uses Ammonia $NH_3$, Water $H_{2O}$, and Hydrogen $H_2$.</li>
+<li>Hydrogen provides partial pressure reduction in evaporator to produce cooling without ANY moving pump or motor! Completely silent.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>VARS COP Ideal Formula</strong>: $COP_{\text{ideal}} = \left(\frac{T_E}{T_G - T_E}\right) \left(\frac{T_G - T_O}{T_O}\right)$. It is the product of Carnot Engine Efficiency operating between $T_G$ and $T_O$ and Carnot Refrigerator $COP$ operating between $T_E$ and $T_O$.</p>
+<p>[!TRAP]
+<strong>LiBr System Limit</strong>: In $LiBr - H_{2O}$ absorption systems, WATER is the refrigerant. Therefore, it CANNOT be used for refrigeration temperatures below $0^\circ\text{C}$!</div>
+<h5 id="2-decision-tree_7"><strong>2. Decision Tree</strong></h5>
+<pre><code>VARS System Check?
+├─ Energy Balance → Q_G + Q_E = Q_C + Q_A
+├─ Ideal COP → COP = [T_E / (T_G - T_E)] * [(T_G - T_O) / T_O]
+├─ Pair: NH3-H2O → NH3 is refrigerant, H2O is absorbent (Requires Rectifier)
+├─ Pair: LiBr-H2O → H2O is refrigerant, LiBr is absorbent (Cannot go below 0°C)
+└─ Electrolux 3-Fluid → NH3 + H2O + H2 (No pump, completely silent)
+</code></pre>
+<h5 id="3-revision-checklist_7"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Energy balance: $Q_G + Q_E = Q_C + Q_A$.</li>
+<li>[ ] $COP_{\text{ideal}} = \frac{T_E}{T_G - T_E} \cdot \frac{T_G - T_O}{T_O}$.</li>
+<li>[ ] Electrolux uses Hydrogen for partial pressure reduction (no pump).</li>
+<li>$LiBr$ system uses water as refrigerant (limited to $&gt;0^\circ\text{C}$).</li>
+</ul>
+<h5 id="4-worked-examples_7"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a VARS, heat is supplied in the generator at $100^\circ\text{C}$ $373 \text{ K}$, refrigeration occurs at $-10^\circ\text{C}$ $263 \text{ K}$, and heat rejection to environment is at $30^\circ\text{C}$ $303 \text{ K}$. Calculate maximum ideal $COP$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_G = 373 \text{ K}, \quad T_E = 263 \text{ K}, \quad T_O = 303 \text{ K}}$$</div>
+  <div class="formula-card">$${COP_{\text{ideal}} = \left(\frac{T_E}{T_G - T_E}\right) \left(\frac{T_G - T_O}{T_O}\right)}$$</div>
+  <div class="formula-card">$${\frac{T_E}{T_G - T_E} = \frac{263}{373 - 263} = \frac{263}{110} \approx 2.391}$$</div>
+  <div class="formula-card">$${\frac{T_G - T_O}{T_O} = \frac{373 - 303}{303} = \frac{70}{303} \approx 0.231}$$</div>
+  <div class="formula-card">$${COP_{\text{ideal}} = 2.391 \times 0.231 \approx 0.552}$$</div>
+- <strong>Key Insight</strong>: $COP_{\text{ideal}} = 0.552$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Define 1 Tonne of Refrigeration (TR) and state its practical equivalent in kW.</strong><br />
+A: 1 TR is the rate of heat removal required to freeze $1000 \text{ kg}$ of pure water at $0^\circ\text{C}$ into ice at $0^\circ\text{C}$ in $24 \text{ hours}$. Practical engineering value $= 3.5 \text{ kW} = 210 \text{ kJ/min}$.</p>
+<p><strong>Q2: What is the relationship between $COP$ of a Carnot Heat Pump and a Carnot Refrigerator?</strong><br />
+A: $COP_{HP} = COP_R + 1$ for the same operating temperature limits.</p>
+<p><strong>Q3: How does the pressure ratio affect $COP$ in a Bell-Coleman air refrigeration cycle?</strong><br />
+A: Increasing the pressure ratio $r_p$ decreases the $COP$ of the air refrigeration cycle $COP = \frac{1}{r_p^{(\gamma-1)/\gamma} - 1}$.</p>
+<p><strong>Q4: Name the four standard processes of a simple Vapour Compression Refrigeration System (VCRS).</strong><br />
+A: 1. Isentropic compression $1 \to 2$. 2. Isobaric heat rejection in condenser $2 \to 3$. 3. Isenthalpic throttling in expansion valve $3 \to 4, h_3 = h_4$. 4. Isobaric heat absorption in evaporator $4 \to 1$.</p>
+<p><strong>Q5: Define Heat Rejection Ratio $HRR$ and state its relationship with $COP$.</strong><br />
+A: $HRR = \frac{Q_{\text{cond}}}{Q_R} = 1 + \frac{1}{COP_R}$.</p>
+<p><strong>Q6: What is the effect of liquid sub-cooling on the performance of VCRS?</strong><br />
+A: Sub-cooling increases the specific refrigerating effect $h_1 - h_4'$ while keeping compressor work unchanged, thereby increasing $COP$.</p>
+<p><strong>Q7: How does increasing evaporator temperature $T_e$ affect VCRS performance?</strong><br />
+A: Increasing $T_e$ increases refrigerating effect, reduces compressor work per kg, and increases $COP$.</p>
+<p><strong>Q8: What is the primary function of a capillary tube in a domestic refrigerator?</strong><br />
+A: It acts as a fixed restriction expansion device, dropping refrigerant pressure from condenser to evaporator via wall friction and momentum drop.</p>
+<p><strong>Q9: What is the optimum intermediate temperature for a two-stage cascade refrigeration system?</strong><br />
+A: $T_{\text{opt}} = \sqrt{T_H \cdot T_L}$ (geometric mean of high and low absolute temperatures).</p>
+<p><strong>Q10: State the ASHRAE designation formula for organic halocarbon refrigerants.</strong><br />
+A: $R-(C-1)(H+1)F$.</p>
+<p><strong>Q11: What are the ASHRAE designations for Ammonia, Water, Carbon Dioxide, and Air?</strong><br />
+A: Ammonia $= R-717$, Water $= R-718$, Carbon Dioxide $= R-744$, Air $= R-729$.</p>
+<p><strong>Q12: How are leaks detected in Freon and Ammonia systems?</strong><br />
+A: Freon leaks are detected using a Halide Torch (flame turns bright green). Ammonia leaks are detected using burning Sulphur Sticks (dense white smoke).</p>
+<p><strong>Q13: Why is copper piping unsuitable for ammonia refrigeration systems?</strong><br />
+A: Ammonia chemically attacks and corrodes copper and copper alloys in the presence of moisture. Steel or iron pipes must be used.</p>
+<p><strong>Q14: Write the First Law energy balance equation for a Vapour Absorption Refrigeration System (VARS).</strong><br />
+A: $Q_G + Q_E = Q_C + Q_A$ (Generator heat + Evaporator heat $=$ Condenser heat + Absorber heat).</p>
+<p><strong>Q15: What is the unique feature of the Electrolux (3-fluid) absorption refrigerator?</strong><br />
+A: It uses Ammonia $NH_3$, Water $H_{2O}$, and Hydrogen $H_2$. Hydrogen reduces ammonia partial pressure in the evaporator, allowing refrigeration without any mechanical pump or moving parts.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>$1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$</strong>: Always convert tons to kW first.</li>
+<li><strong>$COP_{HP} = COP_R + 1$</strong>: Essential identity for Carnot heat pump vs refrigerator.</li>
+<li><strong>Isenthalpic Throttling</strong>: VCRS expansion is $h_3 = h_4$, NOT isentropic $s_3 \neq s_4$.</li>
+<li><strong>Sub-Cooling vs Superheating</strong>: Sub-cooling ALWAYS increases $COP$. Superheating increases work and usually decreases $COP$.</li>
+<li><strong>Ammonia Material Limits</strong>: Use STEEL pipes for $NH_3$. Copper is strictly forbidden.</li>
+<li><strong>Leak Tests</strong>: Halide torch $\implies$ Green flame (Freon). Sulphur stick $\implies$ White smoke $NH_3$.</li>
+<li><strong>LiBr Limit</strong>: $LiBr - H_{2O}$ system cannot operate below $0^\circ\text{C}$ because water is the refrigerant.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $1 \text{ TR} = 3.5 \text{ kW} = 210 \text{ kJ/min}$.</li>
+<li>[ ] Memorize Carnot: $COP_R = \frac{T_L}{T_H - T_L}$, $COP_{HP} = COP_R + 1$.</li>
+<li>[ ] Memorize Bell-Coleman: $COP = \frac{1}{r_p^{(\gamma-1)/\gamma} - 1}$.</li>
+<li>[ ] Memorize VCRS: $COP_R = \frac{h_1 - h_4}{h_2 - h_1}$, $h_3 = h_4$, $HRR = 1 + \frac{1}{COP_R}$.</li>
+<li>[ ] Memorize Parameter Effects: Sub-cooling $\implies COP \uparrow$; $T_e \uparrow \implies COP \uparrow$; $T_c \uparrow \implies COP \downarrow$.</li>
+<li>[ ] Memorize Cascade Optimum: $T_{\text{opt}} = \sqrt{T_H T_L}$.</li>
+<li>[ ] Memorize R-numbering: Organic $R-(C-1)(H+1)F$, Inorganic $R-(700 + M)$.</li>
+<li>[ ] Memorize Inorganics: $R-717 (NH_3)$, $R-718 (H_{2O})$, $R-744 (CO_2)$, $R-729 (\text{Air})$.</li>
+<li>[ ] Memorize Leak Tests: Halide torch (Freon), Sulphur stick $NH_3$.</li>
+<li>[ ] Memorize VARS Balance: $Q_G + Q_E = Q_C + Q_A$.</li>
+<li>[ ] Memorize Electrolux: 3 fluids $NH_3, H_{2O}, H_2$, no pump, completely silent.</li>
+</ul>
+</body>
+</html>

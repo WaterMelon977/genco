@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychrometry & Air Conditioning Processes — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="psychrometry-air-conditioning-processes-comprehensive-reorganized-study-guide">Psychrometry &amp; Air Conditioning Processes — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Moist Air Properties (Dry-Bulb Temperature $DBT$, Wet-Bulb Temperature $WBT$, Dew-Point Temperature $DPT$, Relative Humidity $\phi$, Specific Humidity / Humidity Ratio $\omega$, Degree of Saturation $\mu$), Enthalpy of Moist Air $h = 1.005 t + \omega(2500 + 1.88 t)$, Psychrometric Chart Processes (sensible heating/cooling, cooling and dehumidification, heating and humidification, chemical dehumidification, evaporative cooling), Bypass Factor $BPF$ and Apparatus Dew Point $ADP$, Sensible Heat Factor $SHF = \frac{SH}{SH + LH}$, Effective Temperature $ET$ and Human Comfort Standards, and Cooling Towers (Approach, Range, Energy Balance) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-properties-of-moist-air"><strong>1. Properties of Moist Air</strong></h4>
+<ul>
+<li><strong>Specific Humidity / Humidity Ratio $\omega$</strong>:
+  <div class="formula-card">$${\boxed{\omega = 0.622 \frac{P_v}{P_t - P_v}}}$$</div></li>
+<li>$\omega$: specific humidity ($\text{kg wv / kg da}$ or $\text{kg/kg da}$)</li>
+<li>$P_v$: actual partial pressure of water vapour ($\text{kPa}$ or $\text{bar}$)</li>
+<li>
+<p>$P_t$: total atmospheric barometric pressure ($\text{kPa}$ or $\text{bar}$; Standard $P_t = 101.325 \text{ kPa} = 1.01325 \text{ bar}$)</p>
+</li>
+<li>
+<p><strong>Alternate Form (using Relative Humidity $\phi$)</strong>:
+  <div class="formula-card">$${\boxed{\omega = 0.622 \frac{\phi P_{vs}}{P_t - \phi P_{vs}}}}$$</div></p>
+</li>
+<li>
+<p>$P_{vs}$: saturation pressure of pure water vapour at dry-bulb temperature $DBT$ $\text{kPa}$</p>
+</li>
+<li>
+<p><strong>Relative Humidity $\phi$</strong>:
+  <div class="formula-card">$${\boxed{\phi = \frac{P_v}{P_{vs}}}}$$</div></p>
+</li>
+<li>
+<p>$\phi$: relative humidity (dimensionless fraction or percentage $\%$)</p>
+</li>
+<li>
+<p><strong>Degree of Saturation $\mu$</strong>:
+  <div class="formula-card">$${\boxed{\mu = \frac{\omega}{\omega_s} = \frac{P_v (P_t - P_{vs})}{P_{vs} (P_t - P_v)} \approx \phi}}$$</div></p>
+</li>
+<li>$\omega_s$: specific humidity of saturated air at the same $DBT$</li>
+</ul>
+<hr />
+<h4 id="2-enthalpy-of-moist-air"><strong>2. Enthalpy of Moist Air</strong></h4>
+<ul>
+<li><strong>Specific Enthalpy of Moist Air $h$</strong>:
+  <div class="formula-card">$${\boxed{h = 1.005 \, t + \omega(2500 + 1.88 \, t) \quad (\text{kJ/kg da})}}$$</div></li>
+<li>$t$: dry-bulb temperature ($DBT$ in $^\circ\text{C}$)</li>
+<li>$\omega$: specific humidity $\text{kg wv / kg da}$</li>
+<li>$1.005 \text{ kJ/kg}\cdot\text{K}$: specific heat of dry air $C_{pa}$</li>
+<li>$2500 \text{ kJ/kg}$: latent heat of vaporisation of water at $0^\circ\text{C}$ $h_{fg,0}$</li>
+<li>
+<p>$1.88 \text{ kJ/kg}\cdot\text{K}$: specific heat of superheated water vapour $C_{pv}$</p>
+</li>
+<li>
+<p><strong>Simplified Combined Enthalpy</strong>:
+  <div class="formula-card">$${\boxed{h = (1.005 + 1.88 \, \omega) t + 2500 \, \omega}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-bypass-factor-bpf-apparatus-dew-point-adp"><strong>3. Bypass Factor (BPF) &amp; Apparatus Dew Point (ADP)</strong></h4>
+<ul>
+<li><strong>Bypass Factor $BPF$ for Cooling / Heating Coils</strong>:
+  <div class="formula-card">$${\boxed{BPF = \frac{T_2 - T_3}{T_1 - T_3} = \frac{\text{Leaving Air DBT} - \text{Coil ADP}}{\text{Entering Air DBT} - \text{Coil ADP}}}}$$</div></li>
+<li>$T_1$: entering air dry-bulb temperature $^\circ\text{C}$</li>
+<li>$T_2$: leaving air dry-bulb temperature $^\circ\text{C}$</li>
+<li>
+<p>$T_3 = ADP$: Apparatus Dew Point (coil surface temperature in $^\circ\text{C}$)</p>
+</li>
+<li>
+<p><strong>Coil Contact Efficiency $\eta_{\text{coil}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{coil}} = 1 - BPF = \frac{T_1 - T_2}{T_1 - T_3}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-sensible-heat-factor-shf"><strong>4. Sensible Heat Factor (SHF)</strong></h4>
+<ul>
+<li><strong>Sensible Heat Factor $SHF$</strong>:
+  <div class="formula-card">$${\boxed{SHF = \frac{SH}{SH + LH} = \frac{SH}{TH}}}$$</div></li>
+<li>$SH$: sensible heat load $\text{kW}$</li>
+<li>$LH$: latent heat load $\text{kW}$</li>
+<li>
+<p>$TH = SH + LH$: total heat load $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Latent Heat Fraction</strong>:
+  <div class="formula-card">$${\boxed{\text{LHF} = 1 - SHF = \frac{LH}{TH}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-cooling-towers-evaporative-cooling-performance"><strong>5. Cooling Towers &amp; Evaporative Cooling Performance</strong></h4>
+<ul>
+<li>
+<p><strong>Cooling Tower Range</strong>:
+  <div class="formula-card">$${\boxed{\text{Range} = T_{\text{water, in}} - T_{\text{water, out}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Cooling Tower Approach</strong>:
+  <div class="formula-card">$${\boxed{\text{Approach} = T_{\text{water, out}} - WBT_{\text{air, in}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Evaporative Cooler Energy Balance</strong>:
+  <div class="formula-card">$${\boxed{\dot{m}<em>w \cdot h</em>{fg} = \dot{m}_a \cdot C_p \cdot \Delta T}}$$</div></p>
+</li>
+<li>$\dot{m}_w$: water evaporation rate $\text{kg/s}$</li>
+<li>$h_{fg}$: latent heat of vaporisation $\text{kJ/kg}$</li>
+<li>$\dot{m}_a$: dry air mass flow rate $\text{kg/s}$</li>
+<li>$C_p$: specific heat of humid air $\approx 1.02 \text{ kJ/kg}\cdot\text{K}$</li>
+<li>$\Delta T$: air dry-bulb temperature drop $^\circ\text{C}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Dry-Bulb Temperature $DBT$</strong>: Temperature of air measured by a standard thermometer unaffected by radiation or moisture.</li>
+<li><strong>Wet-Bulb Temperature $WBT$</strong>: Temperature reached by adiabatic saturation; measured by a thermometer whose bulb is covered with a wetted wick exposed to rapid airflow.</li>
+<li><strong>Dew-Point Temperature $DPT$</strong>: Temperature at which condensation of water vapour begins when moist air is cooled at constant pressure.</li>
+<li><strong>Wet-Bulb Depression</strong>: Difference between dry-bulb and wet-bulb temperatures $DBT - WBT$. Zero at $100\%$ relative humidity.</li>
+<li><strong>Dew-Point Depression</strong>: Difference between dry-bulb and dew-point temperatures $DBT - DPT$.</li>
+<li><strong>Relative Humidity $\phi$</strong>: Ratio of actual partial pressure of water vapour $P_v$ to saturation pressure $P_{vs}$ at the same $DBT$.</li>
+<li><strong>Specific Humidity / Humidity Ratio $\omega$</strong>: Ratio of mass of water vapour to mass of dry air in a given volume $\text{kg wv / kg da}$.</li>
+<li><strong>Degree of Saturation $\mu$</strong>: Ratio of actual specific humidity $\omega$ to saturated specific humidity $\omega_s$ at the same $DBT$.</li>
+<li><strong>100% Saturation Condition</strong>: State where $DBT = WBT = DPT$, $\phi = 1.0$, and wet-bulb depression $= 0$.</li>
+<li><strong>Apparatus Dew Point $ADP$</strong>: Surface temperature of a heating or cooling coil.</li>
+<li><strong>Bypass Factor $BPF$</strong>: Fraction of air stream that passes through a coil without coming into direct contact with the coil surface.</li>
+<li><strong>Sensible Heat Factor $SHF$</strong>: Ratio of sensible heat to total heat load.</li>
+<li><strong>Effective Temperature $ET$</strong>: An empirical index combining $DBT$, humidity, and air velocity into the equivalent temperature of still, saturated air producing identical thermal comfort.</li>
+<li><strong>Cooling Tower Approach</strong>: Difference between leaving water temperature and entering air wet-bulb temperature $T_{\text{water, out}} - WBT_{\text{air, in}}$.</li>
+<li><strong>Cooling Tower Range</strong>: Difference between entering and leaving water temperatures $T_{\text{water, in}} - T_{\text{water, out}}$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Standard Barometric Pressure $P_t$</strong>: $101.325 \text{ kPa} = 1.01325 \text{ bar} = 760 \text{ mm Hg}$.</li>
+<li><strong>Specific Heat of Dry Air $C_{pa}$</strong>: $1.005 \text{ kJ/kg}\cdot\text{K}$.</li>
+<li><strong>Specific Heat of Water Vapour $C_{pv}$</strong>: $1.88 \text{ kJ/kg}\cdot\text{K}$.</li>
+<li><strong>Latent Heat of Vaporisation of Water at $0^\circ\text{C}$ $h_{fg,0}$</strong>: $2500 \text{ kJ/kg}$.</li>
+<li><strong>Comfort Zone Design Standards</strong>: $21^\circ\text{C} - 25^\circ\text{C} \ DBT$, $40\% - 60\% \ RH$ (Winter design: $21^\circ\text{C} \ DBT, \le 50\% \ RH$).</li>
+<li><strong>SHF Protractor Reference Point</strong>: $45^\circ$ line on chart corresponds to $SHF \approx 0.29$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Moist Air Properties</strong>: Introduced in §3.1, applied to Process Vectors in §3.3.</li>
+<li><strong>Specific Enthalpy $h$</strong>: Formula in §3.2, used in Process Heat Balances in §3.3.</li>
+<li><strong>Coil BPF &amp; ADP</strong>: Defined in §3.4, used in Air Conditioning System Design in §3.5.</li>
+<li><strong>Evaporative Cooling</strong>: Process described in §3.3, applied to Cooling Towers in §3.7.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-basic-properties-of-moist-air-dbt-wbt-dpt-rh-specific-humidity"><strong>3.1 Basic Properties of Moist Air (DBT, WBT, DPT, RH &amp; Specific Humidity)</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Moist air is a two-component mixture of dry air and water vapour.</li>
+<li>$DBT$ measures molecular kinetic energy of air independent of moisture.</li>
+<li>$WBT$ reflects latent heat exchange during evaporative cooling from a wet wick.</li>
+<li>$DPT$ depends ONLY on partial pressure of water vapour $P_v$. If $P_v$ remains constant, $DPT$ remains constant!</li>
+<li>At $100\%$ Relative Humidity (Saturation):</li>
+<li>$DBT = WBT = DPT$</li>
+<li>Wet-bulb depression $= 0$</li>
+<li>Dew-point depression $= 0$</li>
+<li>In unsaturated air $RH &lt; 100\%$:</li>
+<li>$DBT &gt; WBT &gt; DPT$</li>
+<li>Water vapour exists in a superheated state.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Property Independence</strong>: Specific humidity $\omega = 0.622 \frac{P_v}{P_t - P_v}$ depends ONLY on vapour partial pressure $P_v$ and barometric pressure $P_t$. Heating air at constant pressure leaves $\omega$ and $DPT$ unchanged, while Relative Humidity $\phi$ drops!</p>
+<p>[!TRAP]
+<strong>Denominator Basis in Specific Humidity</strong>: Specific humidity $\omega$ is ALWAYS expressed per kilogram of DRY AIR $\text{kg wv / kg da}$, NEVER per kilogram of total moist air! Putting total mass in the denominator is a major calculation trap.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Moist Air Saturation State Check?
+├─ Is Relative Humidity phi = 100%?
+│  ├─ YES → DBT = WBT = DPT (Saturation line on chart, Wet-bulb depression = 0)
+│  └─ NO → DBT &gt; WBT &gt; DPT (Unsaturated state, Vapour is superheated)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\omega = 0.622 \frac{P_v}{P_t - P_v}$.</li>
+<li>[ ] $\phi = P_v / P_{vs}$.</li>
+<li>[ ] At saturation: $DBT = WBT = DPT$.</li>
+<li>[ ] Heating air at constant $\omega$ lowers $\phi$ and keeps $DPT$ constant.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Moist air at a total pressure $P_t = 1.013 \text{ bar}$ has a vapour partial pressure $P_v = 0.016 \text{ bar}$. Calculate the specific humidity $\omega$ in $\text{kg wv / kg da}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\omega = 0.622 \frac{P_v}{P_t - P_v} = 0.622 \times \frac{0.016}{1.013 - 0.016} = 0.622 \times \frac{0.016}{0.997} = 0.622 \times 0.016048 = 0.00998 \text{ kg/kg da} \approx 0.010 \text{ kg/kg da}}$$</div>
+- <strong>Key Insight</strong>: Always use $P_t - P_v$ in denominator.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: Saturated vapour pressure at $20^\circ\text{C} \ DBT$ is $P_{vs} = 0.0234 \text{ bar}$. If relative humidity $\phi = 60\%$, find actual partial pressure of vapour $P_v$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\phi = \frac{P_v}{P_{vs}} \implies P_v = \phi \cdot P_{vs} = 0.60 \times 0.0234 = 0.01404 \text{ bar}}$$</div>
+- <strong>Key Insight</strong>: Actual partial pressure $P_v = \phi \cdot P_{vs}$.</p>
+<hr />
+<h3 id="32-specific-enthalpy-of-moist-air"><strong>3.2 Specific Enthalpy of Moist Air</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Specific enthalpy of moist air $h$ is defined per unit mass of dry air: $h = h_a + \omega h_v$.</li>
+<li>$h = 1.005 \, t + \omega (2500 + 1.88 \, t) \text{ kJ/kg da}$.</li>
+<li>On a psychrometric chart, constant enthalpy lines run nearly parallel to constant $WBT$ lines.</li>
+<li>Adiabatic saturation processes follow constant $h$ (and constant $WBT$) lines.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Enthalpy Formula Breakdown</strong>:
+- $1.005 t$: Sensible heat of dry air.
+- $2500 \omega$: Latent heat of water vapour at $0^\circ\text{C}$.
+- $1.88 \omega t$: Sensible heat of water vapour.</p>
+<p>[!TRAP]
+<strong>Units of Specific Humidity in Enthalpy</strong>: Specific humidity $\omega$ MUST be in $\text{kg/kg da}$ (e.g. $0.010$), NOT grams per kg (e.g. $10 \text{ g/kg}$). Using $g/kg$ directly makes enthalpy $2500 \times 10 = 25000 \text{ kJ/kg}$, which is an enormous error!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Moist Air Enthalpy Calculation?
+├─ Is specific humidity given in g/kg da? → Convert to kg/kg da (divide by 1000)
+└─ Apply formula → h = 1.005 * t + omega * (2500 + 1.88 * t)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $h = 1.005 t + \omega(2500 + 1.88 t)$.</li>
+<li>[ ] Enthalpy is expressed per kg of dry air.</li>
+<li>[ ] Constant enthalpy lines $\approx$ Constant $WBT$ lines.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Calculate specific enthalpy of moist air at $21^\circ\text{C} \ DBT$ with specific humidity $\omega = 0.011 \text{ kg wv / kg da}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${h = 1.005 \times 21 + 0.011 \times (2500 + 1.88 \times 21)}$$</div>
+  <div class="formula-card">$${h = 21.105 + 0.011 \times (2500 + 39.48) = 21.105 + 0.011 \times 2539.48}$$</div>
+  <div class="formula-card">$${h = 21.105 + 27.934 = 49.039 \text{ kJ/kg da} \approx 49.04 \text{ kJ/kg da}}$$</div>
+- <strong>Key Insight</strong>: Substitute $t=21^\circ\text{C}$ and $\omega=0.011$ directly.</p>
+<hr />
+<h3 id="33-psychrometric-processes-sensible-dehumidification-evaporative-cooling-chemical"><strong>3.3 Psychrometric Processes (Sensible, Dehumidification, Evaporative Cooling, Chemical)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Sensible Heating</strong>: Horizontal to the right $\omega = \text{const}, DBT \uparrow, \phi \downarrow, h \uparrow$.</li>
+<li><strong>Sensible Cooling</strong>: Horizontal to the left $\omega = \text{const}, DBT \downarrow, \phi \uparrow, h \downarrow$.</li>
+<li><strong>Cooling &amp; Dehumidification</strong>: Moves down and to the left $DBT \downarrow, \omega \downarrow, h \downarrow$. Requires coil surface temperature $ADP &lt; DPT_{\text{entering}}$.</li>
+<li><strong>Heating &amp; Humidification</strong>: Moves up and to the right $DBT \uparrow, \omega \uparrow, h \uparrow$. Typical winter air conditioning.</li>
+<li><strong>Adiabatic Evaporative Cooling (Desert Cooler)</strong>: Moves along constant $WBT$ / constant $h$ line $DBT \downarrow, \omega \uparrow, WBT = \text{const}, h \approx \text{const}$.</li>
+<li><strong>Chemical (Adsorption) Dehumidification</strong>: Moves down and to the right $\omega \downarrow, DBT \uparrow, h \approx \text{const}$. Latent heat released heats the air.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Psychrometric Process Directions</strong>:
+- Horizontal Right: Sensible Heating
+- Horizontal Left: Sensible Cooling
+- Vertical Down: Pure Dehumidification
+- Vertical Up: Pure Humidification
+- Down-Left: Cooling &amp; Dehumidification (Summer AC)
+- Down-Right: Chemical Dehumidification (Desiccant dryer)
+- Along Constant WBT (Up-Left): Evaporative Cooling</p>
+<p>[!TRAP]
+<strong>Cooling &amp; Dehumidification Condition</strong>: Dehumidification CANNOT occur unless coil surface temperature $ADP$ is LESS THAN entering air dew-point temperature $DPT_1$. If coil $ADP &gt; DPT_1$, only sensible cooling occurs!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Process Vector Check on Psychrometric Chart?
+├─ Horizontal Right → Sensible Heating (omega = const)
+├─ Horizontal Left → Sensible Cooling (omega = const)
+├─ Left &amp; Down → Cooling &amp; Dehumidification (Coil ADP &lt; DPT_in)
+├─ Along Constant WBT Line (Up-Left) → Adiabatic Evaporative Cooling (Desert Cooler)
+└─ Right &amp; Down → Chemical Dehumidification (Desiccant drying: omega down, DBT up)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Sensible processes: $\omega = \text{const}$ (horizontal lines).</li>
+<li>[ ] Evaporative cooling: $WBT = \text{const}$ (constant enthalpy line).</li>
+<li>[ ] Cooling &amp; dehumidification requires $ADP &lt; DPT_{\text{entering}}$.</li>
+<li>[ ] Chemical dehumidification increases $DBT$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Outside air at $45^\circ\text{C} \ DBT$ and $10\% \ RH$ enters a desert cooler and leaves at $90\% \ RH$. Identify the psychrometric process and state what happens to $WBT$.
+- <strong>Solution</strong>:
+  - Desert cooler operates on <strong>Adiabatic Evaporative Cooling</strong> (adiabatic saturation).
+  - Process moves along constant $WBT$ line.
+  - Therefore, $WBT$ remains <strong>constant</strong>, while $DBT$ decreases and specific humidity $\omega$ increases.
+- <strong>Key Insight</strong>: Evaporative cooling follows constant $WBT$ lines.</p>
+<hr />
+<h3 id="34-bypass-factor-bpf-apparatus-dew-point-adp"><strong>3.4 Bypass Factor (BPF) &amp; Apparatus Dew Point (ADP)</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Bypass Factor $BPF$ measures coil inefficiency (fraction of air bypassing coil contact).</li>
+<li>$BPF = \frac{T_2 - T_3}{T_1 - T_3} = \frac{\text{Leaving Air DBT} - \text{ADP}}{\text{Entering Air DBT} - \text{ADP}}$.</li>
+<li>Contact Efficiency $\eta_{\text{coil}} = 1 - BPF$.</li>
+<li>Factors affecting $BPF$:</li>
+<li>Air velocity $\uparrow \implies BPF \uparrow$</li>
+<li>Fin spacing/pitch $\uparrow \implies BPF \uparrow$</li>
+<li>Number of tube rows $\uparrow \implies BPF \downarrow$</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>ADP Definition</strong>: Apparatus Dew Point $ADP$ is the effective surface temperature of the cooling/heating coil where the extended process line meets the $100\%$ saturation curve.</p>
+<p>[!TRAP]
+<strong>BPF Formula Ordering</strong>:
+- For Cooling Coil $T_1 &gt; T_2 &gt; T_3$: $BPF = \frac{T_2 - T_3}{T_1 - T_3}$
+- For Heating Coil $T_3 &gt; T_2 &gt; T_1$: $BPF = \frac{T_3 - T_2}{T_3 - T_1}$
+Numerator is ALWAYS difference between leaving air and coil ADP; denominator is ALWAYS difference between entering air and coil ADP!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Bypass Factor Calculation?
+├─ Identify Temperatures → T1 (Entering), T2 (Leaving), T3 (Coil ADP)
+├─ Cooling Coil → BPF = (T2 - ADP) / (T1 - ADP)
+├─ Heating Coil → BPF = (ADP - T2) / (ADP - T1)
+└─ Coil Efficiency → Contact Efficiency = 1 - BPF
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $BPF = \frac{T_2 - \text{ADP}}{T_1 - \text{ADP}}$.</li>
+<li>[ ] Contact Efficiency $= 1 - BPF$.</li>
+<li>[ ] More tube rows $\implies BPF \downarrow$.</li>
+<li>[ ] Higher air velocity $\implies BPF \uparrow$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Air enters a heating coil at $15^\circ\text{C}$. The coil surface temperature is $40^\circ\text{C}$ and air leaves at $25^\circ\text{C}$. Calculate $BPF$ and coil contact efficiency.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_1 = 15^\circ\text{C}, \quad T_2 = 25^\circ\text{C}, \quad T_3 = ADP = 40^\circ\text{C}}$$</div>
+  <div class="formula-card">$${BPF = \frac{T_3 - T_2}{T_3 - T_1} = \frac{40 - 25}{40 - 15} = \frac{15}{25} = 0.60}$$</div>
+  <div class="formula-card">$${\eta_{\text{coil}} = 1 - BPF = 1 - 0.60 = 0.40 = 40\%}$$</div>
+- <strong>Key Insight</strong>: $BPF = 0.60$, Contact Efficiency $= 40\%$.</p>
+<hr />
+<h3 id="35-sensible-heat-factor-shf-rshf-gshf"><strong>3.5 Sensible Heat Factor (SHF, RSHF &amp; GSHF)</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Sensible Heat Factor $SHF = \frac{SH}{SH + LH} = \frac{SH}{TH}$.</li>
+<li>$SHF = 1 \implies$ Pure sensible heat transfer $LH = 0$.</li>
+<li>$SHF = 0 \implies$ Pure latent heat transfer $SH = 0$.</li>
+<li>Room SHF $RSHF$ determines the slope of the room condition line connecting room state to supply air state.</li>
+<li>Grand SHF $GSHF$ includes ventilation outdoor air load.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SHF Protractor &amp; Chart Slope</strong>:
+On standard psychrometric charts, the $SHF$ protractor aligns process line slopes. A $45^\circ$ inclined process line corresponds to $SHF \approx 0.29$.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Sensible Heat Factor Calculation?
+├─ Identify Heat Loads → SH (Sensible), LH (Latent)
+├─ Compute Total Heat → TH = SH + LH
+└─ Calculate SHF → SHF = SH / TH, Latent Heat Fraction = 1 - SHF
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $SHF = \frac{SH}{SH + LH}$.</li>
+<li>[ ] Latent fraction $= 1 - SHF$.</li>
+<li>[ ] High occupancy spaces $\implies$ lower $SHF$ (higher latent load).</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An air conditioning space has a sensible heat load of $2.5 \text{ kW}$ and a latent heat load of $1.5 \text{ kW}$. Calculate the Sensible Heat Factor $SHF$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${SH = 2.5 \text{ kW}, \quad LH = 1.5 \text{ kW}}$$</div>
+  <div class="formula-card">$${TH = SH + LH = 2.5 + 1.5 = 4.0 \text{ kW}}$$</div>
+  <div class="formula-card">$${SHF = \frac{SH}{TH} = \frac{2.5}{4.0} = 0.625}$$</div>
+- <strong>Key Insight</strong>: $SHF = 0.625$ ($62.5\%$ sensible, $37.5\%$ latent).</p>
+<hr />
+<h3 id="36-effective-temperature-human-comfort-standards"><strong>3.6 Effective Temperature &amp; Human Comfort Standards</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Effective Temperature $ET$ is an empirical comfort index combining $DBT$, humidity, and air velocity.</li>
+<li>Defined as the temperature of still, saturated air $100\% \ RH$ that produces the same feeling of warmth or cold as the actual environment.</li>
+<li>Typical ASHRAE Comfort Zone:</li>
+<li>$21^\circ\text{C} - 25^\circ\text{C} \ DBT$</li>
+<li>$40\% - 60\% \ RH$</li>
+<li>Winter design: $\approx 21^\circ\text{C} \ DBT, \le 50\% \ RH$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>At 100% Saturation</strong>: Effective Temperature $ET$ equals Dry-Bulb Temperature $DBT$ $ET = DBT = WBT$.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Human Comfort Check?
+├─ Is RH between 40% and 60% and DBT between 21°C and 25°C?
+│  ├─ YES → Inside Comfort Zone
+│  └─ NO → Adjust heating/cooling or humidification/dehumidification
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $ET$ is measured relative to saturated still air.</li>
+<li>[ ] Comfort zone: $21^\circ\text{C} - 25^\circ\text{C} \ DBT, 40\% - 60\% \ RH$.</li>
+<li>[ ] At $100\% \ RH$, $ET = DBT$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Define Effective Temperature and state its value when relative humidity is $100\%$.
+- <strong>Solution</strong>:
+  - Effective Temperature $ET$ is the temperature of saturated, still air that provides identical thermal comfort sensation as the given environment.
+  - At $100\% \ RH$, $ET = DBT = WBT = DPT$.
+- <strong>Key Insight</strong>: At saturation, $ET$ equals $DBT$.</p>
+<hr />
+<h3 id="37-cooling-towers-evaporative-cooling-performance"><strong>3.7 Cooling Towers &amp; Evaporative Cooling Performance</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Cooling towers cool warm condenser water by evaporating a small fraction of water into an air stream.</li>
+<li>Lowest achievable water exit temperature $= WBT_{\text{air, in}}$.</li>
+<li><strong>Approach</strong> $= T_{\text{water, out}} - WBT_{\text{air, in}}$.</li>
+<li><strong>Range</strong> $= T_{\text{water, in}} - T_{\text{water, out}}$.</li>
+<li>Natural draft cooling towers use hyperbolic shape for structural stability and chimney stack effect.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Cooling Limit</strong>: A cooling tower CANNOT cool water below entering air wet-bulb temperature $WBT_{\text{air, in}}$. Approach can never be zero or negative in practice!</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Cooling Tower Parameter Calculation?
+├─ Range → T_water_in - T_water_out
+├─ Approach → T_water_out - WBT_air_in
+└─ Evaporative Energy Balance → m_dot_w * h_fg = m_dot_a * C_p * Delta T_air
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Range $= T_{\text{water, in}} - T_{\text{water, out}}$.</li>
+<li>[ ] Approach $= T_{\text{water, out}} - WBT_{\text{air, in}}$.</li>
+<li>[ ] Minimum water temp $= WBT_{\text{air, in}}$.</li>
+<li>[ ] Hyperbolic tower shape provides structural strength and draft stack effect.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Water enters a cooling tower at $40^\circ\text{C}$ and leaves at $30^\circ\text{C}$. Entering air has $DBT = 35^\circ\text{C}$ and $WBT = 25^\circ\text{C}$. Calculate Cooling Tower Range and Approach.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\text{Range} = T_{\text{water, in}} - T_{\text{water, out}} = 40 - 30 = 10^\circ\text{C}}$$</div>
+  <div class="formula-card">$${\text{Approach} = T_{\text{water, out}} - WBT_{\text{air, in}} = 30 - 25 = 5^\circ\text{C}}$$</div>
+- <strong>Key Insight</strong>: Range $= 10^\circ\text{C}$, Approach $= 5^\circ\text{C}$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: In an evaporative cooler, air flow rate is $\dot{m}<em>a = 1.2 \text{ kg/s}$ $C_p = 1.0 \text{ kJ/kg}\cdot\text{K}$. Water evaporates at $\dot{m}_w = 0.005 \text{ kg/s}$ $h</em>{fg} = 2700 \text{ kJ/kg}$. Calculate air temperature drop $\Delta T$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\dot{m}<em>w \cdot h</em>{fg} = \dot{m}_a \cdot C_p \cdot \Delta T}$$</div>
+  <div class="formula-card">$${0.005 \times 2700 = 1.2 \times 1.0 \times \Delta T}$$</div>
+  <div class="formula-card">$${13.5 = 1.2 \, \Delta T \implies \Delta T = \frac{13.5}{1.2} = 11.25^\circ\text{C}}$$</div>
+- <strong>Key Insight</strong>: Air temperature drops by $11.25^\circ\text{C}$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Define Dry-Bulb Temperature $DBT$, Wet-Bulb Temperature $WBT$, and Dew-Point Temperature $DPT$.</strong><br />
+A: $DBT$ is the actual air temperature measured by a dry thermometer. $WBT$ is the temperature of adiabatic saturation measured by a wetted thermometer wick in moving air. $DPT$ is the saturation temperature corresponding to actual vapour partial pressure $P_v$, where condensation begins upon constant-pressure cooling.</p>
+<p><strong>Q2: What is the relationship between $DBT$, $WBT$, and $DPT$ at $100\%$ Relative Humidity?</strong><br />
+A: At $100\%$ relative humidity (saturation), $DBT = WBT = DPT$. Wet-bulb depression is zero.</p>
+<p><strong>Q3: What is the relationship between $DBT$, $WBT$, and $DPT$ for unsaturated air?</strong><br />
+A: For unsaturated air $RH &lt; 100\%$, $DBT &gt; WBT &gt; DPT$.</p>
+<p><strong>Q4: Define Specific Humidity $\omega$ and Relative Humidity $\phi$.</strong><br />
+A: Specific humidity $\omega = 0.622 \frac{P_v}{P_t - P_v}$ is the mass of water vapour per unit mass of dry air $\text{kg wv / kg da}$. Relative humidity $\phi = \frac{P_v}{P_{vs}}$ is the ratio of actual vapour partial pressure to saturated vapour pressure at the same $DBT$.</p>
+<p><strong>Q5: What happens to Relative Humidity $\phi$ and Dew-Point Temperature $DPT$ when moist air is heated at constant pressure without adding moisture?</strong><br />
+A: Specific humidity $\omega$ and $DPT$ remain constant (since $P_v$ is unchanged), while Relative Humidity $\phi$ decreases because saturation pressure $P_{vs}$ increases with rising temperature.</p>
+<p><strong>Q6: What is the formula for the specific enthalpy of moist air?</strong><br />
+A: $h = 1.005 \, t + \omega(2500 + 1.88 \, t) \text{ kJ/kg da}$, where $t$ is $DBT$ in $^\circ\text{C}$ and $\omega$ is in $\text{kg/kg da}$.</p>
+<p><strong>Q7: Which psychrometric process describes the operation of a desert evaporative air cooler?</strong><br />
+A: Adiabatic Evaporative Cooling (Adiabatic Saturation). The process moves along a constant $WBT$ / constant enthalpy line $DBT \downarrow, \omega \uparrow, WBT = \text{const}$.</p>
+<p><strong>Q8: Describe the process vector for Chemical (Desiccant) Dehumidification.</strong><br />
+A: Chemical dehumidification moves down and to the right on the psychrometric chart: specific humidity drops $\omega \downarrow$ and dry-bulb temperature rises $DBT \uparrow$ due to the release of latent heat during moisture absorption, while enthalpy remains approximately constant $h \approx \text{const}$.</p>
+<p><strong>Q9: What is the requirement for a cooling coil to achieve dehumidification?</strong><br />
+A: The coil surface temperature (Apparatus Dew Point, $ADP$) MUST be LESS THAN the entering air dew-point temperature $ADP &lt; DPT_{\text{entering}}$.</p>
+<p><strong>Q10: Define Bypass Factor $BPF$ of a coil.</strong><br />
+A: $BPF = \frac{T_2 - ADP}{T_1 - ADP}$, representing the fraction of air that passes through the coil without contacting the surface. Contact efficiency $\eta_{\text{coil}} = 1 - BPF$.</p>
+<p><strong>Q11: How do air velocity and tube rows affect coil Bypass Factor $BPF$?</strong><br />
+A: Higher air velocity increases $BPF$; increasing the number of tube rows decreases $BPF$.</p>
+<p><strong>Q12: Define Sensible Heat Factor $SHF$.</strong><br />
+A: $SHF = \frac{SH}{SH + LH} = \frac{SH}{TH}$, the ratio of sensible heat to total heat load.</p>
+<p><strong>Q13: Define Effective Temperature $ET$.</strong><br />
+A: An empirical index combining $DBT$, humidity, and air velocity into the equivalent temperature of still, saturated air producing identical thermal comfort sensation.</p>
+<p><strong>Q14: Define Cooling Tower Range and Approach.</strong><br />
+A: Range $= T_{\text{water, in}} - T_{\text{water, out}}$ (water temperature drop). Approach $= T_{\text{water, out}} - WBT_{\text{air, in}}$ (difference between leaving water temperature and entering air $WBT$).</p>
+<p><strong>Q15: What is the theoretical minimum water temperature achievable in a cooling tower?</strong><br />
+A: The entering air wet-bulb temperature $WBT_{\text{air, in}}$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Saturation Equality</strong>: $DBT = WBT = DPT$ ONLY at $100\% \ RH$. For unsaturated air, $DBT &gt; WBT &gt; DPT$.</li>
+<li><strong>Constant $DPT$ Condition</strong>: Dew-point temperature $DPT$ depends ONLY on $P_v$. Heating or cooling without moisture change keeps $DPT$ constant.</li>
+<li><strong>Cooling &amp; Dehumidification Rule</strong>: Requires coil $ADP &lt; DPT_{\text{entering}}$.</li>
+<li><strong>Desert Cooler vs Chemical Dryer</strong>:</li>
+<li>Desert Cooler: Evaporative cooling along constant $WBT$ line $DBT \downarrow, \omega \uparrow$.</li>
+<li>Chemical Dryer: Desiccant dehumidification along constant $h$ line $DBT \uparrow, \omega \downarrow$.</li>
+<li><strong>Cooling Tower Limit</strong>: Lowest water temp $= WBT_{\text{air, in}}$, NOT $DBT_{\text{air, in}}$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Specific Humidity: $\omega = 0.622 \frac{P_v}{P_t - P_v}$.</li>
+<li>[ ] Memorize Relative Humidity: $\phi = \frac{P_v}{P_{vs}}$.</li>
+<li>[ ] Memorize Enthalpy: $h = 1.005 \, t + \omega(2500 + 1.88 \, t) \text{ kJ/kg da}$.</li>
+<li>[ ] Memorize Bypass Factor: $BPF = \frac{T_2 - ADP}{T_1 - ADP}$, Contact Efficiency $= 1 - BPF$.</li>
+<li>[ ] Memorize SHF: $SHF = \frac{SH}{SH + LH}$.</li>
+<li>[ ] Memorize Process Vectors: Sensible (Horizontal), Evaporative (Const $WBT$), Chemical (Right &amp; Down).</li>
+<li>[ ] Memorize Cooling Tower: Range $= T_{\text{in}} - T_{\text{out}}$, Approach $= T_{\text{out}} - WBT_{\text{in}}$.</li>
+<li>[ ] Memorize Comfort Zone: $21^\circ\text{C} - 25^\circ\text{C} \ DBT, 40\% - 60\% \ RH$.</li>
+</ul>
+</body>
+</html>
