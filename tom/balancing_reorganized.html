@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static & Dynamic Balancing of Rotating & Reciprocating Masses — Master Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Tom Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="static-dynamic-balancing-of-rotating-reciprocating-masses-master-reorganized-study-guide">Static &amp; Dynamic Balancing of Rotating &amp; Reciprocating Masses — Master Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Static and Dynamic Balancing of Rotating Masses (single-plane static balance $m_1 r_1 = m_2 r_2$, multi-plane dynamic balance requiring a minimum of two balancing masses in two different planes, force vector condition $\sum m r = 0$, couple vector condition $\sum m r l = 0$, proof that dynamic balance always implies static balance, industrial rotor testing at sub-critical speeds $400 - 700 \text{ rpm}$), Balancing of Reciprocating Masses (primary inertia force $F_p = m r \omega^2 \cos\theta$, secondary inertia force $F_s = \frac{m r \omega^2 \cos 2\theta}{n}$, connecting rod to crank ratio $n = l/r$, partial balancing fraction $c \approx 2/3$, equivalent revolving mass $m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}$, single-cylinder engine impossibility of complete balance by rotating mass), Multi-Cylinder Engine &amp; V-Engine Balancing (direct and reverse crank method, primary and secondary virtual cranks, $90^\circ$ V-twin primary balance), Field Balancing Methods (influence coefficients), and Partial Balancing Effects in Locomotives (hammer blow $B b \omega^2$ maximum vertical force on rails causing wheel lift risk when $W \le B b \omega^2$, variation of tractive effort $\Delta F_T = \pm\sqrt{2}(1-c) m r \omega^2$ maximum at crank angles $\theta = 135^\circ / 315^\circ$, swaying couple $C_s = \pm \frac{a}{\sqrt{2}}(1-c) m r \omega^2$ maximum at crank angles $\theta = 45^\circ / 225^\circ$, two-cylinder locomotive cranks set at $90^\circ$ for self-starting capability) for AP GenCo AE, GATE, ESE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter / Concept</th>
+<th style="text-align: left;">Formula / Governing Relation</th>
+<th style="text-align: left;">Primary Units</th>
+<th style="text-align: left;">Key Conditions &amp; Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Single-Plane Static Balance</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{m_1 \cdot r_1 = m_2 \cdot r_2}}$$</div></td>
+<td style="text-align: left;">$\text{kg}\cdot\text{m}$</td>
+<td style="text-align: left;">Mass products equal; placed at $180^\circ$ opposite.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analytical Static Balance (Components)</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\sum m_i \cdot r_i \cdot \cos\theta_i = 0, \quad \sum m_i \cdot r_i \cdot \sin\theta_i = 0}}$$</div></td>
+<td style="text-align: left;">$\text{kg}\cdot\text{m}$</td>
+<td style="text-align: left;">Vector sum of mass-radius products equals zero.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Centrifugal Force</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_c = m \cdot \omega^2 \cdot r}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">$\omega = \frac{2\pi N}{60}$ $\text{rad/s}$, $r$ in meters, $m$ in $\text{kg}$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Multi-Plane Force Balance</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\sum m_i \cdot r_i = 0 \implies \sum m_i r_i \cos\theta_i = 0, \, \sum m_i r_i \sin\theta_i = 0}}$$</div></td>
+<td style="text-align: left;">$\text{kg}\cdot\text{m}$</td>
+<td style="text-align: left;">Resultant dynamic radial force is zero.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Multi-Plane Couple Balance</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\sum (m_i \cdot r_i \cdot l_i) = 0 \implies \sum m_i r_i l_i \cos\theta_i = 0, \, \sum m_i r_i l_i \sin\theta_i = 0}}$$</div></td>
+<td style="text-align: left;">$\text{kg}\cdot\text{m}^2$</td>
+<td style="text-align: left;">Taken about any reference plane along shaft axis $l_i$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Min. Planes for Dynamic Balance</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\text{Minimum } 2 \text{ masses in } 2 \text{ separate planes}}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">1 mass can balance force, but introduces a couple.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Reciprocating Force</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_p = m \cdot \omega^2 \cdot r \cdot \cos\theta}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Acts along line of stroke at crank frequency $\omega$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secondary Reciprocating Force</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_s = \frac{m \cdot \omega^2 \cdot r}{n} \cdot \cos 2\theta}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Frequency $2\omega$; magnitude $1/n$ of primary $n = l/r$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Total Reciprocating Inertia Force</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_{\text{inertia}} = m \cdot \omega^2 \cdot r \left( \cos\theta + \frac{\cos 2\theta}{n} \right)}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Exact two-term approximation from Fourier series.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Partial Reciprocating Balance Fraction</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{c \approx \frac{2}{3} \approx 0.67}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Optimum trade-off between horizontal &amp; vertical forces.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unbalanced Primary Reciprocating Force</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_{p,\text{unbal}} = (1 - c) \cdot m \cdot r \cdot \omega^2 \cdot \cos\theta}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Residual primary force along cylinder line of stroke.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Equivalent Revolving Mass at Crank Radius</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}}}$$</div></td>
+<td style="text-align: left;">$\text{kg}$</td>
+<td style="text-align: left;">Combines all rotating mass + fraction $c$ of reciprocating mass.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Balancing Mass Calculation</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{B \cdot b = m_{\text{eq}} \cdot r = (m_{\text{rev}} + c \cdot m_{\text{rec}}) \cdot r}}$$</div></td>
+<td style="text-align: left;">$\text{kg}\cdot\text{m}$</td>
+<td style="text-align: left;">$B$ = balancing mass $\text{kg}$, $b$ = balancing radius $\text{m}$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hammer Blow (Peak Vertical Load)</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\text{Hammer Blow} = B \cdot b \cdot \omega^2 = c \cdot m_{\text{rec}} \cdot r \cdot \omega^2}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Maximum vertical dynamic force on locomotive rails.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wheel Lift Condition</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{W \le B \cdot b \cdot \omega^2}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Wheel lifts off rail if hammer blow exceeds static load $W$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Variation of Tractive Effort</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} \cdot (1 - c) \cdot m \cdot r \cdot \omega^2}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Fluctuation in horizontal pull; peak at $\theta = 135^\circ / 315^\circ$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Swaying Couple</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{C_s = \pm \frac{a}{\sqrt{2}} \cdot (1 - c) \cdot m \cdot r \cdot \omega^2}}$$</div></td>
+<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+<td style="text-align: left;">Rocking couple about vertical axis; peak at $\theta = 45^\circ / 225^\circ$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Direct &amp; Reverse Cranks</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\text{Mass } = \frac{m}{2}, \, \text{Radius } = r, \, \text{Speed } = \pm\omega}}$$</div></td>
+<td style="text-align: left;">$\text{kg}, \text{m}, \text{rad/s}$</td>
+<td style="text-align: left;">Direct rotates at $+\theta$; Reverse rotates at $-\theta$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secondary Direct &amp; Reverse Cranks</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\text{Mass } = \frac{m}{2}, \, \text{Radius } = \frac{r}{4n}, \, \text{Speed } = \pm 2\omega}}$$</div></td>
+<td style="text-align: left;">$\text{kg}, \text{m}, \text{rad/s}$</td>
+<td style="text-align: left;">Direct rotates at $+2\theta$; Reverse rotates at $-2\theta$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>$90^\circ$ V-Twin Primary Balance</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{F_{p,\text{resultant}} = m \cdot \omega^2 \cdot r}}$$</div></td>
+<td style="text-align: left;">$\text{N}$</td>
+<td style="text-align: left;">Resultant primary force is constant magnitude, balanced by $1$ mass.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Static Balancing</strong>: The condition in which the center of mass of a rotating body lies on its axis of rotation. The vector sum of all centrifugal forces is zero $\sum m r = 0$. Static balance prevents radial force unbalance at rest and during uniform rotation; sufficient for thin discs (single plane).</li>
+<li><strong>Dynamic Balancing</strong>: The condition in which a rotating body has both zero resultant centrifugal force $\sum m r = 0$ and zero resultant dynamic couple $\sum m r l = 0$ about any reference plane. Prevents dynamic bearing reactions and shaft bending moments under rotation.</li>
+<li><strong>Primary Unbalanced Force</strong>: The principal reciprocating inertia force component $m r \omega^2 \cos\theta$ acting along the cylinder line of stroke at crank angular frequency $\omega$.</li>
+<li><strong>Secondary Unbalanced Force</strong>: The second-harmonic reciprocating inertia force component $\frac{m r \omega^2}{n} \cos 2\theta$ acting along the line of stroke at twice crank angular frequency $2\omega$, arising from the obliquity of the connecting rod $n = l/r$.</li>
+<li><strong>Partial Balancing</strong>: The design strategy of balancing only a portion $c$ (typically $2/3$) of reciprocating mass using a rotating balance mass, trading off horizontal shaking forces against vertical dynamic forces.</li>
+<li><strong>Hammer Blow</strong>: The peak vertical force exerted on railway tracks by the un-cancelled vertical component of the rotating balance weight in steam locomotives. It varies as $\omega^2$ and can cause rail deformation or wheel lift.</li>
+<li><strong>Variation of Tractive Effort</strong>: The cyclic fluctuation in total horizontal pulling force along the rails produced by the net unbalanced primary forces of multi-cylinder locomotives.</li>
+<li><strong>Swaying Couple</strong>: A dynamic moment acting about the vertical axis through the locomotive center of gravity, caused by out-of-phase primary unbalanced forces along parallel, offset cylinder lines of stroke.</li>
+<li><strong>Direct and Reverse Crank Method</strong>: An analytical tool used for multi-cylinder engine balancing where a reciprocating mass is represented by two identical rotating masses, each equal to half the reciprocating mass, rotating in opposite directions at crank speed (for primary) or twice crank speed (for secondary).</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Optimum Reciprocating Balance Fraction $c$</strong>: $c = 2/3 \approx 0.667$ (or $60\% - 75\%$ range in practical engine design).</li>
+<li><strong>Two-Cylinder Locomotive Crank Phase Angle</strong>: $90^\circ$ apart (ensures non-zero torque at dead centers for self-starting).</li>
+<li><strong>Industrial Balancing Machine Test Speed</strong>: $400 \text{ to } 700 \text{ rpm}$ (chosen because lateral critical speeds of industrial rotors exceed $5000 \text{ rpm}$).</li>
+<li><strong>Minimum Balancing Planes</strong>: $2$ planes for complete multi-plane dynamic balance.</li>
+<li><strong>Tractive Variation Peak Angles</strong>: $\theta = 135^\circ \text{ and } 315^\circ$.</li>
+<li><strong>Swaying Couple Peak Angles</strong>: $\theta = 45^\circ \text{ and } 225^\circ$.</li>
+<li><strong>Hammer Blow Peak Angles</strong>: $\theta = 90^\circ \text{ and } 270^\circ$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Static &amp; Dynamic Balancing of Rotating Masses</strong>: §3.1.</li>
+<li><strong>Primary &amp; Secondary Reciprocating Forces &amp; Derivations</strong>: §3.2.</li>
+<li><strong>Locomotive Partial Balancing (Hammer Blow, Tractive Effort, Swaying Couple)</strong>: §3.3.</li>
+<li><strong>Multi-Cylinder Engine &amp; Direct/Reverse Crank Analysis</strong>: §3.4.</li>
+<li><strong>Dynamic Balancing Machines &amp; Field Instrumentation</strong>: §3.5.</li>
+<li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
+<li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
+<li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-static-dynamic-balancing-of-rotating-masses"><strong>3.1 Static &amp; Dynamic Balancing of Rotating Masses</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Static vs Dynamic Balance Fundamental Distinction</strong>:</li>
+<li><strong>Static Balance</strong>: $\sum m r = 0$. The center of gravity of the system lies on the axis of rotation. The vector sum of centrifugal forces is zero. It eliminates net radial forces on bearings. Can be checked statically on knife edges under gravity.</li>
+<li><strong>Dynamic Balance</strong>: $\sum m r = 0$ AND $\sum m r l = 0$. Both net force and net couple about any reference plane are zero. Eliminates bearing reaction couples during rotation. CANNOT be checked statically; must be tested while rotating.</li>
+<li><strong>Golden Theorem</strong>: A system in complete DYNAMIC balance is ALWAYS in STATIC balance. However, a statically balanced system is NOT necessarily in dynamic balance unless all couples vanish!</li>
+<li><strong>Single-Plane vs Multi-Plane Balancing</strong>:</li>
+<li><strong>Single-Plane System</strong>: All rotating masses lie in a single plane perpendicular to the axis. A SINGLE balancing mass placed in the same plane ($180^\circ$ opposite) achieves complete static and dynamic balance $m_1 r_1 = m_2 r_2$.</li>
+<li><strong>Multi-Plane System</strong>: Masses rotate in different planes spaced axially along the shaft. A single balancing mass CANNOT achieve dynamic balance because, even if it cancels the net force, it creates an axial distance offset that generates an unbalanced couple!</li>
+<li><strong>Minimum Planes Rule</strong>: Complete dynamic balance of a multi-plane system requires a minimum of <strong>TWO balancing masses placed in TWO separate reference planes</strong>.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Dynamic Implies Static</strong>: Complete dynamic balance ($\sum m r = 0$ and $\sum m r l = 0$) guarantees static balance. Static balance alone $\sum m r = 0$ only guarantees zero force; dynamic couples may still cause severe vibration during rotation!</p>
+<p>[!TRAP]
+<strong>Single Mass Multi-Plane Fallacy</strong>: Claiming that one balancing mass can dynamically balance a rotor with masses in multiple axial planes is FALSE! One mass can cancel net force, but a minimum of TWO masses in TWO separate planes is mandatory to cancel both force and couple.</div>
+<h5 id="2-analytical-procedure-for-multi-plane-balancing"><strong>2. Analytical Procedure for Multi-Plane Balancing</strong></h5>
+<ol>
+<li>Select one of the correction planes as the <strong>Reference Plane (RP)</strong>. Axial distances $l_i$ to other planes are positive to the right of RP, negative to the left.</li>
+<li>Construct a tabular data column:
+   <div class="formula-card">$${\text{Plane} \quad | \text{Mass } (m) \quad | \text{Radius } (r) \quad | \text{Centrifugal Force } (mr) \quad | \text{Distance from RP } (l) \quad | \text{Couple } (mrl)}$$</div></li>
+<li>Draw the <strong>Couple Polygon</strong> $\sum m r l = 0$ to solve for the magnitude and direction of the unknown balancing mass in the second correction plane.</li>
+<li>Draw the <strong>Force Polygon</strong> $\sum m r = 0$ including all known masses and the calculated second balance mass to solve for the unknown balance mass in the Reference Plane.</li>
+</ol>
+<h5 id="3-ascii-decision-tree"><strong>3. ASCII Decision Tree</strong></h5>
+<pre><code>Rotating Mass System Balancing Analysis
+│
+├── Are all masses located in a SINGLE plane of rotation?
+│   ├── YES ──► Single balancing mass placed 180° opposite in same plane is sufficient.
+│   │           Condition: m1 * r1 = m2 * r2  (Sum of mr vectors = 0)
+│   │
+│   └── NO (Multi-plane rotor along shaft axis)
+│       └── Minimum TWO balancing masses in TWO separate planes are MANDATORY!
+│           ├── Condition 1: Force Polygon Closes  ──► Sum(mr) = 0
+│           └── Condition 2: Couple Polygon Closes ──► Sum(mrl) = 0
+│
+└── Does the rotor exhibit Dynamic Balance?
+    ├── YES ──► Static Balance is GUARANTEED automatically!
+    └── NO  ──► Static Balance may exist, but dynamic couples will cause bearing vibration.
+</code></pre>
+<h5 id="4-revision-checklist"><strong>4. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Static balance condition: $\sum m r = 0$.</li>
+<li>[ ] Dynamic balance condition: $\sum m r = 0$ AND $\sum m r l = 0$.</li>
+<li>[ ] Dynamic balance $\implies$ Static balance (always).</li>
+<li>[ ] Single plane $\implies 1$ balance mass.</li>
+<li>[ ] Multi-plane $\implies$ Minimum 2 balance masses in 2 planes.</li>
+<li>[ ] Reference plane method: Couple polygon first, Force polygon second.</li>
+</ul>
+<h5 id="5-worked-examples"><strong>5. Worked Examples</strong></h5>
+<p><strong>Worked Example 1: Single-Plane Static Balancing</strong>
+- <strong>Problem</strong>: A shaft carries a disturbing mass $m_1 = 12 \text{ kg}$ at radius $r_1 = 150 \text{ mm}$. Calculate the radius $r_2$ at which a balancing mass $m_2 = 8 \text{ kg}$ must be placed in the same plane to achieve complete static balance.
+- <strong>Solution</strong>:
+  1. Write single-plane static force balance:
+     <div class="formula-card">$${m_1 \cdot r_1 = m_2 \cdot r_2}$$</div>
+  2. Substitute given values:
+     <div class="formula-card">$${12 \times 150 = 8 \times r_2 \implies 1800 = 8 \cdot r_2}$$</div>
+  3. Solve for $r_2$:
+     <div class="formula-card">$${r_2 = \frac{1800}{8} = 225 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $r_2 = 225 \text{ mm}$. Positioned at $\theta_2 = \theta_1 + 180^\circ$.</p>
+<p><strong>Worked Example 2: Multi-Plane Couple &amp; Force Resolution</strong>
+- <strong>Problem</strong>: Two masses $m_A = 10 \text{ kg}$ at $r_A = 0.1 \text{ m}$ $\theta_A = 0^\circ$ and $m_B = 15 \text{ kg}$ at $r_B = 0.1 \text{ m}$ $\theta_B = 90^\circ$ rotate in planes separated by $l = 0.5 \text{ m}$. Calculate the magnitude of the unbalanced couple about Plane A.
+- <strong>Solution</strong>:
+  1. Calculate couple vector due to mass B about Plane A (distance $l = 0.5 \text{ m}$):
+     <div class="formula-card">$${C_B = m_B \cdot r_B \cdot l = 15 \times 0.1 \times 0.5 = 0.75 \text{ kg}\cdot\text{m}^2}$$</div>
+  2. Couple due to mass A about Plane A is zero (since distance $l_A = 0$).
+  3. The magnitude of the unbalanced couple about Plane A is simply $0.75 \text{ kg}\cdot\text{m}^2$.
+- <strong>Key Insight</strong>: Couple about a plane equals mass $\times$ radius $\times$ axial distance to that plane.</p>
+<p><strong>Worked Example 3: Three-Mass Static Balance Resolution</strong>
+- <strong>Problem</strong>: Three masses rotate in the same plane: $m_1 = 5 \text{ kg}$ at $r_1 = 0.2 \text{ m}$ $\theta_1 = 0^\circ$, $m_2 = 8 \text{ kg}$ at $r_2 = 0.15 \text{ m}$ $\theta_2 = 90^\circ$, and $m_3 = 10 \text{ kg}$ at $r_3 = 0.1 \text{ m}$ $\theta_3 = 180^\circ$. Find the magnitude and direction of the required balancing mass $B$ placed at radius $b = 0.2 \text{ m}$.
+- <strong>Solution</strong>:
+  1. Calculate horizontal component sum $\sum m r \cos\theta$:
+     <div class="formula-card">$${\sum m r \cos\theta = (5 \times 0.2 \times \cos 0^\circ) + (8 \times 0.15 \times \cos 90^\circ) + (10 \times 0.1 \times \cos 180^\circ)}$$</div>
+     <div class="formula-card">$${= (1.0 \times 1) + (1.2 \times 0) + (1.0 \times -1) = 1.0 + 0 - 1.0 = 0.0 \text{ kg}\cdot\text{m}}$$</div>
+  2. Calculate vertical component sum $\sum m r \sin\theta$:
+     <div class="formula-card">$${\sum m r \sin\theta = (5 \times 0.2 \times \sin 0^\circ) + (8 \times 0.15 \times \sin 90^\circ) + (10 \times 0.1 \times \sin 180^\circ)}$$</div>
+     <div class="formula-card">$${= (1.0 \times 0) + (1.2 \times 1) + (1.0 \times 0) = 1.2 \text{ kg}\cdot\text{m}}$$</div>
+  3. Resultant unbalance $R = \sqrt{0^2 + 1.2^2} = 1.2 \text{ kg}\cdot\text{m}$ at $90^\circ$.
+  4. Balance mass requirement: $B \cdot b = R \implies B \times 0.2 = 1.2 \implies B = 6.0 \text{ kg}$.
+  5. Direction of balance mass: $90^\circ + 180^\circ = 270^\circ$.
+- <strong>Key Insight</strong>: $B = 6.0 \text{ kg}$ placed at $270^\circ$.</p>
+<hr />
+<h3 id="32-primary-secondary-reciprocating-forces-derivations"><strong>3.2 Primary &amp; Secondary Reciprocating Forces &amp; Derivations</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Inertia Force Derivation</strong>:</li>
+<li>Piston displacement $x = r \left( (1 - \cos\theta) + \frac{\sin^2\theta}{2n} \right)$.</li>
+<li>Differentiating twice with respect to time gives piston acceleration:
+    <div class="formula-card">$${a_p = \omega^2 \cdot r \left( \cos\theta + \frac{\cos 2\theta}{n} \right)}$$</div></li>
+<li>By D'Alembert's principle, reciprocating inertia force $F_{\text{inertia}} = m_{\text{rec}} \cdot a_p$:
+    <div class="formula-card">$${\boxed{F_{\text{inertia}} = m_{\text{rec}} \cdot \omega^2 \cdot r \cdot \cos\theta + \frac{m_{\text{rec}} \cdot \omega^2 \cdot r}{n} \cdot \cos 2\theta = F_p + F_s}}$$</div></li>
+<li><strong>Primary Force $F_p$</strong>:</li>
+<li>$F_p = m_{\text{rec}} \cdot \omega^2 \cdot r \cdot \cos\theta$. Acts at crank frequency $\omega$.</li>
+<li>Maximum value occurs at dead centers $\theta = 0^\circ, 180^\circ$: $F_{p,\text{max}} = m_{\text{rec}} \omega^2 r$.</li>
+<li>Acts strictly along the line of stroke (constant direction, variable magnitude).</li>
+<li><strong>Secondary Force $F_s$</strong>:</li>
+<li>$F_s = \frac{m_{\text{rec}} \cdot \omega^2 \cdot r}{n} \cdot \cos 2\theta$. Acts at twice crank frequency $2\omega$.</li>
+<li>Maximum value occurs 4 times per revolution $\theta = 0^\circ, 90^\circ, 180^\circ, 270^\circ$: $F_{s,\text{max}} = \frac{m_{\text{rec}} \omega^2 r}{n}$.</li>
+<li>Magnitude is $1/n$ of primary maximum. For long connecting rods $n \to \infty$, secondary force vanishes!</li>
+<li><strong>Impossibility of Complete Single-Cylinder Balance</strong>:</li>
+<li>Placing a rotating mass $B$ at radius $r$ opposite the crank produces a centrifugal force $B r \omega^2$.</li>
+<li>Its component along line of stroke is $B r \omega^2 \cos\theta$ (which balances $F_p$ if $B r = m_{\text{rec}} r$).</li>
+<li>However, its perpendicular component $B r \omega^2 \sin\theta$ creates a NEW unbalanced force perpendicular to line of stroke!</li>
+<li>Therefore, a single-cylinder engine <strong>CANNOT be 100% balanced</strong> by rotating masses alone!</li>
+<li><strong>Partial Balancing Strategy</strong>:</li>
+<li>Only a fraction $c \approx 2/3$ of reciprocating mass is balanced by the rotating counterweight.</li>
+<li>Total equivalent revolving mass attached to crank pin:
+    <div class="formula-card">$${\boxed{m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}}}$$</div></li>
+<li>Counterweight balance equation: $B \cdot b = (m_{\text{rev}} + c \cdot m_{\text{rec}}) \cdot r$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Single-Cylinder Incomplete Balance</strong>: Balancing $100\%$ $c=1$ of primary reciprocating force along line of stroke introduces an equal, un-cancelled transverse force of magnitude $m_{\text{rec}} r \omega^2 \sin\theta$ perpendicular to the stroke! Hence partial balancing $c = 2/3$ is used.</p>
+<p>[!TRAP]
+<strong>Secondary Force Characteristics</strong>:
+1. Frequency $= 2\omega$ (TWICE crank speed).
+2. Magnitude $= \frac{1}{n} \times F_{p,\text{max}}$.
+3. Increasing $n = l/r$ (longer connecting rod) DECREASES secondary unbalanced force.</div>
+<h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Reciprocating Inertia Force Analysis
+│
+├── Primary Inertia Force (Fp)
+│   ├── Formula: Fp = m * r * omega^2 * cos(theta)
+│   ├── Frequency: 1 * omega (Crank speed)
+│   └── Line of Action: Strictly along line of stroke
+│
+├── Secondary Inertia Force (Fs)
+│   ├── Formula: Fs = (m * r * omega^2 / n) * cos(2*theta)
+│   ├── Frequency: 2 * omega (Twice crank speed)
+│   └── Magnitude Ratio: Fs_max / Fp_max = 1 / n
+│
+└── Partial Balancing (Fraction c)
+    ├── Equivalent Revolving Mass: meq = m_rev + c * m_rec
+    ├── Balance Counterweight Equation: B * b = (m_rev + c * m_rec) * r
+    └── Recommended Fraction: c = 2/3 (0.67)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Piston acceleration $a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
+<li>[ ] Primary force $F_p = m r \omega^2 \cos\theta$ at frequency $\omega$.</li>
+<li>[ ] Secondary force $F_s = \frac{m r \omega^2 \cos 2\theta}{n}$ at frequency $2\omega$.</li>
+<li>[ ] Secondary ratio $F_{s,\text{max}} / F_{p,\text{max}} = 1/n$.</li>
+<li>[ ] Equivalent mass $m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}$.</li>
+<li>[ ] $c = 2/3$ optimum.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1: Reciprocating Engine Counterweight Calculation</strong>
+- <strong>Problem</strong>: A single-cylinder vertical engine has a stroke of $300 \text{ mm}$ $r = 0.15 \text{ m}$, reciprocating mass $m_{\text{rec}} = 50 \text{ kg}$, and revolving mass $m_{\text{rev}} = 30 \text{ kg}$ at crank radius. If $66.7\%$ of reciprocating parts are balanced $c = 2/3$, calculate the balancing mass $B$ required at a center distance $b = 0.25 \text{ m}$.
+- <strong>Solution</strong>:
+  1. Calculate balanced fraction of reciprocating mass:
+     <div class="formula-card">$${c \cdot m_{\text{rec}} = \frac{2}{3} \times 50 = 33.33 \text{ kg}}$$</div>
+  2. Calculate total equivalent revolving mass at crank pin:
+     <div class="formula-card">$${m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}} = 30 + 33.33 = 63.33 \text{ kg}}$$</div>
+  3. Apply balance moment equation $B \cdot b = m_{\text{eq}} \cdot r$:
+     <div class="formula-card">$${B \times 0.25 = 63.33 \times 0.15 \implies B \times 0.25 = 9.50 \text{ kg}\cdot\text{m}}$$</div>
+  4. Solve for $B$:
+     <div class="formula-card">$${B = \frac{9.50}{0.25} = 38.0 \text{ kg}}$$</div>
+- <strong>Key Insight</strong>: $B = 38.0 \text{ kg}$. Always combine revolving mass with fraction $c$ of reciprocating mass before solving for $B$.</p>
+<p><strong>Worked Example 2: Ratio of Secondary to Primary Force</strong>
+- <strong>Problem</strong>: An engine has a stroke of $200 \text{ mm}$ $r = 0.1 \text{ m}$ and connecting rod length $l = 0.4 \text{ m}$. Calculate ratio $n = l/r$ and find the maximum secondary force as a percentage of maximum primary force.
+- <strong>Solution</strong>:
+  1. Calculate ratio $n$:
+     <div class="formula-card">$${n = \frac{l}{r} = \frac{0.4}{0.1} = 4.0}$$</div>
+  2. Calculate percentage ratio:
+     <div class="formula-card">$${\frac{F_{s,\text{max}}}{F_{p,\text{max}}} = \frac{1}{n} = \frac{1}{4} = 0.25 = 25\%}$$</div>
+- <strong>Key Insight</strong>: Maximum secondary force is $25\%$ of maximum primary force for $n = 4$.</p>
+<p><strong>Worked Example 3: Secondary Force Magnitude at Given Angle</strong>
+- <strong>Problem</strong>: A reciprocating engine has $m_{\text{rec}} = 6 \text{ kg}$, $r = 0.1 \text{ m}$, $l = 0.5 \text{ m}$ $n = 5$, operating at $N = 1200 \text{ rpm}$ $\omega = 40\pi \approx 125.66 \text{ rad/s}$. Calculate the magnitude of secondary inertia force at crank angle $\theta = 30^\circ$.
+- <strong>Solution</strong>:
+  1. Calculate $\omega^2$:
+     <div class="formula-card">$${\omega = \frac{2\pi \times 1200}{60} = 40\pi \approx 125.664 \text{ rad/s} \implies \omega^2 = (125.664)^2 \approx 15791.4 \text{ rad}^2/\text{s}^2}$$</div>
+  2. Calculate secondary force formula:
+     <div class="formula-card">$${F_s = \frac{m_{\text{rec}} \cdot r \cdot \omega^2}{n} \cdot \cos 2\theta}$$</div>
+  3. Substitute $\theta = 30^\circ \implies 2\theta = 60^\circ \implies \cos 60^\circ = 0.5$:
+     <div class="formula-card">$${F_s = \frac{6 \times 0.1 \times 15791.4}{5} \times 0.5 = \frac{9474.84}{5} \times 0.5 = 1894.97 \times 0.5 \approx 947.5 \text{ N}}$$</div>
+- <strong>Key Insight</strong>: $F_s \approx 947.5 \text{ N}$ at $\theta = 30^\circ$. Note that $\cos 2\theta$ governs the angle.</p>
+<hr />
+<h3 id="33-locomotive-partial-balancing-hammer-blow-tractive-effort-swaying-couple"><strong>3.3 Locomotive Partial Balancing (Hammer Blow, Tractive Effort, Swaying Couple)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Origins of Locomotive Instability</strong>:</li>
+<li>In a two-cylinder locomotive with cranks at $90^\circ$, balancing reciprocating masses partially $c &lt; 1$ introduces three distinct dynamic effects:</li>
+<li><strong>Hammer Blow</strong>: Peak vertical dynamic load on rails.</li>
+<li><strong>Variation of Tractive Effort</strong>: Cyclic fluctuation in horizontal drawbar pull along rails.</li>
+<li><strong>Swaying Couple</strong>: Cyclic rocking moment about the vertical axis through the center of gravity.</li>
+</ul>
+<h5 id="2-detailed-derivations-formulas"><strong>2. Detailed Derivations &amp; Formulas</strong></h5>
+<ol>
+<li><strong>Hammer Blow</strong>:</li>
+<li>The rotating counterweight attached to driving wheels has a balance mass component $B$ at radius $b$ balancing $c \cdot m_{\text{rec}}$.</li>
+<li>Centrifugal force of this balance mass $= B b \omega^2$.</li>
+<li>Vertical component $= B b \omega^2 \sin\theta$.</li>
+<li>Maximum vertical force occurs when $\sin\theta = \pm 1$ $\theta = 90^\circ \text{ and } 270^\circ$:
+     <div class="formula-card">$${\boxed{\text{Hammer Blow} = B \cdot b \cdot \omega^2 = c \cdot m_{\text{rec}} \cdot r \cdot \omega^2}}$$</div></li>
+<li>
+<p><strong>Wheel Lift Condition</strong>: If static weight per wheel is $W$, the net downward rail load varies between $(W - B b \omega^2)$ and $(W + B b \omega^2)$. If $\text{Hammer Blow} \ge W$, the wheel actually LIFTS OFF the rail during part of the revolution!</p>
+</li>
+<li>
+<p><strong>Variation of Tractive Effort $\Delta F_T$</strong>:</p>
+</li>
+<li>Unbalanced primary force for Cylinder 1 $\theta$: $F_1 = (1-c) m r \omega^2 \cos\theta$.</li>
+<li>Unbalanced primary force for Cylinder 2 $\theta + 90^\circ$: $F_2 = (1-c) m r \omega^2 \cos(\theta + 90^\circ) = -(1-c) m r \omega^2 \sin\theta$.</li>
+<li>Net horizontal tractive force fluctuation:
+     <div class="formula-card">$${F_T = F_1 + F_2 = (1-c) m r \omega^2 (\cos\theta - \sin\theta)}$$</div></li>
+<li>Maximizing $(\cos\theta - \sin\theta)$ by setting derivative to zero gives $\tan\theta = -1 \implies \theta = 135^\circ \text{ and } 315^\circ$.</li>
+<li>Substitute $\theta = 135^\circ$: $\cos 135^\circ - \sin 135^\circ = -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}} = -\sqrt{2}$.</li>
+<li>
+<p>Maximum Variation of Tractive Effort:
+     <div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} \cdot (1 - c) \cdot m \cdot r \cdot \omega^2}}$$</div></p>
+</li>
+<li>
+<p><strong>Swaying Couple $C_s$</strong>:</p>
+</li>
+<li>Let cylinder lines of stroke be separated by distance $a$. Distance from engine centerline to each cylinder $= a/2$.</li>
+<li>Couple about vertical axis $= F_1 \left(\frac{a}{2}\right) - F_2 \left(\frac{a}{2}\right) = \frac{a}{2} (1-c) m r \omega^2 (\cos\theta + \sin\theta)$.</li>
+<li>Maximizing $(\cos\theta + \sin\theta)$ gives $\tan\theta = 1 \implies \theta = 45^\circ \text{ and } 225^\circ$.</li>
+<li>Maximum Swaying Couple:
+     <div class="formula-card">$${\boxed{C_s = \pm \frac{a}{\sqrt{2}} \cdot (1 - c) \cdot m \cdot r \cdot \omega^2}}$$</div></li>
+</ol>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Locomotive Performance Trade-Off</strong>:
+- Increasing balance fraction $c \to 1.0$: REDUCES Tractive Variation $\Delta F_T$ and Swaying Couple $C_s$, BUT INCREASES Hammer Blow $B b \omega^2$, risking track destruction!
+- Decreasing balance fraction $c \to 0$: ELIMINATES Hammer Blow, BUT INCREASES Tractive Variation and Swaying Couple, causing vehicle instability.
+- $c = 2/3$ provides the optimal engineering balance.</p>
+<p>[!TRAP]
+<strong>Locomotive Peak Angle Summary Table</strong>:
+| Effect | Peak Angle $\theta$ | Peak Value Formula |
+| :--- | :--- | :--- |
+| <strong>Hammer Blow</strong> | $90^\circ, 270^\circ$ | $B b \omega^2 = c m_{\text{rec}} r \omega^2$ |
+| <strong>Tractive Effort Variation</strong> | $135^\circ, 315^\circ$ | $\pm \sqrt{2}(1-c) m_{\text{rec}} r \omega^2$ |
+| <strong>Swaying Couple</strong> | $45^\circ, 225^\circ$ | $\pm \frac{a}{\sqrt{2}}(1-c) m_{\text{rec}} r \omega^2$ |</div>
+<h5 id="3-ascii-decision-tree_1"><strong>3. ASCII Decision Tree</strong></h5>
+<pre><code>Locomotive Partial Balancing Effects (Cranks at 90°)
+│
+├── Vertical Force Effect ──► HAMMER BLOW
+│   ├── Formula: Hammer Blow = B * b * omega^2 = c * m * r * omega^2
+│   ├── Peak Angles: theta = 90° and 270°
+│   └── Risk: Wheel lift if Hammer Blow &gt;= Static Wheel Load W
+│
+├── Horizontal Drawbar Force Effect ──► VARIATION OF TRACTIVE EFFORT
+│   ├── Formula: Delta_FT = +/- sqrt(2) * (1-c) * m * r * omega^2
+│   └── Peak Angles: theta = 135° and 315°
+│
+└── Horizontal Rocking Moment Effect ──► SWAYING COUPLE
+    ├── Formula: Cs = +/- (a / sqrt(2)) * (1-c) * m * r * omega^2
+    └── Peak Angles: theta = 45° and 225°
+</code></pre>
+<h5 id="4-revision-checklist_1"><strong>4. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Cranks set at $90^\circ$ for self-starting.</li>
+<li>[ ] Hammer blow $= B b \omega^2$ at $\theta = 90^\circ / 270^\circ$.</li>
+<li>[ ] Wheel lift condition: $W \le B b \omega^2$.</li>
+<li>[ ] Tractive variation $\pm \sqrt{2}(1-c) m r \omega^2$ at $\theta = 135^\circ / 315^\circ$.</li>
+<li>[ ] Swaying couple $\pm \frac{a}{\sqrt{2}}(1-c) m r \omega^2$ at $\theta = 45^\circ / 225^\circ$.</li>
+<li>[ ] $c = 2/3$ standard optimum.</li>
+</ul>
+<h5 id="5-worked-examples_1"><strong>5. Worked Examples</strong></h5>
+<p><strong>Worked Example 1: Hammer Blow &amp; Wheel Lift Speed</strong>
+- <strong>Problem</strong>: A two-cylinder locomotive has reciprocating mass $m = 300 \text{ kg}$ per cylinder, crank radius $r = 0.3 \text{ m}$, balance fraction $c = 2/3$, and static load per wheel $W = 45 \text{ kN} = 45000 \text{ N}$. Calculate the maximum speed $N$ $\text{rpm}$ at which the wheels will begin to lift off the rails.
+- <strong>Solution</strong>:
+  1. Calculate balance mass product $B \cdot b = c \cdot m \cdot r$:
+     <div class="formula-card">$${B \cdot b = \frac{2}{3} \times 300 \times 0.3 = 60 \text{ kg}\cdot\text{m}}$$</div>
+  2. Set Hammer Blow equal to static load $W$ to find limiting $\omega$:
+     <div class="formula-card">$${\text{Hammer Blow} = B \cdot b \cdot \omega^2 = W \implies 60 \times \omega^2 = 45000}$$</div>
+     <div class="formula-card">$${\omega^2 = \frac{45000}{60} = 750 \implies \omega = \sqrt{750} \approx 27.386 \text{ rad/s}}$$</div>
+  3. Convert $\omega$ to speed $N$ $\text{rpm}$:
+     <div class="formula-card">$${\omega = \frac{2\pi N}{60} \implies N = \frac{60 \times 27.386}{2\pi} = \frac{1643.16}{6.2832} \approx 261.5 \text{ rpm}}$$</div>
+- <strong>Key Insight</strong>: At $N \approx 261.5 \text{ rpm}$, hammer blow equals static wheel weight $45 \text{ kN}$, initiating wheel lift.</p>
+<p><strong>Worked Example 2: Tractive Variation &amp; Swaying Couple Calculation</strong>
+- <strong>Problem</strong>: A two-cylinder engine has cylinder spacing $a = 0.7 \text{ m}$, stroke $0.6 \text{ m}$ $r = 0.3 \text{ m}$, $m_{\text{rec}} = 240 \text{ kg}$ per cylinder, $\omega = 15 \text{ rad/s}$, and balance fraction $c = 2/3$. Calculate: (a) Maximum variation of tractive effort, (b) Maximum swaying couple.
+- <strong>Solution</strong>:
+  1. Calculate term $(1-c) m r \omega^2$:
+     <div class="formula-card">$${(1 - 2/3) \times 240 \times 0.3 \times 15^2 = \frac{1}{3} \times 240 \times 0.3 \times 225 = 80 \times 67.5 = 5400 \text{ N}}$$</div>
+  2. (a) Maximum variation of tractive effort:
+     <div class="formula-card">$${\Delta F_T = \sqrt{2} \times 5400 \approx 1.4142 \times 5400 \approx 7636.7 \text{ N} \approx 7.64 \text{ kN}}$$</div>
+  3. (b) Maximum swaying couple:
+     <div class="formula-card">$${C_s = \frac{a}{\sqrt{2}} \times 5400 = \frac{0.7}{1.4142} \times 5400 = 0.49497 \times 5400 \approx 2672.8 \text{ N}\cdot\text{m} \approx 2.67 \text{ kN}\cdot\text{m}}$$</div>
+- <strong>Key Insight</strong>: $\Delta F_T = 7.64 \text{ kN}$ at $135^\circ/315^\circ$; $C_s = 2.67 \text{ kN}\cdot\text{m}$ at $45^\circ/225^\circ$.</p>
+<p><strong>Worked Example 3: Comprehensive Locomotive Partial Balancing Analysis</strong>
+- <strong>Problem</strong>: A two-cylinder locomotive with inside cylinders spaced $a = 0.6 \text{ m}$ apart has stroke $0.5 \text{ m}$ $r = 0.25 \text{ m}$, $m_{\text{rec}} = 300 \text{ kg}$ per cylinder, driving wheel diameter $D = 1.8 \text{ m}$, static wheel load $W = 50 \text{ kN}$, operating at $V = 90 \text{ km/h}$. If $c = 0.65$, calculate:
+  (a) Angular speed $\omega$ $\text{rad/s}$,
+  (b) Hammer Blow $\text{N}$,
+  (c) Net minimum rail pressure $\text{N}$.
+- <strong>Solution</strong>:
+  1. Calculate linear speed $v$ in $\text{m/s}$:
+     <div class="formula-card">$${v = \frac{90 \times 1000}{3600} = 25 \text{ m/s}}$$</div>
+  2. Calculate wheel angular speed $\omega$:
+     <div class="formula-card">$${v = \omega \cdot R_{\text{wheel}} = \omega \cdot \left(\frac{D}{2}\right) \implies 25 = \omega \times 0.9 \implies \omega = \frac{25}{0.9} \approx 27.78 \text{ rad/s}}$$</div>
+  3. (b) Calculate Hammer Blow $B b \omega^2 = c m_{\text{rec}} r \omega^2$:
+     <div class="formula-card">$${\text{Hammer Blow} = 0.65 \times 300 \times 0.25 \times (27.78)^2 = 48.75 \times 771.7 \approx 37620 \text{ N} \approx 37.62 \text{ kN}}$$</div>
+  4. (c) Calculate net minimum rail pressure $W - \text{Hammer Blow}$:
+     <div class="formula-card">$${\text{Rail Load}_{\min} = 50000 - 37620 = 12380 \text{ N} \approx 12.38 \text{ kN}}$$</div>
+- <strong>Key Insight</strong>: Rail load drops to $12.38 \text{ kN}$ at peak upward hammer blow, proving wheels do NOT lift off because $12.38 \text{ kN} &gt; 0$.</p>
+<hr />
+<h3 id="34-multi-cylinder-engine-directreverse-crank-analysis"><strong>3.4 Multi-Cylinder Engine &amp; Direct/Reverse Crank Analysis</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Direct and Reverse Crank Method</strong>:</li>
+<li>A primary reciprocating force $m r \omega^2 \cos\theta$ along line of stroke can be replaced mathematically by TWO imaginary rotating cranks of radius $r/2$ carrying mass $m$:<ol>
+<li><strong>Direct Crank</strong>: Rotates at speed $+\omega$ in the direction of engine rotation at angle $\theta$.</li>
+<li><strong>Reverse Crank</strong>: Rotates at speed $-\omega$ in the opposite direction at angle $-\theta$.</li>
+</ol>
+</li>
+<li>Similarly, a secondary force $\frac{m r \omega^2}{n} \cos 2\theta$ can be replaced by TWO secondary imaginary cranks:<ol>
+<li><strong>Secondary Direct Crank</strong>: Radius $r_s = \frac{r}{4n}$, rotates at $+2\omega$ at angle $2\theta$.</li>
+<li><strong>Secondary Reverse Crank</strong>: Radius $r_s = \frac{r}{4n}$, rotates at $-2\omega$ at angle $-2\theta$.</li>
+</ol>
+</li>
+<li><strong>Inline Multi-Cylinder Balancing Rules</strong>:</li>
+<li><strong>Primary Force Balance</strong>: Vector sum of primary direct cranks $= 0$.</li>
+<li><strong>Primary Couple Balance</strong>: Vector sum of primary direct crank moments $= 0$.</li>
+<li><strong>Secondary Force Balance</strong>: Vector sum of secondary direct cranks $= 0$.</li>
+<li><strong>Secondary Couple Balance</strong>: Vector sum of secondary direct crank moments $= 0$.</li>
+<li><strong>$90^\circ$ V-Twin Engine Primary Balance</strong>:</li>
+<li>For a $90^\circ$ V-twin engine, primary inertia forces of two cylinders set at $90^\circ$ combine to yield a RESULTANT primary force of CONSTANT MAGNITUDE $m r \omega^2$ rotating at speed $\omega$!</li>
+<li>Therefore, primary forces in a $90^\circ$ V-engine can be COMPLETELY BALANCED by a single rotating counterweight of mass $m$ attached opposite the crank pin!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>$90^\circ$ V-Engine Special Property</strong>: Primary forces in a $90^\circ$ V-twin engine combine into a constant magnitude vector $m r \omega^2$ rotating at crank speed, making complete primary balance achievable using a single rotating counterweight!</div>
+<hr />
+<h3 id="35-dynamic-balancing-machines-field-instrumentation"><strong>3.5 Dynamic Balancing Machines &amp; Field Instrumentation</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Sub-Critical Testing Speed Rationale</strong>:</li>
+<li>Industrial dynamic balancing machines operate at <strong>$400 \text{ to } 700 \text{ rpm}$</strong>.</li>
+<li>Rationale: The lateral critical speed of industrial rotors typically exceeds $5000 \text{ rpm}$. Operating at $400 - 700 \text{ rpm}$ ensures testing is safely sub-critical. For rigid rotors, balance achieved at sub-critical speeds holds perfectly at high operating speeds.</li>
+<li><strong>Field Balancing &amp; Influence Coefficients</strong>:</li>
+<li>In field balancing, trial masses $M_T$ are added to Plane 1 and Plane 2, and vibration vectors $\vec{V}<em>0$ (initial) and $\vec{V}</em>{0+T}$ (with trial mass) are recorded.</li>
+<li>The Influence Coefficient $\vec{\alpha} = \frac{\vec{V}_{0+T} - \vec{V}_0}{M_T}$ is computed to solve for the exact correction mass $M_C = -\frac{\vec{V}_0}{\vec{\alpha}}$.</li>
+</ul>
+<hr />
+<h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual Pairs)</strong></h2>
+<p><strong>Q1: State the two essential conditions for complete dynamic balance of a multi-plane rotating system.</strong><br />
+A: 1. Resultant centrifugal force vector sum must be zero $\sum m r = 0$, 2. Resultant dynamic couple vector sum about any reference plane must be zero $\sum m r l = 0$.</p>
+<p><strong>Q2: What is the minimum number of balancing masses and planes required for multi-plane dynamic balance?</strong><br />
+A: Minimum two balancing masses placed in two separate reference planes.</p>
+<p><strong>Q3: Does dynamic balance guarantee static balance?</strong><br />
+A: Yes. Complete dynamic balance ($\sum m r = 0$ and $\sum m r l = 0$) ALWAYS guarantees static balance.</p>
+<p><strong>Q4: State the primary unbalanced force formula for a reciprocating engine.</strong><br />
+A: $F_p = (1-c) m r \omega^2 \cos\theta$ along the line of stroke at crank frequency $\omega$.</p>
+<p><strong>Q5: State the secondary unbalanced force formula for a reciprocating engine.</strong><br />
+A: $F_s = \frac{m r \omega^2 \cos 2\theta}{n}$ along the line of stroke at twice crank frequency $2\omega$.</p>
+<p><strong>Q6: Compare the frequency and peak magnitude of secondary force relative to primary force.</strong><br />
+A: Frequency is TWICE primary frequency $2\omega$; peak magnitude is $1/n$ times primary maximum $n = l/r$.</p>
+<p><strong>Q7: Why is it impossible to 100% balance a single-cylinder reciprocating engine using rotating counterweights?</strong><br />
+A: Because reciprocating primary force acts strictly along the line of stroke, whereas a rotating counterweight introduces an equal, un-cancelled transverse force $m r \omega^2 \sin\theta$ perpendicular to the stroke.</p>
+<p><strong>Q8: What is the standard recommended fraction $c$ of reciprocating mass balanced in locomotives?</strong><br />
+A: $c = 2/3 \approx 0.67$.</p>
+<p><strong>Q9: Define Hammer Blow in locomotives and write its maximum formula.</strong><br />
+A: Hammer Blow is the maximum vertical dynamic load exerted on rails by the un-cancelled vertical component of the rotating balance weight: $\text{Hammer Blow} = B b \omega^2 = c m_{\text{rec}} r \omega^2$.</p>
+<p><strong>Q10: At what crank angles does the Variation of Tractive Effort reach peak values?</strong><br />
+A: $\theta = 135^\circ \text{ and } 315^\circ$ (peak value $\Delta F_T = \pm \sqrt{2}(1-c) m r \omega^2$).</p>
+<p><strong>Q11: At what crank angles does the Swaying Couple reach peak values?</strong><br />
+A: $\theta = 45^\circ \text{ and } 225^\circ$ (peak value $C_s = \pm \frac{a}{\sqrt{2}}(1-c) m r \omega^2$).</p>
+<p><strong>Q12: Why are the cranks of a two-cylinder locomotive set at $90^\circ$?</strong><br />
+A: To ensure the engine can start from any position without getting stuck on dead center.</p>
+<p><strong>Q13: Write the equivalent revolving mass equation $m_{\text{eq}}$ used for counterweight design.</strong><br />
+A: $m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}$, giving counterweight moment $B \cdot b = (m_{\text{rev}} + c \cdot m_{\text{rec}}) r$.</p>
+<p><strong>Q14: Why are industrial rotors tested at $400 - 700 \text{ rpm}$ in dynamic balancing machines?</strong><br />
+A: Because lateral critical speeds of industrial rotors exceed $5000 \text{ rpm}$; testing at $400 - 700 \text{ rpm}$ ensures safe sub-critical testing, and rigid rotor balance holds at operating speeds.</p>
+<p><strong>Q15: How does increasing connecting rod to crank ratio $n = l/r$ affect secondary force?</strong><br />
+A: Increasing $n$ REDUCES secondary force $F_s \propto 1/n$.</p>
+<p><strong>Q16: What is the direct and reverse crank representation of a primary reciprocating force?</strong><br />
+A: Two imaginary cranks of radius $r$ carrying mass $m/2$ rotating at speeds $+\omega$ (direct) and $-\omega$ (reverse).</p>
+<p><strong>Q17: What is the primary balance feature of a $90^\circ$ V-twin engine?</strong><br />
+A: The resultant primary inertia force has constant magnitude $m r \omega^2$ rotating at crank speed, which can be 100% balanced by a single rotating counterweight opposite the crank pin.</p>
+<p><strong>Q18: What condition causes locomotive driving wheels to lift off the rails?</strong><br />
+A: When Hammer Blow $B b \omega^2$ exceeds the static wheel load $W$ $W \le B b \omega^2$.</p>
+<p><strong>Q19: What is the secondary direct crank radius in the direct/reverse crank method?</strong><br />
+A: Secondary direct crank radius $r_s = \frac{r}{4n}$, rotating at $+2\omega$.</p>
+<p><strong>Q20: Why is dynamic balance mandatory for high-speed shafts even if static balance is satisfied?</strong><br />
+A: Because static balance only guarantees zero net force; dynamic couple imbalance causes distance-offset bearing reaction couples that increase quadratically with speed $\omega^2$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Rotating Mass Balancing Summary</strong>:</li>
+<li>Single plane: $m_1 r_1 = m_2 r_2$. One mass is sufficient.</li>
+<li>Multi-plane: Minimum 2 masses in 2 separate planes required ($\sum m r = 0$ and $\sum m r l = 0$).</li>
+<li>Dynamic balance ALWAYS implies static balance.</li>
+<li>Sub-critical balancing machine speed $400 - 700 \text{ rpm}$ (critical speed $&gt; 5000 \text{ rpm}$).</li>
+<li><strong>Reciprocating Mass Balancing Summary</strong>:</li>
+<li>Primary force $F_p = m r \omega^2 \cos\theta$ (frequency $\omega$).</li>
+<li>Secondary force $F_s = \frac{m r \omega^2 \cos 2\theta}{n}$ (frequency $2\omega$, magnitude $1/n$).</li>
+<li>Single-cylinder engine CANNOT be completely balanced by rotating weights.</li>
+<li>Equivalent mass at crank pin $m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}$.</li>
+<li>Balance equation: $B \cdot b = (m_{\text{rev}} + c \cdot m_{\text{rec}}) \cdot r$.</li>
+<li><strong>Locomotive Partial Balancing Summary</strong>:</li>
+<li>Optimum balance fraction $c = 2/3$.</li>
+<li>Hammer Blow $= B b \omega^2$ (vertical max at $90^\circ / 270^\circ$).</li>
+<li>Wheel lift condition: Static wheel load $W \le B b \omega^2$.</li>
+<li>Tractive variation $\Delta F_T = \pm \sqrt{2}(1-c) m r \omega^2$ (max at $135^\circ / 315^\circ$).</li>
+<li>Swaying couple $C_s = \pm \frac{a}{\sqrt{2}}(1-c) m r \omega^2$ (max at $45^\circ / 225^\circ$).</li>
+<li>Two-cylinder cranks set at $90^\circ$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Single-plane static balance equation $m_1 r_1 = m_2 r_2$.</li>
+<li>[ ] Memorize Multi-plane dynamic balance requires min 2 masses in 2 planes.</li>
+<li>[ ] Memorize Dynamic balance ALWAYS implies static balance.</li>
+<li>[ ] Memorize Balancing machine speed range $400 - 700 \text{ rpm}$.</li>
+<li>[ ] Memorize Primary force $F_p = m r \omega^2 \cos\theta$ at frequency $\omega$.</li>
+<li>[ ] Memorize Secondary force $F_s = \frac{m r \omega^2 \cos 2\theta}{n}$ at frequency $2\omega$.</li>
+<li>[ ] Memorize Reciprocating balance fraction $c = 2/3$.</li>
+<li>[ ] Memorize Equivalent mass formula $m_{\text{eq}} = m_{\text{rev}} + c \cdot m_{\text{rec}}$.</li>
+<li>[ ] Memorize Hammer blow $B b \omega^2$ (vertical rail force).</li>
+<li>[ ] Memorize Wheel lift condition $W \le B b \omega^2$.</li>
+<li>[ ] Memorize Tractive variation max at $135^\circ \text{ and } 315^\circ$.</li>
+<li>[ ] Memorize Swaying couple max at $45^\circ \text{ and } 225^\circ$.</li>
+<li>[ ] Memorize Two-cylinder locomotive cranks set at $90^\circ$.</li>
+<li>[ ] Memorize Single-cylinder engine cannot be 100% balanced by rotating mass.</li>
+<li>[ ] Memorize $90^\circ$ V-twin primary forces can be 100% balanced by 1 counterweight.</li>
+</ul>
+</body>
+</html>
