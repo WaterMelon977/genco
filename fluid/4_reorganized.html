@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compressible Flow, External Drag & Lift, and Dimensional Analysis — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="compressible-flow-external-drag-lift-and-dimensional-analysis-comprehensive-reorganized-study-guide">Compressible Flow, External Drag &amp; Lift, and Dimensional Analysis — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Compressible Fluid Flow (Mach regimes, speed of sound, normal shocks, 1D steady continuity, adiabatic Bernoulli, nozzle dynamics), Submerged Body Dynamics (streamlined vs bluff bodies, drag &amp; lift coefficients, airfoil stall, Stokes law), and Dimensional &amp; Model Analysis (Buckingham Pi theorem, dimensionless parameters like Reynolds, Froude, Mach, Euler, Weber, and scale modeling laws) for AP GenCo AE, GATE, and SSC JE examinations. High-yield PYQ areas include sonic velocity $c = \sqrt{\gamma R T}$, incompressible flow limit $M &lt; 0.3$, normal shock transition $M_1 &gt; 1 \to M_2 &lt; 1$, nozzle area-velocity relation $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$, Stokes drag on spheres $F_D = 3 \pi \mu d V$, and Froude/Reynolds model scaling laws. All raw file content has been consolidated without losing any theory Q&amp;As or worked examples.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-compressible-flow-mach-number"><strong>1. Compressible Flow &amp; Mach Number</strong></h4>
+<ul>
+<li><strong>Mach Number</strong>:
+  <div class="formula-card">$${\boxed{M = \frac{V}{c} = \sqrt{\frac{\text{Inertia force}}{\text{Elastic force}}}}}$$</div></li>
+<li>Subsonic: $M &lt; 1$</li>
+<li>Sonic: $M = 1$</li>
+<li>Supersonic: $M &gt; 1$</li>
+<li>
+<p>Hypersonic: $M &gt; 5$</p>
+</li>
+<li>
+<p><strong>Sonic Velocity (Speed of Sound)</strong>:
+  <div class="formula-card">$${\boxed{c = \sqrt{\gamma R T} = \sqrt{\frac{K}{\rho}}}}$$</div></p>
+</li>
+<li>$\gamma$: ratio of specific heats ($C_p/C_v \approx 1.4$ for air)</li>
+<li>$R$: specific gas constant ($287 \text{ J/kg}\cdot\text{K}$ for air)</li>
+<li>$T$: absolute temperature $\text{K}$</li>
+<li>
+<p>$K$: bulk modulus of elasticity $\text{Pa}$</p>
+</li>
+<li>
+<p><strong>Incompressible Approximation Criterion</strong>:
+  <div class="formula-card">$${\boxed{M &lt; 0.3} \quad (\text{Density changes } &lt; 5\%)}$$</div></p>
+</li>
+<li>
+<p><strong>1D Steady Compressible Continuity</strong>:
+  <div class="formula-card">$${\boxed{\frac{dA}{A} + \frac{dV}{V} + \frac{d\rho}{\rho} = 0} \quad \implies \quad \rho A V = \text{constant}}$$</div></p>
+</li>
+<li>
+<p><strong>Adiabatic Compressible Bernoulli Equation</strong>:
+  <div class="formula-card">$${\boxed{\frac{\gamma}{\gamma-1} \frac{P}{\rho} + \frac{V^2}{2} + g z = \text{constant}}}$$</div></p>
+</li>
+<li>
+<p><strong>Isothermal Compressible Bernoulli Equation</strong>:
+  <div class="formula-card">$${\boxed{\frac{P}{\rho} \ln P + \frac{V^2}{2} + g z = \text{constant}}}$$</div></p>
+</li>
+<li>
+<p><strong>Area-Velocity Relation for Variable Area Ducts</strong>:
+  <div class="formula-card">$${\boxed{\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}}}$$</div></p>
+</li>
+<li>Subsonic $M &lt; 1$: $dA &lt; 0 \implies dV &gt; 0$ (Convergent duct accelerates flow)</li>
+<li>Supersonic $M &gt; 1$: $dA &gt; 0 \implies dV &gt; 0$ (Divergent duct accelerates flow)</li>
+<li>Throat $M = 1$: $dA = 0$ (Minimum area occurs at sonic state)</li>
+</ul>
+<hr />
+<h4 id="2-external-flow-drag-lift-stokes-law"><strong>2. External Flow: Drag, Lift &amp; Stokes Law</strong></h4>
+<ul>
+<li><strong>Total Drag Force</strong>:
+  <div class="formula-card">$${\boxed{F_D = C_D \cdot \frac{1}{2} \rho A V^2}}$$</div></li>
+<li>$F_D$: total drag force $\text{N}$</li>
+<li>$C_D$: drag coefficient (dimensionless)</li>
+<li>
+<p>$A$: projected frontal area $\text{m}^2$</p>
+</li>
+<li>
+<p><strong>Lift Force</strong>:
+  <div class="formula-card">$${\boxed{F_L = C_L \cdot \frac{1}{2} \rho A V^2}}$$</div></p>
+</li>
+<li>
+<p>$C_L$: lift coefficient (dimensionless)</p>
+</li>
+<li>
+<p><strong>Stokes Law for Low Reynolds Number Sphere ($Re &lt; 0.2$ or $Re &lt; 1.0$)</strong>:
+  <div class="formula-card">$${\boxed{F_D = 3 \pi \mu d V = 6 \pi \mu r V}}$$</div></p>
+</li>
+<li>Friction drag $= 2 \pi \mu d V$ ($2/3$ of total)</li>
+<li>Pressure drag $= \pi \mu d V$ ($1/3$ of total)</li>
+<li>Drag coefficient $C_D = \frac{24}{Re}$</li>
+</ul>
+<hr />
+<h4 id="3-dimensional-model-analysis"><strong>3. Dimensional &amp; Model Analysis</strong></h4>
+<ul>
+<li><strong>Buckingham $\Pi$ Theorem</strong>:</li>
+<li>Number of dimensionless $\Pi$-terms $= n - m$</li>
+<li>$n$: total physical variables</li>
+<li>
+<p>$m$: number of fundamental dimensions $M, L, T \implies m = 3$</p>
+</li>
+<li>
+<p><strong>Model Law Scaling Factors</strong>:</p>
+</li>
+<li><strong>Reynolds Model Law</strong> $\frac{\rho V L}{\mu} = \text{const}$: Viscous forces dominate (pipe flow, submerged submarines).</li>
+<li><strong>Froude Model Law</strong> $\frac{V}{\sqrt{g L}} = \text{const}$: Gravity forces dominate (ships, open channel flow, spillways).</li>
+<li><strong>Mach Model Law</strong> $\frac{V}{c} = \text{const}$: Compressibility forces dominate (supersonic aircraft, missiles).</li>
+<li><strong>Weber Model Law</strong> $\frac{\rho V^2 L}{\sigma} = \text{const}$: Surface tension dominates (droplets, capillary waves).</li>
+<li>
+<p><strong>Euler Model Law</strong> $\frac{V}{\sqrt{\Delta P / \rho}} = \text{const}$: Pressure forces dominate (cavitation, enclosed fluid machinery).</p>
+</li>
+<li>
+<p><strong>Froude Scale Ratios</strong>:</p>
+</li>
+<li>Length ratio: $L_r = \frac{L_p}{L_m}$</li>
+<li>Velocity ratio: $V_r = \sqrt{L_r}$</li>
+<li>Time ratio: $T_r = \sqrt{L_r}$</li>
+<li>Discharge ratio: $Q_r = L_r^{5/2}$</li>
+<li>Force ratio: $F_r = \rho_r L_r^3$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Mach Number $M$</strong>: Ratio of flow velocity to local speed of sound; square root of ratio of inertia force to elastic force.</li>
+<li><strong>Normal Shock Wave</strong>: Extremely thin, irreversible pressure discontinuity across which supersonic flow $M_1 &gt; 1$ abruptly slows down to subsonic flow $M_2 &lt; 1$. Static pressure, temperature, and density jump upward, while stagnation pressure decreases $\Delta s &gt; 0$.</li>
+<li><strong>Stagnation State</strong>: State attained when a gas stream is brought to rest reversibly and adiabatically $V \to 0$.</li>
+<li><strong>Streamlined Body</strong>: Body shaped such that its surface contours closely align with flow streamlines, delaying boundary layer separation and minimizing form (pressure) drag.</li>
+<li><strong>Bluff Body</strong>: Body whose surface geometry causes early boundary layer separation, creating a large turbulent wake and high pressure drag (e.g. flat plate, cylinder, sphere).</li>
+<li><strong>Stall</strong>: Sudden drop in lift force and sharp increase in drag on an airfoil when angle of attack exceeds a critical threshold $\alpha &gt; \alpha_{cr}$.</li>
+<li><strong>Froude Number $Fr$</strong>: Ratio of inertial force to gravity force $Fr = \frac{V}{\sqrt{g L}}$.</li>
+<li><strong>Reynolds Model Law</strong>: Applied when viscous forces dominate flow dynamics $Re_m = Re_p$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
+<ul>
+<li><strong>Speed of Sound in Standard Air $15^\circ\text{C}$</strong>: $c \approx 340 \text{ m/s}$.</li>
+<li><strong>Air Specific Heat Ratio $\gamma$</strong>: $\gamma = 1.40$.</li>
+<li><strong>Air Gas Constant $R$</strong>: $R = 287 \text{ J/kg}\cdot\text{K}$.</li>
+<li><strong>Incompressible Limit</strong>: $M &lt; 0.3$.</li>
+<li><strong>Stokes Sphere Drag Coefficients</strong>: $C_D = \frac{24}{Re}$, Total Drag $F_D = 3 \pi \mu d V$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Mach Number</strong>: Introduced in §3.1, used in §3.2 (Nozzles) and §3.4 (Model Laws).</li>
+<li><strong>Boundary Layer Separation</strong>: Introduced in 3_reorganized.md, applied to Bluff vs Streamlined Bodies in §3.3.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-speed-of-sound-compressible-flow-regimes"><strong>3.1 Speed of Sound &amp; Compressible Flow Regimes</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Speed of sound $c = \sqrt{\gamma R T}$ depends strictly on absolute temperature $T$ in Kelvin, NOT pressure.</li>
+<li>Compressibility effects alter fluid density when $M &gt; 0.3$. Below $M = 0.3$, density change is $&lt; 5\%$, allowing incompressible flow assumptions.</li>
+<li>Mach number is the square root of the ratio of inertia force to elastic force $M = \sqrt{\frac{\text{Inertia}}{\text{Elastic}}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Sonic Speed Formula</strong>: $c = \sqrt{\gamma R T} = \sqrt{\frac{K}{\rho}}$. For air $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$, $c \approx 20.05 \sqrt{T(\text{K})} \text{ m/s}$. Double absolute temperature $\implies c$ increases by $\sqrt{2} \approx 1.414$ times.</p>
+<p>[!TRAP]
+<strong>Celsius vs Kelvin in Sonic Speed</strong>: ALWAYS convert temperature to Kelvin $T(\text{K}) = T(^\circ\text{C}) + 273.15$. Using Celsius directly in $\sqrt{\gamma R T}$ is a major calculation error!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Compressible Flow Regime?
+├─ M &lt; 0.3 → Incompressible approximation valid (density variation &lt; 5%)
+├─ 0.3 &lt;= M &lt; 1.0 → Subsonic compressible flow
+├─ M = 1.0 → Sonic flow (occurs at throat)
+├─ 1.0 &lt; M &lt; 5.0 → Supersonic flow
+└─ M &gt; 5.0 → Hypersonic flow
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $c = \sqrt{\gamma R T}$ depends on absolute temperature $T(\text{K})$.</li>
+<li>[ ] Mach number $M = V / c$.</li>
+<li>[ ] Inertia / Elastic force ratio $= M^2$.</li>
+<li>[ ] Incompressible limit $M &lt; 0.3$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Calculate the speed of sound in air at $27^\circ\text{C}$ $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T = 27 + 273 = 300 \text{ K}}$$</div>
+  <div class="formula-card">$${c = \sqrt{\gamma R T} = \sqrt{1.4 \times 287 \times 300} = \sqrt{120540} \approx 347.18 \text{ m/s}}$$</div>
+- <strong>Key Insight</strong>: Always convert $27^\circ\text{C}$ to $300 \text{ K}$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: An aircraft flies at $250 \text{ m/s}$ in air at $-23^\circ\text{C}$ $T = 250 \text{ K}$. Calculate its Mach number $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${c = \sqrt{1.4 \times 287 \times 250} = \sqrt{100450} \approx 316.93 \text{ m/s}}$$</div>
+  <div class="formula-card">$${M = \frac{V}{c} = \frac{250}{316.93} \approx 0.789 \quad (\text{Subsonic})}$$</div>
+- <strong>Key Insight</strong>: Mach number $M = V / c = 0.789$.</p>
+<hr />
+<h3 id="32-normal-shocks-nozzle-dynamics"><strong>3.2 Normal Shocks &amp; Nozzle Dynamics</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>A normal shock wave occurs ONLY when upstream flow is supersonic $M_1 &gt; 1$.</li>
+<li>Across a normal shock:</li>
+<li>Downstream Mach number becomes subsonic $M_2 &lt; 1$.</li>
+<li>Static pressure $P_2 &gt; P_1$, static temperature $T_2 &gt; T_1$, and density $\rho_2 &gt; \rho_1$ jump upward sharply.</li>
+<li>Flow velocity drops $V_2 &lt; V_1$.</li>
+<li>Total stagnation pressure decreases $P_{02} &lt; P_{01}$ due to irreversible entropy increase $\Delta s &gt; 0$.</li>
+<li>Total stagnation temperature remains constant $T_{02} = T_{01}$ for adiabatic shock.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Area-Velocity Relation</strong>: $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.
+- Subsonic Flow $M &lt; 1$: $(M^2 - 1) &lt; 0 \implies$ Decreasing area $dA &lt; 0$ causes acceleration $dV &gt; 0$. (Convergent Nozzle)
+- Supersonic Flow $M &gt; 1$: $(M^2 - 1) &gt; 0 \implies$ Increasing area $dA &gt; 0$ causes acceleration $dV &gt; 0$. (Divergent Nozzle)
+- Throat $M = 1$: $dA = 0$.</p>
+<p>[!TRAP]
+<strong>Normal Shock Changes</strong>: Static temperature RISES across a normal shock $T_2 &gt; T_1$, but total stagnation temperature remains CONSTANT $T_{02} = T_{01}$. Do not confuse static and stagnation quantities!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Duct / Shock Wave Problem?
+├─ Convergent Duct Subsonic (M &lt; 1) → Area decreases (dA &lt; 0) -&gt; Velocity increases (dV &gt; 0)
+├─ Divergent Duct Supersonic (M &gt; 1) → Area increases (dA &gt; 0) -&gt; Velocity increases (dV &gt; 0)
+├─ Minimum Area Throat → M = 1 (Sonic state)
+└─ Normal Shock → M1 &gt; 1 -&gt; M2 &lt; 1. P, T, rho jump UP; V, M, P_0 drop DOWN; T_0 CONSTANT
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.</li>
+<li>[ ] Convergent duct accelerates subsonic flow, decelerates supersonic flow.</li>
+<li>[ ] Normal shock: $M_1 &gt; 1 \to M_2 &lt; 1$.</li>
+<li>[ ] Across normal shock: $P_2 &gt; P_1$, $T_2 &gt; T_1$, $V_2 &lt; V_1$, $P_{02} &lt; P_{01}$, $T_{02} = T_{01}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Air enters a normal shock at $M_1 = 2.0$, static pressure $P_1 = 50 \text{ kPa}$, static temperature $T_1 = 300 \text{ K}$. Downstream Mach number $M_2 = 0.577$. Calculate the static pressure jump across the shock if $P_2 / P_1 = 4.50$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${P_2 = 4.50 \times P_1 = 4.50 \times 50 = 225 \text{ kPa}}$$</div>
+  <div class="formula-card">$${\Delta P = P_2 - P_1 = 225 - 50 = 175 \text{ kPa}}$$</div>
+- <strong>Key Insight</strong>: Static pressure jumps sharply across a normal shock wave $P_2 &gt; P_1$.</p>
+<hr />
+<h3 id="33-external-flow-streamlined-bodies-drag-lift-stokes-law"><strong>3.3 External Flow: Streamlined Bodies, Drag, Lift &amp; Stokes Law</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Total Drag = Friction Drag (viscous shear) + Pressure Drag (form drag from wake).</li>
+<li>Streamlined body: Thin wake, small pressure drag; friction drag dominates.</li>
+<li>Bluff body: Broad wake, large pressure drag; pressure drag dominates.</li>
+<li>Stokes Law applies to creeping flow past a sphere ($Re &lt; 0.2$ or $Re &lt; 1.0$):</li>
+<li>Total Drag $F_D = 3 \pi \mu d V$.</li>
+<li>Friction Drag $= 2 \pi \mu d V$ ($66.7\%$ of total).</li>
+<li>Pressure Drag $= \pi \mu d V$ ($33.3\%$ of total).</li>
+<li>Drag Coefficient $C_D = \frac{24}{Re}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stokes Law Breakdown</strong>: Total sphere drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$. Friction drag contributes $\frac{2}{3}$ of total drag, while pressure drag contributes $\frac{1}{3}$.</p>
+<p>[!TRAP]
+<strong>Airfoil Stall</strong>: Stall is caused by boundary layer separation on the upper (suction) surface of the airfoil at high angles of attack, resulting in a sudden DROP in lift and STEEP RISE in drag.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>External Drag / Lift Problem?
+├─ Body Geometry → Streamlined (Friction Drag Dominates) vs Bluff (Pressure Drag Dominates)
+├─ Creeping Sphere Flow (Re &lt; 0.2) → Stokes Law: F_D = 3*pi*mu*d*V, C_D = 24/Re
+├─ Flat Plate Normal to Flow → Pure Pressure Drag (Friction Drag = 0)
+└─ Airfoil Stall → Angle of attack &gt; alpha_cr -&gt; Separation -&gt; Lift drops, Drag surges
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Total Drag $F_D = C_D \cdot \frac{1}{2} \rho A V^2$.</li>
+<li>[ ] Lift Force $F_L = C_L \cdot \frac{1}{2} \rho A V^2$.</li>
+<li>[ ] Stokes sphere drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$.</li>
+<li>[ ] Stokes drag breakdown: Friction $= 2/3$, Pressure $= 1/3$, $C_D = 24/Re$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A tiny sphere of diameter $2 \text{ mm}$ falls through oil $\mu = 0.5 \text{ Pa}\cdot\text{s}$ at a terminal velocity of $0.01 \text{ m/s}$. Calculate the total drag force on the sphere.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${F_D = 3 \pi \mu d V = 3 \times \pi \times 0.5 \times (0.002) \times 0.01 = 3 \pi \times 10^{-5} \approx 9.425 \times 10^{-5} \text{ N} = 94.25 \ \mu\text{N}}$$</div>
+- <strong>Key Insight</strong>: Use Stokes Law formula $F_D = 3 \pi \mu d V$ for very low velocity flows past tiny spheres.</p>
+<hr />
+<h3 id="34-dimensional-analysis-model-testing-laws"><strong>3.4 Dimensional Analysis &amp; Model Testing Laws</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Buckingham $\Pi$ Theorem: If a physical process involves $n$ variables expressed in $m$ fundamental dimensions $M, L, T$, the relationship can be expressed with $n - m$ independent dimensionless $\Pi$-terms.</li>
+<li>Model Similarity requires Geometric, Kinematic, and Dynamic similarity.</li>
+<li>Model Laws:</li>
+<li>Reynolds Law $Re_m = Re_p$: Pipe flow, submarine, fully submerged bodies.</li>
+<li>Froude Law $Fr_m = Fr_p$: Open channel flow, ships, spillways, wave action.</li>
+<li>Mach Law $M_m = M_p$: High-speed aircraft, missiles.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Froude Model Scaling Relations</strong> $Fr_m = Fr_p \implies \frac{V_m}{\sqrt{g L_m}} = \frac{V_p}{\sqrt{g L_p}}$:
+- Length ratio: $L_r = \frac{L_p}{L_m}$
+- Velocity ratio: $V_r = \sqrt{L_r}$
+- Time ratio: $T_r = \sqrt{L_r}$
+- Discharge ratio: $Q_r = A_r V_r = L_r^2 \cdot L_r^{1/2} = L_r^{5/2}$
+- Force ratio: $F_r = \rho_r L_r^3$</p>
+<p>[!TRAP]
+<strong>Selecting Model Laws</strong>:
+- Viscous forces dominate $\implies$ Reynolds Law $Re$.
+- Gravity / free surface dominates $\implies$ Froude Law $Fr$.
+- Surface tension dominates $\implies$ Weber Law $We$.
+- Compressibility dominates $\implies$ Mach Law $M$.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Model Law Selection?
+├─ Open channel / Ships / Spillways → Froude Law (Fr = V / sqrt(g*L)). Q_r = L_r^(5/2), V_r = sqrt(L_r)
+├─ Submarines / Pipe Flow / Aircraft Low Speed → Reynolds Law (Re = rho*V*L / mu)
+├─ Supersonic Aircraft / Missiles → Mach Law (M = V / c)
+└─ Capillary / Droplets → Weber Law (We = rho*V^2*L / sigma)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Buckingham $\Pi$ terms $= n - m$.</li>
+<li>[ ] Froude Law $V_r = \sqrt{L_r}$, $Q_r = L_r^{5/2}$.</li>
+<li>[ ] Reynolds Law $V_r = \nu_r / L_r$.</li>
+<li>[ ] Geometric (shape), Kinematic (velocity field), Dynamic (force field) similarity.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A $1:25$ scale model of a spillway is tested. If the prototype discharge is $2500 \text{ m}^3/\text{s}$, calculate the required model discharge using Froude Model Law.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${L_r = 25}$$</div>
+  <div class="formula-card">$${Q_r = \frac{Q_p}{Q_m} = L_r^{5/2} = (25)^{5/2} = (5^2)^{5/2} = 5^5 = 3125}$$</div>
+  <div class="formula-card">$${Q_m = \frac{Q_p}{3125} = \frac{2500}{3125} = 0.80 \text{ m}^3/\text{s}}$$</div>
+- <strong>Key Insight</strong>: Under Froude Law, discharge scales as $Q_r = L_r^{5/2}$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1. How is Mach number defined?</strong><br />
+A: Ratio of local flow velocity to local speed of sound $M = V / c$. It is the square root of the ratio of inertia force to elastic force.</p>
+<p><strong>Q2. At what Mach number can compressibility effects be safely neglected?</strong><br />
+A: Below $M = 0.3$, where fluid density variations remain under $5\%$.</p>
+<p><strong>Q3. What is the formula for the speed of sound in an ideal gas under isentropic conditions?</strong><br />
+A: $c = \sqrt{\gamma R T}$, where $T$ is absolute temperature in Kelvin.</p>
+<p><strong>Q4. What type of flow is required upstream for a normal shock wave to occur?</strong><br />
+A: Upstream flow MUST be supersonic $M_1 &gt; 1$.</p>
+<p><strong>Q5. How do static pressure and Mach number change across a normal shock wave?</strong><br />
+A: Static pressure jumps upward $P_2 &gt; P_1$, while Mach number drops below unity ($M_2 &lt; 1$, subsonic).</p>
+<p><strong>Q6. What happens to stagnation pressure across a normal shock wave?</strong><br />
+A: Stagnation pressure decreases $P_{02} &lt; P_{01}$ due to irreversible entropy generation across the shock.</p>
+<p><strong>Q7. What is the area-velocity relation for variable-area compressible duct flow?</strong><br />
+A: $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.</p>
+<p><strong>Q8. How does a convergent duct affect subsonic vs supersonic flow?</strong><br />
+A: A convergent duct accelerates subsonic flow $M &lt; 1$, but decelerates supersonic flow $M &gt; 1$.</p>
+<p><strong>Q9. Where does sonic condition $M = 1$ occur in a converging-diverging nozzle?</strong><br />
+A: At the minimum cross-sectional area (the throat).</p>
+<p><strong>Q10. What is a streamlined body?</strong><br />
+A: A body whose geometric shape conforms closely to flow streamlines, suppressing boundary layer separation and minimizing form (pressure) drag.</p>
+<p><strong>Q11. What is a bluff body?</strong><br />
+A: A body whose geometry causes early boundary layer separation, creating a large turbulent wake and high pressure drag.</p>
+<p><strong>Q12. State Stokes Law for low Reynolds number creeping flow past a sphere.</strong><br />
+A: Total drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$, where friction drag is $2/3$ and pressure drag is $1/3$ of the total.</p>
+<p><strong>Q13. What causes airfoil stall?</strong><br />
+A: Severe boundary layer separation on the upper suction surface when angle of attack exceeds the critical angle $\alpha_{cr}$.</p>
+<p><strong>Q14. State Buckingham's $\Pi$ theorem.</strong><br />
+A: If a physical relationship involves $n$ variables expressed in $m$ fundamental dimensions, it can be grouped into $n - m$ independent dimensionless $\Pi$-terms.</p>
+<p><strong>Q15. Which model law governs open channel and ship model testing?</strong><br />
+A: Froude Model Law $Fr_m = Fr_p$, where gravity forces dominate free-surface flow.</p>
+<hr />
+<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
+<ul>
+<li><strong>Note on Speed of Sound &amp; Temperature</strong>:</li>
+<li>$c = \sqrt{\gamma R T}$ depends strictly on absolute temperature $T$ (Kelvin). Density and pressure changes do not alter $c$ for an ideal gas at constant temperature.</li>
+<li><strong>Note on Shock Waves</strong>:</li>
+<li>Normal shocks ONLY occur in supersonic flow $M_1 &gt; 1$. Downstream flow is always subsonic $M_2 &lt; 1$. Static pressure, static temperature, and density INCREASE; total stagnation pressure DECREASES.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Speed of Sound: $c = \sqrt{\gamma R T} = \sqrt{K/\rho}$. Air $c \approx 20.05 \sqrt{T(\text{K})}$.</li>
+<li>[ ] Memorize Incompressible Limit: $M &lt; 0.3$.</li>
+<li>[ ] Memorize Area-Velocity Relation: $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$. Subsonic converges to accelerate; Supersonic diverges to accelerate.</li>
+<li>[ ] Memorize Normal Shock Jumps: $M_1 &gt; 1 \to M_2 &lt; 1$. $P_2 &gt; P_1, T_2 &gt; T_1, \rho_2 &gt; \rho_1, V_2 &lt; V_1, P_{02} &lt; P_{01}, T_{02} = T_{01}$.</li>
+<li>[ ] Memorize Stokes Drag: Total $F_D = 3 \pi \mu d V$, Friction $= 2 \pi \mu d V$, Pressure $= \pi \mu d V$, $C_D = \frac{24}{Re}$.</li>
+<li>[ ] Memorize Buckingham Pi: Number of $\Pi$ terms $= n - m$.</li>
+<li>[ ] Memorize Froude Scaling Ratios: $V_r = \sqrt{L_r}$, $Q_r = L_r^{5/2}$.</li>
+</ul>
+</body>
+</html>

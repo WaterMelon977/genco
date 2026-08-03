@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Through Pipes, Losses, Laminar & Turbulent Flow, and Boundary Layer — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="flow-through-pipes-losses-laminar-turbulent-flow-and-boundary-layer-comprehensive-reorganized-study-guide">Flow Through Pipes, Losses, Laminar &amp; Turbulent Flow, and Boundary Layer — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Flow Through Pipes, Pipe Losses (Major &amp; Minor), Hagen-Poiseuille Laminar Flow, Power Transmission through Pipelines, Series/Parallel Pipe Systems, Hydraulic Diameter, Turbulent Flow Characteristics, and Boundary Layer Theory for AP GenCo AE, GATE, and SSC JE examinations. High-yield areas include Darcy-Weisbach friction loss, Borda-Carnot sudden expansion loss, TEL/HGL separation by velocity head, parabolic velocity profile in laminar pipe flow $V_{\max}/V_{\text{avg}} = 2$, max power transmission ($h_f = H/3$, $\eta_{\max} = 66.7\%$), equivalent pipe diameter $D = d \cdot n^{2/5}$, boundary layer thickness definitions $\delta, \delta^*, \theta$, and boundary layer separation criteria $\tau_w = 0, \frac{dp}{dx} &gt; 0$. All initial raw file content and PYQ patterns have been consolidated without losing any theory Q&amp;As or worked examples.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-major-minor-pipe-losses"><strong>1. Major &amp; Minor Pipe Losses</strong></h4>
+<ul>
+<li><strong>Darcy-Weisbach Formula (Major Friction Loss)</strong>:
+  <div class="formula-card">$${\boxed{h_f = \frac{f L V^2}{2 g D} = \frac{8 f L Q^2}{\pi^2 g D^5}}}$$</div></li>
+<li>$h_f$: head loss due to friction $\text{m}$</li>
+<li>$f$: Darcy friction factor (dimensionless; $f = 4 f'$, where $f'$ is Fanning friction factor)</li>
+<li>$L$: pipe length $\text{m}$</li>
+<li>$V$: mean flow velocity $\text{m/s}$</li>
+<li>$D$: pipe diameter $\text{m}$</li>
+<li>
+<p>$Q$: volume flow rate / discharge $\text{m}^3/\text{s}$</p>
+</li>
+<li>
+<p><strong>Laminar Darcy Friction Factor</strong>:
+  <div class="formula-card">$${\boxed{f = \frac{64}{Re}}}$$</div></p>
+</li>
+<li>
+<p><strong>Sudden Expansion Loss (Borda-Carnot)</strong>:
+  <div class="formula-card">$${\boxed{h_L = \frac{(V_1 - V_2)^2}{2g} = \frac{V_1^2}{2g} \left(1 - \frac{A_1}{A_2}\right)^2 = \frac{V_1^2}{2g} \left(1 - \frac{d_1^2}{d_2^2}\right)^2}}$$</div></p>
+</li>
+<li>
+<p><strong>Sudden Contraction Loss</strong>:
+  <div class="formula-card">$${\boxed{h_L = \frac{V_2^2}{2g} \left(\frac{1}{C_c} - 1\right)^2 \approx 0.5 \frac{V_2^2}{2g}}}$$</div></p>
+</li>
+<li>
+<p><strong>Pipe Entrance Loss (Sharp-edged)</strong>:
+  <div class="formula-card">$${\boxed{h_L = 0.5 \frac{V^2}{2g}}}$$</div></p>
+</li>
+<li>
+<p><strong>Pipe Exit Loss</strong>:
+  <div class="formula-card">$${\boxed{h_L = 1.0 \frac{V^2}{2g}}}$$</div></p>
+</li>
+<li>
+<p><strong>Bend / Fitting / Valve Loss</strong>:
+  <div class="formula-card">$${\boxed{h_L = K \frac{V^2}{2g}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-hgl-tel-power-transmission"><strong>2. HGL, TEL &amp; Power Transmission</strong></h4>
+<ul>
+<li>
+<p><strong>Total Energy Line &amp; Hydraulic Gradient Line Relationship</strong>:
+  <div class="formula-card">$${\boxed{\text{TEL} = \text{HGL} + \frac{V^2}{2g}}}$$</div>
+  <div class="formula-card">$${\text{TEL} = \frac{p}{\rho g} + \frac{V^2}{2g} + z, \quad \text{HGL} = \frac{p}{\rho g} + z}$$</div></p>
+</li>
+<li>
+<p><strong>Energy Gradient (Slope of TEL)</strong>:
+  <div class="formula-card">$${\boxed{i = \frac{h_f}{L} = \frac{f V^2}{2 g D}}}$$</div></p>
+</li>
+<li>
+<p><strong>Power Transmitted through Pipe</strong>:
+  <div class="formula-card">$${\boxed{P = \rho g Q (H - h_f)}}$$</div></p>
+</li>
+<li>
+<p><strong>Maximum Power Transmission Condition &amp; Efficiency</strong>:
+  <div class="formula-card">$${\boxed{h_f = \frac{H}{3} \quad \implies \quad \eta_{\max} = \frac{2}{3} \approx 66.7\%}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-pipe-networks-non-circular-ducts"><strong>3. Pipe Networks &amp; Non-Circular Ducts</strong></h4>
+<ul>
+<li>
+<p><strong>Series Pipes Equivalent Length / Diameter (Dupuit's Equation)</strong>:
+  <div class="formula-card">$${\boxed{\frac{L_{\text{eq}}}{D_{\text{eq}}^5} = \frac{L_1}{D_1^5} + \frac{L_2}{D_2^5} + \frac{L_3}{D_3^5} + \cdots}}$$</div></p>
+</li>
+<li>
+<p><strong>Replacing Single Pipe of Diameter $D$ by $n$ Parallel Pipes of Diameter $d$</strong>:
+  <div class="formula-card">$${\boxed{D = d \cdot n^{2/5}}}$$</div></p>
+</li>
+<li>
+<p><strong>Hydraulic Diameter $D_h$ &amp; Hydraulic Mean Depth $m$</strong>:
+  <div class="formula-card">$${\boxed{D_h = \frac{4A}{P}, \quad m = \frac{A}{P}}}$$</div></p>
+</li>
+<li>Circular pipe full: $D_h = D, \quad m = \frac{D}{4}$</li>
+<li>
+<p>Square duct side $a$: $D_h = a, \quad m = \frac{a}{4}$</p>
+</li>
+<li>
+<p><strong>Chezy Formula</strong>:
+  <div class="formula-card">$${\boxed{V = C \sqrt{m i}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-laminar-turbulent-flow-in-pipes"><strong>4. Laminar &amp; Turbulent Flow in Pipes</strong></h4>
+<ul>
+<li>
+<p><strong>Hagen-Poiseuille Pressure Drop (Laminar Pipe Flow)</strong>:
+  <div class="formula-card">$${\boxed{\Delta P = \frac{32 \mu V L}{D^2} = \frac{128 \mu Q L}{\pi D^4}}}$$</div></p>
+</li>
+<li>
+<p><strong>Parabolic Velocity Profile (Laminar Pipe)</strong>:
+  <div class="formula-card">$${\boxed{u(r) = u_{\max} \left(1 - \left(\frac{r}{R}\right)^2\right)}}$$</div>
+  <div class="formula-card">$${\boxed{u_{\max} = 2 V_{\text{avg}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Wall Shear Stress (Laminar Pipe)</strong>:
+  <div class="formula-card">$${\boxed{\tau_w = \frac{\Delta P \cdot D}{4 L} = \frac{f \rho V^2}{8}}}$$</div></p>
+</li>
+<li>
+<p><strong>Blasius Friction Factor (Smooth Turbulent Pipe, $Re &lt; 10^5$)</strong>:
+  <div class="formula-card">$${\boxed{f = \frac{0.316}{Re^{0.25}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-boundary-layer-theory"><strong>5. Boundary Layer Theory</strong></h4>
+<ul>
+<li>
+<p><strong>Displacement Thickness $\delta^*$</strong>:
+  <div class="formula-card">$${\boxed{\delta^* = \int_0^\delta \left(1 - \frac{u}{U_\infty}\right) dy}}$$</div></p>
+</li>
+<li>
+<p><strong>Momentum Thickness $\theta$</strong>:
+  <div class="formula-card">$${\boxed{\theta = \int_0^\delta \frac{u}{U_\infty} \left(1 - \frac{u}{U_\infty}\right) dy}}$$</div></p>
+</li>
+<li>
+<p><strong>Energy Thickness $\delta_e$</strong>:
+  <div class="formula-card">$${\boxed{\delta_e = \int_0^\delta \frac{u}{U_\infty} \left(1 - \left(\frac{u}{U_\infty}\right)^2\right) dy}}$$</div></p>
+</li>
+<li>
+<p><strong>Laminar Boundary Layer Thickness (Flat Plate, Blasius)</strong>:
+  <div class="formula-card">$${\boxed{\frac{\delta}{x} = \frac{5}{\sqrt{Re_x}} \quad \implies \quad \delta \propto x^{1/2}}}$$</div></p>
+</li>
+<li>
+<p><strong>Turbulent Boundary Layer Thickness (Flat Plate, 1/7-Power Law)</strong>:
+  <div class="formula-card">$${\boxed{\frac{\delta}{x} \approx \frac{0.37}{Re_x^{1/5}} \quad \implies \quad \delta \propto x^{4/5}}}$$</div></p>
+</li>
+<li>
+<p><strong>Nikuradse Hydrodynamic Roughness Classification</strong>:</p>
+</li>
+<li>Smooth: $\frac{k}{\delta'} &lt; 0.25$</li>
+<li>Transition: $0.25 \le \frac{k}{\delta'} \le 6.0$</li>
+<li>Fully Rough: $\frac{k}{\delta'} &gt; 6.0$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Major Loss</strong>: Head loss caused by fluid viscosity and pipe wall friction along the length of a pipe $h_f$.</li>
+<li><strong>Minor Loss</strong>: Local head losses caused by flow disturbance at entrances, exits, expansions, contractions, bends, valves, and pipe fittings.</li>
+<li><strong>Total Energy Line (TEL)</strong>: Graphical plot of total head $\frac{p}{\rho g} + \frac{V^2}{2g} + z$ along flow path; slopes continuously downward for real fluids.</li>
+<li><strong>Hydraulic Gradient Line (HGL)</strong>: Graphical plot of piezometric head $\frac{p}{\rho g} + z$ along flow path; lies below TEL by velocity head $\frac{V^2}{2g}$.</li>
+<li><strong>Fully Developed Pipe Flow</strong>: Region where boundary layers merge and velocity profile becomes invariant along flow direction $\frac{\partial u}{\partial x} = 0$.</li>
+<li><strong>Hagen-Poiseuille Flow</strong>: Fully developed laminar flow in a circular pipe with parabolic velocity profile and centerline velocity twice the mean velocity $u_{\max} = 2 V_{\text{avg}}$.</li>
+<li><strong>Equivalent Pipe</strong>: Single uniform pipe of length $L_{\text{eq}}$ and diameter $D_{\text{eq}}$ that produces the exact same total head loss for the same discharge as a complex compound pipe system.</li>
+<li><strong>Hydraulic Diameter $D_h$</strong>: Equivalent diameter used in friction formulas for non-circular conduits $D_h = \frac{4A}{P}$.</li>
+<li><strong>Boundary Layer Thickness $\delta$</strong>: Distance from solid boundary to point where local velocity reaches $99\%$ of free-stream velocity $u = 0.99 U_\infty$.</li>
+<li><strong>Displacement Thickness $\delta^*$</strong>: Distance by which the solid boundary would need to be shifted outward to account for mass flow rate deficit in the boundary layer.</li>
+<li><strong>Momentum Thickness $\theta$</strong>: Distance by which the solid boundary would need to be shifted to account for momentum flux deficit.</li>
+<li><strong>Boundary Layer Separation</strong>: Phenomenon where boundary layer detaches from body surface due to adverse pressure gradient $\frac{dp}{dx} &gt; 0$ decelerating near-wall fluid until wall shear stress vanishes $\tau_w = 0$.</li>
+<li><strong>Laminar Sub-Layer $\delta'$</strong>: Extremely thin viscous sub-layer adjacent to wall in turbulent boundary layer flow.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
+<ul>
+<li><strong>Critical Reynolds Number (Pipe Flow)</strong>: $Re_{\text{cr}} \approx 2000$ (Laminar if $Re &lt; 2000$; Turbulent if $Re &gt; 4000$).</li>
+<li><strong>Critical Reynolds Number (Flat Plate)</strong>: $Re_{x,\text{cr}} \approx 5 \times 10^5$.</li>
+<li><strong>Critical Reynolds Number (Open Channel)</strong>: $Re_{\text{cr}} \approx 500$.</li>
+<li><strong>Laminar Pipe Friction Factor</strong>: $f = \frac{64}{Re}$ (Darcy), $f' = \frac{16}{Re}$ (Fanning).</li>
+<li><strong>Laminar Pipe Kinetic Energy Correction Factor $\alpha$</strong>: $\alpha = 2.0$.</li>
+<li><strong>Laminar Pipe Momentum Correction Factor $\beta$</strong>: $\beta = \frac{4}{3} \approx 1.33$.</li>
+<li><strong>Maximum Power Transmission Efficiency</strong>: $\eta_{\max} = \frac{2}{3} \approx 66.7\%$ when $h_f = \frac{H}{3}$.</li>
+<li><strong>Siphon Maximum Suction Lift Limit</strong>: $h \approx 7.75 \text{ m of water}$ (practical limit to prevent cavitation).</li>
+<li><strong>Linear Velocity Profile Ratios $\frac{u}{U_\infty} = \frac{y}{\delta}$</strong>: $\frac{\delta^*}{\delta} = \frac{1}{2}$, $\frac{\theta}{\delta} = \frac{1}{6}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Darcy-Weisbach Friction</strong>: Introduced in §3.1 (Pipe Losses), used in §3.2 (Power Transmission) and §3.4 (Series/Parallel Pipes).</li>
+<li><strong>Hagen-Poiseuille Flow</strong>: Introduced in §3.3 (Laminar Flow), cross-referenced with §3.5 (Turbulent vs Laminar comparison).</li>
+<li><strong>Boundary Layer Separation</strong>: Introduced in §3.6 (Boundary Layer), applied to flow over curved bodies and pipe bends.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-major-minor-pipe-losses"><strong>3.1 Major &amp; Minor Pipe Losses</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Pipe flow losses are categorized into major losses (friction along length) and minor losses (local fitting disturbances).</li>
+<li>In long pipelines $L \gg D$, major friction loss dominates, making minor losses negligible.</li>
+<li>In short, complex pipelines with multiple fittings, minor losses can equal or exceed friction loss.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Darcy-Weisbach Equation</strong>: Major head loss $h_f = \frac{f L V^2}{2 g D} = \frac{8 f L Q^2}{\pi^2 g D^5}$. Notice $h_f \propto L$, $h_f \propto V^2$, and $h_f \propto D^{-5}$ for constant discharge $Q$!</p>
+<p>[!TRAP]
+<strong>Sudden Expansion Loss (Borda-Carnot)</strong>: $h_L = \frac{(V_1 - V_2)^2}{2g}$. NEVER confuse this with $\frac{V_1^2 - V_2^2}{2g}$! Expansion loss depends on the square of velocity difference, not difference of velocity squares.</p>
+<p>[!FOCUS]
+<strong>Minor Loss Summary</strong>:
+- Sudden Expansion: $h_L = \frac{(V_1 - V_2)^2}{2g}$
+- Sudden Contraction: $h_L = \frac{V_2^2}{2g} \left(\frac{1}{C_c} - 1\right)^2 \approx 0.5 \frac{V_2^2}{2g}$
+- Sharp Entrance: $h_L = 0.5 \frac{V^2}{2g}$
+- Exit: $h_L = 1.0 \frac{V^2}{2g}$</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Head Loss Question?
+├─ Long Pipe Friction → Darcy-Weisbach: h_f = (f*L*V^2) / (2*g*D)
+├─ Sudden Expansion → Borda-Carnot: h_L = (V1 - V2)^2 / (2*g)
+├─ Sudden Contraction → h_L = 0.5 * V2^2 / (2*g)
+└─ Laminar Flow → Hagen-Poiseuille: h_f = (32*mu*V*L) / (rho*g*D^2)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Friction is always the major loss in long pipelines.</li>
+<li>[ ] $f = 64/Re$ for laminar; depends on $Re$ and $\epsilon/D$ for turbulent.</li>
+<li>[ ] Expansion loss uses velocity difference $(V_1 - V_2)^2$.</li>
+<li>[ ] Default contraction/entrance coefficient is $0.5$ when $C_c$ is omitted.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Water flows from a pipe of diameter $100 \text{ mm}$ $V_1 = 8 \text{ m/s}$ into a larger pipe of diameter $200 \text{ mm}$. Calculate the head loss due to sudden expansion $g = 9.81 \text{ m/s}^2$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${A_1 V_1 = A_2 V_2 \implies V_2 = V_1 \left(\frac{D_1}{D_2}\right)^2 = 8 \times \left(\frac{100}{200}\right)^2 = 8 \times \frac{1}{4} = 2 \text{ m/s}}$$</div>
+  <div class="formula-card">$${h_L = \frac{(V_1 - V_2)^2}{2g} = \frac{(8 - 2)^2}{2 \times 9.81} = \frac{36}{19.62} = 1.835 \text{ m of water}}$$</div>
+- <strong>Key Insight</strong>: Always calculate downstream velocity $V_2$ via continuity $A_1 V_1 = A_2 V_2$ before using Borda-Carnot loss formula.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: Petrol $S = 0.7$ flows through a $200 \text{ mm}$ diameter pipe of length $1000 \text{ m}$ at a discharge $Q = 0.05 \text{ m}^3/\text{s}$. If Darcy friction factor $f = 0.01$, calculate friction head loss.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${A = \frac{\pi}{4}(0.2)^2 = 0.0314 \text{ m}^2, \quad V = \frac{Q}{A} = \frac{0.05}{0.0314} = 1.592 \text{ m/s}}$$</div>
+  <div class="formula-card">$${h_f = \frac{f L V^2}{2 g D} = \frac{0.01 \times 1000 \times (1.592)^2}{2 \times 9.81 \times 0.2} = \frac{25.34}{3.924} = 6.458 \text{ m of petrol}}$$</div>
+- <strong>Key Insight</strong>: Head loss $h_f$ computed from Darcy formula is expressed in meters of the flowing fluid (petrol column).</p>
+<hr />
+<h3 id="32-hgl-tel-power-transmission"><strong>3.2 HGL, TEL &amp; Power Transmission</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>TEL represents total energy per unit weight along the pipeline.</li>
+<li>HGL represents piezometric head $p/\rho g + z$ along the pipeline.</li>
+<li>For real fluids, TEL always slopes downward in direction of flow due to friction losses.</li>
+<li>Maximum power transmitted through a pipe occurs when one-third of total available head is lost in friction $h_f = H/3$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>TEL and HGL Gap</strong>: $\text{TEL} - \text{HGL} = \frac{V^2}{2g}$. The gap between TEL and HGL equals velocity head. HGL can rise locally if pipe diameter increases $V \downarrow \implies \frac{V^2}{2g} \downarrow$, but TEL NEVER rises unless a pump is inserted.</p>
+<p>[!TRAP]
+<strong>Power Transmission Ratio</strong>: At maximum power transmission, $h_f = \frac{H}{3}$. The ratio of head lost in friction to total supply head is $1:3$, and maximum transmission efficiency is $\eta_{\max} = \frac{H - H/3}{H} = \frac{2}{3} \approx 66.7\%$.</p>
+<p>[!FOCUS]
+<strong>Siphon Limit</strong>: In a siphon pipe, the summit must not be placed more than $7.75 \text{ m}$ above the HGL to prevent liquid pressure from dropping below vapour pressure and causing cavitation/air lock.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Power / Hydraulic Line Problem?
+├─ TEL vs HGL Gap → Vertical distance = V^2 / (2*g)
+├─ Maximum Power Condition → Set h_f = H / 3
+├─ Maximum Efficiency → 66.7%
+└─ Siphon Summit Pressure → Pressure must be &gt; Vapour Pressure (-7.75m water gauge)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] TEL lies strictly above HGL by velocity head $\frac{V^2}{2g}$.</li>
+<li>[ ] Slope of TEL = energy gradient $i = h_f/L$.</li>
+<li>[ ] Max power transmission occurs when $h_f = H/3$.</li>
+<li>[ ] Siphon summit max elevation $\approx 7.75 \text{ m}$ above HGL.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A reservoir supplies water through a $1000 \text{ m}$ long pipe under a total head of $90 \text{ m}$. Find the maximum hydraulic power that can be transmitted through the pipe $\rho = 1000 \text{ kg/m}^3, g = 9.81 \text{ m/s}^2$ when $Q = 0.05 \text{ m}^3/\text{s}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${h_{f,\text{opt}} = \frac{H}{3} = \frac{90}{3} = 30 \text{ m}}$$</div>
+  <div class="formula-card">$${H_{\text{net}} = H - h_f = 90 - 30 = 60 \text{ m}}$$</div>
+  <div class="formula-card">$${P_{\max} = \rho g Q H_{\text{net}} = 1000 \times 9.81 \times 0.05 \times 60 = 29.43 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: Net available head at maximum power is $H - H/3 = 2H/3 = 60 \text{ m}$.</p>
+<hr />
+<h3 id="33-hagen-poiseuille-laminar-pipe-flow"><strong>3.3 Hagen-Poiseuille Laminar Pipe Flow</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Fully developed laminar pipe flow $Re &lt; 2000$ exhibits a parabolic velocity profile.</li>
+<li>Maximum velocity $u_{\max}$ occurs at the centerline $r = 0$.</li>
+<li>Average velocity $V_{\text{avg}} = \frac{u_{\max}}{2}$. Average velocity occurs at radius $r = \frac{R}{\sqrt{2}} \approx 0.707 R$.</li>
+<li>Wall shear stress $\tau_w$ varies linearly across cross-section from zero at center to maximum at wall.</li>
+<li>Friction factor $f = \frac{64}{Re}$ (Darcy), independent of pipe roughness.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Hagen-Poiseuille Pressure Drop</strong>: $\Delta P = \frac{32 \mu V L}{D^2} = \frac{128 \mu Q L}{\pi D^4}$. Head loss $h_f \propto V$ for laminar flow, whereas $h_f \propto V^2$ for turbulent flow!</p>
+<p>[!TRAP]
+<strong>Darcy vs Fanning Friction Factor</strong>: $f_{\text{Darcy}} = \frac{64}{Re}$ while $f'<em>{\text{Fanning}} = \frac{16}{Re}$. $f</em>{\text{Darcy}} = 4 f'_{\text{Fanning}}$. Always check which friction factor is requested!</p>
+<p>[!FOCUS]
+<strong>Correction Factors for Laminar Pipe</strong>:
+- Kinetic Energy Correction Factor: $\alpha = 2.0$
+- Momentum Correction Factor: $\beta = \frac{4}{3} \approx 1.33$</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Laminar Pipe Flow Problem?
+├─ Velocity Ratio → u_max = 2 * V_avg
+├─ Mean Velocity Location → r = 0.707 * R
+├─ Pressure Drop → Delta P = (32 * mu * V * L) / D^2
+└─ Darcy Friction Factor → f = 64 / Re
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $u(r) = u_{\max} (1 - (r/R)^2)$.</li>
+<li>[ ] Centerline velocity $u_{\max} = 2 V_{\text{avg}}$.</li>
+<li>[ ] Shear stress $\tau = -\frac{r}{2} \frac{dp}{dx}$ (zero at center, max at wall).</li>
+<li>[ ] Head loss $h_f \propto 1/D^4$ for fixed $Q$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Oil of dynamic viscosity $\mu = 0.8 \text{ Pa}\cdot\text{s}$ flows through a $50 \text{ mm}$ diameter pipe of length $100 \text{ m}$ at a centerline velocity of $2 \text{ m/s}$. Find the pressure drop and wall shear stress.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${u_{\max} = 2 \text{ m/s} \implies V_{\text{avg}} = \frac{u_{\max}}{2} = 1 \text{ m/s}}$$</div>
+  <div class="formula-card">$${\Delta P = \frac{32 \mu V L}{D^2} = \frac{32 \times 0.8 \times 1 \times 100}{(0.05)^2} = \frac{2560}{0.0025} = 1,024,000 \text{ Pa} = 1.024 \text{ MPa}}$$</div>
+  <div class="formula-card">$${\tau_w = \frac{\Delta P \cdot D}{4 L} = \frac{1024000 \times 0.05}{4 \times 100} = \frac{51200}{400} = 128 \text{ Pa}}$$</div>
+- <strong>Key Insight</strong>: Use average velocity $V_{\text{avg}} = 1 \text{ m/s}$ (half of centerline velocity) in Hagen-Poiseuille formula.</p>
+<hr />
+<h3 id="34-seriesparallel-pipe-systems-non-circular-ducts"><strong>3.4 Series/Parallel Pipe Systems &amp; Non-Circular Ducts</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Pipes in Series: Discharge $Q$ is constant throughout $Q_1 = Q_2 = Q_3$, and head losses are additive $h_{f,\text{total}} = h_{f1} + h_{f2} + h_{f3}$.</li>
+<li>Pipes in Parallel: Head loss $h_f$ is equal across all branches $h_{f1} = h_{f2}$, and total discharge is additive $Q_{\text{total}} = Q_1 + Q_2$.</li>
+<li>Equivalent Pipe: Replaces compound series system with single pipe of diameter $D_{\text{eq}}$ using Dupuit's equation $\frac{L_{\text{eq}}}{D_{\text{eq}}^5} = \sum \frac{L_i}{D_i^5}$.</li>
+<li>Non-circular ducts use Hydraulic Diameter $D_h = \frac{4A}{P}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Replacing One Pipe with $n$ Parallel Pipes</strong>: To replace a single pipe of diameter $D$ with $n$ parallel pipes of diameter $d$ of equal length and friction factor: $D = d \cdot n^{2/5}$ or $d = D \cdot n^{-2/5}$.</p>
+<p>[!TRAP]
+<strong>Hydraulic Diameter vs Hydraulic Radius</strong>:
+- Hydraulic Mean Depth (Radius): $m = \frac{A}{P}$. For full circular pipe, $m = \frac{D}{4}$.
+- Hydraulic Diameter: $D_h = \frac{4A}{P} = 4m$. For full circular pipe, $D_h = D$. For square duct of side $a$, $D_h = a$.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Pipe Network Problem?
+├─ Series Network → Q same, h_f additive. Dupuit: L_eq / D_eq^5 = sum(L_i / D_i^5)
+├─ Parallel Network → h_f same, Q additive
+└─ Replace 1 pipe with n parallel pipes → D = d * n^(2/5)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Series: $Q_1 = Q_2$, $h_{f,\text{total}} = h_{f1} + h_{f2}$.</li>
+<li>[ ] Parallel: $h_{f1} = h_{f2}$, $Q_{\text{total}} = Q_1 + Q_2$.</li>
+<li>[ ] Dupuit's formula exponent is 5 $D^5$.</li>
+<li>[ ] Non-circular duct hydraulic diameter $D_h = 4A/P$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A main pipe of diameter $D$ is to be replaced by $32$ parallel pipes of diameter $d$ having the same length and friction factor. Express $D$ in terms of $d$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${D = d \cdot n^{2/5} = d \cdot (32)^{2/5} = d \cdot (2^5)^{2/5} = d \cdot 2^2 = 4 d}$$</div>
+- <strong>Key Insight</strong>: $D = 4d$. The diameter exponent is $2/5$ derived from $Q \propto D^{5/2}$.</p>
+<hr />
+<h3 id="35-turbulent-flow-characteristics"><strong>3.5 Turbulent Flow Characteristics</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Turbulent flow $Re &gt; 4000$ is characterized by random, high-frequency velocity and pressure fluctuations.</li>
+<li>Turbulent velocity profile is much flatter (logarithmic) compared to parabolic laminar profile.</li>
+<li>Centerline to mean velocity ratio $V_{\max}/V_{\text{avg}} \approx 1.2$ for turbulent flow (compared to $2.0$ for laminar).</li>
+<li>Shear stress in turbulent flow includes viscous shear plus turbulent Reynolds shear $\tau = \mu \frac{du}{dy} + \eta \frac{du}{dy}$.</li>
+<li>Fully rough turbulent pipe friction factor depends ONLY on relative roughness $\epsilon/D$, independent of $Re$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Scaling Laws for Diameter Reduction</strong>: For constant discharge $Q$ in turbulent flow:
+- If length $L$ is doubled $\implies h_f \times 2$.
+- If diameter $D$ is halved $D \to D/2$ $\implies h_f \propto D^{-5} \implies h_f \times 2^5 = 32$ times!</p>
+<p>[!TRAP]
+<strong>Hydraulically Smooth vs Rough Walls</strong>: A wall is hydraulically smooth if surface roughness height $k$ is completely submerged inside the laminar sub-layer $\frac{k}{\delta'} &lt; 0.25$. Smoothness is a flow-dependent property, not an absolute polish!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Turbulent Pipe Flow Problem?
+├─ Smooth Pipe Friction → Blasius: f = 0.316 / Re^0.25
+├─ Fully Rough Pipe → f depends only on relative roughness (epsilon / D)
+└─ Diameter Halved at Constant Q → h_f increases by 32 times (2^5)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Logarithmic velocity profile: $u/u_* = 2.5 \ln(y/R) + B$.</li>
+<li>[ ] Velocity ratio $u_{\max} / V_{\text{avg}} \approx 1.2$.</li>
+<li>[ ] Head loss $h_f \propto V^2$ (turbulent) vs $h_f \propto V$ (laminar).</li>
+<li>[ ] Shear stress is maximum at wall and zero at centerline.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a fully developed turbulent pipe flow, if the diameter of the pipe is reduced by half while maintaining the same volume flow rate $Q$ and friction factor $f$, find the factor by which head loss increases.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${h_f = \frac{8 f L Q^2}{\pi^2 g D^5} \implies h_f \propto D^{-5}}$$</div>
+  <div class="formula-card">$${\frac{h_{f2}}{h_{f1}} = \left(\frac{D_1}{D_2}\right)^5 = \left(\frac{D_1}{D_1/2}\right)^5 = 2^5 = 32}$$</div>
+- <strong>Key Insight</strong>: Frictional head loss increases by a factor of 32 for constant $Q$ when diameter is halved in turbulent flow.</p>
+<hr />
+<h3 id="36-boundary-layer-theory-separation"><strong>3.6 Boundary Layer Theory &amp; Separation</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Boundary layer is the thin fluid region adjacent to a solid wall where viscous shear forces dominate.</li>
+<li>Nominal thickness $\delta$ is defined where local velocity $u = 0.99 U_\infty$.</li>
+<li>Displacement thickness $\delta^<em>$ measures mass flow deficit: $\delta^</em> = \int_0^\delta \left(1 - \frac{u}{U_\infty}\right) dy$.</li>
+<li>Momentum thickness $\theta$ measures momentum deficit: $\theta = \int_0^\delta \frac{u}{U_\infty} \left(1 - \frac{u}{U_\infty}\right) dy$.</li>
+<li>Boundary Layer Separation occurs when fluid in boundary layer is decelerated by an adverse pressure gradient $\frac{dp}{dx} &gt; 0$, causing wall shear stress to reach zero $\tau_w = \left.\frac{\partial u}{\partial y}\right|_{y=0} = 0$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Boundary Layer Growth Laws</strong>:
+- Laminar Flat Plate Boundary Layer: $\delta \propto x^{1/2}$ or $\frac{\delta}{x} = \frac{5}{\sqrt{Re_x}}$.
+- Turbulent Flat Plate Boundary Layer: $\delta \propto x^{4/5}$ or $\frac{\delta}{x} = \frac{0.37}{Re_x^{1/5}}$.
+- Turbulent boundary layers grow MUCH faster than laminar boundary layers.</p>
+<p>[!TRAP]
+<strong>Separation Conditions</strong>:
+- $\frac{dp}{dx} &lt; 0$ (Favorable gradient) $\implies$ Flow remains attached (No separation).
+- $\frac{dp}{dx} = 0$ (Zero gradient, flat plate) $\implies$ Flow remains attached.
+- $\frac{dp}{dx} &gt; 0$ (Adverse gradient) and $\left.\frac{\partial u}{\partial y}\right|<em>{y=0} = 0 \implies$ Point of Separation!
+- $\left.\frac{\partial u}{\partial y}\right|</em>{y=0} &lt; 0 \implies$ Detached flow / Reverse flow / Wake.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Boundary Layer Problem?
+├─ Nominal Thickness → u = 0.99 * U_infinity
+├─ Mass Deficit → Displacement Thickness delta* = integral(1 - u/U) dy
+├─ Momentum Deficit → Momentum Thickness theta = integral(u/U * (1 - u/U)) dy
+└─ Separation Criterion → dp/dx &gt; 0 and du/dy|_wall = 0
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\delta \propto x^{1/2}$ (laminar) vs $\delta \propto x^{4/5}$ (turbulent).</li>
+<li>[ ] Linear profile: $\delta^* = \delta/2$, $\theta = \delta/6$.</li>
+<li>[ ] Separation requires adverse pressure gradient $dp/dx &gt; 0$.</li>
+<li>[ ] At separation point: $\tau_w = 0$ and $du/dy|_{wall} = 0$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Assuming a linear velocity profile $\frac{u}{U_\infty} = \frac{y}{\delta}$ inside a boundary layer of thickness $\delta = 12 \text{ mm}$, calculate displacement thickness $\delta^<em>$ and momentum thickness $\theta$.
+- </em><em>Solution</em><em>:
+  <div class="formula-card">$${\delta^</em> = \int_0^\delta \left(1 - \frac{y}{\delta}\right) dy = \left[y - \frac{y^2}{2\delta}\right]_0^\delta = \delta - \frac{\delta}{2} = \frac{\delta}{2} = \frac{12}{2} = 6 \text{ mm}}$$</div>
+  <div class="formula-card">$${\theta = \int_0^\delta \frac{y}{\delta} \left(1 - \frac{y}{\delta}\right) dy = \int_0^\delta \left(\frac{y}{\delta} - \frac{y^2}{\delta^2}\right) dy = \left[\frac{y^2}{2\delta} - \frac{y^3}{3\delta^2}\right]_0^\delta = \frac{\delta}{2} - \frac{\delta}{3} = \frac{\delta}{6} = \frac{12}{6} = 2 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: For linear profile, $\delta^* = \delta/2 = 6 \text{ mm}$ and $\theta = \delta/6 = 2 \text{ mm}$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1. Why is friction called the "major" loss in pipe flow?</strong><br />
+A: Its magnitude is usually much larger than the sum of all local (minor) losses in long pipelines; minor losses become comparable only in short, complex systems.</p>
+<p><strong>Q2. What does "fully developed pipe flow" mean?</strong><br />
+A: The velocity profile no longer changes in the stream-wise direction $\frac{\partial u}{\partial x} = 0$. It can be either laminar or turbulent.</p>
+<p><strong>Q3. Why is $u_{\max} = 2 V_{\text{avg}}$ only for laminar flow?</strong><br />
+A: A parabolic velocity profile integrates to a mean velocity equal to half the centerline velocity. Turbulent velocity profiles are much flatter, giving $V_{\text{avg}} \approx 0.82 u_{\max}$.</p>
+<p><strong>Q4. What causes cavitation in pipe flow?</strong><br />
+A: Local absolute pressure dropping to or below the liquid's vapour pressure, causing vapour bubbles to form and violently collapse against pipe walls.</p>
+<p><strong>Q5. State the relation between wall shear stress and pressure drop in horizontal pipe flow.</strong><br />
+A: Force balance on a fluid cylinder gives $\tau_w = \frac{\Delta P \cdot D}{4L}$. This relation holds for both laminar and turbulent flows.</p>
+<p><strong>Q6. Why does head loss scale as $D^{-4}$ in laminar pipe flow for fixed discharge $Q$?</strong><br />
+A: From Hagen-Poiseuille $Q = \frac{\pi \Delta P D^4}{128 \mu L} \implies \Delta P \propto \frac{Q \mu L}{D^4} \implies h_f \propto D^{-4}$.</p>
+<p><strong>Q7. What is the maximum power transmission condition in a pipeline?</strong><br />
+A: Differentiating power $P = \rho g Q (H - h_f)$ with respect to velocity yields optimum head loss $h_f = \frac{H}{3}$, giving maximum transmission efficiency $\eta = 66.7\%$.</p>
+<p><strong>Q8. What does the vertical distance between TEL and HGL represent?</strong><br />
+A: Exactly the velocity head $\frac{V^2}{2g}$. TEL is ALWAYS above HGL.</p>
+<p><strong>Q9. What is the practical continuous-flow limit for a siphon elevation?</strong><br />
+A: The summit of a siphon cannot be placed more than $\approx 7.75 \text{ m}$ above the hydraulic grade line to prevent cavitation and vapor lock.</p>
+<p><strong>Q10. What is the hydraulic diameter of a square duct of side $a$?</strong><br />
+A: $D_h = \frac{4A}{P} = \frac{4 a^2}{4a} = a$.</p>
+<p><strong>Q11. Which forces are balanced in fully developed Hagen-Poiseuille flow?</strong><br />
+A: Pressure force and viscous force (inertia force is zero because acceleration is zero).</p>
+<p><strong>Q12. What are the kinetic energy and momentum correction factors for laminar pipe flow?</strong><br />
+A: $\alpha = 2.0$ (kinetic energy correction factor) and $\beta = \frac{4}{3} \approx 1.33$ (momentum correction factor).</p>
+<p><strong>Q13. What causes boundary layer separation?</strong><br />
+A: An adverse pressure gradient $\frac{dp}{dx} &gt; 0$ that decelerates near-wall fluid until wall shear stress vanishes $\tau_w = 0$.</p>
+<p><strong>Q14. What condition marks the exact point of boundary layer separation?</strong><br />
+A: Wall shear stress $\tau_w = 0$ (i.e., $\left.\frac{\partial u}{\partial y}\right|_{y=0} = 0$).</p>
+<p><strong>Q15. How does laminar boundary layer thickness grow with distance $x$ from leading edge?</strong><br />
+A: $\delta \propto x^{1/2}$ (or $\sqrt{x}$).</p>
+<hr />
+<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
+<ul>
+<li><strong>Note on Darcy vs Hagen-Poiseuille Head Loss</strong>:</li>
+<li>In laminar pipe flow, Darcy formula $h_f = \frac{f L V^2}{2 g D}$ with $f = \frac{64}{Re}$ yields $h_f = \frac{64 \mu}{\rho V D} \frac{L V^2}{2 g D} = \frac{32 \mu V L}{\rho g D^2}$, which is identical to the Hagen-Poiseuille head loss formula.</li>
+<li><strong>Note on Velocity Ratios Across Regimes</strong>:</li>
+<li>Laminar Pipe Flow: $u_{\max}/V_{\text{avg}} = 2.0$.</li>
+<li>Turbulent Pipe Flow: $u_{\max}/V_{\text{avg}} \approx 1.2$.</li>
+<li><strong>Note on Friction Loss vs Diameter Reduction</strong>:</li>
+<li>For constant $Q$: Laminar $h_f \propto D^{-4}$; Turbulent $h_f \propto D^{-5}$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Darcy-Weisbach: $h_f = \frac{f L V^2}{2 g D} = \frac{8 f L Q^2}{\pi^2 g D^5}$. Laminar $f = \frac{64}{Re}$.</li>
+<li>[ ] Memorize Borda-Carnot Expansion Loss: $h_L = \frac{(V_1 - V_2)^2}{2g}$. Contraction/Entrance Loss $\approx 0.5 \frac{V^2}{2g}$.</li>
+<li>[ ] Memorize TEL vs HGL: $\text{TEL} - \text{HGL} = \frac{V^2}{2g}$. TEL slopes downward; HGL can rise locally if $V \downarrow$.</li>
+<li>[ ] Memorize Max Power Transmission: $h_f = \frac{H}{3}$, $\eta_{\max} = 66.7\%$.</li>
+<li>[ ] Memorize Hagen-Poiseuille: $\Delta P = \frac{32 \mu V L}{D^2}$, $u_{\max} = 2 V_{\text{avg}}$, $r(V_{\text{avg}}) = 0.707 R$.</li>
+<li>[ ] Memorize Equivalent Pipe Formula: $\frac{L_{\text{eq}}}{D_{\text{eq}}^5} = \sum \frac{L_i}{D_i^5}$, and $n$ parallel pipes substitution $D = d \cdot n^{2/5}$.</li>
+<li>[ ] Memorize Boundary Layer Growth: Laminar $\delta \propto x^{1/2}$, Turbulent $\delta \propto x^{4/5}$.</li>
+<li>[ ] Memorize Boundary Layer Separation: Requires adverse pressure gradient $\frac{dp}{dx} &gt; 0$ and zero wall shear $\left.\frac{\partial u}{\partial y}\right|_{y=0} = 0$.</li>
+</ul>
+</body>
+</html>

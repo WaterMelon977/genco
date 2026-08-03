@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydraulic Pumps, Ram, Accumulator & Intensifier — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="hydraulic-pumps-ram-accumulator-intensifier-comprehensive-reorganized-study-guide">Hydraulic Pumps, Ram, Accumulator &amp; Intensifier — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Hydraulic Pumps (Reciprocating Pumps, Centrifugal Pumps, Specific Speed, NPSH &amp; Cavitation, Series/Parallel Multistage Systems) and Special Hydraulic Machinery (Hydraulic Ram, Accumulator, Intensifier) for AP GenCo AE, GATE, and SSC JE examinations. High-yield PYQ areas include reciprocating pump discharge $Q_{th} = \frac{A L N}{60}$ and slip, air vessel function (power saving + uniform flow), centrifugal pump manometric head $H_m$ and manometric efficiency $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$, pump specific speed $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$, pump affinity laws ($Q \propto N$, $H \propto N^2$, $P \propto N^3$), NPSH formula, and operational starting procedures (priming and starting with delivery valve closed). All raw file content has been consolidated without losing any theory Q&amp;As or worked examples.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-reciprocating-pumps"><strong>1. Reciprocating Pumps</strong></h4>
+<ul>
+<li><strong>Theoretical Discharge</strong>:</li>
+<li>Single-acting:
+    <div class="formula-card">$${\boxed{Q_{th} = \frac{A L N}{60}}}$$</div></li>
+<li>Double-acting:
+    <div class="formula-card">$${\boxed{Q_{th} = \frac{2 A L N}{60}}}$$</div></li>
+<li>$A$: piston cross-sectional area $\text{m}^2$</li>
+<li>$L$: stroke length $\text{m}$</li>
+<li>
+<p>$N$: rotational speed $\text{rpm}$</p>
+</li>
+<li>
+<p><strong>Percentage Slip &amp; Coefficient of Discharge $C_d$</strong>:
+  <div class="formula-card">$${\boxed{\%\text{Slip} = \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100 = (1 - C_d) \times 100}}$$</div></p>
+</li>
+<li>
+<p>Negative Slip occurs when $Q_{act} &gt; Q_{th}$ (due to short delivery pipe and high suction acceleration head).</p>
+</li>
+<li>
+<p><strong>Theoretical Power Required</strong>:
+  <div class="formula-card">$${\boxed{P = \frac{\rho g Q_{th} (h_s + h_d)}{1000} \quad (\text{kW})}}$$</div></p>
+</li>
+<li>$h_s$: suction lift $\text{m}$</li>
+<li>$h_d$: delivery head $\text{m}$</li>
+</ul>
+<hr />
+<h4 id="2-centrifugal-pumps"><strong>2. Centrifugal Pumps</strong></h4>
+<ul>
+<li><strong>Manometric Head $H_m$</strong>:
+  <div class="formula-card">$${\boxed{H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}}}$$</div></li>
+<li>$h_{fs}, h_{fd}$: friction head losses in suction and delivery pipes $\text{m}$</li>
+<li>
+<p>$V_d$: velocity in delivery pipe $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Manometric Efficiency $\eta_{man}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{man} = \frac{g H_m}{V_{w2} u_2}}}$$</div></p>
+</li>
+<li>$V_{w2}$: whirl velocity at impeller outlet $\text{m/s}$</li>
+<li>
+<p>$u_2$: peripheral impeller velocity at outlet $\frac{\pi D_2 N}{60}$ $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Impeller Discharge</strong>:
+  <div class="formula-card">$${\boxed{Q = \pi D_1 b_1 V_{f1} = \pi D_2 b_2 V_{f2}}}$$</div></p>
+</li>
+<li>$D$: impeller diameter $\text{m}$</li>
+<li>$b$: impeller width $\text{m}$</li>
+<li>
+<p>$V_f$: radial flow velocity $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Overall Efficiency $\eta_o$</strong>:
+  <div class="formula-card">$${\boxed{\eta_o = \frac{\text{Water Power}}{\text{Shaft Power}} = \frac{\rho g Q H_m}{1000 \cdot P_{\text{shaft}}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-specific-speed-affinity-laws-pumps"><strong>3. Specific Speed &amp; Affinity Laws (Pumps)</strong></h4>
+<ul>
+<li><strong>Pump Specific Speed $N_s$</strong>:
+  <div class="formula-card">$${\boxed{N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}}}$$</div></li>
+<li>$N$: rotational speed $\text{rpm}$</li>
+<li>$Q$: discharge $\text{m}^3/\text{s}$</li>
+<li>
+<p>$H_m$: head per stage $\text{m}$</p>
+</li>
+<li>
+<p><strong>Affinity Laws (Variable Speed $N$)</strong>:
+  <div class="formula-card">$${\boxed{\frac{Q_1}{Q_2} = \frac{N_1}{N_2}, \quad \frac{H_1}{H_2} = \left(\frac{N_1}{N_2}\right)^2, \quad \frac{P_1}{P_2} = \left(\frac{N_1}{N_2}\right)^3}}$$</div></p>
+</li>
+<li>
+<p><strong>Affinity Laws (Variable Impeller Diameter $D$)</strong>:
+  <div class="formula-card">$${\boxed{\frac{Q_1}{Q_2} = \left(\frac{D_1}{D_2}\right)^3, \quad \frac{H_1}{H_2} = \left(\frac{D_1}{D_2}\right)^2, \quad \frac{P_1}{P_2} = \left(\frac{D_1}{D_2}\right)^5}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-npsh-cavitation"><strong>4. NPSH &amp; Cavitation</strong></h4>
+<ul>
+<li><strong>Net Positive Suction Head (NPSH Available)</strong>:
+  <div class="formula-card">$${\boxed{\text{NPSH}<em>A = \frac{P</em>{atm}}{\rho g} - \frac{P_v}{\rho g} - h_s - h_{fs}}}$$</div></li>
+<li>$P_{atm}$: atmospheric pressure $\text{Pa}$</li>
+<li>
+<p>$P_v$: liquid vapour pressure $\text{Pa}$</p>
+</li>
+<li>
+<p><strong>Thoma's Cavitation Factor for Pumps</strong>:
+  <div class="formula-card">$${\boxed{\sigma = \frac{\text{NPSH}}{H_m}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-special-hydraulic-machinery"><strong>5. Special Hydraulic Machinery</strong></h4>
+<ul>
+<li><strong>Hydraulic Ram Efficiency</strong>:</li>
+<li>D'Aubuisson's Efficiency: $\eta = \frac{q h}{Q H}$</li>
+<li>Rankine's Efficiency: $\eta = \frac{q h}{(Q - q) H}$</li>
+<li>
+<p>$Q$: supply water rate; $q$: raised water rate; $H$: supply head; $h$: delivery height above supply reservoir.</p>
+</li>
+<li>
+<p><strong>Hydraulic Intensifier</strong>:
+  <div class="formula-card">$${\boxed{p_2 A_2 = p_1 A_1 \implies p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Positive-Displacement Pump</strong>: Pump where liquid is physically trapped in a chamber and forced out by a reciprocating piston or rotary screw/gear (e.g. reciprocating, gear, screw pumps).</li>
+<li><strong>Roto-Dynamic Pump</strong>: Pump where dynamic kinetic energy is continuously imparted to liquid by a rotating impeller and converted to pressure in a casing (e.g. centrifugal, axial pumps).</li>
+<li><strong>Air Vessel</strong>: Cast iron vessel containing compressed air attached to suction and delivery lines of a reciprocating pump to smooth flow pulsations, reduce friction losses, and save power.</li>
+<li><strong>Negative Slip</strong>: Condition in reciprocating pumps where actual discharge exceeds theoretical discharge $Q_{act} &gt; Q_{th}$ due to inertia effects in short delivery lines.</li>
+<li><strong>Priming</strong>: Operation of filling the suction pipe, casing, and pump cavity with liquid to displace trapped air before starting a centrifugal pump.</li>
+<li><strong>Manometric Head $H_m$</strong>: Total head against which a centrifugal pump must work, equal to total static lift plus friction and exit velocity heads.</li>
+<li><strong>Hydraulic Ram</strong>: Automatic device that uses the inertia energy of a large quantity of falling water (water hammer) to lift a small fraction of water to a much higher elevation without external power.</li>
+<li><strong>Hydraulic Accumulator</strong>: Device that stores energy in the form of high-pressure fluid using a weighted ram.</li>
+<li><strong>Hydraulic Intensifier</strong>: Device used to increase the intensity of fluid pressure using differential piston areas.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
+<ul>
+<li><strong>Starting Delivery Valve Position (Centrifugal)</strong>: Fully CLOSED (to minimize starting torque).</li>
+<li><strong>Starting Delivery Valve Position (Reciprocating)</strong>: Fully OPEN.</li>
+<li><strong>Vane Exit Angle $\phi$</strong>: $20^\circ - 25^\circ$ (backward curved blades for maximum stability).</li>
+<li><strong>Pump vs Turbine Specific Speed Exponents</strong>: Pump uses $H^{3/4}$ and $\sqrt{Q}$; Turbine uses $H^{5/4}$ and $\sqrt{P}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Specific Speed</strong>: Pump formula $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$ contrasted with Turbine formula $N_s = \frac{N \sqrt{P}}{H^{5/4}}$ in 5_reorganized.md.</li>
+<li><strong>Cavitation Mechanism</strong>: Examined for reaction turbines in 5_reorganized.md and for centrifugal pump impellers in §3.4.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-reciprocating-pumps-air-vessels"><strong>3.1 Reciprocating Pumps &amp; Air Vessels</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Reciprocating pumps are positive-displacement machines ideal for high pressure and low flow rates.</li>
+<li>Theoretical discharge for single-acting pump is $Q_{th} = \frac{A L N}{60}$; double-acting is $2 \times \frac{A L N}{60}$.</li>
+<li>Slip $= Q_{th} - Q_{act}$. Percentage slip $= \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100$.</li>
+<li>Negative slip $Q_{act} &gt; Q_{th}$ occurs when delivery pipe is short, suction pipe is long, and speed is high, causing momentum to force liquid past the delivery valve before the stroke completes.</li>
+<li>Air vessels fitted close to the cylinder on both suction and delivery sides convert pulsating flow into steady uniform flow, saving up to $84.8\%$ of friction work in single-acting pumps.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Power Saved by Air Vessels</strong>:
+- Single-acting reciprocating pump: Air vessel saves $84.8\%$ of work done against friction.
+- Double-acting reciprocating pump: Air vessel saves $39.2\%$ of work done against friction.</p>
+<p>[!TRAP]
+<strong>Reciprocating vs Centrifugal Starting Procedure</strong>:
+- Centrifugal Pump: Start with delivery valve FULLY CLOSED.
+- Reciprocating Pump: Start with delivery valve FULLY OPEN. (Starting a reciprocating pump with closed delivery valve causes severe over-pressurization!)</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Reciprocating Pump Problem?
+├─ Theoretical Discharge → Q_th = (A * L * N) / 60 (Single), 2*A*L*N / 60 (Double)
+├─ Slip Evaluation → Slip% = [(Q_th - Q_act) / Q_th] * 100
+├─ Negative Slip Condition → Q_act &gt; Q_th (Short delivery pipe + High suction accel head)
+└─ Air Vessel Function → Saves friction work (84.8% single, 39.2% double) + ensures uniform flow
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Single-acting $Q_{th} = A L N / 60$; Double-acting $Q_{th} = 2 A L N / 60$.</li>
+<li>[ ] Slip $\% = (1 - C_d) \times 100$.</li>
+<li>[ ] Negative slip occurs when $Q_{act} &gt; Q_{th}$.</li>
+<li>[ ] Air vessel saves $84.8\%$ friction power in single-acting pump.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A single-acting reciprocating pump has a cylinder diameter of $150 \text{ mm}$ $A = 0.01767 \text{ m}^2$ and stroke length of $300 \text{ mm}$. It runs at $50 \text{ rpm}$ and delivers $0.004 \text{ m}^3/\text{s}$. Calculate percentage slip.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${Q_{th} = \frac{A L N}{60} = \frac{0.01767 \times 0.30 \times 50}{60} = \frac{0.26505}{60} = 0.004418 \text{ m}^3/\text{s}}$$</div>
+  <div class="formula-card">$${\%\text{Slip} = \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100 = \frac{0.004418 - 0.0040}{0.004418} \times 100 = \frac{0.000418}{0.004418} \times 100 = 9.46\%}$$</div>
+- <strong>Key Insight</strong>: Always verify units ($N$ in rpm divided by 60 gives stroke frequency per second).</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A double-acting reciprocating pump has piston area $0.02 \text{ m}^2$ and stroke $0.4 \text{ m}$, running at $60 \text{ rpm}$. Calculate theoretical discharge in L/s.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${Q_{th} = \frac{2 A L N}{60} = \frac{2 \times 0.02 \times 0.4 \times 60}{60} = 0.016 \text{ m}^3/\text{s} = 16 \text{ L/s}}$$</div>
+- <strong>Key Insight</strong>: Double-acting pump delivers twice the discharge of a single-acting pump $2 A L N / 60$.</p>
+<hr />
+<h3 id="32-centrifugal-pumps-head-efficiency-casings"><strong>3.2 Centrifugal Pumps: Head, Efficiency &amp; Casings</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Liquid enters the impeller axially at the eye $V_{w1} = 0$ and is discharged radially outward into a casing.</li>
+<li>Manometric Head $H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}$.</li>
+<li>Backward curved vanes ($\phi &lt; 90^\circ$, typically $20^\circ - 25^\circ$) are universally used in centrifugal pumps because they provide a stable head-capacity curve and high efficiency.</li>
+<li>Casings convert kinetic head exiting impeller into static pressure:</li>
+<li>Volute Casing: Spiral chamber of gradually increasing area.</li>
+<li>Vortex Casing: Circular chamber inserted between impeller and volute to reduce eddy losses.</li>
+<li>Diffuser (Guide Vane) Casing: Ring of fixed guide vanes surrounding impeller; provides highest pressure recovery.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Manometric Efficiency</strong>: $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$. For backward curved vanes with radial entry $V_{w1} = 0$, $V_{w2} = u_2 - V_{f2} \cot\phi$.</p>
+<p>[!TRAP]
+<strong>Priming Requirement</strong>: Centrifugal pumps CANNOT pump air because the pressure generated $\Delta P = \rho g H_m$ is proportional to fluid density. Air density is $\approx 1/800$ of water density, so unprimed centrifugal pumps generate negligible pressure.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Centrifugal Pump Problem?
+├─ Starting Condition → Delivery valve FULLY CLOSED, Casing fully PRIMED
+├─ Manometric Head → H_m = h_s + h_d + h_fs + h_fd + V_d^2/(2*g)
+├─ Manometric Efficiency → eta_man = (g * H_m) / (V_w2 * u_2)
+└─ Casing Selection → Volute (Spiral) vs Vortex (Circular chamber) vs Diffuser (Guide vanes)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Fluid enters at impeller eye $V_{w1} = 0$.</li>
+<li>[ ] Vanes curved backward $\phi \approx 20^\circ - 25^\circ$.</li>
+<li>[ ] Delivery valve fully CLOSED at start.</li>
+<li>[ ] Priming removes air from casing and suction line.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A centrifugal pump impeller has an outer diameter of $300 \text{ mm}$ and runs at $1000 \text{ rpm}$. Manometric head is $25 \text{ m}$ and outlet whirl velocity $V_{w2} = 18 \text{ m/s}$. Find peripheral velocity $u_2$ and manometric efficiency $g = 9.81 \text{ m/s}^2$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${u_2 = \frac{\pi D_2 N}{60} = \frac{\pi \times 0.30 \times 1000}{60} = 5 \pi \approx 15.708 \text{ m/s}}$$</div>
+  <div class="formula-card">$${\eta_{man} = \frac{g H_m}{V_{w2} u_2} = \frac{9.81 \times 25}{18 \times 15.708} = \frac{245.25}{282.74} = 0.8674 = 86.74\%}$$</div>
+- <strong>Key Insight</strong>: Manometric efficiency evaluates actual work delivered vs Euler head $V_{w2} u_2 / g$.</p>
+<hr />
+<h3 id="33-specific-speed-affinity-laws-multistage-pumps"><strong>3.3 Specific Speed, Affinity Laws &amp; Multistage Pumps</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Pump Specific Speed $N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}$ classifies impeller shape:</li>
+<li>Low $N_s$ $10 - 30$: Radial flow impeller (high head, low discharge).</li>
+<li>Medium $N_s$ $30 - 80$: Mixed flow impeller.</li>
+<li>High $N_s$ $80 - 300+$: Axial flow / propeller pump (low head, high discharge).</li>
+<li>Multistage Pumps:</li>
+<li>Impellers in Series: Increases total head $H_{\text{total}} = n \times H_{\text{single}}$ at constant discharge.</li>
+<li>Impellers in Parallel: Increases total discharge $Q_{\text{total}} = n \times Q_{\text{single}}$ at constant head.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Affinity Scaling Rules</strong>:
+- Discharge: $Q \propto N \cdot D^3$
+- Head: $H \propto N^2 \cdot D^2$
+- Power: $P \propto N^3 \cdot D^5$
+Doubling pump speed $N \implies Q \times 2, H \times 4, P \times 8$!</p>
+<p>[!TRAP]
+<strong>Multistage Pump Specific Speed</strong>: In $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$, $H$ represents head PER STAGE $H = H_{\text{total}} / n$, NOT total head!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Pump Scaling / Multistage Problem?
+├─ Speed Change (Affinity) → Q2/Q1 = N2/N1, H2/H1 = (N2/N1)^2, P2/P1 = (N2/N1)^3
+├─ Multistage High Head → Impellers in Series (H_total = n * H_stage)
+├─ Multistage High Discharge → Impellers in Parallel (Q_total = n * Q_stage)
+└─ Specific Speed Formula → N_s = (N * sqrt(Q)) / H_stage^(3/4)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Specific speed $N_s = N \sqrt{Q} / H_m^{3/4}$ (head per stage).</li>
+<li>[ ] Series impellers $\implies$ high head; Parallel impellers $\implies$ high discharge.</li>
+<li>[ ] Speed scaling: $Q \propto N$, $H \propto N^2$, $P \propto N^3$.</li>
+<li>[ ] Diameter scaling: $Q \propto D^3$, $H \propto D^2$, $P \propto D^5$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A centrifugal pump delivers $0.04 \text{ m}^3/\text{s}$ against a head of $20 \text{ m}$ at $1450 \text{ rpm}$ requiring $10 \text{ kW}$. If speed is increased to $2900 \text{ rpm}$, calculate the new discharge, head, and power required.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\frac{N_2}{N_1} = \frac{2900}{1450} = 2}$$</div>
+  <div class="formula-card">$${Q_2 = Q_1 \times 2 = 0.04 \times 2 = 0.08 \text{ m}^3/\text{s}}$$</div>
+  <div class="formula-card">$${H_2 = H_1 \times (2)^2 = 20 \times 4 = 80 \text{ m}}$$</div>
+  <div class="formula-card">$${P_2 = P_1 \times (2)^3 = 10 \times 8 = 80 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: Doubling pump speed increases power consumption by a factor of 8 $2^3$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A 4-stage centrifugal pump runs at $1000 \text{ rpm}$ delivering $0.1 \text{ m}^3/\text{s}$ against a total head of $80 \text{ m}$. Calculate its specific speed.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${H_{\text{stage}} = \frac{80}{4} = 20 \text{ m}}$$</div>
+  <div class="formula-card">$${N_s = \frac{N \sqrt{Q}}{H_{\text{stage}}^{3/4}} = \frac{1000 \times \sqrt{0.1}}{(20)^{3/4}} = \frac{1000 \times 0.3162}{9.457} \approx 33.43}$$</div>
+- <strong>Key Insight</strong>: Use head per stage $H_{\text{stage}} = 20 \text{ m}$ in specific speed calculation.</p>
+<hr />
+<h3 id="34-special-hydraulic-machinery-ram-accumulator-intensifier"><strong>3.4 Special Hydraulic Machinery: Ram, Accumulator &amp; Intensifier</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Hydraulic Ram</strong>: Uses water hammer inertia to lift water without external energy. Contains drive pipe, waste valve, delivery valve, and air vessel.</li>
+<li><strong>Hydraulic Accumulator</strong>: Stores high-pressure water under a heavy weight/ram to supply sudden peak demands (equalizes pump load).</li>
+<li><strong>Hydraulic Intensifier</strong>: Increases fluid pressure intensity for hydraulic presses using stepped cylinders $p_2 = p_1 \frac{A_1}{A_2}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Hydraulic Intensifier Pressure Multiplication</strong>: $p_2 A_2 = p_1 A_1 \implies p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2$. High pressure output is inversely proportional to ratio of piston areas.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Hydraulic Auxiliary Device Problem?
+├─ Hydraulic Ram → Uses water hammer energy to raise small Q to high elevation without external power
+├─ Hydraulic Accumulator → Stores high-pressure fluid energy under a weighted ram to supply peak demand
+└─ Hydraulic Intensifier → Increases pressure intensity: p2 = p1 * (D1/D2)^2
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Hydraulic Ram uses water hammer force.</li>
+<li>[ ] Accumulator stores energy to smooth out pump load fluctuations.</li>
+<li>[ ] Intensifier multiplies pressure: $p_2 = p_1 (A_1 / A_2)$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A hydraulic intensifier receives water at $3 \text{ MPa}$ $30 \text{ bar}$. Low-pressure ram diameter is $250 \text{ mm}$ and high-pressure ram diameter is $50 \text{ mm}$. Calculate the intensified pressure output.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2 = 3 \times \left(\frac{250}{50}\right)^2 = 3 \times (5)^2 = 3 \times 25 = 75 \text{ MPa}}$$</div>
+- <strong>Key Insight</strong>: Pressure multiplies by the square of the diameter ratio $(250/50)^2 = 25$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What is the theoretical discharge of a single-acting reciprocating pump?</strong><br />
+A: $Q_{th} = \frac{A L N}{60}$.</p>
+<p><strong>Q2: What causes negative slip in a reciprocating pump?</strong><br />
+A: High speed, long suction pipe, and short delivery pipe causing liquid momentum to force the delivery valve open before stroke completion $Q_{act} &gt; Q_{th}$.</p>
+<p><strong>Q3: What is the main function of an air vessel in a reciprocating pump?</strong><br />
+A: To provide continuous uniform flow and reduce friction/acceleration head losses, saving up to $84.8\%$ of friction work in single-acting pumps.</p>
+<p><strong>Q4: Why must a centrifugal pump be primed before starting?</strong><br />
+A: Because air has extremely low density ($\approx 1/800$ of water), resulting in negligible pressure rise $\Delta P = \rho g H_m$ if unprimed.</p>
+<p><strong>Q5: What is the starting position of the delivery valve for a centrifugal pump vs a reciprocating pump?</strong><br />
+A: Centrifugal pump: FULLY CLOSED (minimizes starting torque). Reciprocating pump: FULLY OPEN.</p>
+<p><strong>Q6: Why are backward curved vanes $\phi \approx 20^\circ - 25^\circ$ preferred in centrifugal pumps?</strong><br />
+A: They produce a stable head-capacity characteristic curve and provide high manometric efficiency.</p>
+<p><strong>Q7: Define manometric head $H_m$ of a centrifugal pump.</strong><br />
+A: Total head generated by the impeller, equal to static lift plus pipe friction losses and exit velocity head $H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}$.</p>
+<p><strong>Q8: What is the specific speed formula for a pump?</strong><br />
+A: $N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}$.</p>
+<p><strong>Q9: How do discharge, head, and power scale with rotational speed $N$ for a centrifugal pump?</strong><br />
+A: Discharge $Q \propto N$, Head $H \propto N^2$, Power $P \propto N^3$.</p>
+<p><strong>Q10: What is the difference between connecting impellers in series vs parallel in multistage pumps?</strong><br />
+A: Series connection increases total head $H_{total} = n H_{\text{stage}}$; parallel connection increases total discharge $Q_{total} = n Q_{\text{stage}}$.</p>
+<p><strong>Q11: What is Net Positive Suction Head (NPSH)?</strong><br />
+A: Total suction head available at the impeller inlet above the liquid's vapour pressure head $\text{NPSH}<em>A = \frac{P</em>{atm}-P_v}{\rho g} - h_s - h_{fs}$.</p>
+<p><strong>Q12: Where does cavitation occur in a centrifugal pump?</strong><br />
+A: At the impeller eye (inlet), where local static pressure drops to its minimum level $P \le P_v$.</p>
+<p><strong>Q13: How does a hydraulic ram lift water without an external power source?</strong><br />
+A: It utilizes the water hammer pressure impulse generated by the sudden closure of its waste valve.</p>
+<p><strong>Q14: What is the primary function of a hydraulic accumulator?</strong><br />
+A: Stores fluid energy under high pressure using a weighted ram to supply peak demand requirements and equalize pump load.</p>
+<p><strong>Q15: How does a hydraulic intensifier increase fluid pressure?</strong><br />
+A: By transferring force from a large-diameter low-pressure piston to a small-diameter high-pressure piston $p_2 = p_1 \frac{A_1}{A_2}$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
+<ul>
+<li><strong>Note on Pump vs Turbine Specific Speed</strong>:</li>
+<li>Pump: $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$</li>
+<li>Turbine: $N_s = \frac{N \sqrt{P}}{H^{5/4}}$</li>
+<li><strong>Note on Pump Starting Procedures</strong>:</li>
+<li>Centrifugal Pump: Start with delivery valve fully CLOSED and suction fully PRIMED.</li>
+<li>Reciprocating Pump: Start with delivery valve fully OPEN.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Reciprocating Discharge: Single $Q_{th} = \frac{A L N}{60}$, Double $Q_{th} = \frac{2 A L N}{60}$.</li>
+<li>[ ] Memorize Slip &amp; Air Vessel: $\% \text{Slip} = (1 - C_d) \times 100$. Air vessel saves $84.8\%$ friction work (single-acting).</li>
+<li>[ ] Memorize Centrifugal Manometric Efficiency: $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$. Start with delivery valve CLOSED.</li>
+<li>[ ] Memorize Pump Specific Speed: $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$ (use head per stage for multistage).</li>
+<li>[ ] Memorize Speed Affinity Laws: $Q \propto N$, $H \propto N^2$, $P \propto N^3$.</li>
+<li>[ ] Memorize Diameter Affinity Laws: $Q \propto D^3$, $H \propto D^2$, $P \propto D^5$.</li>
+<li>[ ] Memorize Special Devices: Hydraulic Ram (water hammer pump), Accumulator (energy storage), Intensifier $p_2 = p_1 \frac{A_1}{A_2}$.</li>
+</ul>
+</body>
+</html>
