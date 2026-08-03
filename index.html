@@ -6,6 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AP GenCo Exam Study Portal — Mechanical Engineering</title>
     <style>
+        :root {
+            --bg-page: #F0ECE1;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #FDFBF7;
+            --text-primary: #2D2926;
+            --text-secondary: #5C544D;
+            --text-accent: #8C5A37;
+            --border-light: #E2D9CC;
+            --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            --nav-text: #FFFDF9;
+        }
+        [data-theme="dark"] {
+            --bg-page: #1C1A17;
+            --bg-card: #262320;
+            --bg-card-hover: #2D2A26;
+            --text-primary: #E2D9CC;
+            --text-secondary: #A89A8E;
+            --text-accent: #C8895A;
+            --border-light: #3D3732;
+            --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%);
+            --nav-text: #E2D9CC;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,11 +37,34 @@
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #2D2926;
-            background-color: #F0ECE1;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
             padding: 40px 20px;
             min-height: 100vh;
+            transition: background-color 0.25s, color 0.25s;
         }
+
+        /* Theme toggle */
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16pt;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+            z-index: 999;
+            transition: transform 0.15s, border-color 0.2s;
+            line-height: 1;
+        }
+        #theme-toggle:hover { transform: scale(1.1); border-color: #8C5A37; }
 
         .portal-container {
             max-width: 1100px;
@@ -83,8 +128,8 @@
 
         /* Topic Card */
         .topic-card {
-            background-color: #FFFFFF;
-            border: 1px solid #E2D9CC;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
             border-radius: 14px;
             padding: 24px;
             display: flex;
@@ -100,7 +145,8 @@
         .topic-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 28px rgba(74, 46, 27, 0.12);
-            border-color: #CBB8A9;
+            border-color: var(--text-accent);
+            background-color: var(--bg-card-hover);
         }
 
         .topic-card.active-card {
@@ -123,7 +169,7 @@
         .topic-title {
             font-size: 13pt;
             font-weight: 700;
-            color: #4A2E1B;
+            color: var(--text-accent);
             margin-bottom: 8px;
             line-height: 1.35;
         }
@@ -132,29 +178,31 @@
             color: #1B5E20;
         }
 
+        [data-theme="dark"] .topic-card.active-card .topic-title {
+            color: #6ABF69;
+        }
+
         .subtopic-preview {
-            font-size: 9.5pt;
-            color: #665A52;
-            line-height: 1.5;
+            font-size: 9.8pt;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-top: 4px;
         }
 
-        .subtopic-preview ul {
-            list-style-type: none;
-            padding-left: 0;
+        /* Mark weightage badge in card footer */
+        .mark-badge {
+            display: inline-block;
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-size: 8.5pt;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
         }
-
-        .subtopic-preview li {
-            margin-bottom: 3px;
-            position: relative;
-            padding-left: 14px;
-        }
-
-        .subtopic-preview li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #8C5A37;
-            font-weight: bold;
+        [data-theme="dark"] .mark-badge {
+            background: #3D2510;
+            color: #E2D9CC;
         }
 
         .card-footer {
@@ -227,7 +275,7 @@
         }
 
         .modal-box {
-            background-color: #FFFFFF;
+            background-color: var(--bg-card);
             border-radius: 16px;
             padding: 36px 32px;
             max-width: 440px;
@@ -290,11 +338,12 @@
 
 <body>
 
+    <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
     <div class="portal-container">
         <!-- Header -->
         <div class="portal-header">
             <h1>AP GenCo Mechanical Exam Portal</h1>
-            <p>Comprehensive Study Notes & Syllabus Topic Guides for Mechanical Engineering Aspirants</p>
+            <p>Comprehensive Study Notes &amp; Syllabus Topic Guides for Mechanical Engineering Aspirants</p>
         </div>
 
         <!-- Section 1: Core Mechanical Branch -->
@@ -308,53 +357,35 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('Strength of Materials')">
                 <div class="card-header-area">
                     <div class="topic-title">Strength of Materials</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Simple stresses & strains, Hooke’s law, elastic constants, stress strain curve of mild steel, bars of uniform strength, compound bars & temperature stresses</li>
-                            <li>Stresses on oblique planes, principal stresses & strains, Mohr’s stress circle</li>
-                            <li>Shear force & bending moment diagrams, bending & shear stresses in beams, deflections of beams, columns & struts, strain energy, torsion of circular shafts & springs</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Stress-strain behaviour, principal stresses &amp; Mohr's circle, SFD/BMD, beam bending &amp; shear stresses, columns, torsion of shafts &amp; springs.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~10 Marks</span>
                 </div>
             </div>
 
             <!-- Fluid Mechanics and Machinery (ACTIVE) -->
             <div class="topic-card active-card" onclick="openTopic('fluid/index.html')">
                 <div class="card-header-area">
-                    <div class="topic-title">Fluid Mechanics & Machinery</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Basic fluid properties, fluid statics, pressure measurements, buoyancy & flotation</li>
-                            <li>Fluid kinematics, fluid dynamics, Euler’s, Bernoulli’s & Impulse momentum equations, laminar & turbulent flows, pipe flow & losses, bends & boundary layer theory</li>
-                            <li>Compressible fluid flow, impact of jets, hydraulic turbines & pumps, hydraulic ram, accumulator & intensifier</li>
-                        </ul>
-                    </div>
+                    <div class="topic-title">Fluid Mechanics &amp; Machinery</div>
+                    <div class="subtopic-preview">Fluid statics, Bernoulli's &amp; momentum equations, pipe losses, boundary layer theory, hydraulic turbines &amp; pumps, impact of jets &amp; compressible flow.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~10 Marks</span>
                 </div>
             </div>
 
             <!-- Material Science and Metallurgy (ACTIVE) -->
             <div class="topic-card active-card" onclick="openTopic('material_science_genco_guide.html')">
                 <div class="card-header-area">
-                    <div class="topic-title">Material Science & Metallurgy</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Structure & properties of engineering materials, bonding in solids, crystal imperfections & metals</li>
-                            <li>Structure of alloys, manufacture of iron & steel</li>
-                            <li>Heat treatment, alloy steels & principles of powder metallurgy</li>
-                        </ul>
-                    </div>
+                    <div class="topic-title">Material Science &amp; Metallurgy</div>
+                    <div class="subtopic-preview">Crystal structures, bonding, alloy systems, iron-carbon diagram, heat treatment processes (annealing, quenching, tempering) &amp; powder metallurgy.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Guide &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -362,17 +393,11 @@
             <div class="topic-card active-card" onclick="openTopic('tom/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Theory of Machines</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Displacement, velocity & acceleration analysis of plane mechanisms</li>
-                            <li>Dynamic analysis of slider-crank mechanism & balancing</li>
-                            <li>Gear trains, flywheels, governors & gyroscopes</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Mechanisms &amp; velocity analysis, slider-crank dynamics, balancing of rotating/reciprocating masses, flywheels, governors &amp; gyroscopic couple.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Topic Suite &rarr;</span>
+                    <span class="mark-badge">~8 Marks</span>
                 </div>
             </div>
 
@@ -380,17 +405,11 @@
             <div class="topic-card active-card" onclick="openTopic('vibrations/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Vibrations</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Free & forced vibrations</li>
-                            <li>Effect of damping, resonance & vibration isolation</li>
-                            <li>Critical speeds of shafts & whirling</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Free &amp; forced vibrations with damping, resonance, transmissibility &amp; isolation, logarithmic decrement, critical speeds of shafts &amp; whirling.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -398,17 +417,11 @@
             <div class="topic-card active-card" onclick="openTopic('machine-design/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Design of Machine Elements</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Design for static & dynamic loading, failure theories, fatigue strength & S-N diagram</li>
-                            <li>Design of joints, shafts, bearings, gears, brakes, clutches, screws & springs</li>
-                            <li>Design of cranks, piston, gyroscopes, balancing & governors</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Failure theories, fatigue &amp; S-N diagram, design of shafts, bearings, gears, brakes, clutches, bolted joints, screws &amp; helical springs.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Topic Suite &rarr;</span>
+                    <span class="mark-badge">~8 Marks</span>
                 </div>
             </div>
 
@@ -416,17 +429,11 @@
             <div class="topic-card active-card" onclick="openTopic('heat/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Heat Transfer</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Steady & unsteady heat conduction, Fourier's law, thermal diffusivity $\alpha = \frac{k}{\rho C_p}$, Laplace & Poisson equations</li>
-                            <li>Critical radius of insulation ($r_c = k/h$ cylinder, $2k/h$ sphere), radial conduction, composite walls & equivalent $k$</li>
-                            <li>Internal heat generation ($T_{\text{max}}$ sphere & cylinder), transient cooling & Newton's law time constant $\tau$</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Fourier conduction, critical insulation radius, LMTD &amp; NTU for heat exchangers, forced &amp; natural convection correlations, radiation heat exchange &amp; shape factors.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -434,17 +441,11 @@
             <div class="topic-card active-card" onclick="openTopic('Thermodynamics/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Thermodynamics</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Zeroth, first & second laws of thermodynamics, thermodynamic systems & processes</li>
-                            <li>Carnot cycle, air-standard cycles, irreversibility & availability, properties of pure substances</li>
-                            <li>Psychrometrics, refrigeration & air conditioning working principles and applications</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Laws of thermodynamics, air-standard &amp; Carnot cycles, availability &amp; irreversibility, pure substance properties, psychrometrics, refrigeration &amp; VCRS/VARS systems.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~8 Marks</span>
                 </div>
             </div>
 
@@ -452,17 +453,11 @@
             <div class="topic-card active-card" onclick="openTopic('Applied/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Applied Thermodynamics</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Classification of compressors & working principles</li>
-                            <li>Classification of I.C. engines, working principles, performances & rating of fuels</li>
-                            <li>Design considerations of combustion chambers for C.I. & S.I. engines, knocking, lubrication & ignition systems</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">I.C. engines (Otto, Diesel, Dual cycles), compressor types &amp; staging, combustion &amp; knock in SI/CI engines, fuel rating &amp; ignition systems.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~6 Marks</span>
                 </div>
             </div>
 
@@ -470,77 +465,47 @@
             <div class="topic-card active-card" onclick="openTopic('turbo/index.html')">
                 <div class="card-header-area">
                     <div class="topic-title">Turbo Machines</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Working principles of gas turbines & steam turbines</li>
-                            <li>Brayton (Joule) cycle, reheat, intercooling, regeneration & optimum pressure ratios</li>
-                            <li>Jet propulsion & nozzle expansion</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Brayton cycle with reheat, intercooling &amp; regeneration, gas &amp; steam turbine working principles, optimum pressure ratios &amp; jet propulsion.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~4 Marks</span>
                 </div>
             </div>
 
             <!-- Metal Cutting and Machine Tools (ACTIVE) -->
             <div class="topic-card active-card" onclick="openTopic('MetalCutting-MachineTools/index.html')">
                 <div class="card-header-area">
-                    <div class="topic-title">
-                        <span class="mark-tag">10-12 Marks</span> Metal Cutting & Machine Tools
-                    </div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Mechanics of machining, single & multi-point cutting tools, tool geometry, tool life wear & cutting force analysis</li>
-                            <li>Micro finishing machines – EDM, ECM, USM, NC machines, jigs & fixtures</li>
-                            <li>Standards of measurements, limits, fits, tolerances, linear & angular measurements, comparators, lathes, drilling, shaping, planing, milling, gear cutting, broaching & grinding machines</li>
-                        </ul>
-                    </div>
+                    <div class="topic-title">Metal Cutting &amp; Machine Tools</div>
+                    <div class="subtopic-preview">Tool geometry, Merchant's theory, Taylor's tool life equation, EDM/ECM/USM, NC machines, metrology (limits, fits, tolerances) &amp; machine tools (lathe, milling, grinding).</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Topic Suite &rarr;</span>
+                    <span class="mark-badge">~10–12 Marks</span>
                 </div>
             </div>
 
             <!-- Foundry, Welding, and Forging (ACTIVE) -->
             <div class="topic-card active-card" onclick="openTopic('forming_hub.html')">
                 <div class="card-header-area">
-                    <div class="topic-title">
-                        <span class="mark-tag">8-10 Marks</span> Foundry, Welding & Forging
-                    </div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Design of patterns, moulds & cores, solidification, design consideration of runner, riser & gate</li>
-                            <li>Physics of welding, types of welding & principles, brazing, soldering & adhesive bonding</li>
-                            <li>Fundamentals of hot & cold working processes, forging, rolling, extrusion, drawing, shearing & bending</li>
-                        </ul>
-                    </div>
+                    <div class="topic-title">Foundry, Welding &amp; Forging</div>
+                    <div class="subtopic-preview">Pattern design, mould &amp; riser calculation, welding types &amp; joint efficiency, hot/cold working processes — forging, rolling, extrusion, drawing &amp; sheet metal operations.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Topic Suite &rarr;</span>
+                    <span class="mark-badge">~8–10 Marks</span>
                 </div>
             </div>
 
             <!-- Production and Operations Management (ACTIVE) -->
             <div class="topic-card active-card" onclick="openTopic('industrial/industrial_hub.html')">
                 <div class="card-header-area">
-                    <div class="topic-title">
-                        <span class="mark-tag">10-12 Marks</span> Production & Operations Management
-                    </div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Plant layout, material handling, production planning & control, materials management & work study</li>
-                            <li>Inspections, quality control, cost analysis, operations research & basic concepts of CAD/CAM</li>
-                            <li>Inventory control, forecasting & queueing theory</li>
-                        </ul>
-                    </div>
+                    <div class="topic-title">Production &amp; Operations Management</div>
+                    <div class="subtopic-preview">Plant layout, production planning &amp; control, inventory management (EOQ, ABC), quality control (SQC, AQL), work study, CPM/PERT &amp; operations research.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-available">Available Now</span>
-                    <span class="action-link">Open Topic Suite &rarr;</span>
+                    <span class="mark-badge">~10–12 Marks</span>
                 </div>
             </div>
         </div>
@@ -555,17 +520,11 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('Reasoning & General Intelligence')">
                 <div class="card-header-area">
                     <div class="topic-title">Reasoning & General Intelligence</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Verbal & non-verbal types, semantic analogy, symbolic operations, symbolic/number analogy, trends, figural analogy & space orientation</li>
-                            <li>Semantic classification, Venn diagrams, symbolic/number classification, drawing inferences, figural classification & punched hole/pattern-folding & unfolding</li>
-                            <li>Semantic series, figural pattern-folding & completion, number series, embedded figures, figural series, critical thinking, problem solving, emotional & social intelligence, word building, coding & decoding & numerical operations</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Verbal & non-verbal reasoning, analogies, series, Venn diagrams, coding-decoding, critical thinking & spatial reasoning questions.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -573,17 +532,11 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('General Awareness')">
                 <div class="card-header-area">
                     <div class="topic-title">General Awareness</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>General awareness of the environment & application to society</li>
-                            <li>Knowledge of current events & everyday scientific observations and experience</li>
-                            <li>India & neighboring countries pertaining to history, culture, geography, economic scene, general policy & scientific research</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Current affairs, India & world geography, history & culture, science & technology developments, government policies & economic context.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -591,17 +544,11 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('Quantitative Aptitude')">
                 <div class="card-header-area">
                     <div class="topic-title">Quantitative Aptitude</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Number sense, computation of whole numbers, decimals, fractions & relationships between numbers</li>
-                            <li>Order among numbers, translation between names, order of magnitude, estimation/prediction of computation outcomes</li>
-                            <li>Selection of appropriate operations for real-life problems, alternative computation procedures, arithmetical concepts & relationships (10+2 level)</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Number systems, percentages, ratio & proportion, time-speed-distance, basic algebra & arithmetic operations at 10+2 level.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -609,17 +556,11 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('English Language & Comprehension')">
                 <div class="card-header-area">
                     <div class="topic-title">English Language & Comprehension</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Vocabulary, grammar, sentence structure, synonyms, antonyms, spot the error, fill in the blanks, homonyms & spellings/detecting misspelt words</li>
-                            <li>Idioms & phrases, one word substitution, sentence improvement, active/passive voice, direct/indirect narration & shuffling of sentence parts/passages</li>
-                            <li>Cloze passage & comprehension passages (story/book based & current affairs editorial/report based)</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Vocabulary, grammar, synonyms/antonyms, sentence improvement, active/passive voice, comprehension passages & one-word substitution.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
 
@@ -627,17 +568,11 @@
             <div class="topic-card disabled-card" onclick="showComingSoon('Computer Knowledge & Proficiency')">
                 <div class="card-header-area">
                     <div class="topic-title">Computer Knowledge & Proficiency</div>
-                    <div class="subtopic-preview">
-                        <ul>
-                            <li>Computer basics: Organization, CPU, I/O devices, memory & memory organization, backup devices, ports, Windows Explorer & keyboard shortcuts</li>
-                            <li>Software: Windows OS, MS Office (MS Word, MS Excel, Power Point), web browsing, searching, downloading, uploading, e-mail management & e-Banking</li>
-                            <li>Networking & cyber security: Networking devices & protocols, network/information security threats (hacking, virus, worms, Trojan) & preventive measures</li>
-                        </ul>
-                    </div>
+                    <div class="subtopic-preview">Computer fundamentals, MS Office applications, internet & e-mail usage, networking basics & cyber security awareness.</div>
                 </div>
                 <div class="card-footer">
                     <span class="status-coming-soon">Coming Soon</span>
-                    <span class="action-link">View Topic &rarr;</span>
+                    <span class="mark-badge">~5 Marks</span>
                 </div>
             </div>
         </div>
@@ -659,6 +594,24 @@
     </div>
 
     <script>
+        // ── Dark Mode ──────────────────────────────────────────────────
+        const toggle = document.getElementById('theme-toggle');
+        const saved  = localStorage.getItem('ag-theme') || 'light';
+
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            toggle.textContent = (t === 'dark') ? '🌙' : '☀️';
+            localStorage.setItem('ag-theme', t);
+        }
+
+        applyTheme(saved);
+
+        toggle.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // ── Topic Navigation ───────────────────────────────────────────
         function openTopic(url) {
             window.location.href = url;
         }
@@ -675,9 +628,7 @@
 
         // Close modal on clicking outside
         document.getElementById('comingSoonModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) { closeModal(); }
         });
     </script>
 </body>

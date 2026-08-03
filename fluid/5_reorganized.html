@@ -5,206 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impact of Jets, Hydraulic Turbines & Water Hammer — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
   <script>
-MathJax = {
-  tex: {
-    inlineMath:  [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
+MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
 </script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
   :root {
-    --bg-page: #F0ECE1;
-    --bg-card: #FFFFFF;
-    --text-primary: #2D2926;
-    --text-secondary: #5C544D;
-    --text-accent: #8C5A37;
-    --border-light: #E2D9CC;
-
-    --callout-concept-bg: #EFF6FF;
-    --callout-concept-border: #3B82F6;
-    --callout-concept-text: #1E40AF;
-
-    --callout-trap-bg: #FEF2F2;
-    --callout-trap-border: #EF4444;
-    --callout-trap-text: #991B1B;
-
-    --callout-focus-bg: #FEFCE8;
-    --callout-focus-border: #EAB308;
-    --callout-focus-text: #854D0E;
+    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
+    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
+    --border-light: #E2D9CC; --border-accent: #8C5A37;
+    --heading-color: #4A2E1B; --heading-sub: #664229;
+    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
+    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
+    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
+    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
+    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
   }
-
+  [data-theme="dark"] {
+    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
+    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
+    --border-light: #3D3732; --border-accent: #C8895A;
+    --heading-color: #E2D9CC; --heading-sub: #C8895A;
+    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
+    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
+    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
+    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
+    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
+  }
   * { box-sizing: border-box; }
-
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.85;
-    color: var(--text-primary);
-    background-color: var(--bg-page);
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
-
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
-
-  h3 { font-size: 14pt; color: #664229; }
-  h4 { font-size: 12pt; color: #4A2E1B; }
-
-  a { color: var(--text-accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  code {
-    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
-
-  pre {
-    background: #F7F3EC;
-    border: 1px solid var(--border-light);
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-
-  blockquote {
-    border-left: 4px solid var(--border-accent);
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: var(--text-secondary);
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: var(--bg-card);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
-
-  th, td {
-    border: 1px solid var(--border-light);
-    padding: 10px 14px;
-    text-align: left;
-  }
-
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
-
-  tr:nth-child(even) { background-color: #FDFBF7; }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid var(--border-light);
-  }
-
-  /* Plain Formula Card (Strictly no background or border) */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-    font-size: 1.05em;
-  }
-
-  /* Color-Coded Callout Cards */
-  .callout {
-    padding: 16px 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    font-size: 10.5pt;
-    line-height: 1.6;
-    border-left: 5px solid;
-  }
-
-  .callout-concept {
-    background-color: var(--callout-concept-bg);
-    border-color: var(--callout-concept-border);
-    color: var(--callout-concept-text);
-  }
-
-  .callout-trap {
-    background-color: var(--callout-trap-bg);
-    border-color: var(--callout-trap-border);
-    color: var(--callout-trap-text);
-  }
-
-  .callout-focus {
-    background-color: var(--callout-focus-bg);
-    border-color: var(--callout-focus-border);
-    color: var(--callout-focus-text);
-  }
-
-  /* MathJax Overflow Guard */
+  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
+  #floating-nav.visible { opacity: 1; pointer-events: auto; }
+  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
+  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
+  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
+  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
+  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
+  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
+  .reading-content { max-width: 820px; margin: 0 auto; }
+  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
+  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
+  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
+  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
+  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
+  p { margin-bottom: 0.9em; }
+  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
+  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
+  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
+  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
+  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
+  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
+  [data-theme="dark"] th { background: #2A1A0E; }
+  tr:nth-child(even) { background-color: var(--pre-bg); }
+  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
+  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
+  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
+  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
+  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
   .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  /* Submodule Navigation Header */
-  .submodule-nav {
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    padding: 12px 20px;
-    font-family: system-ui, -apple-system, sans-serif;
-    font-size: 10.5pt;
-    border-radius: 10px;
-    margin-bottom: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
-  }
-  .submodule-nav a {
-    color: #FFFDF9;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s ease;
-  }
-  .submodule-nav a:hover {
-    text-decoration: underline;
-    opacity: 0.9;
-  }
+  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
+  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
+  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
 </style>
 </head>
 <body id="preview">
-  <div class="submodule-nav">
+  <div id="reading-progress"></div>
+<div id="floating-nav">
+  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
+  <span class="fnav-sep">·</span>
+  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
+  <span class="fnav-sep">·</span>
+  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
+  <span class="fnav-sep">·</span>
+  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
+  <span class="fnav-sep">·</span>
+  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
+  <span class="fnav-sep">·</span>
+  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
+</div>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "light";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  applyTheme(saved);
+  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
+  var bar = document.getElementById("reading-progress");
+  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
+  window.addEventListener("scroll", upBar, {passive: true}); upBar();
+  var fn = document.getElementById("floating-nav");
+  var links = fn.querySelectorAll(".fnav-link");
+  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
+  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, {passive: true}); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
+})();
+</script>
+  <div class="reading-content">
+    <div class="submodule-nav">
     <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
     <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
   </div>
@@ -593,5 +496,6 @@ A: Speed scales as $N \propto \sqrt{H}$; power scales as $P \propto H^{3/2}$.</p
 <li>[ ] Memorize Kaplan Discharge: $Q = \frac{\pi}{4} (D_o^2 - D_b^2) V_f$.</li>
 <li>[ ] Memorize Draft Tube Function: Converts exit kinetic head to pressure head in reaction turbines; max cone angle $7^\circ - 8^\circ$.</li>
 </ul>
+  </div>
 </body>
 </html>
