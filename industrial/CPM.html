@@ -82,9 +82,50 @@
     border-bottom-style: solid !important;
     border-bottom-color: currentColor !important;
   }
+
+  /* ── Back-navigation bar ── */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 11px 20px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 6px 16px rgba(74,46,27,0.18);
+    flex-wrap: wrap;
+  }
+  .submodule-nav .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 10pt;
+    background: rgba(255,255,255,0.13);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+  .submodule-nav .back-btn:hover { background: rgba(255,255,255,0.25); }
+  .submodule-nav .nav-title {
+    color: #E8DACF;
+    font-size: 10pt;
+    font-weight: 500;
+  }
 </style>
 </head>
 <body id="preview">
+<div class="submodule-nav">
+  <a href="industrial_hub.html" class="back-btn">&#8592; Industrial Hub</a>
+  <span class="nav-title">🔷 PERT &amp; CPM — Project Network Analysis</span>
+</div>
+
 <h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="PERT_and_CPM_Project_Network_Analysis_Comprehensive_Exam_Guide_0"></a>PERT and CPM Project Network Analysis — Comprehensive Exam Guide</h1>
 <hr>
 <h3 class="code-line has-line-data" data-line-start="4" data-line-end="5"><a id="SECTION_1_TOPIC_OVERVIEW_4"></a><strong>SECTION 1: TOPIC OVERVIEW</strong></h3>
