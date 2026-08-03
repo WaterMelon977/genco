@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Design — Master Portal — AP GenCo Exam Guide</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F0ECE1;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFDF9;
+      --bg-header-gradient: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+
+      --font-heading: "Bookman Old Style", Georgia, serif;
+      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+
+      --text-primary: #2D2926;
+      --text-secondary: #5C544D;
+      --text-header: #FFFDF9;
+      --text-accent: #8C5A37;
+
+      --border-light: #E2D9CC;
+      --border-accent: #8C5A37;
+      --active-indicator: #2E7D32;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 11pt;
+      line-height: 1.75;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 35px 20px;
+    }
+
+    /* Back Button Bar */
+    .nav-back-bar {
+      margin-bottom: 20px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+      color: #FFFDF9;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 10pt;
+      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-back:hover {
+      opacity: 0.9;
+    }
+
+    /* Master Portal Header */
+    .portal-header {
+      text-align: center;
+      background: var(--bg-header-gradient);
+      color: var(--text-header);
+      padding: 40px 28px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+    }
+
+    .portal-header h1 {
+      font-family: var(--font-heading);
+      font-size: 26pt;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.5px;
+      color: #FFFDF9;
+    }
+
+    .portal-header p {
+      font-size: 12pt;
+      margin: 0;
+      color: #E2D9CC;
+      font-weight: 300;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+
+    .stat-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--text-accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 9.5pt;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 18pt;
+      color: var(--text-accent);
+      margin: 0 0 20px 0;
+      border-bottom: 2px solid var(--border-accent);
+      padding-bottom: 8px;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+    }
+
+    .topic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(74, 46, 27, 0.12);
+      border-color: var(--border-accent);
+      background-color: var(--bg-card-hover);
+    }
+
+    .card-badge {
+      display: inline-block;
+      background-color: #E8F5E9;
+      color: #2E7D32;
+      font-size: 8.5pt;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 15pt;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+
+    .card-description {
+      font-size: 9.5pt;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .formula-preview {
+      background-color: var(--bg-page);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 9.5pt;
+      color: var(--text-accent);
+      margin-bottom: 18px;
+      text-align: center;
+      border: 1px dashed var(--border-light);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--text-accent);
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .btn-open {
+      color: var(--active-indicator);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 9pt;
+      color: var(--text-secondary);
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="nav-back-bar">
+    <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
+  </div>
+
+  <!-- Master Portal Header -->
+  <div class="portal-header">
+    <h1>Design of Machine Elements</h1>
+    <p>Comprehensive AP GenCo AE / GATE / SSC JE Reorganized Study Modules</p>
+  </div>
+
+  <!-- Quick Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Master Modules</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">2,500+</div>
+      <div class="stat-label">Lines of Content</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">75</div>
+      <div class="stat-label">Core Q&As & Traps</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">PYQ Covered</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Topic Modules & Revision Guides</h2>
+
+  <!-- Card Grid Container -->
+  <div class="card-grid">
+
+    <!-- Card 1 -->
+    <a href="failure_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 01</span>
+        <h3 class="card-title">Failure Theories, Static/Dynamic Loading & Fatigue</h3>
+        <p class="card-description">Theoretical stress concentration ($K_t = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}$, circular hole $K_t=3$), brittle vs ductile static behavior, S-N diagram & endurance limit asymptote ($10^6$ cycles for steel), fluctuating load criteria (Soderberg $\frac{\sigma_a}{S_e}+\frac{\sigma_m}{S_{yt}}=\frac{1}{N}$, Goodman $\frac{\sigma_a}{S_e}+\frac{\sigma_m}{S_{ut}}=\frac{1}{N}$, Gerber parabola), notch sensitivity ($K_f = 1 + q(K_t-1)$), endurance modifiers ($S_e = k_a k_b k_c k_d k_e S_e'$), shot peening, and Griffith fracture strength ($\sigma_f = \sqrt{\frac{2E\gamma}{\pi c}}$).</p>
+        <div class="formula-preview">
+          $$K_t = \frac{\sigma_{\max}}{\sigma_{\text{nom}}}, \quad \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}, \quad K_f = 1 + q(K_t - 1), \quad S_e = k_a k_b k_c k_d k_e S_e'$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 1 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="joints-screws_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 02</span>
+        <h3 class="card-title">Threaded Joints, Power Screws, Welded & Riveted Joints</h3>
+        <p class="card-description">Thread forms (square 0°, Acme 29°, buttress 1-way power, metric 60°), self-locking ($\phi \ge \alpha \implies \eta \le 50\%$), effort ($P = W\tan(\alpha+\phi)$), screw jack max efficiency ($\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$), V-thread equivalent friction ($\mu' = \frac{\mu}{\cos(\beta/2)}$), bolt core tensile design ($d_c = \sqrt{\frac{4P}{\pi\sigma_t}}$), bolt of uniform strength resilience ($U = \frac{\sigma^2 V}{2E}$), turnbuckles, studs, fillet weld throat ($t = 0.707 h$, weakest in shear), transverse vs parallel fillet, butt weld size ($t$), Unwin's formula ($d = 6\sqrt{t}$), margin ($m = 1.5d$), tearing efficiency ($\eta_t = \frac{p-d}{p}$), and caulking/fullering leak-proofing.</p>
+        <div class="formula-preview">
+          $$\phi \ge \alpha, \quad \eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}, \quad d_c = \sqrt{\frac{4P}{\pi\sigma_t}}, \quad t = 0.707h, \quad d = 6\sqrt{t}, \quad \eta_t = \frac{p-d}{p}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 2 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="bearings-brakes-clutch_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 03</span>
+        <h3 class="card-title">Design of Bearings, Brakes & Clutches</h3>
+        <p class="card-description">Rolling contact bearings ($L_{10} = (C/P_e)^k \cdot 10^6$, load-life relation $L \propto 1/P^3$, equivalent load $P_e = X F_r + Y F_a$, bore $= \text{code} \times 5$), journal bearings (hydrodynamic wedge, hydrostatic pump, Petroff's equation $f = \frac{2\pi^2\mu N}{P}\frac{r}{c}$, $ZN/P$, clearance $1 \mu\text{m/mm}$, $L/D = 1-2$), long shoe brakes ($2\theta > 60^\circ \implies \mu_{\text{eq}} = \frac{4\mu\sin\theta}{2\theta+\sin 2\theta}$, torque $T = \mu_{\text{eq}} R_n R$, internal expanding shoe automotive brakes), and friction clutches (uniform wear theory $T = \mu W R_m$ for safe design, uniform pressure theory $T = \frac{2}{3}\mu W \frac{r_1^3-r_2^3}{r_1^2-r_2^2}$, multi-plate contact pairs $n_1+n_2-1$, centrifugal clutch $F_{\text{cf}} - F_{\text{spring}}$).</p>
+        <div class="formula-preview">
+          $$L \propto \frac{1}{P^3}, \quad f = \frac{2\pi^2 \mu N}{P}\left(\frac{r}{c}\right), \quad \mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}, \quad T = \mu W R_m, \quad n = n_1 + n_2 - 1$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 3 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="shafts-Keys-Cotterjoints-Couplings_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 04</span>
+        <h3 class="card-title">Design of Shafts, Keys, Cotter Joints & Couplings</h3>
+        <p class="card-description">Solid and hollow shaft torsion ($\tau = \frac{16T}{\pi d^3}$, $\tau = \frac{16T}{\pi d_o^3(1-k^4)}$, hollow shaft superior strength/weight), combined bending and torsion ($T_e = \sqrt{M^2+T^2}$, $M_e = \frac{1}{2}[M+\sqrt{M^2+T^2}]$, $\tau_{\text{max}} = \frac{16 T_e}{\pi d^3}$), key design ($\sigma_c = 2\tau$ for square key, Woodruff self-aligning for tapered shafts, Feather axial sliding, Kennedy 90° heavy duty, Saddle friction), cotter joints (co-axial rods under axial load, single taper 1 in 24 to 1 in 48, thickness $t \approx 0.31d$, piston rod to crosshead), and couplings (muff sleeve hollow shaft, flange reamed bolts, bushed pin flexible, Oldham's for parallel offset shafts, Hooke's/Universal joint for intersecting angular shafts).</p>
+        <div class="formula-preview">
+          $$\tau = \frac{16T}{\pi d^3}, \quad T_e = \sqrt{M^2 + T^2}, \quad M_e = \frac{1}{2}\left[M + \sqrt{M^2 + T^2}\right], \quad \sigma_c = 2\tau, \quad t \approx 0.31d$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 4 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="springs_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 05</span>
+        <h3 class="card-title">Design of Mechanical Springs</h3>
+        <p class="card-description">Helical compression and tension springs ($C = D/d$, Wahl factor $K = \frac{4C-1}{4C-4} + \frac{0.615}{C}$, max inner surface shear stress $\tau_{\text{max}} = K \frac{8PD}{\pi d^3}$, deflection $\delta = \frac{8PD^3N}{Gd^4}$, stiffness $k = \frac{Gd^4}{8D^3N}$), spring combinations (series $1/k_{\text{eq}} = 1/k_1 + 1/k_2$, parallel $k_{\text{eq}} = k_1 + k_2$, cutting spring in half $k' = 2k$), strain energy ($U/V = \tau^2/4G$), concentric helical springs (opposite winding hand), leaf springs (master vs graduated leaves, un-nipped stress $\sigma_f = 1.5\sigma_g$, nipping equalizes stresses $\sigma_f = \sigma_g$), Belleville disc springs (high load in small axial space), and spring surge ($f_n = \frac{1}{2}\sqrt{k/m}$).</p>
+        <div class="formula-preview">
+          $$C = \frac{D}{d}, \quad K = \frac{4C-1}{4C-4} + \frac{0.615}{C}, \quad \tau_{\text{max}} = K \frac{8PD}{\pi d^3}, \quad k = \frac{Gd^4}{8D^3N}, \quad \sigma_f = \sigma_g \text{ (Nipping)}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 5 &rarr;</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Warm Reader Design System</p>
+  </footer>
+
+</body>
+</html>

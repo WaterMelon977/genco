@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static & Dynamic Loading, Failure Theories, Fatigue Strength & S-N Diagram — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Machine Design Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="static-dynamic-loading-failure-theories-fatigue-strength-s-n-diagram-comprehensive-reorganized-study-guide">Static &amp; Dynamic Loading, Failure Theories, Fatigue Strength &amp; S-N Diagram — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Static and Dynamic Loading Design (theoretical stress concentration factor $K_t = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}$, circular hole in plate $K_t = 3$, brittle vs ductile behavior under static concentration), S-N Diagram &amp; Fatigue Strength (endurance limit $S_e$, fatigue limit for steel at $10^6$ cycles, low-cycle vs high-cycle fatigue, crack initiation at surface, size effect on endurance limit), Fluctuating-Load Design Criteria (mean stress $\sigma_m = \frac{\sigma_{\text{max}} + \sigma_{\text{min}}}{2}$, alternating stress $\sigma_a = \frac{\sigma_{\text{max}} - \sigma_{\text{min}}}{2}$, Soderberg yield-based criterion, Goodman ultimate-based criterion, Gerber parabolic relation, Haigh diagram, completely reversed loading), Notch Sensitivity &amp; Fatigue SCF ($K_f = 1 + q(K_t - 1)$, notch sensitivity factor $q = \frac{K_f - 1}{K_t - 1}$), Endurance Limit Modifying Factors ($S_e = k_a k_b k_c k_d k_e S_e'$, specimen endurance $S_e' \approx 0.5 S_{ut}$), fatigue life improvement methods (shot peening, surface polishing, compressive residual stresses), and Griffith's brittle fracture relation $\sigma_f = \sqrt{\frac{2E\gamma}{\pi c}}$ for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-stress-concentration-factor"><strong>1. Stress Concentration Factor</strong></h4>
+<ul>
+<li><strong>Theoretical Stress Concentration Factor $K_t$</strong>:
+  <div class="formula-card">$${\boxed{K_t = \frac{\sigma_{\text{max}}}{\sigma_{\text{nom}}}}}$$</div></li>
+<li>$\sigma_{\text{max}}$: maximum localized stress at discontinuity $\text{MPa}$</li>
+<li>
+<p>$\sigma_{\text{nom}}$: nominal stress calculated on net cross-section $\text{MPa}$</p>
+</li>
+<li>
+<p><strong>Circular Hole in Infinite Plate (Uniaxial Tension)</strong>:
+  <div class="formula-card">$${\boxed{K_t = 3.0}}$$</div></p>
+</li>
+<li>Maximum boundary stress: $\sigma_{\text{max}} = 3 \cdot \sigma_{\text{nom}}$.</li>
+</ul>
+<hr />
+<h4 id="2-damping-endurance-limit-modifiers"><strong>2. Damping &amp; Endurance Limit Modifiers</strong></h4>
+<ul>
+<li><strong>Modified Endurance Limit $S_e$</strong>:
+  <div class="formula-card">$${\boxed{S_e = k_a \cdot k_b \cdot k_c \cdot k_d \cdot k_e \cdot S_e' \quad (\text{MPa})}}$$</div></li>
+<li>$S_e'$: endurance limit of standard polished test specimen $\text{MPa}$</li>
+<li>For steel: $\boxed{S_e' \approx 0.5 \cdot S_{ut}}$</li>
+<li>$k_a$: surface finish factor</li>
+<li>$k_b$: size factor (decreases as size increases: larger volume $\implies$ more defects)</li>
+<li>$k_d$: loading factor ($k_d = 1.0$ bending, $0.85$ axial, $0.59$ torsion)</li>
+<li>Load factor for reversed axial load with intermediate bending: $\boxed{k_d \approx 0.90}$</li>
+</ul>
+<hr />
+<h4 id="3-fluctuating-stress-components"><strong>3. Fluctuating Stress Components</strong></h4>
+<ul>
+<li>
+<p><strong>Mean Stress $\sigma_m$</strong>:
+  <div class="formula-card">$${\boxed{\sigma_m = \frac{\sigma_{\text{max}} + \sigma_{\text{min}}}{2} \quad (\text{MPa})}}$$</div></p>
+</li>
+<li>
+<p><strong>Alternating Stress $\sigma_a$</strong>:
+  <div class="formula-card">$${\boxed{\sigma_a = \frac{\sigma_{\text{max}} - \sigma_{\text{min}}}{2} \quad (\text{MPa})}}$$</div></p>
+</li>
+<li>$\sigma_{\text{max}}, \sigma_{\text{min}}$: maximum and minimum stress values in the cycle $\text{MPa}$</li>
+</ul>
+<hr />
+<h4 id="4-design-criteria-for-fluctuating-loads"><strong>4. Design Criteria for Fluctuating Loads</strong></h4>
+<ul>
+<li><strong>Soderberg Line (Most Conservative)</strong>:
+  <div class="formula-card">$${\boxed{\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}}}$$</div></li>
+<li>$S_{yt}$: yield strength of material $\text{MPa}$</li>
+<li>
+<p>$N$: factor of safety (FOS)</p>
+</li>
+<li>
+<p><strong>Goodman Line</strong>:
+  <div class="formula-card">$${\boxed{\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}}}$$</div></p>
+</li>
+<li>
+<p>$S_{ut}$: ultimate tensile strength of material $\text{MPa}$</p>
+</li>
+<li>
+<p><strong>Gerber Parabola</strong>:
+  <div class="formula-card">$${\boxed{\frac{\sigma_a}{S_e} + \left(\frac{\sigma_m}{S_{ut}}\right)^2 = \frac{1}{N}}}$$</div></p>
+</li>
+<li>
+<p><strong>Completely Reversed Loading $\sigma_m = 0$</strong>:
+  <div class="formula-card">$${\boxed{\sigma_a = \frac{S_e}{N}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-notch-sensitivity-fatigue-stress-concentration"><strong>5. Notch Sensitivity &amp; Fatigue Stress Concentration</strong></h4>
+<ul>
+<li><strong>Notch Sensitivity $q$</strong>:
+  <div class="formula-card">$${\boxed{q = \frac{K_f - 1}{K_t - 1}}}$$</div></li>
+<li>$q$: notch sensitivity factor $0 \le q \le 1$</li>
+<li>
+<p>$K_f$: fatigue stress concentration factor $1 \le K_f \le K_t$</p>
+</li>
+<li>
+<p><strong>Fatigue Stress Concentration Factor $K_f$</strong>:
+  <div class="formula-card">$${\boxed{K_f = 1 + q \cdot (K_t - 1)}}$$</div></p>
+</li>
+<li>If $q = 0 \implies \mathbf{K_f = 1.0}$ (material is insensitive to notch).</li>
+<li>If $q = 1 \implies \mathbf{K_f = K_t}$ (material is fully sensitive to notch).</li>
+</ul>
+<hr />
+<h4 id="6-griffith-brittle-fracture-theory"><strong>6. Griffith Brittle Fracture Theory</strong></h4>
+<ul>
+<li><strong>Griffith Crack Fracture Strength $\sigma_f$</strong>:
+  <div class="formula-card">$${\boxed{\sigma_f = \sqrt{\frac{2 \cdot E \cdot \gamma}{\pi \cdot c}} \quad (\text{MPa})}}$$</div></li>
+<li>$E$: Young's modulus $\text{MPa}$</li>
+<li>$\gamma$: surface energy per unit area $\text{J/m}^2$</li>
+<li>$2c$: internal crack length $\text{m}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Stress Concentration</strong>: High local stress levels near geometry discontinuities (holes, fillets, keyways, cracks) compared to average stress.</li>
+<li><strong>Endurance Limit $S_e$</strong>: The maximum amplitude of completely reversed bending stress that a material can withstand for an infinite number of cycles ($N \ge 10^6$ for steel) without fatigue failure.</li>
+<li><strong>Fatigue Strength</strong>: The stress level at which failure occurs after a specific number of loading cycles $N$.</li>
+<li><strong>Low-Cycle Fatigue</strong>: Fatigue failure occurring at high stress levels with plastic deformation, typically under $10^3$ cycles.</li>
+<li><strong>High-Cycle Fatigue</strong>: Fatigue failure occurring at low stress levels within elastic range, typically above $10^3$ cycles.</li>
+<li><strong>Haigh Diagram</strong>: A plot of alternating stress $\sigma_a$ on the vertical axis against mean stress $\sigma_m$ on the horizontal axis, displaying safety boundaries.</li>
+<li><strong>Shot Peening</strong>: A cold working process of blasting small steel shot pellets onto a component surface to create a layer of beneficial compressive residual stresses, significantly increasing fatigue life.</li>
+<li><strong>Notch Sensitivity $q$</strong>: The measure of how close the actual fatigue strength reduction matches the theoretical stress concentration factor.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Steel Asymptote Cycles</strong>: $N = 10^6$ cycles (transition to horizontal endurance line).</li>
+<li><strong>Infinite Plate Circular Hole $K_t$</strong>: $3.0$.</li>
+<li><strong>Reversed Axial Load Modifier</strong>: $k_d \approx 0.90$.</li>
+<li><strong>Polished Specimen Endurance Ratio</strong>: $S_e' / S_{ut} \approx 0.50$ (steel).</li>
+<li><strong>Notch Sensitivity Range</strong>: $0.0 \le q \le 1.0$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Theoretical Stress Concentration in Static Loading</strong>: §3.1.</li>
+<li><strong>S-N Diagram &amp; Fatigue Strength Limits</strong>: §3.2.</li>
+<li><strong>Fluctuating-Load Criteria (Soderberg, Goodman, Gerber)</strong>: §3.3.</li>
+<li><strong>Notch Sensitivity &amp; Fatigue Stress Concentration Factor</strong>: §3.4.</li>
+<li><strong>Endurance Modifiers &amp; Fatigue Life Improvement</strong>: §3.5.</li>
+<li><strong>Griffith Fracture Theory</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-theoretical-stress-concentration-in-static-loading"><strong>3.1 Theoretical Stress Concentration in Static Loading</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Source of Stress Concentration</strong>: Abrupt changes in cross-section geometry (holes, notches, fillets, keyways, threads) that disrupt smooth stress flow lines, raising localized stress peak.</li>
+<li><strong>Ductile vs Brittle Behavior</strong>:</li>
+<li><strong>Brittle Materials</strong>: Stress concentration is <strong>EXCEEDINGLY DANGEROUS</strong> under static loads! There is no yielding capability to redistribute high local stress, leading to sudden fracture.</li>
+<li><strong>Ductile Materials</strong>: Yielding occurs locally at the peak stress location, blunting the notch and redistributing stress across the section. Thus, stress concentration is <strong>often ignored</strong> in ductile materials under static loading.</li>
+<li><strong>Uniaxial Tension Circular Hole</strong>:</li>
+<li>For a central circular hole in an infinite plate under uniaxial tensile stress $f$, the theoretical stress concentration factor is:
+    <div class="formula-card">$${K_t = 3.0 \implies \sigma_{\text{max}} = 3f}$$</div></li>
+<li><strong>Non-Causes</strong>: Stress concentration is NOT caused by load variations or simple material property changes alone; it is fundamentally a geometric discontinuity effect.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Static Loading Stress Concentration</strong>: Stress concentration is dangerous ONLY for brittle materials under static load. Ductile materials experience local plastic deformation that redistributes the stress, rendering the concentration factor harmless under static loads.</p>
+<p>[!TRAP]
+<strong>Kirsch Hole Bound Trap</strong>: For a circular hole in a plate under tension, the maximum boundary stress is $3f$ (using $K_t = 3$). Do not confuse with $2f$ or $4f$ in MCQs!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Static Loading Stress Concentration Check?
+├─ Is the material Ductile? → Local yielding blunts notch (Ignore Kt under static load)
+├─ Is the material Brittle? → Highly dangerous (Must apply full Kt factor)
+├─ Is it a circular hole in a plate under tension? → Kt = 3.0
+└─ Is the stress peak due to load variation? → NO (Stress concentration is purely geometric)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $K_t = \sigma_{\text{max}}/\sigma_{\text{nom}}$.</li>
+<li>[ ] Brittle: dangerous under static load.</li>
+<li>[ ] Ductile: ignored under static load.</li>
+<li>[ ] Circular hole: $K_t = 3.0$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A wide flat plate made of structural steel has a central circular hole. The plate is subjected to a static uniaxial tensile stress of $150 \text{ MPa}$. Determine the maximum localized stress at the edge of the hole.
+- <strong>Solution</strong>:
+  - Identify geometry: central circular hole in infinite plate under uniaxial tension.
+  - Constant stress concentration factor: $K_t = 3.0$.
+  - Calculate maximum stress:
+    <div class="formula-card">$${\sigma_{\text{max}} = K_t \cdot \sigma_{\text{nom}} = 3.0 \times 150 = 450 \text{ MPa}}$$</div>
+- <strong>Key Insight</strong>: $\sigma_{\text{max}} = 450 \text{ MPa}$. Kirsch solution gives $K_t = 3$.</p>
+<hr />
+<h3 id="32-s-n-diagram-fatigue-strength-limits"><strong>3.2 S-N Diagram &amp; Fatigue Strength Limits</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>The S-N Curve (Wöhler Curve)</strong>:</li>
+<li>Plots stress amplitude ($\sigma_a$ or $S$) against the number of cycles to failure $N$ on log-log or semi-log scales.</li>
+<li><strong>Endurance Limit Asymptote $S_e$</strong>:</li>
+<li>Ferrous alloys (steels) exhibit a distinct horizontal line (endurance limit asymptote) indicating infinite life $N \to \infty$ at a specific stress level.</li>
+<li>This flattening occurs at approximately <strong>$10^6$ cycles</strong> for steel.</li>
+<li>Non-ferrous alloys (aluminum, copper, magnesium) <strong>do not</strong> exhibit a true endurance limit; their S-N curves keep decreasing continuously.</li>
+<li><strong>Low-Cycle vs High-Cycle Fatigue</strong>:</li>
+<li>Low-Cycle Fatigue: $N &lt; 10^3$ cycles, governed by cyclic plastic strain.</li>
+<li>High-Cycle Fatigue: $N \ge 10^3$ cycles, governed by cyclic elastic stress.</li>
+<li><strong>Crack Initiation Point</strong>:</li>
+<li>Fatigue cracks almost always initiate on the <strong>component surface</strong> due to peak stresses, surface roughness, machining marks, and exposure.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ferrous vs Non-Ferrous S-N Curves</strong>: Ferrous metals (steels) exhibit a distinct endurance limit where the S-N curve flattens out near $10^6$ cycles. Non-ferrous metals continue to lose fatigue strength indefinitely and have no horizontal endurance limit.</p>
+<p>[!TRAP]
+<strong>Endurance Cycles Threshold</strong>: The S-N curve for steel becomes asymptotic at $10^6$ cycles. Do not select $10^3$ (low-cycle threshold) or $10^8$ for steels!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>S-N Diagram / Fatigue Life Check?
+├─ Is the material Steel/Ferrous? → Curve becomes horizontal (asymptotic) at 10^6 cycles
+├─ Is the material Aluminum/Non-ferrous? → No true endurance limit (continues to decline)
+├─ Is the cycle count N &lt; 10^3? → LOW-CYCLE FATIGUE (plastic strain governed)
+├─ Is the cycle count N &gt;= 10^3? → HIGH-CYCLE FATIGUE (elastic stress governed)
+└─ Where does a fatigue crack initiate? → SURFACE (due to maximum stress/defects)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Steel S-N flattens at $10^6$ cycles.</li>
+<li>[ ] Non-ferrous: no endurance limit.</li>
+<li>[ ] Low-cycle limit: $10^3$ cycles.</li>
+<li>[ ] Fatigue cracks initiate at the surface.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain why a steel axle designed for a fatigue life of $5 \times 10^5$ cycles behaves differently from one designed for $5 \times 10^6$ cycles under identical fluctuating stresses.
+- <strong>Solution</strong>:
+  - For steel, $5 \times 10^5$ cycles falls in the finite life region of the S-N curve.
+  - $5 \times 10^6$ cycles is beyond the asymptote point of $10^6$ cycles.
+  - Axle designed for $5 \times 10^6$ cycles operates below the endurance limit and has infinite theoretical life.
+- <strong>Key Insight</strong>: Operating past $10^6$ cycles means the component must be designed below the endurance limit to achieve infinite life.</p>
+<hr />
+<h3 id="33-fluctuating-load-criteria-soderberg-goodman-gerber"><strong>3.3 Fluctuating-Load Criteria: Soderberg, Goodman &amp; Gerber</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Fluctuating Load Parameters</strong>:</li>
+<li>Stresses fluctuate between $\sigma_{\text{max}}$ and $\sigma_{\text{min}}$.</li>
+<li>Mean stress: $\sigma_m = (\sigma_{\text{max}} + \sigma_{\text{min}})/2$.</li>
+<li>Alternating stress: $\sigma_a = (\sigma_{\text{max}} - \sigma_{\text{min}})/2$.</li>
+<li><strong>Design Criteria Models</strong>:</li>
+<li><strong>Soderberg Line (Most Conservative)</strong>: Uses yield strength $S_{yt}$ on the mean stress axis.
+    <div class="formula-card">$${\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}}$$</div></li>
+<li><strong>Goodman Line</strong>: Uses ultimate strength $S_{ut}$ on the mean stress axis.
+    <div class="formula-card">$${\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}}$$</div></li>
+<li><strong>Gerber Parabola</strong>: Parabolic relation using $S_{ut}$ on the mean stress axis.
+    <div class="formula-card">$${\frac{\sigma_a}{S_e} + \left(\frac{\sigma_m}{S_{ut}}\right)^2 = \frac{1}{N}}$$</div></li>
+<li><strong>Haigh Diagram Comparison</strong>:</li>
+<li>Soderberg line lies entirely inside/below the Goodman and Gerber lines, making it the <strong>safest and most conservative</strong> design criterion.</li>
+<li><strong>Reversed Loading</strong>:</li>
+<li>When $\sigma_m = 0$ (completely reversed load), all three theories converge to the same condition: $\sigma_a = S_e / N$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Soderberg Conservatism</strong>: Soderberg is the most conservative fluctuating-load theory because it uses yield strength $S_{yt}$ instead of ultimate strength $S_{ut}$ on the mean stress axis, preventing any yield failure during operations.</p>
+<p>[!TRAP]
+<strong>Haigh Axis Coordinates</strong>: Alternating stress $\sigma_a$ is plotted on the vertical y-axis, and mean stress $\sigma_m$ is plotted on the horizontal x-axis. Do not invert the axes!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Fluctuating-Load Theory Check?
+├─ Is ultimate strength Sut used with a straight line? → GOODMAN LINE
+├─ Is yield strength Syt used with a straight line? → SODERBERG LINE (Most conservative)
+├─ Is ultimate strength Sut used with a parabolic line? → GERBER PARABOLA
+├─ Is mean stress sigma_m = 0? → ALL converge to sigma_a = Se / N
+└─ Which line is the safest/most conservative? → SODERBERG LINE
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Soderberg: $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}$.</li>
+<li>[ ] Goodman: $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}$.</li>
+<li>[ ] Gerber: $\frac{\sigma_a}{S_e} + \left(\frac{\sigma_m}{S_{ut}}\right)^2 = \frac{1}{N}$.</li>
+<li>[ ] Soderberg is the most conservative.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A steel component has an ultimate tensile strength $S_{ut} = 1000 \text{ MPa}$ and an endurance limit $S_e = 500 \text{ MPa}$. Under operation, it experiences fluctuating stresses with a mean stress $\sigma_m = 200 \text{ MPa}$ and an alternating stress $\sigma_a = 300 \text{ MPa}$. Calculate the factor of safety $N$ using the Goodman criterion.
+- <strong>Solution</strong>:
+  - Apply Goodman equation:
+    <div class="formula-card">$${\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}}$$</div>
+  - Substitute values:
+    <div class="formula-card">$${\frac{300}{500} + \frac{200}{1000} = \frac{1}{N} \implies 0.6 + 0.2 = \frac{1}{N} \implies 0.8 = \frac{1}{N} \implies N = \frac{1}{0.8} = 1.25}$$</div>
+- <strong>Key Insight</strong>: $N = 1.25$. Goodman uses $S_{ut}$ in the denominator of the mean stress term.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A machine plate experiences fluctuating flexural loading varying between $+300 \text{ MPa}$ and $-150 \text{ MPa}$. The ultimate tensile strength is $S_{ut}$, the endurance limit is $0.5 S_{ut}$, and the factor of safety is $2.0$. Calculate the required minimum $S_{ut}$ using the Goodman criterion.
+- <strong>Solution</strong>:
+  - Calculate mean and alternating stresses:
+    <div class="formula-card">$${\sigma_m = \frac{300 + (-150)}{2} = 75 \text{ MPa}}$$</div>
+    <div class="formula-card">$${\sigma_a = \frac{300 - (-150)}{2} = 225 \text{ MPa}}$$</div>
+  - Substitute $S_e = 0.5 S_{ut}$ and $N = 2.0$ into Goodman equation:
+    <div class="formula-card">$${\frac{225}{0.5 S_{ut}} + \frac{75}{S_{ut}} = \frac{1}{2.0}}$$</div>
+    <div class="formula-card">$${\frac{450}{S_{ut}} + \frac{75}{S_{ut}} = 0.5 \implies \frac{525}{S_{ut}} = 0.5 \implies S_{ut} = \frac{525}{0.5} = 1050 \text{ MPa}}$$</div>
+- <strong>Key Insight</strong>: $S_{ut} = 1050 \text{ MPa}$. Calculate $\sigma_m$ and $\sigma_a$ first, then substitute.</p>
+<hr />
+<h3 id="34-notch-sensitivity-fatigue-stress-concentration-factor"><strong>3.4 Notch Sensitivity &amp; Fatigue Stress Concentration Factor</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Notch Sensitivity $q$</strong>:</li>
+<li>Measures how much the fatigue strength of a material is reduced by a geometric notch:
+    <div class="formula-card">$${q = \frac{K_f - 1}{K_t - 1} \quad (0 \le q \le 1)}$$</div></li>
+<li><strong>Fatigue Stress Concentration Factor $K_f$</strong>:</li>
+<li>The actual fatigue reduction factor: $K_f = 1 + q(K_t - 1)$.</li>
+<li>$K_f$ is ALWAYS less than or equal to $K_t$ $K_f \le K_t$.</li>
+<li><strong>Extreme Damping Cases</strong>:</li>
+<li>If $q = 0 \implies K_f = 1.0$ (material is completely insensitive; notch has no fatigue effect).</li>
+<li>If $q = 1 \implies K_f = K_t$ (material has full notch sensitivity).</li>
+<li><strong>Influencing Parameters</strong>:</li>
+<li>$q$ increases as the notch radius becomes smaller (sharper notch) and ultimate strength $S_{ut}$ increases (harder, higher-strength steels are more notch-sensitive).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Notch Sensitivity and Fatigue Limits</strong>: Fatigue stress concentration factor $K_f$ is bounded by $1.0$ and $K_t$. Harder, high-strength steels are more sensitive to notches $q \to 1.0 \implies K_f \to K_t$.</p>
+<p>[!TRAP]
+<strong>Notch Sensitivity Equation Trap</strong>: The notch sensitivity formula is $q = \frac{K_f - 1}{K_t - 1}$. Do not invert the numerator and denominator!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Notch Sensitivity &amp; Fatigue check?
+├─ Is notch sensitivity q = 0? → Kf = 1.0 (No notch fatigue effect)
+├─ Is notch sensitivity q = 1? → Kf = Kt (Full theoretical fatigue concentration)
+├─ Does ultimate strength Sut increase? → Notch sensitivity q increases (Kf gets closer to Kt)
+└─ Does notch radius decrease? → Notch sensitivity q increases
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $q = (K_f - 1)/(K_t - 1)$.</li>
+<li>[ ] $K_f = 1 + q(K_t - 1)$.</li>
+<li>[ ] $K_f \le K_t$.</li>
+<li>[ ] Harder materials have higher $q$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A steel shaft with a notch has a theoretical stress concentration factor $K_t = 1.5$. The notch sensitivity of the material is $q = 0.6$. Calculate the actual fatigue stress concentration factor $K_f$.
+- <strong>Solution</strong>:
+  - Apply the fatigue concentration factor formula:
+    <div class="formula-card">$${K_f = 1 + q \cdot (K_t - 1) = 1 + 0.6 \times (1.5 - 1) = 1 + 0.6 \times 0.5 = 1 + 0.3 = 1.3}$$</div>
+- <strong>Key Insight</strong>: $K_f = 1.3$. Notice that $K_f &lt; K_t$.</p>
+<hr />
+<h3 id="35-endurance-modifiers-fatigue-life-improvement"><strong>3.5 Endurance Modifiers &amp; Fatigue Life Improvement</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Real Component vs Specimen</strong>:</li>
+<li>The endurance limit of a real mechanical part $S_e$ is significantly lower than that of a polished specimen $S_e'$ tested in a lab:
+    <div class="formula-card">$${S_e = k_a k_b k_c k_d k_e S_e'}$$</div></li>
+<li><strong>Key Modifying Factors</strong>:</li>
+<li><strong>Surface Finish Factor $k_a$</strong>: Component surface roughness reduces fatigue strength. Polished surfaces have higher $k_a$ values.</li>
+<li><strong>Size Factor $k_b$</strong>: As component size increases, endurance limit decreases because a larger volume under stress increases the statistical probability of material defects.</li>
+<li><strong>Load Factor $k_d$</strong>: Adjusts for loading mode. Bending $k_d = 1.0$, axial load $k_d = 0.85$, torsion $k_d = 0.59$.</li>
+<li>Load factor for reversed axial load with intermediate bending: $k_d \approx 0.90$ (used in some standard codes).</li>
+<li><strong>Fatigue Life Improvement Methods</strong>:</li>
+<li><strong>Shot Peening</strong>: Blasting tiny steel shot onto the surface creates a cold-worked layer of <strong>compressive residual stress</strong> that delays crack initiation.</li>
+<li><strong>Surface Polishing &amp; Filleting</strong>: Smooth transitions lower $K_t$ and eliminate surface notch defects.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Size Effect on Fatigue</strong>: Larger components have lower endurance limits $k_b &lt; 1.0$ due to a higher likelihood of structural flaws within the larger stressed volume.</p>
+<p>[!TRAP]
+<strong>Fatigue Life Improvement Trap</strong>: Shot peening improves fatigue life by introducing COMPRESSIVE surface stresses, NOT tensile surface stresses! Tensile surface stresses accelerate fatigue cracking.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Fatigue Life Modifiers / Improvement Check?
+├─ Does component size increase? → Size factor kb decreases (Endurance limit Se drops)
+├─ How does Shot Peening work? → Introduces compressive residual surface stress (Increases Se)
+├─ What loading mode has highest Kd? → Bending (Kd = 1.0)
+└─ Does cost affect endurance limit? → NO (Endurance limit is strictly mechanical)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $S_e = k_a k_b k_c k_d k_e S_e'$.</li>
+<li>[ ] Size increases $\implies$ endurance decreases.</li>
+<li>[ ] Bending $k_d = 1.0$; Axial $k_d \approx 0.85$; Torsion $k_d \approx 0.59$.</li>
+<li>[ ] Shot peening: introduces compressive residual stress.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A connecting rod is designed for completely reversed axial loading of $50 \text{ kN}$. The ultimate strength is $S_{ut} = 1000 \text{ MPa}$ $S_e' = 500 \text{ MPa}$. Given $k_a = 0.82$, $k_b = 0.9$, loading factor $k_e = 0.85$, $K_f = 1.3$, and factor of safety $N = 2.0$, determine the minimum diameter of the rod.
+- <strong>Solution</strong>:
+  - Calculate modified endurance limit $S_e$ (using $K_f$ to reduce endurance limit):
+    <div class="formula-card">$${S_e = \frac{k_a \cdot k_b \cdot k_e \cdot S_e'}{K_f} = \frac{0.82 \times 0.9 \times 0.85 \times 500}{1.3} = \frac{313.65}{1.3} \approx 241.27 \text{ MPa}}$$</div>
+  - Completely reversed loading $\sigma_m = 0$ design:
+    <div class="formula-card">$${\sigma_a = \frac{S_e}{N} \implies \sigma_a = \frac{241.27}{2.0} = 120.63 \text{ MPa}}$$</div>
+  - Calculate area and diameter:
+    <div class="formula-card">$${\sigma_a = \frac{P_a}{A} \implies 120.63 = \frac{50000}{\frac{\pi}{4}d^2} \implies d^2 = \frac{50000 \times 4}{120.63 \times \pi} \approx 527.7 \implies d \approx 22.97 \text{ mm}}$$</div>
+  - Round to the nearest standard size: $23 \text{ mm}$.
+- <strong>Key Insight</strong>: $d \approx 23 \text{ mm}$. Apply modifiers and $K_f$ to adjust specimen endurance.</p>
+<hr />
+<h3 id="36-griffith-brittle-fracture-theory"><strong>3.6 Griffith Brittle Fracture Theory</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Griffith Theory of Brittle Fracture</strong>:</li>
+<li>Explains that the theoretical cohesive strength of materials is much higher than observed fracture strength due to micro-cracks.</li>
+<li>Predicts crack propagation occurs when the strain energy release rate exceeds the rate of surface energy increase.</li>
+<li><strong>Fracture Strength Equation</strong>:
+  <div class="formula-card">$${\sigma_f = \sqrt{\frac{2 \cdot E \cdot \gamma}{\pi \cdot c}}}$$</div></li>
+<li>Fracture stress $\sigma_f$ is inversely proportional to the square root of half-crack length $c$ $\sigma_f \propto \frac{1}{\sqrt{c}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Griffith Fracture Relation</strong>: Fracture strength $\sigma_f$ is governed by the crack dimension. Larger flaws drastically lower the stress required to propagate a crack $\sigma_f \propto c^{-1/2}$.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Griffith Brittle Fracture Check?
+├─ Material classification? → BRITTLE
+├─ Internal crack length is 2c? → Use crack half-length 'c' in formula
+└─ Fracture strength relation to crack size? → sigma_f is proportional to 1 / sqrt(c)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\sigma_f = \sqrt{2E\gamma / \pi c}$.</li>
+<li>[ ] Applies to brittle fracture.</li>
+<li>[ ] Fracture stress $\sigma_f \propto c^{-1/2}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A glass plate has a modulus of elasticity $E = 70 \text{ GPa}$, surface energy $\gamma = 1.0 \text{ J/m}^2$, and contains an internal crack of length $2c = 4 \mu\text{m}$. Calculate the critical fracture stress $\sigma_f$ using Griffith's theory.
+- <strong>Solution</strong>:
+  - Internal crack length $= 2c = 4 \mu\text{m} \implies c = 2 \mu\text{m} = 2 \times 10^{-6} \text{ m}$.
+  - Substitute values into Griffith equation:
+    <div class="formula-card">$${\sigma_f = \sqrt{\frac{2 \cdot E \cdot \gamma}{\pi \cdot c}} = \sqrt{\frac{2 \times (70 \times 10^9) \times 1.0}{\pi \times (2 \times 10^{-6})}} = \sqrt{\frac{140 \times 10^9}{6.283 \times 10^{-6}}} = \sqrt{2.228 \times 10^{16}} \approx 149.26 \text{ MPa}}$$</div>
+- <strong>Key Insight</strong>: $\sigma_f \approx 149.26 \text{ MPa}$. Use crack half-length $c = 2 \mu\text{m}$ (not the full crack length $2c$).</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Define stress concentration. How is it calculated?</strong><br />
+A: Stress concentration is the high local stress near cross-section geometry changes. Calculated as $K_t = \sigma_{\text{max}}/\sigma_{\text{nom}}$.</p>
+<p><strong>Q2: Contrast static stress concentration behavior in ductile vs brittle materials.</strong><br />
+A: In brittle materials, stress concentration is dangerous and can lead to sudden fracture. In ductile materials, local yielding redistributes stress, making it harmless under static load.</p>
+<p><strong>Q3: What is the theoretical stress concentration factor $K_t$ for a circular hole in an infinite plate under tension?</strong><br />
+A: $K_t = 3.0$.</p>
+<p><strong>Q4: Define endurance limit $S_e$ in fatigue.</strong><br />
+A: The maximum amplitude of completely reversed bending stress that a material can withstand for infinite cycles ($N \ge 10^6$ for steels) without failure.</p>
+<p><strong>Q5: At approximately how many cycles does the S-N curve for steel become asymptotic?</strong><br />
+A: Near $10^6$ cycles.</p>
+<p><strong>Q6: Differentiate between low-cycle and high-cycle fatigue.</strong><br />
+A: Low-cycle fatigue occurs at high stresses with plastic strain under $10^3$ cycles. High-cycle fatigue occurs at lower stresses in the elastic range above $10^3$ cycles.</p>
+<p><strong>Q7: Write the Soderberg straight-line equation for fluctuating loads.</strong><br />
+A: $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}$.</p>
+<p><strong>Q8: Write the Goodman straight-line equation for fluctuating loads.</strong><br />
+A: $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}$.</p>
+<p><strong>Q9: Why is the Soderberg criterion considered the most conservative?</strong><br />
+A: Because it uses yield strength $S_{yt}$ on the mean stress axis, which is lower than ultimate strength $S_{ut}$, thereby preventing any yielding.</p>
+<p><strong>Q10: Define notch sensitivity $q$ and state its mathematical formula.</strong><br />
+A: A measure of the sensitivity of a material to notches under fatigue: $q = \frac{K_f - 1}{K_t - 1}$.</p>
+<p><strong>Q11: Under what condition does $K_f = 1.0$? What does it mean?</strong><br />
+A: When $q = 0$. It means the material is insensitive to notches, and the notch has no reducing effect on fatigue strength.</p>
+<p><strong>Q12: Why does the size of a component reduce its endurance limit?</strong><br />
+A: Because larger components contain a larger volume of material, increasing the statistical probability of micro-defects.</p>
+<p><strong>Q13: How does shot peening improve the fatigue life of a component?</strong><br />
+A: By bombarding the surface with small steel shot, which cold-works the surface layer and introduces beneficial compressive residual stresses that delay crack initiation.</p>
+<p><strong>Q14: Where do fatigue cracks usually initiate in a machine element?</strong><br />
+A: At the surface, where cyclic stresses are highest and surface defects exist.</p>
+<p><strong>Q15: State Griffith's critical brittle fracture stress equation.</strong><br />
+A: $\sigma_f = \sqrt{\frac{2E\gamma}{\pi c}}$, where $c$ is the crack half-length.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Stress Concentration</strong>: $K_t = \sigma_{\text{max}}/\sigma_{\text{nom}}$.</li>
+<li>Danger: Brittle (dangerous under static), Ductile (ignored under static).</li>
+<li>Central Hole Plate: $K_t = 3.0 \implies \sigma_{\text{max}} = 3f$.</li>
+<li><strong>S-N Diagram</strong>: Steel flattens at $10^6$ cycles. Non-ferrous has no flat asymptote.</li>
+<li>Crack initiation always occurs at the surface.</li>
+<li><strong>Fluctuating-Load Criteria</strong>:</li>
+<li>Soderberg (conservative, yield-based): $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}$.</li>
+<li>Goodman (ultimate-based): $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}$.</li>
+<li>Gerber (parabolic, ultimate-based): $\frac{\sigma_a}{S_e} + \left(\frac{\sigma_m}{S_{ut}}\right)^2 = \frac{1}{N}$.</li>
+<li>If $\sigma_m = 0 \implies \sigma_a = S_e / N$.</li>
+<li><strong>Notch Sensitivity</strong>: $q = \frac{K_f - 1}{K_t - 1}$. $K_f = 1 + q(K_t - 1)$. $K_f \le K_t$.</li>
+<li>Harder materials have higher $q$ (closer to $K_t$).</li>
+<li><strong>Endurance Limit Modifiers</strong>: $S_e = k_a k_b k_c k_d k_e S_e'$.</li>
+<li>Size effect: larger component $\implies$ lower endurance limit.</li>
+<li>Loading: Bending $k_d=1.0$, Axial $k_d \approx 0.85$, Torsion $k_d \approx 0.59$.</li>
+<li>Axial load + bending modifier: $k_d \approx 0.90$.</li>
+<li><strong>Fatigue Life Improvement</strong>: Shot peening (most effective, creates compressive surface stresses). Surface polishing increases $k_a$.</li>
+<li><strong>Griffith Theory</strong>: $\sigma_f = \sqrt{\frac{2E\gamma}{\pi c}}$ (for brittle fracture, uses crack half-length $c$).</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $K_t = 3.0$ for circular hole in tension.</li>
+<li>[ ] Memorize Stress concentration is dangerous only for brittle materials under static load.</li>
+<li>[ ] Memorize Steel endurance asymptote cycle limit is $10^6$ cycles.</li>
+<li>[ ] Memorize Non-ferrous alloys have no true endurance limit.</li>
+<li>[ ] Memorize Fatigue cracks initiate at the surface.</li>
+<li>[ ] Memorize Soderberg equation $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{yt}} = \frac{1}{N}$ and that it is the most conservative.</li>
+<li>[ ] Memorize Goodman equation $\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} = \frac{1}{N}$.</li>
+<li>[ ] Memorize Gerber equation $\frac{\sigma_a}{S_e} + \left(\frac{\sigma_m}{S_{ut}}\right)^2 = \frac{1}{N}$.</li>
+<li>[ ] Memorize $q = \frac{K_f - 1}{K_t - 1}$ notch sensitivity.</li>
+<li>[ ] Memorize $K_f \le K_t$ always.</li>
+<li>[ ] Memorize Harder materials are more notch-sensitive $q \to 1.0$.</li>
+<li>[ ] Memorize Larger component sizes reduce the endurance limit $k_b \downarrow$.</li>
+<li>[ ] Memorize Shot peening works by introducing compressive residual surface stresses.</li>
+<li>[ ] Memorize Griffith equation $\sigma_f = \sqrt{2E\gamma/\pi c}$ using crack half-length $c$.</li>
+</ul>
+</body>
+</html>

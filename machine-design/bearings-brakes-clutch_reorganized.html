@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design of Bearings, Brakes & Clutches — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Machine Design Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="design-of-bearings-brakes-clutches-comprehensive-reorganized-study-guide">Design of Bearings, Brakes &amp; Clutches — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Bearings (rolling contact bearings: ball, roller, needle, tapered, spherical, basic rating life $L_{10} = \left(\frac{C}{P_e}\right)^k \times 10^6$, load-life relation $L \propto 1/P^3$, equivalent radial load $P_e = X F_r + Y F_a$, bearing designation series, bore diameter calculation, journal/sliding bearings: hydrodynamic wedge action, hydrostatic pump supply, Petroff's friction equation $f = \frac{2\pi^2 \mu N}{P}\left(\frac{r}{c}\right)$, bearing characteristic number $ZN/P$, clearance $1 \mu\text{m/mm}$, $L/D$ ratio $1 - 2$), Brakes (block/shoe brakes, short shoe $2\theta &lt; 60^\circ$ normal $\mu$, long shoe $2\theta &gt; 60^\circ$ equivalent friction $\mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$, braking torque $T = F_r \times R$, shoe width ratio $0.25 - 0.50$, internal expanding shoe brake for motor cars, mechanical parking brakes), and Clutches (friction clutches: uniform wear theory $T = \mu W R_m$ with $R_m = \frac{r_1+r_2}{2}$ for safe design, uniform pressure theory $T = \frac{2}{3} \mu W \left(\frac{r_1^3-r_2^3}{r_1^2-r_2^2}\right)$ for new clutches, multi-plate contact pairs $n_1 + n_2 - 1$, centrifugal clutch initial $F_{\text{cf}} = F_{\text{spring}}$ and running net force $F_{\text{cf}} - F_{\text{spring}}$, vehicle applications: single-plate for trucks, multi-plate for scooters, jaw clutch for positive drive, cone clutch coaxiality obsolescence) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-rolling-contact-bearings"><strong>1. Rolling Contact Bearings</strong></h4>
+<ul>
+<li><strong>Basic Rating Life $L_{10}$</strong>:
+  <div class="formula-card">$${\boxed{L_{10} = \left( \frac{C}{P_e} \right)^k \times 10^6 \quad (\text{revolutions})}}$$</div></li>
+<li>$C$: basic dynamic load rating $\text{N}$</li>
+<li>$P_e$: equivalent radial dynamic load $\text{N}$</li>
+<li>
+<p>$k = 3.0$ for ball bearings; $k = \frac{10}{3} = 3.33$ for roller bearings</p>
+</li>
+<li>
+<p><strong>Load–Life Proportionality (Ball Bearings)</strong>:
+  <div class="formula-card">$${\boxed{L \propto \frac{1}{P^3} \implies L_1 \cdot P_1^3 = L_2 \cdot P_2^3}}$$</div></p>
+</li>
+<li>Doubling load $2P$ $\implies$ Life drops to $\mathbf{1/8^{\text{th}}}$ of original $L/8$.</li>
+<li>
+<p>Halving load $P/2$ $\implies$ Life increases to $\mathbf{8\times}$ original $8L$.</p>
+</li>
+<li>
+<p><strong>Equivalent Radial Load $P_e$</strong>:
+  <div class="formula-card">$${\boxed{P_e = X \cdot F_r + Y \cdot F_a \quad (\text{N})}}$$</div></p>
+</li>
+<li>$F_r$: radial load component $\text{N}$</li>
+<li>$F_a$: axial (thrust) load component $\text{N}$</li>
+<li>
+<p>$X, Y$: radial and axial load factors</p>
+</li>
+<li>
+<p><strong>Bearing Designation System</strong>:
+  <div class="formula-card">$${\text{Bearing Number Format: } X X Y Y \implies \text{Bore Diameter } d = Y Y \times 5 \quad (\text{mm})}$$</div></p>
+</li>
+<li>Example: Bearing $408 \implies$ Heavy series $4$, Bore diameter $= 08 \times 5 = 40 \text{ mm}$.</li>
+</ul>
+<hr />
+<h4 id="2-journal-sliding-bearings"><strong>2. Journal / Sliding Bearings</strong></h4>
+<ul>
+<li><strong>Petroff's Equation for Coefficient of Friction $f$</strong>:
+  <div class="formula-card">$${\boxed{f = 2\pi^2 \cdot \left(\frac{\mu \cdot N}{P}\right) \cdot \left(\frac{r}{c}\right)}}$$</div></li>
+<li>$\mu$: dynamic viscosity ($\text{Pa}\cdot\text{s}$ or $\text{Ns/m}^2$)</li>
+<li>$N$: shaft speed $\text{rev/s}$</li>
+<li>$P$: bearing pressure on projected area ($P = \frac{W}{d \cdot \ell}$, $\text{N/m}^2$)</li>
+<li>
+<p>$r$: shaft radius $\text{m}$, $c$: radial clearance $\text{m}$</p>
+</li>
+<li>
+<p><strong>Bearing Characteristic Number</strong>:
+  <div class="formula-card">$${\boxed{\text{Bearing Characteristic Number} = \frac{Z \cdot N}{P}}}$$</div></p>
+</li>
+<li>$Z$: viscosity $\text{cP}$, $N$: speed $\text{rpm}$, $P$: bearing pressure $\text{MPa}$</li>
+<li>
+<p>Hydrodynamic lubrication regime requires operating above the critical value $(ZN/P)_{\text{crit}}$.</p>
+</li>
+<li>
+<p><strong>Standard Journal Design Parameters</strong>:</p>
+</li>
+<li>Radial Clearance: $\boxed{\frac{c}{r} \approx 0.001 \implies 1 \mu\text{m per mm of diameter}}$</li>
+<li>Length-to-Diameter Ratio: $\boxed{\frac{L}{D} \in [1.0, 2.0]}$</li>
+</ul>
+<hr />
+<h4 id="3-brakes"><strong>3. Brakes</strong></h4>
+<ul>
+<li><strong>Equivalent Coefficient of Friction $\mu_{\text{eq}}$ for Long Shoe Brake $2\theta &gt; 60^\circ$</strong>:
+  <div class="formula-card">$${\boxed{\mu_{\text{eq}} = \frac{4 \cdot \mu \cdot \sin\theta}{2\theta + \sin 2\theta}}}$$</div></li>
+<li>$\mu$: actual coefficient of friction</li>
+<li>$\theta$: half angle of contact ($\text{radians}$ in denominator!)</li>
+<li>
+<p>$2\theta$: total angle of contact ($2\theta &gt; 60^\circ \implies$ long shoe)</p>
+</li>
+<li>
+<p><strong>Braking Torque $T$</strong>:
+  <div class="formula-card">$${\boxed{T = F_r \cdot R = \mu_{\text{eq}} \cdot R_n \cdot R \quad (\text{N}\cdot\text{m})}}$$</div></p>
+</li>
+<li>$F_r$: friction force on drum surface ($F_r = \mu_{\text{eq}} R_n$, $\text{N}$)</li>
+<li>
+<p>$R_n$: normal force on shoe $\text{N}$, $R$: drum radius $\text{m}$</p>
+</li>
+<li>
+<p><strong>Block Brake Design Proportion</strong>:
+  <div class="formula-card">$${\boxed{\text{Shoe Width } b = (0.25 \text{ to } 0.50) \cdot D}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-clutches"><strong>4. Clutches</strong></h4>
+<ul>
+<li><strong>Uniform Wear Theory (Safe Design / Worn Clutch)</strong>:
+  <div class="formula-card">$${\boxed{T = \mu \cdot W \cdot R_m \cdot n \quad (\text{N}\cdot\text{m})}}$$</div>
+  <div class="formula-card">$${\boxed{R_m = \frac{r_1 + r_2}{2} \quad (\text{m})}}$$</div></li>
+<li>$W$: total axial clamping force $\text{N}$</li>
+<li>$r_1, r_2$: outer and inner radii of friction disc $\text{m}$</li>
+<li>
+<p>$n$: number of active pairs of contact surfaces</p>
+</li>
+<li>
+<p><strong>Uniform Pressure Theory (New Clutch)</strong>:
+  <div class="formula-card">$${\boxed{T = \frac{2}{3} \cdot \mu \cdot W \left( \frac{r_1^3 - r_2^3}{r_1^2 - r_2^2} \right) \cdot n \quad (\text{N}\cdot\text{m})}}$$</div></p>
+</li>
+<li>
+<p><strong>Multi-Plate Clutch Contact Pairs $n$</strong>:
+  <div class="formula-card">$${\boxed{n = n_1 + n_2 - 1}}$$</div></p>
+</li>
+<li>$n_1$: number of discs on driving shaft</li>
+<li>
+<p>$n_2$: number of discs on driven shaft</p>
+</li>
+<li>
+<p><strong>Centrifugal Clutch Shoe Engagement</strong>:</p>
+</li>
+<li>Initial engagement speed $N_1$: $\boxed{F_{\text{cf}} = F_{\text{spring}}}$</li>
+<li>Running speed $N_2 &gt; N_1$: $\boxed{\text{Net Pressing Force } F_{\text{net}} = F_{\text{cf}} - F_{\text{spring}}}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Basic Rating Life $L_{10}$</strong>: The number of revolutions (or hours at constant speed) that $90\%$ of a group of identical bearings will achieve or exceed before the first evidence of fatigue flaking occurs.</li>
+<li><strong>Hydrodynamic Bearing</strong>: A sliding contact bearing in which the load is supported entirely by self-generated fluid pressure within a converging wedge of oil created by shaft rotation.</li>
+<li><strong>Hydrostatic Bearing</strong>: A sliding contact bearing in which highly pressurized lubricant is supplied from an external pump, providing full fluid film support even at zero shaft speed.</li>
+<li><strong>Petroff's Equation</strong>: An analytical formula derived assuming a concentric shaft and uniform clearance, used to determine the coefficient of friction in lightly loaded high-speed journal bearings.</li>
+<li><strong>Long Shoe Brake</strong>: A shoe brake where the total angle of contact $2\theta &gt; 60^\circ$. Pressure distribution is non-uniform, requiring the use of equivalent coefficient of friction $\mu_{\text{eq}}$.</li>
+<li><strong>Internal Expanding Shoe Brake</strong>: An automotive drum brake mechanism containing internal shoes expanded outwards against the drum by a cam or wheel cylinder; self-energizing and provides high braking torque.</li>
+<li><strong>Uniform Wear Theory</strong>: Clutch design assumption that wear rate $p \cdot r$ is constant across the friction surface. Preferred for safe engineering design because it yields a lower, conservative torque rating.</li>
+<li><strong>Uniform Pressure Theory</strong>: Clutch design assumption that pressure $p$ is uniform across the entire friction surface; applies strictly to new, unworn clutch plates.</li>
+<li><strong>Jaw (Positive) Clutch</strong>: A mechanical clutch that transmits torque through interlocking metal jaws with zero slip.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Long Shoe Angle Threshold</strong>: $2\theta &gt; 60^\circ$ $1.047 \text{ rad}$.</li>
+<li><strong>Journal Clearance Ratio</strong>: $c/d \approx 0.001$ $1 \mu\text{m/mm}$.</li>
+<li><strong>Journal L/D Ratio</strong>: $1.0$ to $2.0$.</li>
+<li><strong>Block Brake Width Ratio</strong>: $b/D = 0.25 - 0.50$.</li>
+<li><strong>Ball Bearing Life Exponent</strong>: $k = 3.0$.</li>
+<li><strong>Roller Bearing Life Exponent</strong>: $k = 10/3 \approx 3.33$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Rolling Contact Bearings &amp; Life Calculations</strong>: §3.1.</li>
+<li><strong>Journal Bearings (Hydrodynamic &amp; Hydrostatic)</strong>: §3.2.</li>
+<li><strong>Shoe &amp; Automotive Brakes</strong>: §3.3.</li>
+<li><strong>Friction Clutches (Uniform Wear vs Uniform Pressure)</strong>: §3.4.</li>
+<li><strong>Multi-Plate, Centrifugal &amp; Special Clutches</strong>: §3.5.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-rolling-contact-bearings-life-calculations"><strong>3.1 Rolling Contact Bearings &amp; Life Calculations</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Load-Life Relationship</strong>:</li>
+<li>Ball bearings: $L \propto \frac{1}{P^3}$.</li>
+<li>Roller bearings: $L \propto \frac{1}{P^{10/3}}$.</li>
+<li>Doubling load $P_2 = 2P_1$ $\implies L_2 = \frac{L_1}{2^3} = \frac{L_1}{8}$.</li>
+<li>Halving load $P_2 = 0.5P_1$ $\implies L_2 = \frac{L_1}{(0.5)^3} = 8 L_1$.</li>
+<li><strong>Equivalent Radial Load $P_e$</strong>:</li>
+<li>Combines radial force $F_r$ and axial force $F_a$ into a single equivalent radial load: $P_e = X F_r + Y F_a$.</li>
+<li><strong>Bearing Designations</strong>:</li>
+<li>Last two digits $\times 5 =$ Bore diameter in mm.</li>
+<li>Series codes: $100$ (extra light), $200$ (light), $300$ (medium), $400$ (heavy).</li>
+<li>Example: Bearing $408 \implies 400$ series (heavy), bore $= 08 \times 5 = 40 \text{ mm}$.</li>
+<li><strong>Bearing Type Applications</strong>:</li>
+<li>Deep Groove Ball Bearing: Combined radial &amp; thrust load at high speeds.</li>
+<li>Tapered Roller Bearing: Heavy radial &amp; high axial thrust loads (vehicle wheel hubs).</li>
+<li>Spherical Roller Bearing: High radial load + self-aligning for angular shaft misalignment.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Load-Life Cube Rule for Ball Bearings</strong>: Bearing life is inversely proportional to the CUBE of equivalent load $L \propto 1/P^3$. Doubling the load reduces bearing life to 1/8th of its original value!</p>
+<p>[!TRAP]
+<strong>Bearing Designation Bore Code</strong>: Last two digits multiplied by 5 gives the bore diameter in mm (e.g., $08 \times 5 = 40 \text{ mm}$). Do not mistake 08 directly for 8 mm or 80 mm!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Rolling Contact Bearing Selection Check?
+├─ Is load purely Radial at high speed? → DEEP GROOVE BALL BEARING
+├─ Is there heavy Axial Thrust load? → TAPERED ROLLER BEARING
+├─ Is there Angular Shaft Misalignment? → SPHERICAL ROLLER BEARING
+├─ How does Life change if load is doubled (Ball Bearing)? → Drops to 1/8th (L2 = L1 / 8)
+└─ How to find bore from 408 code? → Last two digits (08) * 5 = 40 mm
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Ball bearing life $L \propto 1/P^3$.</li>
+<li>[ ] Roller bearing life $L \propto 1/P^{10/3}$.</li>
+<li>[ ] $P_e = X F_r + Y F_a$.</li>
+<li>[ ] Bore diameter $= \text{last two digits} \times 5$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A ball bearing operating under a radial load of $8 \text{ kN}$ has a rated life of $8000 \text{ hours}$. If the load is increased to $16 \text{ kN}$ while keeping the speed constant, calculate the new expected bearing life.
+- <strong>Solution</strong>:
+  - Apply load-life relation for ball bearings:
+    <div class="formula-card">$${\frac{L_2}{L_1} = \left(\frac{P_1}{P_2}\right)^3}$$</div>
+  - Substitute values ($P_1 = 8 \text{ kN}$, $P_2 = 16 \text{ kN}$, $L_1 = 8000 \text{ hrs}$):
+    <div class="formula-card">$${\frac{L_2}{8000} = \left(\frac{8}{16}\right)^3 = \left(\frac{1}{2}\right)^3 = \frac{1}{8}}$$</div>
+    <div class="formula-card">$${L_2 = \frac{8000}{8} = 1000 \text{ hours}}$$</div>
+- <strong>Key Insight</strong>: $L_2 = 1000 \text{ hours}$. Doubling load reduces life to $1/8^{\text{th}}$.</p>
+<hr />
+<h3 id="32-journal-sliding-contact-bearings"><strong>3.2 Journal (Sliding Contact) Bearings</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Hydrodynamic vs Hydrostatic</strong>:</li>
+<li>Hydrodynamic: Oil film pressure is self-generated by rotation (converging oil wedge).</li>
+<li>Hydrostatic: External pump supplies pressurized lubricant; supports load even at $N=0$.</li>
+<li><strong>Bearing Characteristic Number $ZN/P$</strong>:</li>
+<li>Dimensionless group ($Z$: viscosity in cP, $N$: speed in rpm, $P$: pressure in MPa).</li>
+<li>Stable hydrodynamic operation requires $ZN/P &gt; (ZN/P)_{\text{crit}}$.</li>
+<li><strong>Clearance &amp; Length Ratios</strong>:</li>
+<li>Radial clearance $c/r \approx 0.001 \implies 1 \mu\text{m per mm of diameter}$.</li>
+<li>Length to diameter ratio $L/D = 1.0 \text{ to } 2.0$ (best compromise between leakage and load capacity).</li>
+<li><strong>Petroff's Equation</strong>:</li>
+<li>Gives friction coefficient for lightly loaded, concentric journal bearings:
+    <div class="formula-card">$${f = 2\pi^2 \left(\frac{\mu N}{P}\right)\left(\frac{r}{c}\right)}$$</div></li>
+<li><strong>Projected Area Pressure</strong>:</li>
+<li>Bearing pressure $P = \frac{W}{d \cdot \ell}$ $\text{N/mm}^2$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Hydrodynamic vs Hydrostatic Principle</strong>: Hydrodynamic bearings generate oil pressure via shaft rotation (wedge action). Hydrostatic bearings rely on an EXTERNAL PUMP to supply pressure regardless of speed.</p>
+<p>[!TRAP]
+<strong>Journal Pressure Area</strong>: Journal bearing pressure uses projected area $d \cdot \ell$, NOT circular area $\frac{\pi}{4}d^2$!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Journal Bearing Design Check?
+├─ Is pressure generated internally by shaft rotation? → HYDRODYNAMIC BEARING
+├─ Is pressure supplied by an external pump? → HYDROSTATIC BEARING
+├─ What area is used for bearing pressure P = W / Area? → PROJECTED AREA (d * length)
+├─ Standard clearance per mm diameter? → 1 micron per mm (c/r = 0.001)
+└─ Optimum L/D ratio? → 1.0 to 2.0
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Hydrodynamic: self-generated oil wedge.</li>
+<li>[ ] Hydrostatic: external pump.</li>
+<li>[ ] Petroff: $f = 2\pi^2 (\mu N/P)(r/c)$.</li>
+<li>[ ] Projected area $= d \cdot \ell$.</li>
+<li>[ ] Clearance $= 1 \mu\text{m/mm}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A hydrodynamic journal bearing of diameter $d = 30 \text{ mm}$ supports a maximum radial load $W = 1.8 \text{ kN}$. If the allowable bearing pressure is $P = 6 \text{ N/mm}^2$, determine the required length $\ell$ of the bearing.
+- <strong>Solution</strong>:
+  - Calculate bearing pressure on projected area:
+    <div class="formula-card">$${P = \frac{W}{d \cdot \ell} \implies 6 = \frac{1800}{30 \times \ell}}$$</div>
+    <div class="formula-card">$${180 \cdot \ell = 1800 \implies \ell = \frac{1800}{180} = 10 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $\ell = 10 \text{ mm}$. Use projected area $d \cdot \ell = 30 \times \ell$.</p>
+<hr />
+<h3 id="33-shoe-automotive-brakes"><strong>3.3 Shoe &amp; Automotive Brakes</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Short Shoe vs Long Shoe Brakes</strong>:</li>
+<li>Short Shoe $2\theta &lt; 60^\circ$: Pressure assumed uniform across contact arc; actual coefficient of friction $\mu$ is used.</li>
+<li>Long Shoe $2\theta &gt; 60^\circ$: Pressure is non-uniform; equivalent coefficient of friction $\mu_{\text{eq}}$ MUST be used:
+    <div class="formula-card">$${\mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}}$$</div></li>
+<li><strong>Braking Torque</strong>:</li>
+<li>Torque on drum $T = F_r \cdot R = \mu_{\text{eq}} \cdot R_n \cdot R$.</li>
+<li>Depends on friction force at drum surface $\times$ drum radius.</li>
+<li><strong>Block Brake Width Ratio</strong>:</li>
+<li>Shoe width $b$ is designed to be $0.25d$ to $0.50d$ ($d =$ drum diameter).</li>
+<li><strong>Internal Expanding Shoe Brake</strong>:</li>
+<li>Most common brake in motor cars and two-wheelers. Contains internal shoes pushed outwards against the drum by a wheel cylinder/cam; provides self-energizing action.</li>
+<li><strong>Parking Brake</strong>:</li>
+<li>Operated <strong>mechanically</strong> for safety reliability.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Long Shoe Brake 60° Rule</strong>: When total contact angle $2\theta &gt; 60^\circ$, pressure varies across the arc, requiring equivalent friction coefficient $\mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$.</p>
+<p>[!TRAP]
+<strong>Braking Torque Radius</strong>: Braking torque $T = \text{Friction Force } (F_r) \times \text{Drum Radius } (R)$. Do not multiply normal force directly by radius without coefficient of friction!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Brake Design / Type Check?
+├─ Is total angle of contact 2*theta &gt; 60 deg? → LONG SHOE (Use equivalent mu_eq)
+├─ Is total angle of contact 2*theta &lt; 60 deg? → SHORT SHOE (Use actual mu)
+├─ Most common service brake in cars/motorcycles? → INTERNAL EXPANDING SHOE BRAKE
+├─ Parking brake operation method? → MECHANICAL
+└─ Block brake shoe width ratio b/D? → 0.25 to 0.50
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $2\theta &gt; 60^\circ \implies \mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$.</li>
+<li>[ ] Torque $T = \mu_{\text{eq}} R_n R$.</li>
+<li>[ ] Block brake width $b = (0.25 - 0.50)D$.</li>
+<li>[ ] Automobile service brake: internal expanding shoe.</li>
+<li>[ ] Parking brake: mechanical.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A block brake has a drum diameter $D = 300 \text{ mm}$ (radius $R = 150 \text{ mm}$) and a total contact angle $2\theta = 90^\circ$ $\theta = 45^\circ = 0.7854 \text{ rad}$. The actual friction coefficient is $\mu = 0.35$. Calculate the equivalent coefficient of friction $\mu_{\text{eq}}$.
+- <strong>Solution</strong>:
+  - Convert $\theta = 45^\circ \implies \sin 45^\circ = 0.7071$, $2\theta = \frac{\pi}{2} \approx 1.5708 \text{ rad}$, $\sin 2\theta = \sin 90^\circ = 1.0$.
+  - Apply equivalent friction formula:
+    <div class="formula-card">$${\mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta} = \frac{4 \times 0.35 \times 0.7071}{1.5708 + 1.0} = \frac{0.9900}{2.5708} \approx 0.385}$$</div>
+- <strong>Key Insight</strong>: $\mu_{\text{eq}} \approx 0.385$. Since $2\theta = 90^\circ &gt; 60^\circ$, $\mu_{\text{eq}}$ is higher than actual $\mu = 0.35$.</p>
+<hr />
+<h3 id="34-friction-clutches-uniform-wear-vs-uniform-pressure"><strong>3.4 Friction Clutches: Uniform Wear vs Uniform Pressure</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Uniform Wear Theory (Safe Design / Worn Clutch)</strong>:</li>
+<li>Assumes wear rate $p \cdot r = \text{constant}$.</li>
+<li>Pressure is maximum at inner radius $r_2$ and minimum at outer radius $r_1$.</li>
+<li>Mean radius: $R_m = \frac{r_1 + r_2}{2}$.</li>
+<li>Torque capacity: $T = \mu W R_m n$.</li>
+<li><strong>Preferred for safe engineering design</strong> because it gives a lower, conservative torque rating.</li>
+<li><strong>Uniform Pressure Theory (New Clutch)</strong>:</li>
+<li>Assumes pressure $p = \text{constant}$ across the disc.</li>
+<li>Mean radius: $R_m = \frac{2}{3}\left(\frac{r_1^3 - r_2^3}{r_1^2 - r_2^2}\right)$.</li>
+<li>Torque capacity: $T = \frac{2}{3} \mu W \left(\frac{r_1^3 - r_2^3}{r_1^2 - r_2^2}\right) n$.</li>
+<li>Applies ONLY to brand-new, unworn clutch plates.</li>
+<li><strong>Theory Comparison</strong>:</li>
+<li>Uniform wear theory gives <strong>LOWER</strong> torque capacity than uniform pressure theory for the same dimensions and axial load $T_{\text{wear}} &lt; T_{\text{pressure}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Clutch Safe Design Preference</strong>: Clutches are ALWAYS designed assuming UNIFORM WEAR ($T = \mu W R_m$ with $R_m = \frac{r_1+r_2}{2}$) because worn plates yield a lower, safer torque capacity than new plates.</p>
+<p>[!TRAP]
+<strong>Clutch Theory Mean Radius</strong>:
+- Uniform Wear: $R_m = \frac{r_1 + r_2}{2}$.
+- Uniform Pressure: $R_m = \frac{2}{3}\left(\frac{r_1^3 - r_2^3}{r_1^2 - r_2^2}\right)$.
+Do not mix up the mean radius formulas!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Clutch Theory Selection Check?
+├─ Is question asking for Safe Engineering Design / Used Clutch? → UNIFORM WEAR THEORY (Rm = (r1+r2)/2)
+├─ Is question explicitly specifying a Brand New unworn clutch? → UNIFORM PRESSURE THEORY
+├─ Which theory gives lower (conservative) torque capacity? → UNIFORM WEAR THEORY
+└─ Does torque capacity increase with mean radius Rm? → YES (T is directly proportional to Rm)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Uniform wear: $p \cdot r = \text{const}$, $R_m = \frac{r_1+r_2}{2}$.</li>
+<li>[ ] Uniform pressure: $p = \text{const}$, $R_m = \frac{2}{3}\left(\frac{r_1^3-r_2^3}{r_1^2-r_2^2}\right)$.</li>
+<li>[ ] Safe design $\implies$ uniform wear.</li>
+<li>[ ] $T_{\text{wear}} &lt; T_{\text{pressure}}$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A single plate clutch with effective friction surfaces on both sides $n = 2$ has an outer radius $r_1 = 15 \text{ cm} = 0.15 \text{ m}$ and inner radius $r_2 = 10 \text{ cm} = 0.10 \text{ m}$. The axial clamping force is $W = 1 \text{ kN} = 1000 \text{ N}$ and coefficient of friction $\mu = 0.5$. Calculate the torque transmitted assuming uniform wear theory.
+- <strong>Solution</strong>:
+  - Calculate mean radius $R_m$ under uniform wear:
+    <div class="formula-card">$${R_m = \frac{r_1 + r_2}{2} = \frac{0.15 + 0.10}{2} = 0.125 \text{ m}}$$</div>
+  - Calculate torque capacity ($n = 2$ for both sides effective):
+    <div class="formula-card">$${T = \mu \cdot W \cdot R_m \cdot n = 0.5 \times 1000 \times 0.125 \times 2 = 125 \text{ N}\cdot\text{m}}$$</div>
+- <strong>Key Insight</strong>: $T = 125 \text{ N}\cdot\text{m}$. Both sides effective doubles the torque capacity $n=2$.</p>
+<hr />
+<h3 id="35-multi-plate-centrifugal-special-clutches"><strong>3.5 Multi-Plate, Centrifugal &amp; Special Clutches</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Multi-Plate Clutch Pairs</strong>:</li>
+<li>Number of active contact pairs: $n = n_1 + n_2 - 1$.</li>
+<li>Used in motorcycles/scooters where high torque capacity is required within a small radial space.</li>
+<li>Wet multi-plate clutches use oil to dissipate heat generated during slipping.</li>
+<li><strong>Centrifugal Clutch</strong>:</li>
+<li>Operates automatically based on engine speed.</li>
+<li>Initial engagement speed $N_1$: Centrifugal force equals spring force $F_{\text{cf}} = F_{\text{spring}}$.</li>
+<li>Running operating speed $N_2 &gt; N_1$: Net force pressing against drum $= F_{\text{cf}} - F_{\text{spring}}$.</li>
+<li><strong>Vehicle Application Matching</strong>:</li>
+<li>Single Plate Clutch $\implies$ Trucks / Buses (robust, simple heat dissipation).</li>
+<li>Multi-Plate Clutch $\implies$ Motorcycles / Scooters (compact radial dimensions).</li>
+<li>Jaw (Positive) Clutch $\implies$ Direct positive drive with zero slip.</li>
+<li>Cone Clutch $\implies$ Obsolete due to strict coaxiality requirements.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Multi-Plate Contact Surfaces</strong>: Number of active friction pairs is $n = n_1 + n_2 - 1$ (one less than total plates because end plates contact on one side only).</p>
+<p>[!TRAP]
+<strong>Centrifugal Clutch Net Force</strong>: In running condition, the force pressing shoes against the drum is $F_{\text{cf}} - F_{\text{spring}}$, NOT $F_{\text{cf}}$ alone!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Clutch Type &amp; Application Check?
+├─ What is number of friction pairs for n1 and n2 discs? → n = n1 + n2 - 1
+├─ Clutch type for Trucks/Buses? → SINGLE PLATE CLUTCH
+├─ Clutch type for Motorcycles/Scooters? → MULTI-PLATE CLUTCH
+├─ Clutch for positive drive with zero slip? → JAW (POSITIVE) CLUTCH
+└─ Centrifugal clutch running net force? → F_cf - F_spring
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Multi-plate pairs $n = n_1 + n_2 - 1$.</li>
+<li>[ ] Centrifugal engagement: $F_{\text{cf}} = F_{\text{spring}}$.</li>
+<li>[ ] Centrifugal running force: $F_{\text{cf}} - F_{\text{spring}}$.</li>
+<li>[ ] Trucks: single plate; Scooters: multi-plate.</li>
+<li>[ ] Positive drive: jaw clutch.</li>
+<li>[ ] Cone clutch obsolete due to coaxiality.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A multi-plate clutch has 4 discs on the driving shaft $n_1 = 4$ and 3 discs on the driven shaft $n_2 = 3$. Calculate the number of active friction contact surface pairs.
+- <strong>Solution</strong>:
+  - Apply multi-plate contact surface formula:
+    <div class="formula-card">$${n = n_1 + n_2 - 1 = 4 + 3 - 1 = 6}$$</div>
+- <strong>Key Insight</strong>: $n = 6$ active friction pairs.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: How does bearing life $L_{10}$ scale with equivalent load $P$ for ball bearings?</strong><br />
+A: Inversely proportional to the cube of load: $L \propto \frac{1}{P^3}$.</p>
+<p><strong>Q2: How does doubling the load affect ball bearing life?</strong><br />
+A: Life reduces to $1/8^{\text{th}}$ $1/2^3$ of its original value.</p>
+<p><strong>Q3: How is bore diameter determined from bearing designation 309?</strong><br />
+A: Bore diameter $= 09 \times 5 = 45 \text{ mm}$ (medium series 300).</p>
+<p><strong>Q4: Differentiate between Hydrodynamic and Hydrostatic journal bearings.</strong><br />
+A: Hydrodynamic bearings self-generate fluid pressure via shaft rotation. Hydrostatic bearings rely on an external pump for pressure at all speeds.</p>
+<p><strong>Q5: What is the typical radial clearance in a hydrodynamic journal bearing?</strong><br />
+A: Approximately $1 \mu\text{m}$ per mm of shaft diameter $c/r \approx 0.001$.</p>
+<p><strong>Q6: Write Petroff's equation for friction coefficient in journal bearings.</strong><br />
+A: $f = 2\pi^2 \left(\frac{\mu N}{P}\right)\left(\frac{r}{c}\right)$.</p>
+<p><strong>Q7: When must the equivalent coefficient of friction $\mu_{\text{eq}}$ be used in shoe brakes?</strong><br />
+A: When the total angle of contact $2\theta &gt; 60^\circ$ (long shoe brake).</p>
+<p><strong>Q8: Write the formula for equivalent coefficient of friction $\mu_{\text{eq}}$ for long shoe brakes.</strong><br />
+A: $\mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$.</p>
+<p><strong>Q9: What type of service brake is most commonly used in motor cars?</strong><br />
+A: Internal expanding shoe brake.</p>
+<p><strong>Q10: Why is Uniform Wear Theory preferred over Uniform Pressure Theory for safe clutch design?</strong><br />
+A: Because uniform wear theory yields a lower, conservative torque capacity estimate compared to new unworn plates.</p>
+<p><strong>Q11: Write the mean radius formula $R_m$ under Uniform Wear Theory.</strong><br />
+A: $R_m = \frac{r_1 + r_2}{2}$.</p>
+<p><strong>Q12: Write the mean radius formula $R_m$ under Uniform Pressure Theory.</strong><br />
+A: $R_m = \frac{2}{3}\left(\frac{r_1^3 - r_2^3}{r_1^2 - r_2^2}\right)$.</p>
+<p><strong>Q13: How many active pairs of contact surfaces exist in a multi-plate clutch with $n_1$ driving discs and $n_2$ driven discs?</strong><br />
+A: $n = n_1 + n_2 - 1$.</p>
+<p><strong>Q14: What force condition governs initial shoe engagement in a centrifugal clutch?</strong><br />
+A: Centrifugal force on the shoes equals the spring restraining force $F_{\text{cf}} = F_{\text{spring}}$.</p>
+<p><strong>Q15: Match the clutch types for (a) Trucks, (b) Scooters, (c) Zero-slip drive.</strong><br />
+A: (a) Single plate clutch, (b) Multi-plate clutch, (c) Jaw (positive) clutch.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Rolling Contact Bearings</strong>:</li>
+<li>Ball bearing life: $L \propto 1/P^3$. Double load $\implies 1/8^{\text{th}}$ life; Half load $\implies 8\times$ life.</li>
+<li>Roller bearing life: $L \propto 1/P^{10/3}$.</li>
+<li>$P_e = X F_r + Y F_a$.</li>
+<li>Bore diameter $= \text{last two digits} \times 5$ mm.</li>
+<li>Deep groove ball: combined load at high speed. Tapered roller: heavy axial thrust. Spherical roller: angular misalignment.</li>
+<li><strong>Journal Bearings</strong>:</li>
+<li>Hydrodynamic: self-generated oil wedge. Hydrostatic: external pump.</li>
+<li>Petroff: $f = 2\pi^2 (\mu N/P)(r/c)$.</li>
+<li>Projected area $= d \cdot \ell$.</li>
+<li>Clearance: $1 \mu\text{m/mm}$ diameter. $L/D = 1.0 - 2.0$.</li>
+<li><strong>Brakes</strong>:</li>
+<li>Long shoe $2\theta &gt; 60^\circ \implies \mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$.</li>
+<li>Short shoe $2\theta &lt; 60^\circ \implies$ actual $\mu$.</li>
+<li>Torque $T = F_r R = \mu_{\text{eq}} R_n R$.</li>
+<li>Block brake width $b = (0.25 - 0.50)D$.</li>
+<li>Automotive service brake: internal expanding shoe. Parking brake: mechanical.</li>
+<li><strong>Clutches</strong>:</li>
+<li>Safe design / Worn clutch $\implies$ Uniform Wear ($T = \mu W R_m n$, $R_m = \frac{r_1+r_2}{2}$).</li>
+<li>New clutch $\implies$ Uniform Pressure $T = \frac{2}{3}\mu W \left(\frac{r_1^3-r_2^3}{r_1^2-r_2^2}\right) n$.</li>
+<li>$T_{\text{wear}} &lt; T_{\text{pressure}}$.</li>
+<li>Multi-plate pairs $n = n_1 + n_2 - 1$.</li>
+<li>Centrifugal initial engagement: $F_{\text{cf}} = F_{\text{spring}}$; Running net force: $F_{\text{cf}} - F_{\text{spring}}$.</li>
+<li>Applications: Trucks $\implies$ Single plate; Scooters $\implies$ Multi-plate; Positive drive $\implies$ Jaw clutch; Cone clutch obsolete (coaxiality).</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Ball bearing life $L \propto 1/P^3$.</li>
+<li>[ ] Memorize Bearing bore $= \text{last two digits} \times 5$ mm.</li>
+<li>[ ] Memorize Deep groove ball $\implies$ combined load; Tapered roller $\implies$ axial thrust.</li>
+<li>[ ] Memorize Hydrostatic bearing uses external pump pressure.</li>
+<li>[ ] Memorize Journal bearing projected area $= d \cdot \ell$.</li>
+<li>[ ] Memorize Journal clearance $= 1 \mu\text{m/mm}$; $L/D = 1.0 - 2.0$.</li>
+<li>[ ] Memorize Long shoe threshold $2\theta &gt; 60^\circ \implies \mu_{\text{eq}} = \frac{4\mu \sin\theta}{2\theta + \sin 2\theta}$.</li>
+<li>[ ] Memorize Motor car service brake: internal expanding shoe.</li>
+<li>[ ] Memorize Parking brake: mechanical.</li>
+<li>[ ] Memorize Clutch safe design: Uniform Wear Theory $R_m = \frac{r_1+r_2}{2}$.</li>
+<li>[ ] Memorize Multi-plate active pairs $n = n_1 + n_2 - 1$.</li>
+<li>[ ] Memorize Centrifugal clutch initial engagement $F_{\text{cf}} = F_{\text{spring}}$.</li>
+<li>[ ] Memorize Centrifugal clutch running force $= F_{\text{cf}} - F_{\text{spring}}$.</li>
+<li>[ ] Memorize Single plate for trucks; Multi-plate for scooters; Jaw clutch for positive drive.</li>
+</ul>
+</body>
+</html>

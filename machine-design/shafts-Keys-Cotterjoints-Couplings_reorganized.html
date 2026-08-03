@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design of Shafts, Keys, Cotter Joints & Couplings — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Machine Design Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="design-of-shafts-keys-cotter-joints-couplings-comprehensive-reorganized-study-guide">Design of Shafts, Keys, Cotter Joints &amp; Couplings — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Shaft Design (solid vs hollow shafts, torsional shear stress $\tau = \frac{16T}{\pi d^3}$, hollow shaft formula $\tau = \frac{16T}{\pi d_o^3 (1-k^4)}$, strength/weight superiority of hollow shafts, combined bending and torsion, equivalent twisting moment $T_e = \sqrt{M^2 + T^2}$, equivalent bending moment $M_e = \frac{1}{2}\left[M + \sqrt{M^2 + T^2}\right]$, maximum shear stress $\tau_{\text{max}} = \frac{16 T_e}{\pi d^3}$), Key Design &amp; Applications (square key shear $T = \frac{d}{2}(l w \tau)$ and crushing $T = \frac{d}{2}(l \frac{t}{2} \sigma_c)$, key relation $\sigma_c = 2\tau$, Woodruff key self-aligning for tapered shafts, Feather key for axial sliding, Kennedy key 90° for heavy duty, Saddle key friction drive for light duty, Tangent key for heavy impact, key as safety fuse), Cotter Joints (co-axial rods under axial tension/compression, temporary joint, single-side taper 1 in 24 to 1 in 48, thickness $t \approx 0.31d$, applications: piston rod to crosshead, pump rods, foundation bolts, double shear failure), and Shaft Couplings (rigid: muff/sleeve hollow shaft design, flange reamed bolt holes; flexible: bushed pin rubber bushes for slight misalignment &amp; shock, Oldham's coupling for parallel offset shafts, Hooke's / Universal joint for large angular misalignment in propeller shafts) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-shaft-design-torsion-combined-loading"><strong>1. Shaft Design (Torsion &amp; Combined Loading)</strong></h4>
+<ul>
+<li><strong>Torsional Shear Stress (Solid Shaft)</strong>:
+  <div class="formula-card">$${\boxed{\tau = \frac{16 \cdot T}{\pi \cdot d^3} \quad (\text{MPa})}}$$</div></li>
+<li>$T$: applied twisting moment / torque $\text{N}\cdot\text{mm}$</li>
+<li>
+<p>$d$: solid shaft diameter $\text{mm}$</p>
+</li>
+<li>
+<p><strong>Torsional Shear Stress (Hollow Shaft)</strong>:
+  <div class="formula-card">$${\boxed{\tau = \frac{16 \cdot T}{\pi \cdot d_o^3 \cdot (1 - k^4)} \quad (\text{MPa})}}$$</div></p>
+</li>
+<li>$d_o$: outer diameter $\text{mm}$</li>
+<li>$d_i$: inner diameter $\text{mm}$</li>
+<li>
+<p>$k$: ratio of diameters $k = \frac{d_i}{d_o}$</p>
+</li>
+<li>
+<p><strong>Equivalent Twisting Moment $T_e$</strong>:
+  <div class="formula-card">$${\boxed{T_e = \sqrt{M^2 + T^2} \quad (\text{N}\cdot\text{mm})}}$$</div></p>
+</li>
+<li>$M$: bending moment $\text{N}\cdot\text{mm}$</li>
+<li>
+<p>$T$: torsional moment $\text{N}\cdot\text{mm}$</p>
+</li>
+<li>
+<p><strong>Equivalent Bending Moment $M_e$</strong>:
+  <div class="formula-card">$${\boxed{M_e = \frac{1}{2} \left[ M + \sqrt{M^2 + T^2} \right] \quad (\text{N}\cdot\text{mm})}}$$</div></p>
+</li>
+<li>
+<p><strong>Maximum Shear Stress under Combined Loading $\tau_{\text{max}}$</strong>:
+  <div class="formula-card">$${\boxed{\tau_{\text{max}} = \frac{16 \cdot T_e}{\pi \cdot d^3} = \frac{16}{\pi \cdot d^3} \sqrt{M^2 + T^2} \quad (\text{MPa})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-square-key-design-stress-relations"><strong>2. Square Key Design &amp; Stress Relations</strong></h4>
+<ul>
+<li><strong>Torque Transmission (Shear Failure)</strong>:
+  <div class="formula-card">$${\boxed{T = \frac{d}{2} \cdot (l \cdot w \cdot \tau) \implies \tau = \frac{8 \cdot T}{d \cdot l \cdot w} \quad (\text{MPa})}}$$</div></li>
+<li>$w$: key width ($\text{mm}$, standard $w = \frac{d}{4}$)</li>
+<li>
+<p>$l$: key length ($\text{mm}$, standard $l \ge 1.5d$)</p>
+</li>
+<li>
+<p><strong>Torque Transmission (Crushing Failure)</strong>:
+  <div class="formula-card">$${\boxed{T = \frac{d}{2} \cdot \left(l \cdot \frac{t}{2} \cdot \sigma_c\right) \implies \sigma_c = \frac{8 \cdot T}{d \cdot l \cdot t} \quad (\text{MPa})}}$$</div></p>
+</li>
+<li>
+<p>$t$: key thickness ($\text{mm}$, standard $t = \frac{d}{4}$)</p>
+</li>
+<li>
+<p><strong>Square Key Stress Relationship</strong>:
+  <div class="formula-card">$${\boxed{\sigma_c = 2 \cdot \tau}}$$</div></p>
+</li>
+<li>Crushing stress is EXACTLY TWICE the shear stress for a square key $w = t$.</li>
+</ul>
+<hr />
+<h4 id="3-cotter-joint-proportions"><strong>3. Cotter Joint Proportions</strong></h4>
+<ul>
+<li><strong>Thickness of Cotter $t$</strong>:
+  <div class="formula-card">$${\boxed{t \approx 0.3 \cdot d \text{ to } 0.4 \cdot d \approx 0.31 \cdot d \quad (\text{mm})}}$$</div></li>
+<li>
+<p>$d$: diameter of co-axial rod $\text{mm}$</p>
+</li>
+<li>
+<p><strong>Width of Cotter $b$</strong>:
+  <div class="formula-card">$${\boxed{b \approx 1.3 \cdot d \text{ to } 1.5 \cdot d \quad (\text{mm})}}$$</div></p>
+</li>
+<li>
+<p><strong>Cotter Taper</strong>:
+  <div class="formula-card">$${\boxed{\text{Taper} = \frac{1}{24} \text{ to } \frac{1}{48} \quad (\text{provided on ONE SIDE only})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-couplings-misalignment-selection"><strong>4. Couplings &amp; Misalignment Selection</strong></h4>
+<ul>
+<li><strong>Muff / Sleeve Coupling Design</strong>:
+  <div class="formula-card">$${\boxed{\tau_{\text{sleeve}} = \frac{16 \cdot T}{\pi \cdot D^3 \cdot (1 - k^4)} \quad (\text{MPa})}}$$</div></li>
+<li>Outer diameter $D \approx 2d + 13 \text{ mm}$, inner diameter $d$. Sleeve designed as a hollow shaft.</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Hollow Shaft Superiority</strong>: A hollow shaft has a higher polar section modulus $Z_p$ than a solid shaft of the same mass and material, making it stronger in torsion and lighter in weight.</li>
+<li><strong>Equivalent Twisting Moment $T_e$</strong>: The single fictitious torque which, acting alone, produces the same maximum shear stress as the combined bending moment $M$ and torque $T$.</li>
+<li><strong>Equivalent Bending Moment $M_e$</strong>: The single fictitious bending moment which, acting alone, produces the same maximum normal (bending) stress as the combined bending moment $M$ and torque $T$.</li>
+<li><strong>Woodruff Key</strong>: A semi-circular key fitted into a matching semi-circular keyway in a tapered shaft. It is self-aligning and accommodates shaft taper automatically.</li>
+<li><strong>Feather Key</strong>: A parallel key fixed to either the shaft or hub that permits axial sliding of the hub along the shaft while transmitting torque.</li>
+<li><strong>Kennedy Key</strong>: A heavy-duty keying system comprising two square keys placed at $90^\circ$ to each other, fitted along diagonals.</li>
+<li><strong>Saddle Key</strong>: A key fitted into a keyway on the hub only, resting flat or curved against the un-keywayed shaft surface; transmits torque purely by friction.</li>
+<li><strong>Cotter Joint</strong>: A rigid temporary fastening used to connect two co-axial rods subjected to axial tensile or compressive forces.</li>
+<li><strong>Oldham's Coupling</strong>: A flexible coupling consisting of two flanges and a central floating disc with perpendicular tongue projections, used to connect parallel shafts with a small offset/distance between their axes.</li>
+<li><strong>Hooke's (Universal) Joint</strong>: A flexible joint featuring a central four-armed spider/cross that connects two shafts intersecting at a large variable angle (e.g. automobile driveshafts).</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Square Key Stress Ratio</strong>: $\sigma_c / \tau = 2.0$.</li>
+<li><strong>Standard Key Width &amp; Thickness</strong>: $w = d/4$, $t = d/4$ (square key).</li>
+<li><strong>Cotter Taper Range</strong>: $1/24$ to $1/48$ (one side).</li>
+<li><strong>Cotter Thickness</strong>: $t \approx 0.31d$.</li>
+<li><strong>Kennedy Key Angle</strong>: $90^\circ$ between keys.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Shaft Design (Solid, Hollow &amp; Combined Loading)</strong>: §3.1.</li>
+<li><strong>Key Types, Stress Relations &amp; Failure Modes</strong>: §3.2.</li>
+<li><strong>Cotter Joints &amp; Engine Applications</strong>: §3.3.</li>
+<li><strong>Couplings (Rigid, Flexible, Oldham's, Universal)</strong>: §3.4.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-shaft-design-solid-hollow-combined-loading"><strong>3.1 Shaft Design (Solid, Hollow &amp; Combined Loading)</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Solid vs Hollow Shafts</strong>:</li>
+<li>For the same mass and material, a hollow shaft transmits significantly <strong>MORE TORQUE</strong> than a solid shaft.</li>
+<li>Reason: Material in a hollow shaft is concentrated farther from the neutral axis, maximizing polar moment of inertia $J$ and polar section modulus $Z_p = J/r$.</li>
+<li>Applications: Aircraft propeller shafts, automobile drive shafts, ship power transmission.</li>
+<li><strong>Combined Bending &amp; Torsion</strong>:</li>
+<li>When a shaft experiences both bending moment $M$ and torque $T$:<ul>
+<li>Maximum Shear Stress Theory (Guest/Tresca):
+  <div class="formula-card">$${T_e = \sqrt{M^2 + T^2} \implies \tau_{\text{max}} = \frac{16 T_e}{\pi d^3}}$$</div></li>
+<li>Maximum Normal Stress Theory (Rankine):
+  <div class="formula-card">$${M_e = \frac{1}{2}\left[M + \sqrt{M^2 + T^2}\right] \implies \sigma_{\text{max}} = \frac{32 M_e}{\pi d^3}}$$</div></li>
+</ul>
+</li>
+<li><strong>Mechanical Fuse Role</strong>:</li>
+<li>In a shaft-key-hub assembly, the <strong>KEY is designed to be the weakest member</strong> so it shears first during unexpected torque overloads, protecting expensive shafts and gears from damage.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Hollow Shaft Efficiency</strong>: A hollow shaft is structurally superior to a solid shaft of equal weight because its higher polar section modulus $Z_p$ provides higher torsional strength and stiffness per unit mass.</p>
+<p>[!TRAP]
+<strong>Equivalent Moment Formulas</strong>:
+- Equivalent Twisting Moment $T_e = \sqrt{M^2 + T^2}$.
+- Equivalent Bending Moment $M_e = \frac{1}{2}[M + \sqrt{M^2 + T^2}]$.
+Do not mix up $T_e$ and $M_e$ when calculating shear vs normal stresses!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Shaft Strength &amp; Design Check?
+├─ Is question asking for shear stress under Combined M &amp; T? → Calculate Te = sqrt(M^2 + T^2)
+├─ Is question asking for bending stress under Combined M &amp; T? → Calculate Me = 0.5 * [M + sqrt(M^2 + T^2)]
+├─ Is mass equal for Solid vs Hollow shaft? → HOLLOW SHAFT IS STRONGER &amp; LIGHTER
+└─ Which member acts as a safety fuse in shaft-key-hub assembly? → KEY
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\tau = \frac{16T}{\pi d^3}$ (solid).</li>
+<li>[ ] $\tau = \frac{16T}{\pi d_o^3 (1-k^4)}$ (hollow).</li>
+<li>[ ] $T_e = \sqrt{M^2 + T^2}$.</li>
+<li>[ ] $M_e = \frac{1}{2}[M + \sqrt{M^2 + T^2}]$.</li>
+<li>[ ] Key is weakest component.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A solid shaft is subjected to a bending moment $M = 3.46 \text{ kN}\cdot\text{m}$ and a twisting moment $T = 11.5 \text{ kN}\cdot\text{m}$. Calculate the equivalent twisting moment $T_e$ and equivalent bending moment $M_e$.
+- <strong>Solution</strong>:
+  - Calculate equivalent twisting moment $T_e$:
+    <div class="formula-card">$${T_e = \sqrt{M^2 + T^2} = \sqrt{(3.46)^2 + (11.5)^2} = \sqrt{11.9716 + 132.25} = \sqrt{144.2216} \approx 12.0 \text{ kN}\cdot\text{m}}$$</div>
+  - Calculate equivalent bending moment $M_e$:
+    <div class="formula-card">$${M_e = \frac{1}{2} \left[ M + T_e \right] = \frac{1}{2} [3.46 + 12.0] = \frac{15.46}{2} = 7.73 \text{ kN}\cdot\text{m}}$$</div>
+- <strong>Key Insight</strong>: $T_e = 12.0 \text{ kN}\cdot\text{m}$, $M_e = 7.73 \text{ kN}\cdot\text{m}$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A hollow shaft transmits $45 \text{ kW}$ power at $500 \text{ rpm}$. The ratio of inner to outer diameter is $k = d_i/d_o = 0.6$. If the maximum allowable shear stress is $\tau = 84 \text{ MPa}$, calculate the outer diameter $d_o$ and inner diameter $d_i$.
+- <strong>Solution</strong>:
+  - Calculate torque $T$:
+    <div class="formula-card">$${T = \frac{P \times 60}{2\pi N} = \frac{45000 \times 60}{2\pi \times 500} = \frac{2700000}{3141.59} \approx 859.44 \text{ N}\cdot\text{m} = 859440 \text{ N}\cdot\text{mm}}$$</div>
+  - Apply hollow shaft torsion formula:
+    <div class="formula-card">$${\tau = \frac{16 T}{\pi d_o^3 (1 - k^4)} \implies 84 = \frac{16 \times 859440}{\pi d_o^3 (1 - 0.6^4)}}$$</div>
+    <div class="formula-card">$${1 - 0.6^4 = 1 - 0.1296 = 0.8704}$$</div>
+    <div class="formula-card">$${84 = \frac{13751040}{3.14159 \times 0.8704 \times d_o^3} = \frac{13751040}{2.7344 \times d_o^3} \implies 84 = \frac{5028905}{d_o^3}}$$</div>
+    <div class="formula-card">$${d_o^3 = \frac{5028905}{84} \approx 59867.9 \implies d_o \approx \sqrt[3]{59867.9} \approx 39.12 \text{ mm}}$$</div>
+  - Calculate inner diameter $d_i$:
+    <div class="formula-card">$${d_i = 0.6 \times d_o = 0.6 \times 39.12 \approx 23.47 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $d_o \approx 39.12 \text{ mm}$, $d_i \approx 23.47 \text{ mm}$. Include $(1-k^4)$ in the hollow shaft torsion denominator.</p>
+<hr />
+<h3 id="32-key-design-stress-relations-applications"><strong>3.2 Key Design, Stress Relations &amp; Applications</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Square Key Stress Ratio</strong>:</li>
+<li>For a square key $w = t = d/4$:<ul>
+<li>Shear stress: $\tau = \frac{8T}{d \cdot l \cdot w}$.</li>
+<li>Crushing stress: $\sigma_c = \frac{8T}{d \cdot l \cdot t}$.</li>
+<li>Since $w = t \implies \sigma_c = 2\tau$.</li>
+<li>Crushing stress is <strong>EXACTLY TWICE</strong> the shear stress!</li>
+</ul>
+</li>
+<li><strong>Special Key Types &amp; Applications</strong>:</li>
+<li><strong>Woodruff Key</strong>: Semi-circular disc shape. Self-aligning; used on <strong>tapered shafts</strong> for low torque at high speeds.</li>
+<li><strong>Feather Key</strong>: Fixed to one member, permits <strong>axial sliding</strong> of hub relative to shaft while transmitting torque.</li>
+<li><strong>Kennedy Key</strong>: Two square keys placed at <strong>$90^\circ$ to each other</strong>, fitted along diagonals for <strong>heavy-duty</strong> torque.</li>
+<li><strong>Saddle Key</strong>: No keyway cut in shaft. Transmits power purely by <strong>friction</strong> between flat/curved key bottom and shaft. Used for light loads.</li>
+<li><strong>Tangent Key</strong>: Fitted in pairs at right angles; handles heavy impact torque in <strong>both directions</strong>.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Square Key Stress Ratio</strong>: For a square key $w=t$, crushing stress is always twice the shear stress $\sigma_c = 2\tau$. This relation forms the basis for equal strength key design.</p>
+<p>[!TRAP]
+<strong>Key Application Matching</strong>:
+- Tapered shaft $\implies$ Woodruff key (self-aligning).
+- Axial sliding $\implies$ Feather key.
+- Heavy duty $\implies$ Kennedy key $90^\circ$.
+- Friction drive (no shaft keyway) $\implies$ Saddle key.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Key Selection &amp; Stress Check?
+├─ Is ratio of crushing to shear stress asked for Square Key? → sigma_c = 2 * tau
+├─ Is shaft Tapered? → WOODRUFF KEY (self-aligning)
+├─ Is Axial Sliding of hub required? → FEATHER KEY
+├─ Is loading Heavy Duty? → KENNEDY KEY (two keys at 90 deg)
+└─ Is there NO keyway on the shaft? → SADDLE KEY (friction transmission)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Square key: $w = t = d/4$.</li>
+<li>[ ] Square key relation: $\sigma_c = 2\tau$.</li>
+<li>[ ] Woodruff: tapered shaft, self-aligning.</li>
+<li>[ ] Feather: axial sliding.</li>
+<li>[ ] Kennedy: heavy duty, 2 keys at $90^\circ$.</li>
+<li>[ ] Saddle: light duty, friction only.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A square key of width $w = 10 \text{ mm}$ and length $l = 60 \text{ mm}$ is mounted on a shaft of diameter $d = 40 \text{ mm}$. If the allowable shear stress of the key material is $\tau = 50 \text{ MPa}$, calculate the allowable crushing stress $\sigma_c$ for equal strength in shear and crushing.
+- <strong>Solution</strong>:
+  - For a square key $w = t$, equal strength in shear and crushing dictates:
+    <div class="formula-card">$${\sigma_c = 2\tau = 2 \times 50 = 100 \text{ MPa}}$$</div>
+- <strong>Key Insight</strong>: $\sigma_c = 100 \text{ MPa}$. Crushing stress is double the shear stress.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A shaft of diameter $d = 35 \text{ mm}$ transmits a torque $T = 395 \text{ N}\cdot\text{m}$. A square key of length $l = 60 \text{ mm}$ is used. If the allowable shear stress is $\tau = 55 \text{ MPa}$, determine the required key width $w$ and thickness $t$.
+- <strong>Solution</strong>:
+  - Apply shear torque formula:
+    <div class="formula-card">$${T = \frac{d}{2} \cdot (l \cdot w \cdot \tau) \implies 395000 = \frac{35}{2} \times (60 \times w \times 55)}$$</div>
+    <div class="formula-card">$${395000 = 17.5 \times 3300 \times w = 57750 \cdot w \implies w = \frac{395000}{57750} \approx 6.84 \text{ mm}}$$</div>
+  - Since it is a square key: $w = t \approx 6.84 \text{ mm}$.
+- <strong>Key Insight</strong>: Key dimensions $w = t \approx 6.84 \text{ mm}$.</p>
+<hr />
+<h3 id="33-cotter-joints-engine-applications"><strong>3.3 Cotter Joints &amp; Engine Applications</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Definition &amp; Load Capacity</strong>:</li>
+<li>A cotter joint is a <strong>rigid temporary fastening</strong> used to connect two <strong>co-axial rods</strong> subjected to axial tensile or compressive loads.</li>
+<li>It does NOT permit angular motion (unlike a knuckle joint).</li>
+<li><strong>Geometry &amp; Taper</strong>:</li>
+<li>Cotter is a flat wedge-shaped rectangular plate.</li>
+<li>Taper is provided on <strong>ONE SIDE ONLY</strong> (typically $1/24$ to $1/48$) to make the joint self-locking and facilitate assembly/disassembly.</li>
+<li><strong>Standard Proportions</strong>:</li>
+<li>Cotter thickness: $t \approx 0.31 d$ (or $0.3d - 0.4d$).</li>
+<li>Cotter width: $b \approx 1.3d - 1.5d$.</li>
+<li><strong>Engine Applications</strong>:</li>
+<li>Joint connecting <strong>piston rod to crosshead</strong> of a steam engine.</li>
+<li>Joint connecting <strong>piston rod to tail rod / pump rod</strong>.</li>
+<li>Joint connecting slide spindle to fork in valve gear mechanisms.</li>
+<li>Foundation anchor bolts.</li>
+<li><strong>Failure Modes</strong>:</li>
+<li>Shear failure of cotter (double shear).</li>
+<li>Tearing of spigot across slot / Socket tearing.</li>
+<li>Crushing of spigot / socket collars.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Cotter Joint Application Rule</strong>: Cotter joints connect CO-AXIAL RODS under AXIAL TENSION/COMPRESSION (e.g. piston rod to crosshead). Taper is provided on ONE SIDE ONLY ($1/24$ to $1/48$).</p>
+<p>[!TRAP]
+<strong>Cotter Joint vs Knuckle Joint</strong>:
+- Cotter Joint $\implies$ Rigid connection between CO-AXIAL rods (no angular movement).
+- Knuckle Joint $\implies$ Flexible connection between INTERSECTING/ANGULAR rods (permits angular movement).</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Rod Joint Selection Check?
+├─ Are rods Co-axial under Pure Axial Tension/Compression? → COTTER JOINT
+├─ Are rods requiring Angular Flexibility / Pin Joint? → KNUCKLE JOINT
+├─ Which engine part connects Piston Rod to Crosshead? → COTTER JOINT
+├─ On how many sides is Taper provided on a cotter? → ONE SIDE ONLY (1 in 24 to 1 in 48)
+└─ Standard cotter thickness formula? → t approx 0.31 * d
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Connects co-axial rods under axial load.</li>
+<li>[ ] Rigid joint (no angular motion).</li>
+<li>[ ] Taper on one side only ($1/24$ to $1/48$).</li>
+<li>[ ] Piston rod to crosshead joint.</li>
+<li>[ ] Cotter thickness $t \approx 0.31d$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Specify the recommended thickness of a steel cotter used to connect two co-axial rods of diameter $d = 40 \text{ mm}$.
+- <strong>Solution</strong>:
+  - Standard empirical proportion for cotter thickness:
+    <div class="formula-card">$${t = 0.31 \cdot d = 0.31 \times 40 = 12.4 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $t \approx 12.4 \text{ mm}$ (typically $0.3d$ to $0.4d$).</p>
+<hr />
+<h3 id="34-shaft-couplings-rigid-flexible-oldhams-universal"><strong>3.4 Shaft Couplings (Rigid, Flexible, Oldham's &amp; Universal)</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Rigid Couplings</strong>:</li>
+<li>Used strictly when shafts are <strong>PERFECTLY ALIGNED</strong>. Cannot tolerate any misalignment.</li>
+<li><strong>Muff / Sleeve Coupling</strong>: Hollow cylinder fitted over shaft ends with a key. Sleeve is designed as a <strong>hollow shaft</strong>.</li>
+<li><strong>Flange Coupling</strong>: Two flanged hubs keyed to shaft ends and bolted together. Bolt holes are <strong>reamed</strong> to ensure uniform shear load sharing among bolts.</li>
+<li><strong>Flexible Couplings</strong>:</li>
+<li>Used when shafts have <strong>SLIGHT MISALIGNMENT</strong> (parallel or angular) or shock loads.</li>
+<li><strong>Bushed Pin Flexible Coupling</strong>: Replaces rigid bolts with flexible pins cushioned by rubber/leather bushes. Bushes absorb shock and accommodate small misalignment. Pins experience bearing, bending, and shear stresses.</li>
+<li><strong>Oldham's Coupling</strong>: Used to connect <strong>PARALLEL SHAFTS WITH A SMALL PARALLEL OFFSET/DISTANCE</strong>. Contains a floating central disc with perpendicular tongues.</li>
+<li><strong>Hooke's / Universal Joint</strong>: Used to connect <strong>SHAFTS INTERSECTING AT A LARGE VARIABLE ANGLE</strong>. Common in automobile drive/propeller shafts.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Coupling Selection by Misalignment</strong>:
+- Perfectly Aligned $\implies$ Rigid Coupling (Muff/Flange).
+- Slight Misalignment + Shock Absorption $\implies$ Bushed Pin Flexible Coupling.
+- Parallel Offset Shafts (Small Distance) $\implies$ Oldham's Coupling.
+- Angular Misalignment (Intersecting Shafts) $\implies$ Universal / Hooke's Joint.</p>
+<p>[!TRAP]
+<strong>Oldham's vs Universal Joint</strong>:
+- Parallel shafts with offset $\implies$ Oldham's Coupling.
+- Intersecting shafts at an angle $\implies$ Universal (Hooke's) Joint.
+Do not mix up parallel offset with angular misalignment!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Shaft Coupling Selection Check?
+├─ Shafts are Perfectly Aligned? → RIGID COUPLING (Flange / Muff)
+├─ Shafts have Slight Misalignment &amp; Shock Loads? → BUSHED PIN FLEXIBLE COUPLING
+├─ Shafts are Parallel with a Small Distance/Offset? → OLDHAM'S COUPLING
+├─ Shafts Intersect at a Large Variable Angle? → HOOKE'S / UNIVERSAL JOINT
+└─ Muff coupling sleeve is designed as? → HOLLOW SHAFT
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Perfectly aligned $\implies$ Rigid (Muff/Flange).</li>
+<li>[ ] Muff sleeve designed as hollow shaft.</li>
+<li>[ ] Flange bolt holes reamed for equal load sharing.</li>
+<li>[ ] Slight misalignment $\implies$ Bushed pin flexible coupling.</li>
+<li>[ ] Parallel offset $\implies$ Oldham's coupling.</li>
+<li>[ ] Large angular misalignment $\implies$ Universal (Hooke's) joint.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Select the appropriate coupling for connecting the propeller shaft of an automobile to the rear axle differential gear shaft, where the shafts intersect at a varying angle during vehicle motion.
+- <strong>Solution</strong>:
+  - Requirement: Shafts intersect at a large, varying angle during operation.
+  - Recommended coupling: <strong>Hooke's (Universal) Joint</strong>.
+- <strong>Key Insight</strong>: Universal joints accommodate dynamic angular misalignment between intersecting shafts.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: Two parallel shafts have their axes offset by a small distance of $5 \text{ mm}$. Which coupling should be selected to transmit rotation between them?
+- <strong>Solution</strong>:
+  - Requirement: Parallel shafts with a small parallel offset.
+  - Recommended coupling: <strong>Oldham's Coupling</strong>.
+- <strong>Key Insight</strong>: Oldham's coupling handles parallel lateral offset via its sliding intermediate disc.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Why is a hollow shaft stronger in torsion than a solid shaft of equal mass and material?</strong><br />
+A: Because its material is located farther from the neutral axis, resulting in a higher polar section modulus $Z_p = J/r$.</p>
+<p><strong>Q2: Write the expression for Equivalent Twisting Moment $T_e$ under combined bending $M$ and torsion $T$.</strong><br />
+A: $T_e = \sqrt{M^2 + T^2}$.</p>
+<p><strong>Q3: Write the expression for Equivalent Bending Moment $M_e$ under combined bending $M$ and torsion $T$.</strong><br />
+A: $M_e = \frac{1}{2}\left[M + \sqrt{M^2 + T^2}\right]$.</p>
+<p><strong>Q4: Which component in a shaft-key-hub assembly is designed as the weakest safety member?</strong><br />
+A: The Key (acts as a mechanical fuse).</p>
+<p><strong>Q5: What is the relationship between crushing stress $\sigma_c$ and shear stress $\tau$ for a square key?</strong><br />
+A: Crushing stress is exactly twice the shear stress $\sigma_c = 2\tau$.</p>
+<p><strong>Q6: Which key is self-aligning and best suited for tapered shafts?</strong><br />
+A: Woodruff key (semi-circular disc shape).</p>
+<p><strong>Q7: Which key permits axial sliding of a hub along a shaft while transmitting torque?</strong><br />
+A: Feather key.</p>
+<p><strong>Q8: Describe the layout of a Kennedy keying system.</strong><br />
+A: Consists of two square keys fitted along diagonals at $90^\circ$ to each other for heavy-duty torque transmission.</p>
+<p><strong>Q9: What type of load is a Cotter Joint designed to transmit?</strong><br />
+A: Axial tensile or compressive load between co-axial rods.</p>
+<p><strong>Q10: On how many sides is taper provided on a cotter, and what is its typical range?</strong><br />
+A: On ONE side only, with a taper of $1/24$ to $1/48$.</p>
+<p><strong>Q11: Give two practical engine applications of a cotter joint.</strong><br />
+A: 1. Connecting piston rod to crosshead in a steam engine, 2. Connecting piston rod to pump/tail rod.</p>
+<p><strong>Q12: What type of coupling is used when shafts are perfectly aligned?</strong><br />
+A: Rigid Coupling (such as Muff or Flange coupling).</p>
+<p><strong>Q13: How is the sleeve of a muff coupling designed?</strong><br />
+A: As a hollow shaft $\tau = \frac{16T}{\pi D^3(1-k^4)}$.</p>
+<p><strong>Q14: Which coupling is specifically designed to connect parallel shafts with a small lateral offset?</strong><br />
+A: Oldham's Coupling.</p>
+<p><strong>Q15: Which joint is used to connect shafts intersecting at a large variable angle (e.g. automobile propeller shafts)?</strong><br />
+A: Hooke's (Universal) Joint.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Shaft Design</strong>:</li>
+<li>Solid torsion: $\tau = \frac{16T}{\pi d^3}$. Hollow torsion: $\tau = \frac{16T}{\pi d_o^3 (1-k^4)}$.</li>
+<li>Equal weight $\implies$ Hollow shaft is stronger &amp; lighter (higher $Z_p$).</li>
+<li>Combined loading: $T_e = \sqrt{M^2 + T^2}$, $M_e = \frac{1}{2}[M + \sqrt{M^2 + T^2}]$.</li>
+<li>Max shear stress $\tau_{\text{max}} = \frac{16 T_e}{\pi d^3}$.</li>
+<li>Key is designed as the weakest member (fuse).</li>
+<li><strong>Key Design</strong>:</li>
+<li>Square key $w = t = d/4$: $\sigma_c = 2\tau$ (crushing is twice shear).</li>
+<li>Woodruff: semi-circular, self-aligning for tapered shafts.</li>
+<li>Feather: permits axial sliding.</li>
+<li>Kennedy: 2 keys at $90^\circ$ for heavy duty.</li>
+<li>Saddle: friction drive only, no shaft keyway.</li>
+<li>Tangent: pairs at right angles for heavy impact.</li>
+<li><strong>Cotter Joints</strong>:</li>
+<li>Connects co-axial rods under axial tension/compression.</li>
+<li>Temporary rigid joint (no angular motion).</li>
+<li>Taper on ONE side only ($1/24$ to $1/48$).</li>
+<li>Piston rod to crosshead joint.</li>
+<li>Cotter thickness $t \approx 0.31d$.</li>
+<li><strong>Couplings</strong>:</li>
+<li>Rigid (Muff/Flange): perfectly aligned shafts.</li>
+<li>Muff sleeve designed as hollow shaft. Flange bolt holes reamed.</li>
+<li>Flexible (Bushed pin): slight misalignment &amp; shock absorption.</li>
+<li>Oldham's: parallel shafts with small offset.</li>
+<li>Universal (Hooke's): angular misalignment for intersecting shafts.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Solid shaft torsion $\tau = \frac{16T}{\pi d^3}$.</li>
+<li>[ ] Memorize Hollow shaft torsion $\tau = \frac{16T}{\pi d_o^3 (1-k^4)}$.</li>
+<li>[ ] Memorize Hollow shaft is stronger and lighter for equal weight.</li>
+<li>[ ] Memorize $T_e = \sqrt{M^2 + T^2}$.</li>
+<li>[ ] Memorize $M_e = \frac{1}{2}[M + \sqrt{M^2 + T^2}]$.</li>
+<li>[ ] Memorize Key is designed as the weakest safety member.</li>
+<li>[ ] Memorize Square key stress relation $\sigma_c = 2\tau$.</li>
+<li>[ ] Memorize Woodruff key $\implies$ tapered shaft (self-aligning).</li>
+<li>[ ] Memorize Feather key $\implies$ axial sliding.</li>
+<li>[ ] Memorize Kennedy key $\implies$ heavy duty (2 keys at $90^\circ$).</li>
+<li>[ ] Memorize Saddle key $\implies$ friction drive (no shaft keyway).</li>
+<li>[ ] Memorize Cotter joint connects co-axial rods under axial load.</li>
+<li>[ ] Memorize Cotter taper on ONE side only ($1/24$ to $1/48$).</li>
+<li>[ ] Memorize Piston rod to crosshead $\implies$ Cotter joint.</li>
+<li>[ ] Memorize Cotter thickness $t \approx 0.31d$.</li>
+<li>[ ] Memorize Muff sleeve designed as hollow shaft.</li>
+<li>[ ] Memorize Bushed pin flexible coupling $\implies$ slight misalignment.</li>
+<li>[ ] Memorize Oldham's coupling $\implies$ parallel shafts with small offset.</li>
+<li>[ ] Memorize Universal (Hooke's) joint $\implies$ intersecting shafts at variable angle.</li>
+</ul>
+</body>
+</html>

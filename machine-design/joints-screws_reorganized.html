@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design of Threaded Joints, Power Screws, Welded & Riveted Joints — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Machine Design Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="design-of-threaded-joints-power-screws-welded-riveted-joints-comprehensive-reorganized-study-guide">Design of Threaded Joints, Power Screws, Welded &amp; Riveted Joints — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Threaded Joints &amp; Power Screws (thread profiles: square 0° flank, Acme 29° angle, buttress one-direction power, V-thread 60° metric, metric designation M $d \times p$, self-locking condition $\phi \ge \alpha \implies \mu \ge \tan\alpha$, self-locking efficiency $\eta \le 50\%$, overhauling $\phi &lt; \alpha$, effort to raise load $P = W \tan(\alpha + \phi)$, torque $T = \frac{W d_m}{2}\tan(\alpha+\phi)$, screw jack efficiency $\eta = \frac{\tan\alpha}{\tan(\alpha+\phi)}$, maximum efficiency $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$ at $\alpha = \frac{\pi}{4} - \frac{\phi}{2}$, multi-start lead $= n \cdot p$, cup load rotation prevention, equivalent friction $\mu' = \frac{\mu}{\cos(\beta/2)}$ for V-threads, bolt core tensile design $d_c = \sqrt{\frac{4P}{\pi \sigma_t}}$, bolt of uniform strength resilience $U = \frac{\sigma^2 V}{2E}$, washers, studs, set screws, turnbuckle L/R threads, eye bolts, 3-wire measurement, power screw buckling fixed-free end conditions), Welded Joints (fillet throat thickness $t = 0.707 h$, weakest throat section, parallel fillet shear strength $P = 2(0.707 h \ell)\tau$, transverse fillet $1.17\times$ stronger in shear than parallel, butt weld size = throat = plate thickness $t$, backing rings), and Riveted Joints (permanent fastening, Unwin's formula $d = 6\sqrt{t}$, margin $m = 1.5d$, tearing efficiency $\eta_t = \frac{p-d}{p}$, $75\%$ efficiency $\implies \frac{d}{p} = 0.25$, failure modes: plate tearing, rivet shearing, crushing, edge tearing, caulking &amp; fullering leak-proofing for boilers) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-power-screws-threaded-fasteners"><strong>1. Power Screws &amp; Threaded Fasteners</strong></h4>
+<ul>
+<li>
+<p><strong>Metric Thread Designation</strong>:
+  <div class="formula-card">$${\text{M } d \times p \implies d = \text{nominal (major) diameter (mm)}, \quad p = \text{pitch (mm)}}$$</div></p>
+</li>
+<li>
+<p><strong>Self-Locking Condition (Square Thread)</strong>:
+  <div class="formula-card">$${\boxed{\phi \ge \alpha \quad \text{or} \quad \mu \ge \tan\alpha}}$$</div></p>
+</li>
+<li>$\phi$: friction angle ($\text{degrees}$, $\mu = \tan\phi$)</li>
+<li>$\alpha$: helix angle ($\text{degrees}$, $\tan\alpha = \frac{L}{\pi d_m}$)</li>
+<li>
+<p>Self-locking efficiency limit: $\boxed{\eta \le 50\%}$ (if $\eta &gt; 50\% \implies$ Overhauling).</p>
+</li>
+<li>
+<p><strong>Effort &amp; Torque to Raise Load (Square Thread)</strong>:
+  <div class="formula-card">$${\boxed{P = W \cdot \tan(\alpha + \phi) \quad (\text{N})}}$$</div>
+  <div class="formula-card">$${\boxed{T = \frac{W \cdot d_m}{2} \cdot \tan(\alpha + \phi) \quad (\text{N}\cdot\text{mm})}}$$</div></p>
+</li>
+<li>$W$: axial load $\text{N}$</li>
+<li>
+<p>$d_m$: mean diameter of screw threads ($d_m = d - 0.5p$, $\text{mm}$)</p>
+</li>
+<li>
+<p><strong>Effort &amp; Torque to Lower Load (Square Thread)</strong>:
+  <div class="formula-card">$${\boxed{P_{\text{lower}} = W \cdot \tan(\phi - \alpha) \quad (\text{N})}}$$</div>
+  <div class="formula-card">$${\boxed{T_{\text{lower}} = \frac{W \cdot d_m}{2} \cdot \tan(\phi - \alpha) \quad (\text{N}\cdot\text{mm})}}$$</div></p>
+</li>
+<li>
+<p><strong>Efficiency of Screw Jack $\eta$</strong>:
+  <div class="formula-card">$${\boxed{\eta = \frac{\tan\alpha}{\tan(\alpha + \phi)}}}$$</div></p>
+</li>
+<li>
+<p><strong>Maximum Efficiency of Screw Jack $\eta_{\text{max}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{max}} = \frac{1 - \sin\phi}{1 + \sin\phi}}}$$</div></p>
+</li>
+<li>
+<p>Occurs at optimum helix angle: $\boxed{\alpha = \frac{\pi}{4} - \frac{\phi}{2} = 45^\circ - \frac{\phi}{2}}$</p>
+</li>
+<li>
+<p><strong>V-Thread Equivalent Coefficient of Friction $\mu'$</strong>:
+  <div class="formula-card">$${\boxed{\mu' = \frac{\mu}{\cos(\beta/2)}}}$$</div></p>
+</li>
+<li>
+<p>$\beta$: included thread angle ($60^\circ$ for metric threads $\implies \beta/2 = 30^\circ$)</p>
+</li>
+<li>
+<p><strong>Multi-Start Thread Lead $L$</strong>:
+  <div class="formula-card">$${\boxed{L = n \cdot p}}$$</div></p>
+</li>
+<li>$n$: number of starts, $p$: pitch $\text{mm}$</li>
+</ul>
+<hr />
+<h4 id="2-bolted-joints-tension-members"><strong>2. Bolted Joints &amp; Tension Members</strong></h4>
+<ul>
+<li><strong>Core Diameter from Direct Tensile Load $d_c$</strong>:
+  <div class="formula-card">$${\boxed{d_c = \sqrt{\frac{4P}{\pi \cdot \sigma_t}} \quad (\text{mm})}}$$</div></li>
+<li>$P$: axial tensile load $\text{N}$</li>
+<li>$\sigma_t$: allowable tensile stress $\text{MPa}$</li>
+<li>
+<p>Core area: $A_c = \frac{\pi}{4} d_c^2 \approx 0.7854 d_c^2$.</p>
+</li>
+<li>
+<p><strong>Resilience / Strain Energy of Bolt of Uniform Strength</strong>:
+  <div class="formula-card">$${\boxed{U = \frac{\sigma^2 \cdot V}{2E} \quad (\text{N}\cdot\text{mm})}}$$</div></p>
+</li>
+<li>Shank diameter reduced to core diameter $d_c$ throughout unthreaded length $\implies$ uniform stress distribution $\implies$ maximum shock energy absorption.</li>
+</ul>
+<hr />
+<h4 id="3-welded-joints"><strong>3. Welded Joints</strong></h4>
+<ul>
+<li><strong>Throat Thickness of Fillet Weld $t$</strong>:
+  <div class="formula-card">$${\boxed{t = 0.707 \cdot h = h \cdot \sin 45^\circ \quad (\text{mm})}}$$</div></li>
+<li>$h$: leg size of weld $\text{mm}$</li>
+<li>
+<p>Throat is the WEAKEST section in a fillet weld!</p>
+</li>
+<li>
+<p><strong>Shear Strength of Double Parallel Fillet Weld</strong>:
+  <div class="formula-card">$${\boxed{P = 2 \cdot (0.707 \cdot h \cdot \ell) \cdot \tau \quad (\text{N})}}$$</div></p>
+</li>
+<li>$\ell$: effective length of each weld $\text{mm}$</li>
+<li>
+<p>$\tau$: allowable shear stress $\text{MPa}$</p>
+</li>
+<li>
+<p><strong>Transverse Fillet Weld Shear Strength Comparison</strong>:</p>
+</li>
+<li>
+<p>Transverse fillet weld is $\mathbf{1.17\times}$ stronger in shear than a parallel fillet weld.</p>
+</li>
+<li>
+<p><strong>Tensile Strength of Butt Weld</strong>:
+  <div class="formula-card">$${\boxed{P = \sigma_t \cdot t \cdot L \cdot \eta \quad (\text{N})}}$$</div></p>
+</li>
+<li>$t$: plate thickness = throat size $\text{mm}$</li>
+<li>$L$: length of weld $\text{mm}$</li>
+</ul>
+<hr />
+<h4 id="4-riveted-joints"><strong>4. Riveted Joints</strong></h4>
+<ul>
+<li><strong>Unwin's Formula for Rivet Hole Diameter $d$</strong>:
+  <div class="formula-card">$${\boxed{d = 6\sqrt{t} \quad (\text{mm})}}$$</div></li>
+<li>
+<p>$t$: plate thickness $\text{mm}$</p>
+</li>
+<li>
+<p><strong>Margin to Prevent Edge Tearing $m$</strong>:
+  <div class="formula-card">$${\boxed{m = 1.5 \cdot d \quad (\text{mm})}}$$</div></p>
+</li>
+<li>
+<p><strong>Tearing Efficiency of Plate $\eta_t$</strong>:
+  <div class="formula-card">$${\boxed{\eta_t = \frac{p - d}{p}}}$$</div></p>
+</li>
+<li>$p$: rivet pitch $\text{mm}$</li>
+<li>$d$: rivet hole diameter $\text{mm}$</li>
+<li>
+<p>If $\eta_t = 75\% \implies \boxed{\frac{d}{p} = 0.25}$</p>
+</li>
+<li>
+<p><strong>Single Riveted Lap Joint Strengths per Pitch</strong>:</p>
+</li>
+<li>Plate Tearing: $\boxed{P_t = (p - d) \cdot t \cdot \sigma_t}$</li>
+<li>Rivet Single Shear: $\boxed{P_s = \frac{\pi}{4} d^2 \cdot \tau}$</li>
+<li>Rivet Crushing: $\boxed{P_c = d \cdot t \cdot \sigma_c}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Square Thread</strong>: Thread profile with $0^\circ$ flank angle. Offers highest efficiency for power transmission in both directions with zero radial bursting pressure.</li>
+<li><strong>Acme / Trapezoidal Thread</strong>: Thread profile with $29^\circ$ included angle ($14.5^\circ$ flank angle). Easier to cut than square threads; used in lathe lead screws and screw jacks.</li>
+<li><strong>Buttress Thread</strong>: Asymmetric thread profile ($45^\circ$ one side, $7^\circ$ other). Transmits high power efficiently in ONE DIRECTION ONLY.</li>
+<li><strong>Self-Locking Screw</strong>: A power screw that does not rotate back under load $\phi \ge \alpha \implies \eta \le 50\%$. Essential for safety in screw jacks and hoists.</li>
+<li><strong>Overhauling Screw</strong>: A power screw where the load lowers itself under gravity $\phi &lt; \alpha \implies \eta &gt; 50\%$.</li>
+<li><strong>Bolt of Uniform Strength</strong>: A bolt whose unthreaded shank diameter is reduced to equal the thread core diameter $d_c$, creating uniform stress along its entire length and maximizing strain energy (shock) absorption.</li>
+<li><strong>Turnbuckle</strong>: A coupler with left-hand threads on one end and right-hand threads on the other, allowing length and tension adjustment without rotating connected rods.</li>
+<li><strong>Fillet Weld Throat</strong>: The shortest distance from the root to the face of a fillet weld $t = 0.707 h$. Represents the failure plane under shear.</li>
+<li><strong>Caulking &amp; Fullering</strong>: Mechanical cold-hammering operations performed on riveted joint edges to press plate margins tightly together, producing LEAK-PROOF joints for boilers and pressure vessels.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Acme Thread Angle</strong>: $29^\circ$ included angle $\theta = 14.5^\circ$.</li>
+<li><strong>Metric V-Thread Angle</strong>: $60^\circ$ included angle $\beta/2 = 30^\circ$.</li>
+<li><strong>BSW Thread Angle</strong>: $55^\circ$ included angle.</li>
+<li><strong>Fillet Throat Multiplier</strong>: $0.707$ $\sin 45^\circ$.</li>
+<li><strong>Unwin Multiplier</strong>: $6.0$ $d = 6\sqrt{t}$.</li>
+<li><strong>Margin Multiplier</strong>: $1.5$ $m = 1.5d$.</li>
+<li><strong>Max Self-Locking Efficiency</strong>: $50\%$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Thread Profiles &amp; Nomenclature</strong>: §3.1.</li>
+<li><strong>Power Screws, Effort, Torque &amp; Efficiency</strong>: §3.2.</li>
+<li><strong>Bolted Joint Tensile Design &amp; Uniform Strength Resilience</strong>: §3.3.</li>
+<li><strong>Special Threaded Elements (Studs, Set Screws, Turnbuckle, Eye Bolt)</strong>: §3.4.</li>
+<li><strong>Welded Joint Design (Fillet &amp; Butt Welds)</strong>: §3.5.</li>
+<li><strong>Riveted Joint Design, Failures &amp; Leak-Proofing</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-thread-profiles-nomenclature"><strong>3.1 Thread Profiles &amp; Nomenclature</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Thread Classifications</strong>:</li>
+<li><strong>Square Thread</strong>: $0^\circ$ flank angle. Highest efficiency for power transmission in BOTH directions. Zero radial force on nut. Difficult to cut with taps/dies.</li>
+<li><strong>Acme / Trapezoidal Thread</strong>: $29^\circ$ included angle ($14.5^\circ$ flank angle). Stronger than square threads, easily cut on lathes, used in lathe lead screws.</li>
+<li><strong>Buttress Thread</strong>: Asymmetric profile $45^\circ/7^\circ$. Transmits high power in <strong>ONE DIRECTION ONLY</strong>. Used in bench vices, screw presses, cargo hooks.</li>
+<li><strong>V-Threads (Metric $60^\circ$, BSW $55^\circ$)</strong>: High friction due to wedging effect $\mu' = \mu/\cos(\beta/2)$. Used for <strong>FASTENING ONLY</strong>, never for power transmission.</li>
+<li><strong>Metric Designation</strong>:</li>
+<li>M $d \times p$ (e.g., M$24 \times 2 \implies$ nominal/major diameter $24 \text{ mm}$, pitch $2 \text{ mm}$).</li>
+<li><strong>Lead vs Pitch</strong>:</li>
+<li>Single-start thread: $\text{Lead} = \text{Pitch}$.</li>
+<li>Multi-start thread: $\text{Lead} = n \cdot \text{Pitch}$. Multi-start increases lead and efficiency, but reduces mechanical advantage and self-locking tendency.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thread Application Rule</strong>:
+- Square/Acme $\implies$ Power transmission in both directions.
+- Buttress $\implies$ Power transmission in ONE direction only.
+- V-threads $\implies$ Fastening/locking (never power transmission).</p>
+<p>[!TRAP]
+<strong>Acme vs Metric Thread Angles</strong>: Acme thread included angle is $29^\circ$ (flank angle $14.5^\circ$). Metric V-thread included angle is $60^\circ$ (flank angle $30^\circ$). Do not confuse thread angles in MCQs!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Thread Profile Selection Check?
+├─ Power transmission in BOTH directions with maximum efficiency? → SQUARE THREAD
+├─ Power transmission in Lead Screws requiring easy cutting/split nut? → ACME THREAD (29 deg)
+├─ Power transmission in ONE direction only under heavy load? → BUTTRESS THREAD
+├─ Fastening / Locking joints against loosening? → METRIC V-THREAD (60 deg)
+└─ Multi-start thread lead calculation? → Lead = n * Pitch
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Metric: M $d \times p$.</li>
+<li>[ ] Acme: $29^\circ$ included angle.</li>
+<li>[ ] Square: highest efficiency, both directions.</li>
+<li>[ ] Buttress: one direction power transmission.</li>
+<li>[ ] V-thread: fastening, $\mu' = \mu/\cos(\beta/2)$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Identify the nominal diameter and pitch for a bolt designated as M$24 \times 2$.
+- <strong>Solution</strong>:
+  - Metric thread designation format: M Nominal Diameter $\times$ Pitch.
+  - Nominal (major) diameter $= 24 \text{ mm}$.
+  - Pitch $= 2 \text{ mm}$.
+- <strong>Key Insight</strong>: M$24 \times 2$ means $24 \text{ mm}$ major diameter and $2 \text{ mm}$ pitch.</p>
+<hr />
+<h3 id="32-power-screws-effort-torque-efficiency-self-locking"><strong>3.2 Power Screws: Effort, Torque, Efficiency &amp; Self-Locking</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Self-Locking Mechanics</strong>:</li>
+<li>A screw jack is self-locking if the load does not descend automatically when the lifting effort is removed.</li>
+<li>Condition: Friction angle $\phi \ge \text{helix angle } \alpha \implies \mu \ge \tan\alpha$.</li>
+<li>Maximum efficiency of any self-locking screw is <strong>ALWAYS $\le 50\%$</strong>.</li>
+<li>If $\phi &lt; \alpha \implies$ Overhauling $\eta &gt; 50\%$.</li>
+<li><strong>Lifting Effort &amp; Torque (Square Thread)</strong>:</li>
+<li>Lifting effort: $P = W \tan(\alpha + \phi)$.</li>
+<li>Lifting torque: $T = \frac{W d_m}{2} \tan(\alpha + \phi)$.</li>
+<li><strong>Lowering Effort &amp; Torque</strong>:</li>
+<li>Lowering effort (self-locking): $P_{\text{lower}} = W \tan(\phi - \alpha)$.</li>
+<li><strong>Screw Jack Efficiency &amp; Maximum Efficiency</strong>:</li>
+<li>Efficiency: $\eta = \frac{\tan\alpha}{\tan(\alpha + \phi)}$.</li>
+<li>Maximum efficiency: $\eta_{\text{max}} = \frac{1 - \sin\phi}{1 + \sin\phi}$.</li>
+<li>Occurs at optimum helix angle: $\alpha = 45^\circ - \frac{\phi}{2}$.</li>
+<li><strong>Screw Jack Cup Function</strong>:</li>
+<li>The cup fitted at the top of a screw jack supports the load and <strong>prevents the load from rotating</strong> along with the screw.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Self-Locking Efficiency Limit</strong>: The efficiency of a self-locking power screw can NEVER exceed $50\%$ $\eta \le 50\%$. If efficiency exceeds $50\%$, the screw is overhauling!</p>
+<p>[!TRAP]
+<strong>Maximum Efficiency Formula</strong>: $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$. Do not confuse with $\frac{1-\cos\phi}{1+\cos\phi}$ or $\frac{1-\tan\phi}{1+\tan\phi}$!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Power Screw / Screw Jack Check?
+├─ Is friction angle phi &gt;= helix angle alpha? → SELF-LOCKING (Efficiency &lt;= 50%)
+├─ Is friction angle phi &lt; helix angle alpha? → OVERHAULING (Efficiency &gt; 50%)
+├─ What is effort to RAISE load W? → P = W * tan(alpha + phi)
+├─ What is effort to LOWER load W? → P = W * tan(phi - alpha)
+├─ Maximum efficiency formula? → eta_max = (1 - sin(phi)) / (1 + sin(phi))
+└─ Optimum helix angle for max efficiency? → alpha = 45 deg - phi/2
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Self-locking: $\phi \ge \alpha \implies \eta \le 50\%$.</li>
+<li>[ ] Raising effort: $P = W \tan(\alpha+\phi)$.</li>
+<li>[ ] Lowering effort: $P = W \tan(\phi-\alpha)$.</li>
+<li>[ ] Max efficiency: $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$.</li>
+<li>[ ] Cup prevents load rotation.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A screw jack has a friction angle $\phi = 30^\circ$. Calculate the maximum possible efficiency of the screw jack.
+- <strong>Solution</strong>:
+  - Apply maximum efficiency formula:
+    <div class="formula-card">$${\eta_{\text{max}} = \frac{1 - \sin\phi}{1 + \sin\phi}}$$</div>
+  - Substitute $\phi = 30^\circ \implies \sin 30^\circ = 0.5$:
+    <div class="formula-card">$${\eta_{\text{max}} = \frac{1 - 0.5}{1 + 0.5} = \frac{0.5}{1.5} = \frac{1}{3} \approx 33.33\%}$$</div>
+- <strong>Key Insight</strong>: $\eta_{\text{max}} = 33.33\%$. Note that since $\eta_{\text{max}} &lt; 50\%$, the screw operates in the self-locking range.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: A square-threaded power screw has a mean diameter $d_m = 50 \text{ mm}$ and pitch $p = 10 \text{ mm}$. The coefficient of friction is $\mu = 0.15$. Determine the effort required at the mean radius to raise a load of $20 \text{ kN}$.
+- <strong>Solution</strong>:
+  - Calculate helix angle $\alpha$:
+    <div class="formula-card">$${\tan\alpha = \frac{p}{\pi d_m} = \frac{10}{\pi \times 50} = \frac{10}{157.08} \approx 0.06366 \implies \alpha \approx 3.64^\circ}$$</div>
+  - Calculate friction angle $\phi$:
+    <div class="formula-card">$${\tan\phi = \mu = 0.15 \implies \phi \approx 8.53^\circ}$$</div>
+  - Calculate $\tan(\alpha + \phi)$:
+    <div class="formula-card">$${\tan(\alpha + \phi) = \frac{\tan\alpha + \tan\phi}{1 - \tan\alpha \tan\phi} = \frac{0.06366 + 0.15}{1 - (0.06366 \times 0.15)} = \frac{0.21366}{0.99045} \approx 0.2157}$$</div>
+  - Calculate effort $P$:
+    <div class="formula-card">$${P = W \cdot \tan(\alpha + \phi) = 20000 \times 0.2157 = 4314 \text{ N} = 4.314 \text{ kN}}$$</div>
+- <strong>Key Insight</strong>: $P \approx 4.314 \text{ kN}$. Use $\tan(\alpha+\phi) = \frac{\tan\alpha+\mu}{1-\mu\tan\alpha}$.</p>
+<hr />
+<h3 id="33-bolted-joints-tensile-design-uniform-strength-resilience"><strong>3.3 Bolted Joints: Tensile Design, Uniform Strength &amp; Resilience</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Tensile Failure &amp; Core Area</strong>:</li>
+<li>Bolts under pure tension fail at the root of the threads (core diameter $d_c$).</li>
+<li>Design formula: $P = \frac{\pi}{4} d_c^2 \sigma_t \implies d_c = \sqrt{\frac{4P}{\pi \sigma_t}}$.</li>
+<li><strong>Bolt of Uniform Strength (Resilience)</strong>:</li>
+<li>Standard bolts have a shank diameter $d$ larger than core diameter $d_c$. Under impact loads, high stress concentrates at the threaded portion while shank stress remains low, resulting in low strain energy absorption.</li>
+<li>A <strong>Bolt of Uniform Strength</strong> is created by reducing the unthreaded shank diameter to equal the core diameter $d_c$ (or drilling a axial hole through the shank).</li>
+<li>Stress becomes uniform along the entire length $\implies$ strain energy (resilience $U = \frac{\sigma^2 V}{2E}$) increases drastically, protecting the bolt against shock failure!</li>
+<li><strong>Washers</strong>:</li>
+<li>A washer under the nut distributes the clamping load over a larger bearing area and prevents surface galling/damage.</li>
+<li><strong>Tightening Torque Components</strong>:</li>
+<li>Total tightening torque $T = T_{\text{thread friction}} + T_{\text{collar friction}} + T_{\text{preload}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Bolt of Uniform Strength</strong>: Reducing the unthreaded shank diameter to equal thread core diameter $d_c$ makes stress uniform throughout the length, maximizing shock energy absorption (resilience).</p>
+<p>[!TRAP]
+<strong>Bolt Core Diameter Area</strong>: Core diameter $d_c \approx 0.84 d$ (major diameter). Always use core area $A_c = \frac{\pi}{4} d_c^2$ for tensile strength calculations, NOT major diameter area!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Bolted Joint Design Check?
+├─ Is design for tensile load P? → Core diameter dc = sqrt(4 * P / (pi * sigma_t))
+├─ Purpose of reducing shank diameter to core diameter? → BOLT OF UNIFORM STRENGTH (Max Resilience)
+├─ Purpose of Washer under nut? → Distribute load / provide bearing area / protect surface
+└─ Tightening torque components? → Thread friction + Collar friction + Preload torque
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Tensile design uses core diameter $d_c$.</li>
+<li>[ ] Uniform strength bolt: shank diameter $= d_c$.</li>
+<li>[ ] Uniform strength increases shock resilience $U = \frac{\sigma^2 V}{2E}$.</li>
+<li>[ ] Washer provides bearing area.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An eye bolt is subjected to an axial lifting load $P = 70 \text{ kN}$. The allowable tensile stress of the bolt material is $\sigma_t = 100 \text{ MPa}$. Calculate the required core diameter $d_c$ of the bolt.
+- <strong>Solution</strong>:
+  - Apply core area tensile formula:
+    <div class="formula-card">$${P = \frac{\pi}{4} d_c^2 \cdot \sigma_t \implies 70000 = \frac{\pi}{4} d_c^2 \times 100}$$</div>
+    <div class="formula-card">$${d_c^2 = \frac{70000 \times 4}{100 \pi} = \frac{2800}{\pi} \approx 891.27 \implies d_c = \sqrt{891.27} \approx 29.85 \text{ mm}}$$</div>
+  - Standard core diameter selection: $d_c \approx 30 \text{ mm}$.
+- <strong>Key Insight</strong>: $d_c \approx 30 \text{ mm}$. Tensile calculation strictly uses thread core area.</p>
+<hr />
+<h3 id="34-special-threaded-elements"><strong>3.4 Special Threaded Elements</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Stud</strong>: A cylindrical rod threaded at both ends with no head. One end is permanently screwed into a tapped hole in a body; the other end receives a nut.</li>
+<li><strong>Set Screw</strong>: A headless screw used to prevent relative motion between two machine parts (such as a pulley hub and shaft) by driving its point against the inner part (compressive friction holding).</li>
+<li><strong>Turnbuckle</strong>: A coupling device with a central sleeve/coupler containing a <strong>left-hand thread on one end and a right-hand thread on the other end</strong>. Rotating the coupler adjusts rod length and tension without turning the connected rods.</li>
+<li><strong>Eye Bolt</strong>: A bolt with a circular loop/eye head used for lifting and transporting heavy machinery.</li>
+<li><strong>Thread Stripping Failure</strong>: Prevented by ensuring adequate engaged thread length $L_e \ge 0.8 d - 1.0 d$ in the nut to withstand direct shear.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Turnbuckle Thread Orientation</strong>: A turnbuckle coupler MUST have a left-hand thread on one end and a right-hand thread on the other end so that turning the sleeve pulls both connected rods together or pushes them apart.</p>
+<p>[!TRAP]
+<strong>Stud vs Bolt</strong>: A stud has NO head! It is threaded on both ends.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Special Threaded Fastener Check?
+├─ Fastener threaded at both ends with NO head? → STUD
+├─ Headless screw producing compressive holding to prevent relative motion? → SET SCREW
+├─ Coupler with Left-Hand &amp; Right-Hand threads for tension adjustment? → TURNBUCKLE
+└─ Bolt with circular loop head for lifting heavy loads? → EYE BOLT
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Stud: threaded both ends, no head.</li>
+<li>[ ] Set screw: headless, compressive holding.</li>
+<li>[ ] Turnbuckle: left-hand + right-hand threads.</li>
+<li>[ ] Eye bolt: lifting heavy loads.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain why turnbuckles are constructed with opposite-hand threads on their two ends.
+- <strong>Solution</strong>:
+  - Having a left-hand thread on one end and a right-hand thread on the other end allows the central coupler to adjust cable/rod tension when rotated in one direction, without needing to rotate the attached long cables or rods.
+- <strong>Key Insight</strong>: Opposite thread hands enable pure axial length/tension adjustment upon coupler rotation.</p>
+<hr />
+<h3 id="35-welded-joints-fillet-butt-welds"><strong>3.5 Welded Joints: Fillet &amp; Butt Welds</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Fillet Weld Geometry &amp; Weakest Section</strong>:</li>
+<li>Throat thickness: $t = 0.707 h = h \sin 45^\circ$ ($h$ = leg size).</li>
+<li>Throat is the <strong>WEAKEST SECTION</strong> of a fillet weld, failing under shear.</li>
+<li><strong>Parallel vs Transverse Fillet Welds</strong>:</li>
+<li><strong>Parallel Fillet Weld</strong>: Weld axis parallel to load direction. Subjected to pure shear along throat $P = 2 \times 0.707 h \ell \tau$.</li>
+<li><strong>Transverse Fillet Weld</strong>: Weld axis perpendicular to load direction. Subjected to combined tensile and shear stress. Fails in shear at throat plane, but is <strong>$1.17\times$ stronger in shear</strong> than a parallel fillet weld.</li>
+<li><strong>Butt Welded Joints</strong>:</li>
+<li>Size of weld = throat thickness = plate thickness $t$.</li>
+<li>Tensile strength: $P = \sigma_t \cdot t \cdot L \cdot \eta$.</li>
+<li>Full penetration butt welds have no throat reduction factor $t = \text{plate thickness}$.</li>
+<li><strong>Backing rings</strong> are inserted inside pipes during butt welding to ensure proper root penetration and alignment.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fillet Weld Throat Rule</strong>: Fillet weld throat thickness is $t = 0.707 h$. All fillet welds (parallel or transverse) are designed based on SHEAR FAILURE across this minimum throat area!</p>
+<p>[!TRAP]
+<strong>Butt Weld vs Fillet Weld Size</strong>:
+- Fillet weld size $= h$; Throat $= 0.707 h$.
+- Butt weld size $= \text{Throat} = \text{Plate thickness } t$ (no $0.707$ multiplier!).</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Welded Joint Design Check?
+├─ Fillet weld throat thickness formula? → t = 0.707 * h
+├─ Weakest plane in fillet weld? → THROAT (Fails in Shear)
+├─ Double parallel fillet weld shear load P? → P = 2 * (0.707 * h * L) * tau
+├─ Transverse vs Parallel shear strength ratio? → Transverse is 1.17x stronger
+└─ Butt weld throat thickness? → Equals full plate thickness t
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Fillet throat $t = 0.707 h$.</li>
+<li>[ ] Weakest section: throat (shear failure).</li>
+<li>[ ] Double parallel fillet: $P = 1.414 h \ell \tau$.</li>
+<li>[ ] Transverse fillet $1.17\times$ stronger than parallel.</li>
+<li>[ ] Butt weld throat $= t$ (plate thickness).</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Two steel plates of width $100 \text{ mm}$ and thickness $10 \text{ mm}$ are joined by double parallel fillet welds of leg size $h = 10 \text{ mm}$. If the permissible shear stress is $\tau = 55 \text{ MPa}$, calculate the required length of each weld to transmit a static load of $77 \text{ kN}$.
+- <strong>Solution</strong>:
+  - Formula for double parallel fillet weld strength:
+    <div class="formula-card">$${P = 2 \times (0.707 \cdot h \cdot \ell) \cdot \tau}$$</div>
+  - Substitute given values ($P = 77000 \text{ N}$, $h = 10 \text{ mm}$, $\tau = 55 \text{ MPa}$):
+    <div class="formula-card">$${77000 = 2 \times 0.707 \times 10 \times \ell \times 55}$$</div>
+    <div class="formula-card">$${77000 = 777.7 \cdot \ell \implies \ell = \frac{77000}{777.7} \approx 99.01 \text{ mm} \approx 100 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $\ell \approx 100 \text{ mm}$. Double parallel weld uses factor of 2 with $0.707 h \ell \tau$.</p>
+<hr />
+<h3 id="36-riveted-joints-design-failures-leak-proofing"><strong>3.6 Riveted Joints: Design, Failures &amp; Leak-Proofing</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Permanent Fastening Classification</strong>:</li>
+<li>Riveted and welded joints are <strong>PERMANENT FASTENINGS</strong> (cannot be disassembled without destroying rivets or plates). Bolted joints are temporary.</li>
+<li><strong>Riveted Joint Failure Modes</strong>:</li>
+<li>Tearing of plate at margin (prevented by keeping margin $m \ge 1.5d$).</li>
+<li>Tearing of plate across rivet row $P_t = (p-d)t\sigma_t$.</li>
+<li>Shearing of rivets ($P_s = \frac{\pi}{4}d^2 \tau$ single shear, $2 \times \frac{\pi}{4}d^2 \tau$ double shear).</li>
+<li>Crushing of rivets/plates ($P_c = d t \sigma_c$, hole deforms into oval shape).</li>
+<li><strong>Unwin's Formula</strong>:</li>
+<li>Used to find rivet hole diameter $d$ from plate thickness $t$: $d = 6\sqrt{t}$ ($d$ and $t$ in mm).</li>
+<li><strong>Tearing Efficiency $\eta_t$</strong>:
+  <div class="formula-card">$${\eta_t = \frac{p - d}{p} = 1 - \frac{d}{p}}$$</div></li>
+<li>High-yield relation: If $\eta_t = 75\% \implies \frac{d}{p} = 0.25$.</li>
+<li><strong>Caulking &amp; Fullering</strong>:</li>
+<li>Post-riveting cold-hammering operations using narrow chisel-like tools to pack plate edges and rivet heads tightly against each other.</li>
+<li>Done exclusively to make riveted joints <strong>LEAK-PROOF</strong> in boilers, pressure vessels, and tanks.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Unwin's Formula &amp; Leak-Proofing</strong>:
+- Rivet diameter $d = 6\sqrt{t}$ (mm).
+- Caulking and Fullering are performed ONLY to make riveted boiler joints LEAK-PROOF.</p>
+<p>[!TRAP]
+<strong>Tearing Efficiency Ratio</strong>: $\eta_t = \frac{p-d}{p}$. If efficiency is $75\%$, then $d/p = 0.25$, NOT $0.75$!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Riveted Joint Design &amp; Failure Check?
+├─ Is riveting permanent or temporary? → PERMANENT FASTENING
+├─ Rivet hole diameter from plate thickness t? → UNWIN'S FORMULA: d = 6 * sqrt(t)
+├─ Margin to prevent edge tearing? → m = 1.5 * d
+├─ Tearing efficiency formula? → eta_t = (p - d) / p
+├─ If tearing efficiency is 75%, what is d/p? → d/p = 0.25
+└─ Purpose of Caulking and Fullering? → Make joint LEAK-PROOF (Boilers)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Rivet is permanent fastening.</li>
+<li>[ ] Unwin: $d = 6\sqrt{t}$ mm.</li>
+<li>[ ] Margin $m = 1.5d$.</li>
+<li>[ ] $\eta_t = (p-d)/p$.</li>
+<li>[ ] $75\%$ efficiency $\implies d/p = 0.25$.</li>
+<li>[ ] Caulking/Fullering: leak-proof joints.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A riveted joint has a tearing efficiency of $75\%$. Determine the ratio of rivet hole diameter to pitch $d/p$.
+- <strong>Solution</strong>:
+  - Tearing efficiency formula:
+    <div class="formula-card">$${\eta_t = \frac{p - d}{p} = 1 - \frac{d}{p}}$$</div>
+  - Substitute $\eta_t = 0.75$:
+    <div class="formula-card">$${0.75 = 1 - \frac{d}{p} \implies \frac{d}{p} = 1 - 0.75 = 0.25}$$</div>
+- <strong>Key Insight</strong>: $d/p = 0.25$. Pitch $p = 4d$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: Calculate the rivet hole diameter for a boiler joint connecting two steel plates of thickness $t = 9 \text{ mm}$ using Unwin's formula.
+- <strong>Solution</strong>:
+  - Apply Unwin's formula ($t$ in mm):
+    <div class="formula-card">$${d = 6\sqrt{t} = 6\sqrt{9} = 6 \times 3 = 18 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $d = 18 \text{ mm}$. Direct application of $d = 6\sqrt{t}$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What is the included thread angle of an Acme thread? Where is it used?</strong><br />
+A: $29^\circ$ included angle ($14.5^\circ$ flank angle). Used in lathe lead screws and screw jacks due to ease of cutting and split-nut engagement.</p>
+<p><strong>Q2: Which thread form is designed for transmitting heavy power in ONE DIRECTION ONLY?</strong><br />
+A: Buttress thread (asymmetric profile: $45^\circ$ one side, $7^\circ$ other).</p>
+<p><strong>Q3: State the condition for self-locking in a square-threaded power screw.</strong><br />
+A: Friction angle $\phi \ge \text{helix angle } \alpha$ $\mu \ge \tan\alpha$.</p>
+<p><strong>Q4: What is the maximum efficiency limit of any self-locking power screw?</strong><br />
+A: Maximum efficiency $\eta \le 50\%$.</p>
+<p><strong>Q5: Write the formula for maximum efficiency of a screw jack.</strong><br />
+A: $\eta_{\text{max}} = \frac{1 - \sin\phi}{1 + \sin\phi}$, occurring at helix angle $\alpha = 45^\circ - \frac{\phi}{2}$.</p>
+<p><strong>Q6: What is the function of the cup at the top of a screw jack?</strong><br />
+A: To support the load and prevent the load from rotating along with the screw.</p>
+<p><strong>Q7: How does a Bolt of Uniform Strength increase shock resilience?</strong><br />
+A: By reducing the unthreaded shank diameter to equal the thread core diameter $d_c$, distributing stress uniformly along its entire length and maximizing strain energy absorption $U = \frac{\sigma^2 V}{2E}$.</p>
+<p><strong>Q8: Describe the thread arrangement in a Turnbuckle coupler.</strong><br />
+A: It has a left-hand thread on one end and a right-hand thread on the other end to allow length and tension adjustment without turning the connected rods.</p>
+<p><strong>Q9: What is a Stud?</strong><br />
+A: A headless cylindrical rod threaded at both ends; one end is screwed into a tapped component hole, and the other receives a nut.</p>
+<p><strong>Q10: What is the throat thickness $t$ of a fillet weld of leg size $h$?</strong><br />
+A: $t = 0.707 h = h \sin 45^\circ$.</p>
+<p><strong>Q11: Which section is the weakest in a fillet weld, and how does it fail?</strong><br />
+A: The throat section is the weakest section and fails under shear stress.</p>
+<p><strong>Q12: State Unwin's formula for rivet hole diameter.</strong><br />
+A: $d = 6\sqrt{t}$ (where $d$ and $t$ are in mm).</p>
+<p><strong>Q13: What is the margin $m$ in a riveted joint and what failure does it prevent?</strong><br />
+A: $m = 1.5d$. It prevents tearing of the plate at the edge.</p>
+<p><strong>Q14: Write the formula for tearing efficiency $\eta_t$ of a riveted joint.</strong><br />
+A: $\eta_t = \frac{p - d}{p} = 1 - \frac{d}{p}$.</p>
+<p><strong>Q15: What is the primary purpose of Caulking and Fullering in riveted boiler joints?</strong><br />
+A: To press plate margins and rivet heads tightly together to make the joint LEAK-PROOF.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Thread Profiles</strong>:</li>
+<li>Metric: M $d \times p$ ($60^\circ$ V-thread, fastening only).</li>
+<li>Square: $0^\circ$ flank angle, max efficiency, power in both directions.</li>
+<li>Acme: $29^\circ$ included angle ($14.5^\circ$ flank angle), lead screws.</li>
+<li>Buttress: asymmetric $45^\circ/7^\circ$, power in ONE direction only.</li>
+<li><strong>Power Screws &amp; Screw Jacks</strong>:</li>
+<li>Self-locking: $\phi \ge \alpha \implies \mu \ge \tan\alpha$. Efficiency $\eta \le 50\%$.</li>
+<li>Overhauling: $\phi &lt; \alpha \implies \eta &gt; 50\%$.</li>
+<li>Raising effort: $P = W \tan(\alpha+\phi)$; Torque $T = \frac{W d_m}{2}\tan(\alpha+\phi)$.</li>
+<li>Lowering effort: $P = W \tan(\phi-\alpha)$.</li>
+<li>Max efficiency: $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$ at $\alpha = 45^\circ - \frac{\phi}{2}$.</li>
+<li>Cup prevents load rotation. V-thread equivalent friction $\mu' = \frac{\mu}{\cos(\beta/2)}$.</li>
+<li><strong>Bolted Joints</strong>:</li>
+<li>Tensile core diameter: $d_c = \sqrt{\frac{4P}{\pi \sigma_t}}$.</li>
+<li>Uniform strength bolt: shank diameter $= d_c \implies$ uniform stress $\implies$ max shock resilience $U = \frac{\sigma^2 V}{2E}$.</li>
+<li>Washer provides bearing area. Stud has no head (threaded both ends). Turnbuckle has L-hand &amp; R-hand threads.</li>
+<li><strong>Welded Joints</strong>:</li>
+<li>Fillet throat thickness $t = 0.707 h$. Weakest section (fails in shear).</li>
+<li>Double parallel fillet shear strength: $P = 2(0.707 h \ell)\tau = 1.414 h \ell \tau$.</li>
+<li>Transverse fillet is $1.17\times$ stronger in shear than parallel fillet.</li>
+<li>Butt weld throat $= t$ (plate thickness). Backing rings used inside pipes for penetration.</li>
+<li><strong>Riveted Joints</strong>: Permanent fastening.</li>
+<li>Unwin formula: $d = 6\sqrt{t}$ mm. Margin $m = 1.5d$.</li>
+<li>Tearing efficiency: $\eta_t = \frac{p-d}{p}$. $75\%$ efficiency $\implies \frac{d}{p} = 0.25$.</li>
+<li>Caulking &amp; Fullering: make joints LEAK-PROOF for boilers.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Acme thread angle $= 29^\circ$.</li>
+<li>[ ] Memorize Metric thread M $d \times p$ format.</li>
+<li>[ ] Memorize Buttress thread transmits power in ONE direction only.</li>
+<li>[ ] Memorize Self-locking condition $\phi \ge \alpha \implies \eta \le 50\%$.</li>
+<li>[ ] Memorize Overhauling condition $\phi &lt; \alpha \implies \eta &gt; 50\%$.</li>
+<li>[ ] Memorize Raising effort $P = W \tan(\alpha+\phi)$.</li>
+<li>[ ] Memorize Lowering effort $P = W \tan(\phi-\alpha)$.</li>
+<li>[ ] Memorize Screw jack max efficiency $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$ at $\alpha = 45^\circ - \phi/2$.</li>
+<li>[ ] Memorize V-thread equivalent friction $\mu' = \mu/\cos(\beta/2)$.</li>
+<li>[ ] Memorize Bolt tensile core diameter $d_c = \sqrt{4P/(\pi \sigma_t)}$.</li>
+<li>[ ] Memorize Bolt of uniform strength shank diameter $= d_c$ (maximizes resilience).</li>
+<li>[ ] Memorize Turnbuckle has Left-hand + Right-hand threads.</li>
+<li>[ ] Memorize Fillet weld throat $t = 0.707 h$ (weakest section in shear).</li>
+<li>[ ] Memorize Transverse fillet is $1.17\times$ stronger than parallel fillet.</li>
+<li>[ ] Memorize Butt weld size $= t$ (plate thickness).</li>
+<li>[ ] Memorize Rivets are permanent fastenings.</li>
+<li>[ ] Memorize Unwin's formula $d = 6\sqrt{t}$ mm.</li>
+<li>[ ] Memorize Margin $m = 1.5d$.</li>
+<li>[ ] Memorize Tearing efficiency $\eta_t = (p-d)/p$; $75\% \implies d/p = 0.25$.</li>
+<li>[ ] Memorize Caulking and Fullering make riveted boiler joints LEAK-PROOF.</li>
+</ul>
+</body>
+</html>
