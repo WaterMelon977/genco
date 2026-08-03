@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knocking, Fuel Rating, Supercharging & Combustion Chamber Design — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="knocking-fuel-rating-supercharging-combustion-chamber-design-comprehensive-reorganized-study-guide">Knocking, Fuel Rating, Supercharging &amp; Combustion Chamber Design — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers SI Engine Knocking (Detonation vs Pre-ignition, end-gas auto-ignition, flame speed $20-30 \text{ m/s}$ vs shock wave $1000-2000 \text{ m/s}$, HUCR), CI Diesel Knocking (Ignition delay $\tau_{id} = \tau_{\text{physical}} + \tau_{\text{chemical}}$, pressure rise rate $dP/d\theta &gt; 4-5 \text{ bar/}^\circ\text{CA}$), Fuel Rating Systems (Octane Number ON, reference fuels Iso-octane $100$ &amp; n-Heptane $0$, $\text{AKI} = \frac{\text{RON}+\text{MON}}{2}$, Cetane Number CN, reference fuels n-Cetane $100$ &amp; $\alpha$-methyl-naphthalene $0$), Air-Fuel Mixtures (Stoichiometric Gasoline $14.7:1$, Methanol $6.5:1$, operating ranges), Supercharging &amp; Turbocharging ($\rho_2/\rho_1 = \frac{P_2}{P_1}\frac{T_1}{T_2}$, SI knock limit vs CI preference, Roots/Centrifugal, turbo exhaust drive), and Combustion Chamber Design (SI: T-head, L-head, I-head OHV, Pent-roof; CI: Open DI vs Divided IDI Swirl/Pre-chamber) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-knocking-ignition-delay"><strong>1. Knocking &amp; Ignition Delay</strong></h4>
+<ul>
+<li><strong>SI Auto-Ignition Delay Relation</strong>:
+  <div class="formula-card">$${\boxed{\tau_{id} \propto \frac{1}{P^n \cdot e^{-E / (R \cdot T)}}}}$$</div></li>
+<li>$\tau_{id}$: ignition delay period of end-gas $\text{ms}$</li>
+<li>$P$: end-gas pressure $\text{Pa}$</li>
+<li>$T$: end-gas absolute temperature $\text{K}$</li>
+<li>
+<p>$E$: activation energy $\text{J/mol}$</p>
+</li>
+<li>
+<p><strong>CI Total Ignition Delay</strong>:
+  <div class="formula-card">$${\boxed{\tau_{id} = \tau_{\text{physical}} + \tau_{\text{chemical}}}}$$</div></p>
+</li>
+<li>$\tau_{\text{physical}}$: atomization, heating, vaporization, and mixing time $\text{ms}$</li>
+<li>$\tau_{\text{chemical}}$: pre-flame chemical reactions time $\text{ms}$</li>
+</ul>
+<hr />
+<h4 id="2-fuel-rating-systems"><strong>2. Fuel Rating Systems</strong></h4>
+<ul>
+<li><strong>Octane Number Definition</strong>:
+  <div class="formula-card">$${\boxed{\text{ON} = \% \text{ by volume of Iso-octane in a blend with n-Heptane matching test fuel knock intensity}}}$$</div></li>
+<li>Iso-octane (2,2,4-trimethylpentane): $\text{ON} = 100$</li>
+<li>
+<p>n-Heptane: $\text{ON} = 0$</p>
+</li>
+<li>
+<p><strong>Anti-Knock Index (AKI)</strong>:
+  <div class="formula-card">$${\boxed{\text{AKI} = \frac{\text{RON} + \text{MON}}{2}}}$$</div></p>
+</li>
+<li>$\text{RON}$: Research Octane Number (mild operating conditions)</li>
+<li>$\text{MON}$: Motor Octane Number (severe operating conditions)</li>
+<li>
+<p>Sensitivity $= \text{RON} - \text{MON} &gt; 0$</p>
+</li>
+<li>
+<p><strong>Cetane Number Definition</strong>:
+  <div class="formula-card">$${\boxed{\text{CN} = \% \text{ by volume of n-Cetane in a blend with } \alpha\text{-methyl-naphthalene matching ignition delay}}}$$</div></p>
+</li>
+<li>n-Cetane (n-hexadecane): $\text{CN} = 100$</li>
+<li>
+<p>$\alpha$-methyl-naphthalene: $\text{CN} = 0$ (or Heptamethylnonane: $\text{CN} = 15$)</p>
+</li>
+<li>
+<p><strong>Hydrocarbon Detonation Tendency Order (Increasing SI Knock)</strong>:
+  <div class="formula-card">$${\boxed{\text{Aromatics} &lt; \text{Naphthenes} &lt; \text{Olefins} &lt; \text{Paraffins}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-air-fuel-ratios-stoichiometry"><strong>3. Air-Fuel Ratios &amp; Stoichiometry</strong></h4>
+<ul>
+<li><strong>Stoichiometric Air-Fuel Ratio (Mass Basis)</strong>:
+  <div class="formula-card">$${\boxed{\text{AFR}<em>{\text{stoich}} = \frac{m</em>{\text{air, theoretical}}}{m_{\text{fuel}}}}}$$</div></li>
+<li>Gasoline / Petrol: $\approx 14.7:1 \text{ to } 15:1$</li>
+<li>Methanol $\text{CH}_3\text{OH}$: $6.5:1$</li>
+<li>
+<p>Diesel: $\approx 14.5:1$ (operates lean at $18:1 \text{ to } 70:1$)</p>
+</li>
+<li>
+<p><strong>Equivalence Ratio $\phi$</strong>:
+  <div class="formula-card">$${\boxed{\phi = \frac{\text{AFR}<em>{\text{stoich}}}{\text{AFR}</em>{\text{actual}}}}}$$</div></p>
+</li>
+<li>$\phi &gt; 1 \implies$ Rich mixture; $\phi &lt; 1 \implies$ Lean mixture; $\phi = 1 \implies$ Stoichiometric</li>
+</ul>
+<hr />
+<h4 id="4-supercharging-relations"><strong>4. Supercharging Relations</strong></h4>
+<ul>
+<li><strong>Boost Density Ratio</strong>:
+  <div class="formula-card">$${\boxed{\frac{\rho_2}{\rho_1} = \left(\frac{P_2}{P_1}\right) \left(\frac{T_1}{T_2}\right)}}$$</div></li>
+<li>
+<p>$\rho_1, \rho_2$: intake air density before and after supercharger $\text{kg/m}^3$</p>
+</li>
+<li>
+<p><strong>Approximate Power Ratio</strong>:
+  <div class="formula-card">$${\boxed{\frac{\text{Power}<em>{\text{supercharged}}}{\text{Power}</em>{\text{naturally aspirated}}} \approx \frac{\rho_2}{\rho_1}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-combustion-chamber-geometry"><strong>5. Combustion Chamber Geometry</strong></h4>
+<ul>
+<li><strong>Flame Travel Duration (SI Engine)</strong>:
+  <div class="formula-card">$${\boxed{t_{\text{combustion}} \propto \frac{L_{\text{flame}}}{S_L + u'}}}$$</div></li>
+<li>$L_{\text{flame}}$: distance from spark plug to farthest end-gas $\text{m}$</li>
+<li>$S_L$: laminar flame speed $\text{m/s}$</li>
+<li>$u'$: turbulence intensity $\text{m/s}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Detonation (SI Knocking)</strong>: Abnormal combustion where unburned end-gas auto-ignites spontaneously ahead of the advancing spark-initiated flame front, producing violent pressure shock waves $1000-2000 \text{ m/s}$.</li>
+<li><strong>Pre-Ignition</strong>: Ignition of the air-fuel mixture by a hot spot (spark plug tip, carbon deposit) BEFORE the electric spark occurs. Distinct from detonation (which occurs AFTER spark).</li>
+<li><strong>Highest Useful Compression Ratio (HUCR)</strong>: The maximum compression ratio at which an engine can operate without knocking on a given fuel under specified conditions.</li>
+<li><strong>Diesel Knock</strong>: Violent pressure rise $dP/d\theta &gt; 4-5 \text{ bar/}^\circ\text{CA}$ at the START of combustion in CI engines caused by excessive accumulation of fuel during a long ignition delay period.</li>
+<li><strong>Iso-octane (2,2,4-trimethylpentane)</strong>: Highly branched paraffin hydrocarbon assigned an Octane Number of 100 due to superior knock resistance.</li>
+<li><strong>n-Heptane</strong>: Straight-chain paraffin hydrocarbon assigned an Octane Number of 0 due to extreme knock tendency.</li>
+<li><strong>n-Cetane (hexadecane)</strong>: Straight-chain paraffin hydrocarbon assigned a Cetane Number of 100 due to short ignition delay and excellent auto-ignition quality.</li>
+<li><strong>Open Chamber (Direct Injection - DI)</strong>: CI combustion chamber where fuel is injected directly into a single cavity in the piston crown. High fuel economy.</li>
+<li><strong>Divided Chamber (Indirect Injection - IDI)</strong>: CI combustion chamber split into a primary pre-combustion / swirl chamber and a main cylinder cavity. High turbulence, quieter running, uses glow plugs.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Normal SI Flame Speed</strong>: $20 \text{ to } 30 \text{ m/s}$.</li>
+<li><strong>Detonation Shock Wave Velocity</strong>: $1000 \text{ to } 2000 \text{ m/s}$.</li>
+<li><strong>Gasoline Stoichiometric AFR</strong>: $14.7:1 \text{ or } 15:1$.</li>
+<li><strong>Methanol Stoichiometric AFR</strong>: $6.5:1$.</li>
+<li><strong>Commercial Diesel Cetane Number</strong>: $40 \text{ to } 55$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>SI Knocking &amp; Detonation</strong>: §3.1.</li>
+<li><strong>CI Diesel Knocking</strong>: §3.2.</li>
+<li><strong>Fuel Rating (Octane &amp; Cetane)</strong>: §3.3.</li>
+<li><strong>Air-Fuel Ratios &amp; Mixture Ranges</strong>: §3.4.</li>
+<li><strong>Supercharging &amp; Turbocharging</strong>: §3.5.</li>
+<li><strong>Combustion Chamber Design (SI &amp; CI)</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-si-engine-knocking-detonation-vs-pre-ignition"><strong>3.1 SI Engine Knocking (Detonation vs Pre-Ignition)</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Detonation Mechanism</strong>:</li>
+<li>Spark plug ignites flame front, which advances at $20-30 \text{ m/s}$.</li>
+<li>Advancing flame compresses and heats the unburned <strong>end-gas</strong>.</li>
+<li>If end-gas temperature exceeds auto-ignition temperature before flame arrives, end-gas auto-ignites explosively, generating shock waves at $1000-2000 \text{ m/s}$.</li>
+<li><strong>Detonation vs Pre-Ignition</strong>:</li>
+<li><strong>Detonation</strong>: Occurs <strong>AFTER</strong> the spark plug fires.</li>
+<li><strong>Pre-Ignition</strong>: Occurs <strong>BEFORE</strong> the spark plug fires (ignited by hot-spot carbon deposit or overheated exhaust valve).</li>
+<li><strong>Factors Increasing SI Knocking</strong>:</li>
+<li>Higher compression ratio $r \uparrow$.</li>
+<li>Advanced spark timing.</li>
+<li>High intake pressure / supercharging.</li>
+<li>High intake air / cooling water temperature $T_{\text{coolant}} \uparrow$.</li>
+<li>Lean air-fuel mixture.</li>
+<li>Low Octane fuel.</li>
+<li>Long flame travel distance $L_{\text{flame}}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SI Knocking Definition</strong>: Detonation occurs NEAR THE END of combustion AFTER the spark plug fires, caused by end-gas auto-ignition.</p>
+<p>[!TRAP]
+<strong>Spark Timing Rule for SI Knock</strong>: ADVANCING spark timing INCREASES knocking! To ELIMINATE knocking, spark timing MUST BE RETARDED.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>SI Knocking Diagnostic Check?
+├─ Did combustion start BEFORE spark plug fired? → PRE-IGNITION (Hot-spot ignition)
+└─ Did auto-ignition explode end-gas AFTER spark plug fired? → DETONATION / KNOCKING
+   ├─ Cause: High compression ratio, advanced spark, low octane fuel, high inlet temp
+   └─ Remedy: Retard spark timing, lower compression ratio, use HIGHER Octane fuel
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Detonation happens after spark; pre-ignition happens before spark.</li>
+<li>[ ] Normal flame speed $20-30 \text{ m/s}$; detonation wave $1000-2000 \text{ m/s}$.</li>
+<li>[ ] Advancing spark increases knock; retarding spark reduces knock.</li>
+<li>[ ] HUCR = Max compression ratio without knock.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Differentiate between Detonation and Pre-ignition in a Spark-Ignition engine.
+- <strong>Solution</strong>:
+  - <strong>Detonation</strong>: Spontaneous auto-ignition of the unburned end-gas <em>after</em> the spark plug has fired, caused by high end-gas temperature and pressure.
+  - <strong>Pre-Ignition</strong>: Ignition of the air-fuel mixture by a hot spot (e.g., overheated spark plug electrode or carbon deposit) <em>before</em> the electrical spark occurs.
+- <strong>Key Insight</strong>: Timing relative to spark event (Detonation = After spark, Pre-ignition = Before spark).</p>
+<hr />
+<h3 id="32-ci-engine-knocking-diesel-knock"><strong>3.2 CI Engine Knocking (Diesel Knock)</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Diesel Knock Mechanism</strong>:</li>
+<li>Fuel is injected into hot compressed air near TDC.</li>
+<li><strong>Ignition Delay Period $\tau_{id}$</strong>: Time interval between start of injection and start of auto-ignition. $\tau_{id} = \tau_{\text{physical}} + \tau_{\text{chemical}}$.</li>
+<li>If $\tau_{id}$ is too long, a LARGE QUANTITY of fuel accumulates in the cylinder.</li>
+<li>Upon ignition, all accumulated fuel burns simultaneously, producing an extremely rapid pressure rise $dP/d\theta &gt; 4-5 \text{ bar/}^\circ\text{CA}$ and severe metallic knock.</li>
+<li><strong>Occurs at START of Combustion</strong>: Unlike SI knock (which occurs near the end of combustion), CI knock occurs at the <strong>BEGINNING</strong> of combustion!</li>
+<li><strong>Factors REDUCING Diesel Knocking</strong>:</li>
+<li><strong>HIGHER Compression Ratio $r \uparrow$</strong>: Increases compressed air temperature, shortening ignition delay.</li>
+<li><strong>HIGHER Inlet Air Temperature / Pressure</strong>: Shortens delay.</li>
+<li><strong>HIGHER Cetane Fuel</strong>: Chemical structure auto-ignites faster.</li>
+<li><strong>Higher Engine Turbulence / Swirl</strong>: Improves physical mixing $\tau_{\text{physical}} \downarrow$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Opposite Knock Trends (SI vs CI)</strong>:
+- Compression Ratio $r \uparrow \implies$ SI Knock INCREASES, but CI Knock DECREASES!
+- Supercharging $\implies$ SI Knock INCREASES, but CI Knock DECREASES!</p>
+<p>[!TRAP]
+<strong>Ignition Delay Effect</strong>: Long ignition delay INCREASES diesel knock! Short ignition delay REDUCES diesel knock!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Diesel Knock Analysis?
+├─ Is ignition delay tau_id LONG? → Excessive fuel accumulation → Severe Diesel Knock at combustion start
+└─ Remedies to Reduce Diesel Knock:
+   ├─ Increase compression ratio r (Raises compressed air temp)
+   ├─ Increase inlet air pressure / supercharge
+   └─ Use HIGHER Cetane fuel (Shortens chemical delay)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Diesel knock occurs at START of combustion.</li>
+<li>[ ] Long ignition delay $\implies$ High diesel knock.</li>
+<li>[ ] Higher compression ratio $r$ REDUCES diesel knock.</li>
+<li>[ ] Higher Cetane number REDUCES diesel knock.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain why increasing the compression ratio affects knocking in SI and CI engines in opposite ways.
+- <strong>Solution</strong>:
+  - <strong>SI Engine</strong>: Increasing $r$ raises end-gas pressure and temperature, shortening its auto-ignition delay and causing end-gas auto-ignition $\implies$ <strong>Knocking INCREASES</strong>.
+  - <strong>CI Engine</strong>: Increasing $r$ raises compressed air temperature at TDC, shortening the ignition delay period so less fuel accumulates before ignition $\implies$ <strong>Knocking DECREASES</strong>.
+- <strong>Key Insight</strong>: $r \uparrow \implies \text{SI Knock } \uparrow$, $\text{CI Knock } \downarrow$.</p>
+<hr />
+<h3 id="33-fuel-rating-systems-octane-vs-cetane"><strong>3.3 Fuel Rating Systems (Octane vs Cetane)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Octane Number (SI Fuel Rating)</strong>:</li>
+<li>Measures knock resistance in petrol engines.</li>
+<li><strong>Iso-octane (2,2,4-trimethylpentane)</strong>: $\text{ON} = 100$ (high knock resistance).</li>
+<li><strong>n-Heptane</strong>: $\text{ON} = 0$ (severe knock tendency).</li>
+<li>Anti-Knock Index $\text{AKI} = \frac{\text{RON} + \text{MON}}{2}$.</li>
+<li>Knock resistance by hydrocarbon structure: Aromatics &gt; Naphthenes &gt; Olefins &gt; Paraffins.</li>
+<li>Anti-knock additives: Tetraethyl Lead (TEL), MTBE, Ethanol.</li>
+<li><strong>Cetane Number (CI Fuel Rating)</strong>:</li>
+<li>Measures ignition readiness (short ignition delay) in diesel engines.</li>
+<li><strong>n-Cetane (hexadecane)</strong>: $\text{CN} = 100$ (short ignition delay).</li>
+<li><strong>$\alpha$-methyl-naphthalene</strong>: $\text{CN} = 0$ (long ignition delay) [or Heptamethylnonane $\text{CN} = 15$].</li>
+<li>Ignition accelerators: Amyl nitrate, ethyl nitrate.</li>
+<li><strong>Inverse Relationship</strong>: High Octane fuel has LOW Cetane number; High Cetane fuel has LOW Octane number!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Reference Fuel Pair Memory</strong>:
+- Octane Scale: Iso-octane $100$, n-Heptane $0$.
+- Cetane Scale: n-Cetane $100$, $\alpha$-methyl-naphthalene $0$.</p>
+<p>[!TRAP]
+<strong>ON vs CN Ignition Quality</strong>: High Octane fuel RESISTS auto-ignition (slow ignition). High Cetane fuel AUTO-IGNITES EASILY (fast ignition). They are diametrically opposite!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Fuel Rating Identification?
+├─ Is fuel for Spark-Ignition (Petrol) engine? → OCTANE NUMBER (Iso-octane 100, n-Heptane 0)
+│  └─ Goal: High ON resists detonation at high compression ratio
+└─ Is fuel for Compression-Ignition (Diesel) engine? → CETANE NUMBER (n-Cetane 100, alpha-methyl-naphthalene 0)
+   └─ Goal: High CN shortens ignition delay for smooth combustion
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Iso-octane $= 100$, n-Heptane $= 0$.</li>
+<li>[ ] n-Cetane $= 100$, $\alpha$-methyl-naphthalene $= 0$.</li>
+<li>[ ] $\text{AKI} = (\text{RON} + \text{MON})/2$.</li>
+<li>[ ] Aromatics &lt; Naphthenes &lt; Olefins &lt; Paraffins (increasing SI knock).</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A petrol fuel sample matches the knock intensity of a blend containing $87\%$ Iso-octane and $13\%$ n-Heptane by volume in a CFR test engine. State its Octane Number.
+- <strong>Solution</strong>:
+  - By definition, the Octane Number equals the percentage by volume of Iso-octane in a matching blend with n-Heptane.
+  - Iso-octane percentage $= 87\% \implies \text{Octane Number } \text{ON} = 87$.
+- <strong>Key Insight</strong>: $\text{ON} = 87$.</p>
+<hr />
+<h3 id="34-air-fuel-ratios-stoichiometry"><strong>3.4 Air-Fuel Ratios &amp; Stoichiometry</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Stoichiometric (Chemically Correct) Ratio</strong>:</li>
+<li>Exact theoretical mass of air required for complete combustion of $1 \text{ kg}$ of fuel.</li>
+<li>Petrol (Gasoline $\text{C}<em>8\text{H}</em>{18}$): $\approx 14.7:1 \text{ or } 15:1$ by mass.</li>
+<li>Methanol $\text{CH}_3\text{OH}$: $6.5:1$ by mass.</li>
+<li>Diesel: $\approx 14.5:1$ by mass.</li>
+<li><strong>SI Engine Operating Ranges</strong>:</li>
+<li>Cold Starting: $3:1 - 5:1$ (Very Rich, controlled by Choke).</li>
+<li>Idling: $12:1 - 12.5:1$ (Rich for stability).</li>
+<li>Maximum Power: $12.5:1 - 13.5:1$ (Slightly Rich).</li>
+<li>Cruising / Economy: $16:1 - 16.5:1$ (Lean).</li>
+<li><strong>CI Engine Operating Range</strong>: Operates extremely LEAN $18:1 \text{ to } 70:1$ because load is controlled by fuel injection quantity (Quality Governing).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Methanol Stoichiometric AFR</strong>: Methanol $\text{CH}_3\text{OH}$ requires only $6.5 \text{ kg}$ of air per $\text{kg}$ of fuel because its molecule already contains oxygen!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Air-Fuel Mixture Requirement Check?
+├─ Cold Starting (SI) → 3:1 to 5:1 (Extremely Rich)
+├─ Maximum Power (SI) → 12.5:1 to 13.5:1 (Slightly Rich)
+├─ Cruising Economy (SI) → 16:1 to 16.5:1 (Lean)
+└─ CI Engine Range → 18:1 to 70:1 (Quality governed, always lean)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Petrol stoichiometric AFR $= 14.7:1$.</li>
+<li>[ ] Methanol stoichiometric AFR $= 6.5:1$.</li>
+<li>[ ] Cruising $\implies$ Lean mixture $16:1$.</li>
+<li>[ ] CI engines always run lean $18-70:1$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Calculate the stoichiometric air-fuel ratio by mass for Methanol $\text{CH}<em>3\text{OH}$. Air contains $23.2\%$ $\text{O}_2$ by mass.
+- <strong>Solution</strong>:
+  - Reaction: $2 \text{CH}_3\text{OH} + 3 \text{O}_2 \to 2 \text{CO}_2 + 4 \text{H}_2\text{O}$
+  - Molar masses: $\text{CH}_3\text{OH} = 32 \text{ g/mol}$, $\text{O}_2 = 32 \text{ g/mol}$.
+  - $2 \times 32 = 64 \text{ kg}$ methanol requires $3 \times 32 = 96 \text{ kg}$ $\text{O}_2$.
+  - Air mass required $= \frac{96}{0.232} = 413.79 \text{ kg}$ air.
+  - $\text{AFR}</em>{\text{stoich}} = \frac{413.79}{64} = 6.465:1 \approx 6.5:1$.
+- <strong>Key Insight</strong>: Methanol stoichiometric $\text{AFR} = 6.5:1$.</p>
+<hr />
+<h3 id="35-supercharging-turbocharging-principles"><strong>3.5 Supercharging &amp; Turbocharging Principles</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Supercharging</strong>: Increasing intake charge mass density entering the cylinder above ambient density.</li>
+<li><strong>Density Ratio</strong>:
+  <div class="formula-card">$${\frac{\rho_2}{\rho_1} = \left(\frac{P_2}{P_1}\right) \left(\frac{T_1}{T_2}\right)}$$</div></li>
+<li><strong>Effect on SI vs CI Engines</strong>:</li>
+<li><strong>SI Engine</strong>: Supercharging raises charge temperature and pressure $\implies$ SHORTENS end-gas ignition delay $\implies$ <strong>INCREASES KNOCKING TENDENCY!</strong> Boost is limited by fuel Octane rating.</li>
+<li><strong>CI Engine</strong>: Supercharging raises compressed air temperature $\implies$ SHORTENS ignition delay $\implies$ <strong>DECREASES DIESEL KNOCK!</strong> Highly preferred.</li>
+<li><strong>Supercharger Types</strong>:</li>
+<li>Positive Displacement: Roots (lobe), Vane, Screw.</li>
+<li>Dynamic: Centrifugal.</li>
+<li>Reciprocating compressors are NOT used as superchargers (high pressure, low flow rate, heavy).</li>
+<li><strong>Turbocharging</strong>: Centrifugal compressor driven by an <strong>EXHAUST GAS TURBINE</strong> mounted on a common shaft. Uses waste exhaust energy.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Supercharging Suitability</strong>:
+- CI (Diesel) Engine $\implies$ Supercharging REDUCES knock, improves combustion, raises power!
+- SI (Petrol) Engine $\implies$ Supercharging INCREASES knock, requires intercooling &amp; high Octane fuel!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Supercharging Engine Effect Check?
+├─ CI Engine → Supercharging REDUCES ignition delay → REDUCES DIESEL KNOCK (Highly beneficial)
+└─ SI Engine → Supercharging raises end-gas temp → INCREASES DETONATION (Limited boost)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Boost density ratio $\frac{\rho_2}{\rho_1} = \frac{P_2}{P_1} \frac{T_1}{T_2}$.</li>
+<li>[ ] Turbocharger driven by exhaust turbine.</li>
+<li>[ ] Reciprocating compressors not used as superchargers.</li>
+<li>[ ] CI supercharging reduces knock; SI supercharging increases knock.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Why are reciprocating compressors not used as engine superchargers?
+- <strong>Solution</strong>:
+  - Reciprocating compressors deliver low volume flow rates at high pressure ratios, whereas supercharging requires a large, continuous volume flow of air at moderate pressure ratios $1.3-2.5 \text{ bar}$.
+  - Reciprocating compressors are also bulky, heavy, and have high mechanical friction losses.
+- <strong>Key Insight</strong>: Superchargers require high continuous volume flow $\implies$ Rotary / Dynamic compressors used.</p>
+<hr />
+<h3 id="36-combustion-chamber-design-for-si-ci-engines"><strong>3.6 Combustion Chamber Design for SI &amp; CI Engines</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>SI Engine Chamber Design</strong>:</li>
+<li>Objectives: Short flame travel distance $L_{\text{flame}}$, compact volume with low surface-to-volume ratio $A/V$, central spark plug, high turbulence (squish/swirl), no uncooled hot spots.</li>
+<li>Progression:<ol>
+<li><strong>T-Head</strong>: Valves on opposite sides. Longest flame path, high knock tendency (Obsolete).</li>
+<li><strong>L-Head (Side Valve)</strong>: Valves on same side in block. Compact, but limited compression ratio and breathing.</li>
+<li><strong>I-Head (Overhead Valve - OHV)</strong>: Valves in cylinder head. Excellent breathing, central plug location.</li>
+<li><strong>F-Head</strong>: One valve in head, one in block.</li>
+<li><strong>Modern Pent-Roof / Hemispherical</strong>: 4 valves per cylinder, central spark plug $\implies$ Shortest flame path, highest knock resistance.</li>
+</ol>
+</li>
+<li><strong>CI Engine Chamber Design</strong>:</li>
+<li>Objectives: High air utilization, controlled mixing rate, short ignition delay, smooth pressure rise.</li>
+<li><strong>Open Chambers (Direct Injection - DI)</strong>:<ul>
+<li>Fuel injected directly into piston crown cavity (Shallow, Hemispherical, Toroidal, Cylindrical).</li>
+<li>Requires high injection pressure $200-1000+ \text{ bar}$. Highest fuel economy.</li>
+</ul>
+</li>
+<li><strong>Divided Chambers (Indirect Injection - IDI)</strong>:<ul>
+<li>Primary combustion in pre-combustion chamber or Ricardo Swirl chamber, connecting to main cylinder via a narrow throat.</li>
+<li>Strong ordered swirl allows lower injection pressure. Quiet operation. Uses <strong>Glow Plugs</strong> for cold starting.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Chamber Classification</strong>:
+- SI Chambers $\implies$ T-Head, L-Head, I-Head (OHV), F-Head, Pent-Roof.
+- CI Chambers $\implies$ Direct Injection (Open cavity in piston) vs Indirect Injection (Swirl / Pre-combustion chamber).</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Combustion Chamber Type Identification?
+├─ Spark-Ignition Engine Chambers:
+│  ├─ T-Head → Valves opposite sides (Worst knock)
+│  ├─ L-Head → Side valves in block
+│  └─ I-Head / Pent-Roof → Overhead valves, central plug (Best knock resistance)
+└─ Compression-Ignition Engine Chambers:
+   ├─ Direct Injection (DI) → Open cavity in piston (High efficiency)
+   └─ Indirect Injection (IDI) → Swirl / Pre-chamber + Glow plug (Quiet running)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] T-head has worst knock resistance.</li>
+<li>[ ] Pent-roof / Hemispherical has central plug $\implies$ lowest knock.</li>
+<li>[ ] CI DI $= \text{Open chamber in piston crown}$.</li>
+<li>[ ] CI IDI $= \text{Swirl / Pre-combustion chamber + Glow plug}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Compare Direct Injection (DI) and Indirect Injection (IDI) combustion chambers in Diesel engines.
+- <strong>Solution</strong>:
+  - <strong>Direct Injection (DI)</strong>: Fuel injected directly into an open chamber in the piston crown. Uses multi-hole high-pressure injectors. Higher thermal efficiency and lower fuel consumption.
+  - <strong>Indirect Injection (IDI)</strong>: Fuel injected into a separate pre-combustion or swirl chamber. Uses single-hole pintle injectors at lower pressure. Smoother, quieter running, but higher heat losses and requires glow plugs for cold starting.
+- <strong>Key Insight</strong>: DI = Open chamber (High efficiency); IDI = Swirl chamber + Glow plug.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What is detonation in an SI engine and when does it occur?</strong><br />
+A: Detonation is the spontaneous auto-ignition of unburned end-gas ahead of the spark-initiated flame front, occurring near the END of combustion after the spark plug has fired.</p>
+<p><strong>Q2: Differentiate between Detonation and Pre-ignition.</strong><br />
+A: Detonation occurs AFTER the spark plug fires due to end-gas auto-ignition. Pre-ignition occurs BEFORE the spark plug fires due to ignition from a hot spot.</p>
+<p><strong>Q3: Define Highest Useful Compression Ratio (HUCR).</strong><br />
+A: HUCR is the maximum compression ratio at which an SI engine can operate without knocking on a specific fuel under standard test conditions.</p>
+<p><strong>Q4: What causes Diesel Knock in a CI engine and when does it occur?</strong><br />
+A: Diesel knock is caused by a long ignition delay that allows a large mass of fuel to accumulate in the cylinder, which explodes simultaneously at the START of combustion.</p>
+<p><strong>Q5: How does increasing compression ratio affect knocking in SI vs CI engines?</strong><br />
+A: Increasing compression ratio INCREASES knocking in SI engines, but DECREASES knocking in CI engines (by shortening ignition delay).</p>
+<p><strong>Q6: Define Octane Number and state its primary reference fuels.</strong><br />
+A: Octane Number measures knock resistance in SI fuels. Iso-octane is assigned $\text{ON} = 100$ and n-Heptane is assigned $\text{ON} = 0$.</p>
+<p><strong>Q7: Define Cetane Number and state its primary reference fuels.</strong><br />
+A: Cetane Number measures ignition quality (short ignition delay) in CI fuels. n-Cetane (hexadecane) is assigned $\text{CN} = 100$ and $\alpha$-methyl-naphthalene is assigned $\text{CN} = 0$.</p>
+<p><strong>Q8: What is Anti-Knock Index (AKI)?</strong><br />
+A: $\text{AKI} = \frac{\text{RON} + \text{MON}}{2}$, the average of Research Octane Number and Motor Octane Number.</p>
+<p><strong>Q9: State the stoichiometric air-fuel ratio for Gasoline and Methanol.</strong><br />
+A: Gasoline $\approx 14.7:1 \text{ or } 15:1$; Methanol $= 6.5:1$.</p>
+<p><strong>Q10: Why does supercharging increase knocking in SI engines but reduce knocking in CI engines?</strong><br />
+A: Supercharging raises intake temperature and pressure. In SI engines, this heats the end-gas and promotes detonation. In CI engines, this shortens ignition delay, smoothing combustion.</p>
+<p><strong>Q11: Why are reciprocating compressors not used as superchargers?</strong><br />
+A: Because superchargers require continuous high volume flow at moderate pressure ratios, whereas reciprocating compressors deliver low volume flow at high pressure ratios and are heavy.</p>
+<p><strong>Q12: How is the compressor of a turbocharger driven?</strong><br />
+A: By a gas turbine driven by engine exhaust gases mounted on the same shaft.</p>
+<p><strong>Q13: Why is a central spark plug location preferred in modern SI engine combustion chambers?</strong><br />
+A: A central spark plug minimizes the flame travel distance to all end-gas regions, completing combustion faster and reducing knocking tendency.</p>
+<p><strong>Q14: Differentiate between Open and Divided combustion chambers in Diesel engines.</strong><br />
+A: Open chambers (DI) inject fuel directly into a cavity in the piston crown (higher efficiency). Divided chambers (IDI) inject fuel into a separate swirl/pre-combustion chamber (quieter running, uses glow plugs).</p>
+<p><strong>Q15: Rank the hydrocarbon families in order of INCREASING detonation tendency in SI engines.</strong><br />
+A: Aromatics &lt; Naphthenes &lt; Olefins &lt; Paraffins (Aromatics resist knock best; straight-chain Paraffins knock most).</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>SI Knocking</strong>: Occurs AFTER spark near end of combustion. Fix by retarding spark, lowering $r$, higher Octane.</li>
+<li><strong>CI Knocking</strong>: Occurs at START of combustion due to LONG ignition delay. Fix by higher $r$, higher inlet temp, higher Cetane.</li>
+<li><strong>Octane Reference Fuels</strong>: Iso-octane ($100$, high knock resistance), n-Heptane ($0$, high knock tendency).</li>
+<li><strong>Cetane Reference Fuels</strong>: n-Cetane ($100$, short delay), $\alpha$-methyl-naphthalene ($0$, long delay).</li>
+<li><strong>Stoichiometry</strong>: Gasoline $\approx 15:1$, Methanol $= 6.5:1$.</li>
+<li><strong>Supercharging</strong>: SI Knock INCREASES, CI Knock DECREASES. Turbo driven by EXHAUST TURBINE.</li>
+<li><strong>SI Chambers</strong>: T-head (worst knock) $\to$ L-head $\to$ I-head OHV $\to$ Pent-roof (central plug, best knock resistance).</li>
+<li><strong>CI Chambers</strong>: Direct Injection (DI, open cavity in piston) vs Indirect Injection (IDI, swirl chamber + glow plug).</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Detonation $= \text{After spark}$, Pre-ignition $= \text{Before spark}$.</li>
+<li>[ ] Memorize Normal SI flame speed $20-30 \text{ m/s}$, shock wave $1000-2000 \text{ m/s}$.</li>
+<li>[ ] Memorize $r \uparrow \implies \text{SI Knock } \uparrow, \text{CI Knock } \downarrow$.</li>
+<li>[ ] Memorize Iso-octane $100$, n-Heptane $0$.</li>
+<li>[ ] Memorize n-Cetane $100$, $\alpha$-methyl-naphthalene $0$.</li>
+<li>[ ] Memorize Gasoline AFR $= 15:1$, Methanol AFR $= 6.5:1$.</li>
+<li>[ ] Memorize Turbo compressor driven by exhaust turbine.</li>
+<li>[ ] Memorize Hydrocarbon knock order: Aromatics &lt; Naphthenes &lt; Olefins &lt; Paraffins.</li>
+<li>[ ] Memorize Pent-roof / Hemispherical has central plug for lowest knock.</li>
+<li>[ ] Memorize CI IDI uses glow plug for cold start.</li>
+</ul>
+</body>
+</html>

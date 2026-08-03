@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classification & Working Principles of Compressors — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="classification-working-principles-of-compressors-comprehensive-reorganized-study-guide">Classification &amp; Working Principles of Compressors — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers the Classification of Compressors (Positive-Displacement vs Dynamic, Reciprocating, Rotary Roots/Vane/Screw/Scroll, Centrifugal, Axial-flow), Performance of Reciprocating Compressors (Volumetric Efficiency $\eta_v = 1 + C - C\left(\frac{P_2}{P_1}\right)^{1/n}$, Isothermal Efficiency $\eta_{\text{iso}}$, Minimum Work Condition $n=1$), Multi-Stage Compression with Perfect Intercooling (Optimum Intermediate Pressure $P_i = \sqrt{P_1 P_2}$, Stage Pressure Ratio $r = (P_N/P_1)^{1/N}$), Centrifugal Compressors (Impeller &amp; Diffuser static pressure rise, Slip Factor $\sigma = \frac{C_{\theta 2}}{u_2}$, Euler Work, Blade curvature), Axial-Flow Compressors (Degree of Reaction $R$, Blade Loading Coefficient $\psi = \frac{\Delta h}{u^2}$, Stalling vs Surging, Aircraft applications), and Master Comparison Tables for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-reciprocating-compressor-performance"><strong>1. Reciprocating Compressor Performance</strong></h4>
+<ul>
+<li><strong>Volumetric Efficiency $\eta_v$</strong>:
+  <div class="formula-card">$${\boxed{\eta_v = 1 + C - C \left(\frac{P_2}{P_1}\right)^{\frac{1}{n}}}}$$</div></li>
+<li>$C = \frac{V_c}{V_s}$: clearance ratio (dimensionless fraction; e.g. $0.05$ for $5\%$)</li>
+<li>$V_c$: clearance volume $\text{m}^3$</li>
+<li>$V_s$: swept/stroke volume $\text{m}^3$</li>
+<li>$P_1$: suction pressure ($\text{kPa}$ or $\text{bar}$)</li>
+<li>$P_2$: discharge pressure ($\text{kPa}$ or $\text{bar}$)</li>
+<li>
+<p>$n$: polytropic expansion index of clearance gas</p>
+</li>
+<li>
+<p><strong>Isothermal Efficiency $\eta_{\text{iso}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{iso}} = \frac{\text{Isothermal Work}}{\text{Actual Indicated Work}} = \frac{P_1 V_1 \ln\left(\frac{P_2}{P_1}\right)}{W_{\text{actual}}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Work Input (Single-Stage Polytropic)</strong>:
+  <div class="formula-card">$${\boxed{W = \frac{n}{n-1} P_1 V_1 \left[\left(\frac{P_2}{P_1}\right)^{\frac{n-1}{n}} - 1\right] = \frac{n}{n-1} m R (T_2 - T_1)}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-multi-stage-compression-with-intercooling"><strong>2. Multi-Stage Compression with Intercooling</strong></h4>
+<ul>
+<li><strong>Optimum Intermediate Pressure (2-Stage Perfect Intercooling)</strong>:
+  <div class="formula-card">$${\boxed{P_i = \sqrt{P_1 \cdot P_2}}}$$</div></li>
+<li>$P_1$: initial suction pressure</li>
+<li>$P_2$: final discharge pressure</li>
+<li>
+<p>$P_i$: intercooler pressure $P_{\text{inter}}$</p>
+</li>
+<li>
+<p><strong>Stage Pressure Ratio for $N$ Stages</strong>:
+  <div class="formula-card">$${\boxed{r = \left(\frac{P_N}{P_1}\right)^{\frac{1}{N}}}}$$</div></p>
+</li>
+<li>$P_N$: final discharge pressure after $N$ stages</li>
+<li>
+<p>Pressure progression: $P_1 \to P_1 r \to P_1 r^2 \dots \to P_1 r^N = P_N$</p>
+</li>
+<li>
+<p><strong>Minimum Total Work Input ($N$ Stages with Perfect Intercooling)</strong>:
+  <div class="formula-card">$${\boxed{W_{\text{total, min}} = N \cdot \frac{n}{n-1} P_1 V_1 \left[\left(\frac{P_N}{P_1}\right)^{\frac{n-1}{N n}} - 1\right]}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-centrifugal-compressors"><strong>3. Centrifugal Compressors</strong></h4>
+<ul>
+<li><strong>Slip Factor $\sigma$</strong>:
+  <div class="formula-card">$${\boxed{\sigma = \frac{C_{\theta 2}}{u_2}}}$$</div></li>
+<li>$C_{\theta 2}$: actual tangential whirl velocity at impeller exit $\text{m/s}$</li>
+<li>
+<p>$u_2$: impeller tip speed $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Euler Work Input per Unit Mass $w$</strong>:
+  <div class="formula-card">$${\boxed{w = u_2 C_{\theta 2} - u_1 C_{\theta 1}}}$$</div></p>
+</li>
+<li>
+<p>For radial entry without pre-whirl $C_{\theta 1} = 0$:
+    <div class="formula-card">$${\boxed{w = u_2 C_{\theta 2} = \sigma u_2^2}}$$</div></p>
+</li>
+<li>
+<p><strong>Power Input Factor $\psi_p$</strong>:
+  <div class="formula-card">$${\boxed{\psi_p = \frac{w_{\text{actual}}}{\sigma u_2^2}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-axial-flow-compressors"><strong>4. Axial-Flow Compressors</strong></h4>
+<ul>
+<li><strong>Degree of Reaction $R$</strong>:
+  <div class="formula-card">$${\boxed{R = \frac{\text{Static Enthalpy Rise in Rotor}}{\text{Stagnation Enthalpy Rise in Stage}} = \frac{h_2 - h_1}{h_3 - h_1}}}$$</div></li>
+<li>
+<p>For $50\%$ Symmetric Blading:
+    <div class="formula-card">$${\boxed{R = 0.50 \implies \alpha_1 = \beta_2, \quad \beta_1 = \alpha_2}}$$</div></p>
+</li>
+<li>
+<p><strong>Blade Loading Coefficient $\psi$</strong>:
+  <div class="formula-card">$${\boxed{\psi = \frac{\Delta h}{u^2} = \frac{C_a}{u} (\tan\beta_1 - \tan\beta_2)}}$$</div></p>
+</li>
+<li>$C_a$: axial flow velocity $\text{m/s}$</li>
+<li>$u$: mean blade speed $\text{m/s}$</li>
+<li>
+<p>$\beta_1, \beta_2$: relative blade inlet and exit angles</p>
+</li>
+<li>
+<p><strong>Work Done Factor $\Omega$</strong>:
+  <div class="formula-card">$${\boxed{\Omega = \frac{w_{\text{actual}}}{u C_a (\tan\beta_1 - \tan\beta_2)} \quad (0.85 - 0.98)}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Positive-Displacement Compressor</strong>: Machine that compresses gas by trapping a fixed volume in a chamber and mechanically reducing its size (e.g. Reciprocating, Roots, Vane, Screw, Scroll).</li>
+<li><strong>Dynamic Compressor</strong>: Machine that continuous imparts kinetic energy to gas via high-speed rotating blades and converts velocity to static pressure in a diffuser (e.g. Centrifugal, Axial-flow).</li>
+<li><strong>Clearance Ratio $C$</strong>: Ratio of clearance volume $V_c$ to swept/stroke volume $V_s$ $C = V_c / V_s$.</li>
+<li><strong>Isothermal Compression</strong>: Ideal compression process following $P V = \text{const}$ $n=1$; requires MINIMUM work input for given pressure limits.</li>
+<li><strong>Perfect Intercooling</strong>: Cooling intermediate gas between stages back to the initial suction temperature $T_i = T_1$.</li>
+<li><strong>Slip Factor $\sigma$</strong>: Ratio of actual exit whirl velocity to theoretical tip speed $\sigma = C_{\theta 2} / u_2$. Accounts for inertia of fluid slipping backward relative to impeller.</li>
+<li><strong>Stalling</strong>: Local separation of boundary-layer airflow from the suction surface of an axial compressor blade due to excessive incidence angle.</li>
+<li><strong>Surging</strong>: Complete breakdown of airflow through the compressor accompanied by violent, periodic pressure and mass flow back-and-forth oscillations.</li>
+<li><strong>Work-Done Factor $\Omega$</strong>: Ratio of actual work absorbed by an axial compressor stage to theoretical work calculated from mid-span velocity triangles $0.85 - 0.98$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Symmetric Axial Blading Degree of Reaction</strong>: $R = 0.50$ $50\%$.</li>
+<li><strong>Centrifugal Single-Stage Pressure Ratio</strong>: Typical maximum $4:1$ to $5:1$.</li>
+<li><strong>Axial Stage Pressure Ratio</strong>: Typical $1.1:1$ to $1.4:1$ per stage (requires 10-15 stages for high total ratios).</li>
+<li><strong>Work-Done Factor Range</strong>: $\Omega = 0.85 \text{ to } 0.98$ (decreases in later stages due to boundary layer buildup).</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Classification</strong>: Introduced in §3.1, comparison matrix in §3.6.</li>
+<li><strong>Reciprocating Performance</strong>: Formulas in §3.2, multi-stage intercooling in §3.3.</li>
+<li><strong>Dynamic Compressors</strong>: Centrifugal details in §3.4, Axial details in §3.5.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-compressor-classification-working-principles"><strong>3.1 Compressor Classification &amp; Working Principles</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Compressors are broadly divided into two major families:</li>
+<li><strong>Positive-Displacement</strong>:<ul>
+<li><em>Reciprocating</em>: Piston-cylinder with self-acting valves. Suitable for high pressure, low-to-medium mass flow, pulsating discharge.</li>
+<li><em>Rotary Positive-Displacement</em>: Roots blower (two-lobe/three-lobe), Sliding-vane, Screw (helical male/female rotors), Scroll. Continuous flow, higher speeds, no valves.</li>
+</ul>
+</li>
+<li><strong>Dynamic (Turbomachinery)</strong>:<ul>
+<li><em>Centrifugal</em>: Radial flow direction. Medium pressure ratio per stage $4-5$, high mass flow.</li>
+<li><em>Axial-Flow</em>: Axial flow direction. Low pressure ratio per stage $1.1-1.4$, extremely high mass flow, small frontal area.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Positive-Displacement vs Dynamic</strong>:
+- Positive-Displacement: Pressure rise by physical volume reduction $\Delta V \to \Delta P$.
+- Dynamic: Pressure rise by dynamic acceleration + diffuser deceleration $\Delta \frac{V^2}{2g} \to \Delta P$.</p>
+<p>[!TRAP]
+<strong>Roots Blower Action</strong>: Roots blower is a rotary positive-displacement machine, but it does NOT perform internal compression! Compression occurs externally when gas is discharged against receiver pressure.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Compressor Family Classification?
+├─ Is gas trapped in a fixed volume and mechanically squeezed?
+│  ├─ YES → Positive-Displacement
+│  │  ├─ Reciprocating Piston → High pressure ratio, low/pulsating flow, has valves
+│  │  └─ Rotary (Roots, Vane, Screw) → Moderate pressure, smooth continuous flow
+│  └─ NO → Dynamic Turbomachine (Continuous flow)
+│     ├─ Radial flow direction → Centrifugal (Medium pressure ratio 4-5, high flow)
+│     └─ Axial flow direction → Axial-Flow (Low pressure ratio 1.2 per stage, maximum flow, small frontal area for aircraft)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Reciprocating: High pressure, low flow, valves.</li>
+<li>[ ] Centrifugal: Radial flow, $P_2/P_1 \approx 4-5$.</li>
+<li>[ ] Axial: Smallest frontal area, preferred in aircraft jet engines.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Which type of compressor is preferred for aircraft gas turbine jet engines and why?
+- <strong>Solution</strong>:
+  - <strong>Axial-Flow Compressor</strong> is preferred.
+  - Reason: It provides <strong>high mass flow rate</strong> per unit frontal area and <strong>small frontal diameter</strong>, reducing aerodynamic drag on the aircraft structure.
+- <strong>Key Insight</strong>: Small frontal area + high flow rate = Axial-flow compressor for aviation.</p>
+<hr />
+<h3 id="32-reciprocating-compressors-volumetric-isothermal-efficiency"><strong>3.2 Reciprocating Compressors — Volumetric &amp; Isothermal Efficiency</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Ideal work input is MINIMUM during <strong>Isothermal Compression</strong> $n=1, P V = \text{const}$.</li>
+<li>Polytropic work $n &gt; 1$ &gt; Isothermal work $n = 1$.</li>
+<li>Isothermal Efficiency $\eta_{\text{iso}} = \frac{W_{\text{isothermal}}}{W_{\text{actual}}}$.</li>
+<li>Volumetric Efficiency $\eta_v = 1 + C - C \left(\frac{P_2}{P_1}\right)^{1/n}$.</li>
+<li>Increasing Pressure Ratio $\frac{P_2}{P_1} \implies \eta_v \downarrow$.</li>
+<li>Increasing Clearance Ratio $C \implies \eta_v \downarrow$.</li>
+<li><strong>Clearance Trap</strong>: Clearance volume reduces volumetric efficiency (free air delivered), but has NEGLIGIBLE effect on work required per kilogram of air compressed!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Minimum Work Condition</strong>: Compression work is minimum when process is ISOTHERMAL $n=1$. Water jackets and multi-stage intercooling aim to bring polytropic compression as close to isothermal as possible.</p>
+<p>[!TRAP]
+<strong>Clearance Effect on Work</strong>: Clearance volume $V_c$ REDUCES volumetric efficiency $\eta_v$, but does NOT waste indicated energy because clearance gas expands back during re-expansion stroke and returns work to the piston!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Reciprocating Performance Evaluation?
+├─ Minimum Work Process Check → Isothermal Compression (n = 1)
+├─ Volumetric Efficiency Formula → eta_v = 1 + C - C * (P2/P1)^(1/n)
+└─ Effect of Clearance Ratio C → C increases implies eta_v decreases (work/kg unchanged)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Minimum work $\implies$ Isothermal $n=1$.</li>
+<li>[ ] $\eta_v = 1 + C - C (P_2/P_1)^{1/n}$.</li>
+<li>[ ] Clearance reduces $\eta_v$, but doesn't waste work per kg.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A reciprocating compressor has a clearance ratio $C = 5\%$ $0.05$, operates at pressure ratio $\frac{P_2}{P_1} = 4$, and expansion index $n = 1.30$. Calculate volumetric efficiency $\eta_v$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\left(\frac{P_2}{P_1}\right)^{\frac{1}{n}} = 4^{\frac{1}{1.30}} = 4^{0.7692} \approx 2.908}$$</div>
+  <div class="formula-card">$${\eta_v = 1 + C - C \left(\frac{P_2}{P_1}\right)^{\frac{1}{n}} = 1 + 0.05 - 0.05 \times 2.908 = 1.05 - 0.1454 = 0.9046 = 90.46\%}$$</div>
+- <strong>Key Insight</strong>: Substitute $C=0.05$ and ratio $=4$ directly into $\eta_v$ formula.</p>
+<hr />
+<h3 id="33-multi-stage-compression-intercooling"><strong>3.3 Multi-Stage Compression &amp; Intercooling</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Why Multi-Stage?</li>
+<li>High pressure ratios in single-stage lead to extremely low $\eta_v$, high discharge temperatures, and severe lubrication degradation.</li>
+<li>Multi-staging reduces total work input, lowers discharge temperature, improves $\eta_v$, and reduces mechanical size/torque fluctuations.</li>
+<li><strong>Perfect Intercooling</strong>: Intermediate air cooled back to initial suction temperature $T_i = T_1$.</li>
+<li><strong>Optimum Intermediate Pressure (2-Stage)</strong>:
+  <div class="formula-card">$${\boxed{P_i = \sqrt{P_1 \cdot P_2}}}$$</div></li>
+<li>Equal work distribution between stages:
+  <div class="formula-card">$${W_{\text{stage 1}} = W_{\text{stage 2}}}$$</div></li>
+<li>For $N$ stages with perfect intercooling:</li>
+<li>Stage Pressure Ratio $r = (P_N / P_1)^{1/N}$.</li>
+<li>Intermediate pressures form a geometric progression: $P_1, P_1 r, P_1 r^2, \dots P_N$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Perfect Intercooling Condition</strong>: For minimum total work in a multi-stage compressor, the interstage pressure ratio MUST be equal for all stages $r_1 = r_2 = \dots = r_N$, and intermediate gas MUST be cooled to $T_1$.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Multi-Stage Intercooler Calculation?
+├─ Is intercooling perfect (T_inter = T1)?
+│  ├─ 2-Stage Intermediate Pressure → P_i = sqrt(P1 * P2)
+│  └─ N-Stage Stage Ratio → r = (P_N / P1)^(1/N)
+└─ Intermediate Pressures → Form Geometric Progression P1, P1*r, P1*r^2...
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] 2-Stage optimum: $P_i = \sqrt{P_1 P_2}$.</li>
+<li>[ ] Stage ratio for $N$ stages: $r = (P_N/P_1)^{1/N}$.</li>
+<li>[ ] Equal work per stage under optimum intercooling.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A 3-stage compressor compresses air from $1 \text{ bar}$ $P_1$ to $27 \text{ bar}$ $P_4$ with perfect intercooling. Calculate the stage pressure ratio $r$ and the pressure entering the last intercooler $P_3$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${N = 3, \quad P_1 = 1 \text{ bar}, \quad P_4 = 27 \text{ bar}}$$</div>
+  <div class="formula-card">$${r = \left(\frac{P_4}{P_1}\right)^{\frac{1}{3}} = \left(\frac{27}{1}\right)^{\frac{1}{3}} = 3}$$</div>
+  <div class="formula-card">$${P_2 = P_1 \times r = 1 \times 3 = 3 \text{ bar}}$$</div>
+  <div class="formula-card">$${P_3 = P_2 \times r = 3 \times 3 = 9 \text{ bar}}$$</div>
+- <strong>Key Insight</strong>: Pressures form a geometric series $1, 3, 9, 27 \text{ bar}$. Pressure entering last intercooler is $P_3 = 9 \text{ bar}$.</p>
+<hr />
+<h3 id="34-centrifugal-compressors-impeller-diffuser-slip-factor"><strong>3.4 Centrifugal Compressors — Impeller, Diffuser &amp; Slip Factor</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Energy Transfer: Impeller adds kinetic energy and static pressure to fluid; Diffuser and Volute Casing convert remaining kinetic energy into static pressure.</li>
+<li>Static pressure rises in BOTH the impeller and diffuser!</li>
+<li><strong>Slip Factor $\sigma$</strong>:
+  <div class="formula-card">$${\sigma = \frac{C_{\theta 2}}{u_2} &lt; 1.0}$$</div>
+  Due to fluid inertia, air trapped between rotating blades circulates backwards relative to blades, reducing exit whirl velocity below theoretical tip speed $u_2$.</li>
+<li>Blade Types:</li>
+<li><strong>Backward-Curved</strong> $\beta_2 &lt; 90^\circ$: Highest efficiency, stable operating range, self-limiting power characteristic. Standard for industrial &amp; refrigeration.</li>
+<li><strong>Radial Blades</strong> $\beta_2 = 90^\circ$: High pressure ratio, high mechanical strength, easy manufacture. Common in turbochargers.</li>
+<li><strong>Forward-Curved</strong> $\beta_2 &gt; 90^\circ$: Highest pressure rise for given tip speed, but unstable and lower efficiency.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Static Pressure Rise Distribution</strong>: Static pressure rises in BOTH the rotating impeller and the stationary diffuser! It is NEVER confined to the diffuser alone.</p>
+<p>[!TRAP]
+<strong>Slip Factor Definition</strong>: Slip factor $\sigma = C_{\theta 2} / u_2$ is the ratio of ACTUAL exit whirl velocity to theoretical blade tip speed. Slip REDUCES Euler work capacity for a given speed.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Centrifugal Compressor Component Analysis?
+├─ Where does static pressure rise? → BOTH Impeller and Diffuser
+├─ Slip Factor Definition → sigma = C_theta2 / u2 (&lt; 1.0)
+└─ Blade Selection → Backward-curved (Highest efficiency), Radial (High strength/turbocharger)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Static pressure rises in both Impeller and Diffuser.</li>
+<li>[ ] $\sigma = C_{\theta 2} / u_2$.</li>
+<li>[ ] Backward-curved blades have highest efficiency.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A centrifugal compressor impeller rotates with a tip speed $u_2 = 400 \text{ m/s}$. The slip factor $\sigma = 0.90$. Assuming radial entry without pre-whirl $C_{\theta 1} = 0$, calculate Euler work per kg of air.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${C_{\theta 2} = \sigma \cdot u_2 = 0.90 \times 400 = 360 \text{ m/s}}$$</div>
+  <div class="formula-card">$${w = u_2 C_{\theta 2} = 400 \times 360 = 144000 \text{ J/kg} = 144 \text{ kJ/kg}}$$</div>
+- <strong>Key Insight</strong>: $w = \sigma u_2^2 = 0.90 \times 400^2 = 144 \text{ kJ/kg}$.</p>
+<hr />
+<h3 id="35-axial-flow-compressors-degree-of-reaction-stalling-surging"><strong>3.5 Axial-Flow Compressors — Degree of Reaction, Stalling &amp; Surging</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Axial-flow compressor consists of alternating rows of rotor blades and stator blades.</li>
+<li><strong>Degree of Reaction $R$</strong>:
+  <div class="formula-card">$${R = \frac{\text{Static Enthalpy Rise in Rotor}}{\text{Stagnation Enthalpy Rise in Stage}}}$$</div></li>
+<li><strong>Symmetric Blading $R = 50\% = 0.50$</strong>:</li>
+<li>Equal static pressure rise in rotor and stator.</li>
+<li>$\alpha_1 = \beta_2, \quad \beta_1 = \alpha_2$.</li>
+<li><strong>Stalling</strong>: Local flow separation of air from blade surface when incidence angle becomes excessively positive. Air flow cannot follow blade contour.</li>
+<li><strong>Surging</strong>: Complete breakdown of flow through whole compressor accompanied by violent, periodic flow reversal and pressure oscillations.</li>
+<li><strong>Work Done Factor $\Omega$</strong>: $\Omega = 0.85 - 0.98$ due to boundary layer growth along annulus walls.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stalling vs Surging</strong>:
+- Stalling: LOCAL boundary layer flow separation from blade aerofoil.
+- Surging: GLOBAL system breakdown with violent back-and-forth flow oscillations.</p>
+<p>[!TRAP]
+<strong>Axial Aircraft Advantage</strong>: Axial compressors are preferred in aircraft gas turbines because of HIGH MASS FLOW per unit frontal area and LOW FRONTAL DIAMETER (minimizing drag)!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Axial-Flow Phenomena Identification?
+├─ Local airflow boundary layer separation from blade → STALLING
+├─ Complete violent flow breakdown &amp; periodic reversal → SURGING
+└─ Symmetric Blading Condition → Degree of Reaction R = 0.50 (50%)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $R = 50\%$ for symmetric blading.</li>
+<li>[ ] Stalling = Local flow separation.</li>
+<li>[ ] Surging = Global flow reversal.</li>
+<li>[ ] Preferred in aircraft (small frontal area).</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Differentiate clearly between Stalling and Surging in an axial-flow compressor.
+- <strong>Solution</strong>:
+  - <strong>Stalling</strong>: A localized aerodynamic phenomenon where airflow separates from individual blade suction surfaces due to high angle of incidence.
+  - <strong>Surging</strong>: A global system stability failure where mass flow fluctuates violently back and forth through the compressor, causing structural vibration and potential blade failure.
+- <strong>Key Insight</strong>: Stalling is localized blade separation; Surging is global back-and-forth flow oscillation.</p>
+<hr />
+<h3 id="36-master-comparison-tables-selection-guide"><strong>3.6 Master Comparison Tables &amp; Selection Guide</strong></h3>
+<h5 id="1-positive-displacement-vs-dynamic-compressors"><strong>1. Positive-Displacement vs Dynamic Compressors</strong></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Reciprocating</th>
+<th style="text-align: left;">Centrifugal</th>
+<th style="text-align: left;">Axial-Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Operating Principle</strong></td>
+<td style="text-align: left;">Positive-displacement</td>
+<td style="text-align: left;">Dynamic acceleration</td>
+<td style="text-align: left;">Dynamic acceleration</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pressure Ratio / Stage</strong></td>
+<td style="text-align: left;">High $&gt; 5-10$</td>
+<td style="text-align: left;">Medium $4-5$</td>
+<td style="text-align: left;">Low $1.1-1.4$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mass Flow Rate</strong></td>
+<td style="text-align: left;">Low to Medium</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Extremely High</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Discharge Flow</strong></td>
+<td style="text-align: left;">Pulsating</td>
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">Continuous</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Operational Speed</strong></td>
+<td style="text-align: left;">Low (RPM)</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Very High</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Valves Required</strong></td>
+<td style="text-align: left;">Yes (Suction &amp; Delivery)</td>
+<td style="text-align: left;">None</td>
+<td style="text-align: left;">None</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frontal Area</strong></td>
+<td style="text-align: left;">Large</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">Smallest</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primary Application</strong></td>
+<td style="text-align: left;">High pressure, low delivery</td>
+<td style="text-align: left;">Medium pressure, plant AC</td>
+<td style="text-align: left;">Aircraft jet engines</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-centrifugal-vs-axial-flow-compressors"><strong>2. Centrifugal vs Axial-Flow Compressors</strong></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Centrifugal Compressor</th>
+<th style="text-align: left;">Axial-Flow Compressor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Flow Direction</strong></td>
+<td style="text-align: left;">Radial (Outward)</td>
+<td style="text-align: left;">Axial (Parallel to shaft)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pressure Ratio per Stage</strong></td>
+<td style="text-align: left;">$4:1 \text{ to } 5:1$</td>
+<td style="text-align: left;">$1.1:1 \text{ to } 1.4:1$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Overall Pressure Ratio</strong></td>
+<td style="text-align: left;">Medium (Single/Dual Stage)</td>
+<td style="text-align: left;">High (Requires 10–15 Stages)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frontal Diameter</strong></td>
+<td style="text-align: left;">Large</td>
+<td style="text-align: left;">Small</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Isentropic Efficiency</strong></td>
+<td style="text-align: left;">Moderate $80-85\%$</td>
+<td style="text-align: left;">High $85-92\%$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Starting Torque</strong></td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">High</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Differentiate between positive-displacement and dynamic compressors.</strong><br />
+A: Positive-displacement compressors trap a fixed volume of gas and compress it by reducing chamber volume (e.g. Reciprocating, Screw). Dynamic compressors impart kinetic energy to continuous gas flow via rotating impellers/blades and convert it to pressure in diffusers (e.g. Centrifugal, Axial).</p>
+<p><strong>Q2: What is the condition for minimum work input in a reciprocating compressor?</strong><br />
+A: Minimum work input occurs when the compression process is <strong>Isothermal</strong> $n=1, P V = \text{const}$.</p>
+<p><strong>Q3: Define Volumetric Efficiency $\eta_v$ of a reciprocating compressor and state its formula.</strong><br />
+A: $\eta_v = \frac{\text{Free Air Delivered}}{\text{Swept Volume}} = 1 + C - C \left(\frac{P_2}{P_1}\right)^{1/n}$, where $C = V_c / V_s$.</p>
+<p><strong>Q4: How does clearance volume affect the work required per kg of air in a reciprocating compressor?</strong><br />
+A: Clearance volume reduces volumetric efficiency (free air delivered), but has virtually NO effect on work required per kilogram of air, because clearance gas expands back during the re-expansion stroke and returns work to the piston.</p>
+<p><strong>Q5: What is the optimum intermediate pressure for a 2-stage compressor with perfect intercooling?</strong><br />
+A: $P_i = \sqrt{P_1 \cdot P_2}$.</p>
+<p><strong>Q6: What is the stage pressure ratio $r$ for an $N$-stage compressor with equal work distribution?</strong><br />
+A: $r = \left(\frac{P_N}{P_1}\right)^{1/N}$.</p>
+<p><strong>Q7: Define Slip Factor $\sigma$ in centrifugal compressors.</strong><br />
+A: $\sigma = \frac{C_{\theta 2}}{u_2}$, the ratio of actual exit whirl velocity to theoretical blade tip speed.</p>
+<p><strong>Q8: Where does static pressure rise occur in a centrifugal compressor?</strong><br />
+A: Static pressure rises in BOTH the rotating impeller and the stationary diffuser/volute casing.</p>
+<p><strong>Q9: Which blade profile in centrifugal compressors offers the highest efficiency?</strong><br />
+A: Backward-curved blades $\beta_2 &lt; 90^\circ$.</p>
+<p><strong>Q10: Define Degree of Reaction $R$ in axial compressors.</strong><br />
+A: $R = \frac{\text{Static Enthalpy Rise in Rotor}}{\text{Stagnation Enthalpy Rise in Stage}}$.</p>
+<p><strong>Q11: What is the value of Degree of Reaction $R$ for symmetric axial compressor blading?</strong><br />
+A: $R = 0.50$ $50\%$.</p>
+<p><strong>Q12: Differentiate between Stalling and Surging in axial compressors.</strong><br />
+A: Stalling is local flow separation from blade surfaces due to excessive incidence. Surging is complete, violent system-wide flow breakdown with periodic pressure and flow oscillations.</p>
+<p><strong>Q13: Why are axial-flow compressors preferred in aircraft gas turbine engines?</strong><br />
+A: Because they provide maximum mass flow rate per unit frontal area with small frontal diameter, minimizing aerodynamic drag.</p>
+<p><strong>Q14: What is the function of an intercooler in multi-stage compression?</strong><br />
+A: To cool the compressed gas leaving an earlier stage back to initial suction temperature $T_1$ before entering the next stage, reducing work input and discharge temperature.</p>
+<p><strong>Q15: What is the typical pressure ratio per stage in an axial-flow compressor?</strong><br />
+A: Approximately $1.1:1 \text{ to } 1.4:1$ per stage.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Minimum Work</strong>: Isothermal $n=1$.</li>
+<li><strong>Multi-Stage Optimum</strong>: $P_i = \sqrt{P_1 P_2}$, $r = (P_N / P_1)^{1/N}$.</li>
+<li><strong>Clearance Trap</strong>: $C \uparrow \implies \eta_v \downarrow$, but work per kg is unchanged.</li>
+<li><strong>Centrifugal Static Pressure</strong>: Rises in BOTH Impeller and Diffuser.</li>
+<li><strong>Axial Aircraft Advantage</strong>: Small frontal area for given mass flow.</li>
+<li><strong>Stall vs Surge</strong>: Stall = Local blade separation; Surge = Global flow reversal.</li>
+<li><strong>Symmetric Axial Blading</strong>: $R = 50\% = 0.50$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\eta_v = 1 + C - C (P_2/P_1)^{1/n}$.</li>
+<li>[ ] Memorize $P_i = \sqrt{P_1 P_2}$.</li>
+<li>[ ] Memorize $r = (P_N/P_1)^{1/N}$.</li>
+<li>[ ] Memorize Minimum Work $\implies$ Isothermal $n=1$.</li>
+<li>[ ] Memorize Slip Factor $\sigma = C_{\theta 2} / u_2$.</li>
+<li>[ ] Memorize $R = 50\%$ for symmetric blading.</li>
+<li>[ ] Memorize Stall (Local) vs Surge (Global).</li>
+<li>[ ] Memorize Axial Aircraft advantage (Small frontal area).</li>
+</ul>
+</body>
+</html>

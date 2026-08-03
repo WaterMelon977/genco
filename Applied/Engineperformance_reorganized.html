@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engine Performance Testing & Design Considerations — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="engine-performance-testing-design-considerations-comprehensive-reorganized-study-guide">Engine Performance Testing &amp; Design Considerations — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Supercharging &amp; Turbocharging principles ($\rho_{\text{boost}}/\rho_{\text{atm}} = \frac{P_{\text{boost}}}{P_{\text{atm}}} \times \frac{T_{\text{atm}}}{T_{\text{boost}}}$, CI vs SI suitability), Engine Powers &amp; Efficiencies ($IP$, $BP$, $FP = IP - BP$, $\eta_m = BP/IP$), Power Calculations ($IP = \frac{P_m L A N K}{120000}$, $BP = \frac{2\pi NT}{60000}$, Rope-brake $BP = \frac{(W-S)\pi D_m N}{60000}$ where $D_m = D+d$), Morse Test for Multi-Cylinder $IP$ $IP_i = BP_{\text{all}} - BP_{i \text{ cut}}$, Willan's Line Method for CI Engine $FP$ (negative $BP$ intercept at zero fuel rate), Specific Fuel Consumption $BSFC = \dot{m}<em>f / BP$, Thermal Efficiencies $\eta</em>{\text{ith}}, \eta_{\text{bth}}$, Volumetric Efficiency $\eta_{\text{vol}} \approx 71\%-90\%$, Firing Order $1-3-4-2$, and Injection Crank Angle Kinematics $\theta = 6Nt$ for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-supercharging-boost-density"><strong>1. Supercharging &amp; Boost Density</strong></h4>
+<ul>
+<li><strong>Charge Density Ratio</strong>:
+  <div class="formula-card">$${\boxed{\frac{\rho_{\text{boost}}}{\rho_{\text{atm}}} = \left(\frac{P_{\text{boost}}}{P_{\text{atm}}}\right) \left(\frac{T_{\text{atm}}}{T_{\text{boost}}}\right)}}$$</div></li>
+<li>$\rho$: intake charge density $\text{kg/m}^3$</li>
+<li>$P$: absolute pressure ($\text{kPa}$ or $\text{bar}$)</li>
+<li>$T$: absolute temperature $\text{K}$</li>
+</ul>
+<hr />
+<h4 id="2-engine-powers-mechanical-efficiency"><strong>2. Engine Powers &amp; Mechanical Efficiency</strong></h4>
+<ul>
+<li><strong>Power Balance</strong>:
+  <div class="formula-card">$${\boxed{IP = BP + FP \implies FP = IP - BP}}$$</div></li>
+<li>$IP$: Indicated Power developed inside cylinder $\text{kW}$</li>
+<li>$BP$: Brake Power delivered at crankshaft $\text{kW}$</li>
+<li>
+<p>$FP$: Friction Power lost to friction, pumping, and auxiliaries $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Mechanical Efficiency $\eta_m$</strong>:
+  <div class="formula-card">$${\boxed{\eta_m = \frac{BP}{IP} = \frac{IP - FP}{IP} = 1 - \frac{FP}{IP}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-power-torque-formulas"><strong>3. Power &amp; Torque Formulas</strong></h4>
+<ul>
+<li><strong>Indicated Power $IP$ for 4-Stroke Engine</strong>:
+  <div class="formula-card">$${\boxed{IP = \frac{P_{mi} \cdot L \cdot A \cdot N \cdot K}{120 \times 1000} \quad (\text{kW})}}$$</div></li>
+<li>$P_{mi}$: indicated mean effective pressure ($\text{N/m}^2$ or $\text{Pa}$; $1 \text{ bar} = 10^5 \text{ N/m}^2$)</li>
+<li>$L$: stroke length $\text{m}$</li>
+<li>$A$: cylinder cross-sectional area $\text{m}^2 = \frac{\pi D^2}{4}$</li>
+<li>$N$: crankshaft rotational speed $\text{rpm}$</li>
+<li>
+<p>$K$: number of cylinders</p>
+</li>
+<li>
+<p><strong>Brake Power $BP$ from Torque</strong>:
+  <div class="formula-card">$${\boxed{BP = \frac{2 \pi N T}{60 \times 1000} = \frac{N T}{9549} \quad (\text{kW})}}$$</div></p>
+</li>
+<li>
+<p>$T$: brake torque $\text{N}\cdot\text{m}$</p>
+</li>
+<li>
+<p><strong>Rope-Brake Dynamometer Brake Power $BP$</strong>:
+  <div class="formula-card">$${\boxed{BP = \frac{(W - S) \cdot \pi D_m \cdot N}{60 \times 1000} \quad (\text{kW})}}$$</div></p>
+</li>
+<li>$W$: net dead weight applied $\text{N}$</li>
+<li>$S$: spring balance reading $\text{N}$</li>
+<li>$D_m = D + d$: effective brake drum diameter $\text{m}$</li>
+<li>$D$: brake drum diameter $\text{m}$</li>
+<li>$d$: rope diameter $\text{m}$</li>
+</ul>
+<hr />
+<h4 id="4-testing-methods-morse-test-willans-line"><strong>4. Testing Methods (Morse Test &amp; Willan's Line)</strong></h4>
+<ul>
+<li><strong>Morse Test (Multi-Cylinder $IP$ Determination)</strong>:
+  <div class="formula-card">$${\boxed{IP_i = BP_{\text{all}} - BP_{i \text{ cut-out}}}}$$</div></li>
+<li>$IP_i$: indicated power of cylinder $i$ $\text{kW}$</li>
+<li>$BP_{\text{all}}$: total brake power with all cylinders firing $\text{kW}$</li>
+<li>
+<p>$BP_{i \text{ cut-out}}$: brake power with cylinder $i$ cut off $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Total Indicated Power $IP_{\text{total}}$</strong>:
+  <div class="formula-card">$${\boxed{IP_{\text{total}} = \sum_{i=1}^K IP_i}}$$</div>
+  <div class="formula-card">$${\boxed{\eta_m = \frac{BP_{\text{all}}}{IP_{\text{total}}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Willan's Line Method (CI Engine $FP$ Determination)</strong>:
+  <div class="formula-card">$${\boxed{FP = \text{Negative intercept on } BP \text{ axis at zero fuel consumption } (\dot{m}_f = 0)}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-fuel-consumption-thermal-efficiencies"><strong>5. Fuel Consumption &amp; Thermal Efficiencies</strong></h4>
+<ul>
+<li><strong>Brake Specific Fuel Consumption $BSFC$</strong>:
+  <div class="formula-card">$${\boxed{BSFC = \frac{\dot{m}_f}{BP} \quad (\text{kg/kWh})}}$$</div></li>
+<li>$\dot{m}_f$: fuel mass consumption rate $\text{kg/h}$</li>
+<li>
+<p>$BP$: brake power $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Indicated Thermal Efficiency $\eta_{\text{ith}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{ith}} = \frac{IP}{\dot{m}_f \cdot CV} = \frac{IP (\text{kW})}{\frac{\dot{m}_f (\text{kg/h})}{3600} \cdot CV (\text{kJ/kg})}}}$$</div></p>
+</li>
+<li>
+<p>$CV$: lower heating value / calorific value of fuel $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Brake Thermal Efficiency $\eta_{\text{bth}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{bth}} = \frac{BP}{\dot{m}<em>f \cdot CV} = \eta_m \cdot \eta</em>{\text{ith}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="6-volumetric-efficiency-injection-kinematics"><strong>6. Volumetric Efficiency &amp; Injection Kinematics</strong></h4>
+<ul>
+<li><strong>Volumetric Efficiency $\eta_{\text{vol}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{vol}} = \frac{\dot{m}<em>{\text{air, actual}}}{\rho</em>{\text{inlet}} \cdot V_s \cdot \frac{N}{120} \cdot K}}}$$</div></li>
+<li>
+<p>Standard range for naturally aspirated SI engines: $71\% \text{ to } 90\%$ (typically $80\% - 85\%$).</p>
+</li>
+<li>
+<p><strong>Injection Crank Angle $\theta$</strong>:
+  <div class="formula-card">$${\boxed{\theta = 6 \cdot N \cdot t \quad (\text{degrees})}}$$</div></p>
+</li>
+<li>$N$: engine speed $\text{rpm}$</li>
+<li>$t$: injection duration $\text{seconds}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Supercharging</strong>: Forcing air or air-fuel mixture into an engine cylinder at a pressure higher than atmospheric density, increasing mass of inducted charge and boosting power output.</li>
+<li><strong>Turbocharging</strong>: Supercharging where the compressor is driven by a turbine powered by engine exhaust gases.</li>
+<li><strong>Indicated Power $IP$</strong>: Total theoretical power generated inside the engine cylinders by high-pressure combustion gas acting directly on the piston.</li>
+<li><strong>Brake Power $BP$</strong>: Useful mechanical power output measured at the engine crankshaft via a dynamometer.</li>
+<li><strong>Friction Power $FP$</strong>: Mechanical power lost internally due to piston/bearing friction, pumping work, and driving auxiliaries $FP = IP - BP$.</li>
+<li><strong>Mechanical Efficiency $\eta_m$</strong>: Ratio of useful brake power delivered at the crankshaft to total indicated power generated in cylinders $\eta_m = BP/IP$.</li>
+<li><strong>Morse Test</strong>: A diagnostic test performed exclusively on multi-cylinder engines at constant speed to determine individual cylinder $IP$ and total $FP$ without using an indicator diagram.</li>
+<li><strong>Willan's Line Method</strong>: Graphical extrapolation technique plotting fuel consumption rate against $BP$ at constant speed to find Friction Power $FP$ for unthrottled CI engines.</li>
+<li><strong>Brake Specific Fuel Consumption $BSFC$</strong>: Mass of fuel consumed per hour per kilowatt of brake power developed $\text{kg/kWh}$. Measures fuel economy.</li>
+<li><strong>Rope-Brake Dynamometer</strong>: An absorption dynamometer measuring brake power by applying friction torque via a weighted rope wrapped around a brake drum.</li>
+<li><strong>Firing Order</strong>: The specific sequential order in which power strokes occur in multi-cylinder engines to minimize engine vibration and balance crankshaft forces ($1-3-4-2$ for inline 4-cylinder).</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Inline 4-Cylinder Standard Firing Order</strong>: $1 - 3 - 4 - 2$.</li>
+<li><strong>Inline 6-Cylinder Standard Firing Order</strong>: $1 - 5 - 3 - 6 - 2 - 4$.</li>
+<li><strong>Naturally Aspirated SI Volumetric Efficiency</strong>: $\eta_{\text{vol}} = 71\% \text{ to } 90\%$.</li>
+<li><strong>Crankshaft Angular Velocity Relation</strong>: $1 \text{ rpm} = 6^\circ \text{ per second}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Supercharging</strong>: Introduced in §3.1.</li>
+<li><strong>Engine Powers &amp; Efficiencies</strong>: §3.2 &amp; §3.3.</li>
+<li><strong>Testing Methods (Morse &amp; Willan's)</strong>: §3.4.</li>
+<li><strong>Specific Fuel Consumption &amp; Volumetric Efficiency</strong>: §3.5.</li>
+<li><strong>Firing Order &amp; Dynamometers</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-supercharging-turbocharging-principles"><strong>3.1 Supercharging &amp; Turbocharging Principles</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Supercharging increases the mass density of the intake charge entering the cylinder, allowing more fuel to be burned and raising power output for a given cylinder size.</li>
+<li><strong>Supercharger vs Turbocharger</strong>:</li>
+<li>Mechanical Supercharger: Compressor driven directly by engine crankshaft via belt/gears (draws mechanical power from engine).</li>
+<li>Turbocharger: Compressor driven by a turbine expanding hot exhaust gases (uses waste exhaust energy).</li>
+<li><strong>CI vs SI Engine Suitability</strong>:</li>
+<li><strong>CI (Diesel) Engines</strong>: SUPERCHARGING IS HIGHLY PREFERRED! Raising intake pressure and temperature SHORTENS ignition delay, reduces knocking tendency, improves combustion, and permits higher power.</li>
+<li><strong>SI (Petrol) Engines</strong>: Supercharging is SEVERELY LIMITED by knocking/detonation! Increasing intake temperature and pressure increases end-gas auto-ignition tendency.</li>
+<li>Compression raises air temperature, which lowers density; therefore, an <strong>Intercooler</strong> is added after the supercharger to maximize density gain.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Supercharging Knock Tendency</strong>:
+- CI (Diesel) Engine $\implies$ Supercharging REDUCES knocking!
+- SI (Petrol) Engine $\implies$ Supercharging INCREASES knocking!</p>
+<p>[!TRAP]
+<strong>Turbocharger Drive Source</strong>: A turbocharger compressor is driven by an EXHAUST TURBINE, NOT by the engine crankshaft! A mechanical supercharger is driven by the crankshaft.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Supercharging Engine Application Check?
+├─ Is engine a Compression-Ignition (Diesel) engine?
+│  ├─ YES → Supercharging PREFERRED (Reduces ignition delay, reduces knock, boosts power)
+│  └─ NO → Spark-Ignition (Petrol) engine
+│     └─ Supercharging LIMITED by knocking/detonation (Requires higher Octane fuel)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Supercharging increases intake charge density.</li>
+<li>[ ] Turbocharger uses exhaust gas turbine drive.</li>
+<li>[ ] Diesel supercharging reduces knocking.</li>
+<li>[ ] Petrol supercharging increases knocking risk.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Air enters a supercharger at $P_1 = 1.0 \text{ bar}$ and $T_1 = 300 \text{ K}$. It is compressed to $P_2 = 1.5 \text{ bar}$ and temperature rises to $T_2 = 330 \text{ K}$. Calculate the ratio of supercharged density to atmospheric density.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\frac{\rho_{\text{boost}}}{\rho_{\text{atm}}} = \left(\frac{P_2}{P_1}\right) \left(\frac{T_1}{T_2}\right) = \left(\frac{1.5}{1.0}\right) \left(\frac{300}{330}\right) = 1.5 \times 0.9091 = 1.3636}$$</div>
+- <strong>Key Insight</strong>: Density increases by $36.36\%$ (boosted ratio $= 1.364$). Temperature rise slightly offsets pressure ratio gain.</p>
+<hr />
+<h3 id="32-engine-powers-mechanical-efficiency"><strong>3.2 Engine Powers &amp; Mechanical Efficiency</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Indicated Power $IP$</strong>: Power generated inside combustion chambers $IP = BP + FP$.</li>
+<li><strong>Brake Power $BP$</strong>: Power output at crankshaft available for useful work.</li>
+<li><strong>Friction Power $FP$</strong>: Mechanical power lost to piston friction, bearing friction, pumping loops, and driving accessories $FP = IP - BP$.</li>
+<li><strong>Mechanical Efficiency $\eta_m$</strong>: $\eta_m = \frac{BP}{IP} = \frac{BP}{BP + FP}$.</li>
+<li>Friction power $FP$ depends primarily on engine speed $N$ and remains virtually CONSTANT across different engine loads at a fixed speed!</li>
+<li>$IP &gt; BP$ ALWAYS; Mechanical efficiency $\eta_m$ is ALWAYS less than $100\%$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Constant FP Assumption</strong>: At a constant engine speed $N$, Friction Power $FP$ remains essentially CONSTANT regardless of load variation. This key principle forms the basis of both the Morse Test and Willan's Line Method.</p>
+<p>[!TRAP]
+<strong>Efficiency Ratio Ordering</strong>: Mechanical efficiency $\eta_m = \frac{BP}{IP}$. NEVER invert this ratio as $\frac{IP}{BP}$! Since $IP &gt; BP$, $\eta_m$ is always $&lt; 1.0$.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Engine Power Balance Check?
+├─ Power Balance Formula → IP = BP + FP
+├─ Mechanical Efficiency Formula → eta_m = BP / IP = (IP - FP) / IP
+└─ Constant Speed Rule → FP remains constant when load changes at fixed RPM
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $IP = BP + FP$.</li>
+<li>[ ] $\eta_m = BP / IP$.</li>
+<li>[ ] $FP$ is constant at fixed RPM.</li>
+<li>[ ] $IP &gt; BP$ always.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An engine develops an Indicated Power $IP = 125 \text{ kW}$ and operates at a mechanical efficiency $\eta_m = 80\%$. Calculate its Brake Power $BP$ and Friction Power $FP$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${BP = \eta_m \times IP = 0.80 \times 125 = 100 \text{ kW}}$$</div>
+  <div class="formula-card">$${FP = IP - BP = 125 - 100 = 25 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: $BP = 100 \text{ kW}$, $FP = 25 \text{ kW}$.</p>
+<hr />
+<h3 id="33-mean-effective-pressure-power-calculations"><strong>3.3 Mean Effective Pressure &amp; Power Calculations</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Indicated Mean Effective Pressure $P_{mi}$</strong>: Average pressure acting on piston during power stroke that yields net cycle work.
+  <div class="formula-card">$${P_{mi} = \frac{W_{\text{net}}}{V_s}}$$</div></li>
+<li><strong>Power Formulas</strong>:</li>
+<li>$IP = \frac{P_{mi} \cdot L \cdot A \cdot N \cdot K}{120 \times 1000} \text{ kW}$ (for 4-stroke engines, denominator $= 120 \times 1000$).</li>
+<li>$IP = \frac{P_{mi} \cdot L \cdot A \cdot N \cdot K}{60 \times 1000} \text{ kW}$ (for 2-stroke engines, denominator $= 60 \times 1000$).</li>
+<li><strong>Rope-Brake Dynamometer</strong>:
+  <div class="formula-card">$${BP = \frac{(W - S) \cdot \pi \cdot D_m \cdot N}{60000} \quad (\text{kW})}$$</div>
+  Where effective brake diameter $D_m = D + d$ $D = \text{drum diameter}, d = \text{rope diameter}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>4-Stroke Denominator Rule</strong>: For 4-stroke engines, power strokes occur at $\frac{N}{2}$ strokes per minute. Thus, the denominator includes $60 \times 2 = 120$!</p>
+<p>[!TRAP]
+<strong>Rope Diameter Addition</strong>: In rope-brake calculations, ALWAYS add rope diameter $d$ to drum diameter $D$ $D_m = D + d$. Forgetting $d$ causes a calculation error in effective torque radius.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Engine Power Calculation?
+├─ Is engine 4-stroke or 2-stroke?
+│  ├─ 4-Stroke IP → IP = (P_m * L * A * N * K) / (120 * 1000) [kW]
+│  └─ 2-Stroke IP → IP = (P_m * L * A * N * K) / (60 * 1000) [kW]
+└─ Rope-Brake BP → BP = [(W - S) * pi * (D + d) * N] / 60000 [kW]
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] 4-stroke denominator $= 120000$.</li>
+<li>[ ] 2-stroke denominator $= 60000$.</li>
+<li>[ ] Rope brake $D_m = D + d$.</li>
+<li>[ ] $1 \text{ bar} = 10^5 \text{ N/m}^2$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A single-cylinder 4-stroke engine has a bore $D = 0.10 \text{ m}$, stroke $L = 0.12 \text{ m}$, runs at $N = 1500 \text{ rpm}$, and produces $P_{mi} = 6 \text{ bar}$ $6 \times 10^5 \text{ N/m}^2$. Calculate Indicated Power $IP$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${A = \frac{\pi}{4} D^2 = \frac{\pi}{4} (0.10)^2 = 0.007854 \text{ m}^2}$$</div>
+  <div class="formula-card">$${IP = \frac{P_{mi} \cdot L \cdot A \cdot N \cdot K}{120000} = \frac{(6 \times 10^5) \times 0.12 \times 0.007854 \times 1500 \times 1}{120000}}$$</div>
+  <div class="formula-card">$${IP = \frac{848.23 \times 10^3}{120000} = 7.068 \text{ kW} \approx 7.07 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: Convert pressure to $\text{N/m}^2$ $6 \times 10^5$ and use $120000$ in denominator.</p>
+<hr />
+<h3 id="34-testing-methods-morse-test-willans-line-method"><strong>3.4 Testing Methods — Morse Test &amp; Willan's Line Method</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Morse Test</strong>:</li>
+<li>Used ONLY for <strong>Multi-Cylinder</strong> engines (both SI and CI).</li>
+<li>Engine is run at CONSTANT SPEED $N$.</li>
+<li>Cutting off spark/fuel to cylinder $1$ drops total brake power from $BP_{\text{all}}$ to $BP_1$.</li>
+<li>The drop in brake power equals the Indicated Power of cylinder $1$:
+    <div class="formula-card">$${IP_1 = BP_{\text{all}} - BP_1}$$</div></li>
+<li>Total $IP = IP_1 + IP_2 + \dots + IP_K$.</li>
+<li>Friction Power $FP = IP_{\text{total}} - BP_{\text{all}}$.</li>
+<li>CANNOT be performed on a single-cylinder engine!</li>
+<li><strong>Willan's Line Method</strong>:</li>
+<li>Graphical method used for <strong>Single-Cylinder CI (Diesel)</strong> engines at CONSTANT SPEED.</li>
+<li>Plots fuel consumption rate ($\dot{m}_f$ in $\text{kg/h}$) vs Brake Power $BP$.</li>
+<li>Extrapolating the straight line to zero fuel consumption $\dot{m}_f = 0$ gives a negative intercept on the $BP$ axis equal to Friction Power $FP$.</li>
+<li>NOT reliable for SI engines because petrol fuel consumption curves are non-linear (curved).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Testing Method Selection</strong>:
+- Multi-Cylinder Engine $IP$ Determination $\implies$ <strong>Morse Test</strong>
+- Single-Cylinder CI Engine $FP$ Determination $\implies$ <strong>Willan's Line Method</strong></p>
+<p>[!TRAP]
+<strong>Morse Test Assumption Trap</strong>: Morse test assumes Friction Power $FP$ of individual cylinders stays CONSTANT when a cylinder is cut out. This assumption holds ONLY IF engine speed $N$ is brought back to original value by reducing load on the dynamometer!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Testing Method Identification?
+├─ Multi-Cylinder Engine IP Test → MORSE TEST (Cut one cylinder at a time at const RPM)
+│  └─ Formula → IP_i = BP_all - BP_i_cutout, IP_total = Sum(IP_i)
+└─ Single-Cylinder CI Engine FP Test → WILLAN'S LINE METHOD (Extrapolate fuel rate vs BP to zero fuel)
+   └─ Result → Negative BP intercept = Friction Power FP
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Morse test for multi-cylinder engines only.</li>
+<li>[ ] $IP_1 = BP_{\text{all}} - BP_1$.</li>
+<li>[ ] Willan's line for single-cylinder CI engines.</li>
+<li>[ ] Willan's line negative $BP$ intercept $= FP$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A 4-cylinder 4-stroke engine running at constant speed produces $BP_{\text{all}} = 30 \text{ kW}$. When cylinders 1, 2, 3, and 4 are cut out individually, the remaining brake powers measured are $21.5 \text{ kW}$, $21.0 \text{ kW}$, $21.8 \text{ kW}$, and $21.7 \text{ kW}$ respectively. Calculate total $IP$, $FP$, and mechanical efficiency $\eta_m$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${IP_1 = 30 - 21.5 = 8.5 \text{ kW}}$$</div>
+  <div class="formula-card">$${IP_2 = 30 - 21.0 = 9.0 \text{ kW}}$$</div>
+  <div class="formula-card">$${IP_3 = 30 - 21.8 = 8.2 \text{ kW}}$$</div>
+  <div class="formula-card">$${IP_4 = 30 - 21.7 = 8.3 \text{ kW}}$$</div>
+  <div class="formula-card">$${IP_{\text{total}} = 8.5 + 9.0 + 8.2 + 8.3 = 34.0 \text{ kW}}$$</div>
+  <div class="formula-card">$${FP = IP_{\text{total}} - BP_{\text{all}} = 34.0 - 30.0 = 4.0 \text{ kW}}$$</div>
+  <div class="formula-card">$${\eta_m = \frac{BP_{\text{all}}}{IP_{\text{total}}} = \frac{30.0}{34.0} = 0.8824 = 88.24\%}$$</div>
+- <strong>Key Insight</strong>: $IP_{\text{total}} = 34.0 \text{ kW}$, $FP = 4.0 \text{ kW}$, $\eta_m = 88.24\%$.</p>
+<hr />
+<h3 id="35-fuel-consumption-thermal-efficiencies-volumetric-efficiency"><strong>3.5 Fuel Consumption, Thermal Efficiencies &amp; Volumetric Efficiency</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Brake Specific Fuel Consumption $BSFC$</strong>:
+  <div class="formula-card">$${BSFC = \frac{\dot{m}_f}{BP} \quad (\text{kg/kWh})}$$</div>
+  Lower $BSFC$ indicates superior fuel economy. Diesel engines have lower $BSFC$ than petrol engines.</li>
+<li><strong>Thermal Efficiencies</strong>:</li>
+<li>Indicated Thermal Efficiency $\eta_{\text{ith}} = \frac{IP}{\dot{m}_f \cdot CV}$.</li>
+<li>Brake Thermal Efficiency $\eta_{\text{bth}} = \frac{BP}{\dot{m}<em>f \cdot CV} = \eta_m \cdot \eta</em>{\text{ith}}$.</li>
+<li><strong>Volumetric Efficiency $\eta_{\text{vol}}$</strong>:</li>
+<li>Measures mass of air inducted relative to swept volume capacity.</li>
+<li>Standard range for SI engines: $71\% \text{ to } 90\%$.</li>
+<li>Supercharging INCREASES $\eta_{\text{vol}}$; higher intake air temperature DECREASES $\eta_{\text{vol}}$ (lower density).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>BSFC Unit Conversion</strong>: In $BSFC = \dot{m}_f / BP$, fuel flow $\dot{m}_f$ MUST be in $\text{kg/h}$ and $BP$ in $\text{kW}$ to yield standard units of $\text{kg/kWh}$.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Fuel Economy &amp; Efficiency Calculation?
+├─ BSFC Formula → BSFC = m_dot_f (kg/h) / BP (kW) [kg/kWh]
+├─ Thermal Efficiency → eta_bth = BP / (m_dot_f * CV)
+└─ Volumetric Efficiency Trend → Supercharging raises eta_vol, Intake heating lowers eta_vol
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $BSFC = \dot{m}_f / BP$ $\text{kg/kWh}$.</li>
+<li>[ ] $\eta_{\text{bth}} = \eta_m \cdot \eta_{\text{ith}}$.</li>
+<li>[ ] Diesel has lower $BSFC$ than petrol.</li>
+<li>[ ] Intake heating lowers $\eta_{\text{vol}}$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An engine produces $BP = 20 \text{ kW}$ while consuming fuel at a rate of $\dot{m}<em>f = 5 \text{ kg/h}$. Fuel calorific value $CV = 42000 \text{ kJ/kg}$. Calculate $BSFC$ and Brake Thermal Efficiency $\eta</em>{\text{bth}}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${BSFC = \frac{\dot{m}<em>f}{BP} = \frac{5}{20} = 0.25 \text{ kg/kWh}}$$</div>
+  <div class="formula-card">$${\dot{m}_f (\text{kg/s}) = \frac{5}{3600} = 0.001389 \text{ kg/s}}$$</div>
+  <div class="formula-card">$${\eta</em>{\text{bth}} = \frac{BP}{\dot{m}<em>f \cdot CV} = \frac{20}{0.001389 \times 42000} = \frac{20}{58.333} = 0.3428 = 34.28\%}$$</div>
+- <strong>Key Insight</strong>: $BSFC = 0.25 \text{ kg/kWh}$, $\eta</em>{\text{bth}} = 34.28\%$. Convert $\dot{m}_f$ to $\text{kg/s}$ for thermal efficiency.</p>
+<hr />
+<h3 id="36-firing-order-injection-angle-kinematics"><strong>3.6 Firing Order &amp; Injection Angle Kinematics</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Firing Order</strong>:</li>
+<li>The sequence in which cylinders execute their power strokes.</li>
+<li>Standard Inline 4-Cylinder Firing Order: <strong>1-3-4-2</strong> (or 1-2-4-3). Avoids adjacent cylinder firing to minimize primary force imbalances and crankshaft torsional vibration.</li>
+<li>Standard Inline 6-Cylinder Firing Order: <strong>1-5-3-6-2-4</strong>.</li>
+<li><strong>Injection Angle Kinematics</strong>:</li>
+<li>Engine rotates at $N \text{ rpm} \implies \omega = N \times \frac{360^\circ}{60 \text{ s}} = 6 N \text{ degrees per second}$.</li>
+<li>Crank angle rotated during time duration $t$:
+    <div class="formula-card">$${\theta = 6 \cdot N \cdot t \quad (\text{degrees})}$$</div></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Crank Angle Rotation Rate</strong>: At speed $N \text{ rpm}$, the crankshaft rotates by $6 \times N$ degrees every second!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Firing Order &amp; Kinematic Check?
+├─ Inline 4-Cylinder Firing Order → 1-3-4-2 (Balances primary forces &amp; torsional vibration)
+├─ Inline 6-Cylinder Firing Order → 1-5-3-6-2-4
+└─ Crank Angle Injection Calculation → theta (deg) = 6 * N (rpm) * t (seconds)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] 4-cyl firing order: $1-3-4-2$.</li>
+<li>[ ] 6-cyl firing order: $1-5-3-6-2-4$.</li>
+<li>[ ] Rotation rate $= 6N \text{ deg/sec}$.</li>
+<li>[ ] $\theta = 6Nt$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A 4-stroke Diesel engine runs at $N = 2500 \text{ rpm}$. The fuel injection duration is $t = 2 \text{ ms}$ $0.002 \text{ s}$. Calculate the crank angle $\theta$ turned during injection.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\theta = 6 \cdot N \cdot t = 6 \times 2500 \times 0.002 = 15000 \times 0.002 = 30^\circ}$$</div>
+- <strong>Key Insight</strong>: $\theta = 30^\circ$ crank angle. Direct application of $\theta = 6Nt$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What is supercharging and what is its primary objective?</strong><br />
+A: Supercharging is the process of supplying intake air to engine cylinders at a density higher than atmospheric, increasing the mass of oxygen inducted per stroke to burn more fuel and boost engine power output.</p>
+<p><strong>Q2: Why is supercharging preferred for Diesel (CI) engines but limited in Petrol (SI) engines?</strong><br />
+A: Supercharging increases intake pressure and temperature. In CI engines, this reduces ignition delay and DECREASES knocking tendency. In SI engines, higher pressure/temperature increases end-gas auto-ignition and INCREASES knocking tendency.</p>
+<p><strong>Q3: Differentiate between a mechanical supercharger and a turbocharger.</strong><br />
+A: A mechanical supercharger is driven by the engine crankshaft via gears or belts (drawing mechanical power). A turbocharger is driven by a turbine expanding waste exhaust gases.</p>
+<p><strong>Q4: Define Indicated Power $IP$, Brake Power $BP$, and Friction Power $FP$.</strong><br />
+A: $IP$ is power developed inside cylinders by combustion gas. $BP$ is useful power delivered at crankshaft. $FP = IP - BP$ is power lost to mechanical friction, pumping, and accessories.</p>
+<p><strong>Q5: State the formula for Mechanical Efficiency $\eta_m$.</strong><br />
+A: $\eta_m = \frac{BP}{IP} = \frac{IP - FP}{IP}$.</p>
+<p><strong>Q6: Write the Indicated Power $IP$ formula for a 4-stroke multi-cylinder engine.</strong><br />
+A: $IP = \frac{P_{mi} \cdot L \cdot A \cdot N \cdot K}{120000} \text{ kW}$, where $P_{mi}$ is in $\text{N/m}^2$.</p>
+<p><strong>Q7: How is Brake Power $BP$ measured using a rope-brake dynamometer?</strong><br />
+A: $BP = \frac{(W - S) \cdot \pi D_m N}{60000} \text{ kW}$, where $D_m = D + d$ is the effective brake drum diameter.</p>
+<p><strong>Q8: Describe the Morse Test and state its primary application.</strong><br />
+A: The Morse Test is a method used on multi-cylinder engines to determine individual cylinder $IP$ and total $FP$ by cutting off spark/fuel to one cylinder at a time at constant speed. $IP_i = BP_{\text{all}} - BP_{i \text{ cut-out}}$.</p>
+<p><strong>Q9: Why can the Morse Test NOT be performed on a single-cylinder engine?</strong><br />
+A: Cutting out the single cylinder stops the engine completely, producing zero brake power and making power drop comparison impossible.</p>
+<p><strong>Q10: Describe Willan's Line Method.</strong><br />
+A: A graphical method for single-cylinder CI engines at constant speed that plots fuel rate $\dot{m}_f$ vs $BP$. Extrapolating the straight line to zero fuel rate yields a negative $BP$ intercept equal to Friction Power $FP$.</p>
+<p><strong>Q11: Why is Willan's Line Method unsuitable for SI engines?</strong><br />
+A: Petrol engine fuel consumption curves are non-linear due to throttling and variable air-fuel ratio characteristics.</p>
+<p><strong>Q12: Define Brake Specific Fuel Consumption $BSFC$.</strong><br />
+A: $BSFC = \frac{\dot{m}_f}{BP} \text{ kg/kWh}$, the mass of fuel consumed per hour per kilowatt of brake power.</p>
+<p><strong>Q13: What is the typical volumetric efficiency range for naturally aspirated SI engines?</strong><br />
+A: $71\% \text{ to } 90\%$ (typically $80\% - 85\%$).</p>
+<p><strong>Q14: What is the standard firing order for an inline 4-cylinder engine and why is it used?</strong><br />
+A: $1 - 3 - 4 - 2$. It balances primary inertia forces and minimizes crankshaft torsional vibration.</p>
+<p><strong>Q15: State the formula connecting crank angle rotation $\theta$ with engine speed $N$ and time $t$.</strong><br />
+A: $\theta = 6 \cdot N \cdot t \text{ degrees}$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>CI vs SI Supercharging</strong>: CI supercharging REDUCES knock. SI supercharging INCREASES knock.</li>
+<li><strong>Turbo Drive</strong>: Turbocharger is driven by EXHAUST GAS TURBINE, NOT crankshaft.</li>
+<li><strong>Rope-Brake Diameter</strong>: Effective diameter $D_m = D + d$ (Add rope thickness $d$ to drum $D$).</li>
+<li><strong>4-Stroke IP Denominator</strong>: Use $120000$ (since power stroke occurs every $2$ revolutions).</li>
+<li><strong>Morse vs Willan's</strong>:</li>
+<li>Morse Test $\implies$ Multi-Cylinder engines (SI or CI).</li>
+<li>Willan's Line $\implies$ Single-Cylinder CI engines ONLY.</li>
+<li><strong>Firing Order</strong>: Inline 4-cylinder $= 1-3-4-2$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\rho_{\text{boost}}/\rho_{\text{atm}} = (P_2/P_1)(T_1/T_2)$.</li>
+<li>[ ] Memorize $IP = BP + FP$, $\eta_m = BP / IP$.</li>
+<li>[ ] Memorize 4-stroke $IP = \frac{P_{mi} L A N K}{120000} \text{ kW}$.</li>
+<li>[ ] Memorize Rope Brake $BP = \frac{(W-S)\pi(D+d)N}{60000} \text{ kW}$.</li>
+<li>[ ] Memorize Morse Test $IP_i = BP_{\text{all}} - BP_{i \text{ cut-out}}$.</li>
+<li>[ ] Memorize Willan's Line negative $BP$ intercept $= FP$ (CI engines).</li>
+<li>[ ] Memorize $BSFC = \dot{m}_f / BP \text{ kg/kWh}$.</li>
+<li>[ ] Memorize 4-cyl firing order $1-3-4-2$.</li>
+<li>[ ] Memorize Injection crank angle $\theta = 6 N t$.</li>
+</ul>
+</body>
+</html>

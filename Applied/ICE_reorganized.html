@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classification & Working Principles of Internal Combustion (I.C.) Engines — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="classification-working-principles-of-internal-combustion-ic-engines-comprehensive-reorganized-study-guide">Classification &amp; Working Principles of Internal Combustion (I.C.) Engines — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Air-Standard Cycles (Otto $\eta = 1 - 1/r^{\gamma-1}$, Diesel $\eta = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma(\rho - 1)}\right]$, Dual $\eta$), Cycle Thermal Efficiency Comparisons under equal $r$ vs equal $P_{\text{max}}$, Engine Geometry ($V_s = \frac{\pi}{4}D^2L$, $r = 1 + V_s/V_c$), 4-Stroke vs 2-Stroke engines ($N_{\text{cam}} = N_{\text{crank}}/2$, Scavenging modes), SI vs CI Fundamentals (Quantity vs Quality governing, Air-Fuel ratios), Combustion &amp; Knocking (Octane rating, Cetane rating, Ignition delay, Spark retard), Injection Timing $t = \frac{\theta}{6N}$, and Key Engine Performance Parameters (Mean Effective Pressure $P_m = W_{\text{net}}/V_s$, Mechanical Efficiency $\eta_m = BP/IP$, Volumetric Efficiency $\eta_v$) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
+<h4 id="1-air-standard-cycles"><strong>1. Air-Standard Cycles</strong></h4>
+<ul>
+<li><strong>Otto Cycle Thermal Efficiency $\eta_{\text{Otto}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}}}$$</div></li>
+<li>$r = \frac{V_1}{V_2}$: compression ratio</li>
+<li>
+<p>$\gamma = \frac{C_p}{C_v}$: specific heat ratio ($\approx 1.40$ for air; $\gamma - 1 = 0.40$)</p>
+</li>
+<li>
+<p><strong>Diesel Cycle Thermal Efficiency $\eta_{\text{Diesel}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Diesel}} = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma (\rho - 1)}\right]}}$$</div></p>
+</li>
+<li>
+<p>$\rho = \frac{V_3}{V_2}$: cut-off ratio $\rho &gt; 1$</p>
+</li>
+<li>
+<p><strong>Dual Cycle Thermal Efficiency $\eta_{\text{Dual}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{Dual}} = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\alpha \rho^\gamma - 1}{(\alpha - 1) + \gamma \alpha (\rho - 1)}\right]}}$$</div></p>
+</li>
+<li>$\alpha = \frac{P_3}{P_2}$: explosion / pressure ratio at constant volume</li>
+</ul>
+<hr />
+<h4 id="2-engine-geometry-compression-ratio"><strong>2. Engine Geometry &amp; Compression Ratio</strong></h4>
+<ul>
+<li><strong>Compression Ratio $r$</strong>:
+  <div class="formula-card">$${\boxed{r = \frac{V_{\text{total}}}{V_c} = \frac{V_s + V_c}{V_c} = 1 + \frac{V_s}{V_c}}}$$</div></li>
+<li>$V_s$: swept / displacement volume ($\text{m}^3$ or $\text{cc}$)</li>
+<li>
+<p>$V_c$: clearance volume ($\text{m}^3$ or $\text{cc}$)</p>
+</li>
+<li>
+<p><strong>Swept Volume $V_s$</strong>:
+  <div class="formula-card">$${\boxed{V_s = \frac{\pi}{4} D^2 L \times k}}$$</div></p>
+</li>
+<li>$D$: cylinder bore diameter $\text{m}$</li>
+<li>$L$: piston stroke length $\text{m}$</li>
+<li>
+<p>$k$: number of cylinders</p>
+</li>
+<li>
+<p><strong>Stroke-to-Bore Ratio</strong>:</p>
+</li>
+<li>$L/D &gt; 1 \implies$ Under-square / Long-stroke engine</li>
+<li>$L/D = 1 \implies$ Square engine</li>
+<li>$L/D &lt; 1 \implies$ Over-square / Short-stroke engine</li>
+</ul>
+<hr />
+<h4 id="3-engine-kinematics-valve-timing"><strong>3. Engine Kinematics &amp; Valve Timing</strong></h4>
+<ul>
+<li><strong>Camshaft Speed $N_{\text{cam}}$ for 4-Stroke Engine</strong>:
+  <div class="formula-card">$${\boxed{N_{\text{cam}} = \frac{N_{\text{crank}}}{2}}}$$</div></li>
+<li>
+<p>$N_{\text{crank}}$: crankshaft rotational speed $\text{rpm}$</p>
+</li>
+<li>
+<p><strong>Time Duration of Crank Angle Rotation</strong>:
+  <div class="formula-card">$${\boxed{t = \frac{\theta}{6 N} \quad (\text{seconds})}}$$</div></p>
+</li>
+<li>$\theta$: crank angle of injection or ignition $\text{degrees}$</li>
+<li>$N$: crankshaft speed $\text{rpm}$</li>
+</ul>
+<hr />
+<h4 id="4-engine-performance-parameters"><strong>4. Engine Performance Parameters</strong></h4>
+<ul>
+<li><strong>Indicated Power $IP$</strong>:
+  <div class="formula-card">$${\boxed{IP = \frac{P_{mi} \cdot L \cdot A \cdot n \cdot k}{60000} \quad (\text{kW})}}$$</div></li>
+<li>$P_{mi}$: indicated mean effective pressure ($\text{N/m}^2$ or $\text{Pa}$)</li>
+<li>
+<p>$n$: working strokes per minute ($n = N/2$ for 4-stroke, $n = N$ for 2-stroke)</p>
+</li>
+<li>
+<p><strong>Mean Effective Pressure $P_m$</strong>:
+  <div class="formula-card">$${\boxed{P_m = \frac{W_{\text{net}}}{V_s} = \frac{\text{Area of Indicator Diagram}}{\text{Length of Indicator Diagram}} \times \text{Spring Constant}}}$$</div></p>
+</li>
+<li>
+<p><strong>Mechanical Efficiency $\eta_m$</strong>:
+  <div class="formula-card">$${\boxed{\eta_m = \frac{BP}{IP} = \frac{IP - FP}{IP}}}$$</div></p>
+</li>
+<li>$BP$: Brake Power $\text{kW}$</li>
+<li>
+<p>$FP$: Friction Power $\text{kW}$</p>
+</li>
+<li>
+<p><strong>Volumetric Efficiency $\eta_v$</strong>:
+  <div class="formula-card">$${\boxed{\eta_v = \frac{m_{\text{actual}}}{m_{\text{theoretical}}} = \frac{V_{\text{actual suction}}}{V_s}}}$$</div></p>
+</li>
+<li>
+<p><strong>Relative Efficiency $\eta_{\text{relative}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{relative}} = \frac{\eta_{\text{thermal, actual}}}{\eta_{\text{air-standard}}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Otto Cycle</strong>: Air-standard thermodynamic cycle with constant-volume heat addition; basis for Spark-Ignition (SI) engines.</li>
+<li><strong>Diesel Cycle</strong>: Air-standard thermodynamic cycle with constant-pressure heat addition; basis for Compression-Ignition (CI) engines.</li>
+<li><strong>Dual Cycle</strong>: Mixed cycle with heat addition partly at constant volume and partly at constant pressure; basis for modern high-speed Diesel engines.</li>
+<li><strong>Swept Volume $V_s$</strong>: Volume displaced by the piston as it moves from Top Dead Center (TDC) to Bottom Dead Center (BDC).</li>
+<li><strong>Clearance Volume $V_c$</strong>: Volume remaining inside the cylinder when piston is at TDC.</li>
+<li><strong>Spark-Ignition (SI) Engine</strong>: Engine where premixed air-fuel mixture is ignited by an electric spark plug (uses Octane rating, Quantity governing).</li>
+<li><strong>Compression-Ignition (CI) Engine</strong>: Engine where pure air is compressed and liquid fuel is injected into hot compressed air to auto-ignite (uses Cetane rating, Quality governing).</li>
+<li><strong>Octane Number</strong>: Anti-knock rating of petrol fuel relative to a mixture of Iso-octane $\text{ON} = 100$ and n-Heptane $\text{ON} = 0$.</li>
+<li><strong>Cetane Number</strong>: Ignition-delay rating of diesel fuel relative to a mixture of Cetane $\text{CN} = 100$ and $\alpha$-methyl-naphthalene $\text{CN} = 0$.</li>
+<li><strong>Knocking in SI Engine</strong>: Auto-ignition of unburned end-gas ahead of flame front causing severe pressure spikes. Reduced by retarding spark, lowering $r$, or higher Octane fuel.</li>
+<li><strong>Knocking in CI Engine</strong>: Explosion of accumulated fuel after a long ignition delay. Reduced by higher Cetane fuel, higher $r$, or higher inlet air temperature.</li>
+<li><strong>Scavenging</strong>: Process of clearing burned exhaust gases from 2-stroke cylinder using fresh incoming charge (Cross-flow, Loop, Uniflow).</li>
+<li><strong>Mean Effective Pressure $P_m$</strong>: Fictitious constant pressure that, if acting on the piston during the power stroke, would produce the same net work output as the actual variable-pressure cycle.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>SI Engine Compression Ratio Range</strong>: $r = 6 \text{ to } 12$ (limited by detonation/knocking).</li>
+<li><strong>CI Engine Compression Ratio Range</strong>: $r = 16 \text{ to } 22$ (required to achieve auto-ignition temperature).</li>
+<li><strong>Air-Fuel Ratio (SI Engine)</strong>:</li>
+<li>Idling (Rich): $\approx 12:1$</li>
+<li>Stoichiometric (Chemically Correct): $\approx 14.7:1 \text{ or } 15:1$</li>
+<li>Maximum Power: $\approx 12.5:1 - 13.5:1$</li>
+<li>Cruising (Lean): $\approx 16:1 - 18:1$</li>
+<li><strong>Indian Automotive Diesel Cetane Number</strong>: $\text{CN} \approx 41 \text{ to } 50$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Air-Standard Cycles</strong>: §3.1, efficiency comparisons in §3.1.</li>
+<li><strong>Engine Geometry</strong>: §3.2, kinematic stroke relations in §3.3.</li>
+<li><strong>SI vs CI Fundamentals</strong>: §3.4, combustion &amp; fuels in §3.5.</li>
+<li><strong>Performance Parameters</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-air-standard-cycles-efficiency-comparisons"><strong>3.1 Air-Standard Cycles &amp; Efficiency Comparisons</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Ideal air-standard cycles assume air behaves as an ideal gas with constant specific heats $\gamma = 1.40$.</li>
+<li><strong>Efficiency Formulas</strong>:</li>
+<li>Otto: $\eta = 1 - \frac{1}{r^{\gamma-1}}$</li>
+<li>Diesel: $\eta = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma (\rho - 1)}\right]$</li>
+<li><strong>Diesel Efficiency Trend</strong>: As cut-off ratio $\rho$ INCREASES, Diesel efficiency DECREASES! As $\rho \to 1$, Diesel efficiency approaches Otto efficiency.</li>
+<li><strong>Master Efficiency Comparisons</strong>:</li>
+<li><strong>Same Compression Ratio $r$ &amp; Heat Input</strong>:
+     <div class="formula-card">$${\boxed{\eta_{\text{Otto}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Diesel}}}}$$</div>
+     (Otto adds all heat at constant volume at highest average temperature).</li>
+<li><strong>Same Maximum Pressure $P_{\text{max}}$ &amp; Heat Input</strong>:
+     <div class="formula-card">$${\boxed{\eta_{\text{Diesel}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Otto}}}}$$</div>
+     (Diesel can operate at much higher compression ratio for the same peak pressure).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Comparison Rule</strong>:
+- Same compression ratio $r \implies \eta_{\text{Otto}}$ is MAXIMUM.
+- Same peak pressure $P_{\text{max}} \implies \eta_{\text{Diesel}}$ is MAXIMUM.</p>
+<p>[!TRAP]
+<strong>Cut-Off Ratio Trend</strong>: Increasing cut-off ratio $\rho$ INCREASES load/power, but DECREASES thermal efficiency of a Diesel cycle!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Cycle Efficiency Comparison Check?
+├─ Is Compression Ratio r SAME for all cycles?
+│  ├─ YES → eta_Otto &gt; eta_Dual &gt; eta_Diesel (Otto is maximum)
+│  └─ NO → Check Maximum Peak Pressure P_max
+│     └─ Same Peak Pressure P_max → eta_Diesel &gt; eta_Dual &gt; eta_Otto (Diesel is maximum)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\eta_{\text{Otto}} = 1 - 1/r^{\gamma-1}$.</li>
+<li>[ ] Same $r \implies \eta_{\text{Otto}} &gt; \eta_{\text{Diesel}}$.</li>
+<li>[ ] Same $P_{\text{max}} \implies \eta_{\text{Diesel}} &gt; \eta_{\text{Otto}}$.</li>
+<li>[ ] Increasing cut-off ratio $\rho$ lowers Diesel efficiency.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An Otto cycle has a compression ratio $r = 8$ $\gamma = 1.4$. Calculate its air-standard thermal efficiency.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}} = 1 - \frac{1}{8^{1.4 - 1}} = 1 - \frac{1}{8^{0.4}} = 1 - \frac{1}{2.2974} = 1 - 0.4352 = 0.5648 = 56.48\%}$$</div>
+- <strong>Key Insight</strong>: Substitute $r=8$ and exponent $0.4$ directly.</p>
+<hr />
+<h3 id="32-engine-geometry-compression-ratio"><strong>3.2 Engine Geometry &amp; Compression Ratio</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Compression Ratio $r = \frac{V_s + V_c}{V_c} = 1 + \frac{V_s}{V_c}$.</li>
+<li>Clearance volume $V_c$ is measured when piston is at Top Dead Center (TDC).</li>
+<li>Swept volume $V_s = \frac{\pi}{4} D^2 L$. Total displacement capacity $= V_s \times k$.</li>
+<li>Typical Ranges:</li>
+<li>SI Engines: $r = 6 \text{ to } 12$ (limited by knocking/detonation).</li>
+<li>CI Engines: $r = 16 \text{ to } 22$ (required for auto-ignition).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Compression Ratio Definition</strong>: $r = 1 + \frac{V_s}{V_c}$. ALWAYS add 1! $r = \frac{V_s}{V_c}$ is a frequent formula trap.</p>
+<p>[!TRAP]
+<strong>Swept Volume vs Displacement</strong>: Engine capacity in cc (e.g. $1500 \text{ cc}$) represents the TOTAL SWEPT VOLUME of all cylinders combined $V_s \times k$, NOT the clearance volume!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Compression Ratio Calculation?
+├─ Identify Volumes → Swept Volume Vs, Clearance Volume Vc
+├─ Formula → r = (Vs + Vc) / Vc = 1 + (Vs / Vc)
+└─ Compression Ratio Range Check → SI: 6-12, CI: 16-22
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $r = 1 + V_s/V_c$.</li>
+<li>[ ] SI $r = 6-12$, CI $r = 16-22$.</li>
+<li>[ ] $V_s = \frac{\pi}{4} D^2 L$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An engine has a clearance volume $V_c = 50 \text{ cc}$ and a swept volume $V_s = 450 \text{ cc}$. Calculate its compression ratio $r$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${r = 1 + \frac{V_s}{V_c} = 1 + \frac{450}{50} = 1 + 9 = 10}$$</div>
+- <strong>Key Insight</strong>: $r = 10:1$. Always add 1 to the ratio $V_s/V_c$.</p>
+<hr />
+<h3 id="33-two-stroke-vs-four-stroke-engines-kinematics"><strong>3.3 Two-Stroke vs Four-Stroke Engines &amp; Kinematics</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Four-Stroke Engine</strong>:</li>
+<li>Cycle completed in <strong>2 crankshaft revolutions</strong> ($720^\circ$ crank angle).</li>
+<li>Contains 1 power stroke for every 2 revolutions.</li>
+<li>Camshaft speed $N_{\text{cam}} = \frac{N_{\text{crank}}}{2}$.</li>
+<li>Uses intake and exhaust valves. Higher thermal efficiency, lower fuel consumption.</li>
+<li><strong>Two-Stroke Engine</strong>:</li>
+<li>Cycle completed in <strong>1 crankshaft revolution</strong> ($360^\circ$ crank angle).</li>
+<li>Contains 1 power stroke for every 1 revolution.</li>
+<li>Uses ports (inlet, transfer, exhaust) uncovered by the piston.</li>
+<li>Higher power-to-weight ratio, simpler construction, lower cost.</li>
+<li><strong>Scavenging in 2-Stroke</strong>:</li>
+<li>Expulsion of exhaust gases by incoming fresh charge.</li>
+<li>Types: Cross-flow (uses piston deflector), Loop scavenging, Uniflow scavenging (most efficient).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Camshaft Speed Rule</strong>: In a 4-stroke engine, the camshaft rotates at HALF the speed of the crankshaft $N_{\text{cam}} = N_{\text{crank}}/2$.</p>
+<p>[!TRAP]
+<strong>Power Strokes Comparison</strong>: At the same speed, a 2-stroke engine has TWICE as many power strokes per minute as a 4-stroke engine! However, theoretical power output is NOT double due to poor scavenging and charge loss.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Engine Stroke &amp; Kinematics Check?
+├─ Is cycle completed in 2 revolutions (720°)? → 4-Stroke Engine (N_cam = N_crank / 2)
+├─ Is cycle completed in 1 revolution (360°)? → 2-Stroke Engine (Ports, Scavenging)
+└─ Scavenging Efficiency Ranking → Uniflow &gt; Loop &gt; Cross-flow
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] 4-stroke $= 2$ crank revolutions $720^\circ$.</li>
+<li>[ ] $N_{\text{cam}} = N_{\text{crank}}/2$.</li>
+<li>[ ] 2-stroke $= 1$ crank revolution $360^\circ$.</li>
+<li>[ ] Uniflow scavenging is most efficient.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A 4-stroke engine runs at $1500 \text{ rpm}$. Calculate the speed of the camshaft and the number of power strokes per minute.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${N_{\text{cam}} = \frac{N_{\text{crank}}}{2} = \frac{1500}{2} = 750 \text{ rpm}}$$</div>
+  <div class="formula-card">$${\text{Power Strokes per min} = \frac{N}{2} = \frac{1500}{2} = 750}$$</div>
+- <strong>Key Insight</strong>: Both camshaft speed and power strokes per minute are $750$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: Calculate the time duration in seconds for a fuel injection process lasting $\theta = 20^\circ$ crank angle in a Diesel engine running at $1200 \text{ rpm}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${t = \frac{\theta}{6 N} = \frac{20}{6 \times 1200} = \frac{20}{7200} = \frac{1}{360} \text{ seconds} \approx 0.00278 \text{ s} = 2.78 \text{ ms}}$$</div>
+- <strong>Key Insight</strong>: Use formula $t = \theta / (6N)$ directly.</p>
+<hr />
+<h3 id="34-si-vs-ci-engines-fuel-systems-governing"><strong>3.4 SI vs CI Engines, Fuel Systems &amp; Governing</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Spark-Ignition (SI) Petrol Engines</strong>:</li>
+<li>Fuel and air premixed in carburettor or intake port.</li>
+<li>Ignited by electric spark plug near TDC compression.</li>
+<li><strong>Quantity Governing</strong>: Load controlled by throttling the total volume of air-fuel mixture entering the cylinder. Air-fuel ratio remains nearly constant.</li>
+<li><strong>Compression-Ignition (CI) Diesel Engines</strong>:</li>
+<li>Pure air inducted during suction and compressed to high temperature.</li>
+<li>Fuel injected near TDC compression and auto-ignites.</li>
+<li><strong>Quality Governing</strong>: Load controlled by varying fuel quantity injected into a constant mass of air. Air-fuel ratio changes with load.</li>
+<li><strong>Ignition Systems</strong>:</li>
+<li>Battery Coil Ignition: Requires battery power; used in cars.</li>
+<li>Magneto Ignition: Self-generating (no battery needed); used in motorcycles/aircraft.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Governing Mechanism Distinction</strong>:
+- SI Engines $\implies$ <strong>Quantity Governing</strong> (Throttle valve controls mixture volume).
+- CI Engines $\implies$ <strong>Quality Governing</strong> (Fuel pump controls fuel quantity per stroke).</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Engine Type &amp; Governing Identification?
+├─ Is fuel premixed with air and spark-ignited? → SI Engine (Quantity Governing via Throttle)
+└─ Is pure air compressed and fuel injected? → CI Engine (Quality Governing via Fuel Pump)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] SI $\implies$ Spark plug, Quantity governing.</li>
+<li>[ ] CI $\implies$ Injector, Quality governing.</li>
+<li>[ ] Stoichiometric AFR $\approx 15:1$.</li>
+<li>[ ] Magneto ignition needs no battery.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Differentiate between Quantity and Quality governing in IC engines.
+- <strong>Solution</strong>:
+  - <strong>Quantity Governing (SI Engines)</strong>: Regulates the quantity (volume) of air-fuel mixture admitted to the cylinder using a throttle valve, while keeping the air-fuel ratio relatively constant.
+  - <strong>Quality Governing (CI Engines)</strong>: Regulates the quality (air-fuel ratio) of the mixture by varying the mass of fuel injected per stroke into a fixed quantity of compressed air.
+- <strong>Key Insight</strong>: SI = Quantity; CI = Quality.</p>
+<hr />
+<h3 id="35-combustion-knocking-octane-cetane-ratings"><strong>3.5 Combustion, Knocking, Octane &amp; Cetane Ratings</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Knocking in SI Engines (Detonation)</strong>:</li>
+<li>Occurs due to auto-ignition of unburned <strong>end-gas</strong> ahead of the flame front.</li>
+<li>Phenomenon occurs at the END of combustion.</li>
+<li><strong>To REDUCE SI Knocking</strong>:<ul>
+<li>RETARD spark timing.</li>
+<li>LOWER compression ratio $r$.</li>
+<li>INCREASE engine speed.</li>
+<li>Use HIGHER Octane fuel.</li>
+<li>Increase turbulence / reduce distance to end-gas.</li>
+</ul>
+</li>
+<li><strong>Knocking in CI Engines</strong>:</li>
+<li>Occurs due to long <strong>ignition delay</strong> period resulting in rapid explosion of accumulated fuel.</li>
+<li>Phenomenon occurs at the BEGINNING of combustion.</li>
+<li><strong>To REDUCE CI Knocking</strong>:<ul>
+<li>REDUCE ignition delay.</li>
+<li>INCREASE compression ratio $r$.</li>
+<li>INCREASE inlet air temperature / pressure.</li>
+<li>Use HIGHER Cetane fuel.</li>
+</ul>
+</li>
+<li><strong>Fuel Ratings</strong>:</li>
+<li><strong>Octane Number (SI Fuel)</strong>: Anti-knock rating relative to Iso-octane $\text{ON}=100$ and n-Heptane $\text{ON}=0$.</li>
+<li><strong>Cetane Number (CI Fuel)</strong>: Ignition-delay quality relative to Cetane / n-hexadecane $\text{CN}=100$ and $\alpha$-methyl-naphthalene $\text{CN}=0$.</li>
+<li>High Octane fuel has LOW Cetane number; High Cetane fuel has LOW Octane number!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Opposite Knocking Characteristics</strong>:
+- Compression Ratio $r \uparrow \implies$ SI Knocking INCREASES, but CI Knocking DECREASES!
+- Ignition Delay $\uparrow \implies$ CI Knocking INCREASES.
+- High Octane fuel resists SI knock; High Cetane fuel resists CI knock.</p>
+<p>[!TRAP]
+<strong>Spark Timing Adjustment for SI Knock</strong>: To eliminate knocking in an SI engine, SPARK MUST BE RETARDED (delayed), NOT ADVANCED! Advancing spark increases end-gas pressure and worsens knocking.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Knocking &amp; Fuel Rating Analysis?
+├─ SI Engine Knocking (End-gas auto-ignition)
+│  ├─ Cause: High compression ratio, advanced spark, low octane
+│  └─ Remedy: Retard spark, lower r, use HIGHER Octane fuel (Iso-octane 100)
+└─ CI Engine Knocking (Long ignition delay explosion)
+   ├─ Cause: Low inlet temperature, low compression ratio, low cetane
+   └─ Remedy: Increase r, increase inlet temp, use HIGHER Cetane fuel (Cetane 100)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] SI Knocking $\implies$ End-gas auto-ignition. Retard spark to fix.</li>
+<li>[ ] CI Knocking $\implies$ Long ignition delay. Increase $r$ to fix.</li>
+<li>[ ] Octane rating: Iso-octane $100$, n-Heptane $0$.</li>
+<li>[ ] Cetane rating: Cetane $100$, $\alpha$-methyl-naphthalene $0$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: State the composition of reference fuels used to define Octane Number and Cetane Number.
+- <strong>Solution</strong>:
+  - <strong>Octane Number</strong>: Percentage by volume of <strong>Iso-octane</strong> ($\text{ON} = 100$, high knock resistance) in a blend with <strong>n-Heptane</strong> ($\text{ON} = 0$, severe knock tendency).
+  - <strong>Cetane Number</strong>: Percentage by volume of <strong>Cetane / n-hexadecane</strong> ($\text{CN} = 100$, short ignition delay) in a blend with <strong>$\alpha$-methyl-naphthalene</strong> ($\text{CN} = 0$, long ignition delay).
+- <strong>Key Insight</strong>: Iso-octane/n-Heptane for Petrol; Cetane/$\alpha$-methyl-naphthalene for Diesel.</p>
+<hr />
+<h3 id="36-engine-performance-parameters-efficiencies"><strong>3.6 Engine Performance Parameters &amp; Efficiencies</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Mean Effective Pressure $P_m$</strong>:
+  <div class="formula-card">$${P_m = \frac{W_{\text{net}}}{V_s} = \frac{\text{Work Done per Cycle}}{\text{Swept Volume}}}$$</div></li>
+<li><strong>Mechanical Efficiency $\eta_m$</strong>:
+  <div class="formula-card">$${\eta_m = \frac{BP}{IP} = \frac{IP - FP}{IP}}$$</div></li>
+<li>Friction Power $FP = IP - BP$. Measured via Morse Test (multi-cylinder SI engines) or Willan's Line method (CI engines).</li>
+<li><strong>Volumetric Efficiency $\eta_v$</strong>:
+  <div class="formula-card">$${\eta_v = \frac{V_{\text{actual}}}{V_s}}$$</div>
+  Measures effectiveness of cylinder induction.</li>
+<li><strong>Relative Efficiency $\eta_{\text{relative}}$</strong>:
+  <div class="formula-card">$${\eta_{\text{relative}} = \frac{\eta_{\text{thermal, actual}}}{\eta_{\text{air-standard}}}}$$</div></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Morse Test Application</strong>: Morse test is used to measure Indicated Power $IP$ and Friction Power $FP$ of MULTI-CYLINDER engines by cutting off spark/fuel to one cylinder at a time!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Performance Parameter Check?
+├─ Mean Effective Pressure → P_m = W_net / V_s
+├─ Mechanical Efficiency → eta_m = BP / IP = (IP - FP) / IP
+└─ Friction Power Measurement → Morse Test (Multi-cylinder), Willan's Line (Unthrottled CI)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $P_m = W_{\text{net}} / V_s$.</li>
+<li>[ ] $\eta_m = BP / IP$.</li>
+<li>[ ] Morse test for multi-cylinder $IP$.</li>
+<li>[ ] Relative efficiency $= \eta_{\text{actual}} / \eta_{\text{ideal}}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A 4-stroke IC engine produces $40 \text{ kW}$ Brake Power $BP$ and has a Friction Power $FP = 10 \text{ kW}$. Calculate its Indicated Power $IP$ and Mechanical Efficiency $\eta_m$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${IP = BP + FP = 40 + 10 = 50 \text{ kW}}$$</div>
+  <div class="formula-card">$${\eta_m = \frac{BP}{IP} = \frac{40}{50} = 0.80 = 80\%}$$</div>
+- <strong>Key Insight</strong>: $IP = 50 \text{ kW}$, $\eta_m = 80\%$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Write the formula for thermal efficiency of an ideal Otto cycle.</strong><br />
+A: $\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}$, where $r$ is compression ratio and $\gamma$ is specific heat ratio.</p>
+<p><strong>Q2: Compare thermal efficiency of Otto, Diesel, and Dual cycles for the same compression ratio $r$ and heat input.</strong><br />
+A: $\eta_{\text{Otto}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Diesel}}$.</p>
+<p><strong>Q3: Compare thermal efficiency of Otto, Diesel, and Dual cycles for the same peak pressure $P_{\text{max}}$ and heat input.</strong><br />
+A: $\eta_{\text{Diesel}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Otto}}$.</p>
+<p><strong>Q4: Define Compression Ratio $r$ of an IC engine.</strong><br />
+A: $r = \frac{V_s + V_c}{V_c} = 1 + \frac{V_s}{V_c}$, where $V_s$ is swept volume and $V_c$ is clearance volume.</p>
+<p><strong>Q5: State the relationship between camshaft speed $N_{\text{cam}}$ and crankshaft speed $N_{\text{crank}}$ in a 4-stroke engine.</strong><br />
+A: $N_{\text{cam}} = \frac{N_{\text{crank}}}{2}$.</p>
+<p><strong>Q6: Differentiate between Quantity and Quality governing.</strong><br />
+A: Quantity governing (SI engines) varies the volume of air-fuel mixture admitted via a throttle valve while keeping air-fuel ratio constant. Quality governing (CI engines) varies the mass of fuel injected per stroke into a constant volume of air.</p>
+<p><strong>Q7: What is the cause of knocking in an SI engine?</strong><br />
+A: Auto-ignition of the unburned end-gas ahead of the advancing flame front near the end of combustion.</p>
+<p><strong>Q8: How can knocking be reduced in an SI engine?</strong><br />
+A: Retard spark timing, lower compression ratio $r$, increase engine speed, or use fuel with higher Octane number.</p>
+<p><strong>Q9: What is the cause of knocking in a CI engine?</strong><br />
+A: Long ignition delay period resulting in excessive accumulation of fuel that explodes violently upon ignition.</p>
+<p><strong>Q10: How can knocking be reduced in a CI engine?</strong><br />
+A: Increase compression ratio $r$, increase inlet air temperature/pressure, or use fuel with higher Cetane number.</p>
+<p><strong>Q11: Define Octane Number.</strong><br />
+A: The percentage by volume of Iso-octane $\text{ON}=100$ in a mixture with n-Heptane $\text{ON}=0$ that matches the knock intensity of the test sample.</p>
+<p><strong>Q12: Define Cetane Number.</strong><br />
+A: The percentage by volume of Cetane $\text{CN}=100$ in a mixture with $\alpha$-methyl-naphthalene $\text{CN}=0$ that matches the ignition delay of the test sample.</p>
+<p><strong>Q13: Define Mean Effective Pressure $P_m$.</strong><br />
+A: $P_m = \frac{W_{\text{net}}}{V_s}$, the fictitious constant pressure that produces the same net work output as the actual variable-pressure cycle.</p>
+<p><strong>Q14: What is the Morse Test used for?</strong><br />
+A: To determine the Indicated Power $IP$ and Friction Power $FP$ of multi-cylinder IC engines by cutting off ignition/fuel to individual cylinders.</p>
+<p><strong>Q15: Name the three principal scavenging methods used in 2-stroke engines.</strong><br />
+A: Cross-flow scavenging, Loop scavenging, and Uniflow scavenging.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Same $r$ vs Same $P_{\text{max}}$</strong>:</li>
+<li>Same $r \implies \eta_{\text{Otto}}$ is highest.</li>
+<li>Same $P_{\text{max}} \implies \eta_{\text{Diesel}}$ is highest.</li>
+<li><strong>Diesel Efficiency Trend</strong>: $\rho \uparrow \implies \eta_{\text{Diesel}} \downarrow$.</li>
+<li><strong>4-Stroke Kinematics</strong>: $720^\circ$ crank angle per cycle; $N_{\text{cam}} = N_{\text{crank}} / 2$.</li>
+<li><strong>Governing</strong>: SI = Quantity (throttle); CI = Quality (fuel pump).</li>
+<li><strong>Knock Fixes</strong>:</li>
+<li>SI Knocking $\implies$ Retard spark, lower $r$, higher Octane.</li>
+<li>CI Knocking $\implies$ Increase $r$, higher inlet temp, higher Cetane.</li>
+<li><strong>Fuel Inverse Relation</strong>: High Octane $\implies$ Low Cetane. High Cetane $\implies$ Low Octane.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}$.</li>
+<li>[ ] Memorize Same $r \implies \eta_{\text{Otto}} &gt; \eta_{\text{Diesel}}$.</li>
+<li>[ ] Memorize Same $P_{\text{max}} \implies \eta_{\text{Diesel}} &gt; \eta_{\text{Otto}}$.</li>
+<li>[ ] Memorize $r = 1 + \frac{V_s}{V_c}$.</li>
+<li>[ ] Memorize $N_{\text{cam}} = N_{\text{crank}}/2$.</li>
+<li>[ ] Memorize SI = Quantity, CI = Quality.</li>
+<li>[ ] Memorize Retard spark $\implies$ SI Knock $\downarrow$.</li>
+<li>[ ] Memorize Octane (Iso-octane 100, n-Heptane 0).</li>
+<li>[ ] Memorize Cetane (Cetane 100, $\alpha$-methyl-naphthalene 0).</li>
+<li>[ ] Memorize $P_m = W_{\text{net}} / V_s$, $\eta_m = BP / IP$.</li>
+</ul>
+</body>
+</html>

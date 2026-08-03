@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lubrication, Cooling & Ignition Systems of I.C. Engines — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="lubrication-cooling-ignition-systems-of-ic-engines-comprehensive-reorganized-study-guide">Lubrication, Cooling &amp; Ignition Systems of I.C. Engines — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Types of Lubrication Systems (Mist for 2-stroke petrol, Splash, Pressure Wet-Sump $0.4-4 \text{ kg cm}^{-2}$, Dry-Sump with external tank &amp; scavenge pumps), Lubrication Regimes (Boundary, Mixed, Hydrodynamic, Hydrostatic lowest starting friction, Stribeck Curve / Hersey parameter $\frac{\eta N}{P}$), SAE Oil Viscosity Grades $\text{SAE } 80 &gt; 70 &gt; 40 &gt; 30$, Engine Cooling System &amp; Thermostat ($80^\circ\text{C}-85^\circ\text{C}$ opening, broken fan belt overheating), Effect of Cooling-Water Temperature on Knocking $T_{\text{coolant}} \uparrow \implies \text{SI Knocking } \uparrow$, Cold-Starting Aids (Choke valve rich mixture), and Ignition Systems (Battery-coil, Magneto self-generating, Electronic CDI/TCI) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-lubrication-systems-working-pressures"><strong>1. Lubrication Systems &amp; Working Pressures</strong></h4>
+<ul>
+<li><strong>Pressure System Oil Pressure Range</strong>:
+  <div class="formula-card">$${\boxed{P_{\text{oil}} = 0.4 \text{ to } 4.0 \text{ kg/cm}^2 \quad (40 \text{ to } 400 \text{ kPa})}}$$</div></li>
+<li>
+<p>Delivered by gear/rotor oil pump to main, big-end, and camshaft bearings.</p>
+</li>
+<li>
+<p><strong>Mist Lubrication Fuel-Oil Ratio</strong>:
+  <div class="formula-card">$${\boxed{\text{Oil Percentage} = 2\% \text{ to } 3\% \text{ by volume in petrol}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-lubrication-regimes-stribeck-parameter"><strong>2. Lubrication Regimes &amp; Stribeck Parameter</strong></h4>
+<ul>
+<li><strong>Hersey / Stribeck Parameter $\Lambda$</strong>:
+  <div class="formula-card">$${\boxed{\Lambda = \frac{\eta \cdot N}{P}}}$$</div></li>
+<li>$\eta$: dynamic viscosity of lubricant ($\text{Pa}\cdot\text{s}$ or $\text{N}\cdot\text{s/m}^2$)</li>
+<li>$N$: rotational speed ($\text{rpm}$ or $\text{rad/s}$)</li>
+<li>
+<p>$P$: load per unit projected bearing area ($\text{N/m}^2$ or $\text{Pa}$)</p>
+</li>
+<li>
+<p><strong>Starting Friction Comparison</strong>:
+  <div class="formula-card">$${\boxed{\text{Friction Coefficient } \mu: \text{ Hydrostatic } \ll \text{ Hydrodynamic } &lt; \text{ Mixed } &lt; \text{ Boundary}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-sae-viscosity-grades"><strong>3. SAE Viscosity Grades</strong></h4>
+<ul>
+<li><strong>Monograde Viscosity Ranking (at $100^\circ\text{C}$)</strong>:
+  <div class="formula-card">$${\boxed{\text{SAE } 80 &gt; \text{SAE } 70 &gt; \text{SAE } 40 &gt; \text{SAE } 30}}$$</div></li>
+<li>Higher SAE number indicates higher kinematic viscosity and thicker oil film.</li>
+</ul>
+<hr />
+<h4 id="4-thermostat-set-point-cooling"><strong>4. Thermostat Set-Point &amp; Cooling</strong></h4>
+<ul>
+<li><strong>Standard Automotive Thermostat Opening Range</strong>:
+  <div class="formula-card">$${\boxed{T_{\text{thermostat}} = 80^\circ\text{C} \text{ to } 85^\circ\text{C}}}$$</div></li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Mist Lubrication</strong>: Total-loss lubrication system where $2-3\%$ lubricating oil is premixed with petrol. Used exclusively in 2-stroke petrol engines because the crankcase cannot hold an oil sump.</li>
+<li><strong>Wet-Sump Pressure System</strong>: Lubrication system where oil is stored in the lower engine crankcase pan and forcibly pumped through galleries to all bearings.</li>
+<li><strong>Dry-Sump Lubrication</strong>: Lubrication system where oil is stored in an external tank. A scavenge pump keeps the crankcase empty while a pressure pump feeds bearings. Used in high-capacity, heavy-duty, and high-performance engines subject to large tilt/attitude changes.</li>
+<li><strong>Boundary Lubrication</strong>: Regime with direct metal-to-metal asperity contact; high friction and wear; relies on surface chemical additive films.</li>
+<li><strong>Hydrodynamic Lubrication</strong>: Self-acting full fluid film separation created by relative shaft motion forming a converging fluid wedge. Zero metal contact at running speed.</li>
+<li><strong>Hydrostatic Lubrication</strong>: Full fluid film separation maintained by an EXTERNAL high-pressure pump independent of shaft speed. Gives LOWEST STARTING FRICTION at zero speed.</li>
+<li><strong>Viscosity Index (VI)</strong>: An empirical measure of how much oil viscosity changes with temperature (higher VI = smaller viscosity drop at high temperatures).</li>
+<li><strong>Thermostat</strong>: Temperature-sensitive valve in cooling circuit that blocks coolant flow to the radiator during cold starts $&lt; 80^\circ\text{C}$ to allow rapid engine warm-up via a bypass line.</li>
+<li><strong>Choke Valve</strong>: A butterfly valve at the carburettor intake that restricts airflow during cold starting, producing a very RICH mixture $A/F \approx 3:1 - 5:1$.</li>
+<li><strong>Magneto Ignition System</strong>: Self-contained ignition system producing spark voltage via an engine-driven permanent-magnet generator without requiring a battery.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Oil Pressure in Pressure System</strong>: $0.4 \text{ to } 4.0 \text{ kg/cm}^2$.</li>
+<li><strong>Thermostat Opening Temperature</strong>: $80^\circ\text{C} \text{ to } 85^\circ\text{C}$.</li>
+<li><strong>Cold-Start Air-Fuel Ratio (Choke Engaged)</strong>: Very Rich $3:1 \text{ to } 5:1$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Lubrication Systems</strong>: Introduced in §3.1, friction regimes in §3.2.</li>
+<li><strong>Oil Viscosity &amp; SAE</strong>: §3.3.</li>
+<li><strong>Cooling Systems &amp; Thermostat</strong>: §3.4, knock effect in §3.5.</li>
+<li><strong>Carburettor Choke</strong>: §3.6.</li>
+<li><strong>Ignition Systems</strong>: §3.7.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-types-of-lubrication-systems-in-ic-engines"><strong>3.1 Types of Lubrication Systems in I.C. Engines</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Lubrication reduces friction, cools moving parts, seals piston rings, and removes wear debris.</li>
+<li><strong>Systems Comparison</strong>:</li>
+<li><strong>Mist Lubrication</strong>:<ul>
+<li>Oil $2-3\%$ premixed with petrol in fuel tank.</li>
+<li>Oil droplets form a mist inside crankcase as petrol vaporizes.</li>
+<li>Used EXCLUSIVELY in 2-stroke petrol engines (scooters, chainsaws) because crankcase is used for mixture induction and cannot hold a sump.</li>
+<li>Total-loss system (oil burns in combustion chamber).</li>
+</ul>
+</li>
+<li><strong>Splash Lubrication</strong>:<ul>
+<li>Dippers on connecting rod big-ends scoop oil from sump and splash it onto cylinder walls and wrist pins.</li>
+<li>Used in low-speed, low-cost, light engines (lawnmowers, stationary pumps).</li>
+</ul>
+</li>
+<li><strong>Pressure (Wet-Sump) Lubrication</strong>:<ul>
+<li>Oil pump draws oil from crankcase sump and delivers it under pressure $0.4-4 \text{ kg/cm}^2$ through oil galleries to main, big-end, and camshaft bearings.</li>
+<li>Standard for most automobiles and heavy road vehicles.</li>
+</ul>
+</li>
+<li><strong>Dry-Sump Lubrication</strong>:<ul>
+<li>Crankcase is kept dry by one or more <strong>Scavenge Pumps</strong> that send oil to an <strong>External Oil Tank</strong>.</li>
+<li>A separate <strong>Pressure Pump</strong> draws oil from the external tank and feeds engine bearings.</li>
+<li>Used in high-capacity engines, sports cars, aircraft, and heavy-duty off-road vehicles to prevent oil starvation during steep tilting, fast cornering, or hard acceleration.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Lubrication System Matching</strong>:
+- 2-Stroke Petrol Engine $\implies$ <strong>Mist Lubrication</strong> (2-3% oil in petrol).
+- Heavy Vehicles / Standard Cars $\implies$ <strong>Pressure Wet-Sump System</strong>.
+- High-Capacity / Aircraft / Racing $\implies$ <strong>Dry-Sump System</strong> (External tank + Scavenge pump).</p>
+<p>[!TRAP]
+<strong>Dry-Sump Component Trap</strong>: A dry-sump system ALWAYS requires AT LEAST TWO pumps (a Scavenge Pump to empty the crankcase and a Pressure Pump to feed bearings)!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Lubrication System Selection?
+├─ Is it a 2-stroke petrol engine without an oil sump? → MIST LUBRICATION (Oil in fuel)
+├─ Is it a standard automobile or truck engine? → PRESSURE WET-SUMP SYSTEM
+└─ Is it a high-capacity, aircraft, or racing engine subject to extreme tilting? → DRY-SUMP SYSTEM (External tank + Scavenge pump)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Mist lubrication: 2-stroke petrol only.</li>
+<li>[ ] Dry-sump uses external tank and scavenge pump.</li>
+<li>[ ] Pressure system oil pressure: $0.4-4 \text{ kg/cm}^2$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Which lubrication system is preferred for a high-capacity aircraft or racing engine subject to severe attitude changes, and why?
+- <strong>Solution</strong>:
+  - <strong>Dry-Sump Lubrication System</strong> is preferred.
+  - Reason: Oil is stored in an external tank rather than in the crankcase. Scavenge pumps keep the crankcase dry, ensuring continuous oil supply to the pressure pump regardless of aircraft attitude, steep angles, or high centrifugal forces.
+- <strong>Key Insight</strong>: External tank + scavenge pump = Dry-sump system.</p>
+<hr />
+<h3 id="32-lubrication-regimes-stribeck-curve"><strong>3.2 Lubrication Regimes &amp; Stribeck Curve</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Four Friction Regimes</strong>:</li>
+<li><strong>Boundary Lubrication</strong>: Direct metal-to-metal contact of surface asperities. High friction coefficient $\mu \approx 0.1-0.3$. Occurs at start-up, shutdown, or extreme loads.</li>
+<li><strong>Mixed Lubrication</strong>: Transitional regime with partial asperity contact and partial fluid film.</li>
+<li><strong>Hydrodynamic Lubrication</strong>: Full fluid film created by relative motion forming a converging oil wedge. Zero metal contact at running speed $\mu \approx 0.001-0.005$.</li>
+<li><strong>Hydrostatic Lubrication</strong>: Full fluid film created by an <strong>EXTERNAL high-pressure oil pump</strong> before shaft motion begins. Provides <strong>LOWEST STARTING FRICTION</strong> at zero speed!</li>
+<li><strong>Stribeck Parameter $\Lambda = \frac{\eta N}{P}$</strong>:</li>
+<li>$\eta$: viscosity, $N$: speed, $P$: load.</li>
+<li>Low $\frac{\eta N}{P} \implies$ Boundary regime.</li>
+<li>High $\frac{\eta N}{P} \implies$ Hydrodynamic regime.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Lowest Starting Friction</strong>: <strong>HYDROSTATIC Lubrication</strong> has the lowest starting friction because pressurised oil is supplied by an external pump BEFORE shaft rotation starts!</p>
+<p>[!TRAP]
+<strong>Hydrodynamic vs Hydrostatic at Zero Speed</strong>: Hydrodynamic film collapses to ZERO at rest because film pressure depends on shaft rotation speed $N$. Hydrostatic film remains 100% intact at rest!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Lubrication Regime Identification?
+├─ Is starting friction minimum at ZERO speed? → HYDROSTATIC LUBRICATION (External pump)
+├─ Is full film self-generated at running speed? → HYDRODYNAMIC LUBRICATION (Converging wedge)
+└─ Are metal asperities in direct contact at high load / low speed? → BOUNDARY LUBRICATION
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Hydrostatic has lowest starting friction.</li>
+<li>[ ] Hydrodynamic needs relative speed $N &gt; 0$.</li>
+<li>[ ] Stribeck parameter $\Lambda = \frac{\eta N}{P}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Compare starting friction between Hydrodynamic and Hydrostatic journal bearings.
+- <strong>Solution</strong>:
+  - In a <strong>Hydrodynamic bearing</strong>, the oil film pressure is self-generated by rotation $N$. At zero starting speed $N=0$, the oil film collapses, resulting in metal-to-metal boundary contact and HIGH starting friction.
+  - In a <strong>Hydrostatic bearing</strong>, an external pump delivers high-pressure oil before start-up, floating the journal at zero speed $N=0$. Hence, starting friction is extremely LOW (almost zero).
+- <strong>Key Insight</strong>: Hydrostatic = Lowest starting friction.</p>
+<hr />
+<h3 id="33-lubricating-oil-viscosity-sae-grades"><strong>3.3 Lubricating Oil Viscosity &amp; SAE Grades</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Viscosity</strong>: The single most critical physical property of engine lubricating oil. Measures resistance to flow.</li>
+<li><strong>SAE Grade Ranking</strong>:</li>
+<li>Higher SAE monograde number $\implies$ Higher viscosity (thicker oil at $100^\circ\text{C}$).</li>
+<li>Ranking: $\text{SAE } 80 &gt; \text{SAE } 70 &gt; \text{SAE } 40 &gt; \text{SAE } 30$.</li>
+<li><strong>Multigrade Oils (e.g. 10W-40)</strong>:</li>
+<li>'10W' indicates low-temperature viscosity class (winter starting).</li>
+<li>'40' indicates high-temperature viscosity class at $100^\circ\text{C}$.</li>
+<li>Uses Viscosity Index (VI) improvers to prevent excessive thinning when hot.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SAE Grade Viscosity Rule</strong>: Larger SAE numbers mean MORE VISCOUS (thicker) oil! $\text{SAE } 80$ is far more viscous than $\text{SAE } 30$.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>SAE Viscosity Ranking?
+├─ Compare SAE Numbers → Higher number = Higher viscosity / Thicker oil
+└─ Order of Viscosity → SAE 80 &gt; SAE 70 &gt; SAE 40 &gt; SAE 30
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Viscosity is most important oil property.</li>
+<li>[ ] Higher SAE number $\implies$ More viscous.</li>
+<li>[ ] $\text{SAE } 80 &gt; \text{SAE } 30$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Rank the following engine oils in order of DECREASING viscosity: SAE 30, SAE 80, SAE 40, SAE 70.
+- <strong>Solution</strong>:
+  - Higher SAE number indicates higher viscosity.
+  - Order of decreasing viscosity: <strong>SAE 80 &gt; SAE 70 &gt; SAE 40 &gt; SAE 30</strong>.
+- <strong>Key Insight</strong>: SAE 80 is the most viscous; SAE 30 is the least viscous among the group.</p>
+<hr />
+<h3 id="34-engine-cooling-system-thermostat"><strong>3.4 Engine Cooling System &amp; Thermostat</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Engine cooling maintains engine components below structural temperature limits ($15-20\%$ of fuel energy is removed by cooling).</li>
+<li><strong>Thermostat Function</strong>:</li>
+<li>Located between cylinder head water outlet and radiator inlet.</li>
+<li>Temperature-sensitive valve (contains wax element).</li>
+<li><strong>Cold Engine $&lt; 80^\circ\text{C}$</strong>: Thermostat valve is CLOSED. Coolant bypasses radiator and recirculates inside engine block for fast warm-up.</li>
+<li><strong>Hot Engine $80^\circ\text{C} - 85^\circ\text{C}$</strong>: Thermostat valve OPENS, allowing coolant to flow through the radiator for heat rejection.</li>
+<li><strong>Overheating Causes</strong>:</li>
+<li><strong>Broken Fan Belt</strong>: Stops forced air flow through radiator core $\implies$ Instant Engine Overheating!</li>
+<li>Low coolant level, stuck-closed thermostat, or clogged radiator channels.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thermostat Operating Range</strong>: Opens at $80^\circ\text{C} - 85^\circ\text{C}$. Purpose is to enable FAST WARM-UP to reach operating temperature quickly.</p>
+<p>[!TRAP]
+<strong>Thermostat vs Fan Belt Failure</strong>: A stuck-OPEN thermostat causes the engine to run TOO COLD (delayed warm-up). A BROKEN FAN BELT causes engine OVERHEATING!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Cooling System Component Check?
+├─ Is engine cold (&lt; 80°C)? → Thermostat CLOSED (Coolant bypasses radiator)
+├─ Is engine hot (&gt; 85°C)? → Thermostat OPEN (Coolant flows to radiator)
+└─ Sudden Overheating Cause → Broken Fan Belt (Stops radiator airflow)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Thermostat opens at $80^\circ\text{C}-85^\circ\text{C}$.</li>
+<li>[ ] Closed thermostat bypasses radiator.</li>
+<li>[ ] Broken fan belt causes overheating.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: What happens if an engine's fan belt breaks during operation?
+- <strong>Solution</strong>:
+  - The fan belt drives the radiator cooling fan and water pump.
+  - If the belt breaks, forced airflow through the radiator core stops.
+  - Coolant cannot reject heat to the ambient air, leading to <strong>rapid engine overheating</strong>.
+- <strong>Key Insight</strong>: Broken fan belt = Overheating failure.</p>
+<hr />
+<h3 id="35-effect-of-cooling-water-temperature-on-knocking-petrol-engines"><strong>3.5 Effect of Cooling-Water Temperature on Knocking (Petrol Engines)</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>In Spark-Ignition (Petrol) engines, knocking is caused by auto-ignition of unburned end-gas ahead of the flame front.</li>
+<li><strong>Cooling-Water Temperature Effect</strong>:</li>
+<li>Higher cooling-water temperature $T_{\text{coolant}} \uparrow$ $\implies$ Combustion chamber walls stay hotter $\implies$ Heat transfer from end-gas to walls decreases $\implies$ End-gas temperature rises $\implies$ Auto-ignition delay SHORTENS $\implies$ <strong>KNOCKING TENDENCY INCREASES!</strong></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SI Engine Coolant Temperature Rule</strong>: Raising cooling-water temperature INCREASES knocking tendency in petrol (SI) engines!</p>
+<p>[!TRAP]
+<strong>SI vs CI Coolant Effect</strong>: In Petrol (SI) engines, higher coolant temp INCREASES knock. In Diesel (CI) engines, higher coolant temp REDUCES knock (by shortening ignition delay)! Do not confuse the two!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Coolant Temperature Effect on Petrol Knocking?
+├─ Cooling-Water Temperature Increases (T_coolant up)
+└─ End-gas temperature rises → Ignition delay shortens → KNOCKING INCREASES
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Higher coolant temp $\implies$ Higher SI knock.</li>
+<li>[ ] Lower coolant temp $\implies$ Lower SI knock.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain the effect of increasing cooling-water temperature on knocking in a petrol engine.
+- <strong>Solution</strong>:
+  - Higher cooling-water temperature reduces heat dissipation from combustion chamber surfaces.
+  - End-gas temperature rises, shortening auto-ignition delay.
+  - As a result, the unburned end-gas auto-ignites prematurely, <strong>increasing knocking tendency</strong>.
+- <strong>Key Insight</strong>: $T_{\text{coolant}} \uparrow \implies \text{SI Knocking } \uparrow$.</p>
+<hr />
+<h3 id="36-cold-starting-aid-choke-valve"><strong>3.6 Cold-Starting Aid — Choke Valve</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Cold petrol does not vaporize easily in a cold intake manifold.</li>
+<li><strong>Choke Valve Function</strong>:</li>
+<li>A butterfly valve located UPSTREAM of the carburettor venturi.</li>
+<li>When closed during cold start, it restricts air entry into the intake passage.</li>
+<li>Piston suction creates a very HIGH VACUUM inside the carburettor body.</li>
+<li>High vacuum draws a large quantity of liquid fuel from the main jet, producing an <strong>EXTREMELY RICH AIR-FUEL MIXTURE</strong> $A/F \approx 3:1 - 5:1$.</li>
+<li>Ensures enough volatile light fractions vaporize to ignite the cold engine.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Choke Valve Mechanism</strong>: Closing the choke restricts air, creates a high intake vacuum, and supplies a <strong>VERY RICH</strong> mixture for cold starting.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Cold-Starting Valve Identification?
+├─ What valve provides rich mixture for cold starting? → CHOKE VALVE
+└─ Mechanism → Restricts air inlet to generate high vacuum at fuel jet
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Choke is upstream of venturi.</li>
+<li>[ ] Choke creates high vacuum.</li>
+<li>[ ] Choke delivers rich mixture $3:1 - 5:1$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Name the valve used in a carburettor for manual cold-weather starting and state how it operates.
+- <strong>Solution</strong>:
+  - <strong>Choke Valve</strong>.
+  - Operation: Closing the choke plate restricts incoming airflow, causing engine suction to create a high depression/vacuum at the main fuel nozzle, drawing excess fuel to form a rich air-fuel mixture required for cold starting.
+- <strong>Key Insight</strong>: Choke valve = Cold start rich mixture.</p>
+<hr />
+<h3 id="37-ignition-systems-battery-coil-vs-magneto"><strong>3.7 Ignition Systems (Battery-Coil vs Magneto)</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Battery-Coil Ignition System</strong>:</li>
+<li>Components: Battery $6V/12V$, Ignition Switch, Ignition Coil (Primary/Secondary windings), Contact Breaker Points, Capacitor, Distributor, Spark Plugs.</li>
+<li>Requires battery power to operate.</li>
+<li>Spark intensity is MAXIMUM at LOW engine speeds and decreases at high speeds (due to shorter contact dwell time).</li>
+<li>Common in passenger cars.</li>
+<li><strong>Magneto Ignition System</strong>:</li>
+<li>Uses an engine-driven permanent magnet generator to produce electrical energy.</li>
+<li>DOES NOT REQUIRE A BATTERY!</li>
+<li>Spark intensity is LOW at starting/low speeds, but INCREASES as engine speed increases!</li>
+<li>Preferred in motorcycles, racing cars, and aircraft engines (lightweight, self-powered).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ignition System Comparison</strong>:
+- Battery Ignition $\implies$ Needs battery; spark best at LOW speed.
+- Magneto Ignition $\implies$ NO BATTERY needed; spark best at HIGH speed.</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Ignition System Identification?
+├─ Requires Battery Power? → Battery-Coil Ignition (Best spark at low speed)
+└─ Self-powered via Permanent Magnet Generator? → Magneto Ignition (No battery needed, best spark at high speed)
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Magneto needs no battery.</li>
+<li>[ ] Battery system spark strongest at low speed.</li>
+<li>[ ] Magneto system spark strongest at high speed.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Why is a Magneto ignition system preferred over a Battery-coil ignition system in racing motorcycles and light aircraft?
+- <strong>Solution</strong>:
+  - Magneto systems are self-generating and <strong>do not require a heavy battery</strong>, saving critical weight.
+  - Magneto systems produce stronger spark intensity at higher engine speeds, making them ideal for high-RPM operation.
+- <strong>Key Insight</strong>: Magneto = No battery required, superior high-speed spark.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Which lubrication system is used exclusively in two-stroke petrol engines and why?</strong><br />
+A: <strong>Mist Lubrication</strong>. Two-stroke engines use the crankcase for pre-compressing the air-fuel charge and cannot maintain an oil sump. $2-3\%$ lubricating oil is premixed with petrol.</p>
+<p><strong>Q2: What is the primary difference between Wet-Sump and Dry-Sump lubrication systems?</strong><br />
+A: In a Wet-Sump system, lubricating oil is stored in the lower crankcase pan. In a Dry-Sump system, oil is stored in an external tank; scavenge pumps keep the crankcase dry while a separate pressure pump supplies the bearings.</p>
+<p><strong>Q3: Which lubrication regime provides the LOWEST starting friction at zero speed?</strong><br />
+A: <strong>Hydrostatic Lubrication</strong>, because an external high-pressure oil pump separates metal surfaces with a full fluid film before shaft rotation begins.</p>
+<p><strong>Q4: Define Hydrodynamic Lubrication.</strong><br />
+A: A self-acting lubrication regime where relative motion between moving surfaces draws oil into a converging wedge, building fluid pressure that completely separates the surfaces at running speed.</p>
+<p><strong>Q5: What is the significance of SAE viscosity numbers for monograde engine oils?</strong><br />
+A: Higher SAE numbers indicate higher oil viscosity (thicker oil) at $100^\circ\text{C}$ $\text{SAE } 80 &gt; \text{SAE } 70 &gt; \text{SAE } 40 &gt; \text{SAE } 30$.</p>
+<p><strong>Q6: What is the function of a Thermostat in an engine cooling system?</strong><br />
+A: It acts as a temperature-sensitive valve blocking coolant flow to the radiator during cold starts $&lt; 80^\circ\text{C}$ so coolant recirculates through the engine block for rapid warm-up.</p>
+<p><strong>Q7: What is the typical opening temperature range for automotive thermostats?</strong><br />
+A: $80^\circ\text{C} \text{ to } 85^\circ\text{C}$.</p>
+<p><strong>Q8: What is the most common cause of sudden engine overheating related to the cooling fan?</strong><br />
+A: A <strong>Broken Fan Belt</strong>, which stops forced airflow through the radiator core.</p>
+<p><strong>Q9: How does increasing cooling-water temperature affect knocking in a petrol (SI) engine?</strong><br />
+A: Higher cooling-water temperature increases combustion wall temperature, heating the end-gas and shortening its auto-ignition delay, which <strong>INCREASES knocking tendency</strong>.</p>
+<p><strong>Q10: What is the purpose of a Choke Valve in a carburettor?</strong><br />
+A: To restrict incoming air flow during cold starting, generating a high vacuum at the fuel nozzle to deliver an <strong>extremely rich air-fuel mixture</strong> $3:1 - 5:1$.</p>
+<p><strong>Q11: Where is the Choke Valve located in a carburettor?</strong><br />
+A: Upstream of the venturi (at the air intake entrance).</p>
+<p><strong>Q12: Differentiate between Battery-Coil and Magneto ignition systems regarding battery requirement.</strong><br />
+A: Battery-coil ignition requires an external storage battery; Magneto ignition uses an engine-driven generator and <strong>requires no battery</strong>.</p>
+<p><strong>Q13: How does spark intensity vary with speed in a Magneto ignition system?</strong><br />
+A: Spark intensity is weak at low starting speeds and increases as engine speed increases.</p>
+<p><strong>Q14: What is the typical oil pressure range delivered by a pressure-feed lubrication system pump?</strong><br />
+A: $0.4 \text{ to } 4.0 \text{ kg/cm}^2$.</p>
+<p><strong>Q15: What is the Stribeck parameter formula and what does it measure?</strong><br />
+A: $\Lambda = \frac{\eta N}{P}$, where $\eta$ is viscosity, $N$ is speed, and $P$ is bearing load. It defines the transition between boundary, mixed, and hydrodynamic lubrication regimes.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Mist Lubrication</strong>: 2-stroke petrol ONLY ($2-3\%$ oil in fuel). Total loss.</li>
+<li><strong>Dry-Sump Pumps</strong>: Requires AT LEAST 2 pumps (Scavenge pump + Pressure pump) + External tank.</li>
+<li><strong>Starting Friction</strong>: Lowest starting friction $= \mathbf{Hydrostatic}$ lubrication.</li>
+<li><strong>SAE Viscosity</strong>: Higher SAE number $\implies$ Thicker oil $\text{SAE } 80 &gt; \text{SAE } 30$.</li>
+<li><strong>Thermostat</strong>: Opens at $80^\circ\text{C}-85^\circ\text{C}$. Closed thermostat bypasses radiator.</li>
+<li><strong>Overheating</strong>: Broken fan belt stops radiator airflow $\implies$ Instant overheating.</li>
+<li><strong>Petrol Knock vs Coolant</strong>: Higher coolant temp $\implies$ HIGHER SI Knocking.</li>
+<li><strong>Choke Valve</strong>: Restricts air upstream of venturi $\implies$ Rich mixture for cold start.</li>
+<li><strong>Magneto Ignition</strong>: NO BATTERY required; best spark at HIGH speeds.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Mist lubrication $\implies$ 2-stroke petrol.</li>
+<li>[ ] Memorize Dry-sump $\implies$ External tank + Scavenge pump (Heavy/Aircraft).</li>
+<li>[ ] Memorize Hydrostatic $\implies$ Lowest starting friction.</li>
+<li>[ ] Memorize SAE 80 &gt; SAE 70 &gt; SAE 40 &gt; SAE 30.</li>
+<li>[ ] Memorize Thermostat set-point $\implies 80^\circ\text{C}-85^\circ\text{C}$.</li>
+<li>[ ] Memorize Broken fan belt $\implies$ Overheating.</li>
+<li>[ ] Memorize $T_{\text{coolant}} \uparrow \implies \text{SI Knock } \uparrow$.</li>
+<li>[ ] Memorize Choke valve $\implies$ Rich mixture for cold start.</li>
+<li>[ ] Memorize Magneto ignition $\implies$ No battery needed.</li>
+</ul>
+</body>
+</html>
