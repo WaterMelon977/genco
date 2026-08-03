@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam Nozzles & Compressible Flow Regimes — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Turbo Machines Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="steam-nozzles-compressible-flow-regimes-comprehensive-reorganized-study-guide">Steam Nozzles &amp; Compressible Flow Regimes — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Steam Nozzles and Compressible Flow Regimes (function of nozzles $\Delta KE = h_1 - h_2$, exit velocity $V_2 = \sqrt{2000(h_1 - h_2)}$, convergent vs divergent vs C-D de Laval nozzles), Critical Pressure Ratio &amp; Choking ($\frac{p_c}{p_1} = (\frac{2}{n+1})^{n/(n-1)}$, dry saturated steam $n=1.135 \implies 0.577$, superheated steam $n=1.3 \implies 0.546$, wet steam $\approx 0.582$, air $n=1.4 \implies 0.528$, choked flow at $M_{\text{throat}} = 1.0$), Flow Regimes in C-D Nozzles (convergent $M&lt;1$, throat $M=1$, divergent $M&gt;1$, Area-Mach relation $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$, divergent semi-cone angle $3^\circ-10^\circ$), Shock Waves in Nozzles (normal shock in divergent section, jump to subsonic $M_2&lt;1$, Shock Strength $= \frac{2\gamma}{\gamma+1}(M_1^2-1)$), Mach Number &amp; Sound Speed ($a = \sqrt{\gamma RT}$, $a_{\text{water}} \approx 4 a_{\text{air}}$, Mach angle $\sin\mu = 1/M$, Zone of Silence outside Mach cone), and Nozzle Efficiency &amp; Discharge Coefficient ($\eta_n = \frac{h_1 - h_2}{h_1 - h_{2s}}$, $C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}$) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-nozzle-energy-conversion-exit-velocity"><strong>1. Nozzle Energy Conversion &amp; Exit Velocity</strong></h4>
+<ul>
+<li><strong>Energy Conversion Equation</strong>:
+  <div class="formula-card">$${\boxed{\Delta KE = \frac{V_2^2 - V_1^2}{2000} = h_1 - h_2 \quad (\text{kJ/kg})}}$$</div></li>
+<li>$h_1$: inlet specific enthalpy $\text{kJ/kg}$</li>
+<li>$h_2$: exit specific enthalpy $\text{kJ/kg}$</li>
+<li>$V_1$: inlet steam velocity $\text{m/s}$</li>
+<li>
+<p>$V_2$: exit steam velocity $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Exit Velocity ($V_2$ when $V_1 \approx 0$)</strong>:
+  <div class="formula-card">$${\boxed{V_2 = \sqrt{2000 \cdot (h_1 - h_2)} \approx 44.72 \cdot \sqrt{\Delta h} \quad (\text{m/s})}}$$</div></p>
+</li>
+<li>$\Delta h = h_1 - h_2$: isentropic enthalpy drop $\text{kJ/kg}$</li>
+</ul>
+<hr />
+<h4 id="2-critical-pressure-ratio-choking"><strong>2. Critical Pressure Ratio &amp; Choking</strong></h4>
+<ul>
+<li><strong>Critical Pressure Ratio $\frac{p_c}{p_1}$</strong>:
+  <div class="formula-card">$${\boxed{\frac{p_c}{p_1} = \left( \frac{2}{n+1} \right)^{\frac{n}{n-1}}}}$$</div></li>
+<li>$p_c$: critical static pressure at nozzle throat ($\text{bar}$ or $\text{Pa}$)</li>
+<li>$p_1$: inlet stagnation pressure ($\text{bar}$ or $\text{Pa}$)</li>
+<li>
+<p>$n$: isentropic expansion index</p>
+</li>
+<li>
+<p><strong>Standard Critical Pressure Ratio Values</strong>:</p>
+</li>
+<li><strong>Dry Saturated Steam</strong> $n = 1.135$: $\boxed{\frac{p_c}{p_1} = 0.577 \approx 0.58}$</li>
+<li><strong>Superheated Steam</strong> $n = 1.300$: $\boxed{\frac{p_c}{p_1} = 0.546}$</li>
+<li><strong>Wet Steam</strong> $n \approx 1.130$: $\boxed{\frac{p_c}{p_1} \approx 0.582}$</li>
+<li>
+<p><strong>Dry Air / Diatomic Gas</strong> $n = 1.400$: $\boxed{\frac{p_c}{p_1} = 0.528}$</p>
+</li>
+<li>
+<p><strong>Choked Flow Condition</strong>:
+  <div class="formula-card">$${\boxed{M_{\text{throat}} = 1.0 \implies \dot{m} = \dot{m}_{\text{max}}}}$$</div></p>
+</li>
+<li>Mass flow rate reaches its absolute maximum when throat pressure reaches $p_c$. Further lowering exit back-pressure DOES NOT increase mass flow rate.</li>
+</ul>
+<hr />
+<h4 id="3-area-mach-relation-compressible-flow-regimes"><strong>3. Area-Mach Relation &amp; Compressible Flow Regimes</strong></h4>
+<ul>
+<li><strong>Area-Mach Differential Relation</strong>:
+  <div class="formula-card">$${\boxed{\frac{dA}{A} = (M^2 - 1) \cdot \frac{dV}{V} = -\left(1 - M^2\right) \cdot \frac{dP}{\rho V^2}}}$$</div></li>
+<li>Subsonic Flow $M &lt; 1$: $dA &lt; 0 \implies dV &gt; 0$ (Convergent nozzle accelerates flow).</li>
+<li>Sonic Flow $M = 1$: $dA = 0$ (Occurs ONLY at the minimum cross-sectional area / throat).</li>
+<li>
+<p>Supersonic Flow $M &gt; 1$: $dA &gt; 0 \implies dV &gt; 0$ (Divergent nozzle accelerates flow).</p>
+</li>
+<li>
+<p><strong>Divergent Section Semi-Cone Angle</strong>:
+  <div class="formula-card">$${\boxed{\theta_{\text{semi}} = 3^\circ \text{ to } 10^\circ}}$$</div>
+  (Kept small to prevent boundary layer separation and turbulence losses).</p>
+</li>
+</ul>
+<hr />
+<h4 id="4-shock-waves-mach-relations"><strong>4. Shock Waves &amp; Mach Relations</strong></h4>
+<ul>
+<li><strong>Normal Shock Strength</strong>:
+  <div class="formula-card">$${\boxed{\text{Shock Strength} = \frac{p_2 - p_1}{p_1} = \frac{2\gamma}{\gamma + 1} \cdot \left(M_1^2 - 1\right)}}$$</div></li>
+<li>$p_1, p_2$: static pressure before and after shock wave $\text{Pa}$</li>
+<li>
+<p>$M_1$: Mach number upstream of shock $M_1 &gt; 1.0$</p>
+</li>
+<li>
+<p><strong>Prandtl-Meyer Velocity Relation across Normal Shock</strong>:
+  <div class="formula-card">$${\boxed{V_1 \cdot V_2 = a^{*2}}}$$</div></p>
+</li>
+<li>
+<p>$a^*$: critical speed of sound at $M=1$ $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Supersonic Mach Angle $\mu$</strong>:
+  <div class="formula-card">$${\boxed{\sin\mu = \frac{1}{M} = \frac{a}{V} \implies \mu = \sin^{-1}\left(\frac{1}{M}\right)}}$$</div></p>
+</li>
+<li>
+<p><strong>Speed of Sound $a$</strong>:
+  <div class="formula-card">$${\boxed{a = \sqrt{\gamma \cdot R \cdot T} \quad (\text{m/s})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-nozzle-efficiency-discharge-coefficient"><strong>5. Nozzle Efficiency &amp; Discharge Coefficient</strong></h4>
+<ul>
+<li><strong>Nozzle Efficiency $\eta_n$</strong>:
+  <div class="formula-card">$${\boxed{\eta_n = \frac{\text{Actual Enthalpy Drop}}{\text{Isentropic Enthalpy Drop}} = \frac{h_1 - h_2}{h_1 - h_{2s}} = \frac{V_2^2}{V_{2s}^2}}}$$</div></li>
+<li>$h_1 - h_2$: actual enthalpy drop $\text{kJ/kg}$</li>
+<li>
+<p>$h_1 - h_{2s}$: ideal isentropic enthalpy drop $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Coefficient of Discharge $C_d$</strong>:
+  <div class="formula-card">$${\boxed{C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Steam Nozzle</strong>: A duct of varying cross-sectional area designed to convert the heat and pressure energy of expanding steam into high-velocity kinetic energy.</li>
+<li><strong>Convergent-Divergent (de Laval) Nozzle</strong>: A nozzle with a converging inlet section, a minimum area throat, and a diverging outlet section. Used to expand high-pressure steam to supersonic velocities $M &gt; 1$.</li>
+<li><strong>Critical Pressure Ratio $\frac{p_c}{p_1}$</strong>: The ratio of throat pressure to inlet pressure at which steam velocity at the throat reaches sonic speed $M=1$ and mass flow rate reaches its theoretical maximum.</li>
+<li><strong>Choked Flow</strong>: The condition occurring when the pressure ratio across a nozzle equals or falls below the critical pressure ratio. Mass flow rate becomes fixed at $\dot{m}_{\text{max}}$ and remains independent of downstream exit pressure.</li>
+<li><strong>Normal Shock Wave</strong>: A thin compression wave perpendicular to the flow direction that occurs in the divergent section of a C-D nozzle when back-pressure is above design pressure. Flow jumps abruptly from supersonic $M_1 &gt; 1$ to subsonic $M_2 &lt; 1$ with a sudden rise in static pressure, temperature, and entropy.</li>
+<li><strong>Mach Angle $\mu$</strong>: The half-angle of the supersonic Mach cone formed by a disturbance source travelling at speed $v &gt; a$ $\sin\mu = 1/M$.</li>
+<li><strong>Zone of Silence</strong>: The region OUTSIDE the supersonic Mach cone where acoustic disturbances generated by a moving body cannot be detected.</li>
+<li><strong>Nozzle Efficiency $\eta_n$</strong>: The ratio of actual enthalpy drop experienced by steam to the ideal isentropic enthalpy drop between the same inlet and exit pressures $\eta_n = \frac{\Delta h_{\text{actual}}}{\Delta h_{\text{isentropic}}}$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Critical Pressure Ratio Values</strong>:</li>
+<li>Dry Saturated Steam $n=1.135$: $0.577 \approx 0.58$.</li>
+<li>Superheated Steam $n=1.300$: $0.546$.</li>
+<li>Wet Steam $n \approx 1.130$: $0.582$.</li>
+<li>Dry Air / Gas $n=1.400$: $0.528$.</li>
+<li><strong>Divergent Section Semi-Cone Angle</strong>: $3^\circ \text{ to } 10^\circ$.</li>
+<li><strong>Speed of Sound in Water vs Air</strong>: $a_{\text{water}} \approx 4 \times a_{\text{air}}$ ($\approx 1480 \text{ m/s}$ in water vs $340 \text{ m/s}$ in air).</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Nozzle Function &amp; Exit Velocity</strong>: §3.1.</li>
+<li><strong>Critical Pressure Ratio &amp; Choking</strong>: §3.2.</li>
+<li><strong>Flow Regimes &amp; Area-Mach Relation</strong>: §3.3.</li>
+<li><strong>Shock Waves in Nozzles</strong>: §3.4.</li>
+<li><strong>Mach Number &amp; Speed of Sound</strong>: §3.5.</li>
+<li><strong>Nozzle Efficiency &amp; $C_d$</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-nozzle-function-exit-velocity"><strong>3.1 Nozzle Function &amp; Exit Velocity</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>A nozzle is a passageway that converts <strong>HEAT / ENTHALPY ENERGY $\to$ KINETIC ENERGY</strong>.</li>
+<li>As steam flows through a nozzle, pressure falls continuously and velocity increases.</li>
+<li><strong>Energy Conversion Equation</strong>:
+  <div class="formula-card">$${\Delta KE = \frac{V_2^2 - V_1^2}{2000} = h_1 - h_2 \quad (\text{kJ/kg})}$$</div></li>
+<li>When inlet velocity is negligible $V_1 \approx 0$:
+  <div class="formula-card">$${V_2 = \sqrt{2000 \cdot (h_1 - h_2)} \approx 44.72 \sqrt{\Delta h} \quad (\text{m/s})}$$</div></li>
+<li>Three primary types:</li>
+<li><strong>Convergent Nozzle</strong>: Area decreases continuously from inlet to exit. Used when exit pressure $P_2 \ge P_c$. Maximum exit velocity is sonic $M \le 1$.</li>
+<li><strong>Divergent Nozzle</strong>: Area increases continuously. Used to expand supersonic flow.</li>
+<li><strong>Convergent-Divergent (C-D / de Laval) Nozzle</strong>: Converging section $\to$ Throat $\to$ Diverging section. Used when exit pressure $P_2 &lt; P_c$ to accelerate steam to supersonic speeds $M &gt; 1$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Nozzle Primary Function</strong>: A nozzle converts ENTHALPY (heat energy) into KINETIC ENERGY! A diffuser does the exact opposite (converts kinetic energy into pressure).</p>
+<p>[!TRAP]
+<strong>Exit Velocity Constant Trap</strong>: $V_2 = \sqrt{2000 \cdot \Delta h} = 44.72 \sqrt{\Delta h}$. Make sure $\Delta h$ is in <strong>kJ/kg</strong>! The factor $2000$ accounts for converting $\text{kJ/kg}$ to $\text{m}^2/\text{s}^2$.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Nozzle Exit Velocity Calculation?
+├─ Is inlet velocity V1 negligible (V1 ~ 0)? → V2 = sqrt(2000 * Delta_h) = 44.72 * sqrt(Delta_h)
+└─ Is inlet velocity V1 significant? → V2 = sqrt(2000 * Delta_h + V1^2)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Nozzle converts enthalpy $\to$ KE.</li>
+<li>[ ] $V_2 = \sqrt{2000 \Delta h} \approx 44.72 \sqrt{\Delta h}$.</li>
+<li>[ ] Convergent: max exit speed $M \le 1$.</li>
+<li>[ ] C-D nozzle: exit speed $M &gt; 1$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Steam expands isentropically through a nozzle from inlet enthalpy $h_1 = 3000 \text{ kJ/kg}$ to exit enthalpy $h_2 = 2600 \text{ kJ/kg}$. Assuming negligible inlet velocity $V_1 \approx 0$, calculate the exit steam velocity $V_2$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\Delta h = h_1 - h_2 = 3000 - 2600 = 400 \text{ kJ/kg}}$$</div>
+  <div class="formula-card">$${V_2 = \sqrt{2000 \cdot \Delta h} = \sqrt{2000 \times 400} = \sqrt{800000} \approx 894.43 \text{ m/s}}$$</div>
+- <strong>Key Insight</strong>: $V_2 = 894.43 \text{ m/s}$. Use factor $2000$ under the square root.</p>
+<hr />
+<h3 id="32-critical-pressure-ratio-choking"><strong>3.2 Critical Pressure Ratio &amp; Choking</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Critical Pressure Ratio $\frac{p_c}{p_1}$</strong>:</li>
+<li>The ratio of static pressure at the throat to inlet stagnation pressure when steam velocity at the throat reaches the speed of sound $M_{\text{throat}} = 1.0$.</li>
+<li>Derivation: $\frac{p_c}{p_1} = \left(\frac{2}{n+1}\right)^{\frac{n}{n-1}}$.</li>
+<li><strong>Standard Values</strong>:</li>
+<li>Dry Saturated Steam $n = 1.135$: $\frac{p_c}{p_1} = \mathbf{0.577} \approx 0.58$.</li>
+<li>Superheated Steam $n = 1.300$: $\frac{p_c}{p_1} = \mathbf{0.546}$.</li>
+<li>Wet Steam $n \approx 1.130$: $\frac{p_c}{p_1} \approx \mathbf{0.582}$.</li>
+<li>Air / Diatomic Gas $n = 1.400$: $\frac{p_c}{p_1} = \mathbf{0.528}$.</li>
+<li><strong>Choking Phenomenon</strong>:</li>
+<li>When the pressure ratio $\frac{P_{\text{exit}}}{P_1} \le \frac{p_c}{p_1}$, the nozzle becomes CHOKED.</li>
+<li>Mass flow rate reaches its MAXIMUM theoretical limit $\dot{m}_{\text{max}}$.</li>
+<li>Lowering exit back-pressure below $p_c$ HAS NO EFFECT on mass flow rate!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Choking Condition</strong>: Choked flow occurs when $M_{\text{throat}} = 1.0$ at the critical pressure ratio! Once choked, mass flow rate $\dot{m}_{\text{max}}$ remains CONSTANT even if receiver pressure is reduced to a complete vacuum!</p>
+<p>[!TRAP]
+<strong>Isentropic Index Selection</strong>:
+- For Dry Saturated Steam $\implies n = 1.135 \implies \frac{p_c}{p_1} = 0.577$.
+- For Superheated Steam $\implies n = 1.300 \implies \frac{p_c}{p_1} = 0.546$.
+Do not mix up the critical ratio values for saturated vs superheated steam!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Critical Pressure Ratio Check?
+├─ Dry Saturated Steam (n = 1.135) → p_c / p1 = 0.577 (~0.58)
+├─ Superheated Steam (n = 1.300) → p_c / p1 = 0.546
+├─ Wet Steam (n = 1.130) → p_c / p1 = 0.582
+└─ Air / Diatomic Gas (n = 1.400) → p_c / p1 = 0.528
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\frac{p_c}{p_1} = \left(\frac{2}{n+1}\right)^{n/(n-1)}$.</li>
+<li>[ ] Dry sat: $0.577$.</li>
+<li>[ ] Superheated: $0.546$.</li>
+<li>[ ] Choked flow: $M_{\text{throat}} = 1.0 \implies \dot{m} = \dot{m}_{\text{max}}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Dry saturated steam enters a nozzle at inlet pressure $p_1 = 10 \text{ bar}$. Calculate the critical throat pressure $p_c$.
+- <strong>Solution</strong>:
+  - For dry saturated steam, $n = 1.135 \implies \frac{p_c}{p_1} = 0.577$.
+  - $p_c = 0.577 \times 10 \text{ bar} = 5.77 \text{ bar}$.
+- <strong>Key Insight</strong>: $p_c = 5.77 \text{ bar}$. Multiply inlet pressure by $0.577$.</p>
+<hr />
+<h3 id="33-flow-regimes-area-mach-relation"><strong>3.3 Flow Regimes &amp; Area-Mach Relation</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Area-Mach Differential Equation</strong>:
+  <div class="formula-card">$${\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}}$$</div></li>
+<li><strong>Flow Regimes in a Convergent-Divergent (C-D) Nozzle</strong>:</li>
+<li><strong>Convergent Section</strong>:<ul>
+<li>Flow is SUBSONIC $M &lt; 1$.</li>
+<li>Area decreases $dA &lt; 0$ $\implies$ Velocity increases $dV &gt; 0$, pressure falls.</li>
+</ul>
+</li>
+<li><strong>Throat (Minimum Area Section)</strong>:<ul>
+<li>Area change is zero $dA = 0$.</li>
+<li>Flow is SONIC $M = 1.0$ when choked. Maximum velocity at throat is sonic speed.</li>
+</ul>
+</li>
+<li><strong>Divergent Section</strong>:<ul>
+<li>Flow is SUPERSONIC $M &gt; 1$.</li>
+<li>Area increases $dA &gt; 0$ $\implies$ Velocity increases $dV &gt; 0$, pressure continues falling.</li>
+</ul>
+</li>
+<li><strong>Divergent Semi-Cone Angle</strong>:</li>
+<li>Kept small (<strong>$3^\circ \text{ to } 10^\circ$</strong>) to avoid flow separation from the walls and boundary layer eddy formation.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Area-Mach Behavior</strong>:
+- Subsonic $M &lt; 1$ $\implies$ Converging duct accelerates flow $dA &lt; 0 \implies dV &gt; 0$.
+- Supersonic $M &gt; 1$ $\implies$ Diverging duct accelerates flow $dA &gt; 0 \implies dV &gt; 0$.</p>
+<p>[!TRAP]
+<strong>Divergent Semi-Cone Angle Limit</strong>: The semi-cone angle of the divergent section is $3^\circ \text{ to } 10^\circ$. If the angle exceeds $10^\circ$, flow separation and severe friction losses occur!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>C-D Nozzle Section Regime Check?
+├─ Convergent Section → Subsonic Flow (M &lt; 1), Area decreases, Velocity increases
+├─ Throat Section → Sonic Flow (M = 1), Minimum Area A_t, Choked Max Flow
+└─ Divergent Section → Supersonic Flow (M &gt; 1), Area increases, Velocity increases (Semi-cone angle 3° to 10°)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$.</li>
+<li>[ ] Convergent: $M &lt; 1$.</li>
+<li>[ ] Throat: $M = 1$.</li>
+<li>[ ] Divergent: $M &gt; 1$.</li>
+<li>[ ] Semi-cone angle: $3^\circ - 10^\circ$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a correctly designed convergent-divergent steam nozzle operating under choked design conditions, state the Mach number regime in (a) convergent section, (b) throat, and (c) divergent section.
+- <strong>Solution</strong>:
+  - (a) Convergent section: Subsonic $M &lt; 1$.
+  - (b) Throat: Sonic $M = 1.0$.
+  - (c) Divergent section: Supersonic $M &gt; 1$.
+- <strong>Key Insight</strong>: Subsonic $\to$ Sonic $\to$ Supersonic.</p>
+<hr />
+<h3 id="34-shock-waves-in-nozzles"><strong>3.4 Shock Waves in Nozzles</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>A <strong>Normal Shock Wave</strong> is an extremely thin compression region perpendicular to flow.</li>
+<li><strong>Location</strong>: Occurs ONLY in the DIVERGENT SECTION of a C-D nozzle when back-pressure is higher than the design exit pressure.</li>
+<li><strong>Property Changes Across Normal Shock</strong>:</li>
+<li>Flow jumps abruptly from SUPERSONIC $M_1 &gt; 1$ to SUBSONIC $M_2 &lt; 1$.</li>
+<li>Static pressure $P_2 &gt; P_1$, static temperature $T_2 &gt; T_1$, and density $\rho_2 &gt; \rho_1$ INCREASE dramatically.</li>
+<li>Stagnation pressure DECREASES $P_{02} &lt; P_{01}$ and entropy INCREASES due to irreversibility.</li>
+<li><strong>Shock Strength</strong>:
+  <div class="formula-card">$${\text{Shock Strength} = \frac{p_2 - p_1}{p_1} = \frac{2\gamma}{\gamma + 1} (M_1^2 - 1)}$$</div></li>
+<li><strong>Prandtl-Meyer Relation</strong>: $V_1 \cdot V_2 = a^{*2}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Shock Wave Location &amp; Jump</strong>: Normal shock waves occur EXCLUSIVELY in the DIVERGENT section of a nozzle! Flow before shock is SUPERSONIC $M_1 &gt; 1$; flow after shock is ALWAYS SUBSONIC $M_2 &lt; 1$.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Shock Wave in Nozzle Check?
+├─ Location → Divergent Section ONLY (Occurs when back pressure &gt; design pressure)
+├─ Mach Number Change → Supersonic (M1 &gt; 1) to Subsonic (M2 &lt; 1)
+└─ Property Changes → Static P, T, density jump UP; Stagnation P drops; Entropy INCREASES
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Shock in divergent section.</li>
+<li>[ ] $M_1 &gt; 1 \to M_2 &lt; 1$.</li>
+<li>[ ] Pressure &amp; temp jump UP.</li>
+<li>[ ] Entropy increases.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: If the back pressure of a convergent-divergent nozzle is higher than the design value, where does a normal shock wave form?
+- <strong>Solution</strong>:
+  - In the <strong>divergent portion</strong> of the nozzle.
+  - Reason: Flow accelerates to $M&gt;1$ past the throat; elevated back pressure forces a sudden normal shock in the diverging section to compress flow back to subsonic speeds.
+- <strong>Key Insight</strong>: Normal shock forms in the divergent section.</p>
+<hr />
+<h3 id="35-mach-number-mach-angle-speed-of-sound"><strong>3.5 Mach Number, Mach Angle &amp; Speed of Sound</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Speed of Sound $a$</strong>:
+  <div class="formula-card">$${a = \sqrt{\gamma R T} \quad (\text{m/s})}$$</div></li>
+<li>Highest in SOLIDS $\to$ LIQUIDS $\to$ GASES (lowest).</li>
+<li>Speed of sound in water $\approx 1480 \text{ m/s} \approx 4 \times a_{\text{air}}$ $340 \text{ m/s}$.</li>
+<li><strong>Mach Angle $\mu$</strong>:
+  <div class="formula-card">$${\sin\mu = \frac{1}{M} = \frac{a}{v} \implies \mu = \sin^{-1}\left(\frac{1}{M}\right) = \sin^{-1}\left(\frac{a}{v}\right)}$$</div>
+  Defined only for supersonic flight $M &gt; 1$. As Mach number $M$ increases, Mach angle $\mu$ decreases.</li>
+<li><strong>Zone of Silence vs Zone of Action</strong>:</li>
+<li><strong>Zone of Action</strong>: Region INSIDE the supersonic Mach cone where disturbance pressure waves travel.</li>
+<li><strong>Zone of Silence</strong>: Region OUTSIDE the supersonic Mach cone where no pressure disturbance has arrived.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Zone of Silence Definition</strong>: The Zone of Silence is the region OUTSIDE the supersonic Mach cone $\sin\mu = 1/M$!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Mach Angle &amp; Speed of Sound Calculation?
+├─ Speed of Sound -&gt; a = sqrt(gamma * R * T)  [Solid &gt; Liquid &gt; Gas]
+├─ Mach Angle -&gt; sin(mu) = 1 / M = a / v -&gt; mu = arcsin(1 / M)
+└─ Mach Cone Regions -&gt; INSIDE = Zone of Action; OUTSIDE = Zone of Silence
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $a = \sqrt{\gamma RT}$.</li>
+<li>[ ] $a_{\text{solid}} &gt; a_{\text{liquid}} &gt; a_{\text{gas}}$.</li>
+<li>[ ] $\sin\mu = 1/M$.</li>
+<li>[ ] Zone of silence OUTSIDE Mach cone.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A bullet is fired in standard air ($T = 300 \text{ K}$, $a = 343 \text{ m/s}$) creating a Mach cone with a Mach angle $\mu = 30^\circ$. Calculate the flight speed $v$ of the bullet.
+- <strong>Solution</strong>:
+  - $\sin\mu = \sin 30^\circ = 0.5 = \frac{1}{M} \implies M = 2.0$.
+  - Flight velocity $v = M \cdot a = 2.0 \times 343 \text{ m/s} = 686 \text{ m/s}$.
+- <strong>Key Insight</strong>: $v = 686 \text{ m/s}$. $M = 1 / \sin 30^\circ = 2.0$.</p>
+<hr />
+<h3 id="36-nozzle-efficiency-discharge-coefficient"><strong>3.6 Nozzle Efficiency &amp; Discharge Coefficient</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Nozzle Efficiency $\eta_n$</strong>:
+  <div class="formula-card">$${\eta_n = \frac{\text{Actual Enthalpy Drop}}{\text{Isentropic Enthalpy Drop}} = \frac{h_1 - h_2}{h_1 - h_{2s}} = \frac{V_2^2}{V_{2s}^2}}$$</div>
+  Due to fluid friction and turbulence, actual enthalpy drop is always less than isentropic drop $\eta_n \approx 0.90-0.95$.</li>
+<li><strong>Coefficient of Discharge $C_d$</strong>:
+  <div class="formula-card">$${C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}}$$</div>
+  Accounts for boundary layer displacement thickness at nozzle throat $C_d \approx 0.95-0.98$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Nozzle Efficiency Ratio</strong>: Nozzle efficiency $\eta_n = \frac{\text{Actual Enthalpy Drop}}{\text{Isentropic Enthalpy Drop}}$. Always put actual drop in the NUMERATOR!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Nozzle Efficiency Calculation?
+├─ Given Enthalpy Drops → eta_n = Delta_h_actual / Delta_h_isentropic
+├─ Given Velocities → eta_n = (V2_actual / V2_isentropic)^2
+└─ Coefficient of Discharge → C_d = m_dot_actual / m_dot_theoretical
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\eta_n = \frac{\Delta h_{\text{actual}}}{\Delta h_{\text{isentropic}}}$.</li>
+<li>[ ] $\eta_n = \frac{V_2^2}{V_{2s}^2}$.</li>
+<li>[ ] $C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a steam nozzle, the isentropic enthalpy drop is $200 \text{ kJ/kg}$ and the actual enthalpy drop due to friction is $180 \text{ kJ/kg}$. Calculate the nozzle efficiency $\eta_n$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\eta_n = \frac{\Delta h_{\text{actual}}}{\Delta h_{\text{isentropic}}} = \frac{180}{200} = 0.90 = 90\%}$$</div>
+- <strong>Key Insight</strong>: $\eta_n = 90\%$. Actual over isentropic.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What energy conversion takes place in a steam nozzle?</strong><br />
+A: A steam nozzle converts heat energy (enthalpy drop $\Delta h$) into kinetic energy $\Delta KE$.</p>
+<p><strong>Q2: Write the exit steam velocity formula when inlet velocity is negligible.</strong><br />
+A: $V_2 = \sqrt{2000 \cdot (h_1 - h_2)} \approx 44.72 \sqrt{\Delta h} \text{ m/s}$.</p>
+<p><strong>Q3: Define Critical Pressure Ratio $\frac{p_c}{p_1}$.</strong><br />
+A: The throat-to-inlet static pressure ratio at which steam velocity at the throat reaches sonic speed $M_{\text{throat}}=1.0$ and mass flow rate reaches its theoretical maximum.</p>
+<p><strong>Q4: State the critical pressure ratio for dry saturated steam.</strong><br />
+A: $\frac{p_c}{p_1} = 0.577 \approx 0.58$ $n = 1.135$.</p>
+<p><strong>Q5: State the critical pressure ratio for superheated steam.</strong><br />
+A: $\frac{p_c}{p_1} = 0.546$ $n = 1.300$.</p>
+<p><strong>Q6: What is Choked Flow in a nozzle?</strong><br />
+A: The operating state where throat velocity reaches sonic speed $M=1.0$ and mass flow rate reaches its maximum limit $\dot{m}_{\text{max}}$. Lowering back-pressure further does not increase mass flow.</p>
+<p><strong>Q7: What is the Mach number regime in the convergent section of a C-D nozzle?</strong><br />
+A: Subsonic $M &lt; 1$.</p>
+<p><strong>Q8: What is the Mach number regime at the throat of a choked C-D nozzle?</strong><br />
+A: Sonic $M = 1.0$.</p>
+<p><strong>Q9: What is the Mach number regime in the divergent section of a design C-D nozzle?</strong><br />
+A: Supersonic $M &gt; 1$.</p>
+<p><strong>Q10: What is the recommended range for the divergent semi-cone angle in a steam nozzle?</strong><br />
+A: $3^\circ \text{ to } 10^\circ$ (to prevent boundary layer separation).</p>
+<p><strong>Q11: Where does a normal shock wave form in a convergent-divergent nozzle?</strong><br />
+A: Exclusively in the DIVERGENT section (when back pressure is higher than design pressure).</p>
+<p><strong>Q12: How do flow properties change across a normal shock wave?</strong><br />
+A: Flow jumps from supersonic $M_1&gt;1$ to subsonic $M_2&lt;1$; static pressure, temperature, and density jump UP; entropy INCREASES.</p>
+<p><strong>Q13: Define Supersonic Mach Angle $\mu$.</strong><br />
+A: $\sin\mu = \frac{1}{M} = \frac{a}{v} \implies \mu = \sin^{-1}(1/M)$, the half-angle of the supersonic Mach cone.</p>
+<p><strong>Q14: Differentiate between Zone of Action and Zone of Silence.</strong><br />
+A: Zone of Action is the region INSIDE the supersonic Mach cone. Zone of Silence is the region OUTSIDE the Mach cone.</p>
+<p><strong>Q15: Write the formula for Nozzle Efficiency $\eta_n$.</strong><br />
+A: $\eta_n = \frac{\text{Actual Enthalpy Drop}}{\text{Isentropic Enthalpy Drop}} = \frac{h_1 - h_2}{h_1 - h_{2s}}$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Energy Conversion</strong>: Heat/Enthalpy $\to$ KE. $V_2 = \sqrt{2000 \Delta h} \approx 44.72 \sqrt{\Delta h}$.</li>
+<li><strong>Critical Pressure Ratio</strong>: $\frac{p_c}{p_1} = (\frac{2}{n+1})^{n/(n-1)}$.</li>
+<li>Dry Saturated $n=1.135$ $\implies 0.577$.</li>
+<li>Superheated $n=1.300$ $\implies 0.546$.</li>
+<li>Wet Steam $n=1.130$ $\implies 0.582$.</li>
+<li>Air $n=1.400$ $\implies 0.528$.</li>
+<li><strong>Choking</strong>: $M_{\text{throat}} = 1.0 \implies \dot{m} = \dot{m}_{\text{max}}$. Mass flow independent of exit pressure after choking.</li>
+<li><strong>C-D Regimes</strong>: Convergent $M&lt;1$ $\to$ Throat $M=1$ $\to$ Divergent $M&gt;1$.</li>
+<li><strong>Divergent Semi-Cone Angle</strong>: $3^\circ - 10^\circ$ (avoids wall separation).</li>
+<li><strong>Normal Shock</strong>: Divergent section ONLY. $M_1 &gt; 1 \to M_2 &lt; 1$. Static P, T jump UP; Entropy increases.</li>
+<li><strong>Speed of Sound</strong>: $a = \sqrt{\gamma RT}$. Solid &gt; Liquid &gt; Gas $a_{\text{water}} \approx 4 a_{\text{air}}$.</li>
+<li><strong>Mach Angle</strong>: $\sin\mu = 1/M = a/v \implies \mu = \sin^{-1}(1/M)$.</li>
+<li><strong>Zone of Silence</strong>: OUTSIDE the Mach cone.</li>
+<li><strong>Nozzle Efficiency</strong>: $\eta_n = \frac{\Delta h_{\text{actual}}}{\Delta h_{\text{isentropic}}}$.</li>
+<li><strong>Discharge Coefficient</strong>: $C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $V_2 = \sqrt{2000 \Delta h} \approx 44.72 \sqrt{\Delta h}$.</li>
+<li>[ ] Memorize Dry sat critical ratio $= 0.577$.</li>
+<li>[ ] Memorize Superheated critical ratio $= 0.546$.</li>
+<li>[ ] Memorize Air critical ratio $= 0.528$.</li>
+<li>[ ] Memorize Choking $\implies M_{\text{throat}} = 1.0, \dot{m} = \dot{m}_{\text{max}}$.</li>
+<li>[ ] Memorize C-D nozzle: Convergent $M&lt;1$, Throat $M=1$, Divergent $M&gt;1$.</li>
+<li>[ ] Memorize Divergent semi-cone angle $= 3^\circ - 10^\circ$.</li>
+<li>[ ] Memorize Normal shock $\implies$ Divergent section ONLY $M_1 &gt; 1 \to M_2 &lt; 1$.</li>
+<li>[ ] Memorize Sound speed $\implies$ Solid &gt; Liquid &gt; Gas $a_{\text{water}} \approx 4 a_{\text{air}}$.</li>
+<li>[ ] Memorize Mach angle $\mu = \sin^{-1}(1/M)$.</li>
+<li>[ ] Memorize Zone of silence $\implies$ OUTSIDE Mach cone.</li>
+<li>[ ] Memorize $\eta_n = \frac{\Delta h_{\text{actual}}}{\Delta h_{\text{isentropic}}}$.</li>
+<li>[ ] Memorize $C_d = \frac{\dot{m}<em>{\text{actual}}}{\dot{m}</em>{\text{theoretical}}}$.</li>
+</ul>
+</body>
+</html>

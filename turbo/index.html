@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo Machines — Master Portal — AP GenCo Exam Guide</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F0ECE1;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFDF9;
+      --bg-header-gradient: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+
+      --font-heading: "Bookman Old Style", Georgia, serif;
+      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+
+      --text-primary: #2D2926;
+      --text-secondary: #5C544D;
+      --text-header: #FFFDF9;
+      --text-accent: #8C5A37;
+
+      --border-light: #E2D9CC;
+      --border-accent: #8C5A37;
+      --active-indicator: #2E7D32;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 11pt;
+      line-height: 1.75;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 35px 20px;
+    }
+
+    /* Back Button Bar */
+    .nav-back-bar {
+      margin-bottom: 20px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+      color: #FFFDF9;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 10pt;
+      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+      transition: opacity 0.2s ease;
+    }
+
+    .btn-back:hover {
+      opacity: 0.9;
+    }
+
+    /* Master Portal Header */
+    .portal-header {
+      text-align: center;
+      background: var(--bg-header-gradient);
+      color: var(--text-header);
+      padding: 40px 28px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+    }
+
+    .portal-header h1 {
+      font-family: var(--font-heading);
+      font-size: 26pt;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.5px;
+      color: #FFFDF9;
+    }
+
+    .portal-header p {
+      font-size: 12pt;
+      margin: 0;
+      color: #E2D9CC;
+      font-weight: 300;
+    }
+
+    /* Quick Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 20pt;
+      font-weight: bold;
+      color: var(--text-accent);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 9.5pt;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 18pt;
+      color: var(--text-accent);
+      border-bottom: 2px solid var(--border-accent);
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+    }
+
+    /* Grid Layout for Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    /* Topic Cards */
+    .topic-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+
+    .topic-card:hover {
+      background-color: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(140, 90, 55, 0.15);
+      border-left-color: var(--active-indicator);
+    }
+
+    .card-badge {
+      display: inline-block;
+      background-color: var(--bg-page);
+      color: var(--text-accent);
+      font-size: 8.5pt;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 15pt;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+      line-height: 1.35;
+    }
+
+    .card-description {
+      font-size: 10pt;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .formula-preview {
+      background-color: var(--bg-page);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 9.5pt;
+      color: var(--text-accent);
+      margin-bottom: 18px;
+      text-align: center;
+      border: 1px dashed var(--border-light);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--text-accent);
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .btn-open {
+      color: var(--active-indicator);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 9pt;
+      color: var(--text-secondary);
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="nav-back-bar">
+    <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
+  </div>
+
+  <!-- Master Portal Header -->
+  <div class="portal-header">
+    <h1>Turbo Machines</h1>
+    <p>Comprehensive AP GenCo AE / GATE / SSC JE Reorganized Study Modules</p>
+  </div>
+
+  <!-- Quick Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Master Modules</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">2,500+</div>
+      <div class="stat-label">Lines of Content</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">75</div>
+      <div class="stat-label">Core Q&As & Traps</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">PYQ Covered</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Topic Modules & Revision Guides</h2>
+
+  <!-- Card Grid Container -->
+  <div class="card-grid">
+
+    <!-- Card 1 -->
+    <a href="gasturbines_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 01</span>
+        <h3 class="card-title">Working Principles of Gas Turbines</h3>
+        <p class="card-description">Ideal Brayton (Joule) cycle, air-standard efficiency ($\eta = 1 - 1/r_p^{(\gamma-1)/\gamma}$), work ratio ($r_w = w_{\text{net}}/w_T$), back-work ratio ($r_{bw} = w_C/w_T \approx 0.4-0.6$), reheating ($w_{\text{net}}\uparrow, \eta\downarrow$), intercooling ($P_i = \sqrt{P_1 P_2}$), regeneration ($q_{\text{in}}\downarrow, \eta\uparrow$), optimum pressure ratio ($r_{p,\text{opt}} = (T_3/T_1)^{\frac{\gamma}{2(\gamma-1)}}$), $T_2 = T_4 = \sqrt{T_1 T_3}$, air-fuel ratio $60:1$, and nickel superalloys.</p>
+        <div class="formula-preview">
+          $$\eta = 1 - \frac{1}{r_p^{(\gamma-1)/\gamma}}, \quad r_w = 1 - \frac{w_C}{w_T}, \quad P_i = \sqrt{P_1 P_2}, \quad r_{p,\text{opt}} = \left(\frac{T_3}{T_1}\right)^{\frac{\gamma}{2(\gamma-1)}}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 1 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="steamturbines_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 02</span>
+        <h3 class="card-title">Working Principles of Steam Turbines</h3>
+        <p class="card-description">Impulse vs Reaction ($R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$), Parson's 50% reaction turbine ($\rho_{\text{opt}} = \cos\alpha, \eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$), Curtis velocity compounding ($\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$), Rateau pressure compounding, simple impulse optimums ($\rho_{\text{opt}} = \frac{1}{2}\cos\alpha, \eta_{\text{max}} = \cos^2\alpha$), stage efficiency ($\eta_s = \eta_b \times \eta_N$), steam rate ($3600 / W_{\text{net}}$), back-pressure & pass-out turbines, and critical speed.</p>
+        <div class="formula-preview">
+          $$R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}, \quad \rho_{\text{opt, Parson}} = \cos\alpha, \quad \rho_{\text{opt, Curtis}} = \frac{\cos\alpha}{2n}, \quad \eta_s = \eta_b \cdot \eta_N, \quad \text{Steam Rate} = \frac{3600}{W_{\text{net}}}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 2 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="rankine_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 03</span>
+        <h3 class="card-title">Rankine Cycle, Modified Rankine & Steam Power Systems</h3>
+        <p class="card-description">Ideal Rankine efficiency ($\eta_R = \frac{W_T - W_P}{Q_{\text{in}}} = 1 - \frac{T_{\text{cond}}}{T_m}$), pump work ($W_P \approx v_3(P_4-P_3)$), superheating ($\Delta T_{\text{sup}} = T_{\text{sup}}-T_{\text{sat}}$), reheating ($x>0.88$, $RF = 1.02-1.08$), regeneration (bled fraction $y$, deaeration), Modified Rankine (early release, stroke reduction), combustion stoichiometry ($1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$), coal ranks, mountings vs accessories, draught systems ($\eta_{\text{natural}} \approx 0.25\%$), and equivalent evaporation ($m_e = \frac{m_s(h-h_{f1})}{2257}$).</p>
+        <div class="formula-preview">
+          $$\eta_R = 1 - \frac{T_{\text{cond}}}{T_m}, \quad y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}, \quad 1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}, \quad m_e = \frac{m_s (h - h_{f1})}{2257}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 3 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="jet_propulsion_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 04</span>
+        <h3 class="card-title">Jet Propulsion & Rocket Systems</h3>
+        <p class="card-description">Air-breathing propulsive efficiency ($\eta_p = \frac{2u}{u+v}$), rocket efficiency ($\eta_p = \frac{2V_f V_e}{V_e^2 + V_f^2}$, peak $100\%$ at $V_f=V_e$), ship right-angle inlet ($\frac{2Vu}{V^2+u^2}$, max $50\%$), turbojet thrust ($F=\dot{m}(V_{\text{exit}}-V_{\text{inlet}})$), rocket thrust ($V_{\text{inlet}}=0$), thrust coefficient ($C_F = \frac{F}{P_c A_t}$), turboprop sequence (Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine), ramjet zero static thrust, pulsejet 2-stroke analogue, hybrid rockets ($\text{LiH}+\text{ClF}_3$), specific impulse ($I_{sp} = 1/\text{SPC}$), Mach angle ($\mu = \sin^{-1}(1/M)$), and turbojet combustor requirements.</p>
+        <div class="formula-preview">
+          $$\eta_{\text{jet}} = \frac{2u}{u+v}, \quad \eta_{\text{rocket}} = \frac{2 V_f V_e}{V_e^2 + V_f^2}, \quad F = \dot{m}(V_e - V_i), \quad C_F = \frac{F}{P_c A_t}, \quad \mu = \sin^{-1}\left(\frac{1}{M}\right)$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 4 &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="nozzles_reorganized.html" class="topic-card">
+      <div>
+        <span class="card-badge">Module 05</span>
+        <h3 class="card-title">Steam Nozzles & Compressible Flow Regimes</h3>
+        <p class="card-description">Nozzle energy conversion ($\Delta KE = h_1 - h_2, V_2 \approx \sqrt{2000 \Delta h}$), critical pressure ratio ($\frac{p_c}{p_1} = (\frac{2}{n+1})^{n/(n-1)}$; dry sat $0.577$, superheated $0.546$, air $0.528$), choked flow ($M_{\text{throat}}=1$), C-D nozzle regimes (convergent $M<1$, throat $M=1$, divergent $M>1$), divergent semi-cone angle ($3^\circ-10^\circ$), normal shock wave in divergent section ($M_1>1 \to M_2<1$), sound speed ($a=\sqrt{\gamma RT}$, $a_{\text{water}} \approx 4 a_{\text{air}}$), Mach angle ($\mu=\sin^{-1}(1/M)$), Zone of Silence, nozzle efficiency ($\eta_n$), and discharge coefficient ($C_d$).</p>
+        <div class="formula-preview">
+          $$V_2 = \sqrt{2000 \Delta h}, \quad \frac{p_c}{p_1} = \left(\frac{2}{n+1}\right)^{\frac{n}{n-1}}, \quad \frac{dA}{A} = (M^2 - 1)\frac{dV}{V}, \quad \eta_n = \frac{h_1 - h_2}{h_1 - h_{2s}}, \quad \sin\mu = \frac{1}{M}$$
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>500+ Lines • 15 Q&As</span>
+        <span class="btn-open">Open Module 5 &rarr;</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Warm Reader Design System</p>
+  </footer>
+
+</body>
+</html>

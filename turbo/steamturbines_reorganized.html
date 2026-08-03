@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Principles of Steam Turbines — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Turbo Machines Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="working-principles-of-steam-turbines-comprehensive-reorganized-study-guide">Working Principles of Steam Turbines — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers the Working Principles of Steam Turbines (Impulse vs Reaction principles, Euler work equation $W = u(V_{w1} \pm V_{w2})$, Degree of Reaction $R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$), Parson's 50% Reaction Turbine ($\rho_{\text{opt}} = \cos\alpha$, $\eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$, symmetrical velocity triangles), Compounding of Steam Turbines (Curtis velocity compounding $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$, Rateau pressure compounding, purpose of lowering rotor RPM), Efficiencies &amp; Velocity Triangles (Blade efficiency $\eta_b = \frac{2u(V_{w1}+V_{w2})}{V_1^2}$, Stage efficiency $\eta_s = \eta_b \times \eta_N$, Simple impulse optimum $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$, $\eta_{\text{max}} = \cos^2\alpha$), Work Output &amp; Rankine Cycle ($W_T = h_1 - h_2$, Steam rate $= \frac{3600}{W_{\text{net}}} \text{ kg/kWh}$, Reheat Factor $RF &gt; 1.0$, $12\%$ exhaust moisture limit), and Special Turbines &amp; Governing (Back-pressure, Pass-out, Bleeding for feed heating, Throttle/Nozzle/Bypass governing, Critical speed resonance) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-euler-work-degree-of-reaction"><strong>1. Euler Work &amp; Degree of Reaction</strong></h4>
+<ul>
+<li><strong>Euler Work Done per kg of Steam $W$</strong>:
+  <div class="formula-card">$${\boxed{W = u \cdot (V_{w1} \pm V_{w2}) \quad (\text{J/kg})}}$$</div>
+  <div class="formula-card">$${\boxed{W = u \cdot (V_{w1} + V_{w2}) \quad (\text{when } V_{w2} \text{ opposes blade motion } u)}}$$</div></li>
+<li>$u$: mean blade / peripheral velocity $\text{m/s} = \frac{\pi D N}{60}$</li>
+<li>$V_{w1}$: inlet whirl velocity component $\text{m/s}$</li>
+<li>
+<p>$V_{w2}$: exit whirl velocity component $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Turbine Power Output $P$</strong>:
+  <div class="formula-card">$${\boxed{P = \dot{m} \cdot u \cdot (V_{w1} + V_{w2}) \quad (\text{W or kW})}}$$</div></p>
+</li>
+<li>
+<p>$\dot{m}$: steam mass flow rate $\text{kg/s}$</p>
+</li>
+<li>
+<p><strong>Degree of Reaction $R$</strong>:
+  <div class="formula-card">$${\boxed{R = \frac{\Delta h_{\text{moving}}}{\Delta h_{\text{stage}}} = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}}}$$</div></p>
+</li>
+<li>$\Delta h_m$: isentropic enthalpy drop in moving rotor blades $\text{kJ/kg}$</li>
+<li>$\Delta h_f$: isentropic enthalpy drop in fixed stator blades / nozzles $\text{kJ/kg}$</li>
+<li>Pure Impulse Turbine: $R = 0$ $\Delta h_m = 0$</li>
+<li>Parson's Reaction Turbine: $R = 0.50$ $50\% \implies \Delta h_m = \Delta h_f$</li>
+<li>Pure Reaction (Hero's) Turbine: $R = 1.0$ $100\% \implies \Delta h_f = 0$</li>
+</ul>
+<hr />
+<h4 id="2-parsons-reaction-turbine-50-reaction"><strong>2. Parson's Reaction Turbine (50% Reaction)</strong></h4>
+<ul>
+<li><strong>Optimum Blade Speed Ratio $\rho_{\text{opt}}$</strong>:
+  <div class="formula-card">$${\boxed{\rho_{\text{opt}} = \frac{u}{V_1} = \cos\alpha}}$$</div></li>
+<li>$V_1$: absolute steam velocity at inlet to moving blades $\text{m/s}$</li>
+<li>
+<p>$\alpha$: nozzle / fixed-blade discharge angle $\text{degrees}$</p>
+</li>
+<li>
+<p><strong>Maximum Diagram Efficiency $\eta_{\text{max}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{max}} = \frac{2 \cos^2\alpha}{1 + \cos^2\alpha}}}$$</div></p>
+</li>
+<li>
+<p><strong>Axial Discharge Condition for Minimum Exit Kinetic Energy</strong>:
+  <div class="formula-card">$${\boxed{V_2 = \frac{u}{\cos\phi} \quad \implies V_{w2} = 0}}$$</div></p>
+</li>
+<li>$V_2$: absolute exit velocity ($\text{m/s}$; purely axial)</li>
+<li>$\phi$: moving blade exit angle $\text{degrees}$</li>
+</ul>
+<hr />
+<h4 id="3-impulse-turbines-compounding"><strong>3. Impulse Turbines &amp; Compounding</strong></h4>
+<ul>
+<li>
+<p><strong>Optimum Speed Ratio (Simple Single-Stage Impulse)</strong>:
+  <div class="formula-card">$${\boxed{\rho_{\text{opt}} = \frac{u}{V_1} = \frac{1}{2} \cos\alpha}}$$</div></p>
+</li>
+<li>
+<p><strong>Maximum Diagram Efficiency (Simple Single-Stage Impulse)</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{max}} = \cos^2\alpha}}$$</div></p>
+</li>
+<li>
+<p><strong>Optimum Speed Ratio for Velocity-Compounded Curtis Turbine ($n$ moving rows)</strong>:
+  <div class="formula-card">$${\boxed{\rho_{\text{opt}} = \frac{u}{V_1} = \frac{\cos\alpha}{2n}}}$$</div></p>
+</li>
+<li>$n = 1 \implies \frac{1}{2}\cos\alpha$ (Single stage)</li>
+<li>$n = 2 \implies \frac{1}{4}\cos\alpha$ (Two-row Curtis stage)</li>
+<li>$n = 3 \implies \frac{1}{6}\cos\alpha$ (Three-row Curtis stage)</li>
+</ul>
+<hr />
+<h4 id="4-efficiencies-steam-rate"><strong>4. Efficiencies &amp; Steam Rate</strong></h4>
+<ul>
+<li>
+<p><strong>Diagram / Blade / Rotor Efficiency $\eta_b$</strong>:
+  <div class="formula-card">$${\boxed{\eta_b = \frac{\text{Work Done on Blades per kg}}{\text{Kinetic Energy Supplied per kg}} = \frac{u \cdot (V_{w1} + V_{w2})}{\frac{1}{2} V_1^2} = \frac{2 u \cdot (V_{w1} + V_{w2})}{V_1^2}}}$$</div></p>
+</li>
+<li>
+<p><strong>Stage Efficiency $\eta_s$</strong>:
+  <div class="formula-card">$${\boxed{\eta_s = \eta_b \times \eta_N}}$$</div></p>
+</li>
+<li>
+<p>$\eta_N$: nozzle efficiency $= \frac{V_1^2 / 2}{\Delta h_{\text{nozzle, isentropic}}}$</p>
+</li>
+<li>
+<p><strong>Specific Steam Consumption / Steam Rate</strong>:
+  <div class="formula-card">$${\boxed{\text{Steam Rate} = \frac{3600}{W_{\text{net}}} \quad (\text{kg/kWh})}}$$</div></p>
+</li>
+<li>
+<p>$W_{\text{net}}$: net specific work output $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Rankine Turbine Work $W_T$</strong>:
+  <div class="formula-card">$${\boxed{W_T = h_1 - h_2 \quad (\text{kJ/kg})}}$$</div></p>
+</li>
+<li>$h_1$: inlet steam enthalpy $\text{kJ/kg}$</li>
+<li>$h_2$: exhaust steam enthalpy $\text{kJ/kg}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Impulse Steam Turbine</strong>: A turbine where the entire steam pressure and enthalpy drop occurs EXCLUSIVELY inside fixed nozzles. Steam passes through moving blade channels at CONSTANT pressure, exerting force on the blades purely by dynamic impulse (change in kinetic energy).</li>
+<li><strong>Reaction Steam Turbine</strong>: A turbine where pressure and enthalpy drop occur CONTINUOUSLY across BOTH fixed guide blades and moving rotor blades. The expanding steam accelerates through moving blade passages, exerting reactive thrust on the rotor.</li>
+<li><strong>Degree of Reaction $R$</strong>: The ratio of isentropic enthalpy drop in the moving rotor blades to the total isentropic enthalpy drop across the entire turbine stage $R = \Delta h_m / \Delta h_{\text{stage}}$.</li>
+<li><strong>Parson's Reaction Turbine</strong>: A 50% reaction turbine $R = 0.50$ where fixed and moving blades have IDENTICAL shape and cross-section, resulting in perfectly SYMMETRICAL velocity triangles $\theta = \beta, \phi = \alpha$.</li>
+<li><strong>Velocity Compounding (Curtis Turbine)</strong>: Compounding method using one set of high-pressure nozzles followed by multiple rows of moving blades interspersed with fixed guide blades. Pressure drops only in nozzles; velocity drops in steps across moving rows.</li>
+<li><strong>Pressure Compounding (Rateau Turbine)</strong>: Compounding method consisting of a series of simple impulse stages (nozzles followed by one row of moving blades). Total pressure drop is split across multiple nozzle rings.</li>
+<li><strong>Specific Steam Consumption (Steam Rate)</strong>: Mass of steam required per hour to produce one kilowatt of net power output $\text{kg/kWh}$.</li>
+<li><strong>Back-Pressure Turbine</strong>: A non-condensing steam turbine where steam expands to an exhaust pressure equal to the saturation pressure corresponding to a process heating temperature requirement.</li>
+<li><strong>Pass-Out (Extraction) Turbine</strong>: A turbine where part of the steam is extracted at an intermediate pressure for industrial process heating, while the remainder continues expanding to a condenser for power generation.</li>
+<li><strong>Critical Speed</strong>: The shaft rotational speed $\text{rpm}$ at which the frequency of rotation equals the natural frequency of transverse shaft vibration, resulting in severe resonance and potential shaft damage.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Parson's Optimum Speed Ratio</strong>: $\rho_{\text{opt}} = \cos\alpha$.</li>
+<li><strong>Simple Impulse Optimum Speed Ratio</strong>: $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$.</li>
+<li><strong>2-Row Curtis Optimum Speed Ratio</strong>: $\rho_{\text{opt}} = \frac{1}{4}\cos\alpha$.</li>
+<li><strong>Maximum Exhaust Moisture Limit</strong>: $12\%$ moisture ($88\%$ dryness fraction) to prevent severe blade erosion.</li>
+<li><strong>Reheat Factor Range</strong>: $RF \approx 1.02 \text{ to } 1.08$ ($RF &gt; 1.0$ due to stage friction reheat recovery).</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Impulse vs Reaction &amp; Degree of Reaction</strong>: §3.1.</li>
+<li><strong>Parson's Reaction Turbine</strong>: §3.2.</li>
+<li><strong>Compounding Methods (Curtis &amp; Rateau)</strong>: §3.3.</li>
+<li><strong>Efficiencies &amp; Velocity Triangles</strong>: §3.4.</li>
+<li><strong>Work Output &amp; Rankine Steam Rate</strong>: §3.5.</li>
+<li><strong>Governing &amp; Special Turbines</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-impulse-vs-reaction-turbines-degree-of-reaction"><strong>3.1 Impulse vs Reaction Turbines &amp; Degree of Reaction</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Impulse Turbine (e.g., De-Laval)</strong>:</li>
+<li>Steam expands ONLY in fixed nozzles. Pressure drops from $P_1$ to $P_2$ in nozzles; remains CONSTANT across moving blades.</li>
+<li>Absolute steam velocity increases in nozzles and DECREASES in moving blades.</li>
+<li>Moving blades are symmetrical bucket-shaped profiles with uniform cross-sectional flow area.</li>
+<li>$\Delta h_m = 0 \implies R = 0$.</li>
+<li><strong>Reaction Turbine (e.g., Parson's)</strong>:</li>
+<li>Steam expands in BOTH fixed guide blades and moving rotor blades. Pressure drops continuously across both rows.</li>
+<li>Moving blades are aerofoil-shaped, forming converging nozzle passages that accelerate steam relative to the rotor.</li>
+<li>$\Delta h_m &gt; 0 \implies R &gt; 0$.</li>
+<li><strong>Degree of Reaction Formula</strong>:
+  <div class="formula-card">$${R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}}$$</div></li>
+<li>$R = 0 \implies$ Pure Impulse Turbine.</li>
+<li>$R = 0.50 \implies$ Parson's 50% Reaction Turbine.</li>
+<li>$R = 1.0 \implies$ 100% Reaction Turbine (Hero's reaction turbine; all enthalpy drop in rotor).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Pressure Drop Location Distinction</strong>:
+- Impulse Turbine $\implies$ Pressure drops EXCLUSIVELY in fixed nozzles $\Delta p_{\text{rotor}} = 0$.
+- Reaction Turbine $\implies$ Pressure drops in BOTH fixed blades and moving rotor blades $\Delta p_{\text{rotor}} &gt; 0$.</p>
+<p>[!TRAP]
+<strong>Degree of Reaction Formula Trap</strong>: $R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$. ALWAYS put moving-blade enthalpy drop $\Delta h_m$ in the NUMERATOR! Do not invert as $\frac{\Delta h_f}{\Delta h_m}$.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Steam Turbine Classification Check?
+├─ Is pressure constant across moving rotor blades? → IMPULSE TURBINE (R = 0)
+└─ Does pressure drop across both fixed and moving blades? → REACTION TURBINE (R &gt; 0)
+   ├─ If fixed drop = moving drop → PARSON'S TURBINE (R = 0.50)
+   └─ If all drop occurs in rotor → HERO'S TURBINE (R = 1.0)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Impulse: pressure drops in nozzles only $R=0$.</li>
+<li>[ ] Reaction: pressure drops in fixed and moving blades $R&gt;0$.</li>
+<li>[ ] Euler Work $W = u(V_{w1} + V_{w2})$.</li>
+<li>[ ] $R = \Delta h_m / (\Delta h_f + \Delta h_m)$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a steam turbine stage, the isentropic enthalpy drop in the moving rotor blades is $20 \text{ kJ/kg}$ and the isentropic enthalpy drop in the fixed nozzle blades is $30 \text{ kJ/kg}$. Calculate the Degree of Reaction $R$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m} = \frac{20}{30 + 20} = \frac{20}{50} = 0.40 = 40\%}$$</div>
+- <strong>Key Insight</strong>: $R = 40\%$. Enthalpy drop in rotor divided by total stage enthalpy drop.</p>
+<hr />
+<h3 id="32-parsons-reaction-turbine-50-reaction"><strong>3.2 Parson's Reaction Turbine (50% Reaction)</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>In a <strong>Parson's Reaction Turbine</strong>, the degree of reaction $R = 0.50$ $50\%$.</li>
+<li><strong>Symmetrical Velocity Triangles</strong>:</li>
+<li>Fixed blades and moving blades have the EXACT SAME profile and angles.</li>
+<li>Inlet fixed blade angle $\alpha = \phi$ (moving blade exit angle).</li>
+<li>Inlet moving blade angle $\beta = \theta$ (fixed blade exit / nozzle angle).</li>
+<li>Absolute inlet velocity $V_1 = V_{r2}$ (relative exit velocity).</li>
+<li>Relative inlet velocity $V_{r1} = V_2$ (absolute exit velocity).</li>
+<li><strong>Optimum Speed Ratio &amp; Maximum Efficiency</strong>:
+  <div class="formula-card">$${\rho_{\text{opt}} = \frac{u}{V_1} = \cos\alpha}$$</div>
+  <div class="formula-card">$${\eta_{\text{max}} = \frac{2 \cos^2\alpha}{1 + \cos^2\alpha}}$$</div></li>
+<li><strong>Minimum Exit Kinetic Energy</strong>: Occurs when absolute exit velocity is purely AXIAL $V_{w2} = 0 \implies V_2 = \frac{u}{\cos\phi}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Parson's Optimum Speed Ratio</strong>: For Parson's 50% reaction turbine, optimum blade speed ratio $\rho_{\text{opt}} = \cos\alpha$. For a simple impulse turbine, $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$. Parson's requires TWICE the blade speed for the same steam velocity!</p>
+<p>[!TRAP]
+<strong>Parson's Angle Relationships</strong>: In Parson's reaction turbine, $\alpha_1 = \beta_2$ and $\beta_1 = \alpha_2$ $\theta = \beta, \phi = \alpha$. Do not confuse fixed blade angles with moving blade angles.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Parson's Turbine Parameter Check?
+├─ Degree of Reaction R → 50% (0.50)
+├─ Blade Profiles → Identical fixed &amp; moving blades (Symmetrical velocity triangles)
+├─ Optimum Speed Ratio → rho_opt = u / V1 = cos(alpha)
+└─ Maximum Efficiency → eta_max = (2 * cos^2(alpha)) / (1 + cos^2(alpha))
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Parson's $R = 0.50$.</li>
+<li>[ ] Identical fixed &amp; moving blades.</li>
+<li>[ ] $\rho_{\text{opt}} = \cos\alpha$.</li>
+<li>[ ] $\eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A Parson's reaction turbine stage has a mean blade speed $u = 320 \text{ m/s}$ and a rotor blade exit angle $\phi = 30^\circ$. Calculate the absolute steam velocity $V_2$ at rotor exit for minimum kinetic energy leaving the stage.
+- <strong>Solution</strong>:
+  - For minimum exit kinetic energy, the exit steam velocity $V_2$ must be purely axial $V_{w2} = 0$.
+  - From the exit velocity triangle, $V_2 = \frac{u}{\cos\phi} = \frac{320}{\cos 30^\circ} = \frac{320}{\frac{\sqrt{3}}{2}} = \frac{640}{\sqrt{3}} \approx 369.5 \text{ m/s}$.
+- <strong>Key Insight</strong>: $V_2 = \frac{640}{\sqrt{3}} \text{ m/s}$. Axial discharge condition.</p>
+<hr />
+<h3 id="33-compounding-of-steam-turbines-curtis-vs-rateau"><strong>3.3 Compounding of Steam Turbines (Curtis vs Rateau)</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Single-stage impulse turbines (De-Laval) suffer from extremely high rotor speeds $\approx 30,000 \text{ rpm}$ when expanding high-pressure steam in one step. Compounding reduces rotor speed to safe mechanical limits $1500-3000 \text{ rpm}$.</li>
+<li><strong>Types of Compounding</strong>:</li>
+<li><strong>Velocity Compounding (Curtis Turbine)</strong>:<ul>
+<li>One set of high-pressure nozzles followed by TWO OR MORE rows of moving blades with fixed guide blades between them.</li>
+<li>Steam pressure drops EXCLUSIVELY in the nozzle ring and remains constant throughout all blade rows.</li>
+<li>Absolute steam velocity drops in steps across each moving row.</li>
+<li>Optimum speed ratio for $n$ moving rows: $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$.</li>
+</ul>
+</li>
+<li><strong>Pressure Compounding (Rateau Turbine)</strong>:<ul>
+<li>Series of simple impulse stages arranged in sequence (Nozzle $\to$ Moving Row $\to$ Nozzle $\to$ Moving Row).</li>
+<li>Pressure drops in steps across each nozzle ring.</li>
+</ul>
+</li>
+<li><strong>Pressure-Velocity Compounding</strong>:<ul>
+<li>Combination of 2 or more Curtis velocity-compounded stages in series.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Curtis vs Rateau Compounding</strong>:
+- Curtis Turbine $\implies$ VELOCITY compounding (1 nozzle set + multiple moving rows; pressure constant after nozzle).
+- Rateau Turbine $\implies$ PRESSURE compounding (Multiple nozzle rings in series; pressure drops stage-by-stage).</p>
+<p>[!TRAP]
+<strong>Curtis Speed Ratio Formula</strong>: For a 2-row Curtis stage $n=2$, $\rho_{\text{opt}} = \frac{\cos\alpha}{4}$. For a 3-row stage $n=3$, $\rho_{\text{opt}} = \frac{\cos\alpha}{6}$. Do not confuse row count $n$!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Compounding Method Identification?
+├─ Pressure drops ONLY in first nozzles; velocity drops across multiple moving rows → CURTIS (Velocity Compounded)
+│  └─ Optimum Speed Ratio → rho_opt = cos(alpha) / (2 * n)
+└─ Pressure drops in steps across multiple nozzle rings → RATEAU (Pressure Compounded)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Compounding purpose: reduce rotor speed.</li>
+<li>[ ] Curtis = velocity compounding $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$.</li>
+<li>[ ] Rateau = pressure compounding.</li>
+<li>[ ] 2-row Curtis $\implies \rho_{\text{opt}} = \frac{1}{4}\cos\alpha$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Determine the optimum blade speed ratio $\rho_{\text{opt}}$ for a two-row Curtis velocity-compounded impulse turbine stage with nozzle angle $\alpha = 20^\circ$.
+- <strong>Solution</strong>:
+  - Number of moving rows $n = 2$.
+  - Formula: $\rho_{\text{opt}} = \frac{\cos\alpha}{2n} = \frac{\cos 20^\circ}{2 \times 2} = \frac{\cos 20^\circ}{4} = \frac{0.9397}{4} = 0.2349$.
+- <strong>Key Insight</strong>: $\rho_{\text{opt}} = \frac{\cos\alpha}{4} = 0.235$.</p>
+<hr />
+<h3 id="34-efficiencies-velocity-triangles-impulse"><strong>3.4 Efficiencies &amp; Velocity Triangles (Impulse)</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Diagram / Blade Efficiency $\eta_b$</strong>:
+  <div class="formula-card">$${\eta_b = \frac{\text{Work Done on Rotor per kg}}{\text{Kinetic Energy Supplied to Rotor per kg}} = \frac{u(V_{w1} + V_{w2})}{\frac{1}{2} V_1^2} = \frac{2 u (V_{w1} + V_{w2})}{V_1^2}}$$</div></li>
+<li><strong>Stage Efficiency $\eta_s$</strong>:
+  <div class="formula-card">$${\eta_s = \eta_b \times \eta_N}$$</div>
+  Where nozzle efficiency $\eta_N = \frac{V_1^2 / 2}{\Delta h_{\text{nozzle, isentropic}}}$.</li>
+<li><strong>Simple Single-Stage Impulse Optimums</strong>:</li>
+<li>Optimum Blade Speed Ratio: $\rho_{\text{opt}} = \frac{u}{V_1} = \frac{1}{2} \cos\alpha$.</li>
+<li>Maximum Blade Efficiency: $\eta_{\text{max}} = \cos^2\alpha$ (for equiangular friction-free blades).</li>
+<li>Blade friction coefficient $k = \frac{V_{r2}}{V_{r1}} &lt; 1.0$ reduces relative velocity and blade efficiency.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stage Efficiency Product Rule</strong>: Stage efficiency is the PRODUCT of blade efficiency and nozzle efficiency $\eta_s = \eta_b \times \eta_N$. NEVER divide or add them!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Impulse Turbine Efficiency Calculation?
+├─ Blade / Diagram Efficiency → eta_b = 2 * u * (Vw1 + Vw2) / (V1^2)
+├─ Stage Efficiency → eta_s = eta_b * eta_N
+└─ Simple Impulse Optimums → rho_opt = (1/2) * cos(alpha), eta_max = cos^2(alpha)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\eta_b = \frac{2 u (V_{w1} + V_{w2})}{V_1^2}$.</li>
+<li>[ ] $\eta_s = \eta_b \times \eta_N$.</li>
+<li>[ ] Simple impulse $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$.</li>
+<li>[ ] Simple impulse $\eta_{\text{max}} = \cos^2\alpha$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A simple impulse turbine stage develops a power of $60 \text{ kW}$ per $\text{kg/s}$ of steam flow. Steam issues from the nozzle at $V_1 = 400 \text{ m/s}$. Calculate the diagram efficiency $\eta_b$.
+- <strong>Solution</strong>:
+  - Specific work done $W = 60 \text{ kW} / (\text{kg/s}) = 60 \text{ kJ/kg} = 60000 \text{ J/kg}$.
+  - Kinetic energy supplied by nozzle $= \frac{1}{2} V_1^2 = \frac{1}{2} (400)^2 = 80000 \text{ J/kg}$.
+  - Diagram efficiency $\eta_b = \frac{\text{Work Done}}{\text{KE Supplied}} = \frac{60000}{80000} = 0.75 = 75\%$.
+- <strong>Key Insight</strong>: $\eta_b = 75\%$.</p>
+<hr />
+<h3 id="35-work-output-rankine-cycle-steam-rate"><strong>3.5 Work Output, Rankine Cycle &amp; Steam Rate</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Rankine Turbine Work $W_T$</strong>:
+  <div class="formula-card">$${W_T = h_1 - h_2 \quad (\text{kJ/kg})}$$</div>
+  (Neglecting feed pump work $W_P$, net work $W_{\text{net}} \approx W_T$).</li>
+<li><strong>Specific Steam Consumption (Steam Rate)</strong>:
+  <div class="formula-card">$${\text{Steam Rate} = \frac{3600}{W_{\text{net}}} \quad (\text{kg/kWh})}$$</div>
+  Measures steam mass flow required per hour per kW of net power.</li>
+<li><strong>Reheat Factor $RF$</strong>:
+  <div class="formula-card">$${RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Stage Isentropic Enthalpy Drop}} &gt; 1.0}$$</div>
+  $RF \approx 1.02 - 1.08$ due to friction heat recovery in lower stages.</li>
+<li><strong>Exhaust Moisture Limit</strong>: Maximum permissible moisture content at turbine exhaust is <strong>$12\%$</strong> ($88\%$ dryness fraction) to avoid blade erosion by liquid droplets.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Steam Rate Constant</strong>: In Steam Rate $= \frac{3600}{W_{\text{net}}}$, the numerator factor <strong>$3600$</strong> converts seconds per hour $3600 \text{ s/h}$ so that $W_{\text{net}}$ in $\text{kJ/kg}$ yields steam rate in $\text{kg/kWh}$!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Steam Rate &amp; Rankine Work Calculation?
+├─ Specific Turbine Work → W_T = h1 - h2 [kJ/kg]
+├─ Specific Steam Consumption → Steam Rate = 3600 / W_net [kg/kWh]
+└─ Exhaust Moisture Constraint → Max 12% moisture (Min 88% dryness fraction)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $W_T = h_1 - h_2$.</li>
+<li>[ ] Steam rate $= 3600 / W_{\text{net}} \text{ kg/kWh}$.</li>
+<li>[ ] Reheat factor $RF &gt; 1.0$.</li>
+<li>[ ] Exhaust moisture limit $= 12\%$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Steam enters a turbine at enthalpy $h_1 = 3000 \text{ kJ/kg}$ and expands to exhaust enthalpy $h_2 = 2000 \text{ kJ/kg}$. Neglecting pump work, calculate specific turbine work and specific steam consumption.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${W_{\text{net}} \approx W_T = h_1 - h_2 = 3000 - 2000 = 1000 \text{ kJ/kg}}$$</div>
+  <div class="formula-card">$${\text{Steam Rate} = \frac{3600}{W_{\text{net}}} = \frac{3600}{1000} = 3.60 \text{ kg/kWh}}$$</div>
+- <strong>Key Insight</strong>: $W_T = 1000 \text{ kJ/kg}$, Steam Rate $= 3.60 \text{ kg/kWh}$.</p>
+<hr />
+<h3 id="36-special-turbines-governing-critical-speed"><strong>3.6 Special Turbines, Governing &amp; Critical Speed</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Special Turbine Types</strong>:</li>
+<li><strong>Back-Pressure Turbine</strong>: Exhaust steam discharges at a relatively high pressure equal to the saturation pressure needed for industrial process heating. No condenser used.</li>
+<li><strong>Pass-Out (Extraction) Turbine</strong>: Intermediate steam is extracted for process heating; remaining steam continues expanding to a condenser for power.</li>
+<li><strong>Bleeding</strong>: Small fractions of steam are extracted at multiple turbine stages to heat boiler feedwater (Regenerative Feedwater Heating).</li>
+<li><strong>Governing Methods</strong>:</li>
+<li><strong>Throttle Governing</strong>: Throttles steam inlet pressure via governor valve at low loads. Simple, but reduces efficiency due to throttling pressure loss.</li>
+<li><strong>Nozzle Control Governing</strong>: Regulates steam flow by cutting in/out nozzle groups in the first stage. Higher partial-load efficiency.</li>
+<li><strong>Bypass Governing</strong>: Admits fresh high-pressure steam directly to later turbine stages during overload.</li>
+<li><strong>Critical Speed</strong>:</li>
+<li>Rotational speed $\text{rpm}$ at which shaft angular velocity equals the natural frequency of transverse vibration.</li>
+<li>Causes violent resonance vibrations; turbines must pass quickly through critical speed during startup.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Back-Pressure vs Pass-Out Turbines</strong>:
+- Back-Pressure Turbine $\implies$ ALL exhaust steam goes to process heating (No condenser).
+- Pass-Out Turbine $\implies$ PARTIAL steam extracted for process; REMAINDER expands to condenser.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Special Turbine &amp; Governing Check?
+├─ All exhaust steam used for industrial heating → BACK-PRESSURE TURBINE
+├─ Partial extraction for heating + remainder to condenser → PASS-OUT TURBINE
+├─ Small extraction for feedwater heating → BLEEDING
+└─ Shaft RPM equals transverse vibration natural frequency → CRITICAL SPEED (Resonance)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Back-pressure: no condenser, exhaust for process.</li>
+<li>[ ] Pass-out: extraction + expansion to condenser.</li>
+<li>[ ] Bleeding: feedwater preheating.</li>
+<li>[ ] Critical speed: natural frequency resonance.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Identify the turbine type where the exhaust pressure equals the saturation pressure corresponding to the temperature required by a process heater.
+- <strong>Solution</strong>:
+  - <strong>Back-Pressure Turbine</strong>.
+  - Reason: The turbine exhausts directly into the industrial process heating line at the required saturation pressure without passing through a condenser.
+- <strong>Key Insight</strong>: Process exhaust pressure = Back-pressure turbine.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Differentiate between an Impulse turbine and a Reaction turbine regarding pressure drop location.</strong><br />
+A: In an impulse turbine, steam pressure drops EXCLUSIVELY in fixed nozzles. In a reaction turbine, steam pressure drops CONTINUOUSLY across both fixed guide blades and moving rotor blades.</p>
+<p><strong>Q2: Write Euler's work equation per kg of steam for a turbine stage.</strong><br />
+A: $W = u (V_{w1} \pm V_{w2}) \text{ J/kg}$, where $u$ is blade speed and $V_{w1}, V_{w2}$ are inlet and exit whirl velocities.</p>
+<p><strong>Q3: Define Degree of Reaction $R$.</strong><br />
+A: $R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$, the ratio of isentropic enthalpy drop in moving rotor blades to the total stage isentropic enthalpy drop.</p>
+<p><strong>Q4: What is a Parson's Reaction Turbine and what is its degree of reaction?</strong><br />
+A: Parson's turbine is a 50% reaction turbine $R = 0.50$ with identical fixed and moving blade profiles and symmetrical velocity triangles.</p>
+<p><strong>Q5: What is the optimum blade speed ratio for a Parson's reaction turbine?</strong><br />
+A: $\rho_{\text{opt}} = \frac{u}{V_1} = \cos\alpha$.</p>
+<p><strong>Q6: What is the condition for minimum kinetic energy leaving a Parson's turbine stage?</strong><br />
+A: Absolute steam exit velocity $V_2$ must be purely axial $V_{w2} = 0 \implies V_2 = \frac{u}{\cos\phi}$.</p>
+<p><strong>Q7: Why is compounding used in steam turbines?</strong><br />
+A: To reduce high rotor rotational speeds $\approx 30,000 \text{ rpm}$ of single-stage impulse turbines to safe mechanical limits $1500-3000 \text{ rpm}$.</p>
+<p><strong>Q8: Differentiate between Curtis and Rateau compounding.</strong><br />
+A: Curtis turbine uses VELOCITY compounding (one nozzle set followed by multiple moving blade rows). Rateau turbine uses PRESSURE compounding (multiple impulse stages with pressure drops across successive nozzle rings).</p>
+<p><strong>Q9: State the optimum blade speed ratio formula for a velocity-compounded Curtis turbine with $n$ moving rows.</strong><br />
+A: $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$.</p>
+<p><strong>Q10: State the optimum blade speed ratio and maximum efficiency for a simple single-stage impulse turbine.</strong><br />
+A: $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$ and $\eta_{\text{max}} = \cos^2\alpha$.</p>
+<p><strong>Q11: Write the formula for Stage Efficiency $\eta_s$.</strong><br />
+A: $\eta_s = \eta_b \times \eta_N$ (Blade efficiency $\times$ Nozzle efficiency).</p>
+<p><strong>Q12: Write the formula for Specific Steam Consumption (Steam Rate).</strong><br />
+A: $\text{Steam Rate} = \frac{3600}{W_{\text{net}}} \text{ kg/kWh}$.</p>
+<p><strong>Q13: What is the maximum allowable moisture content at steam turbine exhaust?</strong><br />
+A: $12\%$ moisture ($88\%$ dryness fraction) to prevent rotor blade erosion.</p>
+<p><strong>Q14: Differentiate between Back-Pressure and Pass-Out steam turbines.</strong><br />
+A: A Back-Pressure turbine exhausts ALL steam to process heating (no condenser). A Pass-Out turbine extracts PART of the steam for process heating and expands the REMAINDER to a condenser.</p>
+<p><strong>Q15: What is Critical Speed in steam turbines?</strong><br />
+A: The rotational speed $\text{rpm}$ at which shaft angular velocity matches the natural frequency of transverse vibration, causing severe resonance.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Impulse vs Reaction</strong>: Impulse $\implies \Delta p$ in nozzles only $R=0$. Reaction $\implies \Delta p$ in fixed + moving blades $R&gt;0$.</li>
+<li><strong>Degree of Reaction</strong>: $R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$. Always moving drop in numerator!</li>
+<li><strong>Parson's 50% Reaction</strong>: Identical fixed &amp; moving blades, symmetrical velocity triangles, $\rho_{\text{opt}} = \cos\alpha$, $\eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$.</li>
+<li><strong>Curtis Compounding</strong>: Velocity compounding (1 nozzle set + $n$ moving rows), $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$.</li>
+<li><strong>Rateau Compounding</strong>: Pressure compounding (multiple nozzle rings in series).</li>
+<li><strong>Simple Impulse Optimums</strong>: $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$, $\eta_{\text{max}} = \cos^2\alpha$.</li>
+<li><strong>Stage Efficiency</strong>: $\eta_s = \eta_b \times \eta_N$ (Product, never quotient!).</li>
+<li><strong>Steam Rate</strong>: $\text{Steam Rate} = \frac{3600}{W_{\text{net}}} \text{ kg/kWh}$. Always include factor $3600$.</li>
+<li><strong>Exhaust Moisture Limit</strong>: Max $12\%$ moisture ($88\%$ dryness) to prevent erosion.</li>
+<li><strong>Critical Speed</strong>: Shaft rotational speed $= \text{Natural frequency of transverse vibration}$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Impulse $\implies \Delta p$ in nozzles only $R=0$.</li>
+<li>[ ] Memorize Reaction $\implies \Delta p$ in rotor $R&gt;0$.</li>
+<li>[ ] Memorize $R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$.</li>
+<li>[ ] Memorize Parson's $\rho_{\text{opt}} = \cos\alpha$, $\eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$.</li>
+<li>[ ] Memorize Curtis $\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$ (Velocity compounding).</li>
+<li>[ ] Memorize Simple impulse $\rho_{\text{opt}} = \frac{1}{2}\cos\alpha$, $\eta_{\text{max}} = \cos^2\alpha$.</li>
+<li>[ ] Memorize $\eta_s = \eta_b \times \eta_N$.</li>
+<li>[ ] Memorize Steam rate $= \frac{3600}{W_{\text{net}}} \text{ kg/kWh}$.</li>
+<li>[ ] Memorize Exhaust moisture limit $= 12\%$.</li>
+<li>[ ] Memorize Back-pressure $\implies$ Process exhaust without condenser.</li>
+</ul>
+</body>
+</html>

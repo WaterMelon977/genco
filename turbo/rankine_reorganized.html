@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankine Cycle, Modified Rankine Cycle & Steam Power Plant Systems — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Turbo Machines Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="rankine-cycle-modified-rankine-cycle-steam-power-plant-systems-comprehensive-reorganized-study-guide">Rankine Cycle, Modified Rankine Cycle &amp; Steam Power Plant Systems — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers the Ideal Rankine Cycle (processes $1-2$ pump, $2-3$ boiler, $3-4$ turbine, $4-1$ condenser, thermal efficiency $\eta_R = \frac{W_T - W_P}{Q_{\text{in}}}$, pump work $W_P \approx v_3(P_4-P_3)$, mean temperature of heat addition $T_m = Q_{\text{in}}/(s_1-s_4)$), Efficiency Boosting Methods (superheating $\Delta T_{\text{sup}} = T_{\text{sup}} - T_{\text{sat}}$, increasing boiler pressure, lowering condenser pressure), Reheat Rankine Cycle (reheating at constant pressure, exhaust moisture control, Reheat Factor $RF = 1.02-1.06$), Regenerative Rankine Cycle (feedwater preheating, bled steam fraction $y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}$, deaeration), Modified Rankine Cycle for Reciprocating Steam Engines (early release, stroke reduction), Fuels &amp; Combustion ($1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$, coal ranks Peat to Anthracite $36000 \text{ kJ/kg}$, Bomb &amp; Junker calorimeters), Boiler Mountings vs Accessories (Fusible plug mounting; Superheater $\to$ Economiser $\to$ Air Preheater path), Draught Systems (Natural chimney $\eta \approx 0.25\%$, Forced, Induced, Balanced), Equivalent Evaporation $m_e = \frac{m_s(h-h_{f1})}{2257}$, Vacuum Efficiency $\eta_{\text{vac}}$, and Power Plant Load Factors (Load Factor $&lt;1.0$, Diversity Factor $&gt;1.0$) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-ideal-rankine-cycle-pump-work"><strong>1. Ideal Rankine Cycle &amp; Pump Work</strong></h4>
+<ul>
+<li><strong>Thermal Efficiency $\eta_R$</strong>:
+  <div class="formula-card">$${\boxed{\eta_R = \frac{(h_1 - h_2) - (h_4 - h_3)}{h_1 - h_4} = \frac{W_T - W_P}{Q_{\text{in}}} = 1 - \frac{T_{\text{rejection}}}{T_{m, \text{addition}}}}}$$</div></li>
+<li>$h_1$: turbine inlet enthalpy $\text{kJ/kg}$</li>
+<li>$h_2$: turbine exit / condenser inlet enthalpy $\text{kJ/kg}$</li>
+<li>$h_3$: condenser exit saturated liquid enthalpy $\text{kJ/kg}$</li>
+<li>$h_4$: pump exit boiler feed enthalpy $\text{kJ/kg}$</li>
+<li>$W_T = h_1 - h_2$: turbine specific work $\text{kJ/kg}$</li>
+<li>$W_P = h_4 - h_3$: pump specific work $\text{kJ/kg}$</li>
+<li>
+<p>$Q_{\text{in}} = h_1 - h_4$: heat added in boiler $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Pump Specific Work $W_P$</strong>:
+  <div class="formula-card">$${\boxed{W_P \approx v_3 \cdot (P_4 - P_3) \times 10^2 \quad (\text{kJ/kg})}}$$</div></p>
+</li>
+<li>$v_3$: specific volume of saturated liquid at condenser pressure $\text{m}^3\text{/kg}$</li>
+<li>
+<p>$P_4, P_3$: boiler and condenser pressures ($\text{bar}$; $1 \text{ bar} = 100 \text{ kPa}$)</p>
+</li>
+<li>
+<p><strong>Mean Temperature of Heat Addition $T_m$</strong>:
+  <div class="formula-card">$${\boxed{T_m = \frac{Q_{\text{in}}}{s_1 - s_4} = \frac{h_1 - h_4}{s_1 - s_4} \quad (\text{K})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-superheat-reheat-regeneration"><strong>2. Superheat, Reheat &amp; Regeneration</strong></h4>
+<ul>
+<li>
+<p><strong>Degree of Superheat $\Delta T_{\text{sup}}$</strong>:
+  <div class="formula-card">$${\boxed{\Delta T_{\text{sup}} = T_{\text{superheated}} - T_{\text{sat}}}}$$</div></p>
+</li>
+<li>
+<p><strong>Reheat Factor $RF$</strong>:
+  <div class="formula-card">$${\boxed{RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Direct Isentropic Enthalpy Drop}} \quad (1.02 \text{ to } 1.08)}}$$</div></p>
+</li>
+<li>
+<p><strong>Open Feedwater Heater Mass Fraction Extracted $y$</strong>:
+  <div class="formula-card">$${\boxed{y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}}}$$</div></p>
+</li>
+<li>$h_f$: enthalpy of liquid leaving heater $\text{kJ/kg}$</li>
+<li>$h_{\text{cond}}$: enthalpy of condensate entering heater $\text{kJ/kg}$</li>
+<li>$h_{\text{bleed}}$: enthalpy of bled steam extracted from turbine $\text{kJ/kg}$</li>
+</ul>
+<hr />
+<h4 id="3-fuels-stoichiometry-boiler-performance"><strong>3. Fuels, Stoichiometry &amp; Boiler Performance</strong></h4>
+<ul>
+<li>
+<p><strong>Incomplete Combustion of Carbon (CO Mass Yield)</strong>:
+  <div class="formula-card">$${\boxed{m_{\text{CO}} = \frac{7}{3} \text{ kg CO per kg of Carbon} \quad (2.333 \text{ kg/kg})}}$$</div></p>
+</li>
+<li>
+<p><strong>Partial Pressure of Component $i$ in Flue Gas $p_i$</strong>:
+  <div class="formula-card">$${\boxed{p_i = x_i \cdot P_{\text{total}}}}$$</div></p>
+</li>
+<li>
+<p>$x_i$: volume / mole fraction of component $i$</p>
+</li>
+<li>
+<p><strong>Equivalent Evaporation $m_e$</strong>:
+  <div class="formula-card">$${\boxed{m_e = \frac{m_s \cdot (h - h_{f1})}{2257} \quad (\text{kg/h or kg/kg fuel})}}$$</div></p>
+</li>
+<li>$m_s$: actual steam generated $\text{kg/h}$</li>
+<li>$h$: enthalpy of steam generated $\text{kJ/kg}$</li>
+<li>$h_{f1}$: enthalpy of feedwater $\text{kJ/kg}$</li>
+<li>
+<p>$2257$: latent heat of vaporization of water at $100^\circ\text{C}$ $\text{kJ/kg}$</p>
+</li>
+<li>
+<p><strong>Condenser Vacuum Efficiency $\eta_{\text{vac}}$</strong>:
+  <div class="formula-card">$${\boxed{\eta_{\text{vac}} = \frac{\text{Actual Vacuum}}{\text{Barometric Pressure} - P_{\text{steam}}} = \frac{P_{\text{barometer}} - P_{\text{condenser}}}{P_{\text{barometer}} - P_{\text{sat}}(T_{\text{steam}})}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="4-power-plant-load-factors"><strong>4. Power Plant Load Factors</strong></h4>
+<ul>
+<li>
+<p><strong>Load Factor</strong>:
+  <div class="formula-card">$${\boxed{\text{Load Factor} = \frac{\text{Average Load}}{\text{Maximum Demand}} &lt; 1.0}}$$</div></p>
+</li>
+<li>
+<p><strong>Diversity Factor</strong>:
+  <div class="formula-card">$${\boxed{\text{Diversity Factor} = \frac{\sum \text{Individual Maximum Demands}}{\text{Maximum Demand on Station}} &gt; 1.0}}$$</div></p>
+</li>
+<li>
+<p><strong>Plant Capacity Factor</strong>:
+  <div class="formula-card">$${\boxed{\text{Plant Capacity Factor} = \frac{\text{Average Load}}{\text{Rated Plant Capacity}}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Ideal Rankine Cycle</strong>: The standard thermodynamic cycle for steam power plants consisting of 2 isentropic processes (pump $1-2$, turbine $3-4$) and 2 isobaric processes (boiler $2-3$, condenser $4-1$).</li>
+<li><strong>Mean Temperature of Heat Addition $T_m$</strong>: The effective weighted average temperature at which heat is transferred into the working fluid inside the boiler. Thermal efficiency rises directly as $T_m$ increases.</li>
+<li><strong>Superheating</strong>: Heating steam above its saturation temperature at constant pressure. Increases $T_m$ (boosting efficiency) and raises dryness fraction at exhaust (preventing blade erosion).</li>
+<li><strong>Reheating</strong>: Expanding steam partially in a High-Pressure (HP) turbine, reheating it at constant pressure in a reheater, and expanding it further in a Low-Pressure (LP) turbine. Primary goal: control LP exhaust moisture $x &gt; 0.85-0.90$.</li>
+<li><strong>Regeneration</strong>: Bleeding small portions of expanding steam from intermediate turbine stages to preheat boiler feedwater. Increases $T_m$ and yields the highest thermal efficiency among Rankine modifications.</li>
+<li><strong>Modified Rankine Cycle</strong>: The practical cycle followed by reciprocating steam engines where expansion is terminated early at a release point. Sacrifices a small work area ("toe" of diagram) to achieve a huge REDUCTION IN CYLINDER STROKE and volume.</li>
+<li><strong>Boiler Mountings</strong>: Essential safety and control devices fitted directly onto the boiler drum (e.g. Fusible Plug, Safety Valves, Water Level Indicator, Pressure Gauge). Mandatory.</li>
+<li><strong>Boiler Accessories</strong>: Auxiliary equipment installed to improve plant thermal efficiency (e.g. Superheater, Economiser, Air Preheater, Feed Pump). Optional.</li>
+<li><strong>Fusible Plug</strong>: A safety mounting installed in the crown of the furnace containing a low-melting-point alloy plug that melts when water level drops dangerously, releasing steam to extinguish the fire.</li>
+<li><strong>Equivalent Evaporation</strong>: Mass of water evaporated from and at $100^\circ\text{C}$ into dry saturated steam per hour by absorbing the same quantity of heat as under actual boiler operating conditions.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Latent Heat of Water at $100^\circ\text{C}$</strong>: $2257 \text{ kJ/kg}$.</li>
+<li><strong>Ideal Rankine Plant Thermal Efficiency</strong>: $\approx 35\% \text{ to } 45\%$.</li>
+<li><strong>Reheat Factor</strong>: $RF \approx 1.02 \text{ to } 1.08$.</li>
+<li><strong>Chimney Natural Draught Efficiency</strong>: $\approx 0.25\%$ (extremely low).</li>
+<li><strong>Coal Calorific Values</strong>: Anthracite $\approx 36000 \text{ kJ/kg}$; Bituminous $\approx 33500 \text{ kJ/kg}$; Lignite $\approx 25000 \text{ kJ/kg}$; Peat $\approx 21000 \text{ kJ/kg}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Ideal Rankine Cycle &amp; Efficiency</strong>: Introduced in §3.1.</li>
+<li><strong>Superheat, Reheat &amp; Regeneration</strong>: §3.2, §3.3, §3.4.</li>
+<li><strong>Modified Rankine Cycle (Reciprocating Engines)</strong>: §3.5.</li>
+<li><strong>Fuels, Combustion &amp; Flue Gases</strong>: §3.6.</li>
+<li><strong>Boiler Systems, Mountings &amp; Draught</strong>: §3.7.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-ideal-rankine-cycle-efficiency-fundamentals"><strong>3.1 Ideal Rankine Cycle &amp; Efficiency Fundamentals</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>The ideal Rankine cycle is the benchmark vapour power cycle used in thermal power stations.</li>
+<li><strong>Four Standard Processes</strong>:</li>
+<li><strong>$1 \to 2$</strong>: Isentropic compression of liquid water in the feed pump $W_P$.</li>
+<li><strong>$2 \to 3$</strong>: Isobaric heat addition in the boiler at pressure $P_{\text{boiler}}$ $Q_{\text{in}}$.</li>
+<li><strong>$3 \to 4$</strong>: Isentropic expansion of steam in the turbine $W_T$.</li>
+<li><strong>$4 \to 1$</strong>: Isobaric heat rejection in the condenser at pressure $P_{\text{condenser}}$ $Q_{\text{out}}$.</li>
+<li><strong>Efficiency Relations</strong>:
+  <div class="formula-card">$${\eta_R = \frac{W_{\text{net}}}{Q_{\text{in}}} = \frac{W_T - W_P}{Q_{\text{in}}} = 1 - \frac{T_{\text{rejection}}}{T_{m, \text{addition}}}}$$</div></li>
+<li><strong>Pump Work $W_P$</strong>:</li>
+<li>$W_P = h_2 - h_1 \approx v_1 (P_2 - P_1)$.</li>
+<li>Liquid water is almost incompressible $v_1 \approx \text{constant}$; pump work consumes only $1-2\%$ of turbine power.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Heat Rejection Location</strong>: In an ideal Rankine cycle, isobaric heat rejection occurs EXCLUSIVELY in the CONDENSER $4 \to 1$, NEVER in the turbine!</p>
+<p>[!TRAP]
+<strong>Pump Work Incompressibility Approximation</strong>: $W_P \approx v_1 (P_2 - P_1)$. Remember to convert pressure from $\text{kPa}$ to $\text{bar}$ or $\text{N/m}^2$ correctly $1 \text{ bar} = 100 \text{ kPa} = 10^5 \text{ Pa}$.</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Rankine Efficiency &amp; Pump Work Calculation?
+├─ Is enthalpy data given? → eta_R = [(h3 - h4) - (h2 - h1)] / (h3 - h2)
+├─ Is pump work calculated from pressure difference? → W_P = v_liquid * (P_boiler - P_condenser)
+└─ Is mean heat addition temp Tm given? → eta_R = 1 - (T_condenser / T_m)
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] 4 processes: 2 isentropic, 2 isobaric.</li>
+<li>[ ] Heat rejection occurs in condenser.</li>
+<li>[ ] $W_P \approx v_1 (P_{\text{boiler}} - P_{\text{condenser}})$.</li>
+<li>[ ] $\eta_R = 1 - T_{\text{condenser}}/T_m$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a Rankine cycle, enthalpy at turbine inlet $h_3 = 3400 \text{ kJ/kg}$, turbine exit $h_4 = 2300 \text{ kJ/kg}$, condenser exit liquid $h_1 = 150 \text{ kJ/kg}$, and pump work $W_P = 5 \text{ kJ/kg}$. Calculate net work, heat input, and thermal efficiency.
+- <strong>Solution</strong>:
+  - $h_2 = h_1 + W_P = 150 + 5 = 155 \text{ kJ/kg}$.
+  - Turbine work $W_T = h_3 - h_4 = 3400 - 2300 = 1100 \text{ kJ/kg}$.
+  - Net work $W_{\text{net}} = W_T - W_P = 1100 - 5 = 1095 \text{ kJ/kg}$.
+  - Heat input $Q_{\text{in}} = h_3 - h_2 = 3400 - 155 = 3245 \text{ kJ/kg}$.
+  - Efficiency $\eta_R = \frac{W_{\text{net}}}{Q_{\text{in}}} = \frac{1095}{3245} = 0.3374 = 33.74\%$.
+- <strong>Key Insight</strong>: $\eta_R = 33.74\%$. Always include pump work subtraction.</p>
+<hr />
+<h3 id="32-efficiency-boosting-methods-superheated-rankine-cycle"><strong>3.2 Efficiency Boosting Methods &amp; Superheated Rankine Cycle</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Thermal efficiency increases whenever:</li>
+<li>Mean temperature of heat addition $T_m$ INCREASES.</li>
+<li>Temperature of heat rejection $T_{\text{rejection}}$ DECREASES (lowering condenser pressure).</li>
+<li><strong>Superheating Effects</strong>:</li>
+<li>Heating steam above saturation temperature at CONSTANT PRESSURE in the superheater.</li>
+<li>Raises average temperature of heat addition $T_m \implies$ INCREASES thermal efficiency $\eta_R$.</li>
+<li>Shifts turbine expansion path to the right on T-s diagram $\implies$ INCREASES dryness fraction $x$ at exhaust $\implies$ PREVENTS TURBINE BLADE EROSION!</li>
+<li>Increases net work output $W_{\text{net}}$ and reduces specific steam consumption.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Superheating Dual Advantage</strong>: Superheating at constant pressure simultaneously INCREASES thermal efficiency (by raising $T_m$) AND IMPROVES exhaust steam quality (preventing moisture erosion of LP turbine blades)!</p>
+<p>[!TRAP]
+<strong>Superheating Pressure Rule</strong>: Superheating is carried out at CONSTANT PRESSURE inside boiler tubes! It is NOT a constant temperature or constant volume process.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Rankine Efficiency Modification Check?
+├─ Superheating Steam → Raises T_m -&gt; Increases eta_R AND increases exhaust dryness fraction x
+├─ Increasing Boiler Pressure → Raises T_m -&gt; Increases eta_R BUT decreases exhaust dryness fraction x
+└─ Lowering Condenser Pressure → Lowers T_rejection -&gt; Increases eta_R
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\eta_R \uparrow$ as $T_m \uparrow$.</li>
+<li>[ ] Superheating occurs at constant pressure.</li>
+<li>[ ] Superheating reduces LP blade erosion.</li>
+<li>[ ] $\Delta T_{\text{sup}} = T_{\text{sup}} - T_{\text{sat}}$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Explain why superheating steam improves Rankine cycle performance in thermal power plants.
+- <strong>Solution</strong>:
+  - Superheating adds heat at higher temperatures, raising the mean temperature of heat addition $T_m$. Since $\eta_R = 1 - T_{\text{sink}}/T_m$, higher $T_m$ directly increases thermal efficiency.
+  - Superheating shifts the isentropic expansion line away from the liquid region, resulting in a higher dryness fraction $x &gt; 0.88$ at turbine exhaust, protecting LP turbine blades from water droplet erosion.
+- <strong>Key Insight</strong>: Higher $T_m \implies \eta_R \uparrow$; Higher $x \implies$ Erosion $\downarrow$.</p>
+<hr />
+<h3 id="33-reheat-rankine-cycle-reheat-factor"><strong>3.3 Reheat Rankine Cycle &amp; Reheat Factor</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>High boiler pressure increases efficiency but causes unacceptable moisture at LP turbine exhaust $x &lt; 0.85$.</li>
+<li><strong>Reheat Process</strong>:</li>
+<li>Steam expands in High-Pressure (HP) turbine to an intermediate pressure.</li>
+<li>Steam is returned to the boiler and REHEATED at CONSTANT PRESSURE in a reheater.</li>
+<li>Reheated steam expands in Low-Pressure (LP) turbine to condenser pressure.</li>
+<li><strong>Primary Goal of Reheating</strong>: Control and INCREASE exhaust steam quality $x &gt; 0.88-0.90$ to eliminate blade erosion.</li>
+<li><strong>Reheat Factor $RF$</strong>:
+  <div class="formula-card">$${RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Direct Isentropic Enthalpy Drop}} &gt; 1.0}$$</div></li>
+<li>$RF \approx 1.02 \text{ to } 1.08$ due to friction heat recovery in lower stages.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Reheat Primary Purpose</strong>: The primary reason for reheating steam is NOT just efficiency gain, but to CONTROL MOISTURE CONTENT at the turbine exhaust $x &gt; 0.88$!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Reheat Cycle Identification?
+├─ Primary Purpose → Prevent LP turbine blade erosion by raising exhaust dryness fraction x
+├─ Reheat Pressure Process → Constant Pressure in reheater tubes
+└─ Reheat Factor RF → Sum of stage drops / Overall drop &gt; 1.0 (Typically 1.02 to 1.08)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Reheat occurs at constant pressure.</li>
+<li>[ ] Primary goal: exhaust moisture control $x &gt; 0.88$.</li>
+<li>[ ] Reheat Factor $RF &gt; 1.0$ $1.02-1.08$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In a reheat Rankine cycle, HP turbine enthalpy drop is $400 \text{ kJ/kg}$, LP turbine enthalpy drop is $600 \text{ kJ/kg}$, boiler heat input is $2800 \text{ kJ/kg}$, and reheater heat input is $500 \text{ kJ/kg}$. Neglecting pump work, calculate thermal efficiency.
+- <strong>Solution</strong>:
+  - Total turbine work $W_T = 400 + 600 = 1000 \text{ kJ/kg}$.
+  - Total heat input $Q_{\text{in}} = 2800 + 500 = 3300 \text{ kJ/kg}$.
+  - Efficiency $\eta = \frac{W_T}{Q_{\text{in}}} = \frac{1000}{3300} = 0.3030 = 30.30\%$.
+- <strong>Key Insight</strong>: $\eta = 30.30\%$. Sum turbine works and heat inputs.</p>
+<hr />
+<h3 id="34-regenerative-rankine-cycle-feedwater-heating"><strong>3.4 Regenerative Rankine Cycle &amp; Feedwater Heating</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Regenerative Principle</strong>:</li>
+<li>Small fractions of steam are bled (extracted) from intermediate turbine stages to preheat boiler feedwater before it enters the boiler.</li>
+<li>Preheating feedwater raises the average temperature of heat addition $T_m \implies$ HIGHEST thermal efficiency among Rankine modifications for given pressure limits.</li>
+<li>Extracted steam does no work in remaining LP stages, slightly reducing specific work output per kg of total flow, but efficiency $\eta_R$ rises substantially.</li>
+<li><strong>Open Feedwater Heater Mass Balance</strong>:
+  <div class="formula-card">$${y \cdot h_{\text{bleed}} + (1 - y) \cdot h_{\text{cond}} = 1.0 \cdot h_f}$$</div>
+  <div class="formula-card">$${y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}}$$</div></li>
+<li><strong>Deaeration</strong>: At least one OPEN Feedwater Heater is used as a Deaerator to strip dissolved non-condensable gases $\text{O}_2, \text{CO}_2$ from feedwater to prevent boiler tube corrosion.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Regeneration Efficiency Ranking</strong>: Among simple Rankine, superheated, reheat, and regenerative cycles operating between the same pressure limits, the <strong>REGENERATIVE CYCLE HAS THE HIGHEST THERMAL EFFICIENCY</strong>!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Regenerative Cycle Feature Check?
+├─ Thermal Efficiency Ranking → HIGHEST efficiency among Rankine modifications
+├─ Bled Steam Energy Balance → y = (h_feedwater - h_condensate) / (h_bleed - h_condensate)
+└─ Deaeration Function → Open Feedwater Heater removes dissolved O2 and CO2
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Regeneration yields highest $\eta_R$.</li>
+<li>[ ] $y = (h_f - h_{\text{cond}})/(h_{\text{bleed}} - h_{\text{cond}})$.</li>
+<li>[ ] Open FWH acts as deaerator.</li>
+<li>[ ] Preheats boiler feedwater.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: In an open feedwater heater, condensate enters at $h_{\text{cond}} = 150 \text{ kJ/kg}$, bled steam enters at $h_{\text{bleed}} = 2650 \text{ kJ/kg}$, and subcooled feedwater leaves at $h_f = 650 \text{ kJ/kg}$. Calculate the fraction of steam $y$ bled from the turbine per kg of total flow.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}} = \frac{650 - 150}{2650 - 150} = \frac{500}{2500} = 0.20 = 20\%}$$</div>
+- <strong>Key Insight</strong>: $y = 0.20$ ($20\%$ of total steam flow is extracted for feedwater heating).</p>
+<hr />
+<h3 id="35-modified-rankine-cycle-reciprocating-steam-engines"><strong>3.5 Modified Rankine Cycle (Reciprocating Steam Engines)</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Ideal Rankine cycle assumes expansion continues all the way down to condenser pressure $P_4$.</li>
+<li>In reciprocating steam engines, full expansion requires an impractically long piston stroke and giant cylinder volume due to huge steam specific volume at low pressure.</li>
+<li><strong>Modified Rankine Cycle</strong>:</li>
+<li>Expansion is terminated EARLY at a release point $P_5 &gt; P_{\text{condenser}}$.</li>
+<li>Steam is released to the condenser by a constant-volume pressure drop $5 \to 6$.</li>
+<li>Truncates the indicator diagram, removing the "toe" of the P-V diagram $5-3-6$.</li>
+<li><strong>Primary Geometric Benefit</strong>:</li>
+<li>Sacrifices a very small work area to achieve a <strong>MASSIVE REDUCTION IN CYLINDER STROKE AND VOLUME</strong>!</li>
+<li>Allows compact, practical reciprocating engine construction.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Modified Rankine Primary Benefit</strong>: The principal reason for modifying the Rankine cycle in reciprocating steam engines is <strong>REDUCTION OF CYLINDER STROKE</strong> and size!</p>
+<p>[!TRAP]
+<strong>Modified Rankine Work vs Geometry</strong>: Modified Rankine DOES NOT increase work output! It slightly REDUCES work output to achieve a huge SAVING IN CYLINDER SIZE.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Modified Rankine Cycle Check?
+├─ Application → Reciprocating Steam Engines (Not turbines)
+├─ Cycle Feature → Early release truncates expansion (Removes &quot;toe&quot; 5-3-6 of P-V diagram)
+└─ Primary Purpose / Advantage → REDUCTION OF CYLINDER STROKE and volume
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Applied to reciprocating steam engines.</li>
+<li>[ ] Early release truncates P-V diagram.</li>
+<li>[ ] Removes "toe" of indicator diagram.</li>
+<li>[ ] Primary effect: REDUCTION OF STROKE.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: State the main practical advantage gained by modifying the ideal Rankine cycle for reciprocating steam engines.
+- <strong>Solution</strong>:
+  - The main advantage is the <strong>reduction of the stroke of the cylinder</strong>.
+  - Terminating expansion early avoids building impractically long cylinders to accommodate the huge specific volume of low-pressure steam, creating a compact engine with minimal work loss.
+- <strong>Key Insight</strong>: Reduction of cylinder stroke.</p>
+<hr />
+<h3 id="36-fuels-combustion-flue-gas-analysis"><strong>3.6 Fuels, Combustion &amp; Flue Gas Analysis</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Coal Rank Order (Increasing Carbon &amp; CV)</strong>:
+  <div class="formula-card">$${\text{Peat} \to \text{Lignite} \to \text{Bituminous} \to \text{Anthracite}}$$</div></li>
+<li><strong>Anthracite</strong>: Highest rank, highest fixed carbon $&gt;90\%$, highest calorific value $\approx 36000 \text{ kJ/kg}$, burns smokelessly.</li>
+<li><strong>Bituminous</strong>: Most common and practical fuel for power plant boilers $\approx 33500 \text{ kJ/kg}$.</li>
+<li><strong>Incomplete Combustion Stoichiometry</strong>:
+  <div class="formula-card">$${\mathrm{C} + \frac{1}{2}\mathrm{O}_2 \to \mathrm{CO}}$$</div>
+  <div class="formula-card">$${1 \text{ kg C} \implies \frac{28}{12} = \frac{7}{3} \text{ kg CO} \quad (2.333 \text{ kg CO/kg C})}$$</div></li>
+<li><strong>Calorimeters</strong>:</li>
+<li><strong>Bomb Calorimeter</strong>: Measures Higher Calorific Value (HCV) of SOLID and LIQUID fuels at CONSTANT VOLUME.</li>
+<li><strong>Junker's Calorimeter</strong>: Measures calorific value of GASEOUS fuels.</li>
+<li><strong>Flue Gas Partial Pressure</strong>:
+  <div class="formula-card">$${p_i = x_i \cdot P_{\text{total}}}$$</div></li>
+<li><strong>Fuel Mixtures &amp; Fuel Cells</strong>:</li>
+<li>LPG $= \text{Propane} + \text{Butane}$.</li>
+<li>Gasohol $= 10\% \text{ Ethanol} + 90\% \text{ Gasoline}$.</li>
+<li>Spacecraft fuel cell $\implies$ Alkaline Fuel Cell (produces drinking water).</li>
+<li>SO₂ control in FBC $\implies$ Limestone $\text{CaCO}_3$ injection (Ca:S ratio $\approx 3$).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Carbon Incomplete Combustion Factor</strong>: $1 \text{ kg}$ of Carbon under incomplete combustion produces EXACTLY $\frac{7}{3} \text{ kg}$ of CO $2.333 \text{ kg}$.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Fuel &amp; Combustion Query Check?
+├─ Highest CV Coal → Anthracite (36,000 kJ/kg)
+├─ Preferred Power Plant Coal → Bituminous (33,500 kJ/kg)
+├─ 1 kg C Incomplete Combustion CO Yield → 7/3 kg CO
+├─ Solid / Liquid Fuel Calorimeter → Bomb Calorimeter (Constant volume HCV)
+└─ Gaseous Fuel Calorimeter → Junker's Gas Calorimeter
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Coal rank: Peat &lt; Lignite &lt; Bituminous &lt; Anthracite.</li>
+<li>[ ] $1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$.</li>
+<li>[ ] Bomb calorimeter $\implies$ Constant volume HCV.</li>
+<li>[ ] Junker's $\implies$ Gaseous fuel.</li>
+<li>[ ] $p_i = x_i P_{\text{total}}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Flue gas at $P_{\text{total}} = 5 \text{ bar}$ $500 \text{ kPa}$ contains $15\%$ $\text{CO}<em>2$, $5\%$ $\text{O}_2$, and $80\%$ $\text{N}_2$ by volume. Calculate the partial pressure of $\text{N}_2$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${p</em>{\mathrm{N}<em>2} = x</em>{\mathrm{N}<em>2} \cdot P</em>{\text{total}} = 0.80 \times 5 \text{ bar} = 4.0 \text{ bar} = 400 \text{ kPa}}$$</div>
+- <strong>Key Insight</strong>: Partial pressure $= 400 \text{ kPa}$.</p>
+<hr />
+<h3 id="37-boiler-systems-mountings-accessories-draught"><strong>3.7 Boiler Systems, Mountings, Accessories &amp; Draught</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Mountings vs Accessories</strong>:</li>
+<li><strong>Boiler Mountings (Mandatory Safety &amp; Control)</strong>: Fitted directly on boiler drum. Includes Fusible Plug, Safety Valves (min 2), Water Level Indicator, Pressure Gauge, Main Stop Valve, Feed Check Valve, Blow-off Cock.</li>
+<li><strong>Boiler Accessories (Optional Efficiency Boosters)</strong>: Installed in flue gas path. Includes Economiser, Superheater, Air Preheater, Feed Pump, Steam Injector.</li>
+<li><strong>Fusible Plug</strong>: Fail-safe mounting in furnace crown containing low-melting alloy that melts when water level drops dangerously low, releasing steam to douse the fire.</li>
+<li><strong>Flue Gas Path Sequence</strong>:
+  <div class="formula-card">$${\text{Furnace} \to \text{Superheater} \to \text{Economiser} \to \text{Air Preheater} \to \text{ID Fan} \to \text{Chimney}}$$</div></li>
+<li><strong>Boiler Draught Systems</strong>:</li>
+<li>Natural Draught: Produced solely by chimney height and gas temperature difference. Thermal efficiency $\approx 0.25\%$ (extremely low).</li>
+<li>Forced Draught: Fan pushes atmospheric air into furnace under positive pressure.</li>
+<li>Induced Draught: Fan placed at chimney base sucks flue gases out under partial vacuum (negative pressure).</li>
+<li>Balanced Draught: Combination of Forced + Induced fans.</li>
+<li><strong>Equivalent Evaporation $m_e$</strong>:
+  <div class="formula-card">$${m_e = \frac{m_s (h - h_{f1})}{2257} \quad (\text{kg/h})}$$</div>
+  Evaluated "from and at $100^\circ\text{C}$". Latent heat $= 2257 \text{ kJ/kg}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Mounting vs Accessory Rule</strong>: Fusible Plug is a MOUNTING (safety device)! Economiser, Superheater, and Air Preheater are ACCESSORIES (efficiency boosters)!</p>
+<p>[!TRAP]
+<strong>Flue Gas Order</strong>: Flue gases exit furnace and pass through: (1) Superheater $\to$ (2) Economiser $\to$ (3) Air Preheater. Do not scramble this sequence!</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Boiler Equipment &amp; Draught Check?
+├─ Safety / Control Device on Drum → BOILER MOUNTING (Fusible Plug, Safety Valve, Water Gauge)
+├─ Thermal Efficiency Booster → BOILER ACCESSORY (Economiser, Superheater, Air Preheater)
+├─ Flue Gas Sequence → Superheater -&gt; Economiser -&gt; Air Preheater -&gt; ID Fan -&gt; Chimney
+├─ Chimney Natural Draught Efficiency → ~0.25% (Very low)
+└─ Equivalent Evaporation Formula → m_e = m_s * (h - h_f1) / 2257 (&quot;from and at 100°C&quot;)
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Fusible plug is a mounting.</li>
+<li>[ ] Economiser, Superheater, Air Preheater are accessories.</li>
+<li>[ ] Flue gas: Superheater $\to$ Economiser $\to$ Air Preheater.</li>
+<li>[ ] Chimney natural draught $\eta \approx 0.25\%$.</li>
+<li>[ ] $m_e = m_s(h-h_{f1})/2257$.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A boiler generates $m_s = 5000 \text{ kg/h}$ of steam at $h = 2800 \text{ kJ/kg}$ from feedwater at $h_{f1} = 200 \text{ kJ/kg}$. Calculate equivalent evaporation $m_e$ from and at $100^\circ\text{C}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${m_e = \frac{m_s (h - h_{f1})}{2257} = \frac{5000 \times (2800 - 200)}{2257} = \frac{5000 \times 2600}{2257} = \frac{13000000}{2257} = 5759.86 \text{ kg/h}}$$</div>
+- <strong>Key Insight</strong>: $m_e = 5759.86 \text{ kg/h}$. Divide heat absorbed by $2257 \text{ kJ/kg}$.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: What are the four processes of an ideal Rankine cycle?</strong><br />
+A: (1) Isentropic pump compression $1-2$, (2) Isobaric heat addition in boiler $2-3$, (3) Isentropic turbine expansion $3-4$, and (4) Isobaric heat rejection in condenser $4-1$.</p>
+<p><strong>Q2: Where does isobaric heat rejection occur in an ideal Rankine cycle?</strong><br />
+A: In the Condenser.</p>
+<p><strong>Q3: Write the formula for Rankine cycle thermal efficiency in terms of mean temperature of heat addition $T_m$.</strong><br />
+A: $\eta_R = 1 - \frac{T_{\text{rejection}}}{T_{m, \text{addition}}}$.</p>
+<p><strong>Q4: How does superheating steam at constant pressure affect Rankine cycle efficiency and exhaust moisture?</strong><br />
+A: Superheating raises $T_m$, which INCREASES thermal efficiency, and raises turbine exhaust dryness fraction $x$, PREVENTING LP blade erosion.</p>
+<p><strong>Q5: What is the primary purpose of reheating steam in a Rankine cycle?</strong><br />
+A: To control and increase dryness fraction $x &gt; 0.88$ at LP turbine exhaust to prevent blade erosion.</p>
+<p><strong>Q6: What is Reheat Factor $RF$ and what is its typical numerical range?</strong><br />
+A: $RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Direct Isentropic Enthalpy Drop}} \approx 1.02 \text{ to } 1.08$.</p>
+<p><strong>Q7: Which Rankine cycle modification yields the HIGHEST thermal efficiency between fixed pressure limits?</strong><br />
+A: The Regenerative Rankine Cycle (using bled steam to preheat feedwater).</p>
+<p><strong>Q8: Write the energy balance formula for fraction $y$ bled to an open feedwater heater.</strong><br />
+A: $y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}$.</p>
+<p><strong>Q9: Why is at least one open feedwater heater used in steam power plants?</strong><br />
+A: To act as a Deaerator, stripping dissolved oxygen and carbon dioxide from feedwater to prevent boiler corrosion.</p>
+<p><strong>Q10: What is the primary practical benefit of modifying the Rankine cycle for reciprocating steam engines?</strong><br />
+A: REDUCTION OF CYLINDER STROKE and engine volume by terminating expansion early.</p>
+<p><strong>Q11: How much Carbon Monoxide (CO) is produced by incomplete combustion of $1 \text{ kg}$ of Carbon?</strong><br />
+A: $\frac{7}{3} \text{ kg}$ of CO $2.333 \text{ kg}$.</p>
+<p><strong>Q12: Differentiate between a Bomb Calorimeter and a Junker's Calorimeter.</strong><br />
+A: A Bomb calorimeter measures Higher Calorific Value (HCV) of solid and liquid fuels at constant volume. Junker's calorimeter measures calorific value of gaseous fuels.</p>
+<p><strong>Q13: Differentiate between Boiler Mountings and Boiler Accessories.</strong><br />
+A: Mountings are mandatory safety and control devices on the drum (Fusible Plug, Safety Valves). Accessories are optional efficiency boosters in the flue gas path (Economiser, Superheater, Air Preheater).</p>
+<p><strong>Q14: What is the correct sequence of boiler accessories in the flue gas flow path?</strong><br />
+A: Furnace $\to$ Superheater $\to$ Economiser $\to$ Air Preheater $\to$ ID Fan $\to$ Chimney.</p>
+<p><strong>Q15: Define Equivalent Evaporation and state its standard latent heat value.</strong><br />
+A: Equivalent Evaporation $m_e = \frac{m_s (h - h_{f1})}{2257} \text{ kg/h}$, the mass of water evaporated from and at $100^\circ\text{C}$ into dry saturated steam per hour. Latent heat $= 2257 \text{ kJ/kg}$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Ideal Rankine Efficiency</strong>: $\eta_R = \frac{W_T - W_P}{Q_{\text{in}}} = 1 - \frac{T_{\text{condenser}}}{T_m}$. Heat rejection in CONDENSER.</li>
+<li><strong>Pump Work</strong>: $W_P \approx v_1 (P_{\text{boiler}} - P_{\text{condenser}})$. Small $1-2\%$ but non-zero.</li>
+<li><strong>Superheating</strong>: Constant pressure process. Raises $T_m \implies \eta_R \uparrow$; Raises exhaust dryness fraction $x \implies$ Blade erosion $\downarrow$.</li>
+<li><strong>Reheating</strong>: Primary purpose is EXHAUST MOISTURE CONTROL $x &gt; 0.88$. Reheat Factor $RF = 1.02-1.08$.</li>
+<li><strong>Regeneration</strong>: HIGHEST efficiency among Rankine modifications. Open FWH acts as Deaerator ($\text{O}_2/\text{CO}_2$ removal).</li>
+<li><strong>Modified Rankine</strong>: Applied to reciprocating steam engines. Truncates diagram ("toe" 5-3-6 removed) $\implies$ REDUCTION OF STROKE.</li>
+<li><strong>Carbon Incomplete Combustion</strong>: $1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$.</li>
+<li><strong>Coal Ranks</strong>: Peat &lt; Lignite &lt; Bituminous (power plant fuel) &lt; Anthracite ($36000 \text{ kJ/kg}$, highest CV).</li>
+<li><strong>Bomb Calorimeter</strong>: Solid/liquid fuels $\implies$ Constant volume HCV.</li>
+<li><strong>Fusible Plug</strong>: Boiler MOUNTING (safety), NOT an accessory.</li>
+<li><strong>Flue Gas Path</strong>: Superheater $\to$ Economiser $\to$ Air Preheater.</li>
+<li><strong>Chimney Natural Draught Efficiency</strong>: $\approx 0.25\%$ (extremely low).</li>
+<li><strong>Equivalent Evaporation</strong>: $m_e = \frac{m_s (h - h_{f1})}{2257} \text{ kg/h}$ ("from and at $100^\circ\text{C}$").</li>
+<li><strong>Power Plant Factors</strong>: Load Factor $&lt; 1.0$; Diversity Factor $&gt; 1.0$.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\eta_R = 1 - T_{\text{condenser}}/T_m$.</li>
+<li>[ ] Memorize $W_P \approx v_1(P_{\text{boiler}} - P_{\text{condenser}})$.</li>
+<li>[ ] Memorize Superheat $\implies \eta_R \uparrow$ AND exhaust dryness $x \uparrow$.</li>
+<li>[ ] Memorize Reheat primary goal $\implies$ exhaust moisture control.</li>
+<li>[ ] Memorize Reheat Factor $RF = 1.02-1.08$.</li>
+<li>[ ] Memorize Regeneration $\implies$ Highest Rankine efficiency.</li>
+<li>[ ] Memorize Modified Rankine $\implies$ Reduction of cylinder stroke.</li>
+<li>[ ] Memorize $1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$.</li>
+<li>[ ] Memorize Anthracite $= 36000 \text{ kJ/kg}$ (highest CV).</li>
+<li>[ ] Memorize Bomb calorimeter $\implies$ Constant volume HCV.</li>
+<li>[ ] Memorize Fusible plug $=$ Mounting (safety).</li>
+<li>[ ] Memorize Flue gas path $\implies$ Superheater $\to$ Economiser $\to$ Air Preheater.</li>
+<li>[ ] Memorize Chimney draught $\eta \approx 0.25\%$.</li>
+<li>[ ] Memorize Equivalent Evaporation $m_e = \frac{m_s(h-h_{f1})}{2257}$.</li>
+<li>[ ] Memorize Load Factor $&lt; 1.0$, Diversity Factor $&gt; 1.0$.</li>
+</ul>
+</body>
+</html>

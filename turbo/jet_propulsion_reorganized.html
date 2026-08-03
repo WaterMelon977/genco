@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jet Propulsion, Rocket Propulsion & Compressible Flow — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Turbo Machines Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="jet-propulsion-rocket-propulsion-compressible-flow-comprehensive-reorganized-study-guide">Jet Propulsion, Rocket Propulsion &amp; Compressible Flow — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Jet Propulsion and Rocket Propulsion (Air-breathing Jet Propulsive Efficiency $\eta_p = \frac{2u}{u+v}$, Rocket Propulsive Efficiency $\eta_p = \frac{2V_f V_e}{V_e^2 + V_f^2}$, Water Jet Ship Efficiency with right-angle inlet $\eta_p = \frac{2Vu}{V^2+u^2}$), Thrust and Momentum Principle (Turbojet thrust $F = \dot{m}(V_{\text{exit}} - V_{\text{inlet}})$, Rocket thrust $F = \dot{m}V_e + (P_e - P_0)A_e$, Thrust Coefficient $C_F = \frac{F}{P_c A_t}$), Classification of Propulsion Engines (Turbojet with Air-Fuel Ratio $60:1$, Turboprop sequence Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine, Ramjet zero static thrust limitation, Pulsejet intermittent 2-stroke analogue), Rocket Propulsion &amp; Specific Impulse (Non-air-breathing, hybrid rockets $\text{LiH} + \text{ClF}<em>3$, Specific Impulse $I</em>{sp} = \frac{1}{\text{SPC}}$), Supersonic Mach Angle $\mu = \sin^{-1}(1/M) = \sin^{-1}(a/v)$, and Turbojet Combustion Chamber Requirements (complete combustion, continuous flame stability, minimal pressure drop, high rate of combustion is NOT required) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-propulsive-efficiencies"><strong>1. Propulsive Efficiencies</strong></h4>
+<ul>
+<li><strong>Air-Breathing Jet Engine Propulsive Efficiency $\eta_p$</strong>:
+  <div class="formula-card">$${\boxed{\eta_p = \frac{2u}{u + v} = \frac{2}{1 + \frac{v}{u}}}}$$</div></li>
+<li>$u$: flight (aircraft) forward velocity $\text{m/s}$</li>
+<li>
+<p>$v$: jet exhaust velocity relative to aircraft $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Rocket Engine Propulsive Efficiency $\eta_p$</strong>:
+  <div class="formula-card">$${\boxed{\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2} = \frac{2 r}{1 + r^2}}}$$</div></p>
+</li>
+<li>$V_f$: rocket forward flight velocity $\text{m/s}$</li>
+<li>$V_e$: effective jet exhaust velocity $\text{m/s}$</li>
+<li>
+<p>$r = \frac{V_f}{V_e}$: velocity ratio (maximum $\eta_p = 100\%$ occurs at $r = 1 \implies V_f = V_e$)</p>
+</li>
+<li>
+<p><strong>Water-Jet Ship Propulsion (Inlet Orifices at Right Angles)</strong>:
+  <div class="formula-card">$${\boxed{\eta_p = \frac{2 V u}{V^2 + u^2}}}$$</div></p>
+</li>
+<li>$V$: absolute velocity of issuing water jet $\text{m/s}$</li>
+<li>$u$: ship forward velocity $\text{m/s}$</li>
+<li>Maximum theoretical efficiency $= 50\%$ (at $V = u$)</li>
+</ul>
+<hr />
+<h4 id="2-thrust-rocket-coefficient"><strong>2. Thrust &amp; Rocket Coefficient</strong></h4>
+<ul>
+<li><strong>Turbojet Thrust $F$</strong>:
+  <div class="formula-card">$${\boxed{F = \dot{m} \cdot (V_{\text{exit}} - V_{\text{inlet}}) \quad (\text{N or kN})}}$$</div></li>
+<li>$\dot{m}$: mass flow rate of air $\text{kg/s}$</li>
+<li>$V_{\text{exit}}$: exhaust jet velocity relative to engine $\text{m/s}$</li>
+<li>
+<p>$V_{\text{inlet}}$: inlet air velocity relative to engine $\text{m/s}$</p>
+</li>
+<li>
+<p><strong>Rocket Thrust $F$</strong>:
+  <div class="formula-card">$${\boxed{F = \dot{m} \cdot V_e + (P_e - P_0) \cdot A_e \quad (\text{N or kN})}}$$</div></p>
+</li>
+<li>$V_e$: effective jet exhaust velocity $\text{m/s}$</li>
+<li>$P_e$: nozzle exit static pressure $\text{Pa}$</li>
+<li>$P_0$: ambient atmospheric pressure $\text{Pa}$</li>
+<li>$A_e$: nozzle exit area $\text{m}^2$</li>
+<li>
+<p>Note: Ambient air entry velocity for rocket is ZERO $V_{\text{inlet}} = 0$!</p>
+</li>
+<li>
+<p><strong>Rocket Thrust Coefficient $C_F$</strong>:
+  <div class="formula-card">$${\boxed{C_F = \frac{F}{P_c \cdot A_t}}}$$</div></p>
+</li>
+<li>$F$: measured engine thrust $\text{N}$</li>
+<li>$P_c$: combustion chamber pressure $\text{Pa}$</li>
+<li>$A_t$: nozzle throat area $\text{m}^2$</li>
+</ul>
+<hr />
+<h4 id="3-specific-impulse-mach-angle"><strong>3. Specific Impulse &amp; Mach Angle</strong></h4>
+<ul>
+<li><strong>Specific Impulse $I_{sp}$</strong>:
+  <div class="formula-card">$${\boxed{I_{sp} = \frac{1}{\text{SPC}} = \frac{F}{\dot{m} \cdot g_0} \quad (\text{seconds})}}$$</div></li>
+<li>$\text{SPC}$: Specific Propellant Consumption ($\text{kg/(N}\cdot\text{s)}$ or $\text{s}^{-1}$)</li>
+<li>
+<p>$g_0$: standard acceleration due to gravity $9.81 \text{ m/s}^2$</p>
+</li>
+<li>
+<p><strong>Supersonic Mach Angle $\mu$</strong>:
+  <div class="formula-card">$${\boxed{\mu = \sin^{-1}\left(\frac{1}{M}\right) = \sin^{-1}\left(\frac{a}{v}\right)}}$$</div></p>
+</li>
+<li>$M = \frac{v}{a}$: flight Mach number $M &gt; 1$</li>
+<li>$a$: local speed of sound $\text{m/s}$</li>
+<li>$v$: aircraft / projectile velocity $\text{m/s}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Jet Propulsion</strong>: Propulsion of an aircraft or vessel produced by the high-velocity discharge of a fluid jet creating reactive thrust according to Newton's third law of motion and conservation of linear momentum.</li>
+<li><strong>Turbojet Engine</strong>: An air-breathing jet engine comprising an inlet diffuser, dynamic axial/centrifugal compressor, combustion chamber, gas turbine, and exhaust nozzle. Operates with a continuous lean air-fuel ratio $\approx 60:1$.</li>
+<li><strong>Turboprop Engine</strong>: A gas turbine engine that uses most of its power to drive an external propeller via a reduction gearbox. Component sequence: Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine.</li>
+<li><strong>Ramjet Engine</strong>: An air-breathing engine with NO MOVING PARTS (no compressor or turbine). Compression is achieved entirely by dynamic ramming of supersonic air in the inlet diffuser. Cannot produce static thrust at rest $M = 0$.</li>
+<li><strong>Pulsejet Engine</strong>: An air-breathing engine featuring intermittent combustion regulated by automatic intake reed valves, resembling a high-speed single-cylinder 2-stroke engine $2400-2700 \text{ rpm}$.</li>
+<li><strong>Rocket Engine</strong>: A non-air-breathing propulsion system that carries both fuel and oxidiser onboard. Independent of atmospheric oxygen; inlet air velocity is zero.</li>
+<li><strong>Hybrid Rocket</strong>: A rocket engine using solid fuel and a liquid/gaseous oxidiser (e.g. Lithium Hydride $\text{LiH}$ fuel + Chlorine Trifluoride $\text{ClF}_3$ oxidiser).</li>
+<li><strong>Thrust Coefficient $C_F$</strong>: Non-dimensional performance metric relating rocket thrust to combustion chamber pressure and nozzle throat area $C_F = \frac{F}{P_c A_t}$.</li>
+<li><strong>Mach Angle $\mu$</strong>: Half-angle of the supersonic Mach cone created by an object travelling at speed $v &gt; a$ $\sin\mu = 1/M$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Turbojet Air-Fuel Ratio $\text{AFR}$</strong>: $\approx 60:1$ (diluted with excess air to limit turbine inlet temperature).</li>
+<li><strong>Rocket Inlet Air Velocity</strong>: $V_{\text{inlet}} = 0 \text{ m/s}$ (does not ingest atmospheric air).</li>
+<li><strong>Maximum Theoretical Ship Propulsive Efficiency (Right-Angle Inlet)</strong>: $50\%$ (at $V = u$).</li>
+<li><strong>Pulsejet Frequency Analogue</strong>: $2400 - 2700 \text{ rpm}$ (high-speed 2-stroke engine equivalent).</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Propulsive Efficiency Formulations</strong>: Introduced in §3.1.</li>
+<li><strong>Thrust &amp; Linear Momentum Principle</strong>: §3.2.</li>
+<li><strong>Air-Breathing Engine Classifications</strong>: §3.3.</li>
+<li><strong>Rocket Specifics, Hybrids &amp; $I_{sp}$</strong>: §3.4.</li>
+<li><strong>Supersonic Mach Angle</strong>: §3.5.</li>
+<li><strong>Combustion Chamber Requirements</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-propulsive-efficiency-formulations"><strong>3.1 Propulsive Efficiency Formulations</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Air-Breathing Jet Engines</strong>:</li>
+<li>Propulsive efficiency $\eta_p = \frac{\text{Propulsive Power}}{\text{Rate of KE Addition to Jet}} = \frac{2u}{u + v} = \frac{2}{1 + \frac{v}{v_u}}$.</li>
+<li>$u$ is aircraft forward velocity; $v$ is jet velocity RELATIVE to the aircraft.</li>
+<li>As jet velocity $v$ approaches flight velocity $u$, $\eta_p \to 100\%$ (minimum residual kinetic energy loss).</li>
+<li><strong>Rocket Engines</strong>:</li>
+<li>Rocket carries its own oxidiser; exhaust velocity is absolute velocity $V_e$.</li>
+<li>$\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2} = \frac{2 r}{1 + r^2}$, where velocity ratio $r = \frac{V_f}{V_e}$.</li>
+<li>Peak propulsive efficiency $\eta_p = 100\%$ occurs EXACTLY when forward velocity equals exhaust velocity $V_f = V_e \implies r = 1.0$.</li>
+<li><strong>Water-Jet Ship Propulsion (Right-Angle Inlets)</strong>:</li>
+<li>When water is drawn into the ship through orifices at right angles to ship motion, $\eta_p = \frac{2 V u}{V^2 + u^2}$.</li>
+<li>Maximum theoretical efficiency is <strong>$50\%$</strong> (occurring when jet velocity $V = u$).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Jet vs Rocket Propulsive Efficiency</strong>:
+- Air-Breathing Jet $\implies \eta_p = \frac{2u}{u+v}$ ($v$ is relative jet speed).
+- Rocket Engine $\implies \eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2}$ ($V_e$ is absolute exhaust speed; peak at $V_f = V_e$).</p>
+<p>[!TRAP]
+<strong>Water-Jet Ship Inlet Angle Trap</strong>: If inlet orifices are at RIGHT ANGLES to motion, $\eta_p = \frac{2 V u}{V^2 + u^2}$ (denominator is sum of squares!). Max efficiency is $50\%$. Do not confuse with parallel inlets!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Propulsive Efficiency Formula Selection?
+├─ Air-Breathing Jet Engine → eta_p = 2 * u / (u + v)  [v = relative jet speed]
+├─ Rocket Engine → eta_p = 2 * Vf * Ve / (Ve^2 + Vf^2)  [Peak eta_p = 100% when Vf = Ve]
+└─ Water-Jet Ship (Right-Angle Inlet) → eta_p = 2 * V * u / (V^2 + u^2)  [Max eta_p = 50%]
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Air-breathing jet $\eta_p = \frac{2u}{u+v}$.</li>
+<li>[ ] Rocket $\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2}$.</li>
+<li>[ ] Rocket peak $\eta_p = 100\%$ at $V_f = V_e$.</li>
+<li>[ ] Ship right-angle inlet $\eta_p = \frac{2 Vu}{V^2+u^2}$ (max $50\%$).</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A rocket travels at forward velocity $V_f = 1500 \text{ m/s}$ with an effective exhaust jet velocity $V_e = 4000 \text{ m/s}$. Calculate the propulsive efficiency $\eta_p$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2} = \frac{2 \times 1500 \times 4000}{4000^2 + 1500^2} = \frac{12000000}{16000000 + 2250000} = \frac{12000000}{18250000} = 0.6575 = 65.75\% \approx 66\%}$$</div>
+- <strong>Key Insight</strong>: $\eta_p = 65.75\% \approx 66\%$. Use rocket formula with absolute velocities.</p>
+<hr />
+<h3 id="32-thrust-linear-momentum-principle"><strong>3.2 Thrust &amp; Linear Momentum Principle</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Jet propulsion operates directly on Newton's third law and conservation of <strong>linear momentum</strong>.</li>
+<li><strong>Turbojet Thrust $F$</strong>:
+  <div class="formula-card">$${F = \dot{m} \cdot (V_{\text{exit}} - V_{\text{inlet}})}$$</div>
+  Where $\dot{m}$ is air mass flow rate $\text{kg/s}$, $V_{\text{exit}}$ and $V_{\text{inlet}}$ are relative velocities $\text{m/s}$.</li>
+<li><strong>Rocket Thrust $F$</strong>:
+  <div class="formula-card">$${F = \dot{m} \cdot V_e + (P_e - P_0) \cdot A_e}$$</div>
+  Rocket carries all propellants onboard; atmospheric air ingestion rate is ZERO $V_{\text{inlet}} = 0$.</li>
+<li><strong>Rocket Thrust Coefficient $C_F$</strong>:
+  <div class="formula-card">$${C_F = \frac{F}{P_c \cdot A_t}}$$</div>
+  Requires measured thrust $F$, combustion pressure $P_c$, and nozzle throat area $A_t$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Rocket Inlet Velocity Constant</strong>: For a rocket engine, inlet atmospheric air velocity is ALWAYS ZERO $V_{\text{inlet}} = 0$. Rocket thrust depends strictly on propellant mass flow rate, exhaust velocity, and pressure difference across exit area!</p>
+<p>[!TRAP]
+<strong>Thrust Coefficient Parameters</strong>: $C_F = \frac{F}{P_c A_t}$. To compute $C_F$, you MUST have measured thrust $F$, chamber pressure $P_c$, AND throat area $A_t$!</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Propulsion Thrust Calculation?
+├─ Turbojet Engine → F = m_dot * (V_exit - V_inlet)
+├─ Rocket Engine → F = m_dot * Ve + (Pe - P0) * Ae  [V_inlet = 0]
+└─ Rocket Thrust Coefficient → C_F = F / (P_c * A_t)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Linear momentum principle.</li>
+<li>[ ] Turbojet $F = \dot{m}(V_{\text{exit}} - V_{\text{inlet}})$.</li>
+<li>[ ] Rocket $V_{\text{inlet}} = 0$.</li>
+<li>[ ] $C_F = F / (P_c A_t)$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A turbojet ingests air at $\dot{m} = 40 \text{ kg/s}$. Relative inlet velocity is $V_{\text{inlet}} = 250 \text{ m/s}$ and relative exhaust velocity is $V_{\text{exit}} = 700 \text{ m/s}$. Calculate the thrust developed.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${F = \dot{m} \cdot (V_{\text{exit}} - V_{\text{inlet}}) = 40 \times (700 - 250) = 40 \times 450 = 18000 \text{ N} = 18 \text{ kN}}$$</div>
+- <strong>Key Insight</strong>: $F = 18 \text{ kN}$. Aircraft ground speed is irrelevant when relative inlet velocity is given.</p>
+<hr />
+<h3 id="33-air-breathing-engine-classifications-characteristics"><strong>3.3 Air-Breathing Engine Classifications &amp; Characteristics</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Turbojet Engine</strong>:</li>
+<li>Continuous flow path: Inlet $\to$ Compressor $\to$ Combustor $\to$ Turbine $\to$ Nozzle.</li>
+<li>Operates at a very lean air-fuel ratio $\text{AFR} \approx 60:1$ to limit turbine inlet temperature.</li>
+<li><strong>Turboprop Engine</strong>:</li>
+<li>Gas turbine core drives a large external propeller via a reduction gearbox.</li>
+<li>Component sequence: <strong>Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine</strong>.</li>
+<li><strong>Ramjet Engine</strong>:</li>
+<li>Contains NO ROTATING PARTS (no compressor, no turbine).</li>
+<li>Uses dynamic ram compression of high-speed air in a converging-diverging diffuser.</li>
+<li><strong>CANNOT PRODUCE STATIC THRUST AT REST $M = 0$</strong>; requires an external booster to reach supersonic flying speed.</li>
+<li><strong>Pulsejet Engine</strong>:</li>
+<li>Intermittent combustion cycle featuring automatic inlet valve grids.</li>
+<li>Thermodynamically analogous to a high-speed single-cylinder 2-stroke engine operating at <strong>$2400 - 2700 \text{ rpm}$</strong>.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ramjet Static Thrust Limitation</strong>: A Ramjet HAS NO COMPRESSOR! It relies entirely on forward air speed for ram compression. Consequently, a ramjet CANNOT PRODUCE STATIC THRUST AT REST $M = 0$ and cannot take off unassisted!</p>
+<p>[!TRAP]
+<strong>Turboprop Component Sequence Trap</strong>: The correct component sequence for a Turboprop engine is: <strong>Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine</strong>. Do not scramble the positions of propeller and compressor!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Jet Engine Type Identification?
+├─ Turbine drives external propeller → TURBOPROP (Sequence: Propeller -&gt; Compressor -&gt; Burner -&gt; Turbine)
+├─ No moving parts; zero static thrust at rest → RAMJET (Needs high-speed ram compression)
+├─ Intermittent combustion with valve grid → PULSEJET (High-speed 2-stroke engine analogue)
+└─ Continuous flow, turbine drives compressor → TURBOJET (AFR ~ 60:1)
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Turbojet $\text{AFR} \approx 60:1$.</li>
+<li>[ ] Turboprop sequence: Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine.</li>
+<li>[ ] Ramjet: zero static thrust at rest.</li>
+<li>[ ] Pulsejet: intermittent 2-stroke analogue $2400-2700 \text{ rpm}$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Which of the following air-breathing engines cannot produce static thrust at zero flight speed $M=0$? (a) Turbojet (b) Turboprop (c) Ramjet (d) Pulsejet.
+- <strong>Solution</strong>:
+  - <strong>(c) Ramjet</strong>.
+  - Reason: Ramjets lack a mechanical compressor and rely exclusively on dynamic ram pressure from high-speed forward flight to compress intake air. At $M=0$, no compression occurs, so zero thrust is produced.
+- <strong>Key Insight</strong>: Ramjet cannot start statically.</p>
+<hr />
+<h3 id="34-rocket-propulsion-specifics-specific-impulse"><strong>3.4 Rocket Propulsion Specifics &amp; Specific Impulse</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Rocket Engine Features</strong>:</li>
+<li>Non-air-breathing; carries both fuel and oxidiser on board.</li>
+<li>Operates in space vacuum; independent of atmospheric oxygen.</li>
+<li><strong>Hybrid Rocket Engines</strong>:</li>
+<li>Uses propellants in two different phases: typically SOLID fuel and LIQUID/GASEOUS oxidiser.</li>
+<li>Classic exam example: <strong>Lithium Hydride $\text{LiH}$ solid fuel + Chlorine Trifluoride $\text{ClF}_3$ liquid oxidiser</strong>.</li>
+<li><strong>Specific Impulse $I_{sp}$</strong>:</li>
+<li>Measures propellant consumption efficiency $I_{sp} = \frac{1}{\text{SPC}} = \frac{F}{\dot{m} g_0}$.</li>
+<li>Expressed in <strong>seconds $\text{s}$</strong>. Higher $I_{sp} \implies$ superior propellant economy.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Specific Impulse &amp; SPC Reciprocal</strong>: Specific Impulse $I_{sp}$ is the EXACT RECIPROCAL of Specific Propellant Consumption $I_{sp} = \frac{1}{\text{SPC}}$!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Rocket Parameter &amp; Type Check?
+├─ Solid Fuel + Liquid Oxidiser → HYBRID ROCKET (e.g. Lithium Hydride + Chlorine Trifluoride)
+├─ Propellant Efficiency Metric → SPECIFIC IMPULSE (I_sp = 1 / SPC [seconds])
+└─ Thrust Coefficient → C_F = F / (P_c * A_t)
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Rocket carries fuel + oxidiser.</li>
+<li>[ ] Hybrid rocket: $\text{LiH} + \text{ClF}_3$.</li>
+<li>[ ] $I_{sp} = 1 / \text{SPC}$.</li>
+<li>[ ] $I_{sp}$ units: seconds.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A rocket engine has a Specific Propellant Consumption $\text{SPC} = 0.004 \text{ kg/(N}\cdot\text{s)}$. Calculate its Specific Impulse $I_{sp}$ (taking $g_0 = 9.81 \text{ m/s}^2$).
+- <strong>Solution</strong>:
+  <div class="formula-card">$${I_{sp} = \frac{1}{\text{SPC} \cdot g_0} = \frac{1}{0.004 \times 9.81} = \frac{1}{0.03924} \approx 25.48 \text{ s}}$$</div>
+  (Or in force-based units: $I_{sp} = \frac{1}{\text{SPC}} = \frac{1}{0.004} = 250 \text{ N}\cdot\text{s/kg}$).
+- <strong>Key Insight</strong>: $I_{sp} = \frac{1}{\text{SPC}}$.</p>
+<hr />
+<h3 id="35-supersonic-mach-angle"><strong>3.5 Supersonic Mach Angle</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>When a body travels through a fluid at supersonic speed $v &gt; a \implies M &gt; 1$, pressure disturbance waves form a conical shock envelope called the <strong>Mach Cone</strong>.</li>
+<li><strong>Mach Angle $\mu$</strong>:</li>
+<li>The half-angle of the Mach cone.</li>
+<li>Formula:
+    <div class="formula-card">$${\sin\mu = \frac{1}{M} = \frac{a}{v} \implies \mu = \sin^{-1}\left(\frac{1}{M}\right) = \sin^{-1}\left(\frac{a}{v}\right)}$$</div></li>
+<li>As Mach number $M$ INCREASES, Mach angle $\mu$ DECREASES (cone becomes narrower).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Mach Angle Sine Law</strong>: $\sin\mu = \frac{1}{M} = \frac{a}{v}$. The Mach angle is defined strictly using the SINE function!</p>
+<p>[!TRAP]
+<strong>Trigonometric Function Trap</strong>: Mach angle $\mu = \sin^{-1}(1/M)$. Do not accidentally select $\cos^{-1}$ or $\tan^{-1}$ options!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Supersonic Mach Angle Calculation?
+├─ Formula → mu = arcsin(1 / M) = arcsin(a / v)
+├─ If velocity v and speed of sound a are given → M = v / a -&gt; mu = arcsin(a / v)
+└─ Trend → As Mach number M increases, Mach angle mu decreases
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Defined for $M &gt; 1$.</li>
+<li>[ ] $\sin\mu = 1/M = a/v$.</li>
+<li>[ ] $\mu = \sin^{-1}(1/M)$.</li>
+<li>[ ] $M \uparrow \implies \mu \downarrow$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An aircraft flies at $v = 450 \text{ m/s}$ in air where the local speed of sound is $a = 300 \text{ m/s}$. Calculate the Mach angle $\mu$.
+- <strong>Solution</strong>:
+  - Mach number $M = \frac{v}{a} = \frac{450}{300} = 1.5$.
+  - Mach angle $\sin\mu = \frac{1}{M} = \frac{1}{1.5} = \frac{2}{3}$.
+  - $\mu = \sin^{-1}\left(\frac{2}{3}\right) \approx 41.81^\circ$.
+- <strong>Key Insight</strong>: $\mu = \sin^{-1}(2/3)$. Always use inverse sine.</p>
+<hr />
+<h3 id="36-turbojet-combustion-chamber-requirements"><strong>3.6 Turbojet Combustion Chamber Requirements</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Essential Requirements for a Turbojet Combustor</strong>:</li>
+<li>Complete combustion of fuel.</li>
+<li>High temperature maintenance with proper fuel atomisation for continuous flame stability.</li>
+<li>Minimum pressure drop across the combustion chamber.</li>
+<li><strong>NOT an Essential Requirement</strong>:</li>
+<li><strong>High rate of combustion IS NOT REQUIRED</strong> (classic examiner trap!).</li>
+<li><strong>Unomittable Component</strong>:</li>
+<li>An aircraft engine CANNOT be designed without a combustion chamber!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Combustion Chamber False Requirement</strong>: A high rate of combustion IS NOT an essential requirement for a turbojet combustion chamber! Low pressure loss and flame stability are critical.</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Turbojet Combustor Requirement Check?
+├─ Complete combustion → ESSENTIAL
+├─ Flame stability &amp; atomisation → ESSENTIAL
+├─ Minimal pressure drop → ESSENTIAL
+└─ High rate of combustion → NOT REQUIRED (Trap!)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Complete combustion required.</li>
+<li>[ ] Flame stability required.</li>
+<li>[ ] Low pressure drop required.</li>
+<li>[ ] High combustion rate NOT required.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Identify which of the following is NOT an essential requirement for a turbojet combustion chamber: (a) Complete combustion (b) Low pressure drop (c) Flame stability (d) High rate of combustion.
+- <strong>Solution</strong>:
+  - <strong>(d) High rate of combustion</strong>.
+  - Reason: A combustor requires high efficiency, low pressure loss, and flame stability, but a high rate of combustion is not an essential design requirement.
+- <strong>Key Insight</strong>: High rate of combustion is not required.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Write the propulsive efficiency formula for an air-breathing jet engine.</strong><br />
+A: $\eta_p = \frac{2u}{u + v}$, where $u$ is aircraft velocity and $v$ is jet velocity relative to the aircraft.</p>
+<p><strong>Q2: Write the propulsive efficiency formula for a rocket engine.</strong><br />
+A: $\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2} = \frac{2r}{1+r^2}$, where $V_f$ is forward flight speed and $V_e$ is absolute exhaust velocity.</p>
+<p><strong>Q3: When does a rocket engine achieve maximum propulsive efficiency?</strong><br />
+A: When rocket forward velocity equals effective jet exhaust velocity $V_f = V_e \implies \eta_p = 100\%$.</p>
+<p><strong>Q4: Write the propulsive efficiency formula for a water-jet ship with right-angle inlet orifices.</strong><br />
+A: $\eta_p = \frac{2 Vu}{V^2 + u^2}$, with a maximum theoretical efficiency of $50\%$.</p>
+<p><strong>Q5: Write the thrust equation for a pure turbojet engine neglecting fuel mass.</strong><br />
+A: $F = \dot{m}(V_{\text{exit}} - V_{\text{inlet}})$.</p>
+<p><strong>Q6: What is the inlet air velocity for a rocket engine?</strong><br />
+A: Zero $V_{\text{inlet}} = 0$, because a rocket carries its own oxidiser and does not ingest atmospheric air.</p>
+<p><strong>Q7: Write the formula for Rocket Thrust Coefficient $C_F$.</strong><br />
+A: $C_F = \frac{F}{P_c A_t}$, where $F$ is measured thrust, $P_c$ is combustion chamber pressure, and $A_t$ is nozzle throat area.</p>
+<p><strong>Q8: What is the typical air-fuel ratio $\text{AFR}$ for a turbojet engine?</strong><br />
+A: $\approx 60:1$ (diluted to limit turbine inlet temperature).</p>
+<p><strong>Q9: State the correct component sequence for a Turboprop engine.</strong><br />
+A: Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine.</p>
+<p><strong>Q10: Why can a Ramjet engine NOT produce static thrust at rest $M=0$?</strong><br />
+A: Because a ramjet has no mechanical compressor; it relies entirely on dynamic ram pressure from high-speed forward flight to compress air.</p>
+<p><strong>Q11: Which jet engine type operates with an intermittent combustion cycle?</strong><br />
+A: The Pulsejet engine (analogous to a high-speed single-cylinder 2-stroke engine at $2400-2700 \text{ rpm}$).</p>
+<p><strong>Q12: Give an example of propellants used in a Hybrid Rocket engine.</strong><br />
+A: Solid Lithium Hydride $\text{LiH}$ fuel + Liquid Chlorine Trifluoride $\text{ClF}_3$ oxidiser.</p>
+<p><strong>Q13: How is Specific Impulse $I_{sp}$ related to Specific Propellant Consumption $\text{SPC}$?</strong><br />
+A: $I_{sp} = \frac{1}{\text{SPC}}$, expressed in seconds.</p>
+<p><strong>Q14: Write the formula for supersonic Mach Angle $\mu$.</strong><br />
+A: $\mu = \sin^{-1}\left(\frac{1}{M}\right) = \sin^{-1}\left(\frac{a}{v}\right)$.</p>
+<p><strong>Q15: State three essential requirements for a turbojet combustion chamber.</strong><br />
+A: (1) Complete combustion, (2) Continuous flame stability &amp; atomisation, and (3) Minimal pressure drop across chamber. (High rate of combustion is NOT required).</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Air-Breathing Jet Efficiency</strong>: $\eta_p = \frac{2u}{u+v}$ ($v$ relative to aircraft).</li>
+<li><strong>Rocket Efficiency</strong>: $\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2}$. Peak $100\%$ at $V_f = V_e$.</li>
+<li><strong>Ship Right-Angle Inlet Efficiency</strong>: $\eta_p = \frac{2 Vu}{V^2 + u^2}$. Max efficiency $= 50\%$.</li>
+<li><strong>Turbojet Thrust</strong>: $F = \dot{m}(V_{\text{exit}} - V_{\text{inlet}})$.</li>
+<li><strong>Rocket Thrust</strong>: $F = \dot{m}V_e + (P_e - P_0)A_e$. Rocket inlet air velocity $= 0$.</li>
+<li><strong>Thrust Coefficient</strong>: $C_F = \frac{F}{P_c A_t}$.</li>
+<li><strong>Turbojet AFR</strong>: $\approx 60:1$.</li>
+<li><strong>Turboprop Sequence</strong>: Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine.</li>
+<li><strong>Ramjet Static Thrust</strong>: ZERO static thrust at rest $M=0$ due to lack of compressor.</li>
+<li><strong>Pulsejet</strong>: Intermittent 2-stroke analogue $2400-2700 \text{ rpm}$.</li>
+<li><strong>Hybrid Rocket</strong>: Solid fuel $\text{LiH}$ + Liquid oxidiser $\text{ClF}_3$.</li>
+<li><strong>Specific Impulse</strong>: $I_{sp} = \frac{1}{\text{SPC}}$ (seconds).</li>
+<li><strong>Mach Angle</strong>: $\sin\mu = 1/M = a/v \implies \mu = \sin^{-1}(1/M)$.</li>
+<li><strong>Combustor Traps</strong>: High rate of combustion IS NOT required.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize Air-breathing jet $\eta_p = \frac{2u}{u+v}$.</li>
+<li>[ ] Memorize Rocket $\eta_p = \frac{2 V_f V_e}{V_e^2 + V_f^2}$ (Peak $100\%$ at $V_f = V_e$).</li>
+<li>[ ] Memorize Ship right-angle inlet $\eta_p = \frac{2 Vu}{V^2 + u^2}$ (Max $50\%$).</li>
+<li>[ ] Memorize Turbojet $F = \dot{m}(V_{\text{exit}} - V_{\text{inlet}})$.</li>
+<li>[ ] Memorize Rocket $V_{\text{inlet}} = 0$.</li>
+<li>[ ] Memorize $C_F = \frac{F}{P_c A_t}$.</li>
+<li>[ ] Memorize Turbojet $\text{AFR} \approx 60:1$.</li>
+<li>[ ] Memorize Turboprop sequence: Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine.</li>
+<li>[ ] Memorize Ramjet $\implies$ zero static thrust at rest.</li>
+<li>[ ] Memorize Pulsejet $\implies$ intermittent 2-stroke analogue.</li>
+<li>[ ] Memorize Hybrid rocket $\implies \text{LiH} + \text{ClF}_3$.</li>
+<li>[ ] Memorize $I_{sp} = 1 / \text{SPC}$ (seconds).</li>
+<li>[ ] Memorize Mach angle $\mu = \sin^{-1}(1/M) = \sin^{-1}(a/v)$.</li>
+<li>[ ] Memorize Turbojet combustor $\implies$ high rate of combustion NOT required.</li>
+</ul>
+</body>
+</html>
