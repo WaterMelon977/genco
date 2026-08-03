@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mechanical Vibrations — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Mechanical Vibrations, Damping, Forced Response, Isolation & Whirling of Shafts — Master Reorganized Study Guide — AP GenCo Exam Guide</title>
   <script>
 MathJax = {
   tex: {
@@ -208,553 +208,710 @@ MathJax = {
     <a href="index.html">&larr; Back to Mechanical Vibrations Hub</a>
     <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
   </div>
-  <h1 id="mechanical-vibrations-comprehensive-reorganized-study-guide">Mechanical Vibrations — Comprehensive Reorganized Study Guide</h1>
+  <h1 id="mechanical-vibrations-damping-forced-response-isolation-whirling-of-shafts-master-reorganized-study-guide">Mechanical Vibrations, Damping, Forced Response, Isolation &amp; Whirling of Shafts — Master Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Free and Forced Vibrations (undamped natural frequency $\omega_n = \sqrt{\frac{k}{m}}$, static deflection method $f_n = \frac{1}{2\pi}\sqrt{\frac{g}{\delta}}$, longitudinal vs transverse vs torsional types), Damping Effects (viscous damping, critical damping coefficient $c_c = 2\sqrt{km}$, damping ratio $\xi = \frac{c}{c_c}$, damped natural frequency $\omega_d = \omega_n \sqrt{1 - \xi^2}$, logarithmic decrement $\delta = \ln\left(\frac{x_n}{x_{n+1}}\right) = \frac{2\pi\xi}{\sqrt{1-\xi^2}} \approx 2\pi\xi$, amplitude decay), Forced Vibration &amp; Resonance (magnification factor $M = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$, $90^\circ$ phase lag, damping force equals impressed force at resonance $r=1$), Vibration Isolation &amp; Transmissibility ($TR = \sqrt{\frac{1 + (2\xi r)^2}{(1-r^2)^2 + (2\xi r)^2}}$, isolation region $r &gt; \sqrt{2}$, effect of damping on $TR$), Critical / Whirling Speeds of Shafts ($\omega_c = \sqrt{\frac{g}{\delta}}$, eccentricity deflection $y = \frac{e r^2}{1-r^2}$, rigid rotor speed limit $70\%$), Torsional Vibrations ($N_{\text{nodes}} = n_{\text{rotors}} - 1$, 2-rotor systems $I_A \cdot l_A = I_B \cdot l_B$), and Special / Approximate Methods (Dunkerley's method $\frac{1}{f^2} \approx \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots$, rolling cylinder $\omega_n = \sqrt{\frac{2k}{3m}}$, gravity-independence on Moon) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<p>This master guide covers the complete principles of Mechanical Vibrations for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core topics addressed include Undamped Free Vibrations (Longitudinal, Transverse, and Torsional modes, Spring-Mass natural frequency $f_n = \frac{1}{2\pi}\sqrt{k/m}$, Static deflection relation $f_n = \frac{1}{2\pi}\sqrt{g/\delta} \approx \frac{4.987}{\sqrt{\delta}}$, Rolling cylinder with central spring $\omega_n = \sqrt{\frac{2k}{3m}}$), Viscous Damping (Critical Damping Coefficient $C_c = 2\sqrt{km} = 2m\omega_n$, Damping Ratio $\xi = C/C_c$, Damped Natural Frequency $\omega_d = \omega_n \sqrt{1-\xi^2}$, Logarithmic Decrement $\delta = \ln(x_i/x_{i+1}) = \frac{2\pi\xi}{\sqrt{1-\xi^2}}$, Geometric Progression of successive amplitudes), Forced Vibrations &amp; Resonance (Magnification Factor $\text{MF} = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$, $90^\circ$ phase lag at $r=1$, peak amplitude $A = \frac{F_0}{2\xi k}$), Vibration Isolation &amp; Transmissibility ($T = \sqrt{\frac{1 + (2\xi r)^2}{(1-r^2)^2 + (2\xi r)^2}}$, isolation criterion $r &gt; \sqrt{2}$, crossover point $r=\sqrt{2}$ where $T=1$), Critical / Whirling Speeds of Shafts ($\omega_c = \sqrt{g/\delta}$, $N_c = \frac{187.7}{\sqrt{\delta}} \text{ rpm}$, eccentricity deflection $y = \frac{e r^2}{1-r^2}$, Dunkerley's approximation $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$, rigid rotor speed limit $&lt;70\% N_c$), and Torsional Vibrations of Multi-Rotor Shafts ($n$ rotors $\implies n-1$ nodes, two-rotor node location $l_A = \frac{I_B L}{I_A + I_B}$). All raw syllabus concepts, derivations, ASCII decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
 <hr />
 <h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
-<h4 id="1-undamped-free-vibrations"><strong>1. Undamped Free Vibrations</strong></h4>
-<ul>
-<li><strong>Natural Angular Frequency $\omega_n$</strong>:
-  <div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{k}{m}} \quad (\text{rad/s})}}$$</div></li>
-<li>$k$: spring stiffness / equivalent stiffness $\text{N/m}$</li>
-<li>
-<p>$m$: mass $\text{kg}$</p>
-</li>
-<li>
-<p><strong>Natural Cyclic Frequency $f_n$</strong>:
-  <div class="formula-card">$${\boxed{f_n = \frac{1}{2\pi} \cdot \sqrt{\frac{k}{m}} = \frac{1}{2\pi} \cdot \sqrt{\frac{g}{\delta}} \quad (\text{Hz})}}$$</div></p>
-</li>
-<li>$g$: acceleration due to gravity $9.81 \text{ m/s}^2$</li>
-<li>$\delta$: static deflection under load ($= \frac{mg}{k}$, $\text{m}$)</li>
-<li>
-<p>Practical formula (with $\delta$ in cm): $\boxed{f_n \approx \frac{4.987}{\sqrt{\delta}} \quad (\text{Hz})}$</p>
-</li>
-<li>
-<p><strong>Vertical Bar Longitudinal Stiffness $k$ &amp; Frequency</strong>:
-  <div class="formula-card">$${\boxed{k = \frac{A \cdot E}{L} \implies f_n = \frac{1}{2\pi} \cdot \sqrt{\frac{A \cdot E}{m \cdot L}} \quad (\text{Hz})}}$$</div></p>
-</li>
-<li>$A$: bar cross-sectional area $\text{m}^2$</li>
-<li>$E$: Young's modulus $\text{N/m}^2$</li>
-<li>$L$: bar length $\text{m}$</li>
-</ul>
-<hr />
-<h4 id="2-damped-free-vibrations"><strong>2. Damped Free Vibrations</strong></h4>
-<ul>
-<li>
-<p><strong>Critical Damping Coefficient $c_c$</strong>:
-  <div class="formula-card">$${\boxed{c_c = 2\sqrt{k \cdot m} = 2 \cdot m \cdot \omega_n \quad (\text{N}\cdot\text{s/m})}}$$</div></p>
-</li>
-<li>
-<p><strong>Damping Ratio $\xi$</strong>:
-  <div class="formula-card">$${\boxed{\xi = \frac{c}{c_c} = \frac{c}{2\sqrt{k \cdot m}}}}$$</div></p>
-</li>
-<li>$c$: viscous damping coefficient $\text{N}\cdot\text{s/m}$</li>
-<li>$\xi &lt; 1.0 \implies$ Underdamped (oscillatory decay)</li>
-<li>$\xi = 1.0 \implies$ Critically damped (fastest return without oscillation)</li>
-<li>
-<p>$\xi &gt; 1.0 \implies$ Overdamped (slow aperiodic return)</p>
-</li>
-<li>
-<p><strong>Damped Natural Frequency $\omega_d$</strong>:
-  <div class="formula-card">$${\boxed{\omega_d = \omega_n \cdot \sqrt{1 - \xi^2} \quad (\text{rad/s})}}$$</div></p>
-</li>
-<li>
-<p><strong>Logarithmic Decrement $\delta$</strong>:
-  <div class="formula-card">$${\boxed{\delta = \ln\left(\frac{x_n}{x_{n+1}}\right) = \frac{2\pi \cdot \xi}{\sqrt{1 - \xi^2}}}}$$</div></p>
-</li>
-<li>$x_n, x_{n+1}$: successive peak amplitudes on the same side</li>
-<li>For small damping $\xi &lt; 0.2$: $\boxed{\delta \approx 2\pi \cdot \xi}$</li>
-<li>Over $N$ cycles: $\boxed{\delta = \frac{1}{N} \cdot \ln\left(\frac{x_0}{x_N}\right)}$</li>
-<li>Successive Amplitude Ratio: $\frac{x_n}{x_{n+1}} = e^{\delta}$ (forms a geometric progression)</li>
-</ul>
-<hr />
-<h4 id="3-forced-vibrations-resonance"><strong>3. Forced Vibrations &amp; Resonance</strong></h4>
-<ul>
-<li><strong>Magnification Factor $M$</strong>:
-  <div class="formula-card">$${\boxed{M = \frac{A}{\delta_{\text{st}}} = \frac{1}{\sqrt{(1 - r^2)^2 + (2 \cdot \xi \cdot r)^2}}}}$$</div></li>
-<li>$A$: steady-state amplitude $\text{m}$</li>
-<li>$\delta_{\text{st}}$: static deflection under dynamic force amplitude ($= \frac{F_0}{k}$, $\text{m}$)</li>
-<li>$r$: frequency ratio $= \frac{\omega}{\omega_n}$</li>
-<li>
-<p>$\omega$: external forcing frequency $\text{rad/s}$</p>
-</li>
-<li>
-<p><strong>Resonance $r = 1.0$ Attributes</strong>:</p>
-</li>
-<li>Phase lag: exactly $\phi = 90^\circ$ (independent of $\xi$ for viscous damping)</li>
-<li>Maximum dynamic amplitude (approx): $\boxed{M_{\text{max}} \approx \frac{1}{2\xi}}$</li>
-<li>Dynamic force balance: Damping force equals impressed force $c \omega A = F_0$.</li>
-</ul>
-<hr />
-<h4 id="4-vibration-isolation-transmissibility"><strong>4. Vibration Isolation &amp; Transmissibility</strong></h4>
-<ul>
-<li><strong>Transmissibility Ratio $TR$</strong>:
-  <div class="formula-card">$${\boxed{TR = \frac{F_T}{F_0} = \sqrt{\frac{1 + (2 \cdot \xi \cdot r)^2}{(1 - r^2)^2 + (2 \cdot \xi \cdot r)^2}}}}$$</div></li>
-<li>$F_T$: force transmitted to the foundation $\text{N}$</li>
-<li>$F_0$: exciting force amplitude $\text{N}$</li>
-<li>
-<p>Undamped Transmissibility $\xi = 0$: $\boxed{TR = \left| \frac{1}{1 - r^2} \right|}$</p>
-</li>
-<li>
-<p><strong>Isolation Region</strong>:</p>
-</li>
-<li>Vibration isolation $TR &lt; 1.0$ is possible ONLY if $r &gt; \sqrt{2}$ $\omega &gt; \sqrt{2}\omega_n$.</li>
-<li>At $r = \sqrt{2}$, $TR = 1.0$ for all values of damping ratio $\xi$.</li>
-</ul>
-<hr />
-<h4 id="5-critical-whirling-speeds-of-shafts"><strong>5. Critical / Whirling Speeds of Shafts</strong></h4>
-<ul>
-<li>
-<p><strong>Critical Angular Speed $\omega_c$</strong>:
-  <div class="formula-card">$${\boxed{\omega_c = \omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{g}{\delta}} \quad (\text{rad/s})}}$$</div>
-  <div class="formula-card">$${\boxed{N_c = \frac{60}{2\pi} \cdot \omega_c \quad (\text{rpm})}}$$</div></p>
-</li>
-<li>
-<p><strong>Whirling Deflection Relation</strong>:
-  <div class="formula-card">$${\boxed{y = \frac{e \cdot r^2}{1 - r^2}}}$$</div></p>
-</li>
-<li>$y$: additional radial deflection / whirl amplitude $\text{m}$</li>
-<li>$e$: eccentricity of mass center from geometric shaft axis $\text{m}$</li>
-<li>$r$: speed ratio $= \frac{\omega}{\omega_c}$</li>
-</ul>
-<hr />
-<h4 id="6-torsional-vibrations-nodes"><strong>6. Torsional Vibrations &amp; Nodes</strong></h4>
-<ul>
-<li>
-<p><strong>Number of Nodes $N_{\text{nodes}}$</strong>:
-  <div class="formula-card">$${\boxed{N_{\text{nodes}} = n_{\text{rotors}} - 1}}$$</div></p>
-</li>
-<li>
-<p><strong>Two-Rotor System Node Position</strong>:
-  <div class="formula-card">$${\boxed{I_A \cdot l_A = I_B \cdot l_B}}$$</div></p>
-</li>
-<li>$I_A, I_B$: polar mass moments of inertia of rotors $A$ and $B$ $\text{kg}\cdot\text{m}^2$</li>
-<li>$l_A, l_B$: distances of node from rotors $A$ and $B$ $\text{m}$</li>
-<li>Total shaft length: $L = l_A + l_B$</li>
-</ul>
-<hr />
-<h4 id="7-special-approximate-methods"><strong>7. Special &amp; Approximate Methods</strong></h4>
-<ul>
-<li><strong>Dunkerley's Equation (Multi-Load Shaft Transverse Vibration)</strong>:
-  <div class="formula-card">$${\boxed{\frac{1}{f^2} \approx \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots + \frac{1}{f_n^2}}}$$</div></li>
-<li>$f$: fundamental frequency of system with all loads acting together $\text{Hz}$</li>
-<li>
-<p>$f_i$: natural frequency of shaft due to load $i$ acting alone $\text{Hz}$</p>
-</li>
-<li>
-<p><strong>Rolling Cylinder with Central Spring</strong>:
-  <div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{2k}{3m}} \quad (\text{rad/s})}}$$</div></p>
-</li>
-<li>Accounts for translational mass $m$ and rotational inertia $I = \frac{1}{2}mR^2$ of cylinder rolling without slip.</li>
-</ul>
+<h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter / Concept</th>
+<th style="text-align: left;">Formula / Governing Relation</th>
+<th style="text-align: left;">Primary Units</th>
+<th style="text-align: left;">Key Conditions &amp; Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Undamped Natural Frequency $\omega_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{k}{m}}}}$$</div></td>
+<td style="text-align: left;">$\text{rad/s}$</td>
+<td style="text-align: left;">$k$ = stiffness $\text{N/m}$, $m$ = mass $\text{kg}$. Independent of gravity $g$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Natural Frequency in Hz $f_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{f_n = \frac{1}{2\pi} \sqrt{\frac{k}{m}}}}$$</div></td>
+<td style="text-align: left;">$\text{Hz}$</td>
+<td style="text-align: left;">Basic frequency in cycles per second.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Static Deflection Formula $f_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{f_n = \frac{1}{2\pi} \sqrt{\frac{g}{\delta}} \approx \frac{4.987}{\sqrt{\delta}}}}$$</div></td>
+<td style="text-align: left;">$\text{Hz}$</td>
+<td style="text-align: left;">$\delta$ = static deflection ($\text{m}$ or $\text{cm}$ in practical form). Used for beams/shafts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Longitudinal Shaft Frequency $f_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{f_n = \frac{1}{2\pi} \sqrt{\frac{A E}{m L}}}}$$</div></td>
+<td style="text-align: left;">$\text{Hz}$</td>
+<td style="text-align: left;">$A$ = area $\text{m}^2$, $E$ = Young's modulus $\text{N/m}^2$, $L$ = length $\text{m}$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rolling Cylinder + Spring $\omega_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{2 k}{3 m}}}}$$</div></td>
+<td style="text-align: left;">$\text{rad/s}$</td>
+<td style="text-align: left;">Cylinder rolling on rough surface with spring attached to center.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critical Damping Coefficient $C_c$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{C_c = 2 \sqrt{k m} = 2 m \omega_n}}$$</div></td>
+<td style="text-align: left;">$\text{N}\cdot\text{s/m}$</td>
+<td style="text-align: left;">Boundary between oscillatory and non-oscillatory free motion.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Damping Ratio $\xi$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\xi = \frac{C}{C_c} = \frac{C}{2\sqrt{km}}}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">$\xi &lt; 1$ (underdamped), $\xi = 1$ (critical), $\xi &gt; 1$ (overdamped).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Damped Natural Frequency $\omega_d$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_d = \omega_n \sqrt{1 - \xi^2}}}$$</div></td>
+<td style="text-align: left;">$\text{rad/s}$</td>
+<td style="text-align: left;">Oscillatory frequency of underdamped free vibration.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Logarithmic Decrement $\delta$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\delta = \ln\left(\frac{x_i}{x_{i+1}}\right) = \frac{2\pi \xi}{\sqrt{1 - \xi^2}} \approx 2\pi\xi}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Log ratio of successive amplitudes $x_i / x_{i+1} = e^\delta$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Log Decrement over $n$ Cycles $\delta$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\delta = \frac{1}{n} \ln\left(\frac{x_0}{x_n}\right)}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Measured across $n$ complete oscillation cycles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frequency Ratio $r$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{r = \frac{\omega}{\omega_n}}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Ratio of forced excitation frequency $\omega$ to natural frequency $\omega_n$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Static Deflection under Force $\delta_{\text{st}}$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\delta_{\text{st}} = \frac{F_0}{k}}}$$</div></td>
+<td style="text-align: left;">$\text{m}$</td>
+<td style="text-align: left;">Static displacement under force amplitude $F_0$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Magnification Factor $\text{MF}$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\text{MF} = \frac{A}{\delta_{\text{st}}} = \frac{1}{\sqrt{(1 - r^2)^2 + (2 \xi r)^2}}}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Ratio of dynamic steady-state amplitude $A$ to static deflection $\delta_{\text{st}}$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resonance Amplitude $A_{\text{res}}$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{A_{\text{res}} = \frac{F_0}{2 \xi k}}}$$</div></td>
+<td style="text-align: left;">$\text{m}$</td>
+<td style="text-align: left;">Steady-state amplitude at resonance $r = 1$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Transmissibility Ratio $T$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{T = \sqrt{\frac{1 + (2 \xi r)^2}{(1 - r^2)^2 + (2 \xi r)^2}}}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Ratio of force transmitted to foundation $F_T$ to harmonic force $F_0$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Undamped Transmissibility $T_{\xi=0}$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{T = \left\vert \frac{1}{1 - r^2} \right\vert}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Transmissibility when viscous damping is zero $\xi = 0$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critical / Whirling Speed $\omega_c$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_c = \sqrt{\frac{k}{m}} = \sqrt{\frac{g}{\delta}}}}$$</div></td>
+<td style="text-align: left;">$\text{rad/s}$</td>
+<td style="text-align: left;">Shaft rotation speed matching transverse natural frequency.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critical Speed in RPM $N_c$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{N_c = \frac{60}{2\pi} \sqrt{\frac{g}{\delta}} \approx \frac{187.7}{\sqrt{\delta}}}}$$</div></td>
+<td style="text-align: left;">$\text{rpm}$</td>
+<td style="text-align: left;">Critical speed in rpm with static deflection $\delta$ in meters.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Whirling Shaft Deflection $y$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{y = \frac{e r^2}{1 - r^2} = \frac{e}{\left(\frac{\omega_c}{\omega}\right)^2 - 1}}}$$</div></td>
+<td style="text-align: left;">$\text{m}$</td>
+<td style="text-align: left;">Additional dynamic deflection due to rotor eccentricity $e$.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dunkerley's Formula $f$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{\frac{1}{f^2} \approx \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots + \frac{1}{f_n^2}}}$$</div></td>
+<td style="text-align: left;">$\text{Hz}^{-2}$</td>
+<td style="text-align: left;">Conservative lower-bound fundamental frequency for multi-load shafts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Single-Rotor Torsional Frequency $f_n$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{f_n = \frac{1}{2\pi} \sqrt{\frac{q}{I}}}}$$</div></td>
+<td style="text-align: left;">$\text{Hz}$</td>
+<td style="text-align: left;">$q = G J / L$ = torsional stiffness $\text{N}\cdot\text{m/rad}$, $I$ = polar moment of inertia.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Number of Torsional Nodes $N_{\text{nodes}}$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{N_{\text{nodes}} = n_{\text{rotors}} - 1}}$$</div></td>
+<td style="text-align: left;">Dimensionless</td>
+<td style="text-align: left;">Number of zero-twist nodal points along shaft axis.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Two-Rotor Node Position $l_A$</strong></td>
+<td style="text-align: left;"><div class="formula-card">$${\boxed{l_A = \frac{I_B \cdot L}{I_A + I_B}}}$$</div></td>
+<td style="text-align: left;">$\text{m}$</td>
+<td style="text-align: left;">Distance of node from rotor A $I_A \cdot l_A = I_B \cdot l_B$.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
 <ul>
-<li><strong>Free Vibration</strong>: Oscillation of a system restoring itself after an initial displacement, acting under internal forces only with no continuous external forces.</li>
-<li><strong>Forced Vibration</strong>: Vibration driven by a continuous external periodic force, taking place at the frequency of the exciting force.</li>
-<li><strong>Longitudinal Vibration</strong>: Shaft particles move parallel to the shaft axis; shaft undergoes alternating tensile and compressive stresses.</li>
-<li><strong>Transverse Vibration</strong>: Shaft particles move perpendicular to the shaft axis; shaft undergoes alternating bending stresses.</li>
-<li><strong>Torsional Vibration</strong>: Shaft particles swing in circular paths about the shaft axis; shaft undergoes alternating shear stresses.</li>
-<li><strong>Critical / Whirling Speed</strong>: The speed at which a rotating shaft becomes dynamically unstable, vibrating violently in the transverse direction due to resonance between rotation frequency and transverse natural frequency.</li>
-<li><strong>Damping Ratio $\xi$</strong>: The ratio of actual viscous damping coefficient to the critical damping coefficient $\xi = c/c_c$.</li>
-<li><strong>Logarithmic Decrement $\delta$</strong>: The natural logarithm of the ratio of any two successive peak amplitudes on the same side during damped free vibration.</li>
-<li><strong>Transmissibility $TR$</strong>: The ratio of the force transmitted to the foundation to the exciting force acting on the mass.</li>
-<li><strong>Node</strong>: A point or section along a vibrating shaft where the vibration amplitude (translational or rotational) is zero.</li>
+<li><strong>Longitudinal Vibration</strong>: Oscillatory motion where particles move parallel to the longitudinal axis of the shaft/bar, inducing tensile/compressive stresses.</li>
+<li><strong>Transverse Vibration</strong>: Oscillatory motion where particles move perpendicular to the shaft axis, inducing bending stresses.</li>
+<li><strong>Torsional Vibration</strong>: Oscillatory motion where shaft cross-sections twist and untwist circularly about the longitudinal axis, inducing torsional shear stresses.</li>
+<li><strong>Undamped Natural Frequency $\omega_n$</strong>: The natural frequency at which a system oscillates freely in the absence of external forces and damping.</li>
+<li><strong>Critical Damping Coefficient $C_c$</strong>: The minimum viscous damping coefficient required to prevent oscillation during free response $C_c = 2\sqrt{km}$.</li>
+<li><strong>Damping Ratio $\xi$</strong>: The non-dimensional ratio of actual damping coefficient $C$ to critical damping coefficient $C_c$ $\xi = C/C_c$.</li>
+<li><strong>Logarithmic Decrement $\delta$</strong>: The natural logarithm of the ratio of two consecutive peak amplitudes on the same side during underdamped free vibration $\delta = \ln(x_i/x_{i+1})$.</li>
+<li><strong>Magnification Factor $\text{MF}$</strong>: The ratio of steady-state dynamic amplitude $A$ to static deflection $\delta_{\text{st}} = F_0/k$.</li>
+<li><strong>Resonance</strong>: The condition occurring when forced excitation frequency $\omega$ equals undamped natural frequency $\omega_n$ $r = 1$, causing maximum amplitude and a $90^\circ$ phase lag.</li>
+<li><strong>Transmissibility $T$</strong>: The ratio of force transmitted to the foundation $F_T$ to the input excitation force $F_0$.</li>
+<li><strong>Vibration Isolation Region</strong>: The frequency domain $r = \omega/\omega_n &gt; \sqrt{2}$ where transmissibility $T &lt; 1$, reducing transmitted forces to the foundation.</li>
+<li><strong>Critical / Whirling Speed $N_c$</strong>: The shaft rotational speed at which centrifugal forces on rotor eccentricities cause violent lateral deflection equal to the transverse natural frequency.</li>
+<li><strong>Node</strong>: A point or cross-section along a vibrating shaft where the deflection or twist amplitude remains permanently zero.</li>
+<li><strong>Rigid Rotor</strong>: A rotor operating below $70\%$ of its first critical speed $N &lt; 0.7 N_c$, allowing single-plane or static balancing.</li>
 </ul>
 <hr />
 <h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
 <ul>
-<li><strong>Damping Categories</strong>:</li>
-<li>Underdamped: $\xi &lt; 1.0$ (oscillatory motion)</li>
-<li>Critically Damped: $\xi = 1.0$ (fastest return to equilibrium without oscillation)</li>
-<li>Overdamped: $\xi &gt; 1.0$ (slow return to equilibrium, no oscillation)</li>
-<li><strong>Phase Angle at Resonance</strong>: $\phi = 90^\circ$ $1.5708 \text{ rad}$.</li>
-<li><strong>Transmissibility crossover point</strong>: $r = \sqrt{2} \approx 1.414$.</li>
-<li><strong>Rigid Rotor Threshold</strong>: Operating speed $N &lt; 70\% \cdot N_c$.</li>
+<li><strong>Standard Acceleration due to Gravity $g$</strong>: $9.81 \text{ m/s}^2$.</li>
+<li><strong>Static Deflection Coefficient</strong>: $f_n \approx \frac{4.987}{\sqrt{\delta}}$ ($\delta$ in cm) or $f_n \approx \frac{0.4987}{\sqrt{\delta}}$ ($\delta$ in m).</li>
+<li><strong>Isolation Frequency Crossover</strong>: $r = \omega/\omega_n = \sqrt{2} \approx 1.414$.</li>
+<li><strong>Phase Angle at Resonance</strong>: $\phi = 90^\circ$ (or $\pi/2 \text{ rad}$).</li>
+<li><strong>Rigid Rotor Limit</strong>: Operating speed $N &lt; 0.70 N_c$.</li>
+<li><strong>Two-Rotor Node Count</strong>: 1 Node $N_{\text{nodes}} = 2 - 1 = 1$.</li>
+<li><strong>Three-Rotor Node Count</strong>: 2 Nodes $N_{\text{nodes}} = 3 - 1 = 2$.</li>
 </ul>
 <hr />
 <h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
 <ul>
-<li><strong>Undamped Free Vibrations &amp; Natural Frequency</strong>: §3.1.</li>
-<li><strong>Effect of Damping &amp; Decay Metrics</strong>: §3.2.</li>
-<li><strong>Forced Vibration &amp; Resonance Behavior</strong>: §3.3.</li>
-<li><strong>Vibration Isolation &amp; Transmissibility</strong>: §3.4.</li>
-<li><strong>Critical Speeds &amp; Whirling of Shafts</strong>: §3.5.</li>
-<li><strong>Torsional Vibrations &amp; Nodes</strong>: §3.6.</li>
-<li><strong>Approximate Methods &amp; Special Systems</strong>: §3.7.</li>
+<li><strong>Undamped Natural Frequency &amp; Static Deflection</strong>: §3.1.</li>
+<li><strong>Viscous Damping, Damping Ratio &amp; Logarithmic Decrement</strong>: §3.2.</li>
+<li><strong>Forced Vibrations, Magnification Factor &amp; Resonance</strong>: §3.3.</li>
+<li><strong>Vibration Isolation &amp; Transmissibility Rules</strong>: §3.4.</li>
+<li><strong>Critical Speeds &amp; Whirling of Shafts (Dunkerley's Method)</strong>: §3.5.</li>
+<li><strong>Torsional Vibrations &amp; Multi-Rotor Node Locations</strong>: §3.6.</li>
+<li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
+<li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
+<li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
 </ul>
 <hr />
 <h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
 <h3 id="31-undamped-free-vibrations-natural-frequency"><strong>3.1 Undamped Free Vibrations &amp; Natural Frequency</strong></h3>
 <h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>Longitudinal vs Transverse vs Torsional</strong>:</li>
-<li>Longitudinal: Particles move <strong>parallel</strong> to shaft axis (alternating tensile/compressive stresses).</li>
-<li>Transverse: Particles move <strong>perpendicular</strong> to shaft axis (alternating bending stresses).</li>
-<li>Torsional: Particles move in <strong>circles</strong> about shaft axis (alternating shear stresses).</li>
-<li><strong>Natural Frequency Mechanics</strong>:</li>
-<li>Depends solely on stiffness $k$ and mass $m$.</li>
-<li>Independent of initial amplitude or velocity for linear systems.</li>
-<li><strong>Static Deflection Method</strong>:</li>
-<li>Transverse/longitudinal natural frequency can be determined using static deflection under self-weight:
-    <div class="formula-card">$${f_n = \frac{1}{2\pi}\sqrt{\frac{g}{\delta}}}$$</div></li>
-<li><strong>Gravity Independence</strong>:</li>
-<li>Although the formula $\frac{1}{2\pi}\sqrt{\frac{g}{\delta}}$ contains $g$, the actual natural frequency of a spring-mass system is <strong>INDEPENDENT OF GRAVITY</strong>! On the Moon, where $g$ is $1/6$ of Earth, static deflection $\delta$ decreases by a factor of 6, leaving the ratio $g/\delta = k/m$ unchanged.</li>
+<li><strong>Types of Free Vibration</strong>:</li>
+<li><strong>Longitudinal</strong>: Shaft stretches and contracts along its length (parallel to axis). Stiffness $k = \frac{A E}{L}$.</li>
+<li><strong>Transverse</strong>: Shaft bends side-to-side (perpendicular to axis). Stiffness depends on end supports (e.g., cantilever $k = \frac{3 E I}{L^3}$, simply supported $k = \frac{48 E I}{L^3}$).</li>
+<li><strong>Torsional</strong>: Shaft twists about its axis. Stiffness $q = \frac{G J}{L}$.</li>
+<li><strong>Natural Frequency Principles</strong>:</li>
+<li>System oscillates freely at $\omega_n = \sqrt{k/m}$ after an initial disturbance.</li>
+<li>$\omega_n$ depends purely on mass $m$ and stiffness $k$. It is <strong>independent of gravity $g$</strong> for pure spring-mass systems (a spring-mass system has the EXACT same natural frequency on the Moon as on Earth!).</li>
+<li><strong>Static Deflection Method</strong>: If mass $m$ causes static deflection $\delta = \frac{m g}{k}$ under gravity:
+    <div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{g}{\delta}} \implies f_n = \frac{1}{2\pi} \sqrt{\frac{g}{\delta}}}}$$</div></li>
+<li><strong>Special Mass Configurations</strong>:</li>
+<li><strong>Spring Mass Correction</strong>: If spring has mass $m_s$, equivalent system mass is $m_{\text{eq}} = m + \frac{m_s}{3}$.</li>
+<li><strong>Rolling Cylinder + Spring</strong>: A solid cylinder of mass $m$, radius $R$, attached to a spring $k$ at its center and rolling without slipping on a horizontal surface:
+    <div class="formula-card">$${\text{Kinetic Energy } KE = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} I \dot{\theta}^2 = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} \left(\frac{1}{2} m R^2\right) \left(\frac{\dot{x}}{R}\right)^2 = \frac{3}{4} m \dot{x}^2}$$</div>
+    <div class="formula-card">$${\text{Potential Energy } PE = \frac{1}{2} k x^2 \implies \boxed{\omega_n = \sqrt{\frac{2 k}{3 m}}}}$$</div></li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Gravity Independence of Spring-Mass Frequency</strong>: A spring-mass system has the same natural frequency $\omega_n = \sqrt{k/m}$ on Earth, on the Moon, and in zero-gravity space! Static deflection adjusts to balance gravity, but the ratio $g/\delta$ remains constant.</p>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Gravity Independence</strong>:
+Pure spring-mass natural frequency $\omega_n = \sqrt{k/m}$ does NOT depend on acceleration due to gravity $g$. Taking a spring-mass system to the Moon $g_{\text{Moon}} = g/6$ changes static deflection $\delta$, but leaves $\omega_n$ UNCHANGED!</p>
 <p>[!TRAP]
-<strong>Direction Classification Trap</strong>:
-- Parallel to shaft axis $\implies$ Longitudinal.
-- Perpendicular to shaft axis $\implies$ Transverse.
-- Angular twisting about shaft axis $\implies$ Torsional.
-Do not mix up these classifications in MCQs!</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Vibration Frequency / Type Check?
-├─ Are particles moving parallel to axis? → LONGITUDINAL VIBRATION
-├─ Are particles moving perpendicular to axis? → TRANSVERSE VIBRATION
-├─ Are particles twisting about axis? → TORSIONAL VIBRATION
-├─ Is static deflection delta known? → fn = (1 / 2*pi) * sqrt(g / delta)
-└─ Does natural frequency change on the Moon? → NO (fn remains identical)
+<strong>Static Deflection Units</strong>:
+When using $f_n = \frac{1}{2\pi}\sqrt{g/\delta}$, static deflection $\delta$ MUST be converted to meters $\text{m}$. If $\delta$ is given in $\text{mm}$, divide by $1000$ before taking the square root!</div>
+<h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Undamped Natural Frequency Calculation
+│
+├── What type of system is given?
+│   ├── Direct Spring-Mass System  ──► w_n = sqrt(k / m)  (rad/s)
+│   │                                 └── Massless spring assumed unless m_s given (add m_s/3)
+│   │
+│   ├── Shaft / Beam with Deflection ──► w_n = sqrt(g / delta)  (rad/s)
+│   │                                   ├── Cantilever central load: delta = W*L^3 / (3*E*I)
+│   │                                   └── Simply supported load:   delta = W*L^3 / (48*E*I)
+│   │
+│   ├── Longitudinal Bar / Shaft   ──► w_n = sqrt(A*E / (m*L))  (rad/s)
+│   │
+│   └── Rolling Cylinder + Spring  ──► w_n = sqrt(2*k / (3*m))  (rad/s)
 </code></pre>
 <h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] Longitudinal: parallel, tensile/compressive.</li>
-<li>[ ] Transverse: perpendicular, bending.</li>
-<li>[ ] Torsional: twisting, shear.</li>
-<li>[ ] $f_n = \frac{1}{2\pi}\sqrt{g/\delta}$.</li>
-<li>[ ] Natural frequency is independent of gravity.</li>
+<li>[ ] $\omega_n = \sqrt{k/m} \text{ rad/s}$.</li>
+<li>[ ] $f_n = \frac{1}{2\pi} \sqrt{k/m} \text{ Hz}$.</li>
+<li>[ ] Static deflection $f_n = \frac{1}{2\pi} \sqrt{g/\delta}$.</li>
+<li>[ ] Rolling cylinder $\omega_n = \sqrt{\frac{2k}{3m}}$.</li>
+<li>[ ] Spring mass inclusion $m_{\text{eq}} = m + m_s/3$.</li>
+<li>[ ] Natural frequency is independent of gravity $g$.</li>
 </ul>
 <h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A steel shaft of length $L = 1.0 \text{ m}$ is simply supported at its ends and carries a rotor of mass $m = 153 \text{ kg}$ (weight $W = 1.5 \text{ kN}$) at mid-span. If Young's modulus $E = 200 \text{ GPa}$ and shaft moment of inertia $I = 1.9175 \times 10^{-8} \text{ m}^4$. Calculate the fundamental natural frequency of transverse vibration.
+<p><strong>Worked Example 1: Shaft Natural Frequency via Static Deflection</strong>
+- <strong>Problem</strong>: A simply supported shaft of span $L = 1.0 \text{ m}$ carries a concentrated rotor load $W = 1.5 \text{ kN} = 1500 \text{ N}$ at mid-span. Shaft diameter $d = 25 \text{ mm} = 0.025 \text{ m}$ and Young's modulus $E = 200 \text{ GPa} = 2 \times 10^{11} \text{ N/m}^2$. Calculate: (a) Static deflection $\delta$, (b) Undamped natural frequency $f_n$ in Hz.
 - <strong>Solution</strong>:
-  - Calculate static deflection $\delta$ under concentrated central load:
-    <div class="formula-card">$${\delta = \frac{W \cdot L^3}{48 \cdot E \cdot I} = \frac{1500 \times (1.0)^3}{48 \times (200 \times 10^9) \times (1.9175 \times 10^{-8})}}$$</div>
-    <div class="formula-card">$${\delta = \frac{1500}{184080} \approx 0.0081486 \text{ m} \approx 0.815 \text{ cm}}$$</div>
-  - Calculate natural frequency:
-    <div class="formula-card">$${f_n = \frac{1}{2\pi}\sqrt{\frac{g}{\delta}} = \frac{1}{2\pi}\sqrt{\frac{9.81}{0.0081486}} \approx \frac{1}{2\pi}\sqrt{1203.88} \approx \frac{34.697}{6.283} \approx 5.52 \text{ Hz}}$$</div>
-- <strong>Key Insight</strong>: $f_n \approx 5.52 \text{ Hz}$. Deflection under central load uses $\delta = \frac{W L^3}{48EI}$.</p>
+  1. Calculate area moment of inertia $I$:
+     <div class="formula-card">$${I = \frac{\pi d^4}{64} = \frac{\pi \times (0.025)^4}{64} \approx 1.9175 \times 10^{-8} \text{ m}^4}$$</div>
+  2. Calculate static deflection $\delta$ at mid-span for simply supported beam:
+     <div class="formula-card">$${\delta = \frac{W L^3}{48 E I} = \frac{1500 \times (1.0)^3}{48 \times (2 \times 10^{11}) \times (1.9175 \times 10^{-8})} = \frac{1500}{1.8408 \times 10^5} \approx 8.148 \times 10^{-3} \text{ m} = 8.148 \text{ mm}}$$</div>
+  3. Calculate natural frequency $f_n$:
+     <div class="formula-card">$${f_n = \frac{1}{2\pi} \sqrt{\frac{g}{\delta}} = \frac{1}{2\pi} \sqrt{\frac{9.81}{8.148 \times 10^{-3}}} = \frac{1}{2\pi} \sqrt{1203.98} = \frac{34.70}{2\pi} \approx 5.52 \text{ Hz}}$$</div>
+- <strong>Key Insight</strong>: $f_n = 5.52 \text{ Hz}$. Always compute $I = \pi d^4 / 64$ accurately in consistent SI units.</p>
+<p><strong>Worked Example 2: Rolling Cylinder with Central Spring</strong>
+- <strong>Problem</strong>: A solid uniform cylinder of mass $m = 7 \text{ kg}$ and radius $R = 0.22 \text{ m}$ is attached to a horizontal spring of stiffness $k = 6000 \text{ N/m}$ at its center. The cylinder rolls without slipping on a rough horizontal plane. Calculate the natural frequency $f_n$ in Hz.
+- <strong>Solution</strong>:
+  1. Apply governing rolling cylinder formula:
+     <div class="formula-card">$${\omega_n = \sqrt{\frac{2 k}{3 m}} = \sqrt{\frac{2 \times 6000}{3 \times 7}} = \sqrt{\frac{12000}{21}} = \sqrt{571.43} \approx 23.904 \text{ rad/s}}$$</div>
+  2. Convert to Hz:
+     <div class="formula-card">$${f_n = \frac{\omega_n}{2\pi} = \frac{23.904}{2\pi} \approx 3.804 \text{ Hz}}$$</div>
+- <strong>Key Insight</strong>: $f_n = 3.80 \text{ Hz}$. Rotational inertia increases effective mass from $m$ to $1.5 m$, lowering $\omega_n$ by factor $\sqrt{2/3}$.</p>
+<p><strong>Worked Example 3: Spring-Mass Natural Frequency on Moon</strong>
+- <strong>Problem</strong>: A spring-mass system has a natural frequency $f_n = 10 \text{ Hz}$ on Earth $g = 9.81 \text{ m/s}^2$. If transported to the Moon where $g_{\text{Moon}} = 1.635 \text{ m/s}^2$ $g/6$, determine its new natural frequency $f_{n,\text{Moon}}$.
+- <strong>Solution</strong>:
+  1. Formula $f_n = \frac{1}{2\pi}\sqrt{\frac{k}{m}}$ depends only on stiffness $k$ and mass $m$.
+  2. Mass $m$ and spring stiffness $k$ remain constant regardless of location.
+  3. Therefore, $f_{n,\text{Moon}} = f_{n,\text{Earth}} = 10 \text{ Hz}$.
+- <strong>Key Insight</strong>: $f_{n,\text{Moon}} = 10 \text{ Hz}$. Static deflection $\delta$ increases on Earth and decreases on the Moon, but ratio $g/\delta = k/m$ remains constant!</p>
 <hr />
-<h3 id="32-effect-of-damping-decay-metrics"><strong>3.2 Effect of Damping &amp; Decay Metrics</strong></h3>
+<h3 id="32-damped-free-vibrations-viscous-damping-logarithmic-decrement"><strong>3.2 Damped Free Vibrations (Viscous Damping &amp; Logarithmic Decrement)</strong></h3>
 <h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>Damping Force</strong>:</li>
-<li>Viscous damping force is proportional to velocity $F_d = -c \dot{x}$ and acts to oppose motion.</li>
-<li><strong>Damping States</strong>:</li>
-<li>Underdamped $\xi &lt; 1.0$: System oscillates with decaying amplitude.</li>
-<li>Critically damped $\xi = 1.0$: No oscillation; returns to equilibrium in minimum time.</li>
-<li>Overdamped $\xi &gt; 1.0$: No oscillation; returns to equilibrium slowly.</li>
-<li><strong>Logarithmic Decrement $\delta$</strong>:</li>
-<li>Natural log of successive peak ratios on the same side: $\delta = \ln(x_n/x_{n+1})$.</li>
-<li>For successive peaks, amplitude decays exponentially, forming a <strong>GEOMETRIC PROGRESSION</strong> $\frac{x_1}{x_2} = \frac{x_2}{x_3} = \dots = e^\delta$.</li>
-<li>For small damping $\xi &lt; 0.2 \implies \delta \approx 2\pi\xi$.</li>
+<li><strong>Viscous Damping Force</strong>:</li>
+<li>Damping force $F_d = -C \dot{x}$ opposes velocity.</li>
+<li>Differential equation of motion: $m \ddot{x} + C \dot{x} + k x = 0$.</li>
+<li><strong>Damping Ratio $\xi$</strong>:</li>
+<li>Critical damping coefficient $C_c = 2\sqrt{km} = 2 m \omega_n$.</li>
+<li>Damping ratio $\xi = \frac{C}{C_c} = \frac{C}{2\sqrt{km}}$.</li>
+<li><strong>Three Damping Regimes</strong>:<ul>
+<li><strong>Underdamped $\xi &lt; 1$</strong>: Oscillatory decay. Roots are complex conjugates. $\omega_d = \omega_n \sqrt{1-\xi^2}$.</li>
+<li><strong>Critically Damped $\xi = 1$</strong>: Non-oscillatory. Returns to equilibrium in shortest possible time without overshooting.</li>
+<li><strong>Overdamped $\xi &gt; 1$</strong>: Non-oscillatory. Slow exponential return to equilibrium.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Logarithmic Decrement &amp; Amplitude Ratio</strong>: Successive peak amplitudes during underdamped free vibration decrease in a GEOMETRIC PROGRESSION $\frac{x_n}{x_{n+1}} = e^\delta = \text{constant}$.</p>
+</li>
+<li><strong>Logarithmic Decrement $\delta$</strong>:</li>
+<li>Defined as natural logarithm of ratio of successive amplitudes on same side:
+    <div class="formula-card">$${\delta = \ln\left(\frac{x_0}{x_1}\right) = \ln\left(\frac{x_1}{x_2}\right) = \dots = \ln\left(\frac{x_n}{x_{n+1}}\right)}$$</div></li>
+<li>Governing relationship:
+    <div class="formula-card">$${\boxed{\delta = \frac{2\pi \xi}{\sqrt{1 - \xi^2}}}}$$</div>
+    <div class="formula-card">$${\boxed{\xi = \frac{\delta}{\sqrt{4\pi^2 + \delta^2}}}}$$</div></li>
+<li>For small damping $\xi &lt; 0.2$, $\delta \approx 2\pi\xi$.</li>
+<li>For amplitudes measured across $n$ complete cycles ($x_0$ to $x_n$):
+    <div class="formula-card">$${\delta = \frac{1}{n} \ln\left(\frac{x_0}{x_n}\right) \implies \frac{x_0}{x_n} = e^{n \delta}}$$</div></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Geometric Progression of Amplitudes</strong>:
+In underdamped free vibration, consecutive peak amplitudes $x_0, x_1, x_2, x_3, \dots$ form a GEOMETRIC PROGRESSION with common ratio $e^{-\delta}$. Thus $\frac{x_0}{x_1} = \frac{x_1}{x_2} = \frac{x_2}{x_3} = e^\delta$.</p>
 <p>[!TRAP]
-<strong>Damped vs Undamped Frequency</strong>: Damped natural frequency $\omega_d = \omega_n \sqrt{1-\xi^2}$ is ALWAYS less than undamped natural frequency $\omega_n$.</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Damped Free Vibration Check?
-├─ Is damping ratio xi &lt; 1.0? → UNDERDAMPED (Oscillatory, amplitude decays exponentially)
-├─ Is damping ratio xi = 1.0? → CRITICALLY DAMPED (Fastest return, no oscillation)
-├─ Is damping ratio xi &gt; 1.0? → OVERDAMPED (Slow return, no oscillation)
-├─ Successive peak amplitude ratio trend? → GEOMETRIC PROGRESSION (ratio = e^delta)
-└─ Small damping logarithmic decrement approximation? → delta approx 2 * pi * xi
+<strong>Number of Cycles in Log Decrement</strong>:
+When given amplitude ratio over $n$ cycles (e.g., amplitude drops from $x_0$ to $x_5$ in $5$ cycles), divide by $n = 5$: $\delta = \frac{1}{5} \ln(x_0 / x_5)$! Do NOT forget the $1/n$ factor.</div>
+<h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Damped Free Vibration Analysis
+│
+├── Calculate Damping Ratio: xi = C / (2 * sqrt(k * m))
+│
+├── Classification based on xi:
+│   ├── xi &gt; 1  ──► OVERDAMPED (No oscillation, slow return)
+│   ├── xi = 1  ──► CRITICALLY DAMPED (Fastest non-oscillatory return)
+│   └── xi &lt; 1  ──► UNDERDAMPED (Oscillatory exponential decay)
+│                   │
+│                   ├── Calculate Damped Frequency: w_d = w_n * sqrt(1 - xi^2)
+│                   │
+│                   └── Calculate Log Decrement: delta = 2*pi*xi / sqrt(1 - xi^2)
+│                       └── Successive Peak Ratio: x_0 / x_n = exp(n * delta)
 </code></pre>
 <h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] $c_c = 2\sqrt{km} = 2m\omega_n$.</li>
-<li>[ ] $\xi = c/c_c$.</li>
-<li>[ ] $\omega_d = \omega_n \sqrt{1-\xi^2}$.</li>
-<li>[ ] $\delta = \ln(x_n/x_{n+1}) = 2\pi\xi / \sqrt{1-\xi^2}$.</li>
-<li>[ ] Successive amplitudes form a geometric progression.</li>
+<li>[ ] Critical damping $C_c = 2\sqrt{km} = 2 m \omega_n$.</li>
+<li>[ ] Damping ratio $\xi = C/C_c$.</li>
+<li>[ ] Damped frequency $\omega_d = \omega_n \sqrt{1-\xi^2}$.</li>
+<li>[ ] Log decrement $\delta = \frac{2\pi\xi}{\sqrt{1-\xi^2}}$.</li>
+<li>[ ] Damping ratio from $\delta$: $\xi = \frac{\delta}{\sqrt{4\pi^2 + \delta^2}}$.</li>
+<li>[ ] Amplitude ratio over $n$ cycles: $\frac{x_0}{x_n} = e^{n \delta}$.</li>
 </ul>
 <h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: In a damped free vibration system, successive peak amplitudes on the same side are measured as $0.70 \text{ m}$ and $0.28 \text{ m}$. Calculate the damping ratio $\xi$ of the system.
+<p><strong>Worked Example 1: Damping Ratio and Damped Frequency Calculation</strong>
+- <strong>Problem</strong>: A vibrating system has mass $m = 10 \text{ kg}$, stiffness $k = 4000 \text{ N/m}$, and viscous damping coefficient $C = 40 \text{ N}\cdot\text{s/m}$. Calculate: (a) Undamped natural frequency $\omega_n$, (b) Critical damping coefficient $C_c$, (c) Damping ratio $\xi$, (d) Damped natural frequency $\omega_d$, (e) Logarithmic decrement $\delta$.
 - <strong>Solution</strong>:
-  - Calculate logarithmic decrement:
-    <div class="formula-card">$${\delta = \ln\left(\frac{x_1}{x_2}\right) = \ln\left(\frac{0.70}{0.28}\right) = \ln(2.5) \approx 0.9163}$$</div>
-  - Calculate damping ratio:
-    <div class="formula-card">$${\xi = \frac{\delta}{\sqrt{4\pi^2 + \delta^2}} = \frac{0.9163}{\sqrt{39.4784 + 0.8396}} = \frac{0.9163}{\sqrt{40.318}} = \frac{0.9163}{6.3496} \approx 0.144}$$</div>
-- <strong>Key Insight</strong>: $\xi \approx 0.144$. Use $\delta = \ln(x_1/x_2)$ and the exact conversion formula.</p>
+  1. Calculate undamped natural frequency $\omega_n$:
+     <div class="formula-card">$${\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{4000}{10}} = \sqrt{400} = 20 \text{ rad/s}}$$</div>
+  2. Calculate critical damping coefficient $C_c$:
+     <div class="formula-card">$${C_c = 2 m \omega_n = 2 \times 10 \times 20 = 400 \text{ N}\cdot\text{s/m}}$$</div>
+  3. Calculate damping ratio $\xi$:
+     <div class="formula-card">$${\xi = \frac{C}{C_c} = \frac{40}{400} = 0.10 \quad \text{(Underdamped)}}$$</div>
+  4. Calculate damped natural frequency $\omega_d$:
+     <div class="formula-card">$${\omega_d = \omega_n \sqrt{1 - \xi^2} = 20 \sqrt{1 - (0.10)^2} = 20 \sqrt{0.99} = 20 \times 0.994987 \approx 19.90 \text{ rad/s}}$$</div>
+  5. Calculate logarithmic decrement $\delta$:
+     <div class="formula-card">$${\delta = \frac{2\pi \xi}{\sqrt{1 - \xi^2}} = \frac{2\pi \times 0.10}{\sqrt{0.99}} = \frac{0.62832}{0.994987} \approx 0.6315}$$</div>
+- <strong>Key Insight</strong>: $\xi = 0.10$, $\omega_d = 19.90 \text{ rad/s}$, $\delta = 0.6315$. Light damping lowers natural frequency by less than $0.5\%$.</p>
+<p><strong>Worked Example 2: Damping Ratio from Multi-Cycle Amplitude Decay</strong>
+- <strong>Problem</strong>: In an underdamped free vibration experiment, the initial amplitude $x_0 = 50 \text{ mm}$. After $5$ complete cycles, the amplitude reduces to $x_5 = 10 \text{ mm}$. Calculate: (a) Logarithmic decrement $\delta$, (b) Damping ratio $\xi$.
+- <strong>Solution</strong>:
+  1. Calculate logarithmic decrement $\delta$ over $n = 5$ cycles:
+     <div class="formula-card">$${\delta = \frac{1}{n} \ln\left(\frac{x_0}{x_5}\right) = \frac{1}{5} \ln\left(\frac{50}{10}\right) = \frac{1}{5} \ln(5) = \frac{1.6094}{5} \approx 0.3219}$$</div>
+  2. Calculate damping ratio $\xi$:
+     <div class="formula-card">$${\xi = \frac{\delta}{\sqrt{4\pi^2 + \delta^2}} = \frac{0.3219}{\sqrt{4\pi^2 + (0.3219)^2}} = \frac{0.3219}{\sqrt{39.4784 + 0.1036}} = \frac{0.3219}{\sqrt{39.582}} = \frac{0.3219}{6.2914} \approx 0.05116}$$</div>
+- <strong>Key Insight</strong>: $\delta = 0.3219$, $\xi = 0.0512$ $5.12\%$. For small $\xi$, approximation $\xi \approx \frac{\delta}{2\pi} = \frac{0.3219}{6.2832} = 0.0512$ gives identical result!</p>
 <hr />
-<h3 id="33-forced-vibrations-resonance"><strong>3.3 Forced Vibrations &amp; Resonance</strong></h3>
+<h3 id="33-forced-vibrations-magnification-factor-resonance"><strong>3.3 Forced Vibrations, Magnification Factor &amp; Resonance</strong></h3>
 <h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>System Frequency</strong>:</li>
-<li>In steady-state forced vibration, the system vibrates at the <strong>impressed external forcing frequency $\omega$</strong>, NOT the natural frequency $\omega_n$.</li>
-<li><strong>Resonance $r = 1.0$</strong>:</li>
-<li>Occurs when external forcing frequency matches natural frequency $\omega = \omega_n \implies r=1$.</li>
-<li>Dynamic magnification factor $M$ peaks. For zero damping, amplitude goes to infinity.</li>
-<li><strong>Phase Angle at Resonance</strong>: The phase lag $\phi$ between exciting force and displacement is <strong>EXACTLY $90^\circ$ (independent of damping)</strong>.</li>
-<li><strong>Force Balance at Resonance</strong>: At $r=1$, the spring force $k x$ balances the inertia force $-m \omega^2 x$. The external exciting force $F_0$ is <strong>balanced entirely by the damping force $c \dot{x}$</strong>!</li>
+<li><strong>Forced Harmonic Excitation</strong>:</li>
+<li>System subjected to periodic force $F(t) = F_0 \sin(\omega t)$.</li>
+<li>Differential equation: $m \ddot{x} + C \dot{x} + k x = F_0 \sin(\omega t)$.</li>
+<li>Total solution = Transient response (dies out) + Steady-state response.</li>
+<li><strong>Steady-State Amplitude &amp; Magnification Factor</strong>:</li>
+<li>Steady-state amplitude $A$:
+    <div class="formula-card">$${A = \frac{F_0 / k}{\sqrt{(1 - r^2)^2 + (2 \xi r)^2}}}$$</div></li>
+<li><strong>Magnification Factor $\text{MF}$</strong>: Ratio of dynamic amplitude $A$ to static deflection $\delta_{\text{st}} = F_0/k$:
+    <div class="formula-card">$${\boxed{\text{MF} = \frac{1}{\sqrt{(1 - r^2)^2 + (2 \xi r)^2}}}}$$</div>
+    where frequency ratio $r = \frac{\omega}{\omega_n}$.</li>
+<li><strong>Resonance Phenomena $r = 1$</strong>:</li>
+<li>Occurs when excitation frequency matches natural frequency $\omega = \omega_n$.</li>
+<li>At $r = 1$:
+    <div class="formula-card">$${\text{MF}<em>{\text{res}} = \frac{1}{2\xi} \implies \boxed{A</em>{\text{res}} = \frac{F_0}{2 \xi k}}}$$</div></li>
+<li><strong>Phase Angle $\phi$</strong>: The steady-state displacement lags the excitation force by phase angle $\phi$:
+    <div class="formula-card">$${\tan\phi = \frac{2 \xi r}{1 - r^2}}$$</div><ul>
+<li>At low frequency $r \ll 1$: $\phi \approx 0^\circ$ (in-phase).</li>
+<li>At resonance $r = 1$: $\boxed{\phi = 90^\circ}$ ($\pi/2 \text{ rad}$, exact, independent of $\xi$).</li>
+<li>At high frequency $r \gg 1$: $\phi \approx 180^\circ$ (out-of-phase).</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Forced Response at Resonance</strong>: At $r = 1$, the exciting force is balanced ENTIRELY by the damping force! The phase angle is exactly $\phi = 90^\circ$, regardless of the amount of damping.</p>
+</li>
+<li><strong>Force Equilibrium at Resonance</strong>: At $r = 1$, spring inertia force $m \omega^2 A$ balances spring restoring force $k A$. The external force $F_0$ is COMPLETELY BALANCED by viscous damping force $C \omega A$!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Resonance Force Balance</strong>:
+At resonance $r = 1$, inertia force $m \omega^2 A$ and spring stiffness force $k A$ are equal and opposite, cancelling each other completely. The entire external driving force $F_0$ is balanced solely by the VISCOUS DAMPING FORCE $C \omega A$!</p>
 <p>[!TRAP]
-<strong>Resonance Phase Angle Trap</strong>: The phase lag between forcing function and system response at resonance is ALWAYS $90^\circ$ ($\pi/2$ radians). Do not select $0^\circ$ or $180^\circ$!</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>Forced Vibration &amp; Resonance Check?
-├─ Frequency of system vibration in steady state? → Exciting forcing frequency omega
-├─ Phase lag at resonance (r = 1)? → EXACTLY 90 degrees (independent of damping xi)
-├─ What force balances exciting force at resonance? → DAMPING FORCE (c * omega * A = F_0)
-└─ Magnification Factor at resonance? → M approx 1 / (2 * xi)
+<strong>Peak Amplitude vs Resonance</strong>:
+Peak amplitude occurs slightly BEFORE resonance at $r_{\text{peak}} = \sqrt{1 - 2\xi^2}$ (for $\xi &lt; 1/\sqrt{2}$). For light damping $\xi &lt; 0.1$, $r_{\text{peak}} \approx 1$ and peak $\text{MF} \approx \frac{1}{2\xi}$.</div>
+<h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Forced Harmonic Response Calculation
+│
+├── Calculate Frequency Ratio: r = w / w_n
+│
+├── Evaluate Operating Region:
+│   ├── Low Frequency (r &lt;&lt; 1)  ──► MF ≈ 1, A ≈ F_0/k, Phase lag phi ≈ 0 deg
+│   │
+│   ├── Resonance (r = 1)       ──► MF = 1 / (2*xi), A = F_0 / (2*xi*k)
+│   │                               └── Phase lag phi = 90 deg EXACTLY!
+│   │                               └── Damping force = Impressed force F_0
+│   │
+│   └── High Frequency (r &gt;&gt; 1) ──► MF ≈ 1 / r^2, Amplitude A → 0
+│                                   └── Phase lag phi ≈ 180 deg
 </code></pre>
 <h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] Steady state frequency is forcing frequency $\omega$.</li>
-<li>[ ] Resonance $r = 1.0 \implies \phi = 90^\circ$.</li>
-<li>[ ] At resonance, exciting force = damping force.</li>
-<li>[ ] $M = 1 / \sqrt{(1-r^2)^2 + (2\xi r)^2}$.</li>
+<li>[ ] $\text{MF} = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$.</li>
+<li>[ ] At resonance $r=1$, $\text{MF} = \frac{1}{2\xi}$.</li>
+<li>[ ] At resonance, phase lag $\phi = 90^\circ$.</li>
+<li>[ ] At resonance, damping force equals impressed force $F_0$.</li>
+<li>[ ] Peak frequency ratio $r_{\text{peak}} = \sqrt{1 - 2\xi^2}$.</li>
 </ul>
 <h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A machine mass $m = 50 \text{ kg}$ is mounted on springs of total stiffness $k = 30 \text{ kN/m}$ with damping ratio $\xi = 0.2$. If it experiences a harmonic exciting force of frequency $3 \text{ Hz}$. Calculate the damped natural frequency and the steady-state vibration frequency.
+<p><strong>Worked Example 1: Resonance Amplitude and Damping Requirement</strong>
+- <strong>Problem</strong>: A machine of mass $m = 100 \text{ kg}$ mounted on springs of total stiffness $k = 400 \text{ kN/m} = 4 \times 10^5 \text{ N/m}$ is subjected to a harmonic force $F(t) = 200 \sin(\omega t) \text{ N}$. The system operates at resonance $\omega = \omega_n$. Calculate: (a) Undamped natural frequency $\omega_n$, (b) Static deflection $\delta_{\text{st}}$, (c) Steady-state resonance amplitude $A$ if damping ratio $\xi = 0.05$.
 - <strong>Solution</strong>:
-  - Undamped natural frequency:
-    <div class="formula-card">$${\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{30000}{50}} = \sqrt{600} \approx 24.495 \text{ rad/s} \implies f_n = \frac{24.495}{2\pi} \approx 3.90 \text{ Hz}}$$</div>
-  - Damped natural frequency:
-    <div class="formula-card">$${f_d = f_n \sqrt{1 - \xi^2} = 3.90 \times \sqrt{1 - (0.2)^2} = 3.90 \times \sqrt{0.96} = 3.90 \times 0.9798 \approx 3.82 \text{ Hz}}$$</div>
-  - Steady-state vibration frequency of machine:
-    - In steady-state forced vibration, the system vibrates at the exciting frequency.
-    - Steady-state frequency $= 3.0 \text{ Hz}$.
-- <strong>Key Insight</strong>: Damped frequency $= 3.82 \text{ Hz}$, steady-state vibration frequency $= 3.0 \text{ Hz}$ (matches the forcing input).</p>
+  1. Calculate natural frequency $\omega_n$:
+     <div class="formula-card">$${\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{400000}{100}} = \sqrt{4000} \approx 63.245 \text{ rad/s}}$$</div>
+  2. Calculate static deflection $\delta_{\text{st}}$:
+     <div class="formula-card">$${\delta_{\text{st}} = \frac{F_0}{k} = \frac{200}{400000} = 5 \times 10^{-4} \text{ m} = 0.5 \text{ mm}}$$</div>
+  3. Calculate Magnification Factor at resonance $r = 1$:
+     <div class="formula-card">$${\text{MF}<em>{\text{res}} = \frac{1}{2 \xi} = \frac{1}{2 \times 0.05} = \frac{1}{0.10} = 10}$$</div>
+  4. Calculate steady-state resonance amplitude $A$:
+     <div class="formula-card">$${A = \text{MF}</em>{\text{res}} \times \delta_{\text{st}} = 10 \times 0.5 \text{ mm} = 5.0 \text{ mm}}$$</div>
+- <strong>Key Insight</strong>: $A = 5.0 \text{ mm}$. At resonance, light damping $\xi = 0.05$ magnifies static deflection by a factor of 10!</p>
 <hr />
-<h3 id="34-vibration-isolation-transmissibility"><strong>3.4 Vibration Isolation &amp; Transmissibility</strong></h3>
+<h3 id="34-vibration-isolation-transmissibility-rules"><strong>3.4 Vibration Isolation &amp; Transmissibility Rules</strong></h3>
 <h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>Transmissibility $TR$</strong>:</li>
-<li>Ratio of force transmitted to foundation to exciting force amplitude.</li>
-<li><strong>Isolation Range $TR &lt; 1.0$</strong>:</li>
-<li>Vibration isolation is possible ONLY when frequency ratio <strong>$r &gt; \sqrt{2}$</strong>.</li>
-<li>If $r &lt; \sqrt{2} \implies TR &gt; 1.0$, which amplifies the transmitted force.</li>
-<li><strong>Effect of Damping on Isolation</strong>:</li>
-<li>At $r = \sqrt{2}$, $TR = 1.0$ for all values of damping ratio $\xi$ (all transmissibility curves intersect at $r=\sqrt{2}$).</li>
-<li>For $r &gt; \sqrt{2}$ (isolation region): Adding damping <strong>INCREASES transmissibility $TR$</strong> (reduces isolation effectiveness). Thus, low damping (or no damping) is preferred in the isolation range!</li>
-<li>For $r &lt; \sqrt{2}$ (amplification region): Adding damping <strong>DECREASES transmissibility $TR$</strong> (protects the system near resonance).</li>
+<li><strong>Purpose of Isolation</strong>:</li>
+<li>Prevents transmission of large dynamic forces from vibrating machinery to supporting floor/foundation, or protects sensitive instruments from base motion.</li>
+<li><strong>Transmissibility Ratio $T$</strong>:</li>
+<li>Ratio of transmitted force magnitude $F_T$ to applied force amplitude $F_0$:
+    <div class="formula-card">$${\boxed{T = \frac{F_T}{F_0} = \sqrt{\frac{1 + (2 \xi r)^2}{(1 - r^2)^2 + (2 \xi r)^2}}}}$$</div></li>
+<li>For zero damping $\xi = 0$:
+    <div class="formula-card">$${T = \left\vert \frac{1}{1 - r^2} \right\vert = \frac{1}{r^2 - 1} \quad (\text{for } r &gt; 1)}$$</div></li>
+<li><strong>The Critical Isolation Threshold $r = \sqrt{2}$</strong>:</li>
+<li>When $r = \sqrt{2}$:
+    <div class="formula-card">$${T = \sqrt{\frac{1 + (2\xi \sqrt{2})^2}{(1 - (\sqrt{2})^2)^2 + (2\xi \sqrt{2})^2}} = \sqrt{\frac{1 + 8\xi^2}{(-1)^2 + 8\xi^2}} = \sqrt{\frac{1 + 8\xi^2}{1 + 8\xi^2}} = 1}$$</div></li>
+<li><strong>ALL transmissibility curves for ALL damping ratios pass through $T = 1$ at $r = \sqrt{2}$!</strong></li>
+<li><strong>Three Transmissibility Operating Zones</strong>:</li>
+<li><strong>Zone 1 $r &lt; \sqrt{2}$</strong>: $T &gt; 1$ (Force is AMPLIFIED). Damping is BENEFICIAL here because it reduces $T$.</li>
+<li><strong>Zone 2 $r = \sqrt{2}$</strong>: $T = 1$ (Transmitted force equals applied force regardless of damping).</li>
+<li><strong>Zone 3 $r &gt; \sqrt{2}$</strong>: $T &lt; 1$ (<strong>ISOLATION REGION</strong>). Dynamic force transmitted to foundation is less than applied force.<ul>
+<li>In this region $r &gt; \sqrt{2}$, <strong>increasing damping INCREASES transmissibility $T$ (worsens isolation)</strong>! Therefore, low damping or un-damped flexible mounts are preferred in the isolation zone once operating speed is reached.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Vibration Isolation Rule</strong>: Isolation $TR &lt; 1.0$ occurs ONLY when frequency ratio $r &gt; \sqrt{2}$. In this isolation region, damping actually INCREASES force transmission $TR \uparrow$, making a highly damped isolator less effective than an undamped one!</p>
+</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Vibration Isolation Rule</strong>:
+Vibration isolation occurs ONLY IF $r = \omega/\omega_n &gt; \sqrt{2} \approx 1.414$. For $r &lt; \sqrt{2}$, transmissibility $T &gt; 1$ and damping helps. For $r &gt; \sqrt{2}$, transmissibility $T &lt; 1$ and adding damping actually WORSENS isolation!</p>
 <p>[!TRAP]
-<strong>Crossover Point Damping Trap</strong>: At frequency ratio $r = \sqrt{2}$, transmissibility $TR = 1.0$ regardless of the damping ratio $\xi$. Damping curves all intersect at this exact point!</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>Vibration Isolation &amp; Transmissibility Check?
-├─ Is frequency ratio r &gt; sqrt(2)? → ISOLATION REGION (TR &lt; 1.0)
-├─ Is frequency ratio r &lt; sqrt(2)? → AMPLIFICATION REGION (TR &gt; 1.0)
-├─ What is TR at r = sqrt(2)? → TR = 1.0 (independent of damping ratio xi)
-└─ Effect of damping for r &gt; sqrt(2)? → Damping INCREASES TR (worsens isolation)
+<strong>Undamped Transmissibility Sign Trap</strong>:
+For $r &gt; \sqrt{2}$, $1 - r^2$ is negative. Always use absolute value $T = \frac{1}{r^2 - 1}$ when calculating required frequency ratio for undamped isolators!</div>
+<h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Vibration Isolation &amp; Transmissibility Analysis
+│
+├── Calculate Frequency Ratio: r = w / w_n
+│
+├── Check Isolation Condition:
+│   ├── r &lt; sqrt(2) (r &lt; 1.414) ──► NO ISOLATION! Transmissibility T &gt; 1 (Amplification)
+│   │                              └── Damping is BENEFICIAL (reduces T)
+│   │
+│   ├── r = sqrt(2) (r = 1.414) ──► CROSSOVER POINT! T = 1 for ALL damping ratios
+│   │
+│   └── r &gt; sqrt(2) (r &gt; 1.414) ──► ISOLATION ZONE! Transmissibility T &lt; 1 (Attenuated)
+│                                  ├── Undamped formula: T = 1 / (r^2 - 1)
+│                                  └── Adding damping WORSENS isolation (increases T)
 </code></pre>
 <h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] $TR = \sqrt{1 + (2\xi r)^2} / \sqrt{(1-r^2)^2 + (2\xi r)^2}$.</li>
-<li>[ ] Isolation if $r &gt; \sqrt{2}$.</li>
-<li>[ ] At $r = \sqrt{2} \implies TR = 1.0$.</li>
-<li>[ ] For $r &gt; \sqrt{2}$, damping increases transmitted force.</li>
+<li>[ ] Isolation criterion: $r &gt; \sqrt{2}$.</li>
+<li>[ ] At $r = \sqrt{2}$, $T = 1$ for all $\xi$.</li>
+<li>[ ] Undamped transmissibility $T = \frac{1}{r^2 - 1}$ (for $r &gt; \sqrt{2}$).</li>
+<li>[ ] For $r &gt; \sqrt{2}$, increasing damping increases $T$ (worsens isolation).</li>
+<li>[ ] Isolation percentage $= (1 - T) \times 100\%$.</li>
 </ul>
 <h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A refrigerator unit of mass $m = 35 \text{ kg}$ is supported on three springs of equal stiffness $k$. The exciting force frequency is $480 \text{ rpm}$. Design the spring stiffness $k$ (in $\text{N/mm}$) such that only $10\%$ of the exciting force is transmitted to the floor, assuming zero damping $\xi = 0$.
+<p><strong>Worked Example 1: Isolator Spring Stiffness Calculation (PYQ Pattern)</strong>
+- <strong>Problem</strong>: A refrigerator unit of mass $m = 35 \text{ kg}$ is driven by a motor running at $N = 480 \text{ rpm}$. The unit is mounted on $4$ equal springs. Determine the required total spring stiffness $k_{\text{total}}$ $\text{N/mm}$ such that only $10\%$ $T = 0.10$ of the shaking force is transmitted to the supporting floor. Assume zero damping $\xi = 0$.
 - <strong>Solution</strong>:
-  - Exciting frequency: $\omega = 480 \times \frac{2\pi}{60} = 16\pi \approx 50.265 \text{ rad/s}$.
-  - $TR = 10\% = 0.10$.
-  - Since $TR &lt; 1.0$, we are in the isolation region $r &gt; \sqrt{2}$.
-  - For $\xi = 0 \implies TR = \left| \frac{1}{1-r^2} \right| \implies 0.10 = \frac{1}{r^2 - 1} \implies r^2 - 1 = 10 \implies r^2 = 11 \implies r \approx 3.3166$.
-  - $r = \frac{\omega}{\omega_n} \implies 3.3166 = \frac{50.265}{\omega_n} \implies \omega_n \approx 15.155 \text{ rad/s}$.
-  - Total stiffness: $k_{\text{total}} = m \cdot \omega_n^2 = 35 \times (15.155)^2 = 35 \times 229.68 \approx 8039 \text{ N/m} = 8.039 \text{ N/mm}$.
-  - Stiffness per spring (3 springs in parallel):
-    <div class="formula-card">$${k = \frac{k_{\text{total}}}{3} = \frac{8.039}{3} \approx 2.68 \text{ N/mm}}$$</div>
-- <strong>Key Insight</strong>: $k \approx 2.68 \text{ N/mm}$ per spring. Use $TR = \frac{1}{r^2 - 1}$ for undamped isolation.</p>
+  1. Calculate excitation angular frequency $\omega$:
+     <div class="formula-card">$${\omega = \frac{2\pi N}{60} = \frac{2\pi \times 480}{60} = 16\pi \approx 50.265 \text{ rad/s}}$$</div>
+  2. For $T = 0.10 &lt; 1$, operation must be in isolation zone $r &gt; \sqrt{2}$:
+     <div class="formula-card">$${T = \frac{1}{r^2 - 1} \implies 0.10 = \frac{1}{r^2 - 1} \implies r^2 - 1 = 10 \implies r^2 = 11}$$</div>
+     <div class="formula-card">$${r = \sqrt{11} \approx 3.3166}$$</div>
+  3. Calculate required natural frequency $\omega_n$:
+     <div class="formula-card">$${\omega_n = \frac{\omega}{r} = \frac{50.265}{3.3166} \approx 15.156 \text{ rad/s}}$$</div>
+  4. Calculate required total stiffness $k_{\text{total}}$:
+     <div class="formula-card">$${k_{\text{total}} = m \omega_n^2 = 35 \times (15.156)^2 = 35 \times 229.70 \approx 8039.6 \text{ N/m} = 8.04 \text{ N/mm}}$$</div>
+  5. Stiffness per spring (if 4 springs in parallel):
+     <div class="formula-card">$${k_{\text{spring}} = \frac{k_{\text{total}}}{4} = \frac{8.04}{4} = 2.01 \text{ N/mm}}$$</div>
+- <strong>Key Insight</strong>: $k_{\text{total}} = 8.04 \text{ N/mm}$, $k_{\text{spring}} = 2.01 \text{ N/mm}$. $r = \sqrt{11} \approx 3.32 &gt; \sqrt{2}$, satisfying the isolation condition.</p>
 <hr />
 <h3 id="35-critical-speeds-whirling-of-shafts"><strong>3.5 Critical Speeds &amp; Whirling of Shafts</strong></h3>
 <h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>Whirling Deflection</strong>:</li>
-<li>Centrifugal force on rotor eccentricity $e$ causes shaft bending deflection $y$:
-    <div class="formula-card">$${y = \frac{e \cdot r^2}{1 - r^2}}$$</div></li>
-<li>At $\omega = \omega_c \implies r = 1.0$, deflection $y \to \infty$ (Resonance).</li>
-<li><strong>Critical Speed</strong>:</li>
-<li>Whirling speed $\omega_c$ matches natural frequency of transverse vibration: $\omega_c = \omega_n = \sqrt{\frac{g}{\delta}}$.</li>
-<li>Whirling takes place strictly in the <strong>TRANSVERSE DIRECTION</strong> (perpendicular to shaft axis).</li>
-<li><strong>Rigid Rotor Definition</strong>:</li>
-<li>A rotor is considered rigid if its operating speed $N$ is <strong>less than $70\%$ of its critical speed $N_c$</strong> $N &lt; 0.7 N_c$. A rigid rotor balanced at one speed remains balanced at all lower speeds.</li>
-<li><strong>Parametric Influence</strong>:</li>
-<li>Critical speed of a shaft is influenced by shaft diameter (stiffness), span length, rotor mass, and mass eccentricity.</li>
+<li><strong>Whirling / Critical Speed Phenomenon</strong>:</li>
+<li>Rotation of a shaft carrying rotors causes centrifugal forces on unbalance eccentricities $e$.</li>
+<li>At critical speed $N_c$, centrifugal force matches shaft restoring force, producing violent transverse bending oscillations.</li>
+<li>Whirling occurs strictly in the <strong>TRANSVERSE</strong> direction (not longitudinal or torsional).</li>
+<li>Critical angular speed $\omega_c$ equals the <strong>transverse natural frequency</strong> $\omega_n$ of the shaft:
+    <div class="formula-card">$${\boxed{\omega_c = \omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{g}{\delta}}}}$$</div>
+    <div class="formula-card">$${\boxed{N_c = \frac{60}{2\pi} \sqrt{\frac{g}{\delta}} \approx \frac{187.7}{\sqrt{\delta}} \quad (\text{rpm, } \delta \text{ in m})}}$$</div></li>
+<li><strong>Whirling Shaft Deflection $y$</strong>:</li>
+<li>Total shaft center deflection $y$ due to rotor mass center eccentricity $e$:
+    <div class="formula-card">$${\boxed{y = \frac{e r^2}{1 - r^2} = \frac{e}{\left(\frac{\omega_c}{\omega}\right)^2 - 1}}}$$</div></li>
+<li>For speed below critical $\omega &lt; \omega_c$: $y$ is positive (mass center stays outside geometric shaft center).</li>
+<li>For speed above critical $\omega &gt; \omega_c$: $y$ becomes negative, meaning the heavy center of gravity rotates INWARD towards the rotation axis (self-centering behavior at very high speeds $\omega \gg \omega_c \implies y \to -e$).</li>
+<li><strong>Dunkerley's Method for Multi-Load Shafts</strong>:</li>
+<li>Approximates the fundamental transverse frequency $f$ of a shaft carrying multiple concentrated loads $m_1, m_2, \dots$ plus shaft self-weight:
+    <div class="formula-card">$${\boxed{\frac{1}{f^2} \approx \frac{1}{f_s^2} + \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots + \frac{1}{f_n^2}}}$$</div>
+    where $f_s$ is natural frequency of shaft self-weight alone, and $f_1, f_2, \dots$ are natural frequencies due to each load acting independently.</li>
+<li>Dunkerley's method provides a <strong>conservative lower bound</strong> for critical speed.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Critical Speed of Shaft</strong>: Critical speed $\omega_c$ coincides exactly with the natural frequency of transverse vibration $\omega_c = \sqrt{g/\delta}$. Whirling is a bending resonance in the TRANSVERSE direction!</p>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Whirling Speed Identity</strong>:
+The critical (whirling) speed of a shaft in rpm $N_c$ is NUMERICALLY EQUAL to the natural frequency of transverse vibration $f_n$ converted to rpm $N_c = 60 f_n$.</p>
 <p>[!TRAP]
-<strong>Direction of Whirling</strong>: Whirling is a transverse (bending) phenomenon, NOT longitudinal or torsional!</div>
-<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
-<pre><code>Critical Speed &amp; Whirling Check?
-├─ Whirling direction of vibration? → TRANSVERSE (bending) direction
-├─ Critical Speed value calculation? → wc = sqrt(g / delta) rad/s
-├─ Dynamic deflection y at speed ratio r? → y = e * r^2 / (1 - r^2)
-└─ Rigid rotor speed threshold? → Operating speed N &lt; 70% of critical speed Nc
+<strong>Dunkerley Frequency Sum Trap</strong>:
+Dunkerley's formula sums reciprocal SQUARES $\frac{1}{f^2} = \sum \frac{1}{f_i^2}$, NOT direct frequencies $\frac{1}{f} \neq \sum \frac{1}{f_i}$!</div>
+<h5 id="2-ascii-decision-tree_4"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Whirling Speed &amp; Shaft Deflection Analysis
+│
+├── Step 1: Calculate Transverse Static Deflection (delta)
+│   └── delta = W * L^3 / (48*E*I) for simply supported mid-span load
+│
+├── Step 2: Calculate Critical Speed
+│   ├── Single Load:  w_c = sqrt(g / delta) rad/s  --&gt; N_c = 187.7 / sqrt(delta) rpm
+│   └── Multi-Load:   Use Dunkerley: 1/f^2 = 1/f_s^2 + 1/f_1^2 + 1/f_2^2 + ...
+│
+└── Step 3: Evaluate Dynamic Shaft Deflection (y) at speed w
+    └── y = e / [ (w_c/w)^2 - 1 ]
+        ├── If w &lt; w_c ──► Positive deflection (heavy side outward)
+        ├── If w = w_c ──► RESONANCE! Deflection y -&gt; infinity
+        └── If w &gt; w_c ──► Self-centering (heavy side rotates inward towards axis)
 </code></pre>
 <h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] Whirling is transverse vibration.</li>
-<li>[ ] $\omega_c = \sqrt{g/\delta}$.</li>
-<li>[ ] Deflection $y = \frac{e r^2}{1-r^2}$.</li>
-<li>[ ] Rigid rotor operating speed $&lt; 0.70 N_c$.</li>
+<li>[ ] Critical speed $\omega_c = \sqrt{g/\delta}$.</li>
+<li>[ ] $N_c = \frac{187.7}{\sqrt{\delta}} \text{ rpm}$ ($\delta$ in m).</li>
+<li>[ ] Whirling occurs in transverse direction.</li>
+<li>[ ] Whirling deflection $y = \frac{e}{(\omega_c/\omega)^2 - 1}$.</li>
+<li>[ ] Dunkerley formula $\frac{1}{f^2} \approx \frac{1}{f_s^2} + \frac{1}{f_1^2} + \frac{1}{f_2^2}$.</li>
+<li>[ ] Rigid rotor limit: $N &lt; 0.70 N_c$.</li>
 </ul>
 <h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A light shaft carries a rotor of mass $m = 0.2 \text{ kg}$ at its mid-point. The transverse stiffness of the shaft at the rotor location is $k = 72 \text{ kN/m} = 72000 \text{ N/m}$. Calculate the critical speed in rad/s.
+<p><strong>Worked Example 1: Critical Speed of Shaft with Single Rotor</strong>
+- <strong>Problem</strong>: A light shaft supported in bearings carries a rotor of mass $m = 0.2 \text{ kg}$ at mid-span. The shaft stiffness at the rotor location is $k = 72000 \text{ N/m}$. Calculate: (a) Critical angular speed $\omega_c$ in rad/s, (b) Critical speed $N_c$ in rpm.
 - <strong>Solution</strong>:
-  - Whirling critical speed matches transverse natural frequency:
-    <div class="formula-card">$${\omega_c = \omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{72000}{0.2}} = \sqrt{360000} = 600 \text{ rad/s}}$$</div>
-- <strong>Key Insight</strong>: $\omega_c = 600 \text{ rad/s}$. Link critical speed directly to natural frequency.</p>
+  1. Critical angular speed equals transverse natural frequency:
+     <div class="formula-card">$${\omega_c = \sqrt{\frac{k}{m}} = \sqrt{\frac{72000}{0.2}} = \sqrt{360000} = 600 \text{ rad/s}}$$</div>
+  2. Calculate critical speed in rpm:
+     <div class="formula-card">$${N_c = \frac{60 \omega_c}{2\pi} = \frac{60 \times 600}{2\pi} = \frac{36000}{2\pi} \approx 5729.6 \text{ rpm}}$$</div>
+- <strong>Key Insight</strong>: $\omega_c = 600 \text{ rad/s}$, $N_c = 5730 \text{ rpm}$. Direct application of $\omega_c = \sqrt{k/m}$.</p>
+<p><strong>Worked Example 2: Dunkerley Multi-Rotor Critical Speed Calculation</strong>
+- <strong>Problem</strong>: A shaft carries two heavy rotors. Operating alone, Rotor 1 gives a transverse natural frequency $f_1 = 100 \text{ Hz}$, and Rotor 2 gives $f_2 = 200 \text{ Hz}$. Neglecting shaft mass, calculate the combined critical speed $N_c$ in rpm using Dunkerley's method.
+- <strong>Solution</strong>:
+  1. Apply Dunkerley's formula:
+     <div class="formula-card">$${\frac{1}{f^2} = \frac{1}{f_1^2} + \frac{1}{f_2^2} = \frac{1}{100^2} + \frac{1}{200^2} = \frac{1}{10000} + \frac{1}{40000} = 10^{-4} + 0.25 \times 10^{-4} = 1.25 \times 10^{-4}}$$</div>
+  2. Solve for combined natural frequency $f$:
+     <div class="formula-card">$${f^2 = \frac{1}{1.25 \times 10^{-4}} = 8000 \implies f = \sqrt{8000} \approx 89.443 \text{ Hz}}$$</div>
+  3. Calculate critical speed in rpm:
+     <div class="formula-card">$${N_c = 60 \times f = 60 \times 89.443 \approx 5366.6 \text{ rpm}}$$</div>
+- <strong>Key Insight</strong>: $N_c = 5367 \text{ rpm}$. Dunkerley's method yields a combined frequency $89.4 \text{ Hz}$ lower than either individual frequency ($100 \text{ Hz}$ and $200 \text{ Hz}$).</p>
 <hr />
-<h3 id="36-torsional-vibrations-nodes"><strong>3.6 Torsional Vibrations &amp; Nodes</strong></h3>
+<h3 id="36-torsional-vibrations-multi-rotor-node-locations"><strong>3.6 Torsional Vibrations &amp; Multi-Rotor Node Locations</strong></h3>
 <h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
 <ul>
-<li><strong>Nodes in Torsional Systems</strong>:</li>
-<li>Node is a cross-section of zero angular twist amplitude.</li>
-<li>For $n$ rotors on a single shaft, the system can vibrate with up to <strong>$n-1$ nodes</strong>.<ul>
-<li>Two-rotor system $\implies 1$ node.</li>
-<li>Three-rotor system $\implies 2$ nodes.</li>
+<li><strong>Torsional Shaft Dynamics</strong>:</li>
+<li>Shaft twists back and forth under polar moment of inertia $I$ and torsional stiffness $q = \frac{G J}{L}$.</li>
+<li>Governing differential equation: $I \ddot{\theta} + q \theta = 0$.</li>
+<li>Natural angular frequency:
+    <div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{q}{I}} = \sqrt{\frac{G J}{I L}}}}$$</div></li>
+<li><strong>Nodes in Multi-Rotor Systems</strong>:</li>
+<li>A <strong>Node</strong> is a section along the shaft where the amplitude of torsional vibration is ZERO.</li>
+<li><strong>Node Formula</strong>: For a shaft carrying $n$ rotors:
+    <div class="formula-card">$${\boxed{N_{\text{nodes}} = n_{\text{rotors}} - 1}}$$</div><ul>
+<li>Single Rotor: 0 nodes (vibrates against fixed end).</li>
+<li>Two Rotors: 1 node (located between the two rotors).</li>
+<li>Three Rotors: 2 nodes (fundamental mode has 1 node, second mode has 2 nodes).</li>
 </ul>
 </li>
-<li><strong>Two-Rotor Node Location</strong>:</li>
-<li>The node divides the shaft into two segments vibrating in opposite directions.</li>
-<li>Torque balance about the node:
-    <div class="formula-card">$${I_A \cdot l_A = I_B \cdot l_B}$$</div></li>
-<li>Segment lengths: $l_A = \frac{I_B L}{I_A + I_B}$ and $l_B = \frac{I_A L}{I_A + I_B}$.</li>
-<li>The node lies closer to the rotor with the <strong>LARGER mass moment of inertia</strong>.</li>
+<li><strong>Two-Rotor System Mechanics</strong>:</li>
+<li>Rotors $A$ and $B$ with moments of inertia $I_A$ and $I_B$ at ends of a shaft of length $L$.</li>
+<li>Single node $N$ located at distance $l_A$ from rotor $A$ and $l_B$ from rotor $B$ $l_A + l_B = L$.</li>
+<li><strong>Torque Balance Condition</strong>:
+    <div class="formula-card">$${\boxed{I_A \cdot l_A = I_B \cdot l_B}}$$</div>
+    <div class="formula-card">$${l_A = \frac{I_B \cdot L}{I_A + I_B}, \quad l_B = \frac{I_A \cdot L}{I_A + I_B}}$$</div></li>
+<li>Both rotors vibrate at the EXACT SAME natural frequency about node $N$:
+    <div class="formula-card">$${\boxed{\omega_n = \sqrt{\frac{G J}{I_A l_A}} = \sqrt{\frac{G J}{I_B l_B}}}}$$</div></li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Torsional Node Rule</strong>: For $n$ rotors, maximum number of nodes is $n-1$. In a two-rotor system, the single node lies closer to the heavier rotor (larger moment of inertia $I$).</p>
-<p>[!TRAP]
-<strong>Node Location Trend</strong>: If $I_A &gt; I_B$, the node lies closer to rotor $A$ $l_A &lt; l_B$. Do not place the node closer to the lighter rotor!</div>
-<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
-<pre><code>Torsional Vibration &amp; Nodes Check?
-├─ Number of nodes for n-rotor shaft? → Nodes = n - 1
-├─ Where is the node in 2-rotor system? → Closer to the rotor with LARGER moment of inertia I
-└─ Node location formula? → IA * lA = IB * lB
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Node Shift Principle</strong>:
+The node in a two-rotor system lies closer to the rotor with LARGER moment of inertia $I_A &gt; I_B \implies l_A &lt; l_B$. If $I_A \to \infty$, $l_A \to 0$ (node moves directly under rotor A, behaving like a fixed end!).</div>
+<h5 id="2-ascii-decision-tree_5"><strong>2. ASCII Decision Tree</strong></h5>
+<pre><code>Torsional Multi-Rotor System Analysis
+│
+├── Determine Number of Rotors (n)
+│   └── Number of Nodes = n - 1
+│
+├── Two-Rotor System (n = 2, 1 Node):
+│   ├── Step 1: Calculate Node Position from Rotor A: l_A = I_B * L / (I_A + I_B)
+│   ├── Step 2: Calculate Node Position from Rotor B: l_B = L - l_A
+│   └── Step 3: Calculate Torsional Frequency: w_n = sqrt( G*J / (I_A * l_A) )
+│
+└── Three-Rotor System (n = 3, 2 Nodes):
+    └── Fundamental mode has 1 node; Second harmonic mode has 2 nodes
 </code></pre>
 <h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
 <ul>
-<li>[ ] Nodes $= n - 1$.</li>
-<li>[ ] 2-rotor system: 1 node.</li>
-<li>[ ] $I_A l_A = I_B l_B$.</li>
-<li>[ ] Node is closer to heavier rotor.</li>
+<li>[ ] Torsional natural frequency $\omega_n = \sqrt{\frac{q}{I}} = \sqrt{\frac{G J}{I L}}$.</li>
+<li>[ ] Number of nodes $= n_{\text{rotors}} - 1$.</li>
+<li>[ ] Two-rotor node condition $I_A l_A = I_B l_B$.</li>
+<li>[ ] Node position $l_A = \frac{I_B L}{I_A + I_B}$.</li>
+<li>[ ] Node lies closer to heavier rotor.</li>
 </ul>
 <h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A steel shaft of length $L = 1.2 \text{ m}$ carries two rotors $A$ and $B$ at its ends. The polar mass moment of inertia of rotor $A$ is $I_A = 80 \text{ kg}\cdot\text{m}^2$ and that of rotor $B$ is $I_B = 40 \text{ kg}\cdot\text{m}^2$. Locate the position of the node from rotor $A$.
+<p><strong>Worked Example 1: Two-Rotor Node Position &amp; Torsional Frequency</strong>
+- <strong>Problem</strong>: A steel shaft of length $L = 1.2 \text{ m}$ and diameter $d = 50 \text{ mm} = 0.05 \text{ m}$ carries two rotors at its ends. Rotor A has moment of inertia $I_A = 20 \text{ kg}\cdot\text{m}^2$ and Rotor B has $I_B = 40 \text{ kg}\cdot\text{m}^2$. Modulus of rigidity $G = 80 \text{ GPa} = 8 \times 10^{10} \text{ N/m}^2$. Calculate: (a) Node position $l_A$ from Rotor A, (b) Polar moment of inertia of shaft $J$, (c) Torsional natural frequency $f_n$ in Hz.
 - <strong>Solution</strong>:
-  - Node location condition: $I_A \cdot l_A = I_B \cdot l_B$.
-  - Since $l_A + l_B = L = 1.2 \text{ m} \implies l_B = 1.2 - l_A$.
-  - Substitute: $80 \cdot l_A = 40 \cdot (1.2 - l_A) \implies 80 l_A = 48 - 40 l_A \implies 120 l_A = 48 \implies l_A = 0.4 \text{ m}$.
-  - The node is located $0.4 \text{ m}$ from rotor $A$.
-- <strong>Key Insight</strong>: $l_A = 0.4 \text{ m}$ (closer to the heavier rotor $A$).</p>
+  1. Calculate node position $l_A$ from Rotor A:
+     <div class="formula-card">$${l_A = \frac{I_B \cdot L}{I_A + I_B} = \frac{40 \times 1.2}{20 + 40} = \frac{48}{60} = 0.8 \text{ m}}$$</div>
+     <div class="formula-card">$${l_B = L - l_A = 1.2 - 0.8 = 0.4 \text{ m}}$$</div>
+  2. Calculate shaft polar moment of inertia $J$:
+     <div class="formula-card">$${J = \frac{\pi d^4}{32} = \frac{\pi \times (0.05)^4}{32} \approx 6.1359 \times 10^{-7} \text{ m}^4}$$</div>
+  3. Calculate torsional stiffness of segment A $q_A = \frac{G J}{l_A}$:
+     <div class="formula-card">$${q_A = \frac{(8 \times 10^{10}) \times (6.1359 \times 10^{-7})}{0.8} = \frac{49087.2}{0.8} = 61359 \text{ N}\cdot\text{m/rad}}$$</div>
+  4. Calculate torsional natural frequency $\omega_n$:
+     <div class="formula-card">$${\omega_n = \sqrt{\frac{q_A}{I_A}} = \sqrt{\frac{61359}{20}} = \sqrt{3067.95} \approx 55.389 \text{ rad/s}}$$</div>
+  5. Convert to Hz:
+     <div class="formula-card">$${f_n = \frac{\omega_n}{2\pi} = \frac{55.389}{2\pi} \approx 8.815 \text{ Hz}}$$</div>
+- <strong>Key Insight</strong>: $l_A = 0.8 \text{ m}$ (closer to heavier Rotor B at $0.4 \text{ m}$), $f_n = 8.82 \text{ Hz}$. Verifying via segment B: $\omega_n = \sqrt{\frac{G J}{I_B l_B}} = \sqrt{\frac{49087.2}{40 \times 0.4}} = \sqrt{3067.95} = 55.39 \text{ rad/s}$ (identical!).</p>
 <hr />
-<h3 id="37-special-approximate-methods-systems"><strong>3.7 Special / Approximate Methods &amp; Systems</strong></h3>
-<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Dunkerley's Method</strong>:</li>
-<li>Provides a quick lower-bound (conservative) estimate of fundamental frequency for shafts carrying multiple loads:
-    <div class="formula-card">$${\frac{1}{f^2} \approx \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots}$$</div></li>
-<li><strong>Rolling Cylinder Central Spring System</strong>:</li>
-<li>A cylinder of mass $m$ rolling without slip with a spring attached to its center has natural frequency:
-    <div class="formula-card">$${\omega_n = \sqrt{\frac{2k}{3m}}}$$</div></li>
-<li>The factor $2/3$ accounts for rotational kinetic energy of the cylinder $I = \frac{1}{2}mR^2$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Dunkerley's Frequency Estimation</strong>: Dunkerley's equation $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$ provides a conservative LOWER BOUND estimate of the actual fundamental frequency.</div>
-<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
-<pre><code>Special System Frequency Check?
-├─ Is it Dunkerley's multi-load shaft approximation? → 1/f^2 = 1/f1^2 + 1/f2^2 + ...
-├─ Is it Rolling Cylinder with central spring? → omega_n = sqrt(2*k / 3*m)
-└─ Does spring-mass natural frequency change on the Moon? → NO
-</code></pre>
-<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Dunkerley: $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$.</li>
-<li>[ ] Rolling cylinder: $\omega_n = \sqrt{\frac{2k}{3m}}$.</li>
-<li>[ ] Spring-mass frequency is gravity independent.</li>
-</ul>
-<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A shaft carries two rotors. The individual natural frequencies of transverse vibration of the shaft under each load acting alone are $100 \text{ Hz}$ and $200 \text{ Hz}$. Estimate the fundamental frequency of the system using Dunkerley's method.
-- <strong>Solution</strong>:
-  - Apply Dunkerley's formula:
-    <div class="formula-card">$${\frac{1}{f^2} = \frac{1}{f_1^2} + \frac{1}{f_2^2} = \frac{1}{100^2} + \frac{1}{200^2} = \frac{1}{10000} + \frac{1}{40000} = \frac{5}{40000} = \frac{1}{8000}}$$</div>
-  - $f^2 = 8000 \implies f = \sqrt{8000} \approx 89.44 \text{ Hz}$.
-- <strong>Key Insight</strong>: $f \approx 89.44 \text{ Hz}$. Dunkerley's estimate is lower than either individual component frequency.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1: List the three main types of free vibrations based on particle motion relative to the shaft axis.</strong><br />
-A: 1. Longitudinal Vibration (parallel to axis), 2. Transverse Vibration (perpendicular to axis), 3. Torsional Vibration (circular path about axis).</p>
-<p><strong>Q2: What is the static deflection formula for natural cyclic frequency $f_n$ of transverse vibration?</strong><br />
-A: $f_n = \frac{1}{2\pi}\sqrt{\frac{g}{\delta}}$, where $\delta$ is the static deflection under self-weight.</p>
-<p><strong>Q3: How does natural frequency of a spring-mass system change on the Moon?</strong><br />
-A: It remains unchanged. Since $\omega_n = \sqrt{k/m}$, natural frequency is independent of gravity.</p>
-<p><strong>Q4: Define the critical damping coefficient $c_c$ and state its formula.</strong><br />
-A: The damping coefficient that separates oscillatory decay from non-oscillatory motion: $c_c = 2\sqrt{km} = 2m\omega_n$.</p>
-<p><strong>Q5: What is the relationship between damped natural frequency $\omega_d$ and undamped natural frequency $\omega_n$?</strong><br />
-A: $\omega_d = \omega_n \sqrt{1 - \xi^2}$.</p>
-<p><strong>Q6: What is logarithmic decrement $\delta$? Write its relation to damping ratio $\xi$.</strong><br />
-A: $\delta = \ln(x_n/x_{n+1})$, the natural log of the ratio of successive peak amplitudes. Relation: $\delta = \frac{2\pi\xi}{\sqrt{1-\xi^2}}$.</p>
-<p><strong>Q7: Describe the geometric progression behavior of successive amplitudes in underdamped free vibration.</strong><br />
-A: The ratio of any two successive peak amplitudes is constant: $\frac{x_n}{x_{n+1}} = e^\delta$.</p>
-<p><strong>Q8: At what frequency does a forced vibration system oscillate in steady state?</strong><br />
-A: At the external exciting forcing frequency $\omega$.</p>
-<p><strong>Q9: What is the phase angle between exciting force and displacement at resonance?</strong><br />
-A: Exactly $90^\circ$ ($\pi/2$ radians), independent of the damping ratio.</p>
-<p><strong>Q10: Which force balances the external exciting force in a forced vibration system at resonance $r=1.0$?</strong><br />
-A: The viscous damping force $c \omega A = F_0$.</p>
-<p><strong>Q11: Under what frequency ratio condition is vibration isolation $TR &lt; 1.0$ possible?</strong><br />
-A: Only when frequency ratio $r = \omega/\omega_n &gt; \sqrt{2}$.</p>
-<p><strong>Q12: What is the value of transmissibility $TR$ at frequency ratio $r = \sqrt{2}$?</strong><br />
-A: $TR = 1.0$ for all values of the damping ratio $\xi$.</p>
-<p><strong>Q13: Define critical (whirling) speed of a shaft.</strong><br />
-A: The speed at which rotating shaft deflection becomes theoretically infinite due to resonance with the transverse natural frequency of the system.</p>
-<p><strong>Q14: State the number of nodes in a torsional system with $n$ rotors on a single shaft.</strong><br />
-A: $N_{\text{nodes}} = n_{\text{rotors}} - 1$.</p>
-<p><strong>Q15: State Dunkerley's equation for approximate transverse natural frequency of a multi-load shaft.</strong><br />
+<h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual Pairs)</strong></h2>
+<p><strong>Q1: What is the primary difference between longitudinal and transverse vibrations?</strong><br />
+A: In longitudinal vibration, shaft particles move parallel to the axis causing tensile/compressive stress; in transverse vibration, particles move perpendicular to the axis causing bending stress.</p>
+<p><strong>Q2: Write the undamped natural frequency formula for a simple spring-mass system.</strong><br />
+A: $\omega_n = \sqrt{\frac{k}{m}} \text{ rad/s}$ or $f_n = \frac{1}{2\pi}\sqrt{\frac{k}{m}} \text{ Hz}$.</p>
+<p><strong>Q3: How is natural frequency related to static deflection $\delta$?</strong><br />
+A: $f_n = \frac{1}{2\pi}\sqrt{\frac{g}{\delta}} \approx \frac{4.987}{\sqrt{\delta}}$ (with $\delta$ in cm).</p>
+<p><strong>Q4: Does gravity affect the natural frequency of a pure spring-mass system?</strong><br />
+A: No, natural frequency $\omega_n = \sqrt{k/m}$ depends only on mass and stiffness, so it is identical on Earth and the Moon.</p>
+<p><strong>Q5: What is the natural frequency of a solid rolling cylinder attached to a central spring $k$?</strong><br />
+A: $\omega_n = \sqrt{\frac{2k}{3m}}$ (rotational inertia increases effective mass to $1.5 m$).</p>
+<p><strong>Q6: Define Critical Damping Coefficient $C_c$.</strong><br />
+A: The minimum viscous damping required to prevent oscillation in free vibration, equal to $C_c = 2\sqrt{km} = 2 m \omega_n$.</p>
+<p><strong>Q7: Describe the motion of an underdamped system $\xi &lt; 1$.</strong><br />
+A: The system oscillates with exponentially decaying amplitude at frequency $\omega_d = \omega_n \sqrt{1-\xi^2}$.</p>
+<p><strong>Q8: Define Logarithmic Decrement $\delta$.</strong><br />
+A: The natural logarithm of the ratio of two consecutive peak amplitudes on the same side during underdamped free vibration $\delta = \ln(x_i/x_{i+1}) = \frac{2\pi\xi}{\sqrt{1-\xi^2}}$.</p>
+<p><strong>Q9: What mathematical sequence do successive peak amplitudes form in underdamped free vibration?</strong><br />
+A: A Geometric Progression with common ratio $e^{-\delta}$.</p>
+<p><strong>Q10: Write the Magnification Factor $\text{MF}$ formula for forced vibrations.</strong><br />
+A: $\text{MF} = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$ where $r = \omega/\omega_n$.</p>
+<p><strong>Q11: What is the phase lag between excitation force and displacement at resonance $r = 1$?</strong><br />
+A: Exactly $90^\circ$ $\pi/2 \text{ rad}$, independent of the damping ratio.</p>
+<p><strong>Q12: At resonance, which internal force balances the applied external force $F_0$?</strong><br />
+A: The viscous damping force $C \omega A$ (inertia and spring forces cancel each other completely).</p>
+<p><strong>Q13: What is the condition for vibration isolation to be effective $T &lt; 1$?</strong><br />
+A: Frequency ratio $r = \frac{\omega}{\omega_n} &gt; \sqrt{2} \approx 1.414$.</p>
+<p><strong>Q14: What is the value of Transmissibility $T$ at $r = \sqrt{2}$ for any damping ratio?</strong><br />
+A: $T = 1$ for all damping ratios $\xi$.</p>
+<p><strong>Q15: How does increasing damping affect transmissibility in the isolation region $r &gt; \sqrt{2}$?</strong><br />
+A: Increasing damping INCREASES transmissibility $T$, which worsens vibration isolation.</p>
+<p><strong>Q16: What is the critical (whirling) speed of a shaft?</strong><br />
+A: The rotational speed at which centrifugal forces cause violent lateral deflection, matching the shaft's transverse natural frequency $\omega_c = \sqrt{g/\delta}$.</p>
+<p><strong>Q17: In which direction does whirling of a shaft occur?</strong><br />
+A: Exclusively in the TRANSVERSE direction.</p>
+<p><strong>Q18: Write Dunkerley's formula for the fundamental frequency of a multi-load shaft.</strong><br />
 A: $\frac{1}{f^2} \approx \frac{1}{f_1^2} + \frac{1}{f_2^2} + \dots + \frac{1}{f_n^2}$.</p>
+<p><strong>Q19: How many nodes exist in a torsional shaft carrying $n$ rotors?</strong><br />
+A: $N_{\text{nodes}} = n - 1$ nodes.</p>
+<p><strong>Q20: What is the node location condition for a two-rotor system?</strong><br />
+A: $I_A \cdot l_A = I_B \cdot l_B$ (the node lies closer to the rotor with larger moment of inertia).</p>
 <hr />
 <h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
 <ul>
-<li><strong>Types of Vibrations</strong>:</li>
-<li>Longitudinal: parallel, tensile/compressive.</li>
-<li>Transverse: perpendicular, bending.</li>
-<li>Torsional: twisting, shear.</li>
-<li><strong>Natural Frequency</strong>: $\omega_n = \sqrt{k/m}$; $f_n = \frac{1}{2\pi}\sqrt{g/\delta}$. Independent of gravity!</li>
-<li><strong>Damping Ratio</strong>: $\xi = c/c_c = c/(2\sqrt{km})$. Underdamped $\xi &lt; 1.0$, critical $\xi = 1.0$, overdamped $\xi &gt; 1.0$.</li>
-<li><strong>Logarithmic Decrement</strong>: $\delta = \ln(x_n/x_{n+1}) = 2\pi\xi/\sqrt{1-\xi^2}$. Successive amplitudes form a geometric progression.</li>
-<li><strong>Resonance</strong>: Forcing frequency $\omega = \omega_n \implies r = 1$.</li>
-<li>Phase lag $\phi = 90^\circ$ (independent of damping).</li>
-<li>Exciting force balanced entirely by damping force.</li>
-<li><strong>Vibration Isolation</strong>: Possible ONLY for $r &gt; \sqrt{2}$.</li>
-<li>At $r = \sqrt{2} \implies TR = 1.0$ (damping has no effect).</li>
-<li>For $r &gt; \sqrt{2} \implies$ damping INCREASES force transmission ($TR \uparrow$, worsens isolation).</li>
-<li><strong>Critical Speeds</strong>: Whirling speed $\omega_c$ matches transverse natural frequency $\omega_n = \sqrt{g/\delta}$.</li>
-<li>Whirling deflection: $y = \frac{e r^2}{1-r^2}$.</li>
-<li>Rigid rotor speed limit: $N &lt; 70\% N_c$.</li>
-<li><strong>Torsional Nodes</strong>: $N_{\text{nodes}} = n_{\text{rotors}} - 1$. Two rotors $\implies 1$ node. Torque balance $I_A l_A = I_B l_B$ (node closer to heavier rotor).</li>
-<li><strong>Dunkerley</strong>: $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$ (conservative lower bound).</li>
-<li><strong>Rolling Cylinder</strong>: Center spring natural frequency $\omega_n = \sqrt{\frac{2k}{3m}}$.</li>
+<li><strong>Free Vibrations</strong>:</li>
+<li>$\omega_n = \sqrt{k/m} = \sqrt{g/\delta}$. Independent of gravity $g$.</li>
+<li>Rolling cylinder $+ \text{ spring}: \omega_n = \sqrt{\frac{2k}{3m}}$.</li>
+<li><strong>Damping</strong>:</li>
+<li>Underdamped $\xi &lt; 1$: $\omega_d = \omega_n \sqrt{1-\xi^2}$.</li>
+<li>Log Decrement $\delta = \frac{2\pi\xi}{\sqrt{1-\xi^2}} \approx 2\pi\xi$.</li>
+<li>Amplitudes form Geometric Progression $x_0/x_n = e^{n\delta}$.</li>
+<li><strong>Resonance &amp; Forced Response</strong>:</li>
+<li>$\text{MF} = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$.</li>
+<li>At $r=1$: Phase lag $= 90^\circ$, peak amplitude $A = \frac{F_0}{2\xi k}$, damping force $= F_0$.</li>
+<li><strong>Isolation Rules</strong>:</li>
+<li>Isolation $T &lt; 1$ ONLY for $r &gt; \sqrt{2}$.</li>
+<li>At $r = \sqrt{2}$, $T = 1$ for all $\xi$.</li>
+<li>For $r &gt; \sqrt{2}$, higher damping worsens isolation $T \uparrow$.</li>
+<li><strong>Whirling &amp; Torsional</strong>:</li>
+<li>Whirling speed $\omega_c = \text{transverse } \omega_n = \sqrt{g/\delta}$.</li>
+<li>Dunkerley: $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$.</li>
+<li>Rigid rotor speed $&lt; 0.70 N_c$.</li>
+<li>Torsional nodes $= n_{\text{rotors}} - 1$. Two-rotor node: $I_A l_A = I_B l_B$.</li>
 </ul>
 <hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM CHECKLIST</strong></h2>
 <ul>
 <li>[ ] Memorize $\omega_n = \sqrt{k/m}$ and $f_n = \frac{1}{2\pi}\sqrt{g/\delta}$.</li>
-<li>[ ] Memorize Natural frequency is independent of gravity.</li>
-<li>[ ] Memorize $c_c = 2\sqrt{km} = 2m\omega_n$.</li>
-<li>[ ] Memorize $\omega_d = \omega_n \sqrt{1 - \xi^2}$.</li>
-<li>[ ] Memorize $\delta = \ln(x_n/x_{n+1}) = 2\pi\xi/\sqrt{1-\xi^2} \approx 2\pi\xi$ (small $\xi$).</li>
-<li>[ ] Memorize Successive amplitudes decay in a geometric progression.</li>
-<li>[ ] Memorize Forced response frequency is always forcing frequency $\omega$.</li>
-<li>[ ] Memorize Resonance phase lag $\phi = 90^\circ$ exactly.</li>
-<li>[ ] Memorize Exciting force balanced by damping force at resonance.</li>
-<li>[ ] Memorize Isolation possible only when $r &gt; \sqrt{2}$.</li>
-<li>[ ] Memorize At $r = \sqrt{2} \implies TR = 1.0$ (all curves cross).</li>
-<li>[ ] Memorize For $r &gt; \sqrt{2}$, higher damping worsens isolation.</li>
-<li>[ ] Memorize Whirling critical speed $\omega_c = \sqrt{g/\delta}$ in transverse direction.</li>
-<li>[ ] Memorize Rigid rotor operating limit: speed $&lt; 70\% N_c$.</li>
-<li>[ ] Memorize Torsional nodes $= n - 1$. Two-rotor node: $I_A l_A = I_B l_B$.</li>
-<li>[ ] Memorize Dunkerley's equation: $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$.</li>
-<li>[ ] Memorize Rolling cylinder central spring $\omega_n = \sqrt{\frac{2k}{3m}}$.</li>
+<li>[ ] Memorize rolling cylinder $\omega_n = \sqrt{\frac{2k}{3m}}$.</li>
+<li>[ ] Memorize $C_c = 2\sqrt{km} = 2m\omega_n$.</li>
+<li>[ ] Memorize $\omega_d = \omega_n \sqrt{1-\xi^2}$.</li>
+<li>[ ] Memorize $\delta = \frac{2\pi\xi}{\sqrt{1-\xi^2}} \approx 2\pi\xi$ and $x_0/x_n = e^{n\delta}$.</li>
+<li>[ ] Memorize Magnification Factor $\text{MF} = \frac{1}{\sqrt{(1-r^2)^2 + (2\xi r)^2}}$.</li>
+<li>[ ] Memorize Resonance $r=1$: Phase lag $= 90^\circ$, $A = \frac{F_0}{2\xi k}$, Damping force $= F_0$.</li>
+<li>[ ] Memorize Isolation condition: $r &gt; \sqrt{2}$ $T &lt; 1$.</li>
+<li>[ ] Memorize Crossover point: At $r = \sqrt{2}$, $T = 1$ for ALL $\xi$.</li>
+<li>[ ] Memorize Whirling speed $\omega_c = \text{transverse } \omega_n = \sqrt{g/\delta}$.</li>
+<li>[ ] Memorize Dunkerley $\frac{1}{f^2} \approx \sum \frac{1}{f_i^2}$.</li>
+<li>[ ] Memorize Torsional nodes $= n - 1$ and $I_A l_A = I_B l_B$.</li>
 </ul>
 </body>
 </html>
