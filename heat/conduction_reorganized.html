@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steady & Unsteady Heat Conduction — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Heat Transfer Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="steady-unsteady-heat-conduction-comprehensive-reorganized-study-guide">Steady &amp; Unsteady Heat Conduction — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Steady and Unsteady Heat Conduction (Thermal Diffusivity $\alpha = \frac{k}{\rho C_p}$, Fourier's Law $Q = -k A \frac{dT}{dx}$, 3D Heat Conduction Equation, Laplace Equation $\nabla^2 T = 0$, Poisson Equation $\nabla^2 T + \frac{\dot{q}<em>g}{k} = 0$), Critical Radius of Insulation (Cylinder $r_c = \frac{k}{h}$, Sphere $r_c = \frac{2k}{h}$, critical thickness $r_c - r</em>{\text{wire}}$, maximum heat loss condition), Radial Conduction in Cylinders &amp; Spheres ($Q_{\text{cyl}} = \frac{2\pi k L (T_i - T_o)}{\ln(r_o/r_i)}$, $Q_{\text{sph}} = \frac{4\pi k r_i r_o (T_i - T_o)}{r_o - r_i}$), Composite Walls &amp; Equivalent Conductivity ($k_{\text{eq}} = \frac{2k_1 k_2}{k_1 + k_2}$, temperature drop ratio $\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}$, placement of low-$k$ insulation), Internal Heat Generation (Solid Sphere $T_{\text{max}} = T_w + \frac{\dot{q}<em>g R^2}{6k}$, Solid Cylinder $T</em>{\text{max}} = T_w + \frac{\dot{q}<em>g R^2}{4k}$, surface flux balance $\dot{q}_g = \frac{2q_0}{R}$), and Transient Conduction &amp; Newton's Law of Cooling (Lumped system $\frac{T(t)-T</em>\infty}{T_i-T_\infty} = \exp(-\frac{hAt}{\rho V C_p})$, time constant $\tau = \frac{\rho V C_p}{hA}$, cooling rate decay) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-thermal-diffusivity-fouriers-law"><strong>1. Thermal Diffusivity &amp; Fourier's Law</strong></h4>
+<ul>
+<li><strong>Thermal Diffusivity $\alpha$</strong>:
+  <div class="formula-card">$${\boxed{\alpha = \frac{k}{\rho \cdot C_p} \quad (\text{m}^2\text{/s})}}$$</div></li>
+<li>$k$: thermal conductivity $\text{W/m}\cdot\text{K}$</li>
+<li>$\rho$: material density $\text{kg/m}^3$</li>
+<li>$C_p$: specific heat at constant pressure $\text{J/kg}\cdot\text{K}$</li>
+<li>
+<p>Physical meaning: ratio of thermal conductivity to volumetric thermal capacity $\rho C_p$. Measures the rate of heat propagation relative to heat storage.</p>
+</li>
+<li>
+<p><strong>Fourier's Law of Heat Conduction</strong>:
+  <div class="formula-card">$${\boxed{Q = -k \cdot A \cdot \frac{dT}{dx} \quad (\text{W})}}$$</div>
+  <div class="formula-card">$${\boxed{q = \frac{Q}{A} = -k \cdot \frac{dT}{dx} = \frac{k \cdot (T_1 - T_2)}{L} \quad (\text{W/m}^2)}}$$</div></p>
+</li>
+<li>$q$: heat flux $\text{W/m}^2$</li>
+<li>$A$: surface area normal to heat flow $\text{m}^2$</li>
+<li>$\frac{dT}{dx}$: temperature gradient $\text{K/m}$</li>
+<li>
+<p>$L$: wall thickness $\text{m}$</p>
+</li>
+<li>
+<p><strong>Plane Wall Thermal Resistance $R_{\text{th}}$</strong>:
+  <div class="formula-card">$${\boxed{R_{\text{th}} = \frac{L}{k \cdot A} \quad (\text{K/W})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-general-heat-conduction-equations"><strong>2. General Heat Conduction Equations</strong></h4>
+<ul>
+<li><strong>3D Cartesian Heat Conduction Equation (Constant $k$)</strong>:
+  <div class="formula-card">$${\boxed{\frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} + \frac{\dot{q}_g}{k} = \frac{1}{\alpha} \cdot \frac{\partial T}{\partial t}}}$$</div></li>
+<li>$\dot{q}_g$: volumetric internal heat generation rate $\text{W/m}^3$</li>
+<li>
+<p>$t$: time $\text{s}$</p>
+</li>
+<li>
+<p><strong>Laplace Equation (Steady State, No Heat Generation)</strong>:
+  <div class="formula-card">$${\boxed{\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} = 0}}$$</div></p>
+</li>
+<li>
+<p><strong>Poisson Equation (Steady State, With Internal Heat Generation)</strong>:
+  <div class="formula-card">$${\boxed{\nabla^2 T + \frac{\dot{q}_g}{k} = 0 \implies \nabla^2 T = -\frac{\dot{q}_g}{k}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="3-critical-radius-of-insulation"><strong>3. Critical Radius of Insulation</strong></h4>
+<ul>
+<li><strong>Critical Outer Radius for Cylindrical Pipes / Wires $r_{c, \text{cyl}}$</strong>:
+  <div class="formula-card">$${\boxed{r_{c, \text{cyl}} = \frac{k}{h} \quad (\text{m})}}$$</div>
+  <div class="formula-card">$${\boxed{D_{c, \text{cyl}} = \frac{2k}{h} \quad (\text{m})}}$$</div></li>
+<li>$k$: thermal conductivity of insulation material $\text{W/m}\cdot\text{K}$</li>
+<li>
+<p>$h$: convective heat transfer coefficient at outer surface $\text{W/m}^2\cdot\text{K}$</p>
+</li>
+<li>
+<p><strong>Critical Outer Radius for Spherical Vessels $r_{c, \text{sph}}$</strong>:
+  <div class="formula-card">$${\boxed{r_{c, \text{sph}} = \frac{2k}{h} \quad (\text{m})}}$$</div></p>
+</li>
+<li>
+<p><strong>Critical Insulation Thickness $t_c$</strong>:
+  <div class="formula-card">$${\boxed{t_c = r_c - r_{\text{bare}}}}$$</div></p>
+</li>
+<li>$r_{\text{bare}}$: bare outer radius of pipe / wire $\text{m}$</li>
+</ul>
+<hr />
+<h4 id="4-radial-conduction-in-cylinders-spheres"><strong>4. Radial Conduction in Cylinders &amp; Spheres</strong></h4>
+<ul>
+<li><strong>Hollow Cylinder Conduction $Q_{\text{cyl}}$</strong>:
+  <div class="formula-card">$${\boxed{Q_{\text{cyl}} = \frac{2\pi \cdot k \cdot L \cdot (T_i - T_o)}{\ln\left(\frac{r_o}{r_i}\right)} \quad (\text{W})}}$$</div>
+  <div class="formula-card">$${\boxed{R_{\text{th, cyl}} = \frac{\ln\left(\frac{r_o}{r_i}\right)}{2\pi \cdot k \cdot L} \quad (\text{K/W})}}$$</div></li>
+<li>$r_i, r_o$: inner and outer radii $\text{m}$</li>
+<li>
+<p>$L$: cylinder length $\text{m}$</p>
+</li>
+<li>
+<p><strong>Hollow Sphere Conduction $Q_{\text{sph}}$</strong>:
+  <div class="formula-card">$${\boxed{Q_{\text{sph}} = \frac{4\pi \cdot k \cdot r_i \cdot r_o \cdot (T_i - T_o)}{r_o - r_i} \quad (\text{W})}}$$</div>
+  <div class="formula-card">$${\boxed{R_{\text{th, sph}} = \frac{r_o - r_i}{4\pi \cdot k \cdot r_i \cdot r_o} \quad (\text{K/W})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="5-composite-walls-equivalent-conductivity"><strong>5. Composite Walls &amp; Equivalent Conductivity</strong></h4>
+<ul>
+<li>
+<p><strong>Equivalent Thermal Conductivity for Two Series Layers of Equal Thickness $k_{\text{eq}}$</strong>:
+  <div class="formula-card">$${\boxed{k_{\text{eq}} = \frac{2 \cdot k_1 \cdot k_2}{k_1 + k_2}}}$$</div></p>
+</li>
+<li>
+<p><strong>General Equivalent Thermal Conductivity for Series Layers</strong>:
+  <div class="formula-card">$${\boxed{k_{\text{eq}} = \frac{L_1 + L_2 + \dots}{\frac{L_1}{k_1} + \frac{L_2}{k_2} + \dots}}}$$</div></p>
+</li>
+<li>
+<p><strong>Temperature Drop Ratio for Layers of Equal Thickness $L_1 = L_2$</strong>:
+  <div class="formula-card">$${\boxed{\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}}}$$</div></p>
+</li>
+<li>
+<p><strong>Overall Heat Transfer Coefficient $U$</strong>:
+  <div class="formula-card">$${\boxed{\frac{1}{U \cdot A} = R_{\text{total}} = \frac{1}{h_i A} + \frac{L}{k A} + \frac{1}{h_o A}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="6-internal-heat-generation"><strong>6. Internal Heat Generation</strong></h4>
+<ul>
+<li><strong>Solid Sphere with Uniform Internal Generation $\dot{q}_g$</strong>:
+  <div class="formula-card">$${\boxed{T_{\text{max}} = T_{\text{center}} = T_w + \frac{\dot{q}_g \cdot R^2}{6k}}}$$</div>
+  <div class="formula-card">$${\boxed{\dot{q}_g = \frac{3 \cdot q_0}{R}}}$$</div></li>
+<li>$T_w$: outer surface / wall temperature $\text{K}$</li>
+<li>$R$: outer radius of sphere $\text{m}$</li>
+<li>
+<p>$q_0$: surface heat flux $\text{W/m}^2$</p>
+</li>
+<li>
+<p><strong>Solid Cylinder with Uniform Internal Generation $\dot{q}_g$</strong>:
+  <div class="formula-card">$${\boxed{T_{\text{max}} = T_{\text{center}} = T_w + \frac{\dot{q}_g \cdot R^2}{4k}}}$$</div>
+  <div class="formula-card">$${\boxed{T(r) = T_w + \frac{\dot{q}_g}{4k} \cdot (R^2 - r^2)}}$$</div>
+  <div class="formula-card">$${\boxed{\dot{q}_g = \frac{2 \cdot q_0}{R}}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="7-transient-conduction-newtons-law-of-cooling"><strong>7. Transient Conduction &amp; Newton's Law of Cooling</strong></h4>
+<ul>
+<li><strong>Lumped Capacitance Temperature Response</strong>:
+  <div class="formula-card">$${\boxed{\frac{T(t) - T_\infty}{T_i - T_\infty} = \exp\left( -\frac{h \cdot A \cdot t}{\rho \cdot V \cdot C_p} \right) = \exp\left(-\frac{t}{\tau}\right)}}$$</div></li>
+<li>$T_i$: initial uniform body temperature $\text{K}$</li>
+<li>$T_\infty$: ambient fluid temperature $\text{K}$</li>
+<li>
+<p>$V$: body volume $\text{m}^3$</p>
+</li>
+<li>
+<p><strong>Thermal Time Constant $\tau$</strong>:
+  <div class="formula-card">$${\boxed{\tau = \frac{\rho \cdot V \cdot C_p}{h \cdot A} = R_{\text{conv}} \cdot C_{\text{thermal}} \quad (\text{seconds})}}$$</div></p>
+</li>
+<li>
+<p><strong>Newton's Law of Cooling Rate</strong>:
+  <div class="formula-card">$${\boxed{\frac{dQ}{dt} = -h \cdot A \cdot (T - T_\infty)}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Thermal Conductivity $k$</strong>: A material property indicating its ability to conduct heat $\text{W/m}\cdot\text{K}$. High in metals (due to free electron motion), low in gases and porous insulators.</li>
+<li><strong>Thermal Diffusivity $\alpha$</strong>: The ratio of thermal conductivity to volumetric heat capacity ($\alpha = k / \rho C_p$, units $\text{m}^2\text{/s}$). High $\alpha$ implies rapid temperature equalization with little heat storage.</li>
+<li><strong>Critical Radius of Insulation $r_c$</strong>: The outer radius of insulation at which total heat transfer rate is MAXIMUM (total thermal resistance is MINIMUM). For cylinders $r_c = k/h$, for spheres $r_c = 2k/h$.</li>
+<li><strong>Laplace Equation</strong>: The governing 3D steady-state heat conduction equation with ZERO internal heat generation $\nabla^2 T = 0$.</li>
+<li><strong>Poisson Equation</strong>: The governing 3D steady-state heat conduction equation WITH uniform internal heat generation $\nabla^2 T + \frac{\dot{q}_g}{k} = 0$.</li>
+<li><strong>Lumped Capacitance Method</strong>: An analysis technique valid for transient conduction when internal conduction resistance is negligible compared to surface convection resistance (Biot number $Bi = \frac{h L_c}{k} &lt; 0.1$). Assumes spatial temperature uniformity throughout the body.</li>
+<li><strong>Thermal Resistance $R_{\text{th}}$</strong>: The resistance offered by a medium to heat flow $\text{K/W}$. Analogous to electrical resistance $R = V/I \iff R_{\text{th}} = \Delta T / Q$.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Thermal Conductivity Ranking</strong>:
+  <div class="formula-card">$${\text{Copper } (\sim 385) &gt; \text{Aluminium } (\sim 200) &gt; \text{Steel } (\sim 50) &gt; \text{Water } (\sim 0.6) &gt; \text{Air } (\sim 0.026 \text{ W/m}\cdot\text{K})}$$</div></li>
+<li><strong>Thermal Conductivity Variation with Temperature</strong>:</li>
+<li>Metals: $k$ DECREASES as $T$ increases (electron-lattice scattering).</li>
+<li>Gases: $k$ INCREASES as $T$ increases (increased molecular velocity &amp; collision frequency).</li>
+<li>Liquids: $k$ generally decreases with $T$ (except water, which increases up to $\sim 130^\circ\text{C}$ then decreases).</li>
+<li><strong>Cylindrical vs Spherical Critical Radius</strong>: $r_{c, \text{sph}} = 2 \cdot r_{c, \text{cyl}} = \frac{2k}{h}$.</li>
+<li><strong>Cylindrical vs Spherical Center Temp Rise Factor</strong>: Sphere uses $6k$ denominator $\frac{\dot{q}_g R^2}{6k}$, Cylinder uses $4k$ denominator $\frac{\dot{q}_g R^2}{4k}$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Thermal Diffusivity &amp; Fourier's Law</strong>: Introduced in §3.1.</li>
+<li><strong>Steady vs Transient Conduction &amp; Equations</strong>: §3.2.</li>
+<li><strong>Critical Radius of Insulation</strong>: §3.3.</li>
+<li><strong>Radial Conduction in Cylinders &amp; Spheres</strong>: §3.4.</li>
+<li><strong>Composite Walls &amp; Equivalent Conductivity</strong>: §3.5.</li>
+<li><strong>Internal Heat Generation</strong>: §3.6.</li>
+<li><strong>Transient Conduction &amp; Newton's Law</strong>: §3.7.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-thermal-diffusivity-fouriers-law-of-heat-conduction"><strong>3.1 Thermal Diffusivity &amp; Fourier's Law of Heat Conduction</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Thermal Diffusivity $\alpha$</strong>:
+  <div class="formula-card">$${\alpha = \frac{k}{\rho \cdot C_p} \quad (\text{m}^2\text{/s})}$$</div></li>
+<li>Measures the speed at which a thermal response or temperature wave diffuses through a material.</li>
+<li>High $\alpha$ (e.g. Copper, Aluminium) $\implies$ Fast temperature response, rapid thermal equalization, low thermal energy storage per unit conduction.</li>
+<li>Low $\alpha$ (e.g. Wood, Insulation) $\implies$ Slow thermal response, high heat storage relative to conduction.</li>
+<li>Unit of $\alpha$ is $\text{m}^2\text{/s}$ (identical to kinematic viscosity $\nu$ and mass diffusivity $D_{AB}$).</li>
+<li><strong>Fourier's Law</strong>:
+  <div class="formula-card">$${Q = -k A \frac{dT}{dx}}$$</div></li>
+<li>The negative sign ensures that heat flows positive in the direction of DECREASING temperature gradient.</li>
+<li><strong>Thermal Conductivity $k$ Behaviour</strong>:</li>
+<li>Metals: $k$ DECREASES with temperature rise (due to increased lattice vibration scattering of free electrons).</li>
+<li>Gases: $k$ INCREASES with temperature rise ($k \propto \sqrt{T}$ due to higher molecular speeds).</li>
+<li>Moisture in insulation: Water fills air voids $k_{\text{water}} \approx 25 \times k_{\text{air}}$, drastically INCREASING conductivity and DESTROYING insulation quality.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thermal Diffusivity Physical Meaning</strong>: Thermal Diffusivity $\alpha = \frac{k}{\rho C_p}$ measures the ratio of heat CONDUCTED to heat STORED per unit volume. Materials with high $\alpha$ equalize temperature quickly!</p>
+<p>[!TRAP]
+<strong>Thermal Conductivity Temperature Trends</strong>:
+- METALS $\implies k$ DECREASES as $T$ rises!
+- GASES $\implies k$ INCREASES as $T$ rises!
+Do not mix up the temperature dependence of metals vs gases in MCQs!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Thermal Property Query Check?
+├─ Is it Thermal Diffusivity alpha? → alpha = k / (rho * Cp)  [Unit: m^2/s]
+├─ Is it Metal Thermal Conductivity vs Temp? → k DECREASES as T rises
+├─ Is it Gas Thermal Conductivity vs Temp? → k INCREASES as T rises
+└─ Is it Insulation Moisture Presence? → Moisture INCREASES k, destroying insulation ability
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\alpha = k / (\rho C_p)$ (units $\text{m}^2\text{/s}$).</li>
+<li>[ ] Metals: $k \downarrow$ as $T \uparrow$.</li>
+<li>[ ] Gases: $k \uparrow$ as $T \uparrow$.</li>
+<li>[ ] Fourier's law $Q = -k A \frac{dT}{dx}$.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A material has a thermal conductivity $k = 0.5 \text{ W/m}\cdot\text{K}$, density $\rho = 2000 \text{ kg/m}^3$, and specific heat $C_p = 1000 \text{ J/kg}\cdot\text{K}$. Calculate its thermal diffusivity $\alpha$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${\alpha = \frac{k}{\rho \cdot C_p} = \frac{0.5}{2000 \times 1000} = \frac{0.5}{2000000} = 2.5 \times 10^{-7} \text{ m}^2\text{/s}}$$</div>
+- <strong>Key Insight</strong>: $\alpha = 2.5 \times 10^{-7} \text{ m}^2\text{/s}$. Divide conductivity by volumetric heat capacity.</p>
+<hr />
+<h3 id="32-steady-vs-transient-conduction-governing-equations"><strong>3.2 Steady vs Transient Conduction &amp; Governing Equations</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Steady State Conduction</strong>: Temperature at any spatial coordinate remains CONSTANT with time $\frac{\partial T}{\partial t} = 0$. Heat flow rate $Q$ is constant.</li>
+<li><strong>Unsteady / Transient Conduction</strong>: Temperature varies with BOTH position and time $\frac{\partial T}{\partial t} \neq 0$.</li>
+<li>Classic transient exam examples: Heating/cooling of IC engine cylinder walls, annealing of metal castings, building heating/cooling cycles, quenching of steel parts.</li>
+<li><strong>Governing Equations (Constant $k$)</strong>:</li>
+<li><strong>General 3D Conduction</strong>: $\frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} + \frac{\dot{q}_g}{k} = \frac{1}{\alpha} \frac{\partial T}{\partial t}$.</li>
+<li><strong>Laplace Equation</strong>: $\nabla^2 T = 0$ (Steady state, ZERO heat generation).</li>
+<li><strong>Poisson Equation</strong>: $\nabla^2 T + \frac{\dot{q}_g}{k} = 0 \implies \nabla^2 T = -\frac{\dot{q}_g}{k}$ (Steady state, WITH heat generation).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Equation Identification Rules</strong>:
+- $\nabla^2 T = 0 \implies$ LAPLACE EQUATION (Steady, No Generation).
+- $\nabla^2 T + \frac{\dot{q}_g}{k} = 0 \implies$ POISSON EQUATION (Steady, With Generation).
+- $\nabla^2 T + \frac{\dot{q}_g}{k} = \frac{1}{\alpha}\frac{\partial T}{\partial t} \implies$ FOURIER / GENERAL TRANSIENT EQUATION.</p>
+<p>[!TRAP]
+<strong>Transient Application Examples</strong>: IC engine cylinder heat transfer, quenching of castings, and building HVAC startup are ALWAYS TRANSIENT processes! Do not classify them as steady state.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Heat Conduction Governing Equation Identification?
+├─ Is dT/dt = 0 AND q_g = 0? → LAPLACE EQUATION (grad^2 T = 0)
+├─ Is dT/dt = 0 AND q_g &gt; 0? → POISSON EQUATION (grad^2 T + q_g/k = 0)
+└─ Is dT/dt != 0 (Time-dependent)? → FOURIER TRANSIENT EQUATION
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Steady state $\implies \frac{\partial T}{\partial t} = 0$.</li>
+<li>[ ] Laplace: $\nabla^2 T = 0$.</li>
+<li>[ ] Poisson: $\nabla^2 T + \frac{\dot{q}_g}{k} = 0$.</li>
+<li>[ ] Engine walls &amp; quenching = Transient.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Identify the governing differential equation for 1D steady-state heat conduction in a plane wall with constant thermal conductivity and uniform internal heat generation $\dot{q}_g$.
+- <strong>Solution</strong>:
+  - Steady state $\implies \frac{\partial T}{\partial t} = 0$.
+  - 1D with heat generation $\implies \frac{d^2 T}{dx^2} + \frac{\dot{q}_g}{k} = 0$.
+  - This is the 1D <strong>Poisson Equation</strong>.
+- <strong>Key Insight</strong>: 1D Poisson equation: $\frac{d^2 T}{dx^2} + \frac{\dot{q}_g}{k} = 0$.</p>
+<hr />
+<h3 id="33-critical-radius-of-insulation"><strong>3.3 Critical Radius of Insulation</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Adding insulation to a curved surface (cylinder or sphere) increases conduction resistance BUT ALSO increases outer surface area (reducing convection resistance).</li>
+<li><strong>Critical Radius $r_c$</strong>: The exact outer insulation radius where TOTAL THERMAL RESISTANCE IS MINIMUM $\implies$ <strong>HEAT TRANSFER RATE IS MAXIMUM</strong>!</li>
+<li><strong>Cylinder / Pipe / Wire</strong>: $r_{c, \text{cyl}} = \frac{k}{h}$ (Critical diameter $D_c = \frac{2k}{h}$).</li>
+<li><strong>Sphere</strong>: $r_{c, \text{sph}} = \frac{2k}{h}$.</li>
+<li><strong>Insulation Behavior</strong>:</li>
+<li>If bare outer radius $r_o &lt; r_c$: Adding insulation INCREASES heat loss until $r_o = r_c$. (Ideal for electrical wires where maximum heat dissipation is needed).</li>
+<li>If outer radius $r_o &gt; r_c$: Adding insulation DECREASES heat loss. (Standard for steam pipes).</li>
+<li><strong>Multi-Layer Pipe Insulation Placement</strong>: To minimize heat loss, place the insulation material with the <strong>LOWER THERMAL CONDUCTIVITY (BETTER INSULATOR) AS THE INNER LAYER</strong> next to the hot surface!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Critical Radius Condition</strong>: At $r = r_c$, HEAT TRANSFER RATE IS MAXIMUM $Q = Q_{\text{max}}$ and TOTAL RESISTANCE IS MINIMUM!
+- Cylinder: $r_c = \frac{k}{h}$.
+- Sphere: $r_c = \frac{2k}{h}$.</p>
+<p>[!TRAP]
+<strong>Critical Radius Maximization Trap</strong>: Adding insulation to an electrical wire with bare radius $r &lt; r_c$ INCREASES heat loss! It does NOT decrease heat loss until outer radius exceeds $r_c$.</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Critical Radius of Insulation Check?
+├─ Is it a Cylinder / Pipe / Wire? → r_c = k / h  (Critical Diameter = 2k / h)
+├─ Is it a Sphere? → r_c = 2k / h
+├─ Is bare radius r &lt; r_c? → Adding insulation INCREASES heat loss up to r_c
+└─ Multi-layer insulation rule? → Place LOWER k (better insulator) as INNER layer
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Cylinder $r_c = k/h$.</li>
+<li>[ ] Sphere $r_c = 2k/h$.</li>
+<li>[ ] At $r_c$, $Q$ is MAXIMUM.</li>
+<li>[ ] If $r &lt; r_c$, insulation increases heat dissipation.</li>
+<li>[ ] Lower $k$ insulation placed inside.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An electrical wire of radius $r = 0.5 \text{ mm}$ is covered with plastic insulation $k = 0.15 \text{ W/m}\cdot\text{K}$. Ambient convective coefficient $h = 25 \text{ W/m}^2\cdot\text{K}$. Calculate the critical radius $r_c$ and determine if adding insulation to an outer radius of $1.0 \text{ mm}$ increases or decreases heat transfer.
+- <strong>Solution</strong>:
+  - $r_c = \frac{k}{h} = \frac{0.15}{25} = 0.006 \text{ m} = 6.0 \text{ mm}$.
+  - Bare radius $0.5 \text{ mm} &lt; r_c (6.0 \text{ mm})$.
+  - Outer radius $1.0 \text{ mm} &lt; r_c (6.0 \text{ mm})$.
+  - Since outer radius is less than $r_c$, adding insulation INCREASES heat dissipation from the wire.
+- <strong>Key Insight</strong>: $r_c = 6.0 \text{ mm}$; heat loss increases.</p>
+<hr />
+<h3 id="34-radial-conduction-in-cylinders-spheres"><strong>3.4 Radial Conduction in Cylinders &amp; Spheres</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Hollow Cylinder</strong>:
+  <div class="formula-card">$${Q_{\text{cyl}} = \frac{2\pi k L (T_i - T_o)}{\ln\left(\frac{r_o}{r_i}\right)}}$$</div>
+  <div class="formula-card">$${R_{\text{th, cyl}} = \frac{\ln\left(\frac{r_o}{r_i}\right)}{2\pi k L}}$$</div></li>
+<li>Temperature profile is <strong>LOGARITHMIC</strong>: $T(r) = T_i - (T_i - T_o)\frac{\ln(r/r_i)}{\ln(r_o/r_i)}$.</li>
+<li>As radius ratio $\frac{r_o}{r_i}$ increases, heat transfer rate $Q$ DECREASES.</li>
+<li><strong>Hollow Sphere</strong>:
+  <div class="formula-card">$${Q_{\text{sph}} = \frac{4\pi k r_i r_o (T_i - T_o)}{r_o - r_i}}$$</div>
+  <div class="formula-card">$${R_{\text{th, sph}} = \frac{r_o - r_i}{4\pi k r_i r_o}}$$</div></li>
+<li>Temperature profile is <strong>HYPERBOLIC</strong>: $T(r) \propto \frac{1}{r}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Temperature Profile Profiles</strong>:
+- 1D Plane Wall (constant $k$, no gen) $\implies$ LINEAR $T(x)$.
+- 1D Hollow Cylinder (constant $k$, no gen) $\implies$ LOGARITHMIC $T(r)$.
+- 1D Hollow Sphere (constant $k$, no gen) $\implies$ HYPERBOLIC $T(r)$.</p>
+<p>[!TRAP]
+<strong>Cylinder Log-Mean Trap</strong>: Never use arithmetic mean radius for thick cylinders! Thermal resistance uses logarithmic radius ratio $\ln(r_o/r_i)$.</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Radial Conduction Geometry Check?
+├─ Hollow Cylinder → Q = 2 * pi * k * L * Delta_T / ln(ro / ri)  [Profile: Logarithmic]
+└─ Hollow Sphere → Q = 4 * pi * k * ri * ro * Delta_T / (ro - ri)  [Profile: Hyperbolic]
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Cylinder $Q = \frac{2\pi k L \Delta T}{\ln(r_o/r_i)}$.</li>
+<li>[ ] Cylinder $R_{\text{th}} = \frac{\ln(r_o/r_i)}{2\pi k L}$.</li>
+<li>[ ] Sphere $Q = \frac{4\pi k r_i r_o \Delta T}{r_o - r_i}$.</li>
+<li>[ ] Cylinder profile: Logarithmic; Sphere profile: Hyperbolic.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A hollow sphere has inner radius $r_i = 0.25 \text{ m}$ and outer radius $r_o = 0.35 \text{ m}$. Thermal conductivity $k = 5 \text{ W/m}\cdot\text{K}$. Inner surface temperature $T_i = 400^\circ\text{C}$ and outer surface temperature $T_o = 300^\circ\text{C}$. Calculate heat transfer rate $Q$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${Q = \frac{4\pi \cdot k \cdot r_i \cdot r_o \cdot (T_i - T_o)}{r_o - r_i} = \frac{4\pi \times 5 \times 0.25 \times 0.35 \times (400 - 300)}{0.35 - 0.25}}$$</div>
+  <div class="formula-card">$${Q = \frac{4\pi \times 5 \times 0.0875 \times 100}{0.10} = \frac{549.778}{0.10} = 5497.78 \text{ W} \approx 5.50 \text{ kW}}$$</div>
+- <strong>Key Insight</strong>: $Q \approx 5.50 \text{ kW}$.</p>
+<hr />
+<h3 id="35-composite-walls-equivalent-thermal-conductivity"><strong>3.5 Composite Walls &amp; Equivalent Thermal Conductivity</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Series Composite Walls</strong>:</li>
+<li>Heat flow rate $Q$ is THE SAME through all series layers.</li>
+<li>Total thermal resistance is the SUM of individual layer resistances: $R_{\text{total}} = R_1 + R_2 + \dots = \frac{L_1}{k_1 A} + \frac{L_2}{k_2 A}$.</li>
+<li>Temperature drop across any layer is directly proportional to its thermal resistance: $\Delta T_i = Q \cdot R_i \propto \frac{L_i}{k_i}$.</li>
+<li><strong>Equivalent Conductivity $k_{\text{eq}}$ for Two Equal-Thickness Layers $L_1 = L_2$</strong>:
+  <div class="formula-card">$${k_{\text{eq}} = \frac{2 \cdot k_1 \cdot k_2}{k_1 + k_2}}$$</div></li>
+<li><strong>Temperature Drop Ratio (Equal Thickness $L_1 = L_2$)</strong>:
+  <div class="formula-card">$${\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}}$$</div>
+  The layer with LOWER thermal conductivity experiences the LARGER temperature drop!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Temperature Drop Inversion</strong>: In series layers of equal thickness, $\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}$. The poorest thermal conductor (lowest $k$) experiences the STEEPEST temperature drop!</p>
+<p>[!TRAP]
+<strong>Equivalent Conductivity Formula</strong>: For two series layers of EQUAL THICKNESS, $k_{\text{eq}} = \frac{2 k_1 k_2}{k_1 + k_2}$ (Harmonic Mean). Do not use arithmetic mean $\frac{k_1+k_2}{2}$!</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Composite Series Wall Check?
+├─ Equivalent k for 2 equal thickness layers → k_eq = (2 * k1 * k2) / (k1 + k2)
+├─ Temperature drop ratio (equal thickness) → Delta_T1 / Delta_T2 = k2 / k1
+└─ Layer with largest temperature drop → Layer with LOWEST thermal conductivity k
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Series resistances add: $R_{\text{total}} = R_1 + R_2$.</li>
+<li>[ ] Equal thickness $k_{\text{eq}} = \frac{2 k_1 k_2}{k_1 + k_2}$.</li>
+<li>[ ] $\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}$.</li>
+<li>[ ] Lowest $k$ layer has largest $\Delta T$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A composite plane wall consists of two layers $A$ and $B$ of equal thickness $L$. Layer $A$ has thermal conductivity $k_A = 2 k_B$. The total temperature drop across the composite wall is $360^\circ\text{C}$. Calculate the temperature drop across layer $B$.
+- <strong>Solution</strong>:
+  - For equal thickness, $\frac{\Delta T_A}{\Delta T_B} = \frac{k_B}{k_A} = \frac{k_B}{2 k_B} = \frac{1}{2} \implies \Delta T_B = 2 \Delta T_A$.
+  - Total $\Delta T = \Delta T_A + \Delta T_B = \Delta T_A + 2 \Delta T_A = 3 \Delta T_A = 360^\circ\text{C}$.
+  - $\Delta T_A = 120^\circ\text{C} \implies \Delta T_B = 2 \times 120 = 240^\circ\text{C}$.
+- <strong>Key Insight</strong>: $\Delta T_B = 240^\circ\text{C}$. Poorer conductor $B$ takes $2/3$ of total $\Delta T$.</p>
+<hr />
+<h3 id="36-internal-heat-generation"><strong>3.6 Internal Heat Generation</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li>Occurs in electric resistance wires ($I^2 R$ heating), nuclear fuel rods, and exothermic chemical reactors.</li>
+<li>Temperature distribution is PARABOLIC with maximum temperature at the GEOMETRIC CENTER $r = 0$.</li>
+<li><strong>Solid Sphere (Uniform Generation $\dot{q}_g$)</strong>:
+  <div class="formula-card">$${T_{\text{max}} = T_{\text{center}} = T_w + \frac{\dot{q}_g \cdot R^2}{6k}}$$</div>
+  Surface heat flux balance: $\dot{q}_g \cdot \left(\frac{4}{3}\pi R^3\right) = q_0 \cdot (4\pi R^2) \implies \dot{q}_g = \frac{3 q_0}{R}$.</li>
+<li><strong>Solid Long Cylinder (Uniform Generation $\dot{q}_g$)</strong>:
+  <div class="formula-card">$${T_{\text{max}} = T_{\text{center}} = T_w + \frac{\dot{q}_g \cdot R^2}{4k}}$$</div>
+  Profile: $T(r) = T_w + \frac{\dot{q}_g}{4k}(R^2 - r^2)$.
+  Surface heat flux balance: $\dot{q}_g \cdot (\pi R^2 L) = q_0 \cdot (2\pi R L) \implies \dot{q}_g = \frac{2 q_0}{R}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Center Temperature Denominator Rule</strong>:
+- Solid Sphere Center Temp Rise $\implies \Delta T_{\text{max}} = \frac{\dot{q}<em>g R^2}{6k}$ (Denominator = 6).
+- Solid Cylinder Center Temp Rise $\implies \Delta T</em>{\text{max}} = \frac{\dot{q}_g R^2}{4k}$ (Denominator = 4).</p>
+<p>[!TRAP]
+<strong>Cylinder Generation Surface Balance</strong>: For a solid cylinder, $\dot{q}_g = \frac{2 q_0}{R}$ (Factor of 2). For a solid sphere, $\dot{q}_g = \frac{3 q_0}{R}$ (Factor of 3).</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Internal Heat Generation Geometry Check?
+├─ Solid Sphere Center Temp Rise → Delta_T_max = (q_g_dot * R^2) / (6 * k)
+├─ Solid Cylinder Center Temp Rise → Delta_T_max = (q_g_dot * R^2) / (4 * k)
+└─ Cylinder Surface Flux Balance → q_g_dot = (2 * q_0) / R
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Sphere $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{6k}$.</li>
+<li>[ ] Cylinder $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{4k}$.</li>
+<li>[ ] Sphere flux balance $\dot{q}_g = \frac{3 q_0}{R}$.</li>
+<li>[ ] Cylinder flux balance $\dot{q}_g = \frac{2 q_0}{R}$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A long current-carrying wire of radius $R = 2 \text{ mm}$ and thermal conductivity $k = 20 \text{ W/m}\cdot\text{K}$ experiences uniform internal heat generation $\dot{q}<em>g = 4 \times 10^7 \text{ W/m}^3$. If surface temperature $T_w = 100^\circ\text{C}$, calculate the center temperature $T</em>{\text{max}}$.
+- <strong>Solution</strong>:
+  <div class="formula-card">$${T_{\text{max}} = T_w + \frac{\dot{q}<em>g \cdot R^2}{4k} = 100 + \frac{(4 \times 10^7) \times (0.002)^2}{4 \times 20}}$$</div>
+  <div class="formula-card">$${T</em>{\text{max}} = 100 + \frac{(4 \times 10^7) \times (4 \times 10^{-6})}{80} = 100 + \frac{160}{80} = 100 + 2 = 102^\circ\text{C}}$$</div>
+- <strong>Key Insight</strong>: $T_{\text{max}} = 102^\circ\text{C}$. Denominator is $4k$ for a cylinder.</p>
+<hr />
+<h3 id="37-transient-conduction-newtons-law-of-cooling"><strong>3.7 Transient Conduction &amp; Newton's Law of Cooling</strong></h3>
+<h5 id="1-concept-pointers_6"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Lumped Capacitance Method</strong>:</li>
+<li>Applicable when internal thermal resistance is negligible compared to external convection resistance $Bi = \frac{h L_c}{k} &lt; 0.1$.</li>
+<li>Temperature response: $\frac{T(t) - T_\infty}{T_i - T_\infty} = \exp\left(-\frac{t}{\tau}\right)$.</li>
+<li>Time constant $\tau = \frac{\rho V C_p}{h A} = R_{\text{conv}} \cdot C_{\text{thermal}}$.</li>
+<li>Small $\tau$ (small mass, high surface area, high $h$) $\implies$ Fast thermal response.</li>
+<li><strong>Newton's Law of Cooling &amp; Time Intervals</strong>:</li>
+<li>Rate of heat loss $\frac{dQ}{dt} = -h A (T - T_\infty)$ decays exponentially as body temperature approaches ambient $T_\infty$.</li>
+<li><strong>Equal Temperature Drops Take INCREASING Time</strong>: Cooling from $80^\circ\text{C} \to 70^\circ\text{C}$ takes LESS time than cooling from $70^\circ\text{C} \to 60^\circ\text{C}$ under identical ambient conditions because the temperature driving potential $(T - T_\infty)$ shrinks!</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Cooling Time Interval Law</strong>: As a body cools, the temperature difference $(T - T_\infty)$ decreases, slowing heat loss. Therefore, SUCCESSIVE EQUAL TEMPERATURE DROPS TAKE INCREASING TIME!</p>
+<p>[!TRAP]
+<strong>Equal Cooling Time Trap</strong>: Do not assume equal temperature drops (e.g. $80 \to 70^\circ\text{C}$ vs $70 \to 60^\circ\text{C}$) take equal time! The second drop ALWAYS takes MORE TIME than the first!</div>
+<h5 id="2-decision-tree_6"><strong>2. Decision Tree</strong></h5>
+<pre><code>Transient Cooling &amp; Time Interval Check?
+├─ Lumped System Time Constant → tau = (rho * V * Cp) / (h * A)
+├─ Temperature Response → (T(t) - T_inf) / (Ti - T_inf) = exp(-t / tau)
+└─ Successive Equal Temp Drops → Take MORE TIME for subsequent intervals
+</code></pre>
+<h5 id="3-revision-checklist_6"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\tau = \frac{\rho V C_p}{h A}$.</li>
+<li>[ ] Lumped method valid for $Bi &lt; 0.1$.</li>
+<li>[ ] Temperature response is exponential decay.</li>
+<li>[ ] Successive equal $\Delta T$ drops take MORE time.</li>
+</ul>
+<h5 id="4-worked-examples_6"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A body cools from $80^\circ\text{C}$ to $70^\circ\text{C}$ in $10 \text{ minutes}$ in ambient air at $20^\circ\text{C}$. Will the time required for the body to cool from $70^\circ\text{C}$ to $60^\circ\text{C}$ under the same conditions be less than, equal to, or greater than $10 \text{ minutes}$?
+- <strong>Solution</strong>:
+  - For $80 \to 70^\circ\text{C}$, average temp $= 75^\circ\text{C}$, driving potential $\Delta T_{\text{avg}} = 75 - 20 = 55^\circ\text{C}$.
+  - For $70 \to 60^\circ\text{C}$, average temp $= 65^\circ\text{C}$, driving potential $\Delta T_{\text{avg}} = 65 - 20 = 45^\circ\text{C}$.
+  - Since driving potential is lower $45^\circ\text{C} &lt; 55^\circ\text{C}$, rate of cooling is slower.
+  - Thus, the second $10^\circ\text{C}$ drop takes <strong>MORE THAN 10 MINUTES</strong>.
+- <strong>Key Insight</strong>: Greater than 10 minutes. Driving potential drops $\implies$ cooling slows.</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: Write the formula for Thermal Diffusivity $\alpha$ and state its SI unit.</strong><br />
+A: $\alpha = \frac{k}{\rho C_p}$, with SI unit $\text{m}^2\text{/s}$.</p>
+<p><strong>Q2: What is the physical significance of a high thermal diffusivity $\alpha$?</strong><br />
+A: High $\alpha$ indicates rapid heat propagation/conduction through the material relative to its thermal energy storage capacity.</p>
+<p><strong>Q3: How does thermal conductivity $k$ vary with temperature for metals vs gases?</strong><br />
+A: For metals, $k$ DECREASES as temperature rises. For gases, $k$ INCREASES as temperature rises.</p>
+<p><strong>Q4: Differentiate between Steady-State and Transient heat conduction.</strong><br />
+A: In steady-state conduction, temperature does not change with time $\frac{\partial T}{\partial t} = 0$. In transient conduction, temperature varies with both position and time $\frac{\partial T}{\partial t} \neq 0$.</p>
+<p><strong>Q5: State the governing differential equation for steady 3D conduction with uniform heat generation (Poisson's Equation).</strong><br />
+A: $\nabla^2 T + \frac{\dot{q}_g}{k} = 0 \implies \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} + \frac{\dot{q}_g}{k} = 0$.</p>
+<p><strong>Q6: Define Critical Radius of Insulation for a cylinder $r_{c, \text{cyl}}$ and state the heat transfer condition at $r = r_c$.</strong><br />
+A: $r_{c, \text{cyl}} = \frac{k}{h}$. At $r = r_c$, total thermal resistance is minimum, and heat transfer rate is MAXIMUM.</p>
+<p><strong>Q7: State the critical radius of insulation formula for a sphere $r_{c, \text{sph}}$.</strong><br />
+A: $r_{c, \text{sph}} = \frac{2k}{h}$.</p>
+<p><strong>Q8: What happens to heat loss when insulation is added to an electrical wire whose bare outer radius is less than $r_c$?</strong><br />
+A: Heat loss INCREASES until the outer insulation radius reaches $r_c$.</p>
+<p><strong>Q9: Where should insulation with lower thermal conductivity be placed on a multi-layer insulated pipe?</strong><br />
+A: As the INNER layer next to the hot pipe surface to minimize total heat loss.</p>
+<p><strong>Q10: Describe the 1D steady-state temperature profile in a hollow cylinder vs a hollow sphere without heat generation.</strong><br />
+A: Hollow Cylinder $\implies$ Logarithmic temperature profile. Hollow Sphere $\implies$ Hyperbolic temperature profile.</p>
+<p><strong>Q11: Write the formula for equivalent thermal conductivity $k_{\text{eq}}$ of two series layers of equal thickness $L$.</strong><br />
+A: $k_{\text{eq}} = \frac{2 k_1 k_2}{k_1 + k_2}$ (Harmonic Mean).</p>
+<p><strong>Q12: In two series wall layers of equal thickness, which layer experiences the larger temperature drop?</strong><br />
+A: The layer with the LOWER thermal conductivity $k$, since $\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}$.</p>
+<p><strong>Q13: State the maximum center temperature rise formula for a solid sphere with uniform internal generation $\dot{q}_g$.</strong><br />
+A: $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{6k}$.</p>
+<p><strong>Q14: State the maximum center temperature rise formula for a long solid cylinder with uniform internal generation $\dot{q}_g$.</strong><br />
+A: $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{4k}$.</p>
+<p><strong>Q15: Why does a hot body take more time to cool from $70^\circ\text{C} \to 60^\circ\text{C}$ than from $80^\circ\text{C} \to 70^\circ\text{C}$ in ambient air at $20^\circ\text{C}$?</strong><br />
+A: Because the temperature driving potential $(T - T_\infty)$ decreases as the body cools, reducing the cooling rate according to Newton's law of cooling.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Thermal Diffusivity</strong>: $\alpha = \frac{k}{\rho C_p}$ $\text{m}^2\text{/s}$. High $\alpha \implies$ fast thermal response.</li>
+<li><strong>Conductivity Temperature Trends</strong>: Metals $k \downarrow$ as $T \uparrow$; Gases $k \uparrow$ as $T \uparrow$.</li>
+<li><strong>Insulation Moisture</strong>: Water in voids increases $k$ drastically $\implies$ ruins insulation.</li>
+<li><strong>Transient Processes</strong>: Engine cylinder wall flux, casting quenching, building HVAC startup are TRANSIENT.</li>
+<li><strong>Equations</strong>: Laplace $\nabla^2 T = 0$; Poisson $\nabla^2 T + \frac{\dot{q}_g}{k} = 0$.</li>
+<li><strong>Critical Radius</strong>: Cylinder $r_c = \frac{k}{h}$; Sphere $r_c = \frac{2k}{h}$.</li>
+<li>At $r = r_c \implies Q$ is MAXIMUM, resistance is MINIMUM.</li>
+<li>If $r &lt; r_c \implies$ adding insulation INCREASES heat loss.</li>
+<li>Pipe multi-layer rule $\implies$ Place lower $k$ insulation INSIDE.</li>
+<li><strong>Profiles</strong>: Plane $\to$ Linear; Cylinder $\to$ Logarithmic; Sphere $\to$ Hyperbolic.</li>
+<li><strong>Series Composite Wall</strong>: $k_{\text{eq}} = \frac{2 k_1 k_2}{k_1 + k_2}$ (equal $L$). Lower $k$ layer has LARGER $\Delta T$.</li>
+<li><strong>Internal Heat Generation</strong>:</li>
+<li>Sphere: $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{6k}$, flux balance $\dot{q}_g = \frac{3 q_0}{R}$.</li>
+<li>Cylinder: $T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{4k}$, flux balance $\dot{q}_g = \frac{2 q_0}{R}$.</li>
+<li><strong>Transient Lumped System</strong>: $\tau = \frac{\rho V C_p}{h A}$. Valid for $Bi &lt; 0.1$.</li>
+<li><strong>Newton Cooling Trap</strong>: Equal temperature drops take INCREASING time as body cools!</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\alpha = \frac{k}{\rho C_p}$ $\text{m}^2\text{/s}$.</li>
+<li>[ ] Memorize Metals $k \downarrow$ as $T \uparrow$; Gases $k \uparrow$ as $T \uparrow$.</li>
+<li>[ ] Memorize Laplace $\nabla^2 T = 0$; Poisson $\nabla^2 T + \frac{\dot{q}_g}{k} = 0$.</li>
+<li>[ ] Memorize Cylinder $r_c = k/h$; Sphere $r_c = 2k/h$.</li>
+<li>[ ] Memorize At $r_c$, heat loss is MAXIMUM.</li>
+<li>[ ] Memorize If $r &lt; r_c$, insulation increases heat loss.</li>
+<li>[ ] Memorize Multi-layer pipe: lower $k$ insulation INSIDE.</li>
+<li>[ ] Memorize Cylinder $Q = \frac{2\pi k L \Delta T}{\ln(r_o/r_i)}$ (Logarithmic profile).</li>
+<li>[ ] Memorize Sphere $Q = \frac{4\pi k r_i r_o \Delta T}{r_o - r_i}$ (Hyperbolic profile).</li>
+<li>[ ] Memorize Equal thickness $k_{\text{eq}} = \frac{2 k_1 k_2}{k_1 + k_2}$.</li>
+<li>[ ] Memorize $\frac{\Delta T_1}{\Delta T_2} = \frac{k_2}{k_1}$ (Lowest $k$ layer has largest $\Delta T$).</li>
+<li>[ ] Memorize Sphere $T_{\text{max}} = T_w + \frac{\dot{q}<em>g R^2}{6k}$; Cylinder $T</em>{\text{max}} = T_w + \frac{\dot{q}_g R^2}{4k}$.</li>
+<li>[ ] Memorize Cylinder flux balance $\dot{q}_g = \frac{2 q_0}{R}$.</li>
+<li>[ ] Memorize Lumped time constant $\tau = \frac{\rho V C_p}{h A}$.</li>
+<li>[ ] Memorize Successive equal $\Delta T$ drops take MORE time.</li>
+</ul>
+</body>
+</html>

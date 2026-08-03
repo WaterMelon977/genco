@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiative Heat Transfer, Shape Factors & Network Analysis — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>
+MathJax = {
+  tex: {
+    inlineMath:  [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  <style>
+  :root {
+    --bg-page: #F0ECE1;
+    --bg-card: #FFFFFF;
+    --text-primary: #2D2926;
+    --text-secondary: #5C544D;
+    --text-accent: #8C5A37;
+    --border-light: #E2D9CC;
+
+    --callout-concept-bg: #EFF6FF;
+    --callout-concept-border: #3B82F6;
+    --callout-concept-text: #1E40AF;
+
+    --callout-trap-bg: #FEF2F2;
+    --callout-trap-border: #EF4444;
+    --callout-trap-text: #991B1B;
+
+    --callout-focus-bg: #FEFCE8;
+    --callout-focus-border: #EAB308;
+    --callout-focus-text: #854D0E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.85;
+    color: var(--text-primary);
+    background-color: var(--bg-page);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bookman Old Style", Georgia, serif;
+    color: #4A2E1B;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24pt;
+    text-align: center;
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    color: #FFFDF9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+  }
+
+  h2 {
+    font-size: 18pt;
+    border-bottom: 2px solid #8C5A37;
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+
+  h3 { font-size: 14pt; color: #664229; }
+  h4 { font-size: 12pt; color: #4A2E1B; }
+
+  a { color: var(--text-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  code {
+    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+    background: #EAE1D3;
+    color: #4A2E1B;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+
+  pre {
+    background: #F7F3EC;
+    border: 1px solid var(--border-light);
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    border-left: 4px solid var(--border-accent);
+    background-color: #F7F3EC;
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--text-secondary);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+  }
+
+  th, td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  th {
+    background: #4A2E1B;
+    color: #FFFDF9;
+    font-family: "Bookman Old Style", Georgia, serif;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) { background-color: #FDFBF7; }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+  }
+
+  /* Plain Formula Card (Strictly no background or border) */
+  .formula-card {
+    margin: 20px 0;
+    text-align: center;
+    overflow-x: auto;
+    font-size: 1.05em;
+  }
+
+  /* Color-Coded Callout Cards */
+  .callout {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    border-left: 5px solid;
+  }
+
+  .callout-concept {
+    background-color: var(--callout-concept-bg);
+    border-color: var(--callout-concept-border);
+    color: var(--callout-concept-text);
+  }
+
+  .callout-trap {
+    background-color: var(--callout-trap-bg);
+    border-color: var(--callout-trap-border);
+    color: var(--callout-trap-text);
+  }
+
+  .callout-focus {
+    background-color: var(--callout-focus-bg);
+    border-color: var(--callout-focus-border);
+    color: var(--callout-focus-text);
+  }
+
+  /* MathJax Overflow Guard */
+  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+  /* Submodule Navigation Header */
+  .submodule-nav {
+    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+    padding: 12px 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10.5pt;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
+  }
+  .submodule-nav a {
+    color: #FFFDF9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+  }
+  .submodule-nav a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body id="preview">
+  <div class="submodule-nav">
+    <a href="index.html">&larr; Back to Heat Transfer Hub</a>
+    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <h1 id="radiative-heat-transfer-shape-factors-network-analysis-comprehensive-reorganized-study-guide">Radiative Heat Transfer, Shape Factors &amp; Network Analysis — Comprehensive Reorganized Study Guide</h1>
+<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+<p>This master guide covers Radiative Heat Transfer (Stefan-Boltzmann law $E_b = \sigma T^4$, $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$, Wien's displacement law $\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$, Kirchhoff's law $\varepsilon = \alpha$, Planck's spectral distribution law, radiation wavelength range $0.1 - 100 \mu\text{m}$), Surface Properties (absorptivity $\alpha$, reflectivity $\rho$, transmissivity $\tau$, energy balance $\alpha + \rho + \tau = 1$, black body $\alpha = \varepsilon = 1, \rho = \tau = 0$, opaque body $\tau = 0 \implies \alpha + \rho = 1$, gray body $\varepsilon = \alpha = \text{const} &lt; 1$, white body $\rho = 1$, selective surfaces), Radiosity &amp; Irradiation (irradiation $G$, radiosity $J = E + \rho G = \varepsilon E_b + \rho G$, net flux $q_{\text{net}} = J - G$, black surface $J = E_b$, radiation intensity $I = E/\pi$), Shape Factors / View Factors ($F_{ij}$, reciprocity $A_i F_{ij} = A_j F_{ji}$, summation rule $\sum_j F_{ij} = 1$, flat/convex $F_{ii} = 0$, infinite parallel planes $F_{12} = 1$, concentric cylinders/spheres), Radiation Network Analysis &amp; Exchange ($Q_{12} = A_1 F_{12} \sigma (T_1^4 - T_2^4)$ black, $q_{12} = \frac{\sigma(T_1^4 - T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$ parallel gray planes, equivalent emissivity $\varepsilon_{\text{eq}} = \frac{1}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$, small body in large enclosure $Q_{12} = \varepsilon_1 A_1 \sigma (T_1^4 - T_2^4)$), and Radiation Shields ($n$ identical shields heat transfer reduction $Q_n = \frac{Q_0}{n+1}$, percentage heat loss reduction) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
+<hr />
+<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
+<h4 id="1-fundamental-laws-of-thermal-radiation"><strong>1. Fundamental Laws of Thermal Radiation</strong></h4>
+<ul>
+<li><strong>Stefan–Boltzmann Law (Black Body)</strong>:
+  <div class="formula-card">$${\boxed{E_b = \sigma \cdot T^4 \quad (\text{W/m}^2)}}$$</div>
+  <div class="formula-card">$${\boxed{Q = \sigma \cdot A \cdot T^4 \quad (\text{W})}}$$</div></li>
+<li>$\sigma$: Stefan–Boltzmann constant $= 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$</li>
+<li>$T$: absolute temperature ($\text{K}$; MUST be in Kelvin!)</li>
+<li>
+<p>Temperature Scaling Rule: Doubling $T$ $2T$ multiplies emissive power by $2^4 = 16$.</p>
+</li>
+<li>
+<p><strong>Wien's Displacement Law</strong>:
+  <div class="formula-card">$${\boxed{\lambda_{\text{max}} \cdot T = 2898 \quad (\mu\text{m}\cdot\text{K}) \approx 2900 \quad (\mu\text{m}\cdot\text{K})}}$$</div></p>
+</li>
+<li>$\lambda_{\text{max}}$: wavelength corresponding to peak spectral emissive power $\mu\text{m}$</li>
+<li>
+<p>Physical meaning: Peak spectral emission shifts to SHORTER wavelengths as temperature increases $\lambda_{\text{max}} \propto \frac{1}{T}$.</p>
+</li>
+<li>
+<p><strong>Kirchhoff's Law of Radiation</strong>:
+  <div class="formula-card">$${\boxed{\varepsilon_\lambda = \alpha_\lambda \quad \text{and} \quad \varepsilon = \alpha}}$$</div></p>
+</li>
+<li>
+<p>Valid at thermal equilibrium for a surface at a specified wavelength and temperature.</p>
+</li>
+<li>
+<p><strong>Planck's Law of Monochromatic Radiation</strong>:
+  <div class="formula-card">$${\boxed{E_{\lambda, b} = \frac{2\pi \cdot h \cdot c^2}{\lambda^5 \cdot \left(\exp\left(\frac{h \cdot c}{\lambda \cdot k \cdot T}\right) - 1\right)} \quad (\text{W/m}^2\cdot\mu\text{m})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="2-surface-radiation-properties"><strong>2. Surface Radiation Properties</strong></h4>
+<ul>
+<li><strong>Incident Energy Conservation Balance</strong>:
+  <div class="formula-card">$${\boxed{\alpha + \rho + \tau = 1.0}}$$</div></li>
+<li>$\alpha$: absorptivity (fraction of incident radiation absorbed)</li>
+<li>$\rho$: reflectivity (fraction of incident radiation reflected)</li>
+<li>
+<p>$\tau$: transmissivity (fraction of incident radiation transmitted)</p>
+</li>
+<li>
+<p><strong>Black Body</strong>: $\boxed{\alpha = 1.0, \quad \varepsilon = 1.0, \quad \rho = 0, \quad \tau = 0}$</p>
+</li>
+<li><strong>Opaque Body</strong>: $\boxed{\tau = 0 \implies \alpha + \rho = 1.0}$</li>
+<li><strong>White / Perfectly Reflecting Body</strong>: $\boxed{\rho = 1.0 \implies \alpha = 0, \quad \tau = 0}$</li>
+<li><strong>Gray Body</strong>: $\boxed{\varepsilon = \alpha = \text{constant} &lt; 1.0}$ (independent of wavelength $\lambda$ and temperature $T$).</li>
+</ul>
+<hr />
+<h4 id="3-radiosity-irradiation-intensity"><strong>3. Radiosity, Irradiation &amp; Intensity</strong></h4>
+<ul>
+<li><strong>Radiosity $J$</strong>:
+  <div class="formula-card">$${\boxed{J = E + \rho \cdot G = \varepsilon \cdot E_b + \rho \cdot G \quad (\text{W/m}^2)}}$$</div></li>
+<li>$E$: emitted radiation flux $\text{W/m}^2$</li>
+<li>
+<p>$G$: incident radiation flux / irradiation $\text{W/m}^2$</p>
+</li>
+<li>
+<p><strong>Net Radiative Heat Flux Leaving Surface</strong>:
+  <div class="formula-card">$${\boxed{q_{\text{net}} = J - G = \frac{E_b - J}{\frac{1-\varepsilon}{\varepsilon \cdot A}} \quad (\text{W/m}^2)}}$$</div></p>
+</li>
+<li>
+<p><strong>Radiation Intensity $I$ &amp; Emissive Power $E$</strong>:
+  <div class="formula-card">$${\boxed{E = \pi \cdot I \quad (\text{W/m}^2)}}$$</div></p>
+</li>
+<li>$I$: radiation intensity $\text{W/m}^2\cdot\text{sr}$</li>
+</ul>
+<hr />
+<h4 id="4-shape-factors-view-factors-angle-factors-f_ij"><strong>4. Shape Factors (View Factors / Angle Factors $F_{ij}$)</strong></h4>
+<ul>
+<li>
+<p><strong>View Factor Definition</strong>:
+  <div class="formula-card">$${\boxed{F_{ij} = \frac{\text{Radiation Leaving Surface } i \text{ Intercepted directly by Surface } j}{\text{Total Radiation Leaving Surface } i}}}$$</div></p>
+</li>
+<li>
+<p><strong>Reciprocity Theorem</strong>:
+  <div class="formula-card">$${\boxed{A_1 \cdot F_{12} = A_2 \cdot F_{21}}}$$</div></p>
+</li>
+<li>
+<p><strong>Summation Rule for an Enclosure of $N$ Surfaces</strong>:
+  <div class="formula-card">$${\boxed{\sum_{j=1}^N F_{ij} = F_{i1} + F_{i2} + \dots + F_{iN} = 1.0}}$$</div></p>
+</li>
+<li>
+<p><strong>Self-View Factor Rules</strong>:</p>
+</li>
+<li>Flat or Convex Surface: $\boxed{F_{ii} = 0}$</li>
+<li>Concave Surface: $\boxed{F_{ii} &gt; 0}$</li>
+<li>Infinite Parallel Planes: $\boxed{F_{12} = F_{21} = 1.0}$</li>
+<li>Inner Surface $1$ of Concentric Spheres/Cylinders completely enclosed by outer Surface $2$: $\boxed{F_{12} = 1.0}$</li>
+</ul>
+<hr />
+<h4 id="5-net-radiation-exchange-network-analysis"><strong>5. Net Radiation Exchange &amp; Network Analysis</strong></h4>
+<ul>
+<li>
+<p><strong>Two Infinite Parallel Gray Planes</strong>:
+  <div class="formula-card">$${\boxed{q_{12} = \frac{\sigma \cdot (T_1^4 - T_2^4)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1} \quad (\text{W/m}^2)}}$$</div>
+  <div class="formula-card">$${\boxed{\text{Equivalent Emissivity: } \varepsilon_{\text{eq}} = \frac{1}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1}}}$$</div></p>
+</li>
+<li>
+<p><strong>Two Concentric Cylinders / Spheres ($A_1 &lt; A_2$, Inner Surface $1$, Outer Surface $2$)</strong>:
+  <div class="formula-card">$${\boxed{Q_{12} = \frac{A_1 \cdot \sigma \cdot (T_1^4 - T_2^4)}{\frac{1}{\varepsilon_1} + \frac{A_1}{A_2}\left(\frac{1}{\varepsilon_2} - 1\right)} \quad (\text{W})}}$$</div></p>
+</li>
+<li>
+<p><strong>Small Convex Body $1$ inside Large Enclosure $2$ $A_1 \ll A_2 \implies \frac{A_1}{A_2} \to 0$</strong>:
+  <div class="formula-card">$${\boxed{Q_{12} = \varepsilon_1 \cdot A_1 \cdot \sigma \cdot (T_1^4 - T_2^4) \quad (\text{W})}}$$</div></p>
+</li>
+<li>
+<p><strong>Two Black Bodies (Any Geometry)</strong>:
+  <div class="formula-card">$${\boxed{Q_{12} = A_1 \cdot F_{12} \cdot \sigma \cdot (T_1^4 - T_2^4) \quad (\text{W})}}$$</div></p>
+</li>
+</ul>
+<hr />
+<h4 id="6-radiation-shields"><strong>6. Radiation Shields</strong></h4>
+<ul>
+<li>
+<p><strong>Heat Transfer with $n$ Identical Thin Shields between Parallel Planes $\varepsilon_1 = \varepsilon_2 = \varepsilon_s$</strong>:
+  <div class="formula-card">$${\boxed{Q_{\text{with } n \text{ shields}} = \frac{Q_{\text{without shields}}}{n + 1}}}$$</div></p>
+</li>
+<li>
+<p><strong>Percentage Reduction in Radiative Heat Transfer</strong>:
+  <div class="formula-card">$${\boxed{\text{Percentage Reduction} = \left(1 - \frac{1}{n + 1}\right) \times 100\%}}$$</div></p>
+</li>
+<li>$1$ Shield: $Q_1 = \frac{1}{2} Q_0 \implies \mathbf{50\% \text{ reduction}}$</li>
+<li>$2$ Shields: $Q_2 = \frac{1}{3} Q_0 \implies \mathbf{66.7\% \text{ reduction}}$</li>
+<li>$3$ Shields: $Q_3 = \frac{1}{4} Q_0 \implies \mathbf{75\% \text{ reduction}}$</li>
+</ul>
+<hr />
+<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+<ul>
+<li><strong>Thermal Radiation</strong>: Electromagnetic energy emitted by matter as a result of its absolute temperature $0.1 \mu\text{m} \le \lambda \le 100 \mu\text{m}$. Requires no medium and travels at the speed of light $c \approx 3 \times 10^8 \text{ m/s}$.</li>
+<li><strong>Black Body</strong>: An ideal surface that absorbs all incident radiation regardless of wavelength or direction $\alpha = 1.0$. At a given temperature, it emits the maximum possible thermal radiation $\varepsilon = 1.0$.</li>
+<li><strong>Gray Body</strong>: An idealized body whose monochromatic emissivity $\varepsilon_\lambda$ and absorptivity $\alpha_\lambda$ are constant and independent of wavelength $\lambda$ and temperature $T$.</li>
+<li><strong>Opaque Surface</strong>: A surface through which no radiation is transmitted $\tau = 0 \implies \alpha + \rho = 1.0$.</li>
+<li><strong>Irradiation $G$</strong>: The total thermal radiation incident on a surface per unit area per unit time $\text{W/m}^2$.</li>
+<li><strong>Radiosity $J$</strong>: The total thermal radiation leaving a surface per unit area per unit time, comprising both emitted and reflected components $J = \varepsilon E_b + \rho G$.</li>
+<li><strong>Shape Factor $F_{ij}$</strong>: The fraction of radiation leaving surface $i$ that is directly intercepted by surface $j$. It depends strictly on geometry and orientation, independent of surface temperatures or emissivities.</li>
+<li><strong>Radiation Shield</strong>: A thin high-reflectivity (low-emissivity) barrier placed between heat-exchanging surfaces to introduce extra thermal resistances and minimize radiative heat loss.</li>
+</ul>
+<hr />
+<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
+<ul>
+<li><strong>Stefan–Boltzmann Constant</strong>: $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$.</li>
+<li><strong>Wien's Displacement Constant</strong>: $b = 2898 \mu\text{m}\cdot\text{K} \approx 2900 \mu\text{m}\cdot\text{K}$.</li>
+<li><strong>Solar Surface Temperature</strong>: $T_{\text{sun}} \approx 5780 \text{ K} - 5800 \text{ K}$ $\lambda_{\text{max}} \approx 0.5 \mu\text{m}$.</li>
+<li><strong>Emissive Power / Intensity Ratio</strong>: $E = \pi \cdot I$.</li>
+<li><strong>1 Radiation Shield Reduction</strong>: $50\%$ reduction $Q_1 = 0.5 Q_0$.</li>
+<li><strong>3 Radiation Shields Reduction</strong>: $75\%$ reduction $Q_3 = 0.25 Q_0$.</li>
+</ul>
+<hr />
+<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+<ul>
+<li><strong>Fundamental Radiation Laws</strong>: Introduced in §3.1.</li>
+<li><strong>Surface Properties (Black, Gray, Opaque)</strong>: §3.2.</li>
+<li><strong>Radiosity, Irradiation &amp; Intensity</strong>: §3.3.</li>
+<li><strong>Shape Factors (View Factors)</strong>: §3.4.</li>
+<li><strong>Net Radiation Exchange &amp; Network Analysis</strong>: §3.5.</li>
+<li><strong>Radiation Shields</strong>: §3.6.</li>
+</ul>
+<hr />
+<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+<h3 id="31-fundamental-laws-of-thermal-radiation"><strong>3.1 Fundamental Laws of Thermal Radiation</strong></h3>
+<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Nature of Thermal Radiation</strong>: Electromagnetic waves emitted by all matter above $0 \text{ K}$ due to vibrational/rotational states. Wavelength span: $0.1 \mu\text{m} - 100 \mu\text{m}$ (UV, visible, IR spectrum).</li>
+<li><strong>Stefan–Boltzmann Law</strong>:
+  <div class="formula-card">$${E_b = \sigma \cdot T^4 \quad (\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4)}$$</div></li>
+<li>Emissive power is proportional to the FOURTH POWER of absolute temperature $T^4$.</li>
+<li>Temperature MUST be in Kelvin $\text{K}$. Doubling $T \implies 2^4 = 16\times$ emissive power!</li>
+<li><strong>Wien's Displacement Law</strong>:
+  <div class="formula-card">$${\lambda_{\text{max}} \cdot T = 2898 \mu\text{m}\cdot\text{K} \approx 2900 \mu\text{m}\cdot\text{K}}$$</div></li>
+<li>As temperature rises, the peak emission wavelength $\lambda_{\text{max}}$ SHIFTS TO SHORTER WAVELENGTHS $\lambda_{\text{max}} \propto 1/T$.</li>
+<li><strong>Kirchhoff's Law</strong>:
+  <div class="formula-card">$${\varepsilon = \alpha}$$</div></li>
+<li>At thermal equilibrium, the total emissivity of a surface equals its total absorptivity at the same temperature.</li>
+<li><strong>Planck's Law</strong>: Gives the spectral distribution of black-body emissive power. Integrating Planck's law over all wavelengths $\lambda = 0 \to \infty$ yields the Stefan–Boltzmann law $E_b = \sigma T^4$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fourth-Power Temperature Rule</strong>: Total emissive power $E_b \propto T^4$. Temperature MUST be in Kelvin! If temperature is doubled $T_2 = 2T_1$, emissive power increases by $2^4 = 16$ times!</p>
+<p>[!TRAP]
+<strong>Wien's Peak Shift Direction</strong>: Higher temperature means SHORTER peak wavelength $\lambda_{\text{max}} \propto 1/T$. Do not claim peak shifts to longer wavelengths as temperature rises!</div>
+<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
+<pre><code>Thermal Radiation Law Check?
+├─ Is query about total emissive power vs Temp? → STEFAN-BOLTZMANN LAW (Eb = sigma * T^4)
+├─ Is query about peak wavelength shift vs Temp? → WIEN'S DISPLACEMENT LAW (lambda_max * T = 2898 um*K)
+├─ Is query about emissivity vs absorptivity at equilibrium? → KIRCHHOFF'S LAW (epsilon = alpha)
+└─ Is query about spectral intensity distribution? → PLANCK'S LAW
+</code></pre>
+<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$.</li>
+<li>[ ] $E_b \propto T^4$ (always Kelvin).</li>
+<li>[ ] $\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$.</li>
+<li>[ ] Kirchhoff: $\varepsilon = \alpha$ at equilibrium.</li>
+</ul>
+<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: The sun has a peak spectral emission wavelength $\lambda_{\text{max}} = 0.5 \mu\text{m}$. Estimate the surface temperature of the sun assuming it behaves as a black body.
+- <strong>Solution</strong>:
+  - Apply Wien's displacement law: $\lambda_{\text{max}} \cdot T = 2898 \mu\text{m}\cdot\text{K}$.
+  - $T = \frac{2898}{0.5} = 5796 \text{ K} \approx 5780 \text{ K}$.
+- <strong>Key Insight</strong>: $T \approx 5780 \text{ K}$. Divide Wien's constant by $\lambda_{\text{max}}$ in $\mu\text{m}$.</p>
+<p><strong>Worked Example 2</strong>
+- <strong>Problem</strong>: The temperature of a black body is increased from $300 \text{ K}$ to $600 \text{ K}$. By what factor does its total emissive power increase?
+- <strong>Solution</strong>:
+  - $E_{b1} = \sigma (300)^4$, $E_{b2} = \sigma (600)^4$.
+  - $\frac{E_{b2}}{E_{b1}} = \left(\frac{600}{300}\right)^4 = (2)^4 = 16$.
+- <strong>Key Insight</strong>: Emissive power increases by a factor of 16.</p>
+<hr />
+<h3 id="32-surface-radiation-properties-black-gray-opaque-selective"><strong>3.2 Surface Radiation Properties (Black, Gray, Opaque, Selective)</strong></h3>
+<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Energy Conservation Balance</strong>:
+  <div class="formula-card">$${\alpha + \rho + \tau = 1.0}$$</div></li>
+<li>Absorptivity $\alpha$, Reflectivity $\rho$, Transmissivity $\tau$.</li>
+<li><strong>Surface Classifications</strong>:</li>
+<li><strong>Black Body</strong>: $\alpha = 1.0, \varepsilon = 1.0, \rho = 0, \tau = 0$. Perfect absorber &amp; emitter.</li>
+<li><strong>Opaque Body</strong>: $\tau = 0 \implies \alpha + \rho = 1.0$. (Opaque does NOT mean black; it only means no transmission).</li>
+<li><strong>Gray Body</strong>: Emissivity $\varepsilon$ and absorptivity $\alpha$ are constant and independent of wavelength and temperature $\varepsilon = \alpha &lt; 1.0$.</li>
+<li><strong>White Body</strong>: $\rho = 1.0 \implies \alpha = 0, \tau = 0$. Perfect reflector.</li>
+<li><strong>Transparent Body</strong>: $\tau \approx 1.0 \implies \alpha \approx 0, \rho \approx 0$.</li>
+<li><strong>Selective Surfaces</strong>:</li>
+<li>High absorptivity $\alpha$ in the shortwave solar spectrum $\lambda &lt; 3 \mu\text{m}$ AND low emissivity $\varepsilon$ in the longwave thermal infrared spectrum $\lambda &gt; 3 \mu\text{m}$. Ideal for solar thermal collectors.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Opaque vs Black Body Distinction</strong>: An Opaque surface means $\tau = 0 \implies \alpha + \rho = 1.0$. It does NOT mean black! A white painted wall is opaque $\tau = 0$ but has high reflectivity $\rho$ and low absorptivity $\alpha$.</p>
+<p>[!TRAP]
+<strong>Gray Body Definition Trap</strong>: A Gray body has constant $\varepsilon = \alpha &lt; 1.0$ across all wavelengths. It is an idealization used to simplify engineering calculations.</div>
+<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
+<pre><code>Surface Property Check?
+├─ Is alpha = 1.0 and rho = tau = 0? → BLACK BODY
+├─ Is tau = 0? → OPAQUE BODY (alpha + rho = 1.0)
+├─ Is rho = 1.0? → WHITE / PERFECTLY REFLECTING BODY
+├─ Is emissivity constant across all wavelengths? → GRAY BODY (epsilon = alpha &lt; 1.0)
+└─ High alpha for solar + low epsilon for thermal IR? → SELECTIVE SURFACE (Solar Collector)
+</code></pre>
+<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $\alpha + \rho + \tau = 1.0$.</li>
+<li>[ ] Black body: $\alpha = \varepsilon = 1.0$.</li>
+<li>[ ] Opaque body: $\tau = 0 \implies \alpha + \rho = 1.0$.</li>
+<li>[ ] Gray body: $\varepsilon = \alpha = \text{const} &lt; 1.0$.</li>
+</ul>
+<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A surface reflects $35\%$ of incident radiation $\rho = 0.35$ and transmits $25\%$ $\tau = 0.25$. If the body is in thermal equilibrium with its surroundings, calculate its emissivity $\varepsilon$.
+- <strong>Solution</strong>:
+  - Energy balance: $\alpha + \rho + \tau = 1.0 \implies \alpha = 1.0 - 0.35 - 0.25 = 0.40$.
+  - By Kirchhoff's law ($\varepsilon = \alpha$ at thermal equilibrium): $\varepsilon = 0.40$.
+- <strong>Key Insight</strong>: $\varepsilon = 0.40$. Apply $\alpha = 1 - \rho - \tau$ then $\varepsilon = \alpha$.</p>
+<hr />
+<h3 id="33-radiosity-irradiation-intensity"><strong>3.3 Radiosity, Irradiation &amp; Intensity</strong></h3>
+<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Irradiation $G$</strong>: Total radiation incident on a surface per unit area $\text{W/m}^2$.</li>
+<li><strong>Radiosity $J$</strong>: Total radiation LEAVING a surface per unit area $\text{W/m}^2$.
+  <div class="formula-card">$${J = E + \rho \cdot G = \varepsilon \cdot E_b + \rho \cdot G}$$</div></li>
+<li>For an Opaque Surface $\rho = 1 - \varepsilon$: $J = \varepsilon E_b + (1 - \varepsilon) G$.</li>
+<li>For a Black Surface $\rho = 0$: $J = E_b = \sigma T^4$.</li>
+<li><strong>Net Heat Flux Leaving Surface</strong>:
+  <div class="formula-card">$${q_{\text{net}} = J - G = \frac{E_b - J}{\frac{1-\varepsilon}{\varepsilon \cdot A}}}$$</div></li>
+<li>Surface resistance to radiation: $R_{\text{surface}} = \frac{1-\varepsilon}{\varepsilon \cdot A}$.</li>
+<li><strong>Intensity of Radiation $I$</strong>:</li>
+<li>Radiation energy emitted per unit time, per unit projected area, per unit solid angle $\text{W/m}^2\cdot\text{sr}$.</li>
+<li>Relation to total emissive power for a diffuse emitter:
+    <div class="formula-card">$${E = \pi \cdot I}$$</div></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Radiosity Composition</strong>: Radiosity $J = \text{Emitted Radiation } (E) + \text{Reflected Radiation } (\rho G)$. For a black body, $\rho = 0 \implies J = E_b = \sigma T^4$.</p>
+<p>[!TRAP]
+<strong>Emissive Power vs Intensity Factor</strong>: Total emissive power $E = \pi \cdot I$. The factor is $\pi$ (Pi), NOT $2\pi$ or $4\pi$!</div>
+<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
+<pre><code>Radiosity / Intensity Check?
+├─ Is query about total radiation LEAVING a surface? → RADIOSITY J = epsilon * Eb + rho * G
+├─ Is query about total radiation ARRIVING at a surface? → IRRADIATION G
+├─ Is surface black (rho = 0)? → J = Eb = sigma * T^4
+└─ What is relation between Emissive Power E and Intensity I? → E = pi * I
+</code></pre>
+<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $J = \varepsilon E_b + \rho G$.</li>
+<li>[ ] Opaque $J = \varepsilon E_b + (1-\varepsilon) G$.</li>
+<li>[ ] Black body $J = E_b$.</li>
+<li>[ ] $E = \pi \cdot I$.</li>
+</ul>
+<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: An opaque gray surface $\varepsilon = \alpha = 0.5$ receives solar irradiation $G = 1200 \text{ W/m}^2$. The surface emissive power is $E = 600 \text{ W/m}^2$. Calculate the radiosity $J$.
+- <strong>Solution</strong>:
+  - Opaque surface $\implies \tau = 0 \implies \rho = 1 - \alpha = 1 - 0.5 = 0.5$.
+  - $J = E + \rho \cdot G = 600 + (0.5 \times 1200) = 600 + 600 = 1200 \text{ W/m}^2$.
+- <strong>Key Insight</strong>: $J = 1200 \text{ W/m}^2$. Include reflected flux $\rho G$.</p>
+<hr />
+<h3 id="34-shape-factors-view-factors-f_ij"><strong>3.4 Shape Factors (View Factors $F_{ij}$)</strong></h3>
+<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Definition</strong>: $F_{ij}$ = fraction of radiation leaving surface $i$ that directly reaches surface $j$.</li>
+<li><strong>Purely Geometric Property</strong>: Depends ONLY on shape, area, distance, and orientation of surfaces. Independent of temperature, emissivity, or thermal state!</li>
+<li><strong>Reciprocity Relation</strong>:
+  <div class="formula-card">$${A_1 \cdot F_{12} = A_2 \cdot F_{21}}$$</div></li>
+<li><strong>Summation Rule (Enclosure)</strong>:
+  <div class="formula-card">$${\sum_{j=1}^N F_{ij} = F_{i1} + F_{i2} + \dots + F_{iN} = 1.0}$$</div></li>
+<li><strong>Surface Curvature Rules</strong>:</li>
+<li>Flat or Convex Surface: Cannot see any part of itself $\implies F_{ii} = 0$.</li>
+<li>Concave Surface: Sees a portion of itself $\implies F_{ii} &gt; 0$.</li>
+<li><strong>Special Geometry View Factors</strong>:</li>
+<li>Two Infinite Parallel Planes: $F_{12} = F_{21} = 1.0$.</li>
+<li>Inner cylinder/sphere $1$ in concentric enclosure $2$: $F_{12} = 1.0$. By reciprocity, $F_{21} = \frac{A_1}{A_2}$. By summation, $F_{22} = 1 - F_{21} = 1 - \frac{A_1}{A_2}$.</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>View Factor Geometric Independence</strong>: Shape factor $F_{ij}$ depends ONLY on geometry! Temperature and emissivity NEVER enter into the view factor $F_{ij}$.</p>
+<p>[!TRAP]
+<strong>Self-View Factor Rule</strong>:
+- Flat Surface $\implies F_{11} = 0$.
+- Convex Surface $\implies F_{11} = 0$.
+- Concave Surface $\implies F_{11} &gt; 0$!</div>
+<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
+<pre><code>Shape Factor Calculation Check?
+├─ Is surface 1 flat or convex? → F11 = 0
+├─ Is surface 1 completely enclosed by surface 2? → F12 = 1.0
+├─ Need to find F21 given F12 and Areas? → RECIPROCITY RULE: A1 * F12 = A2 * F21
+└─ Need to find remaining view factor in N-surface enclosure? → SUMMATION RULE: sum(F1j) = 1.0
+</code></pre>
+<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $A_1 F_{12} = A_2 F_{21}$.</li>
+<li>[ ] $\sum_j F_{ij} = 1.0$.</li>
+<li>[ ] Flat/Convex $F_{11} = 0$.</li>
+<li>[ ] Concentric inner $F_{12} = 1.0 \implies F_{22} = 1 - A_1/A_2$.</li>
+</ul>
+<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: A solid cylinder (surface $2$, diameter $d = 1 \text{ m}$, length $L = 1 \text{ m}$) is completely enclosed by a hollow sphere (surface $1$, diameter $D = 2 \text{ m}$). Calculate the self-view factor of the sphere $F_{11}$.
+- <strong>Solution</strong>:
+  - Inner surface $2$ is completely enclosed by outer sphere $1 \implies F_{21} = 1.0$.
+  - Area of sphere $A_1 = \pi D^2 = \pi (2)^2 = 4\pi \text{ m}^2$.
+  - Area of cylinder $A_2 = \pi d L + 2\left(\frac{\pi}{4}d^2\right) = \pi(1)(1) + 0.5\pi = 1.5\pi \text{ m}^2$.
+  - Reciprocity: $A_1 F_{12} = A_2 F_{21} \implies 4\pi \cdot F_{12} = 1.5\pi \cdot (1.0) \implies F_{12} = \frac{1.5}{4} = 0.375$.
+  - Summation rule for sphere $1$: $F_{11} + F_{12} = 1.0 \implies F_{11} = 1.0 - 0.375 = 0.625$.
+- <strong>Key Insight</strong>: $F_{11} = 0.625$. Combine $F_{21} = 1.0$, reciprocity, and summation rule.</p>
+<hr />
+<h3 id="35-net-radiative-heat-transfer-network-analysis"><strong>3.5 Net Radiative Heat Transfer &amp; Network Analysis</strong></h3>
+<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Two Infinite Parallel Gray Planes</strong>:
+  <div class="formula-card">$${q_{12} = \frac{\sigma \cdot (T_1^4 - T_2^4)}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1}}$$</div></li>
+<li>Equivalent Emissivity: $\varepsilon_{\text{eq}} = \frac{1}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1}$.</li>
+<li>If $\varepsilon_1 = \varepsilon_2 = \varepsilon \implies \varepsilon_{\text{eq}} = \frac{\varepsilon}{2 - \varepsilon}$.</li>
+<li><strong>Two Concentric Cylinders / Spheres $A_1 &lt; A_2$</strong>:
+  <div class="formula-card">$${Q_{12} = \frac{A_1 \cdot \sigma \cdot (T_1^4 - T_2^4)}{\frac{1}{\varepsilon_1} + \frac{A_1}{A_2}\left(\frac{1}{\varepsilon_2} - 1\right)}}$$</div></li>
+<li><strong>Small Body in Large Enclosure $A_1 \ll A_2 \implies \frac{A_1}{A_2} \to 0$</strong>:
+  <div class="formula-card">$${Q_{12} = \varepsilon_1 \cdot A_1 \cdot \sigma \cdot (T_1^4 - T_2^4)}$$</div></li>
+<li><strong>Black Surfaces</strong>:
+  <div class="formula-card">$${Q_{12} = A_1 \cdot F_{12} \cdot \sigma \cdot (T_1^4 - T_2^4)}$$</div></li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Parallel Gray Planes Formula</strong>: $q_{12} = \frac{\sigma(T_1^4 - T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$. The denominator includes a "$-1$" term! Do not omit the $-1$ term!</p>
+<p>[!TRAP]
+<strong>Small Body in Large Enclosure</strong>: When $A_1 \ll A_2$, outer emissivity $\varepsilon_2$ plays NO ROLE! The heat transfer depends ONLY on inner body emissivity $\varepsilon_1$.</div>
+<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
+<pre><code>Net Radiative Heat Transfer Calculation Check?
+├─ Is geometry Infinite Parallel Gray Planes? → q12 = sigma * (T1^4 - T2^4) / (1/eps1 + 1/eps2 - 1)
+├─ Is geometry Concentric Cylinders / Spheres? → Q12 = A1 * sigma * (T1^4 - T2^4) / [ 1/eps1 + (A1/A2)*(1/eps2 - 1) ]
+├─ Is body 1 very small compared to enclosure 2 (A1 &lt;&lt; A2)? → Q12 = eps1 * A1 * sigma * (T1^4 - T2^4)
+└─ Are both surfaces Black (eps1 = eps2 = 1)? → Q12 = A1 * F12 * sigma * (T1^4 - T2^4)
+</code></pre>
+<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] Gray parallel planes $q = \frac{\sigma(T_1^4 - T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$.</li>
+<li>[ ] $\varepsilon_{\text{eq}} = \frac{1}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$.</li>
+<li>[ ] Small body $A_1 \ll A_2 \implies Q_{12} = \varepsilon_1 A_1 \sigma (T_1^4 - T_2^4)$.</li>
+<li>[ ] Black surfaces $Q_{12} = A_1 F_{12} \sigma (T_1^4 - T_2^4)$.</li>
+</ul>
+<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Two large infinite parallel gray planes with emissivities $\varepsilon_1 = 0.8$ and $\varepsilon_2 = 0.8$ are maintained at temperatures $T_1 = 1000 \text{ K}$ and $T_2 = 500 \text{ K}$. Calculate the net radiative heat flux $q_{12}$.
+- <strong>Solution</strong>:
+  - Calculate equivalent emissivity:
+    <div class="formula-card">$${\varepsilon_{\text{eq}} = \frac{1}{\frac{1}{0.8} + \frac{1}{0.8} - 1} = \frac{1}{1.25 + 1.25 - 1} = \frac{1}{1.5} = \frac{2}{3} \approx 0.6667}$$</div>
+  - Calculate temperature difference of fourth powers:
+    <div class="formula-card">$${T_1^4 - T_2^4 = (1000)^4 - (500)^4 = 1 \times 10^{12} - 0.0625 \times 10^{12} = 0.9375 \times 10^{12} \text{ K}^4}$$</div>
+  - Calculate net heat flux:
+    <div class="formula-card">$${q_{12} = \varepsilon_{\text{eq}} \cdot \sigma \cdot (T_1^4 - T_2^4) = \frac{2}{3} \times (5.67 \times 10^{-8}) \times (0.9375 \times 10^{12})}$$</div>
+    <div class="formula-card">$${q_{12} = 0.6667 \times 5.67 \times 93750 = 35437.5 \text{ W/m}^2 \approx 35.44 \text{ kW/m}^2}$$</div>
+- <strong>Key Insight</strong>: $q_{12} \approx 35.44 \text{ kW/m}^2$. Combine $\varepsilon_{\text{eq}} = 2/3$ with $\sigma(T_1^4 - T_2^4)$.</p>
+<hr />
+<h3 id="36-radiation-shields"><strong>3.6 Radiation Shields</strong></h3>
+<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
+<ul>
+<li><strong>Definition &amp; Purpose</strong>: Thin sheets of high reflectivity (low emissivity $\varepsilon_s$) inserted between heat exchanging surfaces to increase total radiation thermal resistance and reduce net heat transfer.</li>
+<li><strong>Equal Emissivity Parallel Plates Rule</strong>:</li>
+<li>If $n$ identical radiation shields (emissivity $\varepsilon$) are inserted between two parallel plates of the same emissivity $\varepsilon$:
+    <div class="formula-card">$${\boxed{Q_{\text{with } n \text{ shields}} = \frac{1}{n + 1} \cdot Q_{\text{without shields}}}}$$</div></li>
+<li><strong>Reduction Factor Breakdown</strong>:</li>
+<li>$1$ Shield $n=1$ $\implies Q_1 = \frac{1}{2} Q_0 = 50\% Q_0$ ($50\%$ heat loss reduction).</li>
+<li>$2$ Shields $n=2$ $\implies Q_2 = \frac{1}{3} Q_0 = 33.3\% Q_0$ ($66.7\%$ heat loss reduction).</li>
+<li>$3$ Shields $n=3$ $\implies Q_3 = \frac{1}{4} Q_0 = 25\% Q_0$ ($75\%$ heat loss reduction).</li>
+</ul>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Equal Emissivity Shield Formula</strong>: $Q_n = \frac{Q_0}{n+1}$. For $n$ identical shields, heat transfer drops to $\frac{1}{n+1}$ of the unshielded value!</p>
+<p>[!TRAP]
+<strong>Shield Reduction Fraction Trap</strong>:
+- 1 shield reduces heat transfer BY $50\%$ (remains $50\%$).
+- 3 shields reduce heat transfer BY $75\%$ (remains $25\%$).
+Do not confuse "heat transfer remaining" with "heat transfer reduction"!</div>
+<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
+<pre><code>Radiation Shield Calculation Check?
+├─ Are all surface emissivities equal (eps1 = eps2 = eps_shield)? → Q_n = Q_0 / (n + 1)
+├─ How many shields needed for 50% reduction? → 1 Shield (Q1 = Q0 / 2)
+├─ How many shields needed for 75% reduction? → 3 Shields (Q3 = Q0 / 4)
+└─ What makes an effective shield? → HIGH Reflectivity / LOW Emissivity (low eps_s)
+</code></pre>
+<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
+<ul>
+<li>[ ] $Q_n = \frac{Q_0}{n+1}$ (equal $\varepsilon$).</li>
+<li>[ ] $n=1 \implies 50\%$ reduction.</li>
+<li>[ ] $n=3 \implies 75\%$ reduction.</li>
+<li>[ ] Shields require low emissivity $\varepsilon_s$.</li>
+</ul>
+<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
+<p><strong>Worked Example 1</strong>
+- <strong>Problem</strong>: Two large parallel plates with emissivities $\varepsilon = 0.7$ exchange heat by radiation. How many thin parallel radiation shields of emissivity $\varepsilon = 0.7$ must be inserted between them to reduce the net heat transfer rate by $75\%$?
+- <strong>Solution</strong>:
+  - Heat transfer reduction of $75\%$ means remaining heat transfer $Q_n = 25\% Q_0 = \frac{1}{4} Q_0$.
+  - Apply equal emissivity shield formula: $Q_n = \frac{Q_0}{n + 1}$.
+  - $\frac{1}{n + 1} = \frac{1}{4} \implies n + 1 = 4 \implies n = 3$.
+  - Number of shields required $= 3$.
+- <strong>Key Insight</strong>: $n = 3$ shields yield $75\%$ reduction ($1/4$ remaining).</p>
+<hr />
+<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
+<p><strong>Q1: State Stefan-Boltzmann law and give the value of Stefan-Boltzmann constant $\sigma$.</strong><br />
+A: $E_b = \sigma T^4$, where $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$ and $T$ is absolute temperature in Kelvin.</p>
+<p><strong>Q2: State Wien's displacement law and explain the effect of temperature on peak wavelength.</strong><br />
+A: $\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$. As temperature increases, the wavelength of maximum spectral emissive power shifts to shorter wavelengths $\lambda_{\text{max}} \propto 1/T$.</p>
+<p><strong>Q3: State Kirchhoff's law of radiation.</strong><br />
+A: At thermal equilibrium, the total emissivity of a surface equals its total absorptivity $\varepsilon = \alpha$ at the same temperature and wavelength.</p>
+<p><strong>Q4: Define a Black Body.</strong><br />
+A: An ideal surface that absorbs all incident radiation regardless of wavelength or direction $\alpha = 1.0, \varepsilon = 1.0, \rho = 0, \tau = 0$.</p>
+<p><strong>Q5: Define an Opaque Surface and write its property relation.</strong><br />
+A: An opaque surface allows zero radiation transmission $\tau = 0$, so $\alpha + \rho = 1.0$.</p>
+<p><strong>Q6: Define a Gray Body.</strong><br />
+A: An idealized body whose monochromatic emissivity $\varepsilon_\lambda$ and absorptivity $\alpha_\lambda$ are constant and independent of wavelength and temperature $\varepsilon = \alpha &lt; 1.0$.</p>
+<p><strong>Q7: Differentiate between Irradiation $G$ and Radiosity $J$.</strong><br />
+A: Irradiation $G$ is the total radiation arriving/incident on a surface. Radiosity $J$ is the total radiation leaving a surface $J = \varepsilon E_b + \rho G$.</p>
+<p><strong>Q8: Write the relationship between total emissive power $E$ and radiation intensity $I$ for a diffuse surface.</strong><br />
+A: $E = \pi \cdot I$.</p>
+<p><strong>Q9: What is a Shape Factor $F_{ij}$? Is it dependent on surface temperature?</strong><br />
+A: $F_{ij}$ is the fraction of radiation leaving surface $i$ that directly reaches surface $j$. It is purely geometric and completely independent of temperature or surface properties.</p>
+<p><strong>Q10: State the Reciprocity Theorem for view factors.</strong><br />
+A: $A_1 F_{12} = A_2 F_{21}$.</p>
+<p><strong>Q11: What is the self-view factor $F_{11}$ for a flat or convex surface?</strong><br />
+A: $F_{11} = 0$ (a flat or convex surface cannot see any part of itself).</p>
+<p><strong>Q12: Write the formula for equivalent emissivity $\varepsilon_{\text{eq}}$ of two infinite parallel gray planes.</strong><br />
+A: $\varepsilon_{\text{eq}} = \frac{1}{\frac{1}{\varepsilon_1} + \frac{1}{\varepsilon_2} - 1}$.</p>
+<p><strong>Q13: Write the net heat transfer rate equation for a small convex body $1$ enclosed in a very large space $2$ $A_1 \ll A_2$.</strong><br />
+A: $Q_{12} = \varepsilon_1 A_1 \sigma (T_1^4 - T_2^4)$.</p>
+<p><strong>Q14: Write the formula for heat transfer with $n$ identical radiation shields between two parallel gray planes of equal emissivity.</strong><br />
+A: $Q_{\text{with } n \text{ shields}} = \frac{Q_{\text{without shields}}}{n + 1}$.</p>
+<p><strong>Q15: By what percentage does $1$ radiation shield reduce radiative heat transfer between two parallel plates of equal emissivity?</strong><br />
+A: By $50\%$ $Q_1 = \frac{1}{2} Q_0$.</p>
+<hr />
+<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
+<ul>
+<li><strong>Stefan-Boltzmann</strong>: $E_b = \sigma T^4$ $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$. Always use Kelvin! Doubling $T \implies 16\times$ power.</li>
+<li><strong>Wien's Law</strong>: $\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$. Peak shifts to shorter wavelengths as $T \uparrow$.</li>
+<li><strong>Kirchhoff's Law</strong>: $\varepsilon = \alpha$ at thermal equilibrium.</li>
+<li><strong>Surface Property Balance</strong>: $\alpha + \rho + \tau = 1.0$.</li>
+<li>Black Body: $\alpha = \varepsilon = 1.0, \rho = \tau = 0$.</li>
+<li>Opaque Body: $\tau = 0 \implies \alpha + \rho = 1.0$.</li>
+<li>Gray Body: $\varepsilon = \alpha = \text{constant} &lt; 1.0$.</li>
+<li><strong>Radiosity &amp; Intensity</strong>: $J = \varepsilon E_b + \rho G$; Black body $J = E_b$; $E = \pi \cdot I$.</li>
+<li><strong>Shape Factors</strong>: $F_{ij}$ is purely geometric.</li>
+<li>Reciprocity: $A_1 F_{12} = A_2 F_{21}$.</li>
+<li>Summation: $\sum_j F_{ij} = 1.0$.</li>
+<li>Flat / Convex: $F_{11} = 0$. Concave: $F_{11} &gt; 0$.</li>
+<li>Infinite Parallel Planes: $F_{12} = 1.0$.</li>
+<li><strong>Gray Parallel Planes</strong>: $q_{12} = \frac{\sigma(T_1^4 - T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$. $\varepsilon_{\text{eq}} = \frac{1}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$.</li>
+<li><strong>Small Body in Large Enclosure</strong>: $A_1 \ll A_2 \implies Q_{12} = \varepsilon_1 A_1 \sigma (T_1^4 - T_2^4)$.</li>
+<li><strong>Radiation Shields</strong>: $Q_n = \frac{Q_0}{n+1}$ (equal $\varepsilon$). 1 shield $\implies 50\%$ reduction; 3 shields $\implies 75\%$ reduction.</li>
+</ul>
+<hr />
+<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
+<ul>
+<li>[ ] Memorize $\sigma = 5.67 \times 10^{-8} \text{ W/m}^2\cdot\text{K}^4$.</li>
+<li>[ ] Memorize $E_b \propto T^4$ (always Kelvin). Doubling $T \implies 16\times$.</li>
+<li>[ ] Memorize $\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$. Higher $T \implies$ shorter $\lambda_{\text{max}}$.</li>
+<li>[ ] Memorize Kirchhoff: $\varepsilon = \alpha$ at equilibrium.</li>
+<li>[ ] Memorize $\alpha + \rho + \tau = 1.0$. Opaque $\implies \alpha + \rho = 1.0$.</li>
+<li>[ ] Memorize Black body: $\alpha = \varepsilon = 1.0, \rho = \tau = 0$.</li>
+<li>[ ] Memorize Gray body: $\varepsilon = \alpha = \text{const} &lt; 1.0$.</li>
+<li>[ ] Memorize $J = \varepsilon E_b + \rho G$; $E = \pi I$.</li>
+<li>[ ] Memorize $A_1 F_{12} = A_2 F_{21}$ and $\sum_j F_{ij} = 1.0$.</li>
+<li>[ ] Memorize Flat/Convex $F_{11} = 0$.</li>
+<li>[ ] Memorize Parallel gray planes $q_{12} = \frac{\sigma(T_1^4 - T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$.</li>
+<li>[ ] Memorize Small body in large enclosure $Q_{12} = \varepsilon_1 A_1 \sigma (T_1^4 - T_2^4)$.</li>
+<li>[ ] Memorize Equal $\varepsilon$ shield formula $Q_n = \frac{Q_0}{n+1}$.</li>
+<li>[ ] Memorize 1 shield $\implies 50\%$ reduction; 3 shields $\implies 75\%$ reduction.</li>
+</ul>
+</body>
+</html>
