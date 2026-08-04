@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Engineering Core Syllabus — AP GenCo</title>
+    <style>
+        :root {
+            --bg-page: #F0ECE1;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #FDFBF7;
+            --text-primary: #2D2926;
+            --text-secondary: #5C544D;
+            --text-accent: #8C5A37;
+            --border-light: #E2D9CC;
+            --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            --nav-text: #FFFDF9;
+        }
+        [data-theme="dark"] {
+            --bg-page: #1C1A17;
+            --bg-card: #262320;
+            --bg-card-hover: #2D2A26;
+            --text-primary: #E2D9CC;
+            --text-secondary: #A89A8E;
+            --text-accent: #C8895A;
+            --border-light: #3D3732;
+            --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%);
+            --nav-text: #E2D9CC;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            padding: 40px 20px;
+            min-height: 100vh;
+            transition: background-color 0.25s, color 0.25s;
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16pt;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+            z-index: 999;
+            transition: transform 0.15s, border-color 0.2s;
+            line-height: 1;
+        }
+        #theme-toggle:hover { transform: scale(1.1); border-color: #8C5A37; }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .back-nav {
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 10pt;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #4A2E1B;
+            text-decoration: underline;
+        }
+
+        .header-card {
+            background: var(--nav-bg);
+            color: #FFFDF9;
+            padding: 36px 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+            text-align: center;
+        }
+        .header-card h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 24pt;
+            margin-bottom: 8px;
+        }
+        .header-card p {
+            color: #E8DACF;
+            font-size: 11pt;
+        }
+
+        .syllabus-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(60, 40, 20, 0.04);
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .syllabus-card:hover {
+            border-color: var(--text-accent);
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .topic-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--text-accent);
+        }
+
+        .study-guide-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #4A2E1B;
+            color: #FFFDF9;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 9.5pt;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .study-guide-btn:hover {
+            background: #8C5A37;
+            transform: translateY(-1px);
+        }
+
+        .topic-content {
+            font-size: 10.5pt;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7A6F68;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+    
+    <div class="container">
+        <div class="back-nav">
+            <a href="../index.html" class="back-link">← Back to Portal Home</a>
+        </div>
+
+        <div class="header-card">
+            <h1>Mechanical Engineering Syllabus</h1>
+            <p>Core Branch Topics — 70 Marks Weightage</p>
+        </div>
+
+        <!-- 1. Strength of Materials -->
+        <div class="syllabus-card" id="som">
+            <div class="topic-header">
+                <div class="topic-title">1. Strength of Materials</div>
+            </div>
+            <div class="topic-content">
+                Simple stresses and strains Hooke’s law, elastic constants, stress strain curve of mild steel bars of uniform strength, compound bars, temperature stresses, stresses on oblique planes – principal stresses and strains, Mohr’s stress circle, shear force and bending moment diagrams for beams, bending and shear stresses in beams, deflections of beams, columns and struts, strain energy, torsion of circular shafts and springs.
+            </div>
+        </div>
+
+        <!-- 2. Fluid Mechanics and Machinery -->
+        <div class="syllabus-card" id="fluid">
+            <div class="topic-header">
+                <div class="topic-title">2. Fluid Mechanics and Machinery</div>
+                <a href="../fluid/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Basic fluid properties, fluid static – pressure measurements, buoyancy and flotation, fluid kinematics, fluid dynamics – Euler’s Bernoulli’s and Impulse momentum equations, laminar and turbulent flows, flow through pipes and losses in pipes, bends, boundary layer theory, compressible fluid flow, impact of jets, Hydraulic turbines and pumps, Ram, Accumulator and intensifier.
+            </div>
+        </div>
+
+        <!-- 3. Material Science and Metallurgy -->
+        <div class="syllabus-card" id="material-science">
+            <div class="topic-header">
+                <div class="topic-title">3. Material Science and Metallurgy</div>
+                <a href="../material_science_genco_guide.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Structure and properties of engineering materials, bonding in solids, imperfections in crystals and metals, structure of alloys, manufacture of iron and steel, heat treatment, alloy steels, principles of powder metallurgy.
+            </div>
+        </div>
+
+        <!-- 4. Theory of Machines -->
+        <div class="syllabus-card" id="tom">
+            <div class="topic-header">
+                <div class="topic-title">4. Theory of Machines</div>
+                <a href="../tom/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Displacement, velocity and acceleration analysis of plane mechanisms, dynamic analysis of slider – crank mechanism, gear trains, flywheels.
+            </div>
+        </div>
+
+        <!-- 5. Vibrations -->
+        <div class="syllabus-card" id="vibrations">
+            <div class="topic-header">
+                <div class="topic-title">5. Vibrations</div>
+                <a href="../vibrations/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Free and forced vibrations, effect of damping, resonance, vibration isolation, critical speeds of shafts.
+            </div>
+        </div>
+
+        <!-- 6. Design of Machine Elements -->
+        <div class="syllabus-card" id="machine-design">
+            <div class="topic-header">
+                <div class="topic-title">6. Design of Machine Elements</div>
+                <a href="../machine-design/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Design for static and dynamic loading failure theories, fatigue strength, S-N diagram, design of joints, shafts, bearings, gears, brakes, clutches, screws, springs, cranks, piston, gyroscopes, balancing and governors.
+            </div>
+        </div>
+
+        <!-- 7. Heat Transfer -->
+        <div class="syllabus-card" id="heat-transfer">
+            <div class="topic-header">
+                <div class="topic-title">7. Heat Transfer</div>
+                <a href="../heat/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Various modes of heat transfer, fins, heat exchangers, LMTD &amp; NTU methods, unsteady state heat conduction, dimensionless parameters, free and forced convective heat transfer, thermal boundary layer, heat transfer in flow-over flat plates and through pipes, effect of turbulence, radiative heat transfer, shape factors, network analysis, condensation and boiling.
+            </div>
+        </div>
+
+        <!-- 8. Thermodynamics -->
+        <div class="syllabus-card" id="thermodynamics">
+            <div class="topic-header">
+                <div class="topic-title">8. Thermodynamics</div>
+                <a href="../Thermodynamics/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Zeroth, first and second laws of thermodynamics, thermodynamics systems and processes, Carnot cycle, Air-standard cycles, irreversibility and availability, properties of pure substances, psychometry, Refrigeration and Air conditioning, working principles and their applications.
+            </div>
+        </div>
+
+        <!-- 9. Applied Thermodynamics -->
+        <div class="syllabus-card" id="applied-thermodynamics">
+            <div class="topic-header">
+                <div class="topic-title">9. Applied Thermodynamics</div>
+                <a href="../Applied/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Classification of compressors and its working principles, Classification of I.C. Engines and its working principles, performances, Design considerations of combustion chambers for C.I. &amp; S.L Engines, knocking, rating of fuels, lubrications, Ignition systems.
+            </div>
+        </div>
+
+        <!-- 10. Turbo Machines -->
+        <div class="syllabus-card" id="turbo-machines">
+            <div class="topic-header">
+                <div class="topic-title">10. Turbo Machines</div>
+                <a href="../turbo/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Working principles of gas turbines, steam turbines, Rankine’s cycle, Modified Rankine’s cycle, jet propulsion and nozzles.
+            </div>
+        </div>
+
+        <!-- 11. Metal Cutting and Machine Tools -->
+        <div class="syllabus-card" id="metal-cutting">
+            <div class="topic-header">
+                <div class="topic-title">11. Metal Cutting and Machine Tools</div>
+                <a href="../MetalCutting-MachineTools/index.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Mechanics of machining, single and multi-point cutting tools, tool geometry, tool life wear, cutting force analysis, micro finishing machines – EDM, ECM and USM, NC machines, jigs and fixtures. Standards of measurements, limits, fits, tolerances, linear and angular measurements, comparators, lathes, drilling, shaping, planning, milling, gear cutting, broaching and grinding machines.
+            </div>
+        </div>
+
+        <!-- 12. Foundry, Welding and Forging -->
+        <div class="syllabus-card" id="foundry-welding">
+            <div class="topic-header">
+                <div class="topic-title">12. Foundry, Welding and Forging</div>
+                <a href="../forming/forming_hub.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Design of patterns moulds and cores, solidification, design consideration of runner, riser and gate. Physics of welding, types of welding and their principles, brazing, soldering, adhesive bonding, Fundamental of hot and cold working processes, forging, rolling, extrusion, drawing, shearing and bending.
+            </div>
+        </div>
+
+        <!-- 13. Production and Operation Management -->
+        <div class="syllabus-card" id="pom">
+            <div class="topic-header">
+                <div class="topic-title">13. Production and Operation Management</div>
+                <a href="../industrial/industrial_hub.html" class="study-guide-btn">📖 Open Study Guide</a>
+            </div>
+            <div class="topic-content">
+                Plant layout, material handling, production planning and control, materials, management and work studies, inspections, quality control, cost analysis, operation research, basic concepts of CAD/CAM, inventory control.
+            </div>
+        </div>
+
+        <footer>
+            &copy; AP GenCo Mechanical Exam Portal
+        </footer>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const saved  = localStorage.getItem('ag-theme') || 'light';
+
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            toggle.textContent = (t === 'dark') ? '🌙' : '☀️';
+            localStorage.setItem('ag-theme', t);
+        }
+
+        applyTheme(saved);
+
+        toggle.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>

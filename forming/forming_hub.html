@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundry, Welding & Forging Study Hub — AP GenCo</title>
+    <style>
+        :root {
+            --bg-page: #F0ECE1;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #FDFBF7;
+            --text-primary: #2D2926;
+            --text-secondary: #5C544D;
+            --text-accent: #8C5A37;
+            --border-light: #E2D9CC;
+            --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            --nav-text: #FFFDF9;
+        }
+        [data-theme="dark"] {
+            --bg-page: #1C1A17;
+            --bg-card: #262320;
+            --bg-card-hover: #2D2A26;
+            --text-primary: #E2D9CC;
+            --text-secondary: #A89A8E;
+            --text-accent: #C8895A;
+            --border-light: #3D3732;
+            --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%);
+            --nav-text: #E2D9CC;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            padding: 40px 20px;
+            min-height: 100vh;
+            transition: background-color 0.25s, color 0.25s;
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 14px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16pt;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+            z-index: 999;
+            transition: transform 0.15s, border-color 0.2s;
+            line-height: 1;
+        }
+        #theme-toggle:hover { transform: scale(1.1); border-color: #8C5A37; }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-nav {
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 10pt;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #4A2E1B;
+            text-decoration: underline;
+        }
+
+        .header-card {
+            background: var(--nav-bg);
+            color: #FFFDF9;
+            padding: 40px 30px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+            text-align: center;
+        }
+        .header-card h1 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-size: 24pt;
+            margin-bottom: 8px;
+        }
+        .header-card p {
+            color: #E8DACF;
+            font-size: 11pt;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+
+        .hub-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(60, 40, 20, 0.04);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(74, 46, 27, 0.12);
+            border-color: var(--text-accent);
+            background-color: var(--bg-card-hover);
+        }
+
+        .card-icon {
+            font-size: 28pt;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: var(--text-accent);
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 9.8pt;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-btn {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #4A2E1B;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #7A6F68;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+    
+    <div class="container">
+        <div class="back-nav">
+            <a href="../index.html" class="back-link">← Back to Portal Home</a>
+        </div>
+
+        <div class="header-card">
+            <h1>Foundry, Welding &amp; Forging Study Hub</h1>
+            <p>Manufacturing Processes, Metal Forming, Casting, Welding &amp; Powder Metallurgy Guides</p>
+        </div>
+
+        <div class="hub-grid">
+            <!-- Casting / Foundry -->
+            <a href="casting.html" class="hub-card">
+                <div>
+                    <div class="card-icon">🏗️</div>
+                    <div class="card-title">Foundry &amp; Casting</div>
+                    <div class="card-desc">Design of patterns, moulds &amp; cores, Chvorinov's solidification rule, gating system design (runner, riser &amp; gates), and casting defects.</div>
+                </div>
+                <div class="card-btn">Explore Casting Notes →</div>
+            </a>
+
+            <!-- Welding -->
+            <a href="welding.html" class="hub-card">
+                <div>
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">Welding &amp; Joining</div>
+                    <div class="card-desc">Physics of arc welding, MIG/TIG/SMAW, resistance welding, solid-state welding, brazing, soldering &amp; joint design fundamentals.</div>
+                </div>
+                <div class="card-btn">Explore Welding Notes →</div>
+            </a>
+
+            <!-- Forming & Forging -->
+            <a href="forming.html" class="hub-card">
+                <div>
+                    <div class="card-icon">🔨</div>
+                    <div class="card-title">Forging &amp; Metal Forming</div>
+                    <div class="card-desc">Hot and cold working, open/closed die forging, rolling mills, extrusion methods, wire drawing, and sheet metal shearing &amp; bending.</div>
+                </div>
+                <div class="card-btn">Explore Forming Notes →</div>
+            </a>
+
+            <!-- Powder Metallurgy -->
+            <a href="powder_metallurgy.html" class="hub-card">
+                <div>
+                    <div class="card-icon">🧪</div>
+                    <div class="card-title">Powder Metallurgy</div>
+                    <div class="card-desc">Powder production techniques, compaction, sintering mechanism, porosity calculation &amp; industrial applications.</div>
+                </div>
+                <div class="card-btn">Explore Powder Metallurgy →</div>
+            </a>
+        </div>
+
+        <footer>
+            &copy; AP GenCo Mechanical Exam Portal
+        </footer>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const saved  = localStorage.getItem('ag-theme') || 'light';
+
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            toggle.textContent = (t === 'dark') ? '🌙' : '☀️';
+            localStorage.setItem('ag-theme', t);
+        }
+
+        applyTheme(saved);
+
+        toggle.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    </script>
+</body>
+</html>
