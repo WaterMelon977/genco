@@ -1,1392 +1,1617 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welding, Brazing & Joining Processes — AP GenCo Exam Guide</title>
   <script>
-MathJax = {
-  tex: {
-    inlineMath:  [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
-  * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.85;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.85;
+      color: #2D2926;
+      background-color: #F0ECE1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 35px 20px;
+    }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      color: #4A2E1B;
+      font-weight: 700;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
 
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
+    h1 {
+      font-size: 24pt;
+      text-align: center;
+      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+      color: #FFFDF9;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+    }
 
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
+    h2 {
+      font-size: 18pt;
+      border-bottom: 2px solid #8C5A37;
+      padding-bottom: 6px;
+      margin-top: 36px;
+    }
 
-  h3 { font-size: 14pt; color: #664229; }
-  h4 { font-size: 12pt; color: #4A2E1B; }
+    h3 {
+      font-size: 14pt;
+      color: #664229;
+    }
 
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+    h4 {
+      font-size: 12pt;
+      color: #4A2E1B;
+    }
 
-  code {
-    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
+    a {
+      color: #8C5A37;
+      text-decoration: none;
+    }
 
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
+    a:hover {
+      text-decoration: underline;
+    }
 
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
+    code {
+      font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+      background: #EAE1D3;
+      color: #4A2E1B;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
+    pre {
+      background: #F7F3EC;
+      border: 1px solid #E2D9CC;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
 
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
+    blockquote {
+      border-left: 4px solid #8C5A37;
+      background-color: #F7F3EC;
+      padding: 12px 18px;
+      margin: 18px 0;
+      color: #5C544D;
+    }
 
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      background: #FFFFFF;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+    }
 
-  tr:nth-child(even) { background-color: #FDFBF7; }
+    th,
+    td {
+      border: 1px solid #E2D9CC;
+      padding: 10px 14px;
+      text-align: left;
+    }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #E2D9CC;
-  }
+    th {
+      background: #4A2E1B;
+      color: #FFFDF9;
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-weight: 600;
+    }
 
-  /* MathJax overflow guard */
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+    tr:nth-child(even) {
+      background-color: #FDFBF7;
+    }
 
-  /* ── formula-card ─────────────────────────────────────────────────────────
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #E2D9CC;
+    }
+
+    /* MathJax overflow guard */
+    .katex-display,
+    .MathJax_Display {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    /* ── formula-card ─────────────────────────────────────────────────────────
      PLAIN display only.  NO background-color, NO border, NO border-radius.
      User mandate: "drop the green background for all the formulas"  */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-    font-size: 1.05em;
-  }
+    .formula-card {
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.05em;
+    }
 
-  /* ── Callout Card Component Tokens (style.md) ──────────────────────────── */
-  :root {
-    --callout-concept-bg: #EFF6FF;
-    --callout-concept-border: #3B82F6;
-    --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2;
-    --callout-trap-border: #EF4444;
-    --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8;
-    --callout-focus-border: #EAB308;
-    --callout-focus-text: #854D0E;
-  }
+    /* ── Callout Card Component Tokens (style.md) ──────────────────────────── */
+    :root {
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-border: #3B82F6;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-border: #EAB308;
+      --callout-focus-text: #854D0E;
+    }
 
-  .callout {
-    padding: 16px 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    font-size: 10.5pt;
-    line-height: 1.6;
-    border-left: 5px solid;
-  }
+    .callout {
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      border-left: 5px solid;
+    }
 
-  .callout-concept {
-    background-color: var(--callout-concept-bg, #EFF6FF);
-    border-color: var(--callout-concept-border, #3B82F6);
-    color: var(--callout-concept-text, #1E40AF);
-  }
+    .callout-concept {
+      background-color: var(--callout-concept-bg, #EFF6FF);
+      border-color: var(--callout-concept-border, #3B82F6);
+      color: var(--callout-concept-text, #1E40AF);
+    }
 
-  .callout-trap {
-    background-color: var(--callout-trap-bg, #FEF2F2);
-    border-color: var(--callout-trap-border, #EF4444);
-    color: var(--callout-trap-text, #991B1B);
-  }
+    .callout-trap {
+      background-color: var(--callout-trap-bg, #FEF2F2);
+      border-color: var(--callout-trap-border, #EF4444);
+      color: var(--callout-trap-text, #991B1B);
+    }
 
-  .callout-focus {
-    background-color: var(--callout-focus-bg, #FEFCE8);
-    border-color: var(--callout-focus-border, #EAB308);
-    color: var(--callout-focus-text, #854D0E);
-  }
-</style>
+    .callout-focus {
+      background-color: var(--callout-focus-bg, #FEFCE8);
+      border-color: var(--callout-focus-border, #EAB308);
+      color: var(--callout-focus-text, #854D0E);
+    }
+  </style>
 </head>
+
 <body id="preview">
-  <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">4. Welding & Joining</a>
-</div>
+  <div
+    style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
+    <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+    <a href="../forming_hub.html"
+      style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub
+      Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1.
+      Casting</a> | <a href="forming.html"
+      style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a
+      href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3.
+      Powder Metallurgy</a> | <a href="welding.html"
+      style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">4. Welding & Joining</a>
+  </div>
   <h1 id="welding-brazing-soldering-joining-processes">Welding, Brazing, Soldering &amp; Joining Processes</h1>
-<h2 id="1-topic-overview">1. Topic Overview</h2>
-<p>This guide covers the physics of welding (arc characteristics, power source linear V-I relation, oxy-acetylene flame chemistry, heat input), major welding process principles (arc, gas, resistance, thermit, solid-state), and allied joining processes (brazing, soldering, adhesive bonding). High-frequency PYQ themes include power-source maximum-power calculations, flame temperature and gas ratios, electrode polarity, filler metal composition, resistance welding parameters, and common weld defects. All formulas, definitions, diagrams, and worked examples are consolidated below.</p>
-<h2 id="2-quick-reference-sheet">2. Quick Reference Sheet</h2>
-<h3 id="21-all-formulas">2.1 All Formulas</h3>
-<p><strong>Maximum Arc Power Current (Linear V-I Source)</strong></p>
-<p><div class="formula-card">$$\boxed{I_{\text{max}} = \frac{I_{sc}}{2}}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$I_{\text{max}}$</td>
-<td>current for maximum arc power</td>
-<td>A</td>
-</tr>
-<tr>
-<td>$I_{sc}$</td>
-<td>short-circuit current of power source</td>
-<td>A</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Linear V-I Power Source Characteristic</strong></p>
-<p><div class="formula-card">$$\boxed{V = V_{oc} - \left$\frac{V_{oc}}{I_{sc}}\right$ I}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$V$</td>
-<td>arc operating voltage</td>
-<td>V</td>
-</tr>
-<tr>
-<td>$V_{oc}$</td>
-<td>open-circuit voltage</td>
-<td>V</td>
-</tr>
-<tr>
-<td>$I_{sc}$</td>
-<td>short-circuit current</td>
-<td>A</td>
-</tr>
-<tr>
-<td>$I$</td>
-<td>arc operating current</td>
-<td>A</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Heat Generated in Resistance Welding</strong></p>
-<p><div class="formula-card">$$\boxed{H = k \cdot I^2 \cdot R \cdot t}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$H$</td>
-<td>heat generated</td>
-<td>J</td>
-</tr>
-<tr>
-<td>$I$</td>
-<td>welding current</td>
-<td>A</td>
-</tr>
-<tr>
-<td>$R$</td>
-<td>electrical resistance across joint</td>
-<td>$\Omega$</td>
-</tr>
-<tr>
-<td>$t$</td>
-<td>current flow duration</td>
-<td>s</td>
-</tr>
-<tr>
-<td>$k$</td>
-<td>heat efficiency / loss factor</td>
-<td>dimensionless</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Heat Input per Unit Length</strong></p>
-<p><div class="formula-card">$$\boxed{H_{\text{input}} = \frac{V \cdot I}{v}}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$H_{\text{input}}$</td>
-<td>heat energy supplied per unit length</td>
-<td>J/mm</td>
-</tr>
-<tr>
-<td>$V$</td>
-<td>arc voltage</td>
-<td>V</td>
-</tr>
-<tr>
-<td>$I$</td>
-<td>arc current</td>
-<td>A</td>
-</tr>
-<tr>
-<td>$v$</td>
-<td>welding travel speed</td>
-<td>mm/s</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Actual Heat Input</strong></p>
-<p><div class="formula-card">$$\boxed{H_{\text{actual}} = \eta_{\text{heat}} \cdot \left$\frac{V \cdot I}{v}\right$}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\eta_{\text{heat}}$</td>
-<td>heat-transfer efficiency</td>
-<td>dimensionless</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Melting Efficiency</strong></p>
-<p><div class="formula-card">$$\boxed{\eta_{\text{melting}} = \frac{H_{\text{required}}}{H_{\text{actual}}}}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\eta_{\text{melting}}$</td>
-<td>melting efficiency</td>
-<td>dimensionless</td>
-</tr>
-<tr>
-<td>$H_{\text{required}}$</td>
-<td>heat required to melt joint area</td>
-<td>J/mm</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-key-definitions-master-concepts">2.2 Key Definitions &amp; Master Concepts</h3>
-<ul>
-<li><strong>Fusion Welding</strong>: Joining processes where base metals are melted at the joint interface (e.g., SMAW, TIG, MIG, SAW, Gas, Resistance).</li>
-<li><strong>Solid-State Welding</strong>: Joining processes where coalescing is produced at temperatures below base metal melting point without bulk liquid phase (e.g., Friction, Forge, Ultrasonic, Explosive).</li>
-<li><strong>Straight Polarity (DCEN)</strong>: Direct current arc welding setup where electrode is connected to negative terminal and workpiece to positive terminal.</li>
-<li><strong>Reverse Polarity (DCEP)</strong>: Direct current arc welding setup where electrode is connected to positive terminal and workpiece to negative terminal.</li>
-<li><strong>Arc Blow</strong>: Deflection of electric arc from its intended path caused by magnetic fields generated by welding current (more severe in DC).</li>
-<li><strong>Brazing</strong>: Allied joining process where filler metal melts above 450 °C (or 430 °C) but below base-metal solidus; joint filled by capillary action without melting base metals.</li>
-<li><strong>Soldering</strong>: Allied joining process where soft filler metal (tin-lead alloy) melts below 450 °C (typically 180–250 °C); joint filled by capillary action without melting base metals.</li>
-<li><strong>Thermit Mixture</strong>: Chemical reactant mixture of aluminium powder and iron oxide $\text{Fe}_2\text{O}_3$ in a 1 : 3 mass ratio used for heavy casting repair and rail joining.</li>
-<li><strong>Undercut</strong>: Weld defect consisting of a groove melted into base metal adjacent to toe or root of weld, caused primarily by excessive welding current.</li>
-<li><strong>Weld Spatter</strong>: Weld defect consisting of metal droplets expelled from arc or weld pool that adhere to base metal surface.</li>
-</ul>
-<h3 id="23-standard-values-constants">2.3 Standard Values &amp; Constants</h3>
-<ul>
-<li><strong>Oxy-acetylene flame maximum temperature</strong>: $\approx 3200^\circ\text{C}$ (located at inner cone tip).</li>
-<li><strong>Electric arc temperature range</strong>: $6000\text{--}7000^\circ\text{C}$.</li>
-<li><strong>Neutral flame ratio $\text{O}_2 : \text{C}_2\text{H}_2$</strong>: $\approx 1 : 1$ (Complete combustion requires total $\approx 2.5$ volumes $\text{O}_2$ per volume $\text{C}_2\text{H}_2$).</li>
-<li><strong>Thermit mixture ratio $\text{Al} : \text{Fe}_2\text{O}_3$</strong>: $1 : 3$.</li>
-<li><strong>Brazing vs Soldering threshold</strong>: $450^\circ\text{C}$.</li>
-<li><strong>Soldering temperature range</strong>: $180\text{--}250^\circ\text{C}$ (tin-lead solder).</li>
-<li><strong>Resistance welding voltage</strong>: Low voltage $1\text{--}10\text{ V}$, extremely high current (thousands of Amperes).</li>
-<li><strong>Gas cylinder colors</strong>: Oxygen cylinder = Black; Acetylene cylinder = Maroon.</li>
-</ul>
-<h3 id="24-cross-reference-map">2.4 Cross-Reference Map</h3>
-<ul>
-<li><strong>Arc Power Source V-I Characteristics</strong>: Detailed in Section 3.1.</li>
-<li><strong>Oxy-Acetylene Flame Chemistry</strong>: Detailed in Section 3.2.</li>
-<li><strong>Arc Welding, Electrodes &amp; Polarity</strong>: Detailed in Section 3.3.</li>
-<li><strong>Resistance Welding</strong>: Detailed in Section 3.4.</li>
-<li><strong>Thermit, Explosive &amp; Solid-State Processes</strong>: Detailed in Section 3.5.</li>
-<li><strong>Brazing, Soldering &amp; Adhesive Bonding</strong>: Detailed in Section 3.6.</li>
-<li><strong>Weld Defects &amp; Heat Input Physics</strong>: Detailed in Section 3.7.</li>
-</ul>
-<hr />
-<h2 id="3-main-body">3. Main Body</h2>
-<h3 id="31-arc-welding-power-source-characteristics">3.1 Arc Welding Power-Source Characteristics</h3>
-<h5 id="1-concept-pointers">1. Concept Pointers</h5>
-<ul>
-<li>A DC welding power source with linear V-I characteristic has open-circuit voltage $V_{oc}$ and short-circuit current $I_{sc}$.</li>
-<li>Arc power $P = V \cdot I$; substituting linear V-I relation yields a parabolic power curve.</li>
-<li>Differentiating arc power with respect to current shows that maximum arc power occurs at operating current $I = I_{sc} / 2$.</li>
-<li>At maximum power, the operating voltage is also equal to $V_{oc} / 2$.</li>
-</ul>
-<h5 id="2-formulas">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{I_{\text{max}} = \frac{I_{sc}}{2}}$$</div></p>
-<p><div class="formula-card">$$\boxed{P_{\text{max}} = \frac{V_{oc} \cdot I_{sc}}{4}}$$</div></p>
-<h5 id="3-diagram">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematic for linear V-I characteristic and parabolic power curve.</em></p>
-<h5 id="4-worked-example">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> A DC welding power source has a linear voltage-current (V-I) characteristic with an open-circuit voltage of 80 V and a short-circuit current of 300 A.<br />
-<strong>Find:</strong> Current setting for maximum arc power.</p>
-<p><strong>Solution:</strong><br />
-1. For a linear power-source characteristic $V = V_{oc} - \left(\frac{V_{oc}}{I_{sc}}\right)I$.<br />
-2. Power $P = V \cdot I = V_{oc} I - \left(\frac{V_{oc}}{I_{sc}}\right)I^2$.<br />
-3. To maximize power, set $\frac{dP}{dI} = V_{oc} - 2\left(\frac{V_{oc}}{I_{sc}}\right)I = 0 \implies I = \frac{I_{sc}}{2}$.<br />
-4. $I = \frac{300}{2} = 150\text{ A}$.<br />
-5. <strong>Answer:</strong> 150 A.</p>
-<p><strong>Key Insight:</strong> For any linear V-I power source, maximum arc power always occurs at exactly half the short-circuit current.</p>
-<hr />
-<h3 id="32-oxy-acetylene-gas-welding-and-flame-types">3.2 Oxy-Acetylene Gas Welding and Flame Types</h3>
-<h5 id="1-concept-pointers_1">1. Concept Pointers</h5>
-<ul>
-<li>Flame temperature reaches $\approx 3200^\circ\text{C}$, with maximum temperature located at the inner cone tip.</li>
-<li>Neutral flame $\text{O}_2 : \text{C}_2\text{H}_2 \approx 1 : 1$ is used for general steel, cast iron, copper, and aluminium welding.</li>
-<li>Carburizing / Reducing flame ($\text{O}_2 &lt; \text{C}_2\text{H}_2$, ratio $\approx 0.9 : 1$) contains excess acetylene and is used for high-carbon steels, hard-facing, and alloy steels.</li>
-<li>Oxidizing flame ($\text{O}_2 &gt; \text{C}_2\text{H}_2$, ratio $\approx 1.5 : 1$) contains excess oxygen and is used for brass and bronze welding.</li>
-<li>Oxygen cylinder is painted black; acetylene cylinder is painted maroon.</li>
-<li>Complete combustion of 1 volume of acetylene requires 2.5 volumes of oxygen in total.</li>
-</ul>
-<h5 id="2-formulas_1">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1 &amp; 2.3.</p>
-<p><div class="formula-card">$$\boxed{\text{Neutral: } \text{O}_2 : \text{C}_2\text{H}_2 = 1 : 1 \quad | \quad \text{Carburizing: } \text{O}_2 &lt; \text{C}_2\text{H}_2 \quad | \quad \text{Oxidizing: } \text{O}_2 &gt; \text{C}_2\text{H}_2}$$</div></p>
-<h5 id="3-diagram_1">3. Diagram</h5>
-<p><img alt="Types of oxyacetylene flames" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Types_of_oxyacetylene_flames.png" /><br />
-<em>Reducing (carburizing), neutral, and oxidizing oxy-acetylene flames showing cone structures. Source: Wikimedia Commons.</em></p>
-<h5 id="4-worked-example_1">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> In oxy-acetylene gas welding, the proportion of oxygen supplied is less than the proportion of acetylene.<br />
-<strong>Find:</strong> Type of flame produced.</p>
-<p><strong>Solution:</strong>
-1. When oxygen proportion is less than acetylene, acetylene is in excess.
-2. Excess acetylene produces an unburnt carbon envelope, making it a carburizing (reducing) flame.
-3. <strong>Answer:</strong> Carburizing flame.</p>
-<p><strong>Key Insight:</strong> Oxygen excess = Oxidizing; Acetylene excess = Carburizing; 1:1 equal volume = Neutral.</p>
-<hr />
-<h3 id="33-arc-welding-processes-electrodes-and-polarity">3.3 Arc Welding Processes, Electrodes and Polarity</h3>
-<h5 id="1-concept-pointers_2">1. Concept Pointers</h5>
-<ul>
-<li>Arc temperature is of the order of $6000\text{--}7000^\circ\text{C}$.</li>
-<li>Straight Polarity (DCEN): Electrode is negative, workpiece is positive. Heat distribution: $\approx 67\%$ at workpiece, $\approx 33\%$ at electrode.</li>
-<li>Reverse Polarity (DCEP): Electrode is positive, workpiece is negative. Preferred for thin sheets and overhead welding.</li>
-<li>Arc Blow is the magnetic deflection of arc stream from intended path; occurs primarily in DC welding.</li>
-<li>TIG (GTAW): Uses non-consumable tungsten electrode and inert shielding gas (Argon/Helium).</li>
-<li>MIG (GMAW): Uses consumable wire electrode fed continuously; metal transfers as fine spray.</li>
-<li>SMAW: Electrode coating acts as flux and decomposes to generate protective shielding gas.</li>
-<li>SAW (Submerged Arc Welding): Arc is submerged beneath a granular fusible flux blanket using bare metal electrode.</li>
-</ul>
-<h5 id="2-formulas_2">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.2.</p>
-<p><div class="formula-card">$$\boxed{\text{Straight Polarity (DCEN): Electrode } (-) \quad | \quad \text{Reverse Polarity (DCEP): Electrode } (+)}$$</div></p>
-<h5 id="3-diagram_2">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematic for DCEN vs DCEP polarity connections.</em></p>
-<h5 id="4-worked-example_2">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> An arc welding operation uses direct current with reverse polarity.<br />
-<strong>Find:</strong> Connection of the electrode holder.</p>
-<p><strong>Solution:</strong>
-1. Reverse polarity is DCEP (Direct Current Electrode Positive).
-2. The electrode is connected to the positive terminal of the power source.
-3. <strong>Answer:</strong> Positive terminal.</p>
-<p><strong>Key Insight:</strong> Straight = Electrode Negative (DCEN); Reverse = Electrode Positive (DCEP).</p>
-<hr />
-<h3 id="34-resistance-welding">3.4 Resistance Welding</h3>
-<h5 id="1-concept-pointers_3">1. Concept Pointers</h5>
-<ul>
-<li>Resistance welding operates at low voltage $1\text{--}10\text{ V}$ and extremely high current for short time durations.</li>
-<li>Heat generated follows Joule's Law: $H = k \cdot I^2 \cdot R \cdot t$.</li>
-<li>Current is regulated by changing primary turns of the step-down welding transformer.</li>
-<li>Resistance seam welding produces continuous leak-proof joints using rotating disc electrodes without filler metal.</li>
-<li>Resistance spot welding is a fusion process (produces a molten nugget), NOT a solid-state process.</li>
-</ul>
-<h5 id="2-formulas_3">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{H = k \cdot I^2 \cdot R \cdot t}$$</div></p>
-<h5 id="3-diagram_3">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematic for resistance spot and seam welding setups.</em></p>
-<h5 id="4-worked-example_3">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Current $I$ flows for time $t$ across joint resistance $R$ in a spot welding machine.<br />
-<strong>Find:</strong> Expression for heat generated.</p>
-<p><strong>Solution:</strong>
-1. Heat generated in electrical resistance heating is proportional to $I^2 R t$.
-2. Accounting for thermal efficiency/loss factor $k$, $H = k \cdot I^2 \cdot R \cdot t$.
-3. <strong>Answer:</strong> $H = k \cdot I^2 \cdot R \cdot t$.</p>
-<p><strong>Key Insight:</strong> Heat generated varies quadratically with current $I^2$, so small changes in current have the largest effect on heat input.</p>
-<hr />
-<h3 id="35-thermit-explosive-and-solid-state-welding-processes">3.5 Thermit, Explosive and Solid-State Welding Processes</h3>
-<h5 id="1-concept-pointers_4">1. Concept Pointers</h5>
-<ul>
-<li>Thermit mixture consists of aluminium powder and iron oxide $\text{Fe}_2\text{O}_3$ in a 1 : 3 mass ratio.</li>
-<li>Thermit reaction is an exothermic chemical reaction: $8\text{Al} + 3\text{Fe}_3\text{O}_4 \rightarrow 9\text{Fe} + 4\text{Al}_2\text{O}_3 + \text{Heat}$. Used for rail joining and heavy casting repairs.</li>
-<li>Solid-state welding processes join materials without bulk melting of base metals: Friction, Forge, Ultrasonic, Explosive.</li>
-<li>Explosive welding uses a flyer plate driven by high explosives onto a base plate to form a metallurgical bond.</li>
-<li>Resistance spot welding is NOT solid-state because it melts a liquid nugget.</li>
-</ul>
-<h5 id="2-formulas_4">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.3.</p>
-<p><div class="formula-card">$$\boxed{\text{Thermit Ratio } $\text{Al} : \text{Fe}_2\text{O}_3$ = 1 : 3}$$</div></p>
-<h5 id="3-diagram_4">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematic for thermit crucible and explosive cladding setups.</em></p>
-<h5 id="4-worked-example_4">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Thermit welding process mixture components and their proportion.<br />
-<strong>Find:</strong> Correct metal powder and ratio with iron oxide.</p>
-<p><strong>Solution:</strong>
-1. Thermit is a mixture of aluminium powder and iron oxide.
-2. The standard stoichiometric mass ratio is 1 part Aluminium to 3 parts Iron Oxide.
-3. <strong>Answer:</strong> Aluminium and iron oxide in 1 : 3 ratio.</p>
-<p><strong>Key Insight:</strong> Aluminium acts as the reducing agent because of its high affinity for oxygen.</p>
-<hr />
-<h3 id="36-brazing-soldering-and-adhesive-bonding">3.6 Brazing, Soldering and Adhesive Bonding</h3>
-<h5 id="1-concept-pointers_5">1. Concept Pointers</h5>
-<ul>
-<li>Brazing filler metal has a melting temperature above 450 °C (or 430 °C) but below the solidus temperature of base metals.</li>
-<li>Brazing filler alloys: Copper-zinc (spelter), copper-silver; flux used is borax or boric acid.</li>
-<li>Soldering filler metal (soft solder) is an alloy of tin and lead; melting point is below 450 °C (typically 180–250 °C).</li>
-<li>In both brazing and soldering, liquid filler metal fills joint clearance purely by capillary action; base metals DO NOT melt.</li>
-<li>Brazing does NOT cause metallurgical damage by phase transformation to base metals.</li>
-<li>Adhesive bonding uses non-metallic adhesives (epoxy, cyanoacrylate) that cure without melting substrates.</li>
-</ul>
-<h5 id="2-formulas_5">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.3.</p>
-<p><div class="formula-card">$$\boxed{\text{Brazing: Filler Melting Point} &gt; 450^\circ\text{C} \quad | \quad \text{Soldering: Filler Melting Point} &lt; 450^\circ\text{C}}$$</div></p>
-<h5 id="3-diagram_5">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematic for capillary action in brazed lap joints.</em></p>
-<h5 id="4-worked-example_5">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Principal constituent materials used in soft soldering.<br />
-<strong>Find:</strong> Correct alloy combination.</p>
-<p><strong>Solution:</strong>
-1. Soft solder is traditionally an alloy of tin (Sn) and lead (Pb).
-2. Eutectic solder (63% Sn - 37% Pb) melts sharply at 183 °C.
-3. <strong>Answer:</strong> Tin and lead.</p>
-<p><strong>Key Insight:</strong> Solder filler melts below 450 °C, while brazing spelter melts above 450 °C.</p>
-<hr />
-<h3 id="37-welding-defects-physics-heat-input">3.7 Welding Defects, Physics &amp; Heat Input</h3>
-<h5 id="1-concept-pointers_6">1. Concept Pointers</h5>
-<ul>
-<li>Inadequate penetration (lack of penetration) forms sharp root stress raisers, leading to crack formation.</li>
-<li>Undercut is caused by excessive welding current or incorrect electrode angle.</li>
-<li>Weld spatter is a defect consisting of expelled droplets adhering to workpiece surface.</li>
-<li>Porosity is caused by trapped gas pockets (mainly hydrogen dissolved in molten pool).</li>
-<li>Residual stresses in fusion weld zone after cooling are predominantly tensile in weld bead and compressive in adjacent base metal regions.</li>
-<li>Low-carbon steel $\approx 0.15\%\text{ C}$ exhibits the highest weldability among carbon steels.</li>
-<li>Aluminium is difficult to weld due to its high thermal conductivity and rapid formation of a tenacious oxide film $\text{Al}_2\text{O}_3$.</li>
-</ul>
-<h5 id="2-formulas_6">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{H_{\text{input}} = \frac{V \cdot I}{v} \quad | \quad H_{\text{actual}} = \eta_{\text{heat}} \cdot \left$\frac{V \cdot I}{v}\right$ \quad | \quad \eta_{\text{melting}} = \frac{H_{\text{required}}}{H_{\text{actual}}}}$$</div></p>
-<h5 id="3-diagram_6">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for undercut, porosity, and lack of penetration defects.</em></p>
-<h5 id="4-worked-example_6">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Arc welding of steel with voltage 20 V, current 200 A, travel speed 5 mm/s, heat-transfer efficiency 0.8, joint area $20\text{ mm}^2$, heat of melting $10\text{ J/mm}^3$.<br />
-<strong>Find:</strong> Melting efficiency.</p>
-<p><strong>Solution:</strong>
-1. Heat supplied per unit length = $\frac{V \cdot I}{v} = \frac{20 \times 200}{5} = 800\text{ J/mm}$.
-2. Actual heat input = $\eta_{\text{heat}} \times 800 = 0.8 \times 800 = 640\text{ J/mm}$.
-3. Heat required for melting = Area $\times$ heat of melting = $20 \times 10 = 200\text{ J/mm}$.
-4. Melting efficiency $\eta_{\text{melting}} = \frac{H_{\text{required}}}{H_{\text{actual}}} = \frac{200}{640} = 0.3125 \implies 31.25\%$.
-5. <strong>Answer:</strong> 31.25%.</p>
-<p><strong>Key Insight:</strong> Distinguish heat-transfer efficiency (arc-to-workpiece) from melting efficiency (heat-to-melt vs actual heat input).</p>
-<hr />
-<h2 id="4-consolidation-notes">4. Consolidation Notes</h2>
-<p><strong>Note on Resistance Welding vs Solid-State Welding:</strong>
-Resistance spot/seam welding relies on electrical resistance to melt a liquid nugget, so it is a fusion process. In contrast, friction, ultrasonic, forge, and explosive welding do not melt the base metal and are true solid-state processes. See Section 3.4 &amp; 3.5.</p>
-<p><strong>Note on Brazing vs Soldering Threshold:</strong>
-Both processes rely on capillary flow without melting base metals. The sole distinguishing criterion tested in MCQs is filler melting temperature: below 450 °C is soldering (tin-lead), above 450 °C is brazing (copper-zinc/silver). See Section 3.6.</p>
-<p><strong>Note on Power Source Maximum Power:</strong>
-For linear V-I characteristics, maximum power is obtained at $I_{sc}/2$ and $V_{oc}/2$. Do not confuse short-circuit current with operating current for maximum power output. See Section 3.1.</p>
-<hr />
-<h2 id="5-final-quick-fire-checklist">5. Final Quick-Fire Checklist</h2>
-<ul>
-<li>Memorize linear V-I maximum power current: $I_{\text{max}} = I_{sc} / 2$.</li>
-<li>Know flame gas ratios: Neutral $1:1$, Carburizing $\text{O}_2 &lt; \text{C}_2\text{H}_2$, Oxidizing $\text{O}_2 &gt; \text{C}_2\text{H}_2$.</li>
-<li>Memorize flame temperatures: Oxy-acetylene $\approx 3200^\circ\text{C}$, Electric Arc $6000\text{--}7000^\circ\text{C}$.</li>
-<li>Remember gas cylinder colors: Oxygen = Black, Acetylene = Maroon.</li>
-<li>Memorize polarity: Straight (DCEN) = Electrode Negative; Reverse (DCEP) = Electrode Positive.</li>
-<li>Remember Thermit ratio: Aluminium : Iron Oxide = $1 : 3$.</li>
-<li>Fix joining temperature boundary: Soldering $&lt; 450^\circ\text{C}$ (Tin-Lead), Brazing $&gt; 450^\circ\text{C}$ (Copper-Zinc).</li>
-<li>Know primary defect causes: Undercut $\leftarrow$ Excessive current; Cracks $\leftarrow$ Lack of penetration; Porosity $\leftarrow$ Hydrogen.</li>
-</ul>
-<p><strong>High-frequency PYQ focus:</strong>
-- Power source linear V-I calculations $I_{sc}/2$
-- Oxy-acetylene flame types, cylinder colors, and ratios
-- Electrode polarity definitions (DCEN vs DCEP)
-- Soldering vs Brazing temperature thresholds and filler metals
-- Resistance welding heat formula $H = k I^2 R t$
-- Thermit reaction mixture and ratio
-- Weld defect identification</p>
+  <h2 id="1-topic-overview">1. Topic Overview</h2>
+  <p>This guide covers the physics of welding (arc characteristics, power source linear V-I relation, oxy-acetylene
+    flame chemistry, heat input), major welding process principles (arc, gas, resistance, thermit, solid-state), and
+    allied joining processes (brazing, soldering, adhesive bonding). High-frequency PYQ themes include power-source
+    maximum-power calculations, flame temperature and gas ratios, electrode polarity, filler metal composition,
+    resistance welding parameters, and common weld defects. All formulas, definitions, diagrams, and worked examples are
+    consolidated below.</p>
+  <h2 id="2-quick-reference-sheet">2. Quick Reference Sheet</h2>
+  <h3 id="21-all-formulas">2.1 All Formulas</h3>
+  <p><strong>Maximum Arc Power Current (Linear V-I Source)</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{I_{\text{max}} = \frac{I_{sc}}{2}}$$</div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$I_{\text{max}}$</td>
+        <td>current for maximum arc power</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>$I_{sc}$</td>
+        <td>short-circuit current of power source</td>
+        <td>A</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Linear V-I Power Source Characteristic</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{V = V_{oc} - \left$\frac{V_{oc}}{I_{sc}}\right$ I}$$</div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$V$</td>
+        <td>arc operating voltage</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>$V_{oc}$</td>
+        <td>open-circuit voltage</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>$I_{sc}$</td>
+        <td>short-circuit current</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>$I$</td>
+        <td>arc operating current</td>
+        <td>A</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Heat Generated in Resistance Welding</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{H = k \cdot I^2 \cdot R \cdot t}$$</div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$H$</td>
+        <td>heat generated</td>
+        <td>J</td>
+      </tr>
+      <tr>
+        <td>$I$</td>
+        <td>welding current</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>$R$</td>
+        <td>electrical resistance across joint</td>
+        <td>$\Omega$</td>
+      </tr>
+      <tr>
+        <td>$t$</td>
+        <td>current flow duration</td>
+        <td>s</td>
+      </tr>
+      <tr>
+        <td>$k$</td>
+        <td>heat efficiency / loss factor</td>
+        <td>dimensionless</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Heat Input per Unit Length</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{H_{\text{input}} = \frac{V \cdot I}{v}}$$</div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$H_{\text{input}}$</td>
+        <td>heat energy supplied per unit length</td>
+        <td>J/mm</td>
+      </tr>
+      <tr>
+        <td>$V$</td>
+        <td>arc voltage</td>
+        <td>V</td>
+      </tr>
+      <tr>
+        <td>$I$</td>
+        <td>arc current</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>$v$</td>
+        <td>welding travel speed</td>
+        <td>mm/s</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Actual Heat Input</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{H_{\text{actual}} = \eta_{\text{heat}} \cdot \left$\frac{V \cdot I}{v}\right$}$$
+  </div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\eta_{\text{heat}}$</td>
+        <td>heat-transfer efficiency</td>
+        <td>dimensionless</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Melting Efficiency</strong></p>
+  <p>
+  <div class="formula-card">$$\boxed{\eta_{\text{melting}} = \frac{H_{\text{required}}}{H_{\text{actual}}}}$$</div>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\eta_{\text{melting}}$</td>
+        <td>melting efficiency</td>
+        <td>dimensionless</td>
+      </tr>
+      <tr>
+        <td>$H_{\text{required}}$</td>
+        <td>heat required to melt joint area</td>
+        <td>J/mm</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="22-key-definitions-master-concepts">2.2 Key Definitions &amp; Master Concepts</h3>
+  <ul>
+    <li><strong>Fusion Welding</strong>: Joining processes where base metals are melted at the joint interface (e.g.,
+      SMAW, TIG, MIG, SAW, Gas, Resistance).</li>
+    <li><strong>Solid-State Welding</strong>: Joining processes where coalescing is produced at temperatures below base
+      metal melting point without bulk liquid phase (e.g., Friction, Forge, Ultrasonic, Explosive).</li>
+    <li><strong>Straight Polarity (DCEN)</strong>: Direct current arc welding setup where electrode is connected to
+      negative terminal and workpiece to positive terminal.</li>
+    <li><strong>Reverse Polarity (DCEP)</strong>: Direct current arc welding setup where electrode is connected to
+      positive terminal and workpiece to negative terminal.</li>
+    <li><strong>Arc Blow</strong>: Deflection of electric arc from its intended path caused by magnetic fields generated
+      by welding current (more severe in DC).</li>
+    <li><strong>Brazing</strong>: Allied joining process where filler metal melts above 450 °C (or 430 °C) but below
+      base-metal solidus; joint filled by capillary action without melting base metals.</li>
+    <li><strong>Soldering</strong>: Allied joining process where soft filler metal (tin-lead alloy) melts below 450 °C
+      (typically 180–250 °C); joint filled by capillary action without melting base metals.</li>
+    <li><strong>Thermit Mixture</strong>: Chemical reactant mixture of aluminium powder and iron oxide
+      $\text{Fe}_2\text{O}_3$ in a 1 : 3 mass ratio used for heavy casting repair and rail joining.</li>
+    <li><strong>Undercut</strong>: Weld defect consisting of a groove melted into base metal adjacent to toe or root of
+      weld, caused primarily by excessive welding current.</li>
+    <li><strong>Weld Spatter</strong>: Weld defect consisting of metal droplets expelled from arc or weld pool that
+      adhere to base metal surface.</li>
+  </ul>
+  <h3 id="23-standard-values-constants">2.3 Standard Values &amp; Constants</h3>
+  <ul>
+    <li><strong>Oxy-acetylene flame maximum temperature</strong>: $\approx 3200^\circ\text{C}$ (located at inner cone
+      tip).</li>
+    <li><strong>Electric arc temperature range</strong>: $6000\text{--}7000^\circ\text{C}$.</li>
+    <li><strong>Neutral flame ratio $\text{O}_2 : \text{C}_2\text{H}_2$</strong>: $\approx 1 : 1$ (Complete combustion
+      requires total $\approx 2.5$ volumes $\text{O}_2$ per volume $\text{C}_2\text{H}_2$).</li>
+    <li><strong>Thermit mixture ratio $\text{Al} : \text{Fe}_2\text{O}_3$</strong>: $1 : 3$.</li>
+    <li><strong>Brazing vs Soldering threshold</strong>: $450^\circ\text{C}$.</li>
+    <li><strong>Soldering temperature range</strong>: $180\text{--}250^\circ\text{C}$ (tin-lead solder).</li>
+    <li><strong>Resistance welding voltage</strong>: Low voltage $1\text{--}10\text{ V}$, extremely high current
+      (thousands of Amperes).</li>
+    <li><strong>Gas cylinder colors</strong>: Oxygen cylinder = Black; Acetylene cylinder = Maroon.</li>
+  </ul>
+  <h3 id="24-cross-reference-map">2.4 Cross-Reference Map</h3>
+  <ul>
+    <li><strong>Arc Power Source V-I Characteristics</strong>: Detailed in Section 3.1.</li>
+    <li><strong>Oxy-Acetylene Flame Chemistry</strong>: Detailed in Section 3.2.</li>
+    <li><strong>Arc Welding, Electrodes &amp; Polarity</strong>: Detailed in Section 3.3.</li>
+    <li><strong>Resistance Welding</strong>: Detailed in Section 3.4.</li>
+    <li><strong>Thermit, Explosive &amp; Solid-State Processes</strong>: Detailed in Section 3.5.</li>
+    <li><strong>Brazing, Soldering &amp; Adhesive Bonding</strong>: Detailed in Section 3.6.</li>
+    <li><strong>Weld Defects &amp; Heat Input Physics</strong>: Detailed in Section 3.7.</li>
+  </ul>
+  <hr />
+  <h2 id="3-main-body">3. Main Body</h2>
+  <h3 id="31-arc-welding-power-source-characteristics">3.1 Arc Welding Power-Source Characteristics</h3>
+  <h5 id="1-concept-pointers">1. Concept Pointers</h5>
+  <ul>
+    <li>A DC welding power source with linear V-I characteristic has open-circuit voltage $V_{oc}$ and short-circuit
+      current $I_{sc}$.</li>
+    <li>Arc power $P = V \cdot I$; substituting linear V-I relation yields a parabolic power curve.</li>
+    <li>Differentiating arc power with respect to current shows that maximum arc power occurs at operating current $I =
+      I_{sc} / 2$.</li>
+    <li>At maximum power, the operating voltage is also equal to $V_{oc} / 2$.</li>
+  </ul>
+  <h5 id="2-formulas">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.1.</p>
+  <p>
+  <div class="formula-card">$$\boxed{I_{\text{max}} = \frac{I_{sc}}{2}}$$</div>
+  </p>
+  <p>
+  <div class="formula-card">$$\boxed{P_{\text{max}} = \frac{V_{oc} \cdot I_{sc}}{4}}$$</div>
+  </p>
+  <h5 id="3-diagram">3. Diagram</h5>
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/v_i_characteristic.png" alt="Arc Power Source V-I &amp; Power Characteristic Curve" style="max-width:100%; max-height:380px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.1:</strong> Linear V-I Characteristic Line &amp; Parabolic Arc Power Curve ($I_{\text{max}} = I_{sc}/2$).
+    </p>
+  </div>
 
-<hr />
-<h2 id="6-welding-brazing-soldering-adhesive-bonding-ssc-je-revision-notes">6. Welding, Brazing, Soldering &amp; Adhesive Bonding — SSC JE Revision Notes</h2>
+  <h5 id="4-worked-example">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> A DC welding power source has a linear voltage-current (V-I) characteristic with an
+    open-circuit voltage of 80 V and a short-circuit current of 300 A.<br />
+    <strong>Find:</strong> Current setting for maximum arc power.
+  </p>
+  <p><strong>Solution:</strong><br />
+    1. For a linear power-source characteristic $V = V_{oc} - \left(\frac{V_{oc}}{I_{sc}}\right)I$.<br />
+    2. Power $P = V \cdot I = V_{oc} I - \left(\frac{V_{oc}}{I_{sc}}\right)I^2$.<br />
+    3. To maximize power, set $\frac{dP}{dI} = V_{oc} - 2\left(\frac{V_{oc}}{I_{sc}}\right)I = 0 \implies I =
+    \frac{I_{sc}}{2}$.<br />
+    4. $I = \frac{300}{2} = 150\text{ A}$.<br />
+    5. <strong>Answer:</strong> 150 A.</p>
+  <p><strong>Key Insight:</strong> For any linear V-I power source, maximum arc power always occurs at exactly half the
+    short-circuit current.</p>
+  <hr />
+  <h3 id="32-oxy-acetylene-gas-welding-and-flame-types">3.2 Oxy-Acetylene Gas Welding and Flame Types</h3>
+  <h5 id="1-concept-pointers_1">1. Concept Pointers</h5>
+  <ul>
+    <li>Flame temperature reaches $\approx 3200^\circ\text{C}$, with maximum temperature located at the inner cone tip.
+    </li>
+    <li>Neutral flame $\text{O}_2 : \text{C}_2\text{H}_2 \approx 1 : 1$ is used for general steel, cast iron, copper,
+      and aluminium welding.</li>
+    <li>Carburizing / Reducing flame ($\text{O}_2 &lt; \text{C}_2\text{H}_2$, ratio $\approx 0.9 : 1$) contains excess
+      acetylene and is used for high-carbon steels, hard-facing, and alloy steels.</li>
+    <li>Oxidizing flame ($\text{O}_2 &gt; \text{C}_2\text{H}_2$, ratio $\approx 1.5 : 1$) contains excess oxygen and is
+      used for brass and bronze welding.</li>
+    <li>Oxygen cylinder is painted black; acetylene cylinder is painted maroon.</li>
+    <li>Complete combustion of 1 volume of acetylene requires 2.5 volumes of oxygen in total.</li>
+  </ul>
+  <h5 id="2-formulas_1">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.1 &amp; 2.3.</p>
+  <p>
+  <div class="formula-card">$$\boxed{\text{Neutral: } \text{O}_2 : \text{C}_2\text{H}_2 = 1 : 1 \quad | \quad
+    \text{Carburizing: } \text{O}_2 &lt; \text{C}_2\text{H}_2 \quad | \quad \text{Oxidizing: } \text{O}_2 &gt;
+    \text{C}_2\text{H}_2}$$</div>
+  </p>
+  <h5 id="3-diagram_1">3. Diagram</h5>
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/oxy_acetylene_flames.png" alt="Oxy-Acetylene Flame Structures (Neutral, Carburizing, Oxidizing)" style="max-width:100%; max-height:380px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.2:</strong> Oxy-Acetylene Flame Types: Neutral (1:1), Carburizing ($\text{O}_2 < \text{C}_2\text{H}_2$), and Oxidizing ($\text{O}_2 > \text{C}_2\text{H}_2$).
+    </p>
+  </div>
+  <h5 id="4-worked-example_1">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> In oxy-acetylene gas welding, the proportion of oxygen supplied is less than the proportion
+    of acetylene.<br />
+    <strong>Find:</strong> Type of flame produced.
+  </p>
+  <p><strong>Solution:</strong>
+    1. When oxygen proportion is less than acetylene, acetylene is in excess.
+    2. Excess acetylene produces an unburnt carbon envelope, making it a carburizing (reducing) flame.
+    3. <strong>Answer:</strong> Carburizing flame.</p>
+  <p><strong>Key Insight:</strong> Oxygen excess = Oxidizing; Acetylene excess = Carburizing; 1:1 equal volume =
+    Neutral.</p>
+  <hr />
+  <h3 id="33-arc-welding-processes-electrodes-and-polarity">3.3 Arc Welding Processes, Electrodes and Polarity</h3>
+  <h5 id="1-concept-pointers_2">1. Concept Pointers</h5>
+  <ul>
+    <li>Arc temperature is of the order of $6000\text{--}7000^\circ\text{C}$.</li>
+    <li>Straight Polarity (DCEN): Electrode is negative, workpiece is positive. Heat distribution: $\approx 67\%$ at
+      workpiece, $\approx 33\%$ at electrode.</li>
+    <li>Reverse Polarity (DCEP): Electrode is positive, workpiece is negative. Preferred for thin sheets and overhead
+      welding.</li>
+    <li>Arc Blow is the magnetic deflection of arc stream from intended path; occurs primarily in DC welding.</li>
+    <li>TIG (GTAW): Uses non-consumable tungsten electrode and inert shielding gas (Argon/Helium).</li>
+    <li>MIG (GMAW): Uses consumable wire electrode fed continuously; metal transfers as fine spray.</li>
+    <li>SMAW: Electrode coating acts as flux and decomposes to generate protective shielding gas.</li>
+    <li>SAW (Submerged Arc Welding): Arc is submerged beneath a granular fusible flux blanket using bare metal
+      electrode.</li>
+  </ul>
+  <h5 id="2-formulas_2">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.2.</p>
+  <h5 id="3-diagram_2">3. Diagram</h5>
+  <!-- DC Arc Polarity Image -->
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/arc_polarity.jpeg" alt="DC Arc Welding Polarity (DCEN vs DCEP)" style="max-width:100%; max-height:380px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.3a:</strong> Direct Current Arc Welding Polarity: Straight Polarity (DCEN) vs Reverse Polarity (DCEP).
+    </p>
+  </div>
 
-<h3 id="61-welding-processes">6.1 I. Welding Processes</h3>
+  <!-- 4 Major Arc Welding Processes Grid -->
+  <div style="margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <h6 style="text-align:center; font-family:'Bookman Old Style', Georgia, serif; color:#4A2E1B; margin-top:0; margin-bottom:14px; font-size:11pt;">Figure 3.3b: Major Arc Welding Process Schematics</h6>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+      <div style="text-align:center; background:#FDFBF7; padding:10px; border:1px solid #E2D9CC; border-radius:6px;">
+        <img src="images/smaw_process.jpg" alt="Shielded Metal Arc Welding (SMAW)" style="width:100%; max-height:240px; object-fit:contain; border-radius:4px;" />
+        <p style="font-size:8.5pt; color:#5C544D; margin:6px 0 0 0; font-weight:600;">1. SMAW (Stick Welding)</p>
+      </div>
+      <div style="text-align:center; background:#FDFBF7; padding:10px; border:1px solid #E2D9CC; border-radius:6px;">
+        <img src="images/tig_process.jpg" alt="Gas Tungsten Arc Welding (TIG / GTAW)" style="width:100%; max-height:240px; object-fit:contain; border-radius:4px;" />
+        <p style="font-size:8.5pt; color:#5C544D; margin:6px 0 0 0; font-weight:600;">2. GTAW (TIG Welding)</p>
+      </div>
+      <div style="text-align:center; background:#FDFBF7; padding:10px; border:1px solid #E2D9CC; border-radius:6px;">
+        <img src="images/mig_process.png" alt="Gas Metal Arc Welding (MIG / GMAW)" style="width:100%; max-height:240px; object-fit:contain; border-radius:4px;" />
+        <p style="font-size:8.5pt; color:#5C544D; margin:6px 0 0 0; font-weight:600;">3. GMAW (MIG Welding)</p>
+      </div>
+      <div style="text-align:center; background:#FDFBF7; padding:10px; border:1px solid #E2D9CC; border-radius:6px;">
+        <img src="images/saw_process.jpeg" alt="Submerged Arc Welding (SAW)" style="width:100%; max-height:240px; object-fit:contain; border-radius:4px;" />
+        <p style="font-size:8.5pt; color:#5C544D; margin:6px 0 0 0; font-weight:600;">4. SAW (Submerged Arc)</p>
+      </div>
+    </div>
+  </div>
 
-<h4 id="611-smaw-shielded-metal-arc-welding">6.1.1 SMAW (Shielded Metal Arc Welding)</h4>
-<p><strong>Definition:</strong> Manual arc welding where a consumable electrode (coated rod) melts and fills the joint. The flux coating provides shielding gas and slag protection.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Heat source: Electrical arc between electrode and base metal</li>
-  <li>Arc temperature: 3000–3500 K</li>
-  <li>Electrode melts and acts as filler material</li>
-  <li>Flux coating provides:
+  <h5 id="4-worked-example_2">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> An arc welding operation uses direct current with reverse polarity.<br />
+    <strong>Find:</strong> Connection of the electrode holder.
+  </p>
+  <p><strong>Solution:</strong>
+    1. Reverse polarity is DCEP (Direct Current Electrode Positive).
+    2. The electrode is connected to the positive terminal of the power source.
+    3. <strong>Answer:</strong> Positive terminal.</p>
+  <p><strong>Key Insight:</strong> Straight = Electrode Negative (DCEN); Reverse = Electrode Positive (DCEP).</p>
+  <hr />
+  <h3 id="34-resistance-welding">3.4 Resistance Welding</h3>
+  <h5 id="1-concept-pointers_3">1. Concept Pointers</h5>
+  <ul>
+    <li>Resistance welding operates at low voltage $1\text{--}10\text{ V}$ and extremely high current for short time
+      durations.</li>
+    <li>Heat generated follows Joule's Law: $H = k \cdot I^2 \cdot R \cdot t$.</li>
+    <li>Current is regulated by changing primary turns of the step-down welding transformer.</li>
+    <li>Resistance seam welding produces continuous leak-proof joints using rotating disc electrodes without filler
+      metal.</li>
+    <li>Resistance spot welding is a fusion process (produces a molten nugget), NOT a solid-state process.</li>
+  </ul>
+  <h5 id="2-formulas_3">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.1.</p>
+  <p>
+  <div class="formula-card">$$\boxed{H = k \cdot I^2 \cdot R \cdot t}$$</div>
+  </p>
+  <h5 id="3-diagram_3">3. Diagram</h5>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px; margin:20px 0;">
+    <div style="text-align:center; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+      <img src="images/spot_welding.jpg" alt="Resistance Spot Welding Process" style="max-width:100%; max-height:280px; height:auto; border-radius:6px; object-fit:contain;" />
+      <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+        <strong>Figure 3.4a:</strong> Resistance Spot Welding Electrode Pressure &amp; Molten Nugget Formation.
+      </p>
+    </div>
+    <div style="text-align:center; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+      <img src="images/seam_welding.jpg" alt="Resistance Seam Welding Process" style="max-width:100%; max-height:280px; height:auto; border-radius:6px; object-fit:contain;" />
+      <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+        <strong>Figure 3.4b:</strong> Resistance Seam Welding Continuous Roller Electrodes &amp; Overlapping Seam.
+      </p>
+    </div>
+  </div>
+
+  <h5 id="4-worked-example_3">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> Current $I$ flows for time $t$ across joint resistance $R$ in a spot welding machine.<br />
+    <strong>Find:</strong> Expression for heat generated.
+  </p>
+  <p><strong>Solution:</strong>
+    1. Heat generated in electrical resistance heating is proportional to $I^2 R t$.
+    2. Accounting for thermal efficiency/loss factor $k$, $H = k \cdot I^2 \cdot R \cdot t$.
+    3. <strong>Answer:</strong> $H = k \cdot I^2 \cdot R \cdot t$.</p>
+  <p><strong>Key Insight:</strong> Heat generated varies quadratically with current $I^2$, so small changes in current
+    have the largest effect on heat input.</p>
+  <hr />
+  <h3 id="35-thermit-explosive-and-solid-state-welding-processes">3.5 Thermit, Explosive and Solid-State Welding
+    Processes</h3>
+  <h5 id="1-concept-pointers_4">1. Concept Pointers</h5>
+  <ul>
+    <li>Thermit mixture consists of aluminium powder and iron oxide $\text{Fe}_2\text{O}_3$ in a 1 : 3 mass ratio.</li>
+    <li>Thermit reaction is an exothermic chemical reaction: $8\text{Al} + 3\text{Fe}_3\text{O}_4 \rightarrow 9\text{Fe}
+      + 4\text{Al}_2\text{O}_3 + \text{Heat}$. Used for rail joining and heavy casting repairs.</li>
+    <li>Solid-state welding processes join materials without bulk melting of base metals: Friction, Forge, Ultrasonic,
+      Explosive.</li>
+    <li>Explosive welding uses a flyer plate driven by high explosives onto a base plate to form a metallurgical bond.
+    </li>
+    <li>Resistance spot welding is NOT solid-state because it melts a liquid nugget.</li>
+  </ul>
+  <h5 id="2-formulas_4">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.3.</p>
+  <p>
+  <div class="formula-card">$$\boxed{\text{Thermit Ratio } $\text{Al} : \text{Fe}_2\text{O}_3$ = 1 : 3}$$</div>
+  </p>
+  <h5 id="3-diagram_4">3. Diagram</h5>
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/thermit_welding.jpeg" alt="Thermit Rail Welding Setup Assembly" style="max-width:100%; max-height:320px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.5:</strong> Thermit Reaction Charge &amp; Crucible Setup for Heavy Rail Gap Welding.
+    </p>
+  </div>
+
+  <h5 id="4-worked-example_4">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> Thermit welding process mixture components and their proportion.<br />
+    <strong>Find:</strong> Correct metal powder and ratio with iron oxide.
+  </p>
+  <p><strong>Solution:</strong>
+    1. Thermit is a mixture of aluminium powder and iron oxide.
+    2. The standard stoichiometric mass ratio is 1 part Aluminium to 3 parts Iron Oxide.
+    3. <strong>Answer:</strong> Aluminium and iron oxide in 1 : 3 ratio.</p>
+  <p><strong>Key Insight:</strong> Aluminium acts as the reducing agent because of its high affinity for oxygen.</p>
+  <hr />
+  <h3 id="36-brazing-soldering-and-adhesive-bonding">3.6 Brazing, Soldering and Adhesive Bonding</h3>
+  <h5 id="1-concept-pointers_5">1. Concept Pointers</h5>
+  <ul>
+    <li>Brazing filler metal has a melting temperature above 450 °C (or 430 °C) but below the solidus temperature of
+      base metals.</li>
+    <li>Brazing filler alloys: Copper-zinc (spelter), copper-silver; flux used is borax or boric acid.</li>
+    <li>Soldering filler metal (soft solder) is an alloy of tin and lead; melting point is below 450 °C (typically
+      180–250 °C).</li>
+    <li>In both brazing and soldering, liquid filler metal fills joint clearance purely by capillary action; base metals
+      DO NOT melt.</li>
+    <li>Brazing does NOT cause metallurgical damage by phase transformation to base metals.</li>
+    <li>Adhesive bonding uses non-metallic adhesives (epoxy, cyanoacrylate) that cure without melting substrates.</li>
+  </ul>
+  <h5 id="2-formulas_5">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.3.</p>
+  <p>
+  <div class="formula-card">$$\boxed{\text{Brazing: Filler Melting Point} &gt; 450^\circ\text{C} \quad | \quad
+    \text{Soldering: Filler Melting Point} &lt; 450^\circ\text{C}}$$</div>
+  </p>
+  <h5 id="3-diagram_5">3. Diagram</h5>
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/brazing_joint.png" alt="Capillary Action in Brazed / Soldered Joint Assembly" style="max-width:100%; max-height:300px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.6:</strong> Capillary Flow &amp; Fillet Formation in Lap Joint Clearance ($0.05\text{--}0.1\text{ mm}$ gap).
+    </p>
+  </div>
+  <h5 id="4-worked-example_5">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> Principal constituent materials used in soft soldering.<br />
+    <strong>Find:</strong> Correct alloy combination.
+  </p>
+  <p><strong>Solution:</strong>
+    1. Soft solder is traditionally an alloy of tin (Sn) and lead (Pb).
+    2. Eutectic solder (63% Sn - 37% Pb) melts sharply at 183 °C.
+    3. <strong>Answer:</strong> Tin and lead.</p>
+  <p><strong>Key Insight:</strong> Solder filler melts below 450 °C, while brazing spelter melts above 450 °C.</p>
+  <hr />
+  <h3 id="37-welding-defects-physics-heat-input">3.7 Welding Defects, Physics &amp; Heat Input</h3>
+  <h5 id="1-concept-pointers_6">1. Concept Pointers</h5>
+  <ul>
+    <li>Inadequate penetration (lack of penetration) forms sharp root stress raisers, leading to crack formation.</li>
+    <li>Undercut is caused by excessive welding current or incorrect electrode angle.</li>
+    <li>Weld spatter is a defect consisting of expelled droplets adhering to workpiece surface.</li>
+    <li>Porosity is caused by trapped gas pockets (mainly hydrogen dissolved in molten pool).</li>
+    <li>Residual stresses in fusion weld zone after cooling are predominantly tensile in weld bead and compressive in
+      adjacent base metal regions.</li>
+    <li>Low-carbon steel $\approx 0.15\%\text{ C}$ exhibits the highest weldability among carbon steels.</li>
+    <li>Aluminium is difficult to weld due to its high thermal conductivity and rapid formation of a tenacious oxide
+      film $\text{Al}_2\text{O}_3$.</li>
+  </ul>
+  <h5 id="2-formulas_6">2. Formulas</h5>
+  <p>For quick lookup, see Quick Reference Section 2.1.</p>
+  <p>
+  <div class="formula-card">$$\boxed{H_{\text{input}} = \frac{V \cdot I}{v} \quad | \quad H_{\text{actual}} =
+    \eta_{\text{heat}} \cdot \left$\frac{V \cdot I}{v}\right$ \quad | \quad \eta_{\text{melting}} =
+    \frac{H_{\text{required}}}{H_{\text{actual}}}}$$</div>
+  </p>
+  <h5 id="3-diagram_6">3. Diagram</h5>
+  <div style="text-align:center; margin:20px 0; background:#FFFDF9; border:1px solid #E2D9CC; border-radius:8px; padding:16px; box-shadow:0 3px 10px rgba(74,46,27,0.06);">
+    <img src="images/weld_defects.jpg" alt="Master Weld Defect Identification Cross-Section Guide" style="max-width:100%; max-height:400px; height:auto; border-radius:6px; object-fit:contain;" />
+    <p style="font-size:9pt; color:#5C544D; margin-top:8px; margin-bottom:0; font-style:italic;">
+      <strong>Figure 3.7:</strong> Master Weld Defect Cross-Sectional Identification (Undercut, Lack of Penetration, Porosity, Slag Inclusion, Spatter, Cracks).
+    </p>
+  </div>
+
+  <h5 id="4-worked-example_6">4. Worked Example</h5>
+  <p><strong>Worked Example 1</strong></p>
+  <p><strong>Given:</strong> Arc welding of steel with voltage 20 V, current 200 A, travel speed 5 mm/s, heat-transfer
+    efficiency 0.8, joint area $20\text{ mm}^2$, heat of melting $10\text{ J/mm}^3$.<br />
+    <strong>Find:</strong> Melting efficiency.
+  </p>
+  <p><strong>Solution:</strong>
+    1. Heat supplied per unit length = $\frac{V \cdot I}{v} = \frac{20 \times 200}{5} = 800\text{ J/mm}$.
+    2. Actual heat input = $\eta_{\text{heat}} \times 800 = 0.8 \times 800 = 640\text{ J/mm}$.
+    3. Heat required for melting = Area $\times$ heat of melting = $20 \times 10 = 200\text{ J/mm}$.
+    4. Melting efficiency $\eta_{\text{melting}} = \frac{H_{\text{required}}}{H_{\text{actual}}} = \frac{200}{640} =
+    0.3125 \implies 31.25\%$.
+    5. <strong>Answer:</strong> 31.25%.</p>
+  <p><strong>Key Insight:</strong> Distinguish heat-transfer efficiency (arc-to-workpiece) from melting efficiency
+    (heat-to-melt vs actual heat input).</p>
+  <hr />
+  <h2 id="4-consolidation-notes">4. Consolidation Notes</h2>
+  <p><strong>Note on Resistance Welding vs Solid-State Welding:</strong>
+    Resistance spot/seam welding relies on electrical resistance to melt a liquid nugget, so it is a fusion process. In
+    contrast, friction, ultrasonic, forge, and explosive welding do not melt the base metal and are true solid-state
+    processes. See Section 3.4 &amp; 3.5.</p>
+  <p><strong>Note on Brazing vs Soldering Threshold:</strong>
+    Both processes rely on capillary flow without melting base metals. The sole distinguishing criterion tested in MCQs
+    is filler melting temperature: below 450 °C is soldering (tin-lead), above 450 °C is brazing (copper-zinc/silver).
+    See Section 3.6.</p>
+  <p><strong>Note on Power Source Maximum Power:</strong>
+    For linear V-I characteristics, maximum power is obtained at $I_{sc}/2$ and $V_{oc}/2$. Do not confuse short-circuit
+    current with operating current for maximum power output. See Section 3.1.</p>
+  <hr />
+  <h2 id="5-final-quick-fire-checklist">5. Final Quick-Fire Checklist</h2>
+  <ul>
+    <li>Memorize linear V-I maximum power current: $I_{\text{max}} = I_{sc} / 2$.</li>
+    <li>Know flame gas ratios: Neutral $1:1$, Carburizing $\text{O}_2 &lt; \text{C}_2\text{H}_2$, Oxidizing $\text{O}_2
+      &gt; \text{C}_2\text{H}_2$.</li>
+    <li>Memorize flame temperatures: Oxy-acetylene $\approx 3200^\circ\text{C}$, Electric Arc
+      $6000\text{--}7000^\circ\text{C}$.</li>
+    <li>Remember gas cylinder colors: Oxygen = Black, Acetylene = Maroon.</li>
+    <li>Memorize polarity: Straight (DCEN) = Electrode Negative; Reverse (DCEP) = Electrode Positive.</li>
+    <li>Remember Thermit ratio: Aluminium : Iron Oxide = $1 : 3$.</li>
+    <li>Fix joining temperature boundary: Soldering $&lt; 450^\circ\text{C}$ (Tin-Lead), Brazing $&gt;
+      450^\circ\text{C}$ (Copper-Zinc).</li>
+    <li>Know primary defect causes: Undercut $\leftarrow$ Excessive current; Cracks $\leftarrow$ Lack of penetration;
+      Porosity $\leftarrow$ Hydrogen.</li>
+  </ul>
+  <p><strong>High-frequency PYQ focus:</strong>
+    - Power source linear V-I calculations $I_{sc}/2$
+    - Oxy-acetylene flame types, cylinder colors, and ratios
+    - Electrode polarity definitions (DCEN vs DCEP)
+    - Soldering vs Brazing temperature thresholds and filler metals
+    - Resistance welding heat formula $H = k I^2 R t$
+    - Thermit reaction mixture and ratio
+    - Weld defect identification</p>
+
+  <hr />
+  <h2 id="6-welding-brazing-soldering-adhesive-bonding-ssc-je-revision-notes">6. Welding, Brazing, Soldering &amp;
+    Adhesive Bonding — SSC JE Revision Notes</h2>
+
+  <h3 id="61-welding-processes">6.1 I. Welding Processes</h3>
+
+  <h4 id="611-smaw-shielded-metal-arc-welding">6.1.1 SMAW (Shielded Metal Arc Welding)</h4>
+  <p><strong>Definition:</strong> Manual arc welding where a consumable electrode (coated rod) melts and fills the
+    joint. The flux coating provides shielding gas and slag protection.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Heat source: Electrical arc between electrode and base metal</li>
+    <li>Arc temperature: 3000–3500 K</li>
+    <li>Electrode melts and acts as filler material</li>
+    <li>Flux coating provides:
+      <ul>
+        <li>Shielding gas ($\text{CO}_2$, $\text{CO}$)</li>
+        <li>Slag layer (protects from oxidation)</li>
+        <li>Alloying elements ($\text{Mn}$, $\text{Si}$)</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Penetration:</strong> Good (moderate depth)</p>
+  <p><strong>Speed:</strong> Slow (electrode replacement needed frequently)</p>
+  <p><strong>Cost:</strong> Very low (cheapest process)</p>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Works in all positions (overhead, vertical, horizontal)</li>
+    <li>Minimal equipment needed</li>
+    <li>Works outdoors (wind doesn't blow away shielding)</li>
+    <li>Suitable for thick sections</li>
+    <li>Versatile materials (mild steel, stainless, cast iron)</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Slow process</li>
+    <li>Slag removal required between passes</li>
+    <li>Operator skill critical</li>
+    <li>High spatter rate</li>
+    <li>Distortion risk in thin sections</li>
+  </ul>
+  <p><strong>Best For:</strong> Manual site work, repairs, diverse materials, structural steel</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Flux provides shielding; slag removal needed
+      after each pass</em></div>
+  <p><strong>Electrode Types (AWS):</strong></p>
+  <ul>
+    <li><strong>E6013:</strong> Low penetration, all-position, good for thin sheet</li>
+    <li><strong>E7018:</strong> High strength, low hydrogen, structural steel</li>
+  </ul>
+
+  <hr />
+
+  <h4 id="612-miggmaw-gas-metal-arc-welding">6.1.2 MIG/GMAW (Gas Metal Arc Welding)</h4>
+  <p><strong>Definition:</strong> Semi-automatic arc welding where a continuous wire electrode melts and fills the
+    joint. External shielding gas provides protection.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Wire fed continuously by motorized drive</li>
+    <li>Arc maintained between wire and base metal</li>
+    <li>Separate shielding gas ($\text{Ar}$, $\text{CO}_2$, or mix)</li>
+    <li>No slag produced</li>
+  </ul>
+  <p><strong>Penetration:</strong> Deep</p>
+  <p><strong>Speed:</strong> Fast (continuous wire feed; high productivity)</p>
+  <p><strong>Cost:</strong> Medium (gas + wire)</p>
+  <p><strong>Shielding Gas Selection:</strong></p>
+  <ul>
+    <li><strong>$\text{CO}_2$:</strong> Cost-effective, deeper penetration, steel only</li>
+    <li><strong>Argon + 15–20% $\text{CO}_2$:</strong> Standard for mild steel, better arc stability</li>
+    <li><strong>Pure Argon:</strong> Aluminum, stainless steel</li>
+  </ul>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>High speed (fastest common process)</li>
+    <li>High deposition rate</li>
+    <li>Minimal spatter (with right settings)</li>
+    <li>No slag removal</li>
+    <li>Easy learning curve</li>
+    <li>Good for thin to medium sheet</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Cannot weld outdoors (wind blows away gas)</li>
+    <li>Limited to flat/horizontal positions (gravity pulls wire)</li>
+    <li>High distortion in thin sections</li>
+    <li>Gas bottle required</li>
+  </ul>
+  <p><strong>Best For:</strong> Thin to medium sheet metal, production runs, automotive repair</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Wire melts; continuous feed; external gas
+      shielding</em></div>
+  <p><strong>Typical Settings:</strong></p>
+  <ul>
+    <li>Current: 80–300 A</li>
+    <li>Voltage: 18–28 V</li>
+    <li>Travel speed: 300–600 mm/min</li>
+  </ul>
+
+  <hr />
+
+  <h4 id="613-tiggtaw-gas-tungsten-arc-welding">6.1.3 TIG/GTAW (Gas Tungsten Arc Welding)</h4>
+  <p><strong>Definition:</strong> Manual arc welding using a non-consumable tungsten electrode. Filler rod is fed
+    manually. Inert gas provides shielding.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Tungsten electrode does NOT melt (melting point $3400^\circ\text{C} \gg$ arc temp)</li>
+    <li>Filler rod supplied separately (optional for autogenous welding)</li>
+    <li>Cleanest weld (no flux, no slag)</li>
+    <li>Highest operator skill required</li>
+  </ul>
+  <p><strong>Arc Temperature:</strong> 3000–4500 K</p>
+  <p><strong>Penetration:</strong> Precise, excellent (deepest if high current used)</p>
+  <p><strong>Speed:</strong> Slow (manual filler control)</p>
+  <p><strong>Cost:</strong> Very high (tungsten electrode, argon gas, skill)</p>
+  <p><strong>Shielding Gas:</strong></p>
+  <ul>
+    <li><strong>Pure Argon:</strong> Standard for Al, stainless, copper</li>
+    <li><strong>Helium:</strong> Deeper penetration, higher cost</li>
+    <li><strong>Ar + He mix:</strong> Balance of penetration and speed</li>
+  </ul>
+  <p><strong>Tungsten Electrode Types:</strong></p>
+  <ul>
+    <li><strong>Pure W:</strong> General purpose</li>
+    <li><strong>Thoriated W:</strong> Better arc starting, longer life</li>
+    <li><strong>Ceriated W:</strong> Excellent starting, low radioactivity</li>
+  </ul>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Highest weld quality (precise, contamination-free)</li>
+    <li>Works with dissimilar metals</li>
+    <li>All positions possible</li>
+    <li>Minimal distortion (concentrated heat)</li>
+    <li>Best for thin sections and aluminum</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Slow (manual filler rod + control)</li>
+    <li>High cost</li>
+    <li>High operator skill</li>
+    <li>Portable bottle-mounted gas required</li>
+    <li>Two-handed operation (awkward)</li>
+  </ul>
+  <p><strong>Best For:</strong> Precision work, aluminum, stainless steel, aerospace, medical tubes</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Inert gas shielding; filler rod separate;
+      tungsten electrode non-consumable</em></div>
+
+  <hr />
+
+  <h4 id="614-resistance-welding-spot-seam-projection">6.1.4 Resistance Welding (Spot, Seam, Projection)</h4>
+  <p><strong>Definition:</strong> Two metal sheets clamped together and melted at contact point by electrical resistance
+    heat (Joule heating: $H = I^2 R t$).</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>No arc; no filler metal</li>
+    <li>High current passed through contact resistance</li>
+    <li>Joint formed by pressure + heat</li>
+    <li>Electrodes clamp and heat simultaneously</li>
+  </ul>
+  <p><strong>Heat Source:</strong> Electrical resistance (Joule effect)</p>
+  <p><strong>Temperature:</strong> 1200–1600 K (lowest among all welding)</p>
+  <p><strong>Penetration:</strong> Localized (only at contact point)</p>
+  <p><strong>Speed:</strong> Very fast (milliseconds per spot)</p>
+  <p><strong>Cost:</strong> Medium (equipment expensive, consumables cheap)</p>
+  <p><strong>Types:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Joint</th>
+        <th>Electrode</th>
+        <th>Uses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Spot</strong></td>
+        <td>Overlap</td>
+        <td>Rounded tip</td>
+        <td>Lap joints, car body</td>
+      </tr>
+      <tr>
+        <td><strong>Seam</strong></td>
+        <td>Overlap</td>
+        <td>Rotating wheel</td>
+        <td>Continuous line, pressure vessels</td>
+      </tr>
+      <tr>
+        <td><strong>Projection</strong></td>
+        <td>Overlap</td>
+        <td>Embossed pins</td>
+        <td>Battery tabs, sheet assembly</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Process Parameters:</strong></p>
+  <ul>
+    <li>Current: 1000–10,000 A (very high)</li>
+    <li>Voltage: 2–10 V (very low)</li>
+    <li>Time: 0.1–1 second per spot</li>
+    <li>Pressure: 300–500 N/mm²</li>
+  </ul>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Extremely fast (mass production)</li>
+    <li>No filler needed</li>
+    <li>Minimal distortion</li>
+    <li>Repeatable and automated</li>
+    <li>Clean (no spatter, no flux)</li>
+    <li>No skilled labor needed</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Lap joint only (overlap required)</li>
+    <li>Weld quality hard to inspect</li>
+    <li>Electrode wear (frequent replacement)</li>
+    <li>Limited to thin sections (&lt;3 mm typically)</li>
+    <li>Surface indentation at weld spot</li>
+    <li>Corrosion risk (exposed lap joint)</li>
+  </ul>
+  <p><strong>Best For:</strong> Sheet metal, automotive, appliances, battery assembly</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>No filler; pressure + current; very fast; lap
+      joints only</em></div>
+  <p><strong>Formula:</strong></p>
+  <div class="formula-card">$$\boxed{Q = I^2 \times R \times t}$$</div>
+  <p><em>where $R$ = resistance at contact point (depends on resistivity, area)</em></p>
+
+  <hr />
+
+  <h4 id="615-gas-welding-oxy-acetylene">6.1.5 Gas Welding (Oxy-Acetylene)</h4>
+  <p><strong>Definition:</strong> Combustion of acetylene gas in oxygen produces a hot flame that melts base metal and
+    filler rod.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Fuel: Acetylene ($\text{C}_2\text{H}_2$) stored in cylinder with acetone</li>
+    <li>Oxidizer: Oxygen ($\text{O}_2$)</li>
+    <li>Flame temperature: ~3100 K</li>
+    <li>Filler rod melted separately (handheld)</li>
+  </ul>
+  <p><strong>Flame Types:</strong></p>
+  <ul>
+    <li><strong>Neutral flame:</strong> Equal $\text{O}_2 + \text{C}_2\text{H}_2$ (used for most metals)</li>
+    <li><strong>Oxidizing flame:</strong> Excess $\text{O}_2$ (blue, harsh—damages some metals)</li>
+    <li><strong>Reducing/Carburizing flame:</strong> Excess $\text{C}_2\text{H}_2$ (yellow—prevents oxidation of Al, Mg,
+      Cu)</li>
+  </ul>
+  <p><strong>Penetration:</strong> Moderate</p>
+  <p><strong>Speed:</strong> Slow (manual control)</p>
+  <p><strong>Cost:</strong> Very low (cheapest if equipment available)</p>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Works outdoors (no gas dispersion issue)</li>
+    <li>All positions</li>
+    <li>Good for thin sections</li>
+    <li>Portable (cylinders carried)</li>
+    <li>Versatile materials (steel, aluminum, copper)</li>
+    <li>Reducing flame prevents oxidation</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Slowest process</li>
+    <li>Requires high operator skill</li>
+    <li>Large HAZ (heat affected zone)</li>
+    <li>Distortion risk</li>
+    <li>Fire/explosion hazard (acetylene)</li>
+    <li>Weak at high currents/speeds</li>
+  </ul>
+  <p><strong>Best For:</strong> Repair work, thin sections, small jobs, field work</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Reducing flame prevents oxidation of sensitive
+      metals</em></div>
+  <p><strong>Typical Flame:</strong></p>
+  <ul>
+    <li>Acetylene regulator: 0.5–2 bar</li>
+    <li>Oxygen regulator: 1–5 bar</li>
+    <li>Adjust for neutral flame (no feather in center)</li>
+  </ul>
+
+  <hr />
+
+  <h4 id="616-submerged-arc-welding-saw">6.1.6 Submerged Arc Welding (SAW)</h4>
+  <p><strong>Definition:</strong> Arc burns under a blanket of granular flux. The flux melts and forms slag, which
+    protects the weld and allows very high currents.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Arc completely submerged under flux</li>
+    <li>Filler wire fed continuously</li>
+    <li>No visible arc (safe for eyes)</li>
+    <li>Automatic or semi-automatic</li>
+  </ul>
+  <p><strong>Arc Temperature:</strong> Very high (concentrated, high current)</p>
+  <p><strong>Penetration:</strong> Deepest among manual/semi-automatic processes</p>
+  <p><strong>Speed:</strong> Fast (high current possible)</p>
+  <p><strong>Cost:</strong> Medium (flux + equipment)</p>
+  <p><strong>Flux Role:</strong></p>
+  <ul>
+    <li>Protects molten metal from oxidation</li>
+    <li>Acts as thermal blanket (allows high current without spatter)</li>
+    <li>Adds alloying elements</li>
+    <li>Slag layer easily removed</li>
+  </ul>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Deepest penetration (ideal for thick plate)</li>
+    <li>Very high deposition rate</li>
+    <li>No spatter (submerged)</li>
+    <li>Clean weld (slag protection)</li>
+    <li>Easy automation</li>
+    <li>Suitable for high-current welding</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Flat position only (flux not retained in other positions)</li>
+    <li>Thick flux cleanup</li>
+    <li>High heat input (more distortion)</li>
+    <li>Not portable (equipment stationary)</li>
+  </ul>
+  <p><strong>Best For:</strong> Heavy structural steel, ship building, pressure vessels, thick plates (&gt;6 mm)</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Flux submerges arc; no spatter; deepest
+      penetration; flat position only</em></div>
+
+  <hr />
+
+  <h4 id="617-laserelectron-beam-welding">6.1.7 Laser/Electron Beam Welding</h4>
+  <p><strong>Definition:</strong> Concentrated beam of photons (laser) or electrons melts a narrow, deep joint with
+    minimal HAZ.</p>
+  <p><strong>Key Facts:</strong></p>
+  <ul>
+    <li>Energy concentrated in tiny spot (~0.1 mm)</li>
+    <li>Very high power density ($\text{MW/cm}^2$)</li>
+    <li>Minimal thermal distortion</li>
+    <li>Precise depth control</li>
+  </ul>
+  <p><strong>Arc Temperature:</strong> Very high (localized)</p>
+  <p><strong>Penetration:</strong> Precise, very deep (aspect ratio 4:1 typical)</p>
+  <p><strong>Speed:</strong> Fast</p>
+  <p><strong>Cost:</strong> Very high (equipment &gt;₹50 lakh; skilled technician)</p>
+  <p><strong>Types:</strong></p>
+  <ul>
+    <li><strong>$\text{CO}_2$ Laser:</strong> Industrial standard, air-cooled</li>
+    <li><strong>YAG Laser:</strong> Fiber delivery, flexible</li>
+    <li><strong>Electron Beam:</strong> Vacuum required, deepest penetration</li>
+  </ul>
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Minimal HAZ (less material degradation)</li>
+    <li>Precise depth</li>
+    <li>High speed</li>
+    <li>Dissimilar metals possible</li>
+    <li>Automation-ready</li>
+    <li>No consumables (laser)</li>
+  </ul>
+  <p><strong>Disadvantages:</strong></p>
+  <ul>
+    <li>Very high capital cost</li>
+    <li>Requires precise fixturing</li>
+    <li>Operator skill (setup critical)</li>
+    <li>Beam absorption varies by material (Al reflects well)</li>
+    <li>Vacuum needed (electron beam only)</li>
+    <li>Gap tolerance tight (&lt;0.5 mm)</li>
+  </ul>
+  <p><strong>Best For:</strong> Precision aerospace, automotive, medical devices, dissimilar metal joints</p>
+  <div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Concentrated beam; minimal HAZ; very precise;
+      expensive</em></div>
+
+  <hr />
+
+  <h3 id="62-brazing">6.2 II. Brazing</h3>
+  <p><strong>Definition:</strong> Joining process where a filler metal (lower melting point than base) melts and flows
+    into the joint by capillary action. Base metal does NOT melt.</p>
+  <p><strong>Key Characteristic:</strong> Filler melts (~450–900°C) $\rightarrow$ Base metal stays solid $\rightarrow$
+    Metallurgical bond forms</p>
+  <p><strong>Brazing Temp Range:</strong> 450–900°C</p>
+  <p><strong>Filler Metals:</strong></p>
+  <ul>
+    <li><strong>Copper-Zinc (Brass):</strong> 40–50% Zn, melting point ~900°C, most common</li>
+    <li><strong>Silver Solder:</strong> Ag + Cu + Zn, melting point ~700–800°C, highest strength, expensive</li>
+    <li><strong>Copper:</strong> Pure copper filler for copper-to-copper brazing</li>
+  </ul>
+  <p><strong>Joint Clearance:</strong> 0.05–0.1 mm (critical—too tight or loose fails)</p>
+  <p><strong>Flux Requirement:</strong> YES (removes oxide from base surface; enables wetting)</p>
+
+  <p><strong>Brazing Types:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Heat Source</th>
+        <th>Temp</th>
+        <th>Equipment</th>
+        <th>Production</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Torch Brazing</strong></td>
+        <td>Oxy-fuel torch</td>
+        <td>800–900°C</td>
+        <td>Simple torch</td>
+        <td>Manual, small parts</td>
+      </tr>
+      <tr>
+        <td><strong>Furnace Brazing</strong></td>
+        <td>Electric furnace</td>
+        <td>700–900°C</td>
+        <td>Furnace, controlled</td>
+        <td>Batch, precision</td>
+      </tr>
+      <tr>
+        <td><strong>Induction Brazing</strong></td>
+        <td>Induced current</td>
+        <td>Variable</td>
+        <td>Coil + generator</td>
+        <td>Repeatable, fast</td>
+      </tr>
+      <tr>
+        <td><strong>Dip Brazing</strong></td>
+        <td>Molten salt/metal bath</td>
+        <td>Low</td>
+        <td>Bath vessel</td>
+        <td>Large area parts</td>
+      </tr>
+      <tr>
+        <td><strong>Laser Brazing</strong></td>
+        <td>Laser beam</td>
+        <td>Localized</td>
+        <td>Laser system</td>
+        <td>Precision, micro</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Key Advantages over Welding:</strong></p>
+  <ol>
+    <li><strong>Lower temperature:</strong> No base metal distortion</li>
+    <li><strong>Dissimilar materials:</strong> Bonds Al to Cu, steel to Al (impossible in welding)</li>
+    <li><strong>Complex shapes:</strong> Filler flows into gaps</li>
+    <li><strong>Thin sections:</strong> Less heat damage</li>
+    <li><strong>Less skill:</strong> Simpler than welding</li>
+    <li><strong>Batch production:</strong> Multiple joints heated together</li>
+  </ol>
+
+  <p><strong>Key Disadvantages:</strong></p>
+  <ol>
+    <li><strong>Lower strength:</strong> Typically 60–70% of base metal strength</li>
+    <li><strong>Joint clearance critical:</strong> Too loose $\rightarrow$ weak, too tight $\rightarrow$ won't flow</li>
+    <li><strong>Cost:</strong> Filler expensive (especially silver solder)</li>
+    <li><strong>Flux cleanup:</strong> Corrosive flux must be removed</li>
+    <li><strong>Temperature sensitive:</strong> Some alloys degrade if overheated</li>
+  </ol>
+
+  <p><strong>Best For:</strong> Jewelry, precision instruments, dissimilar metal joints, aerospace components</p>
+  <div class="callout callout-focus">
+    <strong>🎯 Exam Points:</strong>
     <ul>
-      <li>Shielding gas ($\text{CO}_2$, $\text{CO}$)</li>
-      <li>Slag layer (protects from oxidation)</li>
-      <li>Alloying elements ($\text{Mn}$, $\text{Si}$)</li>
+      <li>Base metal does NOT melt—filler bonds both surfaces</li>
+      <li>Capillary action draws filler into joint</li>
+      <li>Advantages: no distortion, dissimilar materials, lower cost than welding</li>
+      <li>Filler strength ~60–70% of base metal</li>
     </ul>
-  </li>
-</ul>
-<p><strong>Penetration:</strong> Good (moderate depth)</p>
-<p><strong>Speed:</strong> Slow (electrode replacement needed frequently)</p>
-<p><strong>Cost:</strong> Very low (cheapest process)</p>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Works in all positions (overhead, vertical, horizontal)</li>
-  <li>Minimal equipment needed</li>
-  <li>Works outdoors (wind doesn't blow away shielding)</li>
-  <li>Suitable for thick sections</li>
-  <li>Versatile materials (mild steel, stainless, cast iron)</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Slow process</li>
-  <li>Slag removal required between passes</li>
-  <li>Operator skill critical</li>
-  <li>High spatter rate</li>
-  <li>Distortion risk in thin sections</li>
-</ul>
-<p><strong>Best For:</strong> Manual site work, repairs, diverse materials, structural steel</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Flux provides shielding; slag removal needed after each pass</em></div>
-<p><strong>Electrode Types (AWS):</strong></p>
-<ul>
-  <li><strong>E6013:</strong> Low penetration, all-position, good for thin sheet</li>
-  <li><strong>E7018:</strong> High strength, low hydrogen, structural steel</li>
-</ul>
+  </div>
 
-<hr />
+  <hr />
 
-<h4 id="612-miggmaw-gas-metal-arc-welding">6.1.2 MIG/GMAW (Gas Metal Arc Welding)</h4>
-<p><strong>Definition:</strong> Semi-automatic arc welding where a continuous wire electrode melts and fills the joint. External shielding gas provides protection.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Wire fed continuously by motorized drive</li>
-  <li>Arc maintained between wire and base metal</li>
-  <li>Separate shielding gas ($\text{Ar}$, $\text{CO}_2$, or mix)</li>
-  <li>No slag produced</li>
-</ul>
-<p><strong>Penetration:</strong> Deep</p>
-<p><strong>Speed:</strong> Fast (continuous wire feed; high productivity)</p>
-<p><strong>Cost:</strong> Medium (gas + wire)</p>
-<p><strong>Shielding Gas Selection:</strong></p>
-<ul>
-  <li><strong>$\text{CO}_2$:</strong> Cost-effective, deeper penetration, steel only</li>
-  <li><strong>Argon + 15–20% $\text{CO}_2$:</strong> Standard for mild steel, better arc stability</li>
-  <li><strong>Pure Argon:</strong> Aluminum, stainless steel</li>
-</ul>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>High speed (fastest common process)</li>
-  <li>High deposition rate</li>
-  <li>Minimal spatter (with right settings)</li>
-  <li>No slag removal</li>
-  <li>Easy learning curve</li>
-  <li>Good for thin to medium sheet</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Cannot weld outdoors (wind blows away gas)</li>
-  <li>Limited to flat/horizontal positions (gravity pulls wire)</li>
-  <li>High distortion in thin sections</li>
-  <li>Gas bottle required</li>
-</ul>
-<p><strong>Best For:</strong> Thin to medium sheet metal, production runs, automotive repair</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Wire melts; continuous feed; external gas shielding</em></div>
-<p><strong>Typical Settings:</strong></p>
-<ul>
-  <li>Current: 80–300 A</li>
-  <li>Voltage: 18–28 V</li>
-  <li>Travel speed: 300–600 mm/min</li>
-</ul>
+  <h3 id="63-soldering">6.3 III. Soldering</h3>
+  <p><strong>Definition:</strong> Joining process where a low-melting-point filler (solder) melts and forms a bond
+    without melting the base metal. Primarily for <strong>electrical connections</strong>.</p>
+  <p><strong>Soldering Temp Range:</strong> &lt;450°C (soft: 200–300°C; hard: up to 450°C)</p>
+  <p><strong>Filler Metals:</strong></p>
+  <ul>
+    <li><strong>Soft Solder (most common):</strong>
+      <ul>
+        <li>Tin-Lead (Sn-Pb): 60% Sn + 40% Pb, melting point ~190°C</li>
+        <li>63-37 Sn-Pb (eutectic), melting point ~183°C (flows smoothest)</li>
+        <li>Lead-free (96.5% Sn + 3.5% Ag): melting point ~221°C</li>
+        <li><strong>Why Pb-free:</strong> Environmental regulations (RoHS)</li>
+      </ul>
+    </li>
+    <li><strong>Hard Solder:</strong> Copper or silver filler, 300–450°C melting point (not common in SSC JE)</li>
+  </ul>
+  <p><strong>Flux Requirement:</strong> YES (removes oxide; enables wetting)</p>
+  <ul>
+    <li>Types: Rosin flux (non-corrosive), Zinc chloride flux (corrosive—cleanup required)</li>
+  </ul>
 
-<hr />
+  <p><strong>Soldering Types:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Method</th>
+        <th>Temp</th>
+        <th>Application</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Iron Soldering</strong></td>
+        <td>Hot iron tip</td>
+        <td>300–350°C</td>
+        <td>Manual PCB, wiring</td>
+      </tr>
+      <tr>
+        <td><strong>Wave Soldering</strong></td>
+        <td>Molten solder bath</td>
+        <td>250–260°C</td>
+        <td>Production PCBs (automated)</td>
+      </tr>
+      <tr>
+        <td><strong>Reflow Soldering</strong></td>
+        <td>Oven heating</td>
+        <td>250–280°C</td>
+        <td>Surface-mount components (SMD)</td>
+      </tr>
+      <tr>
+        <td><strong>Dip Soldering</strong></td>
+        <td>Immersion in bath</td>
+        <td>Controlled</td>
+        <td>Large areas, connectors</td>
+      </tr>
+    </tbody>
+  </table>
 
-<h4 id="613-tiggtaw-gas-tungsten-arc-welding">6.1.3 TIG/GTAW (Gas Tungsten Arc Welding)</h4>
-<p><strong>Definition:</strong> Manual arc welding using a non-consumable tungsten electrode. Filler rod is fed manually. Inert gas provides shielding.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Tungsten electrode does NOT melt (melting point $3400^\circ\text{C} \gg$ arc temp)</li>
-  <li>Filler rod supplied separately (optional for autogenous welding)</li>
-  <li>Cleanest weld (no flux, no slag)</li>
-  <li>Highest operator skill required</li>
-</ul>
-<p><strong>Arc Temperature:</strong> 3000–4500 K</p>
-<p><strong>Penetration:</strong> Precise, excellent (deepest if high current used)</p>
-<p><strong>Speed:</strong> Slow (manual filler control)</p>
-<p><strong>Cost:</strong> Very high (tungsten electrode, argon gas, skill)</p>
-<p><strong>Shielding Gas:</strong></p>
-<ul>
-  <li><strong>Pure Argon:</strong> Standard for Al, stainless, copper</li>
-  <li><strong>Helium:</strong> Deeper penetration, higher cost</li>
-  <li><strong>Ar + He mix:</strong> Balance of penetration and speed</li>
-</ul>
-<p><strong>Tungsten Electrode Types:</strong></p>
-<ul>
-  <li><strong>Pure W:</strong> General purpose</li>
-  <li><strong>Thoriated W:</strong> Better arc starting, longer life</li>
-  <li><strong>Ceriated W:</strong> Excellent starting, low radioactivity</li>
-</ul>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Highest weld quality (precise, contamination-free)</li>
-  <li>Works with dissimilar metals</li>
-  <li>All positions possible</li>
-  <li>Minimal distortion (concentrated heat)</li>
-  <li>Best for thin sections and aluminum</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Slow (manual filler rod + control)</li>
-  <li>High cost</li>
-  <li>High operator skill</li>
-  <li>Portable bottle-mounted gas required</li>
-  <li>Two-handed operation (awkward)</li>
-</ul>
-<p><strong>Best For:</strong> Precision work, aluminum, stainless steel, aerospace, medical tubes</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Inert gas shielding; filler rod separate; tungsten electrode non-consumable</em></div>
+  <p><strong>Key Advantages:</strong></p>
+  <ol>
+    <li><strong>Very low temperature:</strong> No component damage (capacitors, ICs)</li>
+    <li><strong>Good electrical conductivity:</strong> Essential for circuits</li>
+    <li><strong>Fast:</strong> Quick joining, automation possible</li>
+    <li><strong>Low cost:</strong> Cheapest joining method</li>
+    <li><strong>Reversible:</strong> Easy to desolder and rework</li>
+  </ol>
 
-<hr />
+  <p><strong>Key Disadvantages:</strong></p>
+  <ol>
+    <li><strong>Weak mechanical strength:</strong> NOT for structural loads</li>
+    <li><strong>Temperature sensitive:</strong> Joint weak at high operating temp (&gt;100°C)</li>
+    <li><strong>Corrosion risk:</strong> Flux residue if not cleaned</li>
+    <li><strong>Joint quality varies:</strong> Operator-dependent (cold solder joints fail)</li>
+    <li><strong>Creep:</strong> Solder deforms over years (reliability issue)</li>
+  </ol>
 
-<h4 id="614-resistance-welding-spot-seam-projection">6.1.4 Resistance Welding (Spot, Seam, Projection)</h4>
-<p><strong>Definition:</strong> Two metal sheets clamped together and melted at contact point by electrical resistance heat (Joule heating: $H = I^2 R t$).</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>No arc; no filler metal</li>
-  <li>High current passed through contact resistance</li>
-  <li>Joint formed by pressure + heat</li>
-  <li>Electrodes clamp and heat simultaneously</li>
-</ul>
-<p><strong>Heat Source:</strong> Electrical resistance (Joule effect)</p>
-<p><strong>Temperature:</strong> 1200–1600 K (lowest among all welding)</p>
-<p><strong>Penetration:</strong> Localized (only at contact point)</p>
-<p><strong>Speed:</strong> Very fast (milliseconds per spot)</p>
-<p><strong>Cost:</strong> Medium (equipment expensive, consumables cheap)</p>
-<p><strong>Types:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Joint</th>
-<th>Electrode</th>
-<th>Uses</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Spot</strong></td>
-<td>Overlap</td>
-<td>Rounded tip</td>
-<td>Lap joints, car body</td>
-</tr>
-<tr>
-<td><strong>Seam</strong></td>
-<td>Overlap</td>
-<td>Rotating wheel</td>
-<td>Continuous line, pressure vessels</td>
-</tr>
-<tr>
-<td><strong>Projection</strong></td>
-<td>Overlap</td>
-<td>Embossed pins</td>
-<td>Battery tabs, sheet assembly</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Process Parameters:</strong></p>
-<ul>
-  <li>Current: 1000–10,000 A (very high)</li>
-  <li>Voltage: 2–10 V (very low)</li>
-  <li>Time: 0.1–1 second per spot</li>
-  <li>Pressure: 300–500 N/mm²</li>
-</ul>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Extremely fast (mass production)</li>
-  <li>No filler needed</li>
-  <li>Minimal distortion</li>
-  <li>Repeatable and automated</li>
-  <li>Clean (no spatter, no flux)</li>
-  <li>No skilled labor needed</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Lap joint only (overlap required)</li>
-  <li>Weld quality hard to inspect</li>
-  <li>Electrode wear (frequent replacement)</li>
-  <li>Limited to thin sections (&lt;3 mm typically)</li>
-  <li>Surface indentation at weld spot</li>
-  <li>Corrosion risk (exposed lap joint)</li>
-</ul>
-<p><strong>Best For:</strong> Sheet metal, automotive, appliances, battery assembly</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>No filler; pressure + current; very fast; lap joints only</em></div>
-<p><strong>Formula:</strong></p>
-<div class="formula-card">$$\boxed{Q = I^2 \times R \times t}$$</div>
-<p><em>where $R$ = resistance at contact point (depends on resistivity, area)</em></p>
-
-<hr />
-
-<h4 id="615-gas-welding-oxy-acetylene">6.1.5 Gas Welding (Oxy-Acetylene)</h4>
-<p><strong>Definition:</strong> Combustion of acetylene gas in oxygen produces a hot flame that melts base metal and filler rod.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Fuel: Acetylene ($\text{C}_2\text{H}_2$) stored in cylinder with acetone</li>
-  <li>Oxidizer: Oxygen ($\text{O}_2$)</li>
-  <li>Flame temperature: ~3100 K</li>
-  <li>Filler rod melted separately (handheld)</li>
-</ul>
-<p><strong>Flame Types:</strong></p>
-<ul>
-  <li><strong>Neutral flame:</strong> Equal $\text{O}_2 + \text{C}_2\text{H}_2$ (used for most metals)</li>
-  <li><strong>Oxidizing flame:</strong> Excess $\text{O}_2$ (blue, harsh—damages some metals)</li>
-  <li><strong>Reducing/Carburizing flame:</strong> Excess $\text{C}_2\text{H}_2$ (yellow—prevents oxidation of Al, Mg, Cu)</li>
-</ul>
-<p><strong>Penetration:</strong> Moderate</p>
-<p><strong>Speed:</strong> Slow (manual control)</p>
-<p><strong>Cost:</strong> Very low (cheapest if equipment available)</p>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Works outdoors (no gas dispersion issue)</li>
-  <li>All positions</li>
-  <li>Good for thin sections</li>
-  <li>Portable (cylinders carried)</li>
-  <li>Versatile materials (steel, aluminum, copper)</li>
-  <li>Reducing flame prevents oxidation</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Slowest process</li>
-  <li>Requires high operator skill</li>
-  <li>Large HAZ (heat affected zone)</li>
-  <li>Distortion risk</li>
-  <li>Fire/explosion hazard (acetylene)</li>
-  <li>Weak at high currents/speeds</li>
-</ul>
-<p><strong>Best For:</strong> Repair work, thin sections, small jobs, field work</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Reducing flame prevents oxidation of sensitive metals</em></div>
-<p><strong>Typical Flame:</strong></p>
-<ul>
-  <li>Acetylene regulator: 0.5–2 bar</li>
-  <li>Oxygen regulator: 1–5 bar</li>
-  <li>Adjust for neutral flame (no feather in center)</li>
-</ul>
-
-<hr />
-
-<h4 id="616-submerged-arc-welding-saw">6.1.6 Submerged Arc Welding (SAW)</h4>
-<p><strong>Definition:</strong> Arc burns under a blanket of granular flux. The flux melts and forms slag, which protects the weld and allows very high currents.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Arc completely submerged under flux</li>
-  <li>Filler wire fed continuously</li>
-  <li>No visible arc (safe for eyes)</li>
-  <li>Automatic or semi-automatic</li>
-</ul>
-<p><strong>Arc Temperature:</strong> Very high (concentrated, high current)</p>
-<p><strong>Penetration:</strong> Deepest among manual/semi-automatic processes</p>
-<p><strong>Speed:</strong> Fast (high current possible)</p>
-<p><strong>Cost:</strong> Medium (flux + equipment)</p>
-<p><strong>Flux Role:</strong></p>
-<ul>
-  <li>Protects molten metal from oxidation</li>
-  <li>Acts as thermal blanket (allows high current without spatter)</li>
-  <li>Adds alloying elements</li>
-  <li>Slag layer easily removed</li>
-</ul>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Deepest penetration (ideal for thick plate)</li>
-  <li>Very high deposition rate</li>
-  <li>No spatter (submerged)</li>
-  <li>Clean weld (slag protection)</li>
-  <li>Easy automation</li>
-  <li>Suitable for high-current welding</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Flat position only (flux not retained in other positions)</li>
-  <li>Thick flux cleanup</li>
-  <li>High heat input (more distortion)</li>
-  <li>Not portable (equipment stationary)</li>
-</ul>
-<p><strong>Best For:</strong> Heavy structural steel, ship building, pressure vessels, thick plates (&gt;6 mm)</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Flux submerges arc; no spatter; deepest penetration; flat position only</em></div>
-
-<hr />
-
-<h4 id="617-laserelectron-beam-welding">6.1.7 Laser/Electron Beam Welding</h4>
-<p><strong>Definition:</strong> Concentrated beam of photons (laser) or electrons melts a narrow, deep joint with minimal HAZ.</p>
-<p><strong>Key Facts:</strong></p>
-<ul>
-  <li>Energy concentrated in tiny spot (~0.1 mm)</li>
-  <li>Very high power density ($\text{MW/cm}^2$)</li>
-  <li>Minimal thermal distortion</li>
-  <li>Precise depth control</li>
-</ul>
-<p><strong>Arc Temperature:</strong> Very high (localized)</p>
-<p><strong>Penetration:</strong> Precise, very deep (aspect ratio 4:1 typical)</p>
-<p><strong>Speed:</strong> Fast</p>
-<p><strong>Cost:</strong> Very high (equipment &gt;₹50 lakh; skilled technician)</p>
-<p><strong>Types:</strong></p>
-<ul>
-  <li><strong>$\text{CO}_2$ Laser:</strong> Industrial standard, air-cooled</li>
-  <li><strong>YAG Laser:</strong> Fiber delivery, flexible</li>
-  <li><strong>Electron Beam:</strong> Vacuum required, deepest penetration</li>
-</ul>
-<p><strong>Advantages:</strong></p>
-<ul>
-  <li>Minimal HAZ (less material degradation)</li>
-  <li>Precise depth</li>
-  <li>High speed</li>
-  <li>Dissimilar metals possible</li>
-  <li>Automation-ready</li>
-  <li>No consumables (laser)</li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul>
-  <li>Very high capital cost</li>
-  <li>Requires precise fixturing</li>
-  <li>Operator skill (setup critical)</li>
-  <li>Beam absorption varies by material (Al reflects well)</li>
-  <li>Vacuum needed (electron beam only)</li>
-  <li>Gap tolerance tight (&lt;0.5 mm)</li>
-</ul>
-<p><strong>Best For:</strong> Precision aerospace, automotive, medical devices, dissimilar metal joints</p>
-<div class="callout callout-focus"><strong>🎯 Exam Point:</strong> <em>Concentrated beam; minimal HAZ; very precise; expensive</em></div>
-
-<hr />
-
-<h3 id="62-brazing">6.2 II. Brazing</h3>
-<p><strong>Definition:</strong> Joining process where a filler metal (lower melting point than base) melts and flows into the joint by capillary action. Base metal does NOT melt.</p>
-<p><strong>Key Characteristic:</strong> Filler melts (~450–900°C) $\rightarrow$ Base metal stays solid $\rightarrow$ Metallurgical bond forms</p>
-<p><strong>Brazing Temp Range:</strong> 450–900°C</p>
-<p><strong>Filler Metals:</strong></p>
-<ul>
-  <li><strong>Copper-Zinc (Brass):</strong> 40–50% Zn, melting point ~900°C, most common</li>
-  <li><strong>Silver Solder:</strong> Ag + Cu + Zn, melting point ~700–800°C, highest strength, expensive</li>
-  <li><strong>Copper:</strong> Pure copper filler for copper-to-copper brazing</li>
-</ul>
-<p><strong>Joint Clearance:</strong> 0.05–0.1 mm (critical—too tight or loose fails)</p>
-<p><strong>Flux Requirement:</strong> YES (removes oxide from base surface; enables wetting)</p>
-
-<p><strong>Brazing Types:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Heat Source</th>
-<th>Temp</th>
-<th>Equipment</th>
-<th>Production</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Torch Brazing</strong></td>
-<td>Oxy-fuel torch</td>
-<td>800–900°C</td>
-<td>Simple torch</td>
-<td>Manual, small parts</td>
-</tr>
-<tr>
-<td><strong>Furnace Brazing</strong></td>
-<td>Electric furnace</td>
-<td>700–900°C</td>
-<td>Furnace, controlled</td>
-<td>Batch, precision</td>
-</tr>
-<tr>
-<td><strong>Induction Brazing</strong></td>
-<td>Induced current</td>
-<td>Variable</td>
-<td>Coil + generator</td>
-<td>Repeatable, fast</td>
-</tr>
-<tr>
-<td><strong>Dip Brazing</strong></td>
-<td>Molten salt/metal bath</td>
-<td>Low</td>
-<td>Bath vessel</td>
-<td>Large area parts</td>
-</tr>
-<tr>
-<td><strong>Laser Brazing</strong></td>
-<td>Laser beam</td>
-<td>Localized</td>
-<td>Laser system</td>
-<td>Precision, micro</td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Key Advantages over Welding:</strong></p>
-<ol>
-  <li><strong>Lower temperature:</strong> No base metal distortion</li>
-  <li><strong>Dissimilar materials:</strong> Bonds Al to Cu, steel to Al (impossible in welding)</li>
-  <li><strong>Complex shapes:</strong> Filler flows into gaps</li>
-  <li><strong>Thin sections:</strong> Less heat damage</li>
-  <li><strong>Less skill:</strong> Simpler than welding</li>
-  <li><strong>Batch production:</strong> Multiple joints heated together</li>
-</ol>
-
-<p><strong>Key Disadvantages:</strong></p>
-<ol>
-  <li><strong>Lower strength:</strong> Typically 60–70% of base metal strength</li>
-  <li><strong>Joint clearance critical:</strong> Too loose $\rightarrow$ weak, too tight $\rightarrow$ won't flow</li>
-  <li><strong>Cost:</strong> Filler expensive (especially silver solder)</li>
-  <li><strong>Flux cleanup:</strong> Corrosive flux must be removed</li>
-  <li><strong>Temperature sensitive:</strong> Some alloys degrade if overheated</li>
-</ol>
-
-<p><strong>Best For:</strong> Jewelry, precision instruments, dissimilar metal joints, aerospace components</p>
-<div class="callout callout-focus">
-<strong>🎯 Exam Points:</strong>
-<ul>
-  <li>Base metal does NOT melt—filler bonds both surfaces</li>
-  <li>Capillary action draws filler into joint</li>
-  <li>Advantages: no distortion, dissimilar materials, lower cost than welding</li>
-  <li>Filler strength ~60–70% of base metal</li>
-</ul>
-</div>
-
-<hr />
-
-<h3 id="63-soldering">6.3 III. Soldering</h3>
-<p><strong>Definition:</strong> Joining process where a low-melting-point filler (solder) melts and forms a bond without melting the base metal. Primarily for <strong>electrical connections</strong>.</p>
-<p><strong>Soldering Temp Range:</strong> &lt;450°C (soft: 200–300°C; hard: up to 450°C)</p>
-<p><strong>Filler Metals:</strong></p>
-<ul>
-  <li><strong>Soft Solder (most common):</strong>
+  <p><strong>Best For:</strong> Electronics, PCB assembly, electrical wiring, plumbing</p>
+  <p><strong>Soldering Quality (Defects):</strong></p>
+  <ul>
+    <li><strong>Cold Solder Joint:</strong> Incomplete melting $\rightarrow$ high resistance $\rightarrow$ joint fails
+    </li>
+    <li><strong>Dry Joint:</strong> Solder ball not bonded $\rightarrow$ electrical open circuit</li>
+    <li><strong>Voids/Bubbles:</strong> Flux vapor trapped $\rightarrow$ weak joint</li>
+  </ul>
+  <div class="callout callout-focus">
+    <strong>🎯 Exam Points:</strong>
     <ul>
-      <li>Tin-Lead (Sn-Pb): 60% Sn + 40% Pb, melting point ~190°C</li>
-      <li>63-37 Sn-Pb (eutectic), melting point ~183°C (flows smoothest)</li>
-      <li>Lead-free (96.5% Sn + 3.5% Ag): melting point ~221°C</li>
-      <li><strong>Why Pb-free:</strong> Environmental regulations (RoHS)</li>
+      <li>Solder melts, base metal does NOT</li>
+      <li>Temperature &lt;450°C (soft solder ~200–300°C)</li>
+      <li>Primary use: electronics, not structural</li>
+      <li>Eutectic 63-37 Sn-Pb flows best (183°C melting)</li>
+      <li>Lead-free solder 96.5Sn-3.5Ag melts at ~221°C (higher than Pb-Sn)</li>
     </ul>
-  </li>
-  <li><strong>Hard Solder:</strong> Copper or silver filler, 300–450°C melting point (not common in SSC JE)</li>
-</ul>
-<p><strong>Flux Requirement:</strong> YES (removes oxide; enables wetting)</p>
-<ul>
-  <li>Types: Rosin flux (non-corrosive), Zinc chloride flux (corrosive—cleanup required)</li>
-</ul>
+  </div>
 
-<p><strong>Soldering Types:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Method</th>
-<th>Temp</th>
-<th>Application</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Iron Soldering</strong></td>
-<td>Hot iron tip</td>
-<td>300–350°C</td>
-<td>Manual PCB, wiring</td>
-</tr>
-<tr>
-<td><strong>Wave Soldering</strong></td>
-<td>Molten solder bath</td>
-<td>250–260°C</td>
-<td>Production PCBs (automated)</td>
-</tr>
-<tr>
-<td><strong>Reflow Soldering</strong></td>
-<td>Oven heating</td>
-<td>250–280°C</td>
-<td>Surface-mount components (SMD)</td>
-</tr>
-<tr>
-<td><strong>Dip Soldering</strong></td>
-<td>Immersion in bath</td>
-<td>Controlled</td>
-<td>Large areas, connectors</td>
-</tr>
-</tbody>
-</table>
+  <hr />
 
-<p><strong>Key Advantages:</strong></p>
-<ol>
-  <li><strong>Very low temperature:</strong> No component damage (capacitors, ICs)</li>
-  <li><strong>Good electrical conductivity:</strong> Essential for circuits</li>
-  <li><strong>Fast:</strong> Quick joining, automation possible</li>
-  <li><strong>Low cost:</strong> Cheapest joining method</li>
-  <li><strong>Reversible:</strong> Easy to desolder and rework</li>
-</ol>
+  <h3 id="64-adhesive-bonding">6.4 IV. Adhesive Bonding</h3>
+  <p><strong>Definition:</strong> Joining surfaces using polymeric adhesive that hardens via chemical reaction, moisture
+    absorption, or heat. No melting of base or filler.</p>
+  <p><strong>Mechanism:</strong> Mechanical interlocking + van der Waals/hydrogen bonding</p>
+  <p><strong>Temperature:</strong> Room temperature to mild heating (no arc, no high temp)</p>
+  <p><strong>Joint Types:</strong> Primarily lap joints (overlapped surfaces)</p>
 
-<p><strong>Key Disadvantages:</strong></p>
-<ol>
-  <li><strong>Weak mechanical strength:</strong> NOT for structural loads</li>
-  <li><strong>Temperature sensitive:</strong> Joint weak at high operating temp (&gt;100°C)</li>
-  <li><strong>Corrosion risk:</strong> Flux residue if not cleaned</li>
-  <li><strong>Joint quality varies:</strong> Operator-dependent (cold solder joints fail)</li>
-  <li><strong>Creep:</strong> Solder deforms over years (reliability issue)</li>
-</ol>
+  <p><strong>Adhesive Types:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Adhesive</th>
+        <th>Composition</th>
+        <th>Cure Method</th>
+        <th>Strength</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Epoxy</strong></td>
+        <td>Resin + Hardener (2-part)</td>
+        <td>Chemical (exothermic)</td>
+        <td>Very high</td>
+        <td>Metals, composites, ceramics, aerospace</td>
+      </tr>
+      <tr>
+        <td><strong>Cyanoacrylate</strong></td>
+        <td>Single component</td>
+        <td>Moisture-activated</td>
+        <td>Moderate</td>
+        <td>Plastics, rubber, instant bonding</td>
+      </tr>
+      <tr>
+        <td><strong>Polyurethane</strong></td>
+        <td>Polyol + Isocyanate (2-part)</td>
+        <td>Moisture-cured (or heat)</td>
+        <td>High</td>
+        <td>Metals, wood, flexible joints, automotive</td>
+      </tr>
+      <tr>
+        <td><strong>Acrylic</strong></td>
+        <td>Monomer + Peroxide (2-part)</td>
+        <td>Self-initiating</td>
+        <td>High</td>
+        <td>Painted surfaces, metals</td>
+      </tr>
+      <tr>
+        <td><strong>Silicone</strong></td>
+        <td>Polymer backbone (1 or 2-part)</td>
+        <td>Moisture or heat</td>
+        <td>Flexible (low shear)</td>
+        <td>Seals, vibration isolation, thermal control</td>
+      </tr>
+    </tbody>
+  </table>
 
-<p><strong>Best For:</strong> Electronics, PCB assembly, electrical wiring, plumbing</p>
-<p><strong>Soldering Quality (Defects):</strong></p>
-<ul>
-  <li><strong>Cold Solder Joint:</strong> Incomplete melting $\rightarrow$ high resistance $\rightarrow$ joint fails</li>
-  <li><strong>Dry Joint:</strong> Solder ball not bonded $\rightarrow$ electrical open circuit</li>
-  <li><strong>Voids/Bubbles:</strong> Flux vapor trapped $\rightarrow$ weak joint</li>
-</ul>
-<div class="callout callout-focus">
-<strong>🎯 Exam Points:</strong>
-<ul>
-  <li>Solder melts, base metal does NOT</li>
-  <li>Temperature &lt;450°C (soft solder ~200–300°C)</li>
-  <li>Primary use: electronics, not structural</li>
-  <li>Eutectic 63-37 Sn-Pb flows best (183°C melting)</li>
-  <li>Lead-free solder 96.5Sn-3.5Ag melts at ~221°C (higher than Pb-Sn)</li>
-</ul>
-</div>
+  <p><strong>Surface Preparation (CRITICAL):</strong></p>
+  <p>Proper surface prep is <strong>more important than adhesive type</strong>.</p>
+  <ol>
+    <li><strong>Degrease:</strong> Remove oils, wax (solvent wash or alkaline bath)</li>
+    <li><strong>Mechanical abrasion:</strong> Roughen surface (sandpaper, grit blasting)</li>
+    <li><strong>Chemical treatment:</strong> Remove oxides (acid etch for Al, chromate conversion)</li>
+    <li><strong>Cleanliness:</strong> Avoid dust, moisture at application</li>
+    <li><strong>Timing:</strong> Use adhesive within recommended time after prep</li>
+  </ol>
+  <p><strong>Why critical?</strong> Oxide layer prevents molecular contact $\rightarrow$ poor wetting $\rightarrow$ bond
+    fails</p>
 
-<hr />
+  <p><strong>Joint Design:</strong></p>
+  <p><strong>Lap Joint Shear Stress:</strong></p>
+  <div class="formula-card">$$\boxed{\tau = \frac{\text{Load}}{\text{Overlap Length} \times \text{Width}} = \frac{F}{L
+    \times W}}$$</div>
+  <p><em>Stronger joints: Longer overlap, wider width, multiple adhesive layers</em></p>
+  <p><strong>Typical overlap:</strong> 25–50 mm (more overlap = stronger, but diminishing returns)</p>
+  <p><strong>Stress Distribution:</strong> Concentrated at edges (peel stress risk)</p>
+  <p><strong>Multi-layer joints:</strong> Use film adhesive between layers for better stress distribution</p>
 
-<h3 id="64-adhesive-bonding">6.4 IV. Adhesive Bonding</h3>
-<p><strong>Definition:</strong> Joining surfaces using polymeric adhesive that hardens via chemical reaction, moisture absorption, or heat. No melting of base or filler.</p>
-<p><strong>Mechanism:</strong> Mechanical interlocking + van der Waals/hydrogen bonding</p>
-<p><strong>Temperature:</strong> Room temperature to mild heating (no arc, no high temp)</p>
-<p><strong>Joint Types:</strong> Primarily lap joints (overlapped surfaces)</p>
+  <p><strong>Key Advantages:</strong></p>
+  <ol>
+    <li><strong>No thermal distortion:</strong> Low temperature (room temp)</li>
+    <li><strong>Dissimilar materials:</strong> Bonds plastics, composites, metals, ceramics</li>
+    <li><strong>Low cost:</strong> Cheaper than welding/brazing equipment</li>
+    <li><strong>Large area bonding:</strong> Adhesive spreads over entire overlap</li>
+    <li><strong>Weight savings:</strong> No fasteners (rivets, bolts)</li>
+    <li><strong>Vibration damping:</strong> Adhesive layer absorbs vibration</li>
+    <li><strong>Corrosion resistance:</strong> No metal-to-metal contact $\rightarrow$ no galvanic corrosion</li>
+  </ol>
 
-<p><strong>Adhesive Types:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Adhesive</th>
-<th>Composition</th>
-<th>Cure Method</th>
-<th>Strength</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Epoxy</strong></td>
-<td>Resin + Hardener (2-part)</td>
-<td>Chemical (exothermic)</td>
-<td>Very high</td>
-<td>Metals, composites, ceramics, aerospace</td>
-</tr>
-<tr>
-<td><strong>Cyanoacrylate</strong></td>
-<td>Single component</td>
-<td>Moisture-activated</td>
-<td>Moderate</td>
-<td>Plastics, rubber, instant bonding</td>
-</tr>
-<tr>
-<td><strong>Polyurethane</strong></td>
-<td>Polyol + Isocyanate (2-part)</td>
-<td>Moisture-cured (or heat)</td>
-<td>High</td>
-<td>Metals, wood, flexible joints, automotive</td>
-</tr>
-<tr>
-<td><strong>Acrylic</strong></td>
-<td>Monomer + Peroxide (2-part)</td>
-<td>Self-initiating</td>
-<td>High</td>
-<td>Painted surfaces, metals</td>
-</tr>
-<tr>
-<td><strong>Silicone</strong></td>
-<td>Polymer backbone (1 or 2-part)</td>
-<td>Moisture or heat</td>
-<td>Flexible (low shear)</td>
-<td>Seals, vibration isolation, thermal control</td>
-</tr>
-</tbody>
-</table>
+  <p><strong>Key Disadvantages:</strong></p>
+  <ol>
+    <li><strong>Strength limited:</strong> Lower than welding (~30–60 MPa typical vs. 250+ MPa welding)</li>
+    <li><strong>Temperature sensitive:</strong> Strength drops at high temp (above 80–150°C depending on adhesive)</li>
+    <li><strong>Moisture degradation:</strong> Many adhesives weaken if exposed to water</li>
+    <li><strong>Cure time:</strong> Slow (hours to days) vs. instant mechanical fastening</li>
+    <li><strong>Gap filling poor:</strong> Requires thin, uniform bondline (typically &lt;0.5 mm)</li>
+    <li><strong>Inspection difficult:</strong> Joint strength hidden (NDT needed)</li>
+    <li><strong>Environmental factors:</strong> UV, thermal cycling degrade bond over time</li>
+    <li><strong>Skill needed:</strong> Surface prep is tedious and critical</li>
+  </ol>
 
-<p><strong>Surface Preparation (CRITICAL):</strong></p>
-<p>Proper surface prep is <strong>more important than adhesive type</strong>.</p>
-<ol>
-  <li><strong>Degrease:</strong> Remove oils, wax (solvent wash or alkaline bath)</li>
-  <li><strong>Mechanical abrasion:</strong> Roughen surface (sandpaper, grit blasting)</li>
-  <li><strong>Chemical treatment:</strong> Remove oxides (acid etch for Al, chromate conversion)</li>
-  <li><strong>Cleanliness:</strong> Avoid dust, moisture at application</li>
-  <li><strong>Timing:</strong> Use adhesive within recommended time after prep</li>
-</ol>
-<p><strong>Why critical?</strong> Oxide layer prevents molecular contact $\rightarrow$ poor wetting $\rightarrow$ bond fails</p>
+  <p><strong>Failure Modes:</strong></p>
+  <ol>
+    <li><strong>Adhesive Failure:</strong> Glue breaks internally (cohesive failure of adhesive)</li>
+    <li><strong>Adhesive-Substrate Failure:</strong> Glue peels from surface (poor wetting or prep)</li>
+    <li><strong>Substrate Failure:</strong> Base material tears (joint actually strong)</li>
+    <li><strong>Peel Failure:</strong> Stress concentrated at edges (bending moment)</li>
+  </ol>
 
-<p><strong>Joint Design:</strong></p>
-<p><strong>Lap Joint Shear Stress:</strong></p>
-<div class="formula-card">$$\boxed{\tau = \frac{\text{Load}}{\text{Overlap Length} \times \text{Width}} = \frac{F}{L \times W}}$$</div>
-<p><em>Stronger joints: Longer overlap, wider width, multiple adhesive layers</em></p>
-<p><strong>Typical overlap:</strong> 25–50 mm (more overlap = stronger, but diminishing returns)</p>
-<p><strong>Stress Distribution:</strong> Concentrated at edges (peel stress risk)</p>
-<p><strong>Multi-layer joints:</strong> Use film adhesive between layers for better stress distribution</p>
+  <p><strong>Best For:</strong></p>
+  <ul>
+    <li>Aerospace structures (composites, weight-critical)</li>
+    <li>Automotive (lightweight, noise damping)</li>
+    <li>Electronics (low-temp bonding)</li>
+    <li>Medical devices (no contamination risk)</li>
+    <li>Composite assembly (Carbon-fiber, glass-fiber laminates)</li>
+    <li>Plastic/rubber seals and gaskets</li>
+  </ul>
 
-<p><strong>Key Advantages:</strong></p>
-<ol>
-  <li><strong>No thermal distortion:</strong> Low temperature (room temp)</li>
-  <li><strong>Dissimilar materials:</strong> Bonds plastics, composites, metals, ceramics</li>
-  <li><strong>Low cost:</strong> Cheaper than welding/brazing equipment</li>
-  <li><strong>Large area bonding:</strong> Adhesive spreads over entire overlap</li>
-  <li><strong>Weight savings:</strong> No fasteners (rivets, bolts)</li>
-  <li><strong>Vibration damping:</strong> Adhesive layer absorbs vibration</li>
-  <li><strong>Corrosion resistance:</strong> No metal-to-metal contact $\rightarrow$ no galvanic corrosion</li>
-</ol>
+  <div class="callout callout-focus">
+    <strong>🎯 Exam Points:</strong>
+    <ul>
+      <li>No melting of base or filler—adhesive hardens via chemical/moisture</li>
+      <li>Surface preparation is CRITICAL (oxides prevent bonding)</li>
+      <li>Primary limitation: lower strength, temperature sensitivity, moisture</li>
+      <li>Epoxy strongest (~30–50 MPa shear); suitable for metals and composites</li>
+      <li>Lap joint shear stress = Load / (Overlap $\times$ Width)</li>
+      <li>Adhesive failure vs. substrate failure vs. peel failure</li>
+    </ul>
+  </div>
 
-<p><strong>Key Disadvantages:</strong></p>
-<ol>
-  <li><strong>Strength limited:</strong> Lower than welding (~30–60 MPa typical vs. 250+ MPa welding)</li>
-  <li><strong>Temperature sensitive:</strong> Strength drops at high temp (above 80–150°C depending on adhesive)</li>
-  <li><strong>Moisture degradation:</strong> Many adhesives weaken if exposed to water</li>
-  <li><strong>Cure time:</strong> Slow (hours to days) vs. instant mechanical fastening</li>
-  <li><strong>Gap filling poor:</strong> Requires thin, uniform bondline (typically &lt;0.5 mm)</li>
-  <li><strong>Inspection difficult:</strong> Joint strength hidden (NDT needed)</li>
-  <li><strong>Environmental factors:</strong> UV, thermal cycling degrade bond over time</li>
-  <li><strong>Skill needed:</strong> Surface prep is tedious and critical</li>
-</ol>
+  <hr />
 
-<p><strong>Failure Modes:</strong></p>
-<ol>
-  <li><strong>Adhesive Failure:</strong> Glue breaks internally (cohesive failure of adhesive)</li>
-  <li><strong>Adhesive-Substrate Failure:</strong> Glue peels from surface (poor wetting or prep)</li>
-  <li><strong>Substrate Failure:</strong> Base material tears (joint actually strong)</li>
-  <li><strong>Peel Failure:</strong> Stress concentrated at edges (bending moment)</li>
-</ol>
+  <h3 id="65-quick-comparison-table-ssc-je-quick-reference">6.5 V. Quick Comparison Table (SSC JE Quick Reference)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Process</th>
+        <th>Base Melts?</th>
+        <th>Filler Melts?</th>
+        <th>Temp (°C)</th>
+        <th>Strength</th>
+        <th>Speed</th>
+        <th>Cost</th>
+        <th>Best Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>SMAW</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>1700–2000</td>
+        <td>Very high</td>
+        <td>Slow</td>
+        <td>Very low</td>
+        <td>Manual, repairs</td>
+      </tr>
+      <tr>
+        <td><strong>MIG/GMAW</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>1700–2000</td>
+        <td>Very high</td>
+        <td>Fast</td>
+        <td>Low-med</td>
+        <td>Production, sheet</td>
+      </tr>
+      <tr>
+        <td><strong>TIG/GTAW</strong></td>
+        <td>Yes</td>
+        <td>No (W)</td>
+        <td>1700–2000</td>
+        <td>Very high</td>
+        <td>Slow</td>
+        <td>High</td>
+        <td>Precision, Al</td>
+      </tr>
+      <tr>
+        <td><strong>Spot Weld</strong></td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>1200–1600</td>
+        <td>High</td>
+        <td>Very fast</td>
+        <td>Medium</td>
+        <td>Automotive, sheet</td>
+      </tr>
+      <tr>
+        <td><strong>Oxy-fuel</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>1700–2000</td>
+        <td>High</td>
+        <td>Very slow</td>
+        <td>Low</td>
+        <td>Repair, field</td>
+      </tr>
+      <tr>
+        <td><strong>SAW</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Very high</td>
+        <td>Very high</td>
+        <td>Fast</td>
+        <td>Medium</td>
+        <td>Heavy plate</td>
+      </tr>
+      <tr>
+        <td><strong>Brazing</strong></td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>450–900</td>
+        <td>Medium (60–70% of base)</td>
+        <td>Medium</td>
+        <td>Medium-high</td>
+        <td>Dissimilar metals</td>
+      </tr>
+      <tr>
+        <td><strong>Soldering</strong></td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>200–450</td>
+        <td>Low</td>
+        <td>Fast</td>
+        <td>Very low</td>
+        <td>Electronics only</td>
+      </tr>
+      <tr>
+        <td><strong>Adhesive</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>~25</td>
+        <td>Low-medium</td>
+        <td>Medium</td>
+        <td>Low</td>
+        <td>Composites, plastics</td>
+      </tr>
+    </tbody>
+  </table>
 
-<p><strong>Best For:</strong></p>
-<ul>
-  <li>Aerospace structures (composites, weight-critical)</li>
-  <li>Automotive (lightweight, noise damping)</li>
-  <li>Electronics (low-temp bonding)</li>
-  <li>Medical devices (no contamination risk)</li>
-  <li>Composite assembly (Carbon-fiber, glass-fiber laminates)</li>
-  <li>Plastic/rubber seals and gaskets</li>
-</ul>
+  <hr />
 
-<div class="callout callout-focus">
-<strong>🎯 Exam Points:</strong>
-<ul>
-  <li>No melting of base or filler—adhesive hardens via chemical/moisture</li>
-  <li>Surface preparation is CRITICAL (oxides prevent bonding)</li>
-  <li>Primary limitation: lower strength, temperature sensitivity, moisture</li>
-  <li>Epoxy strongest (~30–50 MPa shear); suitable for metals and composites</li>
-  <li>Lap joint shear stress = Load / (Overlap $\times$ Width)</li>
-  <li>Adhesive failure vs. substrate failure vs. peel failure</li>
-</ul>
-</div>
-
-<hr />
-
-<h3 id="65-quick-comparison-table-ssc-je-quick-reference">6.5 V. Quick Comparison Table (SSC JE Quick Reference)</h3>
-<table>
-<thead>
-<tr>
-<th>Process</th>
-<th>Base Melts?</th>
-<th>Filler Melts?</th>
-<th>Temp (°C)</th>
-<th>Strength</th>
-<th>Speed</th>
-<th>Cost</th>
-<th>Best Use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SMAW</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>1700–2000</td>
-<td>Very high</td>
-<td>Slow</td>
-<td>Very low</td>
-<td>Manual, repairs</td>
-</tr>
-<tr>
-<td><strong>MIG/GMAW</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>1700–2000</td>
-<td>Very high</td>
-<td>Fast</td>
-<td>Low-med</td>
-<td>Production, sheet</td>
-</tr>
-<tr>
-<td><strong>TIG/GTAW</strong></td>
-<td>Yes</td>
-<td>No (W)</td>
-<td>1700–2000</td>
-<td>Very high</td>
-<td>Slow</td>
-<td>High</td>
-<td>Precision, Al</td>
-</tr>
-<tr>
-<td><strong>Spot Weld</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>1200–1600</td>
-<td>High</td>
-<td>Very fast</td>
-<td>Medium</td>
-<td>Automotive, sheet</td>
-</tr>
-<tr>
-<td><strong>Oxy-fuel</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>1700–2000</td>
-<td>High</td>
-<td>Very slow</td>
-<td>Low</td>
-<td>Repair, field</td>
-</tr>
-<tr>
-<td><strong>SAW</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Very high</td>
-<td>Very high</td>
-<td>Fast</td>
-<td>Medium</td>
-<td>Heavy plate</td>
-</tr>
-<tr>
-<td><strong>Brazing</strong></td>
-<td>No</td>
-<td>Yes</td>
-<td>450–900</td>
-<td>Medium (60–70% of base)</td>
-<td>Medium</td>
-<td>Medium-high</td>
-<td>Dissimilar metals</td>
-</tr>
-<tr>
-<td><strong>Soldering</strong></td>
-<td>No</td>
-<td>Yes</td>
-<td>200–450</td>
-<td>Low</td>
-<td>Fast</td>
-<td>Very low</td>
-<td>Electronics only</td>
-</tr>
-<tr>
-<td><strong>Adhesive</strong></td>
-<td>No</td>
-<td>No</td>
-<td>~25</td>
-<td>Low-medium</td>
-<td>Medium</td>
-<td>Low</td>
-<td>Composites, plastics</td>
-</tr>
-</tbody>
-</table>
-
-<hr />
-
-<h3 id="66-highest-frequency-ssc-je-mcqs-revision-focus">6.6 VI. Highest-Frequency SSC JE MCQs (Revision Focus)</h3>
-<p><strong>Setup your flashcard deck with these:</strong></p>
-<ol>
-  <li>"Why is TIG preferred for aluminum?" $\rightarrow$ <em>Inert gas prevents oxidation; no flux inclusion</em></li>
-  <li>"Spot welding uses ___?" $\rightarrow$ <em>Pressure + high current; no filler</em></li>
-  <li>"SAW disadvantage ___?" $\rightarrow$ <em>Flat position only; high distortion</em></li>
-  <li>"Oxy-acetylene reducing flame prevents ___?" $\rightarrow$ <em>Oxidation of Al, Mg, Cu</em></li>
-  <li>"Brazing joint clearance ___?" $\rightarrow$ <em>0.05–0.1 mm (capillary action)</em></li>
-  <li>"Solder 63-37 melts at ___?" $\rightarrow$ <em>~183°C (eutectic point)</em></li>
-  <li>"Adhesive bonding best for ___?" $\rightarrow$ <em>Composites, plastics, dissimilar metals</em></li>
-  <li>"Cold solder joint causes ___?" $\rightarrow$ <em>High resistance, intermittent electrical failure</em></li>
-  <li>"SMAW electrode E7018 means ___?" $\rightarrow$ <em>70,000 psi, all-position, low hydrogen</em></li>
-  <li>"MIG outside in wind fails because ___?" $\rightarrow$ <em>Gas blown away; no shielding</em></li>
-</ol>
+  <h3 id="66-highest-frequency-ssc-je-mcqs-revision-focus">6.6 VI. Highest-Frequency SSC JE MCQs (Revision Focus)</h3>
+  <p><strong>Setup your flashcard deck with these:</strong></p>
+  <ol>
+    <li>"Why is TIG preferred for aluminum?" $\rightarrow$ <em>Inert gas prevents oxidation; no flux inclusion</em></li>
+    <li>"Spot welding uses ___?" $\rightarrow$ <em>Pressure + high current; no filler</em></li>
+    <li>"SAW disadvantage ___?" $\rightarrow$ <em>Flat position only; high distortion</em></li>
+    <li>"Oxy-acetylene reducing flame prevents ___?" $\rightarrow$ <em>Oxidation of Al, Mg, Cu</em></li>
+    <li>"Brazing joint clearance ___?" $\rightarrow$ <em>0.05–0.1 mm (capillary action)</em></li>
+    <li>"Solder 63-37 melts at ___?" $\rightarrow$ <em>~183°C (eutectic point)</em></li>
+    <li>"Adhesive bonding best for ___?" $\rightarrow$ <em>Composites, plastics, dissimilar metals</em></li>
+    <li>"Cold solder joint causes ___?" $\rightarrow$ <em>High resistance, intermittent electrical failure</em></li>
+    <li>"SMAW electrode E7018 means ___?" $\rightarrow$ <em>70,000 psi, all-position, low hydrogen</em></li>
+    <li>"MIG outside in wind fails because ___?" $\rightarrow$ <em>Gas blown away; no shielding</em></li>
+  </ol>
 </body>
+
 </html>
