@@ -1,354 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Powder Metallurgy — AP GenCo Exam Guide</title>
-  <script>
-MathJax = {
-  tex: {
-    inlineMath:  [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-  <style>
-  * { box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powder Metallurgy — Competitive Exam Revision Guide</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.85;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
 
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
 
-  h3 { font-size: 14pt; color: #664229; }
-  h4 { font-size: 12pt; color: #4A2E1B; }
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
 
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
 
-  code {
-    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
 
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
+        a:hover {
+            text-decoration: underline;
+        }
 
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
 
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
 
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
 
-  tr:nth-child(even) { background-color: #FDFBF7; }
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+            font-size: 10.5pt;
+        }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #E2D9CC;
-  }
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
 
-  /* MathJax overflow guard */
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
 
-  /* ── formula-card ─────────────────────────────────────────────────────────
-     PLAIN display only.  NO background-color, NO border, NO border-radius.
-     User mandate: "drop the green background for all the formulas"  */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-    font-size: 1.05em;
-  }
-</style>
+        .formula-box,
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            border-radius: 4px;
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            font-size: 10pt;
+            line-height: 1.7;
+        }
+
+        .process-flow {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 14px 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            font-size: 10.5pt;
+            line-height: 1.6;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .emphasis {
+            background: #FFEAA7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .key-term {
+            color: #664229;
+            font-weight: 600;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .katex-display,
+        .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
+
 <body id="preview">
-  <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding & Joining</a>
-</div>
-  <h1 id="powder-metallurgy-process-sequence-sintering-mechanics-secondary-operations-applications">Powder Metallurgy: Process Sequence, Sintering Mechanics, Secondary Operations &amp; Applications</h1>
-<h2 id="1-topic-overview">1. Topic Overview</h2>
-<p>This guide covers Powder Metallurgy (P/M) for competitive engineering exams (AP Genco AE, SSC JE, RRB JE). Key areas tested in PYQs include the strict 4-step process sequence (Powder Production $\rightarrow$ Blending $\rightarrow$ Compacting $\rightarrow$ Sintering), green compact properties, solid-state diffusion during sintering (below melting point), secondary finishing operations (Impregnation vs Infiltration), and primary industrial applications (tungsten carbide cutting inserts and self-lubricating bearings). All definitions, formulas, flowcharts, and worked examples are consolidated below.</p>
-<h2 id="2-quick-reference-sheet">2. Quick Reference Sheet</h2>
-<h3 id="21-all-formulas">2.1 All Formulas</h3>
-<p><strong>Green Compact Mass Balance</strong></p>
-<p><div class="formula-card">$$\boxed{m_{\text{powder}} = m_{\text{green}}}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$m_{\text{powder}}$</td>
-<td>mass of blended metal powder mixture</td>
-<td>g / kg</td>
-</tr>
-<tr>
-<td>$m_{\text{green}}$</td>
-<td>mass of unsintered (green) compact</td>
-<td>g / kg</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Sintering Temperature Criterion</strong></p>
-<p><div class="formula-card">$$\boxed{T_{\text{sintering}} \approx $0.7 \text{ to } 0.8$ \cdot T_m}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$T_{\text{sintering}}$</td>
-<td>sintering temperature</td>
-<td>K or $^\circ\text{C}$</td>
-</tr>
-<tr>
-<td>$T_m$</td>
-<td>melting point of major constituent metal</td>
-<td>K or $^\circ\text{C}$</td>
-</tr>
-</tbody>
-</table>
-<p><em>Note: Sintering occurs in the solid state below the melting temperature $T_{\text{sintering}} &lt; T_m$; particles bond via atomic diffusion without bulk melting.</em></p>
-<h3 id="22-key-definitions-master-concepts">2.2 Key Definitions &amp; Master Concepts</h3>
-<ul>
-<li><strong>Powder Metallurgy (P/M)</strong>: Manufacturing process that produces dense metal components by pressing metal powders into shape in dies and heating the compact below its melting point.</li>
-<li><strong>Blending / Mixing</strong>: Mixing pure metal powders with alloying elements, solid lubricants (e.g., graphite, stearic acid), or binders to achieve uniform chemical composition and flow properties.</li>
-<li><strong>Compacting</strong>: Cold pressing of blended powder inside a die cavity under high pressure $100\text{--}800\text{ MPa}$ to form a shaped green compact.</li>
-<li><strong>Green Compact</strong>: The unsintered powder press specimen; holds its shape solely by mechanical interlocking of powder particles.</li>
-<li><strong>Sintering</strong>: Thermal treatment of green compact in a controlled atmosphere furnace below the major constituent's melting point to create metallurgical bonds via atomic diffusion.</li>
-<li><strong>Impregnation</strong>: Secondary finishing operation where open pores of a sintered part are filled with oil or liquid lubricant under vacuum (used for self-lubricating bearings).</li>
-<li><strong>Infiltration</strong>: Secondary finishing operation where open pores of a sintered compact are filled with a molten lower-melting-point metal (e.g., copper into iron) to increase density and strength.</li>
-<li><strong>Coining / Sizing</strong>: Post-sintering press operation used to improve dimensional accuracy, surface finish, and mechanical strength.</li>
-</ul>
-<h3 id="23-standard-values-constants">2.3 Standard Values &amp; Constants</h3>
-<ul>
-<li><strong>Process Sequence Order</strong>: Powder Production $\rightarrow$ Blending $\rightarrow$ Compacting $\rightarrow$ Sintering (STRICT ORDER - Never change).</li>
-<li><strong>Sintering Temperature Range</strong>: $70\text{--}80\%$ of absolute melting point $T_m$.</li>
-<li><strong>Compacting Pressure Range</strong>: $100 \text{ to } 800 \text{ MPa}$ $1 \text{ to } 8 \text{ t/cm}^2$.</li>
-<li><strong>Mass Relation</strong>: Weight of raw powder = Weight of green compact = Weight of sintered part.</li>
-<li><strong>Primary Application Material</strong>: Tungsten Carbide (WC) cutting inserts &amp; tool bits.</li>
-</ul>
-<h3 id="24-cross-reference-map">2.4 Cross-Reference Map</h3>
-<ul>
-<li><strong>Process Sequence &amp; Steps</strong>: Detailed in Section 3.1.</li>
-<li><strong>Sintering Mechanism &amp; Objectives</strong>: Detailed in Section 3.2.</li>
-<li><strong>Secondary Operations (Impregnation vs Infiltration)</strong>: Detailed in Section 3.3.</li>
-<li><strong>Industrial Applications &amp; Material Selection</strong>: Detailed in Section 3.4.</li>
-</ul>
-<hr />
-<h2 id="3-main-body">3. Main Body</h2>
-<h3 id="31-sequence-of-operations-compacting">3.1 Sequence of Operations &amp; Compacting</h3>
-<h5 id="1-concept-pointers">1. Concept Pointers</h5>
-<ul>
-<li>The manufacturing sequence is fixed: <strong>1. Powder Production $\rightarrow$ 2. Blending $\rightarrow$ 3. Compacting $\rightarrow$ 4. Sintering</strong>.</li>
-<li>Compacting is performed <em>after</em> blending raw metal powders with lubricants (like graphite or zinc stearate) to reduce die friction.</li>
-<li>Compacting gives the loose powder its geometrical shape and green strength so it can be handled safely.</li>
-<li>Mass is strictly conserved: Mass of loose powder = Mass of green compact = Mass of final sintered component.</li>
-</ul>
-<h5 id="2-formulas">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{m_{\text{powder}} = m_{\text{green}} = m_{\text{sintered}}}$$</div></p>
-<h5 id="3-diagram">3. Diagram</h5>
-<pre><code>[1. Powder Production] ──► [2. Blending / Mixing] ──► [3. Compacting (Die Press)] ──► [4. Sintering Furnace]
-                                                                                            │
-                                                                                            ▼
-                                                                                  [Secondary Operations]
-                                                                                (Impregnation/Infiltration)
-</code></pre>
-<p><em>Flowchart of standard Powder Metallurgy manufacturing sequence.</em></p>
-<h5 id="4-worked-example">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> An exam question lists four steps in powder metallurgy: Compacting, Powder Production, Sintering, Blending.<br />
-<strong>Find:</strong> Correct chronological order of operations.</p>
-<p><strong>Solution:</strong>
-1. Step 1: Raw powder is manufactured (Powder Production).
-2. Step 2: Powders and lubricants are mixed uniformly (Blending).
-3. Step 3: Mixed powder is pressed into die shape (Compacting).
-4. Step 4: Green compact is heated to bond particles (Sintering).
-5. <strong>Answer:</strong> Powder Production $\rightarrow$ Blending $\rightarrow$ Compacting $\rightarrow$ Sintering.</p>
-<p><strong>Key Insight:</strong> Any option starting with compacting or placing sintering before compacting is incorrect.</p>
-<hr />
-<h3 id="32-sintering-mechanism-objectives">3.2 Sintering Mechanism &amp; Objectives</h3>
-<h5 id="1-concept-pointers_1">1. Concept Pointers</h5>
-<ul>
-<li>Sintering heats the green compact in a protective/reducing furnace atmosphere (hydrogen, dissociated ammonia) below the major constituent's melting point.</li>
-<li><strong>Particles DO NOT melt</strong>: Metallurgical bonding occurs strictly through solid-state atomic diffusion (surface diffusion, volume diffusion, grain boundary diffusion).</li>
-<li>Objectives of sintering:</li>
-<li>Establish metallic/crystalline bonding between powder particles.</li>
-<li>Increase density, strength, and hardness of the part.</li>
-<li>Reduce internal porosity and brittleness.</li>
-<li>Remove surface oxide films via reducing furnace atmosphere.</li>
-<li>Densification during sintering is driven by diffusion mechanisms, NOT by grain growth.</li>
-<li>Shrinkage during sintering depends on compacting pressure, particle size, sintering temperature, and furnace hold time.</li>
-</ul>
-<h5 id="2-formulas_1">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1 &amp; 2.3.</p>
-<p><div class="formula-card">$$\boxed{T_{\text{sintering}} &lt; T_m \quad \text{(Solid-State Diffusion Bonding)}}$$</div></p>
-<h5 id="3-diagram_1">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for neck formation between adjacent powder particles during solid-state diffusion.</em></p>
-<h5 id="4-worked-example_1">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Statement: "During sintering of a metal powder compact, powder particles melt completely to fuse the joint."<br />
-<strong>Find:</strong> Whether this statement is True or False.</p>
-<p><strong>Solution:</strong>
-1. Sintering is conducted at $70\text{--}80\%$ of absolute melting temperature $T_m$.
-2. Bulk melting does NOT occur; bonding is governed by solid-state atomic diffusion across particle contact necks.
-3. <strong>Answer:</strong> False (Particles do NOT melt).</p>
-<p><strong>Key Insight:</strong> Sintering is a solid-state diffusion process; complete melting is a common distracter in MCQs.</p>
-<hr />
-<h3 id="33-secondary-finishing-operations-impregnation-vs-infiltration">3.3 Secondary Finishing Operations (Impregnation vs Infiltration)</h3>
-<h5 id="1-concept-pointers_2">1. Concept Pointers</h5>
-<ul>
-<li>Sintered parts inherent contain interconnected micro-porosity $5\text{--}25\%$.</li>
-<li><strong>Impregnation</strong>: Filling pores with <strong>oil or liquid lubricant</strong> under vacuum. Used specifically to produce self-lubricating bearings (e.g., sintered bronze bushing).</li>
-<li><strong>Infiltration</strong>: Filling open pores with a <strong>lower-melting-point molten metal</strong> (e.g., liquid copper into an iron compact) by capillary force to eliminate porosity, increase density, and improve mechanical strength.</li>
-<li>Sintering is a <em>primary</em> process; Impregnation, Infiltration, Coining, and Heat Treatment are <em>secondary</em> finishing processes.</li>
-</ul>
-<h5 id="2-formulas_2">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.2.</p>
-<p><div class="formula-card">$$\boxed{\text{Impregnation} = \text{Pores + Oil/Lubricant (Self-Lubrication)}}$$</div></p>
-<p><div class="formula-card">$$\boxed{\text{Infiltration} = \text{Pores + Molten Lower-Melting Metal (Densification)}}$$</div></p>
-<h5 id="3-diagram_2">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for liquid metal infiltration vs oil impregnation in porous sintered structures.</em></p>
-<h5 id="4-worked-example_2">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> A sintered porous metal bearing is immersed in hot oil under vacuum to allow oil absorption into its pores.<br />
-<strong>Find:</strong> Name of this secondary operation.</p>
-<p><strong>Solution:</strong>
-1. Filling pores with oil/lubricant for self-lubrication is called impregnation.
-2. Filling pores with molten metal for density/strength is infiltration.
-3. <strong>Answer:</strong> Impregnation.</p>
-<p><strong>Key Insight:</strong> Remember: <strong>O</strong>il = Impregnati<strong>o</strong>n (Self-lubricating); <strong>M</strong>etal = Infiltration (Strength/Density).</p>
-<hr />
-<h3 id="34-industrial-applications-material-selection">3.4 Industrial Applications &amp; Material Selection</h3>
-<h5 id="1-concept-pointers_3">1. Concept Pointers</h5>
-<ul>
-<li>Powder Metallurgy is uniquely suited for materials with extremely high melting points or materials that are immiscible in liquid state.</li>
-<li><strong>Primary Application</strong>: <strong>Tungsten Carbide (WC) cutting tools and inserts</strong> (cobalt binder + WC powder).</li>
-<li><strong>Self-lubricating bearings</strong>: Sintered bronze/iron bushings impregnated with oil (used in automotive motors, home appliances).</li>
-<li><strong>Porous metal filters</strong>: Sintered bronze/stainless steel filters for chemical and fuel filtration.</li>
-<li>Complex small components: Gears, cams, structural lock parts made with minimal material waste and zero machining (near-net-shape manufacturing).</li>
-</ul>
-<h5 id="2-formulas_3">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.3.</p>
-<p><div class="formula-card">$$\boxed{\text{Top P/M Applications: Tungsten Carbide Tools, Self-Lubricating Bearings, Porous Filters}}$$</div></p>
-<h5 id="3-diagram_3">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook images for sintered tungsten carbide tool inserts.</em></p>
-<h5 id="4-worked-example_3">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Tungsten carbide tool inserts are difficult to cast due to the extremely high melting point of tungsten $3422^\circ\text{C}$.<br />
-<strong>Find:</strong> Preferred manufacturing method for tungsten carbide inserts.</p>
-<p><strong>Solution:</strong>
-1. Extremely high melting point materials cannot be easily cast or machined.
-2. Powder metallurgy blends WC powder with cobalt binder, compacts, and sinters below melting point.
-3. <strong>Answer:</strong> Powder Metallurgy.</p>
-<p><strong>Key Insight:</strong> Tungsten carbide tool bits are the single most frequently cited application of powder metallurgy in AE/JE exams.</p>
-<hr />
-<h2 id="4-consolidation-notes">4. Consolidation Notes</h2>
-<p><strong>Note on Impregnation vs Infiltration:</strong>
-Do not confuse these two secondary operations in MCQs:
-- <strong>Impregnation</strong> uses non-metallic fluids (oil/grease/wax) to create self-lubricating components.
-- <strong>Infiltration</strong> uses molten metal (like copper in iron) to fill pores, raising density, hardness, and tensile strength. See Section 3.3.</p>
-<p><strong>Note on Sintering vs Fusion Welding/Casting:</strong>
-Unlike casting or fusion welding, sintering is a <strong>solid-state</strong> process. Solid-state diffusion forms necks between particles without bulk liquid phase formation. See Section 3.2.</p>
-<p><strong>Note on Process Priority:</strong>
-Sintering is a <strong>primary</strong> step required to establish strength. Impregnation, infiltration, coining, and sizing are optional <strong>secondary</strong> finishing steps performed <em>after</em> sintering. See Section 3.1 &amp; 3.3.</p>
-<hr />
-<h2 id="5-final-quick-fire-checklist">5. Final Quick-Fire Checklist</h2>
-<ul>
-<li>Memorize sequence: Powder Production $\rightarrow$ Blending $\rightarrow$ Compacting $\rightarrow$ Sintering.</li>
-<li>Fix green compact mass relation: Mass of raw powder = Mass of green compact.</li>
-<li>Remember sintering definition: Heating green compact <em>below</em> melting point $T_{\text{sintering}} &lt; T_m$.</li>
-<li>Fix bonding mechanism: Solid-state atomic diffusion; particles <strong>do NOT melt</strong>.</li>
-<li>Distinguish secondary operations: Impregnation = Oil filling (self-lubrication); Infiltration = Metal filling (densification).</li>
-<li>Fix primary application: Tungsten carbide tool inserts &amp; self-lubricating bearings.</li>
-<li>Know sintering classification: Sintering is a <strong>primary</strong> manufacturing process.</li>
-</ul>
-<p><strong>High-frequency PYQ focus:</strong>
-- 4-step sequence order in powder metallurgy
-- Definition and melting point criterion of sintering $T &lt; T_m$
-- Impregnation vs infiltration functional differences
-- Tungsten carbide tool production method</p>
+
+    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+        <a href="forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+        <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> |
+        <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming &amp; Forging</a> |
+        <a href="powder_metallurgy.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3. Powder Metallurgy</a> |
+        <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding &amp; Joining</a>
+    </div>
+
+    <h1>POWDER METALLURGY<br />Exam Revision Guide for Competitive Exams</h1>
+
+    <div class="exam-focus">High-frequency topics: Process sequence (Production → Blending → Compacting → Sintering),
+        Sintering solid-state diffusion ($T < T_m$), Green compact definition, Impregnation vs Infiltration, Tungsten
+            Carbide (WC) applications, Mass conservation ($m_{\text{powder}}=m_{\text{green}}=m_{\text{sintered}}$).
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>1.1 Powder Metallurgy (P/M) — Overall Definition</h3>
+    <div class="formula-box">
+        Powder Metallurgy = Manufacturing process combining:<br />
+        &nbsp;&nbsp;1. Powder production from raw metals<br />
+        &nbsp;&nbsp;2. Blending with lubricants<br />
+        &nbsp;&nbsp;3. Pressing (compacting) into die shapes<br />
+        &nbsp;&nbsp;4. Sintering (heating below melting point)<br /><br />
+        Primary use: Materials with extremely high melting points or immiscible liquid-state alloys
+    </div>
+
+    <h3>1.2 Process Sequence (Most-Tested — Exam Critical)</h3>
+    <div class="process-flow">
+        Powder Production → Blending → Compacting → Sintering → Secondary Ops
+    </div>
+    <ul>
+        <li><span class="key-term">Powder Production:</span> Raw metal powders created by atomization, reduction, or
+            mechanical grinding.</li>
+        <li><span class="key-term">Blending:</span> Mix metal powders with lubricants (graphite, zinc stearate) to
+            reduce die friction.</li>
+        <li><span class="key-term">Compacting:</span> Pressing powder in die at high pressure to form "green compact"
+            with basic shape and handling strength.</li>
+        <li><span class="key-term">Sintering:</span> Heating green compact in protective furnace atmosphere below
+            melting point.</li>
+        <li><span class="key-term">Secondary Operations:</span> Optional finishing (impregnation, infiltration,
+            coining, heat treatment).</li>
+    </ul>
+
+    <div class="img-container">
+        <img src="images/powder/pm_process_flow.jpg" alt="Powder Metallurgy Process Flow" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: Powder Metallurgy Sequence — Powder Production, Blending, Die Compaction, &amp; Sintering Furnace.</div>
+    </div>
+
+    <h3>1.3 Green Compact (Most-Tested Definition)</h3>
+    <div class="formula-box">
+        Green Compact = Loose powder after compacting in die press<br /><br />
+        Properties:<br />
+        &nbsp;&nbsp;• Has basic shape and geometry<br />
+        &nbsp;&nbsp;• Low strength but sufficient for handling<br />
+        &nbsp;&nbsp;• Mass conserved: m_powder = m_green<br /><br />
+        Next step: Must be sintered to develop full mechanical properties
+    </div>
+
+    <h3>1.4 Sintering — Solid-State Bonding (Critical Distinction)</h3>
+    <div class="formula-box">
+        Sintering = Heating green compact BELOW melting point in protective atmosphere<br /><br />
+        Temperature criterion: T_sintering &lt; T_melting (typically 70–80% of T_m)<br /><br />
+        Mechanism: SOLID-STATE atomic diffusion bonds particles<br /><br />
+        Key fact: Particles do NOT melt — bonding is diffusion-based, not fusion
+    </div>
+    <p><span class="emphasis">TRAP ALERT:</span> Exams often test "particles melt during sintering" — this is FALSE.</p>
+
+    <div class="img-container">
+        <img src="images/powder/sintering_neck_formation.png" alt="Sintering Neck Formation" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Solid-State Sintering — Particle Neck Formation &amp; Densification via Atomic Diffusion ($T &lt; T_m$).</div>
+    </div>
+
+    <h3>1.5 Sintering Objectives</h3>
+    <div class="formula-box">
+        After sintering, green compact gains:<br />
+        &nbsp;&nbsp;✓ Metallic/crystalline bonding between particles<br />
+        &nbsp;&nbsp;✓ Increased density (eliminates some porosity)<br />
+        &nbsp;&nbsp;✓ Increased strength, hardness, tensile strength<br />
+        &nbsp;&nbsp;✓ Reduced brittleness<br />
+        &nbsp;&nbsp;✓ Removal of surface oxides via reducing furnace atmosphere
+    </div>
+
+    <h3>1.6 Residual Porosity After Sintering</h3>
+    <div class="formula-box">
+        Sintered P/M parts contain: 5–25% interconnected micro-porosity<br /><br />
+        This porosity is intentional and useful for:<br />
+        &nbsp;&nbsp;• Oil impregnation (self-lubricating bearings)<br />
+        &nbsp;&nbsp;• Metal infiltration (densification)<br />
+        &nbsp;&nbsp;• Filtration applications (filters)
+    </div>
+
+    <h3>1.7 Impregnation vs Infiltration (Most-Tested Secondary Operations)</h3>
+    <div class="formula-box">
+        IMPREGNATION:<br />
+        &nbsp;&nbsp;Input: Non-metallic fluid (oil, grease, wax)<br />
+        &nbsp;&nbsp;Process: Filling pores under vacuum<br />
+        &nbsp;&nbsp;Purpose: Self-lubrication (no external oil needed)<br />
+        &nbsp;&nbsp;Example: Sintered bronze bushings in automotive motors<br /><br />
+        INFILTRATION:<br />
+        &nbsp;&nbsp;Input: Molten metal with lower melting point<br />
+        &nbsp;&nbsp;Process: Liquid metal fills open pores by capillary force<br />
+        &nbsp;&nbsp;Purpose: Densification; increases strength and hardness<br />
+        &nbsp;&nbsp;Example: Liquid copper infiltrated into iron compact
+    </div>
+    <p><span class="emphasis">Memory aid:</span> <strong>O</strong>il → Impregnati<strong>o</strong>n |
+        <strong>M</strong>etal → Infiltration</p>
+
+    <div class="img-container">
+        <img src="images/powder/impregnation_vs_infiltration.jpg" alt="Impregnation vs Infiltration" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Secondary Operations — Oil Impregnation (Self-Lubricating Bearings) vs Liquid Metal Infiltration (Densification).</div>
+    </div>
+
+    <h3>1.8 Furnace Atmosphere During Sintering</h3>
+    <div class="formula-box">
+        Protective atmospheres used:<br />
+        &nbsp;&nbsp;• Hydrogen (H₂) — reduces surface oxides<br />
+        &nbsp;&nbsp;• Dissociated ammonia (N₂ + H₂ from NH₃)<br />
+        &nbsp;&nbsp;• Nitrogen in special cases<br /><br />
+        Purpose: Prevent oxidation; remove surface oxide films that block diffusion
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas & Principles</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 Mass Conservation in P/M (Critical Principle)</h3>
+    <div class="formula-card">
+        $$m_{\text{powder}} = m_{\text{green compact}} = m_{\text{sintered part}}$$
+    </div>
+    <p><strong>Implication:</strong> No material loss in compacting or sintering (unlike casting or forging with
+        material waste).</p>
+
+    <h3>2.2 Sintering Temperature Criterion</h3>
+    <div class="formula-card">
+        $$T_{\text{sintering}} < T_{\text{melting}}$$
+    </div>
+    <p><strong>Typical range:</strong> $T_{\text{sintering}} = 0.7 \text{ to } 0.8 \times T_m$ (in Kelvin). Example:
+        Iron ($T_m = 1811\text{ K}$) sintered at $1200\text{--}1450\text{ K}$.</p>
+
+    <h3>2.3 Shrinkage During Sintering</h3>
+    <div class="formula-box">
+        Shrinkage depends on:<br />
+        &nbsp;&nbsp;• Compacting pressure (higher pressure → less shrinkage)<br />
+        &nbsp;&nbsp;• Particle size (smaller particles → more shrinkage)<br />
+        &nbsp;&nbsp;• Sintering temperature (higher T → more shrinkage)<br />
+        &nbsp;&nbsp;• Hold time in furnace (longer time → more shrinkage)<br /><br />
+        Typical shrinkage: 10–20% linear dimension reduction
+    </div>
+
+    <h3>2.4 Densification Mechanism (Exam-Tested Concept)</h3>
+    <div class="formula-box">
+        Densification during sintering is driven by:<br />
+        &nbsp;&nbsp;✓ Surface diffusion (atoms move along particle surfaces)<br />
+        &nbsp;&nbsp;✓ Volume diffusion (atoms move through particle bulk)<br />
+        &nbsp;&nbsp;✓ Grain boundary diffusion (fastest path along boundaries)<br /><br />
+        NOT driven by grain growth alone
+    </div>
+
+    <h3>2.5 Green Strength and Compacting Pressure Relation</h3>
+    <div class="formula-box">
+        Green strength increases with compacting pressure<br /><br />
+        Higher pressure → Denser green compact → Better particle contact<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
+        Higher green strength → Safer handling before sintering
+    </div>
+
+    <h3>2.6 Lubricant Role in Blending</h3>
+    <div class="formula-box">
+        Lubricants added during blending (1–2% by weight):<br />
+        &nbsp;&nbsp;• Reduce friction between powder and die walls during compacting<br />
+        &nbsp;&nbsp;• Allow uniform pressure distribution in compact<br />
+        &nbsp;&nbsp;• Improve dimensional accuracy<br />
+        &nbsp;&nbsp;• Common lubricants: Graphite, zinc stearate, lithium stearate
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>3. Secondary Operations & Industrial Applications</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>3.1 Secondary Finishing Operations (After Sintering)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Operation</th>
+                <th>Input / Method</th>
+                <th>Purpose / Outcome</th>
+                <th>Typical Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="key-term">Impregnation</span></td>
+                <td>Immerse sintered part in oil under vacuum</td>
+                <td>Pores filled with oil; creates self-lubricating component</td>
+                <td>Automotive motor bearings, home appliance bushings</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Infiltration</span></td>
+                <td>Liquid metal (Cu, Ni, Sn) fills open pores by capillary force</td>
+                <td>Eliminates porosity; increases density, strength, hardness</td>
+                <td>Iron parts with Cu infiltration for higher tensile strength</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Coining</span></td>
+                <td>Final light pressing in die to refine surface and dimensions</td>
+                <td>Improves dimensional accuracy and surface finish</td>
+                <td>Precision gears, small structural parts</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Sizing</span></td>
+                <td>Calibrated pressing to achieve exact final dimensions</td>
+                <td>Eliminates shrinkage variation from sintering</td>
+                <td>Components requiring tight tolerances</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Heat Treatment</span></td>
+                <td>Quenching, tempering, annealing after sintering</td>
+                <td>Adjusts hardness, toughness, metallurgical structure</td>
+                <td>Gears, cams, structural components</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.2 Major Industrial Applications (Most-Tested)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Application</th>
+                <th>Material System</th>
+                <th>Why P/M is Chosen</th>
+                <th>Exam Frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="key-term">Tungsten Carbide (WC) Cutting Tool Inserts</span></td>
+                <td>WC powder + Cobalt binder</td>
+                <td>Extremely high melting point (WC ≈ 2800°C); cannot be cast or machined easily</td>
+                <td><span class="emphasis">VERY HIGH</span> — single most-tested application</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Self-Lubricating Bearings (Bronze)</span></td>
+                <td>Sintered bronze (Cu-Sn)</td>
+                <td>Pores impregnated with oil; eliminates need for external lubrication</td>
+                <td>HIGH — frequently tested with impregnation</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Porous Metal Filters</span></td>
+                <td>Sintered bronze, stainless steel</td>
+                <td>Controlled porosity for filtration; can be designed for specific particle sizes</td>
+                <td>MEDIUM — appears in materials questions</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Gears & Cams</span></td>
+                <td>Iron, steel, iron-copper</td>
+                <td>Near-net-shape; minimal material waste; complex geometry possible</td>
+                <td>MEDIUM — tested with process advantages</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Magnetic Soft Magnets</span></td>
+                <td>Iron, nickel-iron alloys</td>
+                <td>Precise porosity control; tailored magnetic properties</td>
+                <td>LOW — specialized material</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Immiscible Alloys</span></td>
+                <td>Cu-Pb, Cu-Ag (alloys that separate in liquid)</td>
+                <td>P/M allows blending these materials; casting would cause segregation</td>
+                <td>MEDIUM — tests understanding of P/M advantage</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="img-container">
+        <img src="images/powder/pm_applications_gallery.webp" alt="Powder Metallurgy Applications Gallery" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 3.1: Industrial Applications — Tungsten Carbide (WC) Cutting Inserts, Sintered Bearings, &amp; P/M Gears.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><span class="key-term">Process sequence is fixed:</span> Powder Production → Blending → Compacting →
+            Sintering. Any other order in MCQ is wrong.</li>
+        <li><span class="key-term">Mass is conserved:</span> $m_{\text{powder}} = m_{\text{green}} =
+            m_{\text{sintered}}$. No material loss in P/M.</li>
+        <li><span class="key-term">Sintering is solid-state diffusion, NOT melting.</span> <span class="emphasis">TRAP:</span>
+            "Particles melt during sintering" is FALSE. Bonding occurs below melting point via atomic diffusion.</li>
+        <li><span class="key-term">Sintering temperature always satisfies</span> $T_{\text{sintering}} < T_{\text{melting}}$
+                (typically 70–80% of $T_m$).</li>
+        <li><span class="key-term">Green compact has low strength but enough to handle.</span> Full strength develops
+            only after sintering.</li>
+        <li><span class="key-term">Impregnation uses oil for self-lubrication;</span> infiltration uses molten metal for
+            densification. <span class="emphasis">FREQUENTLY TESTED TRAP.</span></li>
+        <li><span class="key-term">Residual porosity (5–25%) after sintering is intentional</span> and used for
+            impregnation or filtration applications.</li>
+        <li><span class="key-term">Tungsten carbide (WC) tool inserts are the primary P/M application.</span> Tested more
+            than any other material. Reason: WC has extremely high melting point (~2800°C); cannot be cast or machined.
+        </li>
+        <li><span class="key-term">Self-lubricating bearings are impregnated with oil</span> to eliminate external
+            lubrication requirement in automotive and appliance motors.</li>
+        <li><span class="key-term">Secondary operations (impregnation, infiltration, coining, heat treatment) are
+                OPTIONAL</span> and performed AFTER sintering. Sintering is the MANDATORY primary step.</li>
+        <li><span class="key-term">Lubricants in blending reduce die friction</span> (typically 1–2% by weight; common:
+            graphite, zinc stearate), allowing better dimensional control.</li>
+        <li><span class="key-term">Shrinkage during sintering depends on</span> compacting pressure, particle size,
+            sintering temperature, and hold time. Higher pressure → less shrinkage.</li>
+        <li><span class="key-term">Densification during sintering is driven by atomic diffusion</span> (surface, volume,
+            grain boundary diffusion), NOT by grain growth alone.</li>
+        <li><span class="key-term">Protective furnace atmosphere (H₂, dissociated NH₃)</span> removes surface oxides
+            that block diffusion during sintering.</li>
+        <li><span class="key-term">P/M is uniquely suited for immiscible alloys</span> (Cu-Pb, Cu-Ag) that segregate
+            during casting, or materials with extremely high melting points.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. Process sequence &nbsp; | &nbsp; 2. Mass conservation &nbsp; | &nbsp; 3. Sintering ($T < T_m$, solid-state
+                diffusion, NOT melting) &nbsp; | &nbsp; 4. Impregnation vs Infiltration &nbsp; | &nbsp; 5. Tungsten
+                Carbide applications </p>
+    </div>
+
 </body>
+
 </html>

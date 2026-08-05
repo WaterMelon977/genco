@@ -1,521 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>metrology.md</title>
-  <style>
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrology & Measurement — Competitive Exam Revision Guide</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.8;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
-  h3 { font-size: 14pt; color: #664229; }
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code {
-    font-family: "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
-  tr:nth-child(even) { background-color: #FDFBF7; }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
-  .katex-display { overflow-x: auto; overflow-y: hidden; }
-  /* ── Formula Display Card ── */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-  }
-  .formula-card .MathJax,
-  .formula-card .MathJax_Display {
-    font-size: 1.15em !important;
-  }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-</style>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\(', '\)']],
-    displayMath: [['$$', '$$'], ['\[', '\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
+
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
+
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
+
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
+
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
+
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.05em;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .katex-display,
+        .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
+
 <body id="preview">
-<figure style="text-align:center; margin:24px 0;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Sine_bar_in_use.jpg" alt="Sine Bar Angle Measurement" style="max-width:100%; border-radius:8px; border:1px solid #E2D9CC;">
-  <figcaption style="font-size:10pt; color:#5C544D; margin-top:6px; font-style:italic;">Sine Bar Setup for Precise Angle Measurement using Slip Gauge Height ($h = L \sin \theta$)</figcaption>
-</figure>
-<div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
-  <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
-  <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-  <a href="metrology.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3. Metrology</a> |
-  <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
-  <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs & Fixtures</a> |
-  <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
-</div>
-<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Metrology_Measurement_0"></a>Metrology &amp; Measurement</h1>
-<h2 class="code-line has-line-data" data-line-start="2" data-line-end="3"><a id="1_Topic_Overview_2"></a>1. Topic Overview</h2>
-<p class="has-line-data" data-line-start="3" data-line-end="4">This guide covers Metrology &amp; Measurement for AP Genco AE under standards of measurement, limits, fits, tolerances, linear measurement, angular measurement, comparators, and surface roughness. The most frequent PYQ areas are limits/fits/tolerances, Taylor’s principle, gauges, slip gauges, sine bar, LVDT, comparators, and accuracy versus precision. The formulas, definitions, and worked examples below are consolidated for fast revision with minimal repetition.</p>
-<h2 class="code-line has-line-data" data-line-start="5" data-line-end="6"><a id="2_Quick_Reference_Sheet_5"></a>2. Quick Reference Sheet</h2>
-<h3 class="code-line has-line-data" data-line-start="7" data-line-end="8"><a id="21_All_Formulas_7"></a>2.1 All Formulas</h3>
-<p class="has-line-data" data-line-start="9" data-line-end="10"><strong>Fundamental tolerance unit</strong></p>
-<div class="formula-card">$$\boxed{i = 0.45\sqrt[3]{D} + 0.001D}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(i)</td>
-<td>fundamental tolerance unit</td>
-<td>$\mu m$</td>
-</tr>
-<tr>
-<td>(D)</td>
-<td>geometric mean diameter of the size range</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="18" data-line-end="19"><strong>Common IT grades</strong></p>
-<div class="formula-card">$$\boxed{\text{IT6} \approx 10i,\quad \text{IT7} = 16i,\quad \text{IT8} = 25i}$$</div><p class="has-line-data" data-line-start="22" data-line-end="23"><strong>Fit relations</strong></p>
-<div class="formula-card">$$\boxed{\text{Minimum clearance} = \text{LLH} - \text{HLS}}$$</div><div class="formula-card">$$\boxed{\text{Maximum clearance} = \text{HLH} - \text{LLS}}$$</div><div class="formula-card">$$\boxed{\text{Minimum interference} = \text{HLS} - \text{LLH}}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LLH</td>
-<td>lower limit of hole</td>
-</tr>
-<tr>
-<td>HLH</td>
-<td>higher limit of hole</td>
-</tr>
-<tr>
-<td>HLS</td>
-<td>higher limit of shaft</td>
-</tr>
-<tr>
-<td>LLS</td>
-<td>lower limit of shaft</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="37" data-line-end="38"><strong>Sine bar relation</strong></p>
-<div class="formula-card">$$\boxed{\sin\theta = \frac{h}{L}}$$</div><div class="formula-card">$$\boxed{h = L\sin\theta}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\theta$</td>
-<td>angle to be measured or set</td>
-<td>degree or radian</td>
-</tr>
-<tr>
-<td>(h)</td>
-<td>slip-gauge stack height</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(L)</td>
-<td>centre distance between sine-bar rollers</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="49" data-line-end="50"><strong>Least count formulas</strong></p>
-<div class="formula-card">$$\boxed{\text{LC (vernier)} = 1\,\text{MSD} - 1\,\text{VSD}}$$</div><div class="formula-card">$$\boxed{\text{LC (micrometer)} = \frac{\text{Pitch of screw}}{\text{Number of thimble divisions}}}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MSD</td>
-<td>main scale division</td>
-</tr>
-<tr>
-<td>VSD</td>
-<td>vernier scale division</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="60" data-line-end="61"><strong>Surface roughness</strong></p>
-<div class="formula-card">$$\boxed{R_a = \frac{1}{L}\int_0^L |y|\,dx}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(R_a)</td>
-<td>arithmetic average roughness</td>
-</tr>
-<tr>
-<td>(L)</td>
-<td>sampling length</td>
-</tr>
-<tr>
-<td>(y)</td>
-<td>ordinate from mean line</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="70" data-line-end="71"><strong>Best-size wire for effective diameter of thread</strong></p>
-<div class="formula-card">$$\boxed{d = \frac{P}{2}\sec\frac{\alpha}{2}}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(d)</td>
-<td>best-size wire diameter</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(P)</td>
-<td>thread pitch</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$\alpha$</td>
-<td>thread semi-angle</td>
-<td>degree</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="80" data-line-end="81"><strong>Gauge tolerance practice</strong></p>
-<div class="formula-card">$$\boxed{\text{Gauge tolerance} \approx 10\%\ \text{of workpiece tolerance}}$$</div><h3 class="code-line has-line-data" data-line-start="84" data-line-end="85"><a id="22_Key_Definitions_Master_Concepts_84"></a>2.2 Key Definitions &amp; Master Concepts</h3>
-<ul>
-<li class="has-line-data" data-line-start="86" data-line-end="87"><strong>Basic size</strong>: Nominal size from which limits are derived.</li>
-<li class="has-line-data" data-line-start="87" data-line-end="88"><strong>Tolerance</strong>: Total permissible variation in size, equal to upper limit minus lower limit.</li>
-<li class="has-line-data" data-line-start="88" data-line-end="89"><strong>Allowance</strong>: Intentional difference between mating parts, equal to minimum clearance or maximum interference.</li>
-<li class="has-line-data" data-line-start="89" data-line-end="90"><strong>Fundamental deviation</strong>: Distance from the basic size to the tolerance zone.</li>
-<li class="has-line-data" data-line-start="90" data-line-end="91"><strong>Hole-basis system</strong>: System in which the hole is kept at basic size and its lower deviation is zero.</li>
-<li class="has-line-data" data-line-start="91" data-line-end="92"><strong>Shaft-basis system</strong>: System in which the shaft is kept at basic size and its upper deviation is zero.</li>
-<li class="has-line-data" data-line-start="92" data-line-end="93"><strong>Clearance fit</strong>: Fit in which the hole zone lies entirely above the shaft zone, so clearance is always present.</li>
-<li class="has-line-data" data-line-start="93" data-line-end="94"><strong>Interference fit</strong>: Fit in which the shaft zone lies entirely above the hole zone, so interference is always present.</li>
-<li class="has-line-data" data-line-start="94" data-line-end="95"><strong>Transition fit</strong>: Fit in which tolerance zones overlap, so the joint may have either clearance or interference.</li>
-<li class="has-line-data" data-line-start="95" data-line-end="96"><strong>Taylor’s principle</strong>: GO gauge checks all related dimensions simultaneously at maximum material condition, while NO-GO gauge checks one dimension at a time at least material condition.</li>
-<li class="has-line-data" data-line-start="96" data-line-end="97"><strong>Wringing</strong>: Joining slip gauges by molecular attraction and pressure, without adhesive.</li>
-<li class="has-line-data" data-line-start="97" data-line-end="98"><strong>Comparator</strong>: Instrument that compares a dimension against a standard rather than giving absolute measurement.</li>
-<li class="has-line-data" data-line-start="98" data-line-end="99"><strong>LVDT</strong>: Electrical transducer that measures linear displacement through change in mutual inductance.</li>
-<li class="has-line-data" data-line-start="99" data-line-end="100"><strong>Accuracy</strong>: Closeness of a measured value to the true value.</li>
-<li class="has-line-data" data-line-start="100" data-line-end="101"><strong>Precision</strong>: Repeatability or consistency of repeated measurements.</li>
-<li class="has-line-data" data-line-start="101" data-line-end="102"><strong>Ra</strong>: Arithmetic average of absolute deviations from the mean line.</li>
-<li class="has-line-data" data-line-start="102" data-line-end="103"><strong>Autocollimator</strong>: Optical instrument for measuring small angular deviations.</li>
-<li class="has-line-data" data-line-start="103" data-line-end="105"><strong>Optical flat</strong>: Flatness-checking device using interference fringes with monochromatic light.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="105" data-line-end="106"><a id="23_Standard_Values_Constants_105"></a>2.3 Standard Values / Constants</h3>
-<ul>
-<li class="has-line-data" data-line-start="107" data-line-end="108"><strong>IT grades</strong>: IT01 to IT18 are used in tolerance systems.</li>
-<li class="has-line-data" data-line-start="108" data-line-end="109"><strong>Common practical grades</strong>: IT6, IT7, and IT8 are frequently asked in PYQs.</li>
-<li class="has-line-data" data-line-start="109" data-line-end="110"><strong>Slip gauge sets</strong>: 83-piece, 112-piece, and 122-piece sets are common.</li>
-<li class="has-line-data" data-line-start="110" data-line-end="111"><strong>Common vernier least count</strong>: 0.02 mm.</li>
-<li class="has-line-data" data-line-start="111" data-line-end="112"><strong>Common micrometer least count</strong>: 0.01 mm.</li>
-<li class="has-line-data" data-line-start="112" data-line-end="113"><strong>Sine bar centre distances</strong>: 100 mm, 200 mm, and 300 mm are commonly used.</li>
-<li class="has-line-data" data-line-start="113" data-line-end="114"><strong>Wear allowance</strong>: Usually provided only on the GO gauge.</li>
-<li class="has-line-data" data-line-start="114" data-line-end="116"><strong>Surface roughness symbols</strong>: Grade marks such as fine-finish symbols are frequently asked in identification questions.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="116" data-line-end="117"><a id="24_CrossReference_Map_116"></a>2.4 Cross-Reference Map</h3>
-<ul>
-<li class="has-line-data" data-line-start="118" data-line-end="119"><strong>Slip gauges</strong>: Used in Linear Measurement and again in Sine Bar angle setting. See Section 3.3 and Section 3.4.</li>
-<li class="has-line-data" data-line-start="119" data-line-end="120"><strong>LVDT</strong>: Appears as a linear displacement transducer and as part of broader measurement questions. See Section 3.3.</li>
-<li class="has-line-data" data-line-start="120" data-line-end="121"><strong>Comparator</strong>: Introduced in Linear Measurement as a comparison instrument. See Section 3.3.</li>
-<li class="has-line-data" data-line-start="121" data-line-end="122"><strong>Accuracy vs precision</strong>: Used across measurement interpretation. See Section 2.2 and Section 3.5.</li>
-<li class="has-line-data" data-line-start="122" data-line-end="123"><strong>Ra</strong>: Defined in Section 2.2 and applied in Section 3.5.</li>
-<li class="has-line-data" data-line-start="123" data-line-end="124"><strong>Taylor’s principle</strong>: Defined in Section 2.2 and expanded in Section 3.2.</li>
-<li class="has-line-data" data-line-start="124" data-line-end="126"><strong>Sine bar</strong>: Formula appears in Section 2.1 and is expanded in Section 3.4.</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="126" data-line-end="127"><a id="3_Main_Body_126"></a>3. Main Body</h2>
-<h4 class="code-line has-line-data" data-line-start="128" data-line-end="129"><a id="31_Limits_Fits_Tolerances_and_Allowance_128"></a>3.1 Limits, Fits, Tolerances and Allowance</h4>
-<h5 class="code-line has-line-data" data-line-start="130" data-line-end="131"><a id="1_Concept_Pointers_130"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="131" data-line-end="132">Tolerance is the permissible variation of a single dimension; allowance is the intentional difference between mating parts.</li>
-<li class="has-line-data" data-line-start="132" data-line-end="133">Basic size is the nominal size, and all upper/lower limits are measured from this reference.</li>
-<li class="has-line-data" data-line-start="133" data-line-end="134">Fundamental deviation positions the tolerance zone relative to the basic size.</li>
-<li class="has-line-data" data-line-start="134" data-line-end="135">Hole-basis systems are preferred in practice because the hole is kept at basic size.</li>
-<li class="has-line-data" data-line-start="135" data-line-end="136">Shaft-basis systems keep the shaft at basic size and are used when that arrangement is more convenient.</li>
-<li class="has-line-data" data-line-start="136" data-line-end="137">Clearance fit always gives a gap, interference fit always gives an overlap, and transition fit may give either.</li>
-<li class="has-line-data" data-line-start="137" data-line-end="139">Higher IT grade number means a larger tolerance zone, not a tighter one.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="139" data-line-end="140"><a id="2_Formulas_139"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="141" data-line-end="142">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{i = 0.45\sqrt[3]{D} + 0.001D}$$</div><div class="formula-card">$$\boxed{\text{IT6} \approx 10i,\quad \text{IT7} = 16i,\quad \text{IT8} = 25i}$$</div><p class="has-line-data" data-line-start="147" data-line-end="148"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="148" data-line-end="149">(D) is the geometric mean diameter of the size range.</li>
-<li class="has-line-data" data-line-start="149" data-line-end="150">IT grades define tolerance magnitude for the chosen basic size.</li>
-<li class="has-line-data" data-line-start="150" data-line-end="152">The sign and position of fundamental deviation decide whether the hole or shaft zone lies above or below the basic size.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="152" data-line-end="153"><a id="3_Diagram_152"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="154" data-line-end="156"><img src="https://www.enggarena.net/wp-content/uploads/2021/03/types-of-fits.png" alt="Types of Fits - Clearance, Transition, Interference"><br>
-<em>Tolerance zones of hole and shaft. Clearance fit means the hole zone stays above the shaft zone, interference fit means the shaft zone stays above the hole zone, and transition fit means the zones overlap. Source: Engineering Arena.</em></p>
-<h5 class="code-line has-line-data" data-line-start="157" data-line-end="158"><a id="4_Worked_Example_157"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="159" data-line-end="160"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="161" data-line-end="163"><strong>Given:</strong> Hole = (40^{+0.06}<em>{+0.02}) mm, Shaft = (40^{-0.06}</em>{-0.08}) mm.<br>
-<strong>Find:</strong> Minimum size of the hole.</p>
-<p class="has-line-data" data-line-start="164" data-line-end="165"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="165" data-line-end="166">For a hole, the minimum size is the lower limit.</li>
-<li class="has-line-data" data-line-start="166" data-line-end="167">Lower limit of the hole = (40 + 0.02 = 40.02) mm.</li>
-<li class="has-line-data" data-line-start="167" data-line-end="169"><strong>Answer:</strong> 40.02 mm.</li>
-</ol>
-<p class="has-line-data" data-line-start="169" data-line-end="170"><strong>Key Insight:</strong> For a hole, the lower limit gives the minimum size; for a shaft, the upper limit gives the maximum material condition. A common trap is reversing these limits.</p>
-<h4 class="code-line has-line-data" data-line-start="171" data-line-end="172"><a id="32_Taylors_Principle_and_Limit_Gauges_171"></a>3.2 Taylor’s Principle and Limit Gauges</h4>
-<h5 class="code-line has-line-data" data-line-start="173" data-line-end="174"><a id="1_Concept_Pointers_173"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="174" data-line-end="175">Taylor’s principle states that the GO gauge checks all related dimensions simultaneously, while the NO-GO gauge checks only one feature at a time.</li>
-<li class="has-line-data" data-line-start="175" data-line-end="176">GO gauge corresponds to maximum material condition, and NO-GO gauge corresponds to least material condition.</li>
-<li class="has-line-data" data-line-start="176" data-line-end="177">Wear allowance is provided only on the GO gauge.</li>
-<li class="has-line-data" data-line-start="177" data-line-end="178">Plug gauges are used for internal dimensions, while snap or ring gauges are used for external dimensions.</li>
-<li class="has-line-data" data-line-start="178" data-line-end="179">Feeler gauges are used for small clearances and gaps.</li>
-<li class="has-line-data" data-line-start="179" data-line-end="181">Thread gauges are available in GO/NO-GO forms for threads.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="181" data-line-end="182"><a id="2_Formulas_181"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="183" data-line-end="184">No single numerical formula governs Taylor’s principle, but the design practice is summarized below.</p>
-<div class="formula-card">$$\boxed{\text{Gauge tolerance} \approx 10\%\ \text{of workpiece tolerance}}$$</div><p class="has-line-data" data-line-start="187" data-line-end="188"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="188" data-line-end="189">GO plug gauges are designed to check the full form of the hole.</li>
-<li class="has-line-data" data-line-start="189" data-line-end="190">NO-GO gauges are shorter or otherwise arranged so they do not test the full form simultaneously.</li>
-<li class="has-line-data" data-line-start="190" data-line-end="192">Progressive gauges may combine GO and NO-GO on the same gauge body.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="192" data-line-end="193"><a id="3_Diagram_192"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="194" data-line-end="195"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="196" data-line-end="197"><a id="4_Worked_Example_196"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="198" data-line-end="199"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="200" data-line-end="202"><strong>Given:</strong> Hole limits are 25.00 to 25.02 mm.<br>
-<strong>Find:</strong> GO and NO-GO plug gauge sizes.</p>
-<p class="has-line-data" data-line-start="203" data-line-end="204"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="204" data-line-end="205">GO gauge corresponds to the maximum material condition of the hole, so it is made to the lower limit.</li>
-<li class="has-line-data" data-line-start="205" data-line-end="206">NO-GO gauge corresponds to the least material condition of the hole, so it is made to the upper limit.</li>
-<li class="has-line-data" data-line-start="206" data-line-end="208"><strong>Answer:</strong> GO = 25.00 mm, NO-GO = 25.02 mm.</li>
-</ol>
-<p class="has-line-data" data-line-start="208" data-line-end="209"><strong>Key Insight:</strong> GO must enter the part, and NO-GO must not. Wear allowance is relevant only for the GO gauge, which is a frequent PYQ trap.</p>
-<h4 class="code-line has-line-data" data-line-start="210" data-line-end="211"><a id="33_Linear_Measurement_Instruments_210"></a>3.3 Linear Measurement Instruments</h4>
-<h5 class="code-line has-line-data" data-line-start="212" data-line-end="213"><a id="1_Concept_Pointers_212"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="213" data-line-end="214">Slip gauges are end standards used as reference blocks for precision measurement.</li>
-<li class="has-line-data" data-line-start="214" data-line-end="215">Wringing joins slip gauges by molecular attraction and pressure, not by adhesive.</li>
-<li class="has-line-data" data-line-start="215" data-line-end="216">Vernier calipers are used for external, internal, and depth measurements.</li>
-<li class="has-line-data" data-line-start="216" data-line-end="217">Micrometers provide finer resolution and use a ratchet stop for uniform measuring force.</li>
-<li class="has-line-data" data-line-start="217" data-line-end="218">Comparators measure deviation from a standard, not an absolute dimension.</li>
-<li class="has-line-data" data-line-start="218" data-line-end="219">LVDT converts linear displacement into an electrical output through mutual induction.</li>
-<li class="has-line-data" data-line-start="219" data-line-end="220">Optical flats use interference fringes to check flatness.</li>
-<li class="has-line-data" data-line-start="220" data-line-end="222">Autocollimators are used for very small angular deviations rather than linear length measurement.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="222" data-line-end="223"><a id="2_Formulas_222"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="224" data-line-end="225">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{\text{LC (vernier)} = 1\,\text{MSD} - 1\,\text{VSD}}$$</div><div class="formula-card">$$\boxed{\text{LC (micrometer)} = \frac{\text{Pitch of screw}}{\text{Number of thimble divisions}}}$$</div><p class="has-line-data" data-line-start="230" data-line-end="231"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="231" data-line-end="232">Lower least count means higher resolving power.</li>
-<li class="has-line-data" data-line-start="232" data-line-end="233">Ratchet stop avoids excessive measuring pressure on the job.</li>
-<li class="has-line-data" data-line-start="233" data-line-end="235">Slip-gauge wringing requires clean, dry surfaces.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="235" data-line-end="236"><a id="3_Diagram_235"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="237" data-line-end="238"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="239" data-line-end="240"><a id="4_Worked_Example_239"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="241" data-line-end="242"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="243" data-line-end="245"><strong>Given:</strong> Main-scale reading = 5.5 mm, thimble reading = 28 divisions, least count = 0.01 mm.<br>
-<strong>Find:</strong> Total micrometer reading.</p>
-<p class="has-line-data" data-line-start="246" data-line-end="247"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="247" data-line-end="248">Thimble contribution = $28 \times 0.01 = 0.28$ mm.</li>
-<li class="has-line-data" data-line-start="248" data-line-end="249">Total reading = (5.5 + 0.28 = 5.78) mm.</li>
-<li class="has-line-data" data-line-start="249" data-line-end="251"><strong>Answer:</strong> 5.78 mm.</li>
-</ol>
-<p class="has-line-data" data-line-start="251" data-line-end="252"><strong>Key Insight:</strong> The reading is always main-scale reading plus thimble reading multiplied by least count. The ratchet is there to standardize pressure and reduce error.</p>
-<h4 class="code-line has-line-data" data-line-start="253" data-line-end="254"><a id="34_Angular_Measurement_Sine_Bar_253"></a>3.4 Angular Measurement - Sine Bar</h4>
-<h5 class="code-line has-line-data" data-line-start="255" data-line-end="256"><a id="1_Concept_Pointers_255"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="256" data-line-end="257">A sine bar is a precision instrument used to set or measure angles indirectly.</li>
-<li class="has-line-data" data-line-start="257" data-line-end="258">It consists of a hardened bar with two precision rollers at a known centre distance.</li>
-<li class="has-line-data" data-line-start="258" data-line-end="259">Slip gauges are placed under one roller to generate the required height.</li>
-<li class="has-line-data" data-line-start="259" data-line-end="260">The measurement is based on the sine relation between height and centre distance.</li>
-<li class="has-line-data" data-line-start="260" data-line-end="261">Sine bars are widely used for taper checks and angle setting.</li>
-<li class="has-line-data" data-line-start="261" data-line-end="262">Autocollimators are used for measuring very small angular deviations with high sensitivity.</li>
-<li class="has-line-data" data-line-start="262" data-line-end="264">Clinometers are used for inclination or angular measurement, not linear measurement.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="264" data-line-end="265"><a id="2_Formulas_264"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="266" data-line-end="267">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{\sin\theta = \frac{h}{L}}$$</div><div class="formula-card">$$\boxed{h = L\sin\theta}$$</div><p class="has-line-data" data-line-start="272" data-line-end="273"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="273" data-line-end="274">The two rollers must be equal in diameter and parallel.</li>
-<li class="has-line-data" data-line-start="274" data-line-end="275">The bar is most reliable when used within a practical angle range, commonly around the middle of its measuring range.</li>
-<li class="has-line-data" data-line-start="275" data-line-end="277">The height (h) is obtained by slip-gauge stacking.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="277" data-line-end="278"><a id="3_Diagram_277"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="279" data-line-end="281"><img src="https://electricalworkbook.com/wp-content/uploads/2020/07/Principle-of-Sine-bar.png" alt="Sine Bar Measurement Setup"><br>
-<em>Sine bar on a surface plate with slip gauges under one roller creating height (h). Source: ElectricalWorkbook.</em></p>
-<h5 class="code-line has-line-data" data-line-start="282" data-line-end="283"><a id="4_Worked_Example_282"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="284" data-line-end="285"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="286" data-line-end="288"><strong>Given:</strong> $\theta = 30^\circ$, $L = 100$ mm.<br>
-<strong>Find:</strong> Required slip-gauge height (h).</p>
-<p class="has-line-data" data-line-start="289" data-line-end="290"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="290" data-line-end="291">Use $h = L\sin\theta$.</li>
-<li class="has-line-data" data-line-start="291" data-line-end="292">$h = 100 \times \sin 30^\circ = 100 \times 0.5 = 50$ mm.</li>
-<li class="has-line-data" data-line-start="292" data-line-end="294"><strong>Answer:</strong> 50 mm.</li>
-</ol>
-<p class="has-line-data" data-line-start="294" data-line-end="295"><strong>Key Insight:</strong> The sine bar does not measure angle directly; it converts an angular problem into a height problem using slip gauges. For 30 degrees, the height is exactly half the bar length.</p>
-<h4 class="code-line has-line-data" data-line-start="296" data-line-end="297"><a id="35_Surface_Roughness_and_Other_Precision_Instruments_296"></a>3.5 Surface Roughness and Other Precision Instruments</h4>
-<h5 class="code-line has-line-data" data-line-start="298" data-line-end="299"><a id="1_Concept_Pointers_298"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="299" data-line-end="300">Surface roughness parameters commonly asked in exams are Ra, Rz, and Rq.</li>
-<li class="has-line-data" data-line-start="300" data-line-end="301">Ra is the arithmetic average roughness, and higher Ra means a rougher surface.</li>
-<li class="has-line-data" data-line-start="301" data-line-end="302">Roughness symbols indicate the required finish grade on drawings.</li>
-<li class="has-line-data" data-line-start="302" data-line-end="303">Stylus instruments such as Talysurf are used for roughness measurement.</li>
-<li class="has-line-data" data-line-start="303" data-line-end="304">Optical flats are used for flatness checks by interference fringes.</li>
-<li class="has-line-data" data-line-start="304" data-line-end="305">Strain gauges work by change in electrical resistance due to strain and are usually connected in a Wheatstone bridge.</li>
-<li class="has-line-data" data-line-start="305" data-line-end="306">LVDT is a displacement transducer and may be used inside other measurement systems.</li>
-<li class="has-line-data" data-line-start="306" data-line-end="308">Accuracy and precision are different ideas and should not be confused.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="308" data-line-end="309"><a id="2_Formulas_308"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="310" data-line-end="311">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{R_a = \frac{1}{L}\int_0^L |y|\,dx}$$</div><div class="formula-card">$$\boxed{d = \frac{P}{2}\sec\frac{\alpha}{2}}$$</div><p class="has-line-data" data-line-start="316" data-line-end="317"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="317" data-line-end="318">Ra is the average absolute deviation from the mean line over the sampling length.</li>
-<li class="has-line-data" data-line-start="318" data-line-end="319">The best-size wire formula is used in effective diameter calculations for threads.</li>
-<li class="has-line-data" data-line-start="319" data-line-end="321">Higher surface roughness value means poorer finish, which is a frequent conceptual trap.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="321" data-line-end="322"><a id="3_Diagram_321"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="323" data-line-end="324"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="325" data-line-end="326"><a id="4_Worked_Example_325"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="327" data-line-end="328"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="329" data-line-end="331"><strong>Given:</strong> A surface has higher Ra than another surface.<br>
-<strong>Find:</strong> Which surface is smoother?</p>
-<p class="has-line-data" data-line-start="332" data-line-end="333"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="333" data-line-end="334">Lower Ra means smaller average deviation from the mean line.</li>
-<li class="has-line-data" data-line-start="334" data-line-end="335">Therefore the surface with lower Ra is smoother.</li>
-<li class="has-line-data" data-line-start="335" data-line-end="337"><strong>Answer:</strong> The surface with lower Ra is smoother.</li>
-</ol>
-<p class="has-line-data" data-line-start="337" data-line-end="338"><strong>Key Insight:</strong> Students often reverse the trend and assume higher Ra means smoother. The correct relation is the opposite: higher Ra means rougher surface.</p>
-<h2 class="code-line has-line-data" data-line-start="339" data-line-end="340"><a id="4_Consolidation_Notes_339"></a>4. Consolidation Notes</h2>
-<p class="has-line-data" data-line-start="341" data-line-end="343"><strong>Note on slip gauges and sine bar:</strong><br>
-Slip gauges are not just a separate linear-measurement tool; they are also the standard height-setting blocks used in sine-bar angle measurement. See Section 3.3 for slip gauges and Section 3.4 for the angle-setting application.</p>
-<p class="has-line-data" data-line-start="344" data-line-end="346"><strong>Note on LVDT:</strong><br>
-LVDT is introduced as a linear displacement transducer, but it also appears in broader comparator and transducer questions. Its core idea remains displacement-to-electrical conversion through mutual induction. See Quick Reference Section 2.2 and Section 3.3.</p>
-<p class="has-line-data" data-line-start="347" data-line-end="349"><strong>Note on comparator usage:</strong><br>
-A comparator does not replace an absolute measuring instrument. It indicates deviation from a standard, which is why it is usually paired with slip gauges or another master reference. See Section 3.3.</p>
-<p class="has-line-data" data-line-start="350" data-line-end="352"><strong>Note on accuracy and precision:</strong><br>
-These terms are often mixed up in PYQs. Accuracy is closeness to the true value, while precision is consistency of repeated readings. See Quick Reference Section 2.2.</p>
-<h2 class="code-line has-line-data" data-line-start="353" data-line-end="354"><a id="5_Final_QuickFire_Checklist_353"></a>5. Final Quick-Fire Checklist</h2>
-<ul>
-<li class="has-line-data" data-line-start="354" data-line-end="355">Memorize the tolerance unit formula: $i = 0.45\sqrt[3]{D} + 0.001D$.</li>
-<li class="has-line-data" data-line-start="355" data-line-end="356">Remember the fit types: clearance, interference, and transition.</li>
-<li class="has-line-data" data-line-start="356" data-line-end="357">Know Taylor’s principle: GO checks full form, NO-GO checks one feature at a time.</li>
-<li class="has-line-data" data-line-start="357" data-line-end="358">Fix the sine-bar relation: $\sin\theta = h/L$.</li>
-<li class="has-line-data" data-line-start="358" data-line-end="359">Recall common least counts: vernier 0.02 mm and micrometer 0.01 mm.</li>
-<li class="has-line-data" data-line-start="359" data-line-end="360">Keep the roughness rule straight: higher Ra means rougher surface.</li>
-<li class="has-line-data" data-line-start="360" data-line-end="362">Remember that comparator means comparison with a standard, not absolute measurement.</li>
-</ul>
-<p class="has-line-data" data-line-start="362" data-line-end="363"><strong>High-frequency PYQ focus:</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="363" data-line-end="364">Limits, fits, and tolerances</li>
-<li class="has-line-data" data-line-start="364" data-line-end="365">Taylor’s principle and gauge selection</li>
-<li class="has-line-data" data-line-start="365" data-line-end="366">Slip gauges and wringing</li>
-<li class="has-line-data" data-line-start="366" data-line-end="367">Sine bar problems</li>
-<li class="has-line-data" data-line-start="367" data-line-end="368">Comparator and LVDT concepts</li>
-<li class="has-line-data" data-line-start="368" data-line-end="370">Surface roughness and accuracy versus precision</li>
-</ul>
-<hr>
-<p class="has-line-data" data-line-start="372" data-line-end="373">End of Metrology &amp; Measurement Study Guide.</p>
+
+    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+        <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+        <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+        <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+        <a href="metrology.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3. Metrology</a> |
+        <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
+        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs &amp; Fixtures</a> |
+        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+    </div>
+
+    <h1>METROLOGY & MEASUREMENT<br />Revision Guide for Competitive Exams</h1>
+
+    <div class="exam-focus">High-frequency topics: Limits, fits & tolerances (ISO system), GO/NO-GO gauges, Taylor's
+        principle, slip gauges, vernier & micrometer least count, sine bar angle measurement, surface roughness (Ra),
+        accuracy vs precision, comparators.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>1.1 Tolerance, Limits & Fits (ISO System)</h3>
+    <div class="concept-block">
+        <p><strong>Tolerance:</strong> Maximum permissible variation in a dimension. Specified as $\text{Nominal Size}
+            \pm \text{Tolerance}$. Example: 50+0.05−0.02 mm means nominal 50 mm, max 50.05 mm, min 49.98 mm.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Upper Limit (UL):</strong> Maximum allowed dimension. Lower Limit (LL): minimum allowed dimension.
+            Tolerance = UL − LL (always positive).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Fit:</strong> Relationship between mating parts (hole and shaft). Clearance fit: shaft smaller than
+            hole (always has gap). Interference fit: shaft larger than hole (always has press). Transition fit: can
+            have either gap or press depending on actual sizes.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>ISO Tolerance Grade:</strong> Denotes precision level. IT01 to IT18 (IT01 finest, IT18 coarsest). IT7
+            and IT8 common for general engineering parts. Tighter grade (lower number) costs more to manufacture.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Hole Basis vs Shaft Basis:</strong> Hole-basis system: hole tolerance fixed (typically H7 or H8),
+            shaft tolerance varies (a, b, c, ... h for clearance; j, k, ... n for transition; p, ... z for
+            interference). Shaft-basis: shaft fixed (typically g6 or h6), hole tolerance varies. Hole-basis more
+            common (easier to make standard holes).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Fundamental Deviation (Zero Line):</strong> Reference position for tolerance bands. Upper tolerance
+            limit (ES/es) = upper deviation. Lower tolerance limit (EI/ei) = lower deviation. Used to position tolerance
+            zone relative to nominal size.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/limits_fits_tolerances.jpg" alt="Limits, Fits and Tolerances" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: ISO Limits, Fits &amp; Tolerances — Hole-Basis vs Shaft-Basis Systems, Zero Line, &amp; Fundamental Deviations.</div>
+    </div>
+
+    <h3>1.2 Gauging & Limit Gauges</h3>
+    <div class="concept-block">
+        <p><strong>GO Gauge:</strong> Simulates minimum material limit (LML). For shaft: GO has maximum allowed
+            dimension (goes on good shaft). For hole: GO has minimum allowed dimension (fits in good hole). GO must pass
+            on acceptable parts.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>NO-GO Gauge:</strong> Simulates maximum material limit (MML). For shaft: NO-GO has minimum allowed
+            dimension (stops on oversized shaft). For hole: NO-GO has maximum allowed dimension (stops in undersized
+            hole). NO-GO must not pass on acceptable parts.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Taylor's Principle:</strong> GO gauge checks the complete profile (full-form gauge). NO-GO gauge
+            checks one feature at a time (single-element gauge). Purpose: GO ensures assembly works; NO-GO verifies
+            individual feature is not out-of-spec.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Plug & Ring Gauges:</strong> Plug gauge: for checking internal holes (GO plug enters, NO-GO plug does
+            not). Ring gauge: for checking external shafts (GO ring goes on, NO-GO ring does not). Both fixed-limit
+            gauges without adjustment.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/go_no_go_gauges.webp" alt="GO NO-GO Limit Gauges" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Limit Gauging &amp; Taylor's Principle — GO (Minimum Material Limit profile) vs NO-GO (Maximum Material Limit feature).</div>
+    </div>
+
+    <h3>1.3 Slip Gauges (Precision Gauge Blocks)</h3>
+    <div class="concept-block">
+        <p><strong>Slip Gauge (Gauge Blocks):</strong> Precision-hardened steel blocks of exact dimensions (e.g., 1.005
+            mm, 1.01 mm, ..., 100 mm). Used as length standards for setting instruments or dimensional comparison.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Wringing:</strong> Process of combining slip gauges in stacks to build desired dimension. Gauges are
+            optically flat; when combined with precise technique, they adhere (wringing) due to oil film between
+            surfaces. No bolts or adhesive needed.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Set Composition:</strong> Standard set (e.g., 83-piece set) contains blocks in specific increments to
+            allow assembly of any dimension within range (typically 0.5–100 mm). Selection of blocks minimizes number
+            needed for stacking.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Applications:</strong> Setting comparators, sine bars, height gauges. Checking and calibrating other
+            instruments. Building reference standards for inspection.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/slip_gauges_wringing.jpg" alt="Slip Gauges Wringing" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Slip Gauges (Gauge Blocks) &amp; Optical Wringing Principle for Stacking Precision Length Standards.</div>
+    </div>
+
+    <h3>1.4 Measuring Instruments — Linear Measurement</h3>
+    <div class="concept-block">
+        <p><strong>Vernier Caliper:</strong> Reads linear dimensions to 0.02 mm (least count). Main scale in mm; vernier
+            scale has 50 divisions over 49 mm (each division = 0.98 mm). Reading = main scale + (vernier division × 0.02
+            mm). Range: 0–150 mm typical.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Micrometer Screw Gauge:</strong> Reads to 0.01 mm (least count). Thimble scale has 50 divisions; one
+            rotation = 0.5 mm pitch. Reading = main scale (mm) + (thimble division × 0.01 mm). Ratchet stop prevents
+            over-tightening (standardizes measuring force). Range: 0–25 mm typical.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Depth Gauge:</strong> Variant of vernier or micrometer for measuring blind hole depths. Probe extends
+            from graduated rod. Accuracy same as parent instrument (0.02 or 0.01 mm).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Inside Calipers / Outside Calipers:</strong> Simple tools for comparative measurement (not absolute).
+            Must be compared to a standard or combined with ruler for dimension reading. Low cost, moderate accuracy
+            (±0.5 mm).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/vernier_micrometer_scales.jpg" alt="Vernier and Micrometer Scales" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Linear Measuring Scales — Vernier Caliper ($0.02\text{ mm}$ LC) &amp; Micrometer Screw Gauge ($0.01\text{ mm}$ LC).</div>
+    </div>
+
+    <h3>1.5 Angular Measurement — Sine Bar</h3>
+    <div class="concept-block">
+        <p><strong>Sine Bar Principle:</strong> Converts angular measurement to linear height measurement via sine
+            relation: $\sin \theta = \frac{h}{L}$. Where $h$ = height of slip gauge stack, $L$ = center distance
+            between precision rollers (typically 100 mm or 200 mm, fixed).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Setup:</strong> Sine bar placed on surface plate with one roller on plate, other elevated by slip
+            gauge stack. Workpiece secured on bar. Dial indicator or comparator checks if workpiece surface is level
+            (parallel to reference).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Angle Calculation:</strong> Angle = $\arcsin(h/L)$. For small angles, error ≈ $\frac{L}{2}\theta^2$
+            (in radians). Most accurate within 30° of the horizontal; loss of sensitivity beyond that.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Related Instruments:</strong> Sine table (larger version for workpieces). Sine bar blocks (with fixed
+            heights for common angles). Autocollimator (optical method for very small angular deviations).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/sine_bar_setup.png" alt="Sine Bar Setup" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5: Sine Bar Setup for Precise Angle Measurement using Slip Gauge Height ($h = L \sin \theta$).</div>
+    </div>
+
+    <h3>1.6 Surface Roughness & Finish Measurement</h3>
+    <div class="concept-block">
+        <p><strong>Roughness Parameters (Most-Tested):</strong> Ra (arithmetic average roughness) = average absolute
+            deviation from centerline over sampling length. Rz (ten-point average) = mean of 5 highest peaks and 5
+            deepest valleys. Rq (root mean square) = RMS of deviations.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Ra Interpretation:</strong> Higher Ra = rougher surface. Unit: micrometers (μm). Typical ranges:
+            mirror finish 0.1–0.2 μm, precision machining 0.4–0.8 μm, rough machining 3–6 μm. Ra is most commonly
+            specified on engineering drawings.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Measurement Instruments:</strong> Talysurf (stylus profilometer): traces surface with diamond
+            stylus, records profile, computer calculates Ra/Rz. Optical flats: interference fringes reveal surface
+            variation (not numerical, but visual inspection). Laser surface profilometer: non-contact optical
+            measurement.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Surface Finish vs Manufacturing Process:</strong> Casting & forging: 6–25 μm. Turning/milling:
+            0.8–3.2 μm. Grinding: 0.2–0.8 μm. Lapping/polishing: 0.05–0.2 μm.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/surface_roughness_ra.jpg" alt="Surface Roughness Profile Ra" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.6: Surface Roughness Parameters — Arithmetic Mean Roughness ($R_a$), Peak-to-Valley Deviation, &amp; Centerline.</div>
+    </div>
+
+    <h3>1.7 Comparators & Transducers</h3>
+    <div class="concept-block">
+        <p><strong>Comparator (Comparision Instrument):</strong> Measures deviation from a reference standard, not
+            absolute dimension. Types: mechanical (dial indicator), electronic (LVDT, inductive), pneumatic, optical.
+        </p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Dial Indicator (Mechanical Comparator):</strong> Probe contacts workpiece, movement magnified by
+            gears to pointer on dial. Accuracy: ±0.01–0.05 mm. Must be zeroed against a master gauge before use (since it
+            reads relative displacement, not absolute).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>LVDT (Linear Variable Differential Transformer):</strong> Non-contact displacement transducer. Core
+            slides inside two coils; axial movement changes mutual inductance, producing AC voltage proportional to
+            displacement. Output: 0–10 V for 0–X mm range (depending on setup). Used in automated comparators and
+            inspection systems.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Strain Gauge:</strong> Measures strain via change in electrical resistance. Gauge factor $G$ relates
+            fractional resistance change to strain: $\frac{\Delta R}{R} = G \times \varepsilon$. Typically connected in
+            Wheatstone bridge for amplification and temperature compensation. Output: mV signal proportional to applied
+            stress.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metrology/lvdt_comparator_schema.jpeg" alt="LVDT Displacement Transducer Schematic" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.7: Linear Variable Differential Transformer (LVDT) Schematic &amp; Inductive Displacement Transducer.</div>
+    </div>
+
+    <h3>1.8 Accuracy vs Precision</h3>
+    <div class="concept-block">
+        <p><strong>Accuracy:</strong> Closeness of measured value to true value. Affected by systematic errors (zero
+            error, parallax, friction). High accuracy = low bias error.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Precision:</strong> Consistency and repeatability of measurements. Affected by random errors
+            (vibration, resolution, instrument stability). High precision = low scatter in repeated measurements.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Independence:</strong> A measurement can be precise but inaccurate (e.g., all readings 10 mm high =
+            precise but wrong). Can be accurate on average but imprecise (scatter but mean correct). Ideal: both
+            accurate and precise.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 Tolerance & Limits</h3>
+
+    <h4>Tolerance Unit (ISO)</h4>
+    <div class="formula-card">
+        $$i = 0.45\sqrt[3]{D} + 0.001D$$
+    </div>
+    <p><strong>Where:</strong> $i$ = tolerance unit (μm), $D$ = nominal dimension (mm). Used to calculate IT grades: IT
+        grade = $k \times i$ (where $k$ depends on IT level). Not commonly asked numerically, but formula memorization
+        required for some exams.</p>
+
+    <h4>Maximum & Minimum Dimensions</h4>
+    <div class="formula-card">
+        $$\text{Max} = \text{Nominal} + \text{Upper Deviation}$$
+        $$\text{Min} = \text{Nominal} + \text{Lower Deviation}$$
+    </div>
+
+    <h4>Tolerance</h4>
+    <div class="formula-card">
+        $$\text{Tolerance} = \text{Max} - \text{Min}$$
+    </div>
+
+    <h3>2.2 Vernier Caliper Reading</h3>
+
+    <h4>Vernier Least Count</h4>
+    <div class="formula-card">
+        $$LC = \frac{\text{Main Scale Division}}{\text{Number of Vernier Divisions}} = \frac{1 \text{ mm}}{50} = 0.02
+        \text{ mm}$$
+    </div>
+
+    <h4>Vernier Reading</h4>
+    <div class="formula-card">
+        $$\text{Reading} = \text{Main Scale} + (\text{Vernier Division} \times LC)$$
+    </div>
+
+    <h3>2.3 Micrometer Reading</h3>
+
+    <h4>Micrometer Least Count</h4>
+    <div class="formula-card">
+        $$LC = \frac{\text{Pitch}}{\text{Number of Thimble Divisions}} = \frac{0.5 \text{ mm}}{50} = 0.01 \text{ mm}$$
+    </div>
+
+    <h4>Micrometer Reading</h4>
+    <div class="formula-card">
+        $$\text{Reading} = \text{Main Scale (mm)} + (\text{Thimble Division} \times 0.01)$$
+    </div>
+
+    <h3>2.4 Sine Bar — Angular Measurement</h3>
+
+    <h4>Sine Bar Relation</h4>
+    <div class="formula-card">
+        $$\sin \theta = \frac{h}{L}$$
+    </div>
+    <p><strong>Where:</strong> $\theta$ = angle to be measured or set, $h$ = height of slip gauge stack (mm), $L$ =
+        center distance between precision rollers (100 or 200 mm, fixed).</p>
+
+    <h4>Required Slip Gauge Height</h4>
+    <div class="formula-card">
+        $$h = L \sin \theta$$
+    </div>
+
+    <h4>Angle from Measured Height</h4>
+    <div class="formula-card">
+        $$\theta = \arcsin\left(\frac{h}{L}\right)$$
+    </div>
+
+    <h3>2.5 Surface Roughness</h3>
+
+    <h4>Arithmetic Average Roughness (Ra)</h4>
+    <div class="formula-card">
+        $$R_a = \frac{1}{L}\int_0^L |y(x)| \, dx$$
+    </div>
+    <p><strong>Where:</strong> $L$ = sampling length (mm), $y(x)$ = deviation of surface profile from centerline. Ra is
+        measured in μm; higher Ra indicates rougher surface.</p>
+
+    <h3>2.6 Strain Gauge</h3>
+
+    <h4>Strain & Resistance Relation</h4>
+    <div class="formula-card">
+        $$\frac{\Delta R}{R} = G \times \varepsilon$$
+    </div>
+    <p><strong>Where:</strong> $\Delta R$ = change in resistance (Ω), $R$ = initial resistance (Ω), $G$ = gauge factor
+        (typically 2–4), $\varepsilon$ = strain (dimensionless). Output voltage in Wheatstone bridge: $V_{\text{out}}
+        \propto \varepsilon$.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>3. Instruments & Measurement Parameters Comparison Table</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Instrument / Parameter</th>
+                <th>Measurement Type</th>
+                <th>Least Count / Resolution</th>
+                <th>Typical Range</th>
+                <th>Accuracy</th>
+                <th>Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Vernier Caliper</strong></td>
+                <td>Linear (absolute)</td>
+                <td>0.02 mm (50 divisions)</td>
+                <td>0–150 mm typical</td>
+                <td>±0.05 mm</td>
+                <td>General dimensional measurement; ID/OD/depth on shafts and holes</td>
+            </tr>
+            <tr>
+                <td><strong>Micrometer Screw Gauge</strong></td>
+                <td>Linear (absolute)</td>
+                <td>0.01 mm (50 divisions, 0.5 mm pitch)</td>
+                <td>0–25 mm typical; extended 0–300 mm</td>
+                <td>±0.01 mm</td>
+                <td>Precision linear measurement; thread diameter, precision shafts</td>
+            </tr>
+            <tr>
+                <td><strong>Depth Gauge</strong></td>
+                <td>Linear (absolute, depth only)</td>
+                <td>0.02 mm (vernier) or 0.01 mm (micrometer type)</td>
+                <td>0–200 mm typical</td>
+                <td>±0.05 mm (vernier) to ±0.01 mm (micrometer)</td>
+                <td>Blind hole depth, pocket depth, step measurement</td>
+            </tr>
+            <tr>
+                <td><strong>Slip Gauges (Gauge Blocks)</strong></td>
+                <td>Linear (reference standard)</td>
+                <td>Exact; e.g., 1.005, 1.01, 1.02 ... 100 mm</td>
+                <td>0.5–100 mm (by stacking)</td>
+                <td>±0.5 to ±2 μm (class 0 or 1)</td>
+                <td>Setting comparators, sine bars; building length standards; instrument calibration</td>
+            </tr>
+            <tr>
+                <td><strong>Dial Indicator (Mechanical Comparator)</strong></td>
+                <td>Relative displacement (comparative)</td>
+                <td>0.01 mm (scale division)</td>
+                <td>0–50 mm (typical travel)</td>
+                <td>±0.03 mm (repeatability); ±0.05 mm (accuracy)</td>
+                <td>Runout checking, parallelism, flatness; must be zeroed to reference master</td>
+            </tr>
+            <tr>
+                <td><strong>Sine Bar</strong></td>
+                <td>Angular (indirect, via height)</td>
+                <td>Depends on slip gauges used (e.g., 0.01 mm height = ~0.0057° for 100 mm bar)</td>
+                <td>Typically ±30° from horizontal</td>
+                <td>±0.01° to ±0.05° (depending on slip gauge precision)</td>
+                <td>Angle setting and measurement; taper verification; precision angular work</td>
+            </tr>
+            <tr>
+                <td><strong>LVDT (Transducer)</strong></td>
+                <td>Linear displacement (to electrical signal)</td>
+                <td>0.001 mm (depends on signal processing)</td>
+                <td>±1 to ±50 mm (adjustable)</td>
+                <td>±0.05% of full scale (excellent linearity)</td>
+                <td>Automated inspection systems; dynamic displacement measurement; integrated into comparators</td>
+            </tr>
+            <tr>
+                <td><strong>Strain Gauge</strong></td>
+                <td>Strain / Stress (via resistance change)</td>
+                <td>Micro-strain (depending on bridge sensitivity; typically 1–10 μ-strain)</td>
+                <td>Micro-strain to % strain</td>
+                <td>±0.5% (with good bridge circuit and temperature compensation)</td>
+                <td>Stress analysis; load measurement; sensor integration in load cells</td>
+            </tr>
+            <tr>
+                <td><strong>Optical Flat</strong></td>
+                <td>Flatness / Surface deviation (visual, via interference)</td>
+                <td>Fringe spacing ≈ 0.3–0.5 μm; visual inspection ~0.1 μm</td>
+                <td>Limited to flat surface area</td>
+                <td>±0.05 to ±0.1 μm (visual resolution)</td>
+                <td>High-precision flatness checking; inspection of gauge block surfaces</td>
+            </tr>
+            <tr>
+                <td><strong>Talysurf (Stylus Profilometer)</strong></td>
+                <td>Surface roughness (Ra, Rz, Rq)</td>
+                <td>0.01 μm (vertical); 0.1 mm (horizontal sampling)</td>
+                <td>Ra: 0.05–25 μm; profile depth: 0–200 μm</td>
+                <td>±5% of reading (with calibration)</td>
+                <td>Production roughness verification; surface finish quality control</td>
+            </tr>
+            <tr>
+                <td><strong>GO/NO-GO Plug Gauge (Fixed Limit)</strong></td>
+                <td>Hole diameter (relative to tolerance)</td>
+                <td>Fixed (GO and NO-GO hardened sizes)</td>
+                <td>Specified by nominal + tolerance</td>
+                <td>Limit check only (pass/fail, not dimension)</td>
+                <td>High-volume inspection; hole acceptance/rejection; manufacturing floor use</td>
+            </tr>
+            <tr>
+                <td><strong>GO/NO-GO Ring Gauge (Fixed Limit)</strong></td>
+                <td>Shaft diameter (relative to tolerance)</td>
+                <td>Fixed (GO and NO-GO hardened sizes)</td>
+                <td>Specified by nominal + tolerance</td>
+                <td>Limit check only (pass/fail, not dimension)</td>
+                <td>External diameter inspection; shaft acceptance/rejection</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>Vernier caliper least count: 0.02 mm</strong> (1 mm ÷ 50 divisions). Reading = main scale +
+            (vernier division × 0.02). Range typically 0–150 mm.</li>
+        <li><strong>Micrometer least count: 0.01 mm</strong> (0.5 mm ÷ 50 divisions). Pitch 0.5 mm per rotation. Ratchet
+            stop standardizes measuring pressure. Range 0–25 mm typical.</li>
+        <li><strong>Tolerance formula (ISO): $i = 0.45\sqrt[3]{D} + 0.001D$</strong> (tolerance unit in μm). Used to define
+            IT grades; IT01 finest, IT18 coarsest. Must memorize for some competitive exams.</li>
+        <li><strong>GO gauge checks full form (Taylor's principle);</strong> NO-GO checks one feature at a time. GO must
+            pass acceptable parts; NO-GO must not pass acceptable parts.</li>
+        <li><strong>Slip gauges build length standards via wringing</strong> (optical contact, no adhesive). Typical
+            set: 83 pieces. Used for comparator calibration and sine bar setting.</li>
+        <li><strong>Sine bar: $\sin \theta = h/L$.</strong> Height $h$ built from slip gauges; $L$ = fixed center
+            distance (100 or 200 mm). Angle = $\arcsin(h/L)$. Most accurate within ±30° of horizontal.</li>
+        <li><strong>Surface roughness Ra: higher value = rougher surface.</strong> Ra = 0.5–1 μm (excellent), 1–3 μm
+            (good), 3–6 μm (normal). Ra is average deviation from centerline (measured in μm).</li>
+        <li><strong>Dial indicator (comparator): comparative instrument, must be zeroed to reference.</strong> Reads
+            displacement from master, not absolute dimension. Accuracy ±0.03–0.05 mm depending on range and preload.</li>
+        <li><strong>LVDT: displacement transducer, output AC voltage proportional to core displacement.</strong>
+            Non-contact, used in automated systems. Linearity excellent (±0.05% full scale).</li>
+        <li><strong>Strain gauge: $\Delta R / R = G \times \varepsilon$.</strong> Gauge factor $G$ typically 2–4.
+            Connected in Wheatstone bridge for amplification and temperature compensation. Output mV signal proportional
+            to strain.</li>
+        <li><strong>Accuracy: closeness to true value (low bias).</strong> Precision: repeatability (low scatter). A
+            measurement can be precise but inaccurate (high repeatability, wrong average). Ideal: both accurate and
+            precise.</li>
+        <li><strong>Hole-basis system more common:</strong> hole tolerance fixed (H7, H8), shaft tolerance variable (a,
+            b, c for clearance; j, k for transition; p, q for interference).</li>
+        <li><strong>Clearance fit: shaft always smaller than hole (gap).</strong> Interference fit: shaft always larger
+            than hole (press required). Transition fit: can have gap or press depending on actual sizes.</li>
+        <li><strong>Autocollimator: optical method for measuring very small angular deviations</strong> (high
+            sensitivity, 1–10 arcseconds). Not mechanical like sine bar.</li>
+        <li><strong>Optical flat: interference fringes reveal surface flatness</strong> (each fringe = ~0.3 μm); visual
+            inspection can resolve ~0.05–0.1 μm. Used for gauge block flatness verification.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. Limits, fits & tolerances &nbsp; | &nbsp; 2. GO/NO-GO gauges & Taylor's principle &nbsp; | &nbsp; 3.
+            Vernier & micrometer least count &nbsp; | &nbsp; 4. Sine bar angle measurement &nbsp; | &nbsp; 5. Surface
+            roughness (Ra) and accuracy vs precision
+        </p>
+    </div>
 
 </body>
+
 </html>

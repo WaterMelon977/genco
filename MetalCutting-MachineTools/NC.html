@@ -1,371 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NC.md</title>
-  <style>
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC/CNC/DNC Systems — Competitive Exam Revision Guide</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.8;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
-  h3 { font-size: 14pt; color: #664229; }
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code {
-    font-family: "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
-  tr:nth-child(even) { background-color: #FDFBF7; }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
-  .katex-display { overflow-x: auto; overflow-y: hidden; }
-  /* ── Formula Display Card ── */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-  }
-  .formula-card .MathJax,
-  .formula-card .MathJax_Display {
-    font-size: 1.15em !important;
-  }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-</style>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\(', '\)']],
-    displayMath: [['$$', '$$'], ['\[', '\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
+
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
+
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
+
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
+
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+            font-size: 10.5pt;
+        }
+
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
+
+        .formula-box,
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            border-radius: 4px;
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            font-size: 10pt;
+            line-height: 1.7;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .emphasis {
+            background: #FFEAA7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .key-term {
+            color: #664229;
+            font-weight: 600;
+        }
+
+        .code-inline {
+            background: #EAE1D3;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            font-size: 10pt;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+    </style>
 </head>
+
 <body id="preview">
-<figure style="text-align:center; margin:24px 0;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/CNC_Machine_LGT.jpg" alt="CNC Machine Architecture" style="max-width:100%; border-radius:8px; border:1px solid #E2D9CC;">
-  <figcaption style="font-size:10pt; color:#5C544D; margin-top:6px; font-style:italic;">CNC Machining Centre Axis Control Architecture & MCU System</figcaption>
-</figure>
-<div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
-  <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
-  <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-  <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
-  <a href="NC.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">4. NC/CNC</a> |
-  <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs & Fixtures</a> |
-  <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
-</div>
-<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Numerical_Control_NC_CNC_DNC_FMS_and_Machining_Centres_0"></a>Numerical Control (NC), CNC, DNC, FMS and Machining Centres</h1>
-<p class="has-line-data" data-line-start="2" data-line-end="3">This guide covers Numerical Control (NC), Computer Numerical Control (CNC), Distributed Numerical Control (DNC), basic CNC programming, axes and motion control, and the key FMS / machining-centre ideas that appear in AP Genco AE and related MCQs. The focus is on the actual study material: clear definitions, recurring exam traps, and the few facts that are repeatedly tested.</p>
-<h2 class="code-line has-line-data" data-line-start="4" data-line-end="5"><a id="QuickReference_Card_4"></a>Quick-Reference Card</h2>
-<h3 class="code-line has-line-data" data-line-start="6" data-line-end="7"><a id="NC_CNC_DNC_6"></a>NC / CNC / DNC</h3>
-<ul>
-<li class="has-line-data" data-line-start="7" data-line-end="8">NC uses punched tape or similar coded input; CNC stores the program in computer memory.</li>
-<li class="has-line-data" data-line-start="8" data-line-end="9">CNC is more flexible than NC, easier to reprogram, and can provide self-diagnostic features.</li>
-<li class="has-line-data" data-line-start="9" data-line-end="10">DNC uses one central computer to control multiple CNC machines.</li>
-<li class="has-line-data" data-line-start="10" data-line-end="11">In DNC, satellite computers help share the processing of large NC programs.</li>
-<li class="has-line-data" data-line-start="11" data-line-end="13">Adaptive control is used for automation and automatic adjustment of machining conditions.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="13" data-line-end="14"><a id="Axes_and_Motion_13"></a>Axes and Motion</h3>
-<ul>
-<li class="has-line-data" data-line-start="14" data-line-end="15">In a CNC lathe, the X-axis controls cross motion of the cutting tool.</li>
-<li class="has-line-data" data-line-start="15" data-line-end="16">The Z-axis controls carriage travel towards or away from the headstock.</li>
-<li class="has-line-data" data-line-start="16" data-line-end="17">Basic CNC lathes do not have a Y-axis.</li>
-<li class="has-line-data" data-line-start="17" data-line-end="18">The interpolator coordinates feed rates of axes and generates intermediate points.</li>
-<li class="has-line-data" data-line-start="18" data-line-end="19">Point-to-point motion is used for discrete locations.</li>
-<li class="has-line-data" data-line-start="19" data-line-end="21">Continuous-path or contouring motion is used when the tool must follow a path while cutting.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="21" data-line-end="22"><a id="Programming_Codes_21"></a>Programming Codes</h3>
-<ul>
-<li class="has-line-data" data-line-start="22" data-line-end="23">G02 = circular interpolation clockwise.</li>
-<li class="has-line-data" data-line-start="23" data-line-end="24">G21 = metric input in millimetres.</li>
-<li class="has-line-data" data-line-start="24" data-line-end="25">M02 = end of program.</li>
-<li class="has-line-data" data-line-start="25" data-line-end="26">M06 = tool change.</li>
-<li class="has-line-data" data-line-start="26" data-line-end="27">F-code = feed rate.</li>
-<li class="has-line-data" data-line-start="27" data-line-end="28">APT is used in CAM for NC machine tools.</li>
-<li class="has-line-data" data-line-start="28" data-line-end="30">Parametric programming uses variables to describe geometry.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="30" data-line-end="31"><a id="Feedback_and_Drives_30"></a>Feedback and Drives</h3>
-<ul>
-<li class="has-line-data" data-line-start="31" data-line-end="32">Encoders sense and control table position.</li>
-<li class="has-line-data" data-line-start="32" data-line-end="33">Servo motors are commonly used as feed drives in CNC milling machines.</li>
-<li class="has-line-data" data-line-start="33" data-line-end="35">Stepper motors move in fixed steps for each pulse.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="35" data-line-end="36"><a id="CAD_CAM_FMS_Centres_35"></a>CAD / CAM / FMS / Centres</h3>
-<ul>
-<li class="has-line-data" data-line-start="36" data-line-end="37">The core product model in CAD/CAM is the geometric model.</li>
-<li class="has-line-data" data-line-start="37" data-line-end="38">Machining centres have an automatic tool changer (ATC) and a component indexing device.</li>
-<li class="has-line-data" data-line-start="38" data-line-end="39">Flexible manufacturing allows quick and inexpensive product changes.</li>
-<li class="has-line-data" data-line-start="39" data-line-end="40">AGVs are used for transporting work parts and tools in CIM.</li>
-<li class="has-line-data" data-line-start="40" data-line-end="42">CAD/CAM technology was initiated in the aerospace industry.</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="42" data-line-end="43"><a id="Core_Theory_42"></a>Core Theory</h2>
-<h3 class="code-line has-line-data" data-line-start="44" data-line-end="45"><a id="Fundamentals_of_NC_and_CNC_44"></a>Fundamentals of NC and CNC</h3>
-<ul>
-<li class="has-line-data" data-line-start="45" data-line-end="46">NC is machine-tool control using coded numerical data on tape, cards, or other input media.</li>
-<li class="has-line-data" data-line-start="46" data-line-end="47">CNC is advanced NC where a dedicated computer or microprocessor is built into the machine control unit.</li>
-<li class="has-line-data" data-line-start="47" data-line-end="48">CNC programs are stored in memory and can be edited more easily than NC programs.</li>
-<li class="has-line-data" data-line-start="48" data-line-end="49">DNC means a central computer controls multiple CNC machines.</li>
-<li class="has-line-data" data-line-start="49" data-line-end="50">NC is older and harder to edit; CNC is flexible and supports memory storage, editing, and simulation.</li>
-<li class="has-line-data" data-line-start="50" data-line-end="51">Both NC and CNC reduce the need for manual control during each cycle, but skilled programming is still required.</li>
-<li class="has-line-data" data-line-start="51" data-line-end="52">Closed-loop systems use feedback devices for position or velocity correction.</li>
-<li class="has-line-data" data-line-start="52" data-line-end="54">Open-loop systems do not use feedback, and stepper-motor systems are common examples.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="54" data-line-end="55"><a id="Components_of_an_NC_CNC_System_54"></a>Components of an NC / CNC System</h3>
-<ul>
-<li class="has-line-data" data-line-start="55" data-line-end="56">Input device: tape reader in older NC, or keyboard, USB, network, or CAD/CAM transfer in CNC.</li>
-<li class="has-line-data" data-line-start="56" data-line-end="57">Machine Control Unit (MCU): the brain of the system, containing CPU, memory, data processing, and control functions.</li>
-<li class="has-line-data" data-line-start="57" data-line-end="58">Drive system: servo motors, stepper motors, or hydraulic or pneumatic actuators that move the axes.</li>
-<li class="has-line-data" data-line-start="58" data-line-end="59">Machine tool: the actual lathe, mill, drill, or similar machine whose motion is controlled.</li>
-<li class="has-line-data" data-line-start="59" data-line-end="60">Feedback devices: encoders, resolvers, or linear scales that send actual position or velocity back to the MCU.</li>
-<li class="has-line-data" data-line-start="60" data-line-end="62">Display unit: shows program, position, alarms, and machine status.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="62" data-line-end="63"><a id="Types_of_NC_CNC_Systems_62"></a>Types of NC / CNC Systems</h3>
-<ul>
-<li class="has-line-data" data-line-start="63" data-line-end="64">Point-to-point (PTP): the tool moves to discrete programmed points; path control between points is not important.</li>
-<li class="has-line-data" data-line-start="64" data-line-end="65">PTP is used for drilling, boring, punching, and spot welding.</li>
-<li class="has-line-data" data-line-start="65" data-line-end="66">Continuous-path or contouring systems control the path while cutting.</li>
-<li class="has-line-data" data-line-start="66" data-line-end="67">Straight-cut control uses linear interpolation.</li>
-<li class="has-line-data" data-line-start="67" data-line-end="68">Contouring can use linear and circular interpolation for complex curves.</li>
-<li class="has-line-data" data-line-start="68" data-line-end="70">Modern CNC machines are often contouring systems with multi-axis capability.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="70" data-line-end="71"><a id="Coordinate_Systems_70"></a>Coordinate Systems</h3>
-<ul>
-<li class="has-line-data" data-line-start="71" data-line-end="72">Absolute coordinate system (G90): every position is measured from a fixed datum.</li>
-<li class="has-line-data" data-line-start="72" data-line-end="73">Incremental coordinate system (G91): every position is measured from the previous position.</li>
-<li class="has-line-data" data-line-start="73" data-line-end="74">Absolute is easier to debug and safer because one error does not affect later points.</li>
-<li class="has-line-data" data-line-start="74" data-line-end="75">Incremental is useful for repetitive patterns and shorter programs.</li>
-<li class="has-line-data" data-line-start="75" data-line-end="77">Datum can be set at a corner, centre, or any convenient point on the workpiece.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="77" data-line-end="78"><a id="Advantages_Limitations_Applications_Jigs_and_Fixtures_77"></a>Advantages, Limitations, Applications, Jigs and Fixtures</h3>
-<ul>
-<li class="has-line-data" data-line-start="78" data-line-end="79">Advantages over conventional machining include higher accuracy, better repeatability, complex contours, reduced setup time, and consistent quality.</li>
-<li class="has-line-data" data-line-start="79" data-line-end="80">CNC also supports easy program storage, reuse, and long-duration operation.</li>
-<li class="has-line-data" data-line-start="80" data-line-end="81">Limitations include high initial cost, maintenance cost, and the need for skilled programmers.</li>
-<li class="has-line-data" data-line-start="81" data-line-end="82">CNC is not ideal for very small batches or very simple jobs.</li>
-<li class="has-line-data" data-line-start="82" data-line-end="83">Applications include aerospace, automotive, die and mould making, medical implants, and precision components.</li>
-<li class="has-line-data" data-line-start="83" data-line-end="84">Jigs guide the cutting tool, for example through drill bushes.</li>
-<li class="has-line-data" data-line-start="84" data-line-end="85">Fixtures hold the workpiece rigidly in the correct position.</li>
-<li class="has-line-data" data-line-start="85" data-line-end="87">Jigs guide the tool; fixtures do not guide the tool.</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="87" data-line-end="88"><a id="Examiner_Traps_87"></a>Examiner Traps</h2>
-<ul>
-<li class="has-line-data" data-line-start="89" data-line-end="90">CNC does use a computer; saying it does not is wrong.</li>
-<li class="has-line-data" data-line-start="90" data-line-end="91">NC and CNC are not identical; CNC has memory, editing, and greater flexibility.</li>
-<li class="has-line-data" data-line-start="91" data-line-end="92">Not all NC systems are closed-loop; some are open-loop.</li>
-<li class="has-line-data" data-line-start="92" data-line-end="93">DNC means Distributed or Direct Numerical Control depending on usage, but in this syllabus it is the central-computer concept.</li>
-<li class="has-line-data" data-line-start="93" data-line-end="94">PTP systems do not machine complex contours.</li>
-<li class="has-line-data" data-line-start="94" data-line-end="95">Continuous path does not mean only circular interpolation; it includes linear and circular control.</li>
-<li class="has-line-data" data-line-start="95" data-line-end="96">Absolute coordinate systems do not measure from the previous point.</li>
-<li class="has-line-data" data-line-start="96" data-line-end="97">Incremental is not safer than absolute for general programming.</li>
-<li class="has-line-data" data-line-start="97" data-line-end="98">G90 is absolute and G91 is incremental.</li>
-<li class="has-line-data" data-line-start="98" data-line-end="99">Jigs and fixtures are not the same thing.</li>
-<li class="has-line-data" data-line-start="99" data-line-end="101">CNC does not eliminate tool wear.</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="101" data-line-end="102"><a id="Diagram_Placeholders_101"></a>Diagram Placeholders</h2>
-<h3 class="code-line has-line-data" data-line-start="103" data-line-end="104"><a id="NC_CNC_Block_Diagram_103"></a>NC / CNC Block Diagram</h3>
-<p class="has-line-data" data-line-start="105" data-line-end="106"><a href="https://www.flycncpart.com/cnc-machine-parts-and-block-diagram-13-key-components-every-buyer-should-understand.html">NC / CNC Block Diagram</a></p>
-<h3 class="code-line has-line-data" data-line-start="107" data-line-end="108"><a id="Absolute_vs_Incremental_Coordinates_107"></a>Absolute vs Incremental Coordinates</h3>
-<p class="has-line-data" data-line-start="109" data-line-end="110"><a href="https://www.engineinside.com/abs-and-incremental-coordinate-system/">Absolute vs Incremental Coordinates</a></p>
-<h3 class="code-line has-line-data" data-line-start="111" data-line-end="112"><a id="CNC_Lathe_Axes_111"></a>CNC Lathe Axes</h3>
-<p class="has-line-data" data-line-start="113" data-line-end="114"><a href="https://storage.googleapis.com/dddskagekoorye/cnc-lathe-y-axis-programming.html">CNC Lathe Axes</a></p>
-<h3 class="code-line has-line-data" data-line-start="115" data-line-end="116"><a id="Machining_Centre_FMS_Layout_115"></a>Machining Centre / FMS Layout</h3>
-<p class="has-line-data" data-line-start="117" data-line-end="118"><a href="https://www.slideshare.net/slideshow/fms-134570326/134570326">FMS Workflow</a></p>
-<h2 class="code-line has-line-data" data-line-start="119" data-line-end="120"><a id="PYQ_Style_Revision_119"></a>PYQ Style Revision</h2>
-<h3 class="code-line has-line-data" data-line-start="121" data-line-end="122"><a id="NC_CNC_DNC_Fundamentals_121"></a>NC / CNC / DNC Fundamentals</h3>
-<ul>
-<li class="has-line-data" data-line-start="122" data-line-end="123">NC uses coded instructions and punched tape, while CNC stores programs in memory.</li>
-<li class="has-line-data" data-line-start="123" data-line-end="124">CNC is easier to reprogram than NC.</li>
-<li class="has-line-data" data-line-start="124" data-line-end="125">CNC can diagnose programs and has higher flexibility than NC.</li>
-<li class="has-line-data" data-line-start="125" data-line-end="126">Conversion of units is possible in CNC machines.</li>
-<li class="has-line-data" data-line-start="126" data-line-end="127">Punched tape belongs to NC machines.</li>
-<li class="has-line-data" data-line-start="127" data-line-end="128">DNC requires a dedicated computer, bulk memory, and telecommunication lines.</li>
-<li class="has-line-data" data-line-start="128" data-line-end="129">Satellite computers in DNC share the processing of large-size NC programs.</li>
-<li class="has-line-data" data-line-start="129" data-line-end="130">Adaptive control is used for automation.</li>
-<li class="has-line-data" data-line-start="130" data-line-end="131">A statement saying reprogramming in CNC is more difficult than NC is false.</li>
-<li class="has-line-data" data-line-start="131" data-line-end="133">A statement saying conversion of units in CNC is not possible is false.</li>
-</ul>
-<p class="has-line-data" data-line-start="133" data-line-end="135">Example:<br>
-Question pattern: Which of the following is not a true statement for CNC system?</p>
-<p class="has-line-data" data-line-start="136" data-line-end="140">(a) Operation of CNC machine is very easy relative to NC machine<br>
-(b) Programme can be easily called in CNC relative to NC<br>
-© Reprogramming in CNC is more difficult than NC system<br>
-(d) CNC machine has self-diagnostic features</p>
-<p class="has-line-data" data-line-start="141" data-line-end="142">Reasoning:</p>
-<ol>
-<li class="has-line-data" data-line-start="142" data-line-end="143">CNC stores the program in memory, so reprogramming is easier, not harder.</li>
-<li class="has-line-data" data-line-start="143" data-line-end="145">Options (a), (b), and (d) are true advantages of CNC.</li>
-</ol>
-<p class="has-line-data" data-line-start="145" data-line-end="146">Answer: ©</p>
-<h3 class="code-line has-line-data" data-line-start="147" data-line-end="148"><a id="CNC_Axes_Motion_Control_and_Interpolator_147"></a>CNC Axes, Motion Control and Interpolator</h3>
-<ul>
-<li class="has-line-data" data-line-start="148" data-line-end="149">X-axis controls cross motion of the cutting tool in a CNC lathe.</li>
-<li class="has-line-data" data-line-start="149" data-line-end="150">Z-axis controls carriage travel towards or away from the headstock.</li>
-<li class="has-line-data" data-line-start="150" data-line-end="151">Simple CNC lathes have no Y-axis.</li>
-<li class="has-line-data" data-line-start="151" data-line-end="152">The encoder is used to sense and control table position.</li>
-<li class="has-line-data" data-line-start="152" data-line-end="153">The interpolator coordinates feed rates of axes and generates intermediate coordinate positions.</li>
-<li class="has-line-data" data-line-start="153" data-line-end="154">Contouring is continuous-path positioning.</li>
-<li class="has-line-data" data-line-start="154" data-line-end="155">Complex shapes require simultaneous control of multiple axes.</li>
-<li class="has-line-data" data-line-start="155" data-line-end="157">Servo motors provide feed drives in CNC milling machines.</li>
-</ul>
-<p class="has-line-data" data-line-start="157" data-line-end="159">Example:<br>
-Question pattern: Which statements are correct for a CNC lathe?</p>
-<ol>
-<li class="has-line-data" data-line-start="160" data-line-end="161">X-axis controls cross motion of cutting tool</li>
-<li class="has-line-data" data-line-start="161" data-line-end="162">Z-axis controls travel of carriage towards or away from headstock</li>
-<li class="has-line-data" data-line-start="162" data-line-end="163">Y-axis controls motion of the job</li>
-<li class="has-line-data" data-line-start="163" data-line-end="165">X-Y-Z used for rotational movement of table</li>
-</ol>
-<p class="has-line-data" data-line-start="165" data-line-end="166">Reasoning:</p>
-<ol>
-<li class="has-line-data" data-line-start="166" data-line-end="167">Statements 1 and 2 are correct.</li>
-<li class="has-line-data" data-line-start="167" data-line-end="168">A basic CNC lathe has no Y-axis, so statement 3 is false.</li>
-<li class="has-line-data" data-line-start="168" data-line-end="170">Statement 4 is false.</li>
-</ol>
-<p class="has-line-data" data-line-start="170" data-line-end="171">Answer: 1 and 2</p>
-<h3 class="code-line has-line-data" data-line-start="172" data-line-end="173"><a id="Part_Programming_172"></a>Part Programming</h3>
-<ul>
-<li class="has-line-data" data-line-start="173" data-line-end="174">G02 is circular interpolation clockwise.</li>
-<li class="has-line-data" data-line-start="174" data-line-end="175">G21 means millimetre input.</li>
-<li class="has-line-data" data-line-start="175" data-line-end="176">M02 means end of program.</li>
-<li class="has-line-data" data-line-start="176" data-line-end="177">M06 means tool change.</li>
-<li class="has-line-data" data-line-start="177" data-line-end="178">F-code gives feed rate.</li>
-<li class="has-line-data" data-line-start="178" data-line-end="179">APT is used in CAM for NC machine tools.</li>
-<li class="has-line-data" data-line-start="179" data-line-end="180">Parametric programming uses variables.</li>
-<li class="has-line-data" data-line-start="180" data-line-end="182">Binary coding is used in NC programming.</li>
-</ul>
-<p class="has-line-data" data-line-start="182" data-line-end="184">Example:<br>
-Question pattern: During execution of CNC part program block N020 G02 X45.0 Y25.0 R5.0, the tool motion will be:</p>
-<p class="has-line-data" data-line-start="185" data-line-end="186">Reasoning:</p>
-<ol>
-<li class="has-line-data" data-line-start="186" data-line-end="187">G02 is clockwise circular interpolation.</li>
-<li class="has-line-data" data-line-start="187" data-line-end="189">X, Y, and R define the end point and radius.</li>
-</ol>
-<p class="has-line-data" data-line-start="189" data-line-end="190">Answer: Circular interpolation clockwise</p>
-<h3 class="code-line has-line-data" data-line-start="191" data-line-end="192"><a id="CAD_CAM_FMS_and_Machining_Centres_191"></a>CAD / CAM / FMS and Machining Centres</h3>
-<ul>
-<li class="has-line-data" data-line-start="192" data-line-end="193">The geometric model is the core product model in CAD/CAM.</li>
-<li class="has-line-data" data-line-start="193" data-line-end="194">Machining centres have ATC and component indexing devices.</li>
-<li class="has-line-data" data-line-start="194" data-line-end="195">Flexible manufacturing allows quick and inexpensive product changes.</li>
-<li class="has-line-data" data-line-start="195" data-line-end="196">In FMS, tools may be identified by bar code.</li>
-<li class="has-line-data" data-line-start="196" data-line-end="197">AGVs transport work parts and tools in CIM.</li>
-<li class="has-line-data" data-line-start="197" data-line-end="198">CAD/CAM began in the aerospace industry.</li>
-<li class="has-line-data" data-line-start="198" data-line-end="199">Transfer machines are both material-processing and material-handling machines.</li>
-<li class="has-line-data" data-line-start="199" data-line-end="201">Hard automation is also called fixed-position automation.</li>
-</ul>
-<p class="has-line-data" data-line-start="201" data-line-end="203">Example:<br>
-Question pattern: Which one has an automatic tool changing unit and a component indexing device?</p>
-<p class="has-line-data" data-line-start="204" data-line-end="208">(a) Machining center<br>
-(b) NC system<br>
-© CNC system<br>
-(d) DNC system</p>
-<p class="has-line-data" data-line-start="209" data-line-end="210">Reasoning:</p>
-<ol>
-<li class="has-line-data" data-line-start="210" data-line-end="211">A machining centre is defined by ATC and component indexing.</li>
-<li class="has-line-data" data-line-start="211" data-line-end="213">NC, CNC, and DNC describe control architecture, not this hardware combination.</li>
-</ol>
-<p class="has-line-data" data-line-start="213" data-line-end="214">Answer: (a) Machining center</p>
-<h2 class="code-line has-line-data" data-line-start="215" data-line-end="216"><a id="Cram_Sheet_215"></a>Cram Sheet</h2>
-<pre><code class="has-line-data language-text" data-line-start="218" data-line-end="244">NC  = Numerical Control
-CNC = Computer Numerical Control
-DNC = Distributed Numerical Control
 
-Input device -&gt; MCU -&gt; Drive system -&gt; Machine tool
-Feedback devices close the loop in closed-loop systems
+    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+        <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+        <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+        <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+        <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
+        <a href="NC.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">4. NC/CNC</a> |
+        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs &amp; Fixtures</a> |
+        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+    </div>
 
-PTP       -&gt; Discrete points only
-Contouring -&gt; Continuous path while cutting
+    <h1>NC/CNC/DNC SYSTEMS<br />Exam Revision Guide for Competitive Exams</h1>
 
-G02 = circular CW
-G21 = metric input
-G90 = absolute
-G91 = incremental
-M02 = end of program
-M06 = tool change
+    <div class="exam-focus">High-frequency topics: NC vs CNC memory storage, G02 (CW) vs G03 (CCW) circular
+        interpolation, G90 (Absolute) vs G91 (Incremental) coordinate systems, CNC lathe X/Z axes, DNC architecture,
+        Machining Centre definition (ATC + Indexing).
+    </div>
 
-X-axis = cross motion on CNC lathe
-Z-axis = longitudinal motion on CNC lathe
-Y-axis = absent on basic CNC lathe
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
 
-Jig      = locates, clamps, and guides the tool
-Fixture  = locates and clamps only
+    <h3>1.1 NC (Numerical Control)</h3>
+    <div class="formula-box">
+        NC = Machine controlled by coded instructions<br /><br />
+        Input: Punched paper tape with binary/binary-decimal codes<br />
+        Storage: Instructions stored on tape only<br />
+        Program: Difficult to modify; requires new tape<br />
+        Accuracy: Manual feedback control (some systems)
+    </div>
+    <p>Oldest form of automated machine tool control; used punch tape as primary data storage.</p>
 
-Machining centre = ATC + component indexing
-</code></pre>
-<p class="has-line-data" data-line-start="245" data-line-end="246">Focus first on the quick-reference card, especially axes, G and M codes, NC vs CNC differences, feedback devices, and ATC. Then use the PYQ-style examples to practise elimination logic.</p>
+    <h3>1.2 CNC (Computer Numerical Control) — Most-Tested Definition</h3>
+    <div class="formula-box">
+        CNC = Machine controlled by embedded computer<br /><br />
+        Input: Keyboard, manual input, or file upload<br />
+        Storage: Program stored in computer memory (RAM/ROM)<br />
+        Program: Easy to reprogram; modify on-screen before execution<br />
+        Accuracy: Closed-loop feedback with encoders; self-diagnostic<br />
+        Features: Unit conversion possible (inch ↔ mm); real-time error detection
+    </div>
+    <p>Modern evolution of NC; dominant in exam questions.</p>
+
+    <h3>1.3 DNC (Distributed Numerical Control)</h3>
+    <div class="formula-box">
+        DNC = Multiple CNC machines managed by central computer<br /><br />
+        Architecture: Central computer + satellite computers + multiple CNC machines<br />
+        Communication: Telecommunication lines for program distribution<br />
+        Advantages: Centralized program storage, bulk memory, load sharing<br />
+        Satellite Role: Process large NC programs, local execution control
+    </div>
+    <p>System for managing fleet of CNC machines in manufacturing cells.</p>
+
+    <div class="img-container">
+        <img src="images/NC/dnc_system_architecture.jpeg" alt="DNC System Architecture" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: Distributed Numerical Control (DNC) System Architecture — Central Mainframe, Data Links, &amp; CNC Machine Fleet.</div>
+    </div>
+
+    <h3>1.4 Machining Centre</h3>
+    <div class="formula-box">
+        Machining Centre = CNC machine + ATC + Component Indexing Device<br /><br />
+        ATC = Automatic Tool Changer (manages tool magazines)<br />
+        Indexing = Rotary table or component positioning system<br />
+        Capability: Multi-face machining in single setup
+    </div>
+    <p><span class="emphasis">NOT defined by NC/CNC control type</span> — defined by automatic tool changing and
+        indexing hardware.</p>
+
+    <div class="img-container">
+        <img src="images/NC/cnc_machining_centre_atc.jpeg" alt="CNC Machining Centre ATC" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: CNC Machining Centre featuring Automatic Tool Changer (ATC) Magazine &amp; Component Indexing System.</div>
+    </div>
+
+    <h3>1.5 Positioning Methods</h3>
+    <div class="formula-box">
+        PTP (Point-to-Point) Positioning:<br />
+        • Machine moves from one discrete point to next<br />
+        • Tool path between points does not matter<br />
+        • Used for: Drilling, boring, reaming (spot operations)<br />
+        • Path: Rapid feed between points<br /><br />
+        Contouring (Continuous-Path) Positioning:<br />
+        • Tool follows continuous path while cutting<br />
+        • Multiple axes coordinate simultaneously<br />
+        • Used for: Milling, turning, complex profiling<br />
+        • Requires: Interpolator to generate intermediate coordinates
+    </div>
+
+    <h3>1.6 Interpolation (Core CNC Function)</h3>
+    <div class="formula-box">
+        Interpolator = CNC sub-system that generates intermediate coordinate positions<br /><br />
+        Function: Coordinates feed rates of multiple axes during continuous motion<br />
+        Types:<br />
+        • Linear interpolation (straight lines)<br />
+        • Circular interpolation (arcs, circles — CW or CCW)<br />
+        Output: Dense coordinate sequence to servo motors at high frequency
+    </div>
+
+    <div class="img-container">
+        <img src="images/NC/ptp_vs_contouring_interpolation.jpg" alt="PTP vs Contouring Interpolation" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Motion Control Modes — Point-to-Point (PTP) Positioning vs Continuous-Path Contouring &amp; Interpolation.</div>
+    </div>
+
+    <h3>1.7 Feedback Systems</h3>
+    <div class="formula-box">
+        Open-Loop Control:<br />
+        No position feedback; motor command only<br />
+        Simple, low cost; drift possible over long cuts<br />
+        Used for: Older NC machines<br /><br />
+        Closed-Loop Control:<br />
+        Encoder/resolver senses actual position<br />
+        Closed feedback loop compares command vs actual<br />
+        Error correction real-time<br />
+        Used for: Modern CNC machines (most common)
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas & Programming Principles</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 NC/CNC System Block Diagram</h3>
+    <div class="formula-box">
+        Input Device → Program Memory → MCU (Processor)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interpolator
+        ← Feedback Device (closed-loop)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Servo Motors ← Drive System<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Machine Tool
+    </div>
+
+    <div class="img-container">
+        <img src="images/NC/cnc_block_diagram.webp" alt="CNC System Block Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 2.1: Closed-Loop CNC System MCU Architecture — Processor, Interpolator, Servo Drives, &amp; Encoder Feedback.</div>
+    </div>
+
+    <h3>2.2 Coordinate System Modes (Most-Tested)</h3>
+    <div class="formula-box">
+        Absolute Coordinates:<br />
+        Position given relative to fixed origin (0,0,0)<br />
+        Command: G90<br />
+        Usage: Position workpiece first time or after tool change<br /><br />
+        Incremental Coordinates:<br />
+        Position given relative to current tool position<br />
+        Command: G91<br />
+        Usage: Successive small movements from last position<br />
+        Advantage: Simplifies programming for repeated patterns
+    </div>
+
+    <h3>2.3 CNC Lathe Axis Definitions</h3>
+    <div class="formula-box">
+        X-axis = Cross motion (radial) of cutting tool<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controls depth of cut<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perpendicular to spindle axis<br /><br />
+        Z-axis = Longitudinal motion of tool/carriage<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Along spindle axis<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Towards (+) or away from (-) headstock<br /><br />
+        Y-axis = Absent on basic CNC lathes<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only on advanced 4-axis or 5-axis lathes<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Typical statement in MCQs: "Basic CNC lathe
+        has no Y-axis"
+    </div>
+
+    <div class="img-container">
+        <img src="images/NC/cnc_lathe_axes.jpg" alt="CNC Lathe Axes" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 2.2: CNC Lathe Coordinate Axes — Radial X-Axis (Cross Motion) &amp; Longitudinal Z-Axis (Spindle Axis).</div>
+    </div>
+
+    <h3>2.4 Unit Conversion in CNC</h3>
+    <div class="formula-box">
+        CNC machines support programmed unit conversion:<br />
+        G21 = Metric input (millimeters)<br />
+        G20 = Inch input<br /><br />
+        Advantage: Single CAM program can output metric or imperial<br />
+        Exam note: "Conversion not possible in NC" is FALSE
+    </div>
+
+    <h3>2.5 Servo Motor vs Stepper Motor</h3>
+    <div class="formula-box">
+        Servo Motors:<br />
+        Used for: CNC milling, machining centres (feed drives)<br />
+        Feedback: Closed-loop with encoder<br />
+        Accuracy: High; corrects for load changes<br />
+        Speed: Moderate to high<br /><br />
+        Stepper Motors:<br />
+        Used for: Some simple NC machines, older systems<br />
+        Feedback: Open-loop (no feedback)<br />
+        Accuracy: Lower; no correction<br />
+        Cost: Lower than servo
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>3. CNC Programming Codes (Most-Tested)</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>3.1 G-Codes (Geometry / Motion Codes)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>G-Code</th>
+                <th>Function</th>
+                <th>Mode</th>
+                <th>Exam Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="code-inline">G00</span></td>
+                <td>Rapid positioning (no cutting)</td>
+                <td>Point-to-point</td>
+                <td>Fastest motion; used between cuts</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G01</span></td>
+                <td>Linear interpolation (straight line cut)</td>
+                <td>Contouring</td>
+                <td>Most common; defines feed rate with F-code</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G02</span></td>
+                <td>Circular interpolation <span class="emphasis">clockwise (CW)</span></td>
+                <td>Contouring</td>
+                <td><span class="emphasis">FREQUENTLY TESTED</span> — often confused with G03</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G03</span></td>
+                <td>Circular interpolation <span class="emphasis">counter-clockwise (CCW)</span></td>
+                <td>Contouring</td>
+                <td>Opposite of G02; G03 defines CCW arc motion</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G20</span></td>
+                <td>Inch input mode</td>
+                <td>Unit selection</td>
+                <td>US standard; dimension input in inches</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G21</span></td>
+                <td>Metric (millimeter) input mode</td>
+                <td>Unit selection</td>
+                <td>ISO standard; dimension input in mm</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G90</span></td>
+                <td>Absolute coordinate positioning</td>
+                <td>Coordinate mode</td>
+                <td>Positions relative to fixed origin (0,0,0)</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">G91</span></td>
+                <td>Incremental coordinate positioning</td>
+                <td>Coordinate mode</td>
+                <td>Positions relative to current tool location</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.2 M-Codes (Machine / Miscellaneous Codes)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>M-Code</th>
+                <th>Function</th>
+                <th>Type</th>
+                <th>Exam Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="code-inline">M00</span></td>
+                <td>Program pause (manual restart required)</td>
+                <td>Program control</td>
+                <td>Machine stops; operator must press cycle start</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">M02</span></td>
+                <td>End of program (stop spindle, stop coolant)</td>
+                <td>Program termination</td>
+                <td><span class="emphasis">FREQUENTLY TESTED</span> — marks program end</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">M06</span></td>
+                <td>Automatic tool change (ATC)</td>
+                <td>Tool management</td>
+                <td>Triggers tool changer to swap tools automatically</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">M08</span></td>
+                <td>Coolant ON</td>
+                <td>Coolant control</td>
+                <td>Starts coolant flow during cutting</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">M09</span></td>
+                <td>Coolant OFF</td>
+                <td>Coolant control</td>
+                <td>Stops coolant flow</td>
+            </tr>
+            <tr>
+                <td><span class="code-inline">M30</span></td>
+                <td>End of program (alternate; also rewinds tape on older NC)</td>
+                <td>Program termination</td>
+                <td>Similar to M02; some systems reset memory</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">F-code</span></td>
+                <td>Feed rate (units per minute)</td>
+                <td>Cutting parameter</td>
+                <td>Example: F100 = 100 mm/min (with G21) or 100 in/min (with G20)</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">S-code</span></td>
+                <td>Spindle speed (RPM)</td>
+                <td>Spindle control</td>
+                <td>Example: S1200 = 1200 RPM</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">N-code</span></td>
+                <td>Block number / Line number</td>
+                <td>Program structure</td>
+                <td>Identifies each line; helps in debugging</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.3 Other Programming Concepts</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Concept</th>
+                <th>Definition / Use</th>
+                <th>Exam Context</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="key-term">APT Language</span></td>
+                <td>Automated Programming Tool; high-level NC programming language</td>
+                <td>Used in CAM systems; simplifies complex part programming</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Parametric Programming</span></td>
+                <td>Uses variables and sub-programs; arithmetic operations allowed</td>
+                <td>Simplifies repetitive patterns; reduces code length</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Binary Coding</span></td>
+                <td>Punched tape format for NC machines (holes = 1, no hole = 0)</td>
+                <td>Historical; used in older NC systems</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Canned Cycle</span></td>
+                <td>Pre-programmed routine for common operations (drilling, boring, tapping)</td>
+                <td>Reduces code; speeds programming</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><span class="key-term">CNC stores programs in memory; NC uses punched tape.</span> This is the primary
+            distinction and most-tested difference.</li>
+        <li><span class="key-term">Reprogramming is easier in CNC than NC.</span> Memory-based programs can be edited on
+            screen; tape requires complete remake. "Reprogramming is harder in CNC" is a <span class="emphasis">FALSE
+                trap</span>.</li>
+        <li><span class="key-term">Unit conversion is possible in CNC (G20/G21).</span> Single program can run in
+            metric or imperial. "Conversion not possible in CNC" is <span class="emphasis">FALSE</span>.</li>
+        <li><span class="key-term">CNC has self-diagnostic features; NC does not.</span> Modern CNC monitors tool load,
+            spindle current, and axis position for faults.</li>
+        <li><span class="key-term">DNC requires central computer, bulk memory, and communication lines.</span> Not same as
+            CNC; adds network layer for multi-machine management.</li>
+        <li><span class="key-term">G02 = clockwise circular interpolation; G03 = counter-clockwise.</span> <span
+                class="emphasis">FREQUENTLY CONFUSED</span> — memorize G02 as "clockwise" to differentiate.</li>
+        <li><span class="key-term">G90 = absolute coordinates; G91 = incremental coordinates.</span> Exam often tests
+            identifying which mode is active from program context.</li>
+        <li><span class="key-term">X-axis = cross motion on CNC lathe; Z-axis = longitudinal motion.</span> Y-axis
+            absent on basic lathes. "Basic CNC lathe has Y-axis" is <span class="emphasis">FALSE</span>.</li>
+        <li><span class="key-term">Machining centre is defined by ATC + component indexing device.</span> <span
+                class="emphasis">NOT defined by NC/CNC control type</span> — this is a common trap. A machining centre
+            can be NC or CNC controlled.</li>
+        <li><span class="key-term">M06 = automatic tool change; triggered by ATC hardware.</span> Different from M02
+            (program end); not a program terminator.</li>
+        <li><span class="key-term">PTP (point-to-point) used for drilling/boring; contouring for milling/turning.</span>
+            PTP is faster between points; contouring maintains tool path accuracy.</li>
+        <li><span class="key-term">Interpolator coordinates multiple axes simultaneously during cutting.</span> Generates
+            intermediate positions at high frequency to follow desired path (linear or circular).</li>
+        <li><span class="key-term">Closed-loop feedback uses encoders; open-loop has no position feedback.</span>
+            Closed-loop corrects for cutting forces and load changes; modern CNC standard.</li>
+        <li><span class="key-term">Servo motors used in CNC; stepper motors in older or simple NC systems.</span> Servo
+            has feedback; stepper is open-loop and simpler.</li>
+        <li><span class="key-term">APT is high-level NC programming language used in CAM systems.</span> Simplifies
+            programming vs manual G-code entry.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. NC vs CNC vs DNC &nbsp; | &nbsp; 2. Axes definitions (X, Z, Y) &nbsp; | &nbsp; 3. G02/G03 & G90/G91
+            codes &nbsp; | &nbsp; 4. Interpolation & feedback loops &nbsp; | &nbsp; 5. Machining centre features (ATC)
+        </p>
+    </div>
 
 </body>
+
 </html>
