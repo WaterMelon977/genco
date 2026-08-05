@@ -560,6 +560,254 @@ Riser compensates liquid and solidification shrinkage, but solid-state shrinkage
 - Chvorinov solidification and riser feeding
 - Special casting process selection</p>
 <hr />
-<p>End of Casting Guide.</p>
+
+<h2 id="section-6-mcq-enhanced-revision-guide">6. MCQ-Focused Enhanced Revision Guide</h2>
+
+<h3 id="61-core-concepts-definitions">6.1 Core Concepts &amp; Definitions (High-Yield MCQ Points)</h3>
+
+<div class="callout callout-focus">
+  <ul>
+    <li><strong>Casting:</strong> Manufacturing process in which molten metal is poured into a mould cavity and allowed to solidify into the required shape. <br /><em>👉 MCQ focus: Net shape process, liquid metal solidification</em></li>
+    <li><strong>Pattern:</strong> Replica of the casting used to form the mould cavity, with allowances added. <br /><em>👉 MCQ focus: Made of wood, metal, plastic; used to create mould cavity</em></li>
+    <li><strong>Mould:</strong> Refractory cavity that receives molten metal and defines external shape. <br /><em>👉 MCQ focus: Made of sand in sand casting</em></li>
+    <li><strong>Core:</strong> Sand insert used to create internal cavities, holes, and hollow sections. <br /><em>👉 MCQ focus: Made using core sand + binder; supported by core prints and chaplets</em></li>
+    <li><strong>Gating System:</strong> Network of channels that delivers molten metal into mould cavity. <br /><em>👉 MCQ focus: Includes sprue, runner, ingate, pouring basin</em></li>
+    <li><strong>Riser (Feeder):</strong> Reservoir of molten metal that compensates for shrinkage during solidification. <br /><em>👉 MCQ focus: Feeds casting, solidifies last</em></li>
+    <li><strong>Chill:</strong> Metal insert used to increase cooling rate locally. <br /><em>👉 MCQ focus: Promotes directional solidification</em></li>
+  </ul>
+</div>
+
+<h3 id="62-essential-formulas">6.2 Essential Formulas (Expanded MCQ Coverage)</h3>
+
+<h4>Basic Geometry &amp; Shrinkage</h4>
+<div class="formula-card">
+  $$\text{Casting Volume: } V = l \times b \times h \quad \text{or} \quad V = \frac{\pi D^2}{4} \times H$$
+  $$\text{Shrinkage Volume: } V_s = \text{shrinkage fraction} \times V_c$$
+  $$\text{Pattern Shrinkage Allowance: } \text{Allowance} = \frac{\Delta L}{L} \times 1000 \text{ mm/m}$$
+  <p><em>👉 MCQ focus: Shrinkage order Steel &gt; Aluminium &gt; Cast Iron; Pattern is made <strong>larger</strong>.</em></p>
+</div>
+
+<h4>Riser Design &amp; Solidification</h4>
+<div class="formula-card">
+  $$\text{Riser Volume: } V_r = k \times V_s = \frac{\pi D^2}{4} \times H$$
+  $$\text{Optimum Cylindrical Riser Condition: } H = D$$
+  $$\text{Chvorinov's Rule: } t_s = C\left(\frac{V}{A}\right)^n, \quad n \approx 2$$
+  $$\text{Cooling Rate } \propto \frac{1}{t_s} \quad (\text{Faster cooling } \rightarrow \text{ Fine grains, Slower cooling } \rightarrow \text{ Coarse grains})$$
+  <p><em>👉 MCQ focus: Riser must have minimum surface area to volume ratio and solidify <strong>after</strong> casting.</em></p>
+</div>
+
+<h4>Fluid Flow &amp; Nucleation</h4>
+<div class="formula-card">
+  $$\text{Flow Rate: } Q = A \cdot v \quad (\text{Higher velocity } \rightarrow \text{ More turbulence})$$
+  $$\text{Critical Nucleation Radius: } r^* = \frac{-2\gamma}{\Delta G_V} \quad (\text{Smaller radius } \rightarrow \text{ Easier nucleation})$$
+</div>
+
+<h4>Gating System Ratios</h4>
+<p>General Form: <code>Sprue : Runner : Ingate</code></p>
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+  <thead>
+    <tr style="background:#4A2E1B; color:#FFFDF9;">
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Gating Type</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Area Ratio (Sprue : Runner : Ingate)</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">MCQ Focus &amp; Characteristics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Pressurized Gating</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">$1 : 0.75 : 0.5$ or $1 : 0.8 : 0.6$</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">High velocity, small area at ingate, completely filled channels, high turbulence.</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Unpressurized Gating</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">$1 : 2 : 2$ or $1 : 3 : 3$</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Low velocity, low turbulence, smooth filling (ideal for Al &amp; Mg alloys).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="63-casting-defects-expanded-table">6.3 Casting Defects (Expanded MCQ Table)</h3>
+
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+  <thead>
+    <tr style="background:#4A2E1B; color:#FFFDF9;">
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Defect</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Cause</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Prevention</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">MCQ Focus Tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Porosity / Blow holes</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Gas entrapment, moisture</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Venting, dry sand</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Gas-related defect</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Shrinkage cavity</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Lack of feeding</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Proper riser, chills</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Solidification defect</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Cold shut</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Two streams fail to fuse</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Higher pouring temp</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Low fluidity</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Misrun</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Metal freezes early</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Increase fluidity</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Incomplete filling</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Hot tears</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Restrained contraction</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Better mould collapsibility</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Thermal stress crack</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Metal penetration</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Coarse sand, high temp</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Fine sand, control temp</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Surface defect</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Erosion</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">High velocity metal</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Proper gating</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Flow-related defect</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Inclusions</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Slag/oxide particles</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Filters, skimming</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Non-metallic defect</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Fusion</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Sand melts into metal</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Refractory sand</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">High temperature issue</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Runout</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Leakage of metal</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Strong mould joints</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Mould failure</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="64-casting-processes-mcq-comparison">6.4 Casting Processes (MCQ Comparison Table)</h3>
+
+<table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+  <thead>
+    <tr style="background:#4A2E1B; color:#FFFDF9;">
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Process</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Key Feature</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">Best Application</th>
+      <th style="padding:8px 12px; border:1px solid #E2D9CC;">MCQ Highlight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Sand Casting</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Cheapest, flexible</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Large parts</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Low accuracy</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Die Casting</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">High pressure metal mould</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Mass production</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Non-ferrous only</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Investment Casting</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Wax pattern + ceramic shell</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Complex shapes</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">High accuracy</td>
+    </tr>
+    <tr style="background:#F7F3EC;">
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Centrifugal Casting</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Rotating mould</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Pipes, cylinders</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">No core needed</td>
+    </tr>
+    <tr>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;"><strong>Continuous Casting</strong></td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Continuous solidification</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Billets, slabs</td>
+      <td style="padding:8px 12px; border:1px solid #E2D9CC;">Industrial production</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="65-key-mcq-concepts">6.5 Key MCQ Concepts (Highly Tested)</h3>
+
+<div class="callout callout-concept">
+  <strong>Solidification &amp; Structure:</strong>
+  <ul>
+    <li>Solidification starts at mould wall $\rightarrow$ inward.</li>
+    <li>Directional solidification $\rightarrow$ shrinkage toward riser.</li>
+    <li>Faster cooling $\rightarrow$ fine grain structure.</li>
+    <li>Slower cooling $\rightarrow$ coarse grain structure.</li>
+  </ul>
+</div>
+
+<div class="callout callout-trap">
+  <strong>Shrinkage Types &amp; Handling:</strong>
+  <ul>
+    <li><strong>Liquid shrinkage:</strong> handled by gating system &amp; riser.</li>
+    <li><strong>Solidification shrinkage:</strong> handled by <strong>riser</strong>.</li>
+    <li><strong>Solid-state shrinkage:</strong> handled by <strong>pattern allowance</strong> (pattern made larger).</li>
+  </ul>
+</div>
+
+<div class="callout callout-concept">
+  <strong>Die Casting &amp; Special Processes:</strong>
+  <ul>
+    <li><strong>Hot chamber die casting:</strong> low melting point alloys (Zinc, Magnesium, Lead, Tin).</li>
+    <li><strong>Cold chamber die casting:</strong> high melting point alloys (Aluminium, Copper, Brass).</li>
+    <li><strong>Shell moulding:</strong> resin-coated sand pattern shell.</li>
+    <li><strong>CO₂ moulding:</strong> sodium silicate binder + CO₂ gas instant hardening.</li>
+    <li><strong>Investment casting:</strong> wax pattern + ceramic shell.</li>
+  </ul>
+</div>
+
+<h3 id="66-high-frequency-mcq-patterns">6.6 High-Frequency MCQ Question Patterns</h3>
+<ul>
+  <li>Identify defect from description (e.g. blow holes vs cold shut vs hot tears).</li>
+  <li>Match process with product (e.g. centrifugal casting $\rightarrow$ hollow pipes).</li>
+  <li>Select correct gating ratio (pressurized vs unpressurized).</li>
+  <li>Identify correct riser function and optimum dimension ratio ($H = D$).</li>
+  <li>Calculate shrinkage allowance and apply Chvorinov’s rule ($t_s \propto (V/A)^2$).</li>
+  <li>Determine cooling rate effect on grain size.</li>
+</ul>
+
+<h3 id="67-ultra-important-one-liners">6.7 Ultra-Important One-Liners (Exam Revision)</h3>
+<div class="callout callout-focus">
+  <ul>
+    <li>Riser feeds molten metal during solidification.</li>
+    <li>Chills increase cooling rate locally.</li>
+    <li>Gating system controls metal flow into mould.</li>
+    <li>Pattern is always larger than casting.</li>
+    <li>Die casting uses metal moulds.</li>
+    <li>Sand casting uses sand moulds.</li>
+    <li>Investment casting gives best surface finish.</li>
+    <li>Centrifugal casting needs no core.</li>
+    <li>Pressurized gating $\rightarrow$ high speed filling.</li>
+    <li>Unpressurized gating $\rightarrow$ smooth flow.</li>
+    <li>Shrinkage increases from cast iron $\rightarrow$ steel.</li>
+    <li>Chvorinov’s rule governs solidification time.</li>
+    <li>Faster cooling $\rightarrow$ finer grains.</li>
+    <li>Riser must solidify last.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; color:#7A6F68; font-size:9pt; margin-top:30px;">End of Casting Guide.</p>
 </body>
 </html>
