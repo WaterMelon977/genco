@@ -1,529 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metal Forming, Rolling & Forging — AP GenCo Exam Guide</title>
-  <script>
-MathJax = {
-  tex: {
-    inlineMath:  [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-  <style>
-  * { box-sizing: border-box; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forming — Competitive Exam Revision Guide</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.85;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
 
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
 
-  h3 { font-size: 14pt; color: #664229; }
-  h4 { font-size: 12pt; color: #4A2E1B; }
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
 
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
 
-  code {
-    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
 
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
+        a:hover {
+            text-decoration: underline;
+        }
 
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
 
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
 
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
 
-  tr:nth-child(even) { background-color: #FDFBF7; }
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+        }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #E2D9CC;
-  }
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
 
-  /* MathJax overflow guard */
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
 
-  /* ── formula-card ─────────────────────────────────────────────────────────
-     PLAIN display only.  NO background-color, NO border, NO border-radius.
-     User mandate: "drop the green background for all the formulas"  */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-    font-size: 1.05em;
-  }
-</style>
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.05em;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .img-card {
+            background: #FFFFFF;
+            border: 1px solid #E2D9CC;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .img-card img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .katex-display,
+        .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
+
 <body id="preview">
-  <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding & Joining</a>
-</div>
-  <h1 id="metal-forming-processes-hot-cold-working-rolling-forging-extrusion-drawing-sheet-metal-operations">Metal Forming Processes: Hot &amp; Cold Working, Rolling, Forging, Extrusion, Drawing, &amp; Sheet Metal Operations</h1>
-<h2 id="1-topic-overview">1. Topic Overview</h2>
-<p>This guide covers fundamental metal forming processes for competitive AE/JE exam preparation, including hot vs cold working principles, rolling, forging, extrusion, wire/tube drawing, and sheet metal operations (blanking, punching, bending, deep drawing). High-frequency PYQ themes include recrystallization temperature criteria, property changes, maximum rolling draft $\Delta h_{\max} = \mu^2 R$, punching/blanking force calculations, clearance rules (punch vs die), deep drawing blank diameter approximations, and bending allowances. All formulas, definitions, diagrams, and worked examples are consolidated below.</p>
-<h2 id="2-quick-reference-sheet">2. Quick Reference Sheet</h2>
-<h3 id="21-all-formulas">2.1 All Formulas</h3>
-<p><strong>Maximum Possible Rolling Draft</strong></p>
-<p><div class="formula-card">$$\boxed{\Delta h_{\max} = \mu^2 R}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\Delta h_{\max}$</td>
-<td>maximum reduction in thickness per pass (draft)</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$\mu$</td>
-<td>coefficient of friction between rolls and stock</td>
-<td>dimensionless</td>
-</tr>
-<tr>
-<td>$R$</td>
-<td>radius of the work roll</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Punching / Blanking Force (Circular Hole)</strong></p>
-<p><div class="formula-card">$$\boxed{F = \pi \cdot d \cdot t \cdot \tau}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$F$</td>
-<td>maximum punching / blanking force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>$d$</td>
-<td>diameter of circular hole or blank</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$t$</td>
-<td>thickness of sheet metal</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$\tau$</td>
-<td>ultimate shear strength of sheet material</td>
-<td>N/mm$^2$ (MPa)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>General Shearing / Cutting Force</strong></p>
-<p><div class="formula-card">$$\boxed{F = p \cdot t \cdot \tau}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$p$</td>
-<td>perimeter of the cut profile</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Deep Drawing Blank Diameter (Approximate)</strong></p>
-<p><div class="formula-card">$$\boxed{D = \sqrt{d^2 + 4dh}}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$D$</td>
-<td>blank diameter</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$d$</td>
-<td>outside diameter of drawn cup</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$h$</td>
-<td>height of drawn cup</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p><em>Note: If $d/r \ge 20$ where $r$ is corner radius, use $D = \sqrt{d^2 + 4dh}$. If $15 \le d/r &lt; 20$, $D = \sqrt{d^2 + 4dh - 0.5r}$.</em></p>
-<p><strong>Ideal Deep Drawing Force (Friction Neglected)</strong></p>
-<p><div class="formula-card">$$\boxed{F_{\text{draw}} = \pi \cdot d \cdot t \cdot \sigma_y}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$F_{\text{draw}}$</td>
-<td>drawing force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>$\sigma_y$</td>
-<td>yield strength / flow stress of metal</td>
-<td>N/mm$^2$</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Bend Allowance</strong></p>
-<p><div class="formula-card">$$\boxed{L_b = \alpha $R + k \cdot t$}$$</div></p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$L_b$</td>
-<td>arc length of neutral axis in bend zone</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$\alpha$</td>
-<td>bend angle</td>
-<td>radians</td>
-</tr>
-<tr>
-<td>$R$</td>
-<td>inside bend radius</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$k$</td>
-<td>neutral axis location factor / stretch factor $\approx 0.33\text{--}0.5$</td>
-<td>dimensionless</td>
-</tr>
-<tr>
-<td>$t$</td>
-<td>sheet metal thickness</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<h3 id="22-key-definitions-master-concepts">2.2 Key Definitions &amp; Master Concepts</h3>
-<ul>
-<li><strong>Hot Working</strong>: Deforming metal plastically above its recrystallization temperature; refines grain structure, increases ductility/toughness, requires lower force.</li>
-<li><strong>Cold Working</strong>: Deforming metal plastically below its recrystallization temperature; induces work hardening, increases hardness/strength, improves dimensional accuracy and surface finish.</li>
-<li><strong>Recrystallization Temperature</strong>: Temperature at which new strain-free grains form in a cold-worked metal ($\approx 0.3\text{--}0.5 T_m$ in Kelvin).</li>
-<li><strong>Blanking</strong>: Sheet metal cutting operation where the piece punched out is the desired workpiece (blank), and the remaining sheet is scrap. Clearance provided on <strong>punch</strong>.</li>
-<li><strong>Punching / Piercing</strong>: Sheet metal cutting operation where the hole produced is the desired feature, and the slug removed is scrap. Clearance provided on <strong>die</strong>.</li>
-<li><strong>Upsetting</strong>: Bulk forging operation that increases cross-sectional area while reducing stock length.</li>
-<li><strong>Fullering</strong>: Forging operation that draws out (lengthens) stock while reducing its cross-sectional area.</li>
-<li><strong>Spring-back</strong>: Elastic recovery of sheet metal after removal of bending force, caused by the release of stored elastic energy.</li>
-<li><strong>Wrinkling</strong>: Defect in deep drawing caused by compressive hoop stresses in the flange region.</li>
-<li><strong>Rotary Swaging</strong>: Cold forming process that reduces cross-section of solid rods, tubes, or wires by high-frequency radial impact blows.</li>
-</ul>
-<h3 id="23-standard-values-constants">2.3 Standard Values &amp; Constants</h3>
-<ul>
-<li><strong>Lead &amp; Tin Recrystallization Temperature</strong>: Below room temperature (hot worked at room temperature).</li>
-<li><strong>Die Angular Clearance</strong>: $\frac{1}{2}^\circ \text{ to } 1^\circ$ taper on die walls for slug clearance.</li>
-<li><strong>Forging Stresses</strong>: Stresses induced are greater than yield strength $\sigma_y$ but less than fracture strength $\sigma_u$.</li>
-<li><strong>Stretch Factor $k$ in Bending</strong>: $k = 0.5$ for $R &gt; 2t$; $k = 0.33$ for $R &lt; 2t$.</li>
-</ul>
-<h3 id="24-cross-reference-map">2.4 Cross-Reference Map</h3>
-<ul>
-<li><strong>Hot vs Cold Working Fundamentals</strong>: Detailed in Section 3.1.</li>
-<li><strong>Rolling Process &amp; Mechanics</strong>: Detailed in Section 3.2.</li>
-<li><strong>Forging &amp; Bulk Forming Operations</strong>: Detailed in Section 3.3.</li>
-<li><strong>Extrusion, Wire Drawing &amp; Swaging</strong>: Detailed in Section 3.4.</li>
-<li><strong>Sheet Metal Shearing (Blanking &amp; Punching)</strong>: Detailed in Section 3.5.</li>
-<li><strong>Bending &amp; Deep Drawing Mechanics</strong>: Detailed in Section 3.6.</li>
-</ul>
-<hr />
-<h2 id="3-main-body">3. Main Body</h2>
-<h3 id="31-hot-working-versus-cold-working-fundamentals">3.1 Hot Working versus Cold Working Fundamentals</h3>
-<h5 id="1-concept-pointers">1. Concept Pointers</h5>
-<ul>
-<li>Hot working occurs above recrystallization temperature; cold working occurs below recrystallization temperature.</li>
-<li>Hot working refines grain structure, removes blowholes/porosity, increases toughness and ductility, but leaves poor surface finish due to scale formation.</li>
-<li>Cold working causes strain hardening (work hardening), increasing tensile strength and hardness while reducing ductility. It provides superior surface finish and precise tolerances.</li>
-<li>Lead, tin, and zinc have recrystallization temperatures near or below room temperature, so working them at room temperature is hot working.</li>
-<li>Forming stresses always lie between yield stress and fracture strength $\sigma_y &lt; \sigma_{\text{forming}} &lt; \sigma_u$.</li>
-</ul>
-<h5 id="2-formulas">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1 &amp; 2.3.</p>
-<p><div class="formula-card">$$\boxed{\text{Hot Working: } T &gt; T_{\text{recrys}} \quad | \quad \text{Cold Working: } T &lt; T_{\text{recrys}}}$$</div></p>
-<h5 id="3-diagram">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for grain structure refinement in hot vs cold working.</em></p>
-<h5 id="4-worked-example">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Lead is rolled at room temperature $20^\circ\text{C}$.<br />
-<strong>Find:</strong> Whether this operation is classified as hot working or cold working.</p>
-<p><strong>Solution:</strong>
-1. Classification depends on recrystallization temperature $T_{\text{recrys}}$.
-2. For lead, $T_{\text{recrys}} \approx -10^\circ\text{C}$.
-3. Since room temperature $20^\circ\text{C}$ is above $T_{\text{recrys}}$, rolling lead at room temperature is hot working.
-4. <strong>Answer:</strong> Hot working.</p>
-<p><strong>Key Insight:</strong> Hot/cold working depends on recrystallization temperature, NOT human ambient temperature.</p>
-<hr />
-<h3 id="32-rolling-process-mechanics">3.2 Rolling Process &amp; Mechanics</h3>
-<h5 id="1-concept-pointers_1">1. Concept Pointers</h5>
-<ul>
-<li>Rolling reduces workpiece thickness by compressive forces applied through rotating rolls.</li>
-<li>Maximum draft per pass $\Delta h_{\max} = \mu^2 R$. Increasing roll radius $R$ or friction $\mu$ increases maximum draft.</li>
-<li>Roll separating force can be reduced by using smaller diameter work rolls (e.g., cluster mill, 4-high mill).</li>
-<li>Stress state in rolling zone: Combination of triaxial compression and surface shear.</li>
-<li>Mannesmann process (rotary piercing) produces seamless hollow tubes using skewed rolls and a mandrel.</li>
-<li>Plug rolling reduces wall thickness and increases internal diameter of hollow pierced tubes.</li>
-<li>Anisotropy in sheet metal leads to defect called earing / wavy edges.</li>
-</ul>
-<h5 id="2-formulas_1">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{\Delta h_{\max} = \mu^2 R}$$</div></p>
-<h5 id="3-diagram_1">3. Diagram</h5>
-<p><img alt="Rolling process schematic" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Rolling.png" /><br />
-<em>Schematic of metal rolling showing work rolls, workpiece thickness reduction, and contact zone. Source: Wikimedia Commons.</em></p>
-<h5 id="4-worked-example_1">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Coefficient of friction $\mu = 0.5$, work roll radius $R = 1000\text{ mm}$.<br />
-<strong>Find:</strong> Maximum possible reduction (draft) in a single pass.</p>
-<p><strong>Solution:</strong>
-1. Use maximum draft formula $\Delta h_{\max} = \mu^2 R$.
-2. $\Delta h_{\max} = (0.5)^2 \times 1000 = 0.25 \times 1000 = 250\text{ mm}$.
-3. <strong>Answer:</strong> 250 mm.</p>
-<p><strong>Key Insight:</strong> Draft increases quadratically with coefficient of friction $\mu^2$.</p>
-<hr />
-<h3 id="33-forging-and-bulk-forming-operations">3.3 Forging and Bulk Forming Operations</h3>
-<h5 id="1-concept-pointers_2">1. Concept Pointers</h5>
-<ul>
-<li>Forging shapes metal using localized compressive forces applied by hammers or presses.</li>
-<li>Upsetting increases cross-sectional area by reducing stock length (e.g., bolt head formation).</li>
-<li>Fullering reduces cross-sectional area and increases length (drawing out).</li>
-<li>Drop forging uses closed impression dies; flash squeezes out into land to build internal pressure and fill die cavity.</li>
-<li>Trimming removes burrs/flash from forged components at the parting line.</li>
-<li>Forging refines flow lines (fibre structure), aligning them parallel to major stress directions.</li>
-<li>Coining is a cold closed-die forging process without flash, used for precise surface impression (coins, medals).</li>
-</ul>
-<h5 id="2-formulas_2">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.2.</p>
-<p><div class="formula-card">$$\boxed{\text{Fullering: Area }\downarrow, \text{ Length }\uparrow \quad | \quad \text{Upsetting: Area }\uparrow, \text{ Length }\downarrow}$$</div></p>
-<h5 id="3-diagram_2">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for closed die forging and flash formation.</em></p>
-<h5 id="4-worked-example_2">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> Automobile connecting rods and spanners are mass-produced with controlled fibre line orientation.<br />
-<strong>Find:</strong> Manufacturing process used.</p>
-<p><strong>Solution:</strong>
-1. High-strength structural parts requiring directional grain alignment are produced by forging.
-2. Mass production of complex 3D parts like connecting rods utilizes drop forging (closed-die forging).
-3. <strong>Answer:</strong> Drop forging.</p>
-<p><strong>Key Insight:</strong> Drop forging produces superior mechanical properties due to continuous, unbroken grain flow lines.</p>
-<hr />
-<h3 id="34-extrusion-wire-drawing-and-swaging">3.4 Extrusion, Wire Drawing and Swaging</h3>
-<h5 id="1-concept-pointers_3">1. Concept Pointers</h5>
-<ul>
-<li>Extrusion pushes a billet through a shaped die orifice (direct/forward vs indirect/backward).</li>
-<li>Molten glass is used as a lubricant in high-temperature steel forward hot extrusion (Sejournet process).</li>
-<li>Hydrostatic extrusion uses pressurized liquid to surround the billet, eliminating container wall friction and providing superior surface finish.</li>
-<li>Wire drawing pulls a rod through a converging die to reduce diameter (stress state: axial tension + radial compression).</li>
-<li>Rotary swaging uses rapid radial impact blows to reduce diameter or form tapers on tubes and bars.</li>
-<li>Thread rolling is a cold forming process for ductile materials that produces high-strength threads without metal removal.</li>
-</ul>
-<h5 id="2-formulas_3">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.2.</p>
-<p><div class="formula-card">$$\boxed{\text{Extrusion: Pushing Billet through Die} \quad | \quad \text{Wire Drawing: Pulling Stock through Die}}$$</div></p>
-<h5 id="3-diagram_3">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for direct vs indirect extrusion.</em></p>
-<h5 id="4-worked-example_3">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> High-temperature forward hot extrusion of steel alloy billets.<br />
-<strong>Find:</strong> Suitable high-temperature lubricant.</p>
-<p><strong>Solution:</strong>
-1. Conventional liquid oils breakdown at high extrusion temperatures of steel $&gt;1000^\circ\text{C}$.
-2. Molten glass melts and forms a continuous viscous lubricating film around the billet.
-3. <strong>Answer:</strong> Molten glass.</p>
-<p><strong>Key Insight:</strong> Molten glass serves as both a thermal insulator and a high-temperature lubricant.</p>
-<hr />
-<h3 id="35-sheet-metal-shearing-blanking-punching">3.5 Sheet Metal Shearing (Blanking &amp; Punching)</h3>
-<h5 id="1-concept-pointers_4">1. Concept Pointers</h5>
-<ul>
-<li>Blanking: The cut slug is the part (blank size = die size, clearance given on <strong>punch</strong>).</li>
-<li>Punching: The sheet with hole is the part (hole size = punch size, clearance given on <strong>die</strong>).</li>
-<li>Total clearance $C = 0.0032 \cdot t \cdot \sqrt{\tau}$ (per side, where $t$ is thickness, $\tau$ is shear strength).</li>
-<li>Shear stress is the primary mode of failure in blanking, punching, trimming, and slitting.</li>
-<li>Providing shear (inclination) on punch or die reduces peak cutting force, but does NOT reduce total energy required.</li>
-</ul>
-<h5 id="2-formulas_4">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{F = \pi \cdot d \cdot t \cdot \tau \quad \text{(circular profile)}}$$</div></p>
-<p><div class="formula-card">$$\boxed{\text{Blanking: Punch Size} = D_{\text{blank}} - 2C \quad | \quad \text{Die Size} = D_{\text{blank}}}$$</div></p>
-<p><div class="formula-card">$$\boxed{\text{Punching: Punch Size} = D_{\text{hole}} \quad | \quad \text{Die Size} = D_{\text{hole}} + 2C}$$</div></p>
-<h5 id="3-diagram_4">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for punch and die clearance allocation.</em></p>
-<h5 id="4-worked-example_4">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> A washer of inside diameter 20 mm and outside diameter 40 mm is produced from 2 mm thick sheet metal with shear strength 300 MPa. Clearance per side is 0.05 mm.<br />
-<strong>Find:</strong> Punch size for producing the 20 mm hole (punching operation).</p>
-<p><strong>Solution:</strong>
-1. Producing a hole is a punching operation.
-2. In punching, the punch size equals the exact hole size to be produced.
-3. Punch Size = 20 mm. (Die size would be $20 + 2 \times 0.05 = 20.1\text{ mm}$).
-4. <strong>Answer:</strong> 20 mm.</p>
-<p><strong>Key Insight:</strong> Punch size = hole diameter for punching; Die size = blank diameter for blanking.</p>
-<hr />
-<h3 id="36-bending-and-deep-drawing-mechanics">3.6 Bending and Deep Drawing Mechanics</h3>
-<h5 id="1-concept-pointers_5">1. Concept Pointers</h5>
-<ul>
-<li>Bending induces tensile stress on the outer radius and compressive stress on the inner radius.</li>
-<li>Neutral axis shifts inward toward inner surface $k \approx 0.33\text{--}0.5$.</li>
-<li>Spring-back is elastic recovery upon load removal; compensated by over-bending, bottoming, or stretch bending.</li>
-<li>Sheet metal should be bent perpendicular to rolling/grain direction to prevent cracking.</li>
-<li>Deep drawing forms flat blanks into three-dimensional cups (flange under radial tension + circumferential compression).</li>
-<li>Approximate blank diameter $D = \sqrt{d^2 + 4dh}$.</li>
-<li>Wrinkling occurs in flange area due to compressive hoop stress; prevented by blank holder force.</li>
-</ul>
-<h5 id="2-formulas_5">2. Formulas</h5>
-<p>For quick lookup, see Quick Reference Section 2.1.</p>
-<p><div class="formula-card">$$\boxed{D = \sqrt{d^2 + 4dh}}$$</div></p>
-<p><div class="formula-card">$$\boxed{L_b = \alpha $R + k \cdot t$}$$</div></p>
-<h5 id="3-diagram_5">3. Diagram</h5>
-<p><em>No suitable diagram found; refer to standard textbook schematics for deep drawing cup mechanics and blank holder.</em></p>
-<h5 id="4-worked-example_5">4. Worked Example</h5>
-<p><strong>Worked Example 1</strong></p>
-<p><strong>Given:</strong> A cylindrical cup of 50 mm diameter and 50 mm height is to be drawn from sheet metal.<br />
-<strong>Find:</strong> Approximate required blank diameter $D$.</p>
-<p><strong>Solution:</strong>
-1. Check ratio $d/r$: assuming standard small corner radius, use simplified relation $D = \sqrt{d^2 + 4dh}$.
-2. Substitute $d = 50\text{ mm}$, $h = 50\text{ mm}$.
-3. $D = \sqrt{50^2 + 4(50)(50)} = \sqrt{2500 + 10000} = \sqrt{12500} \approx 111.8\text{ mm}$.
-4. <strong>Answer:</strong> 111.8 mm (or $\approx 112\text{ mm}$).</p>
-<p><strong>Key Insight:</strong> Blank size calculation equates total surface area of finished cup to original flat disc area.</p>
-<hr />
-<h2 id="4-consolidation-notes">4. Consolidation Notes</h2>
-<p><strong>Note on Clearance Rules (Blanking vs Punching):</strong>
-A common exam trap is confusing clearance allocation. In blanking, the die dictates part size, so clearance is subtracted from the punch. In punching, the punch dictates hole size, so clearance is added to the die. See Section 3.5.</p>
-<p><strong>Note on Recrystallization &amp; Metal Working:</strong>
-Working temperature relative to recrystallization temperature $T_{\text{recrys}}$ defines hot vs cold working. Lead/tin rolled at room temperature is hot working, whereas steel worked at $400^\circ\text{C}$ is cold working because steel's $T_{\text{recrys}} \approx 700^\circ\text{C}$. See Section 3.1.</p>
-<p><strong>Note on Force Reduction Techniques:</strong>
-Shear on punch/die reduces maximum punching force by spreading work over longer stroke, but total energy $E = \text{Force} \times \text{Distance}$ remains constant. Similarly, roll separating force is reduced by smaller roll diameters. See Section 3.2 &amp; 3.5.</p>
-<hr />
-<h2 id="5-final-quick-fire-checklist">5. Final Quick-Fire Checklist</h2>
-<ul>
-<li>Memorize maximum rolling draft formula: $\Delta h_{\max} = \mu^2 R$.</li>
-<li>Know clearance rules: Blanking $\rightarrow$ Die = Blank size, Punch smaller; Punching $\rightarrow$ Punch = Hole size, Die larger.</li>
-<li>Memorize shear force formula: $F = \pi d t \tau$ or $F = p t \tau$.</li>
-<li>Memorize deep drawing blank size formula: $D = \sqrt{d^2 + 4dh}$.</li>
-<li>Know bend allowance relation: $L_b = \alpha (R + kt)$.</li>
-<li>Remember temperature criteria: Hot working $&gt; T_{\text{recrys}}$ (increases ductility), Cold working $&lt; T_{\text{recrys}}$ (increases strength).</li>
-<li>Fix key operations: Mannesmann $\rightarrow$ Seamless tubes; Swaging $\rightarrow$ Radial hammering; Fullering $\rightarrow$ Draw out length; Upsetting $\rightarrow$ Increase cross-section.</li>
-</ul>
-<p><strong>High-frequency PYQ focus:</strong>
-- Blanking and punching force &amp; clearance allocation rules
-- Maximum rolling draft calculations $\Delta h = \mu^2 R$
-- Deep drawing blank diameter calculations
-- Hot vs cold working property changes &amp; recrystallization temperature
-- Forging operation definitions (upsetting, fullering, drop forging)</p>
+
+    <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
+        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+        <a href="forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">2. Forming &amp; Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding &amp; Joining</a>
+    </div>
+
+    <h1>FORMING: Metal Working Processes<br />Revision Guide for Competitive Exams</h1>
+
+    <div class="exam-focus">High-frequency topics: Blanking/Punching clearance rules, rolling draft, deep drawing blank
+        size, hot vs cold working, forging defects.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>1.1 Hot vs Cold Working</h3>
+    <div class="concept-block">
+        <p><strong>Hot Working:</strong> Deformation occurs above recrystallization temperature $T_{\text{recrys}}$.
+            Metal recrystallizes continuously, allowing larger deformations with lower forces. Produces refined grain
+            structure, eliminates segregation. Disadvantages: lower accuracy, surface oxidation (scale), tooling cost.
+        </p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Cold Working:</strong> Deformation below $T_{\text{recrys}}$. No recrystallization during forming;
+            work-hardening increases strength and hardness. Better dimensional accuracy and surface finish. Higher
+            forces required. Examples: cold rolling sheet steel, wire drawing, coin stamping.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/hot_vs_cold_working.jpeg" alt="Hot Working vs Cold Working Microstructure" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: Microstructural evolution in Hot Working (continuous recrystallization) vs Cold Working (grain elongation &amp; strain hardening).</div>
+    </div>
+
+    <p><strong>Critical Fact:</strong> Temperature classification is material-specific, not process-specific. Lead
+        rolled at 20°C is hot working (since $T_{\text{recrys}} \approx 0$°C for lead); steel at 400°C is cold working
+        (since $T_{\text{recrys}} \approx 700$°C for steel).</p>
+
+    <h3>1.2 Rolling Operations</h3>
+    <div class="concept-block">
+        <p><strong>Two-High Mill:</strong> Simple arrangement; both rolls rotate in same direction. Used for reversing
+            mills (back and forth passes).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Three-High Mill:</strong> Three horizontal rolls; allows continuous rolling in one direction by
+            moving workpiece between different roll pairs.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Four-High Mill:</strong> Two work rolls (small, load-bearing) supported by two backup rolls (large).
+            Reduces deflection, enables thinner gauge rolling.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/rolling_mill_types.jpg" alt="Rolling Mill Configurations" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Schematic of Rolling Mill Arrangements (Two-High, Three-High, Four-High, and Cluster Mills).</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Maximum Possible Draft:</strong> Determined by roll radius and friction coefficient. Draft cannot
+            exceed $\mu^2 R$ (where $\mu$ is friction, $R$ is work roll radius in mm). Exceeding this limit causes
+            workpiece to slip.</p>
+    </div>
+
+    <h3>1.3 Forging Operations</h3>
+    <div class="concept-block">
+        <p><strong>Upsetting:</strong> Compressive force reduces height, increases cross-sectional area. Used for bolt
+            heads, rivet heads, ring enlargement.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Fullering (Drawing Out):</strong> Reduces cross-sectional area, increases length. Concentrates flow
+            in one direction; often used as intermediate operation.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/forging_operations.png" alt="Forging Operations Upsetting and Fullering" style="max-width:100%; max-height:320px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3A: Primary Forging Operations — Upsetting (Area ↑, Length ↓) and Fullering (Area ↓, Length ↑).</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Drop Forging (Closed-Die):</strong> Workpiece forged between two dies; flash extrudes into flash
+            gutter at parting line. Flash acts as pressure buildup mechanism, forcing metal into die cavity corners.
+            Produces superior grain refinement compared to open-die.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/drop_forging_flash.jpg" alt="Drop Forging Closed Die with Flash" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3B: Closed-Die Impression Drop Forging showing Flash &amp; Flash Gutter mechanics.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Coining:</strong> Cold closed-die process (no flash relief). High pressure forces metal into smallest
+            die details; produces precise surface impressions (coins, medals, jewelry dies).</p>
+    </div>
+
+    <h3>1.4 Extrusion</h3>
+    <div class="concept-block">
+        <p><strong>Direct (Forward) Extrusion:</strong> Ram pushes billet through die; billet and ram move in same
+            direction. Simple tooling; high friction at container wall.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Indirect (Backward) Extrusion:</strong> Die mounted on ram; moves toward stationary billet. Lower
+            friction; complex tooling. Produces hollow shapes efficiently.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/direct_indirect_extrusion.jpg" alt="Direct vs Indirect Extrusion" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Direct (Forward) vs Indirect (Backward) Metal Extrusion setups.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Hydrostatic Extrusion:</strong> Pressurized liquid surrounds billet, eliminating container-wall
+            friction. Superior surface finish, ability to extrude brittle materials, reduced force.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>High-Temperature Lubricant (Steel Extrusion):</strong> Conventional oils break down $>1000$°C. Molten
+            glass serves as both thermal insulator and lubricant in Sejournet process.</p>
+    </div>
+
+    <h3>1.5 Wire Drawing & Swaging</h3>
+    <div class="concept-block">
+        <p><strong>Wire Drawing:</strong> Workpiece pulled through converging die. Stress state: axial tension + radial
+            compression. Surface finish and diameter control superior to rolling. Used for fine wires.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/wire_drawing_die.png" alt="Wire Drawing Die Anatomy" style="max-width:100%; max-height:320px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5A: Wire Drawing Die profile (Approach angle, Bearing land, &amp; Back relief).</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Rotary Swaging:</strong> Radial impact hammering reduces diameter or forms tapers on rods and tubes.
+            Rapid, produces high surface quality.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Thread Rolling:</strong> Cold forming process for ductile materials. No material removal; threads
+            formed by plastic deformation. Higher fatigue strength than cut threads (no stress concentration from tool
+            marks).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/thread_rolling_grain_flow.jpg" alt="Thread Rolling Grain Flow" style="max-width:100%; max-height:320px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5B: Fiber Grain Flow comparison: Continuous grains in Rolled Threads vs Cut Threads.</div>
+    </div>
+
+    <h3>1.6 Sheet Metal Shearing: Blanking vs Punching</h3>
+    <div class="concept-block">
+        <p><strong>Blanking:</strong> Desired part is the slug removed from sheet. Punch size is smaller than desired
+            blank (clearance subtracted from punch). Die size = blank size (exact).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Punching:</strong> Desired part is the remaining sheet with hole. Punch size = hole size (exact). Die
+            size is larger than hole (clearance added to die).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/blanking_vs_punching.webp" alt="Blanking vs Punching Tool Sizing Rules" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.6: Die and Punch Clearance Allocation in Blanking vs Punching operations.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Shear Stress Mode:</strong> Both blanking and punching fail in pure shear. Maximum shear stress
+            $\tau_{\max}$ occurs at punch-die interface. Total force is product of perimeter × thickness × shear
+            strength.</p>
+    </div>
+
+    <h3>1.7 Bending & Deep Drawing</h3>
+    <div class="concept-block">
+        <p><strong>Bending Stress Distribution:</strong> Outer radius in tension; inner radius in compression. Neutral
+            axis does not coincide with geometric centerline; shifts toward inner surface (factor $k = 0.33 \to 0.5$
+            depending on $t/R$ ratio).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Springback:</strong> Elastic recovery upon load removal. Minimized by bottoming (forcing die),
+            over-bending, or stretch bending (tension applied during bend).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/sheet_metal_bending.jpg" alt="Sheet Metal Bending Neutral Axis" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.7A: Bending Mechanics showing outer tensile &amp; inner compressive stress with Neutral Axis shift.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Deep Drawing:</strong> Forms flat blank into 3D cup. Flange region sustains radial tension and
+            circumferential compression. Wrinkling in flange prevented by blank-holder force.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/deep_drawing_process.webp" alt="Deep Drawing Process and Stresses" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.7B: Deep Drawing Tooling setup showing Punch, Die, Blank-Holder Force &amp; Cup Formation.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Sheet Orientation:</strong> Material should be bent perpendicular to rolling/grain direction to
+            prevent edge cracking. Rolling direction creates directional weakness.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 Rolling & Deformation</h3>
+
+    <h4>Maximum Draft (Reduction per Pass)</h4>
+    <div class="formula-card">
+        $$\Delta h_{\max} = \mu^2 R$$
+    </div>
+    <p><strong>Where:</strong> $\mu$ = coefficient of friction (contact), $R$ = work roll radius (mm). Exceeding $\mu^2
+        R$ causes slip. Practical maximum usually 35–40% reduction in single pass.</p>
+
+    <div class="img-container">
+        <img src="images/rolling_draft_mechanics.JPG" alt="Rolling Draft Mechanics" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 2.1: Geometric Relationship of Roll Bite, Contact Angle $\alpha$, and Maximum Draft $\Delta h_{\max}$.</div>
+    </div>
+
+    <h4>Strain (Natural / True Strain)</h4>
+    <div class="formula-card">
+        $$\varepsilon = \ln\left(\frac{h_0}{h_f}\right)$$
+    </div>
+    <p><strong>For rolling:</strong> Strain relates to draft $\Delta h = h_0 - h_f$. Larger drafts demand lower friction
+        or higher roll temperature.</p>
+
+    <h3>2.2 Sheet Metal Blanking & Punching</h3>
+
+    <h4>Shearing Force (Circular Profile)</h4>
+    <div class="formula-card">
+        $$F = \pi \cdot d \cdot t \cdot \tau$$
+    </div>
+    <p><strong>Where:</strong> $d$ = diameter, $t$ = thickness, $\tau$ = shear strength. For polygonal profiles: $F = p
+        \cdot t \cdot \tau$ (perimeter $p$).</p>
+
+    <h4>Blanking — Punch & Die Sizing</h4>
+    <div class="formula-card">
+        $$\text{Punch Diameter} = D_{\text{blank}} - 2C \quad \text{(Clearance subtracted)}$$
+        $$\text{Die Diameter} = D_{\text{blank}} \quad \text{(Exact)}$$
+    </div>
+
+    <h4>Punching — Punch & Die Sizing</h4>
+    <div class="formula-card">
+        $$\text{Punch Diameter} = D_{\text{hole}} \quad \text{(Exact)}$$
+        $$\text{Die Diameter} = D_{\text{hole}} + 2C \quad \text{(Clearance added)}$$
+    </div>
+
+    <h4>Total Clearance (per Side)</h4>
+    <div class="formula-card">
+        $$C = 0.0032 \cdot t \cdot \sqrt{\tau}$$
+    </div>
+    <p><strong>Where:</strong> $t$ = sheet thickness (mm), $\tau$ = shear strength (MPa). Allocate half on punch, half
+        on die (or follow design guidelines).</p>
+
+    <h3>2.3 Bending</h3>
+
+    <h4>Bend Allowance (Neutral Axis Length)</h4>
+    <div class="formula-card">
+        $$L_b = \alpha (R + k \cdot t)$$
+    </div>
+    <p><strong>Where:</strong> $\alpha$ = bend angle (radians), $R$ = radius of neutral axis (punch radius $r_p$ + $k
+        \cdot t$), $k$ = position factor ($\approx 0.33 \text{ to } 0.5$, depends on $t/R$ ratio), $t$ = thickness.</p>
+
+    <h4>Flat Pattern Length</h4>
+    <div class="formula-card">
+        $$L_{\text{flat}} = L_1 + L_2 + L_b$$
+    </div>
+    <p>Sum of straight sections plus bend allowance for multi-bend layouts.</p>
+
+    <h3>2.4 Deep Drawing</h3>
+
+    <h4>Blank Diameter (Simplified)</h4>
+    <div class="formula-card">
+        $$D = \sqrt{d^2 + 4dh}$$
+    </div>
+    <p><strong>Where:</strong> $d$ = cup diameter, $h$ = cup height. Assumes small corner radius and neglects thickness
+        change. Accounts for surface area conservation (flat disc → cylindrical cup).</p>
+
+    <h4>Drawing Ratio (Severity Check)</h4>
+    <div class="formula-card">
+        $$\beta = \frac{D}{d}$$
+    </div>
+    <p><strong>Limits:</strong> First draw $\beta \le 2.0$ to $2.2$ (depending on material). Subsequent draws lower
+        ratio to prevent tearing.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>3. Defect Classification Table (Most-Tested in GENCO/SSC JE)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>3.1 Visual Defect Guide</h3>
+    <div class="img-grid">
+        <div class="img-card">
+            <img src="images/rolling_defects.jpg" alt="Rolling Defects" />
+            <div class="img-caption"><strong>Rolling Defects</strong> (Wavy edges, Zipper cracks, Alligatoring)</div>
+        </div>
+        <div class="img-card">
+            <img src="images/forging-defects.jpg" alt="Forging Defects" />
+            <div class="img-caption"><strong>Forging Defects</strong> (Unfilled section, Die shift, Cold shut)</div>
+        </div>
+        <div class="img-card">
+            <img src="images/extrusion-defects.jpg" alt="Extrusion Defects" />
+            <div class="img-caption"><strong>Extrusion Defects</strong> (Center burst / Chevron cracking, Pipe defect)</div>
+        </div>
+        <div class="img-card">
+            <img src="images/deep-drawing-defects.webp" alt="Deep Drawing Defects" />
+            <div class="img-caption"><strong>Deep Drawing Defects</strong> (Wrinkling, Flange tearing, Earing)</div>
+        </div>
+        <div class="img-card">
+            <img src="images/bending-defects.gif" alt="Bending Defects and Springback" />
+            <div class="img-caption"><strong>Bending &amp; Springback</strong> (Elastic recovery &amp; edge cracking)</div>
+        </div>
+    </div>
+
+    <h3>3.2 Comprehensive Summary Table</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Defect Type</th>
+                <th>Process</th>
+                <th>Root Cause / Condition</th>
+                <th>Prevention / Remedy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tearing / Fracture</strong></td>
+                <td>Drawing, Extrusion</td>
+                <td>Excessive strain rate; high draft in single pass; material brittleness at forming temp; low
+                    ductility.</td>
+                <td>Reduce draft / draw ratio per pass; increase temp (hot working); anneal between passes; improve
+                    material composition.</td>
+            </tr>
+            <tr>
+                <td><strong>Wrinkling</strong></td>
+                <td>Deep Drawing, Bending</td>
+                <td>Insufficient blank-holder force in flange; compressive hoop stress buckles thin flange; low
+                    friction.</td>
+                <td>Increase blank-holder pressure; improve lubrication; use multi-stage drawing; re-anneal between
+                    passes.</td>
+            </tr>
+            <tr>
+                <td><strong>Earing</strong></td>
+                <td>Deep Drawing (Cups)</td>
+                <td>Anisotropic material behavior; directional grain structure aligned to rolling direction; asymmetric
+                    strain distribution.</td>
+                <td>Rotate blank orientation relative to rolling direction; use isotropic material; four-point drawing
+                    die.</td>
+            </tr>
+            <tr>
+                <td><strong>Springback</strong></td>
+                <td>Bending</td>
+                <td>Elastic recovery after load removal; depends on $E$, $\sigma_y$, $t/R$ ratio, forming method.</td>
+                <td>Over-bend; use bottoming force (complete die contact); stretch bending; surface conditioning (shot
+                    peening).</td>
+            </tr>
+            <tr>
+                <td><strong>Burr Formation</strong></td>
+                <td>Blanking, Punching, Shearing</td>
+                <td>Excessive clearance between punch and die; material ductility causes plastic deformation at shear
+                    edge; dull cutting edges.</td>
+                <td>Reduce clearance to optimal value ($C = 0.0032 t\sqrt{\tau}$); maintain sharp tool edges; cold
+                    shearing reduces burr.</td>
+            </tr>
+            <tr>
+                <td><strong>Scale / Oxidation</strong></td>
+                <td>Hot Working (Rolling, Forging)</td>
+                <td>Workpiece exposed to high temp in air; thick oxide layer formed at surface.</td>
+                <td>Use protective atmosphere (inert gas, salt bath); apply scale-breaking rolls; descale after each
+                    pass.</td>
+            </tr>
+            <tr>
+                <td><strong>Segregation</strong></td>
+                <td>Ingot (Prior to Hot Rolling)</td>
+                <td>Dendritic solidification; alloying elements concentrate at grain boundaries during cooling.</td>
+                <td>Hot rolling breaks up segregation; recrystallization in hot working refines structure; homogenizing
+                    heat treatment.</td>
+            </tr>
+            <tr>
+                <td><strong>Surface Cracks (Longitudinal)</strong></td>
+                <td>Hot Rolling</td>
+                <td>Non-uniform cooling; tensile stress at surface during reheating; low ductility at surface due to
+                    decarburization or inclusions.</td>
+                <td>Uniform heating; controlled cooling rate; remove surface defects before rolling; increase reheat
+                    temp for ductility.</td>
+            </tr>
+            <tr>
+                <td><strong>Chevron Cracks (Center Cracking)</strong></td>
+                <td>Extrusion (High Temp Steel)</td>
+                <td>Hydrostatic tensile stress in center of billet; low ductility at high temp; rapid cooling after
+                    extrusion.</td>
+                <td>Lower extrusion speed; increase billet temp (within safe range); use die preheat; hydrostatic
+                    extrusion to reduce tensile stress.</td>
+            </tr>
+            <tr>
+                <td><strong>Barreling</strong></td>
+                <td>Upsetting, Forging</td>
+                <td>Friction at die-workpiece interface prevents flow near surface; center flows faster than outer
+                    regions.</td>
+                <td>Reduce friction (lubrication); lower die temp; reduce height-to-diameter ratio; use open-die
+                    techniques.</td>
+            </tr>
+            <tr>
+                <td><strong>Flash (Unwanted)</strong></td>
+                <td>Drop Forging</td>
+                <td>Excess material flows out of die cavity into flash gutter during impression forging.</td>
+                <td>Tight die design; optimize flash gutter geometry; trim flash after forging; control stock weight
+                    accurately.</td>
+            </tr>
+            <tr>
+                <td><strong>Thickness Variation</strong></td>
+                <td>Rolling (Sheet)</td>
+                <td>Uneven wear on rolls; inconsistent feed; non-parallel rolls; roll deflection under load.</td>
+                <td>Use four-high mill (backup rolls reduce deflection); automatic thickness gauge control; regular roll
+                    maintenance; crown adjustment.</td>
+            </tr>
+            <tr>
+                <td><strong>Poor Surface Finish</strong></td>
+                <td>Cold Drawing, Rolling</td>
+                <td>Scale not removed before forming; die/roll surface rough; inadequate lubrication; micro-scoring.
+                </td>
+                <td>Pickling before cold forming; smooth, polished tooling; premium lubricants; polishing dies and
+                    rolls.</td>
+            </tr>
+            <tr>
+                <td><strong>Fiber Misalignment</strong></td>
+                <td>Forging (Open-Die)</td>
+                <td>Incomplete working; metal flows around obstacles rather than uniformly; insufficient deformation at
+                    edges.</td>
+                <td>Increase number of forging blows; use drop forging (closed die) for uniform strain; intermediate
+                    fullering to realign flow lines.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>Maximum draft in rolling:</strong> $\Delta h_{\max} = \mu^2 R$. Exceeding this causes slip; cannot
+            be overcome by speed alone.</li>
+        <li><strong>Blanking punches are undersized;</strong> punching dies are oversized. Clearance $C = 0.0032 \cdot t
+            \cdot \sqrt{\tau}$ allocated between them.</li>
+        <li><strong>Hot working requires temp $> T_{\text{recrys}}$</strong> for continuous recrystallization;
+            temperature classification is material-specific, not universal.</li>
+        <li><strong>Cold working increases strength and hardness</strong> through work-hardening but limits deformation
+            magnitude; requires intermediate annealing for large reductions.</li>
+        <li><strong>Forging refines grain structure</strong> and aligns flow lines parallel to major stress directions;
+            drop forging (closed-die) produces superior properties vs open-die.</li>
+        <li><strong>Upsetting: Area ↑, Length ↓;</strong> Fullering: Area ↓, Length ↑. Both are intermediate forging
+            operations.</li>
+        <li><strong>Extrusion through die lubricated by molten glass</strong> (Sejournet process) at high temp;
+            hydrostatic extrusion eliminates container friction.</li>
+        <li><strong>Deep drawing blank diameter:</strong> $D = \sqrt{d^2 + 4dh}$. First draw ratio $\beta = D/d \le
+            2.0\text{–}2.2$ to prevent tearing.</li>
+        <li><strong>Neutral axis in bending shifts inward;</strong> factor $k$ ranges 0.33–0.5; bend allowance $L_b =
+            \alpha(R + kt)$ accounts for this shift.</li>
+        <li><strong>Springback is elastic recovery;</strong> minimized by bottoming (full die contact), over-bending, or
+            stretch bending under tension.</li>
+        <li><strong>Sheet should be bent perpendicular to rolling direction</strong> to prevent edge cracking; rolling
+            imparts directional weakness along flow direction.</li>
+        <li><strong>Wrinkling in deep drawing</strong> controlled by blank-holder force; flange sustains compressive
+            hoop stress that can buckle thin material.</li>
+        <li><strong>Shear force in blanking/punching:</strong> $F = \pi dt\tau$ or $F = pt\tau$ (perimeter). Shear angle
+            reduces peak force but not total energy.</li>
+        <li><strong>Coining is cold closed-die process</strong> (no flash) used for precise surface impressions;
+            requires extremely high pressure.</li>
+        <li><strong>Thread rolling is cold-forming, no material removal;</strong> produces higher fatigue strength than
+            cut threads due to absence of stress-concentration notches.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. Blanking/Punching clearance rules &nbsp; | &nbsp; 2. Rolling draft formula &nbsp; | &nbsp; 3. Deep
+            drawing blank size &nbsp; | &nbsp; 4. Hot vs cold working &nbsp; | &nbsp; 5. Forging operations
+        </p>
+    </div>
+
 </body>
+
 </html>

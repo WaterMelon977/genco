@@ -1,640 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>metal_cutting_machine_tools.md</title>
-  <style>
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metal Cutting & Machine Tools — Competitive Exam Revision Guide</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  * { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.8;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
-  h3 { font-size: 14pt; color: #664229; }
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code {
-    font-family: "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
-  tr:nth-child(even) { background-color: #FDFBF7; }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #E2D9CC; }
-  .katex-display { overflow-x: auto; overflow-y: hidden; }
-  /* ── Formula Display Card ── */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-  }
-  .formula-card .MathJax,
-  .formula-card .MathJax_Display {
-    font-size: 1.15em !important;
-  }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-</style>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\(', '\)']],
-    displayMath: [['$$', '$$'], ['\[', '\]']],
-    processEscapes: true
-  },
-  svg: { fontCache: 'global' }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
+
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
+
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
+
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
+
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+        }
+
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
+
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 1.05em;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .katex-display,
+        .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
+
 <body id="preview">
-<div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
-  <a href="metal_cutting_machine_tools.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">1. Metal Cutting</a> |
-  <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-  <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
-  <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
-  <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs & Fixtures</a> |
-  <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
-</div>
-<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Metal_Cutting_and_Machine_Tools_0"></a>Metal Cutting and Machine Tools</h1>
-<h2 class="code-line has-line-data" data-line-start="2" data-line-end="3"><a id="1_Topic_Overview_2"></a>1. Topic Overview</h2>
-<p class="has-line-data" data-line-start="3" data-line-end="4">This guide covers metal cutting fundamentals, tool geometry, chip formation, Merchant theory, Taylor tool-life relation, cutting speed and forces, and tool wear for AP Genco AE-style preparation. The highest-frequency PYQ areas are ASA tool signature, chip thickness ratio, shear angle, Taylor’s equation, cutting speed calculations, force relations, and flank/crater wear identification. The content below consolidates repeated theory, formulas, diagrams, worked examples, and the most useful exam points into one clean revision guide.</p>
-<h2 class="code-line has-line-data" data-line-start="5" data-line-end="6"><a id="2_Quick_Reference_Sheet_5"></a>2. Quick Reference Sheet</h2>
-<figure style="text-align:center; margin:24px 0;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Half-Radius_Cutting_Tool_for_Foot_Lathe_Used_by_William_Beattie_of_Beattie_Manufacturing_Company%2C_St._Louis_-_DPLA_-_4d16c89433f05b86a6fc34805151dd76_%28page_1%29.jpg" alt="ASA Single Point Tool Geometry" style="max-width:100%; border-radius:8px; border:1px solid #E2D9CC;">
-  <figcaption style="font-size:10pt; color:#5C544D; margin-top:6px; font-style:italic;">Single Point Cutting Tool Angles & Geometry (ASA Signature Reference)</figcaption>
-</figure><figure style="text-align:center; margin:24px 0;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Thread_Cutting_or_Parting_Tool_for_Foot_Lathe_Used_by_William_Beattie_of_Beattie_Manufacturing_Company%2C_St._Louis_-_DPLA_-_52bb7e96de736d345dce7a2f40da30f1_%28page_1%29.jpg" alt="Merchant Circle Diagram" style="max-width:100%; border-radius:8px; border:1px solid #E2D9CC;">
-  <figcaption style="font-size:10pt; color:#5C544D; margin-top:6px; font-style:italic;">Merchant Force Analysis in Orthogonal Metal Cutting</figcaption>
-</figure><h3 class="code-line has-line-data" data-line-start="7" data-line-end="8"><a id="21_All_Formulas_7"></a>2.1 All Formulas</h3>
-<p class="has-line-data" data-line-start="9" data-line-end="10"><strong>ASA tool signature</strong></p>
-<div class="formula-card">$$\boxed{\alpha_b - \alpha_s - \gamma_e - \gamma_s - C_e - C_s - r}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\alpha_b$</td>
-<td>back rake angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>$\alpha_s$</td>
-<td>side rake angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>$\gamma_e$</td>
-<td>end relief angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>$\gamma_s$</td>
-<td>side relief angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>(C_e)</td>
-<td>end cutting-edge angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>(C_s)</td>
-<td>side cutting-edge angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>(r)</td>
-<td>nose radius</td>
-<td>mm</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="23" data-line-end="24"><strong>Lip angle</strong></p>
-<div class="formula-card">$$\boxed{\text{Lip angle} = 90^\circ - $\text{rake} + \text{clearance}$}$$</div><p class="has-line-data" data-line-start="27" data-line-end="28"><strong>Chip thickness ratio</strong></p>
-<div class="formula-card">$$\boxed{r = \frac{t}{t_c} = \frac{\sin\phi}{\cos$\phi-\alpha$}}$$</div><div class="formula-card">$$\boxed{r = \frac{l_c}{l}}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(t)</td>
-<td>uncut chip thickness</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(t_c)</td>
-<td>chip thickness after cutting</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(l_c)</td>
-<td>chip length</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(l)</td>
-<td>cut length</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>$\phi$</td>
-<td>shear angle</td>
-<td>degree</td>
-</tr>
-<tr>
-<td>$\alpha$</td>
-<td>rake angle</td>
-<td>degree</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="42" data-line-end="43"><strong>Merchant relation</strong></p>
-<div class="formula-card">$$\boxed{2\phi + \beta - \alpha = 90^\circ}$$</div><div class="formula-card">$$\boxed{\phi = \frac{\pi}{4} + \frac{\alpha - \beta}{2}}$$</div><div class="formula-card">$$\boxed{\tan\phi = \frac{r\cos\alpha}{1-r\sin\alpha}}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\beta$</td>
-<td>friction angle</td>
-<td>degree</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="54" data-line-end="55"><strong>Friction, cutting speed, chip velocity, and power</strong></p>
-<div class="formula-card">$$\boxed{\mu = \tan\beta = \frac{F_c\sin\alpha + F_t\cos\alpha}{F_c\cos\alpha - F_t\sin\alpha}}$$</div><div class="formula-card">$$\boxed{V = \frac{\pi DN}{1000}}$$</div><div class="formula-card">$$\boxed{V_c = Vr = V\frac{\sin\phi}{\cos$\phi-\alpha$}}$$</div><div class="formula-card">$$\boxed{F_s = F_c\cos\phi - F_t\sin\phi}$$</div><div class="formula-card">$$\boxed{F_n = F_c\sin\phi + F_t\cos\phi}$$</div><div class="formula-card">$$\boxed{\text{Power} \approx F_cV}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(F_c)</td>
-<td>cutting force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>(F_t)</td>
-<td>thrust force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>(F_s)</td>
-<td>shear force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>(F_n)</td>
-<td>normal force</td>
-<td>N</td>
-</tr>
-<tr>
-<td>(V)</td>
-<td>cutting speed</td>
-<td>m/min</td>
-</tr>
-<tr>
-<td>(V_c)</td>
-<td>chip velocity</td>
-<td>m/min</td>
-</tr>
-<tr>
-<td>(D)</td>
-<td>workpiece diameter</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>(N)</td>
-<td>spindle speed</td>
-<td>rpm</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="79" data-line-end="80"><strong>Taylor tool-life equation</strong></p>
-<div class="formula-card">$$\boxed{VT^n = C}$$</div><div class="formula-card">$$\boxed{V_1T_1^n = V_2T_2^n}$$</div><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(V)</td>
-<td>cutting speed</td>
-<td>m/min</td>
-</tr>
-<tr>
-<td>(T)</td>
-<td>tool life</td>
-<td>min</td>
-</tr>
-<tr>
-<td>(n)</td>
-<td>tool-material exponent</td>
-<td>dimensionless</td>
-</tr>
-<tr>
-<td>(C)</td>
-<td>Taylor constant</td>
-<td>m/min</td>
-</tr>
-</tbody>
-</table>
-<p class="has-line-data" data-line-start="92" data-line-end="93"><strong>Surface and wear-related values</strong></p>
-<div class="formula-card">$$\boxed{VB \approx 0.3\text{ to }0.6\text{ mm}}$$</div><h3 class="code-line has-line-data" data-line-start="96" data-line-end="97"><a id="22_Key_Definitions_Master_Concepts_96"></a>2.2 Key Definitions &amp; Master Concepts</h3>
-<ul>
-<li class="has-line-data" data-line-start="98" data-line-end="99"><strong>Orthogonal cutting</strong>: Two-dimensional cutting model where the cutting edge is perpendicular to tool travel.</li>
-<li class="has-line-data" data-line-start="99" data-line-end="100"><strong>Oblique cutting</strong>: Three-dimensional cutting model with an inclined cutting edge.</li>
-<li class="has-line-data" data-line-start="100" data-line-end="101"><strong>Shear angle</strong>: Angle between the shear plane and the cutting direction.</li>
-<li class="has-line-data" data-line-start="101" data-line-end="102"><strong>Continuous chip</strong>: Long, ductile chip formed at high speed, low feed, and high rake.</li>
-<li class="has-line-data" data-line-start="102" data-line-end="103"><strong>Discontinuous chip</strong>: Segmented chip formed with brittle materials or harsh cutting conditions.</li>
-<li class="has-line-data" data-line-start="103" data-line-end="104"><strong>Built-up edge</strong>: Chip material that adheres to the tool tip under certain speed and friction conditions.</li>
-<li class="has-line-data" data-line-start="104" data-line-end="105"><strong>Positive rake</strong>: Reduces cutting force but weakens the tool edge.</li>
-<li class="has-line-data" data-line-start="105" data-line-end="106"><strong>Negative rake</strong>: Strengthens the edge and is used for hard or brittle materials.</li>
-<li class="has-line-data" data-line-start="106" data-line-end="107"><strong>Clearance angle</strong>: Prevents flank rubbing between tool and workpiece.</li>
-<li class="has-line-data" data-line-start="107" data-line-end="108"><strong>Flank wear</strong>: Wear on the clearance faces of the tool.</li>
-<li class="has-line-data" data-line-start="108" data-line-end="109"><strong>Crater wear</strong>: Wear on the rake face, away from the cutting edge.</li>
-<li class="has-line-data" data-line-start="109" data-line-end="110"><strong>Hot hardness</strong>: Ability of a cutting tool material to retain hardness at high temperature.</li>
-<li class="has-line-data" data-line-start="110" data-line-end="112"><strong>Chatter</strong>: Self-excited vibration in machining.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="112" data-line-end="113"><a id="23_Standard_Values_Constants_112"></a>2.3 Standard Values / Constants</h3>
-<ul>
-<li class="has-line-data" data-line-start="114" data-line-end="115"><strong>ASA elements</strong>: 7 elements in fixed order.</li>
-<li class="has-line-data" data-line-start="115" data-line-end="116"><strong>Typical clearance angle</strong>: about 6� to 12�.</li>
-<li class="has-line-data" data-line-start="116" data-line-end="117"><strong>Common tool-life exponent ranges</strong>: HSS 0.08-0.2, carbide 0.2-0.4, ceramic 0.5-0.7.</li>
-<li class="has-line-data" data-line-start="117" data-line-end="118"><strong>Flank-wear criterion</strong>: VB about 0.3-0.6 mm.</li>
-<li class="has-line-data" data-line-start="118" data-line-end="119"><strong>Heat distribution trend</strong>: chip carries away the most heat.</li>
-<li class="has-line-data" data-line-start="119" data-line-end="121"><strong>Heat generation</strong>: about 80-85 percent occurs in the primary shear zone.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="121" data-line-end="122"><a id="24_CrossReference_Map_121"></a>2.4 Cross-Reference Map</h3>
-<ul>
-<li class="has-line-data" data-line-start="123" data-line-end="124"><strong>ASA tool signature</strong>: Covered in Section 3.1; also used in worked examples and the Quick MCQ block.</li>
-<li class="has-line-data" data-line-start="124" data-line-end="125"><strong>Chip thickness ratio</strong>: Covered in Section 3.2; also used in Merchant-theory numericals.</li>
-<li class="has-line-data" data-line-start="125" data-line-end="126"><strong>Merchant relation</strong>: Covered in Section 3.3; also used in force-circle questions.</li>
-<li class="has-line-data" data-line-start="126" data-line-end="127"><strong>Taylor’s equation</strong>: Covered in Section 3.4; also used in speed-life numericals.</li>
-<li class="has-line-data" data-line-start="127" data-line-end="128"><strong>Cutting speed and force relations</strong>: Covered in Section 3.5.</li>
-<li class="has-line-data" data-line-start="128" data-line-end="130"><strong>Flank and crater wear</strong>: Covered in Section 3.6; also repeated in Quick MCQ Points.</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="130" data-line-end="131"><a id="3_Main_Body_130"></a>3. Main Body</h2>
-<h4 class="code-line has-line-data" data-line-start="132" data-line-end="133"><a id="31_Tool_Geometry_and_ASA_Signature_132"></a>3.1 Tool Geometry and ASA Signature</h4>
-<h5 class="code-line has-line-data" data-line-start="134" data-line-end="135"><a id="1_Concept_Pointers_134"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="135" data-line-end="136">ASA signature contains exactly seven elements in a fixed order.</li>
-<li class="has-line-data" data-line-start="136" data-line-end="137">Back rake and side rake control cutting action and chip flow.</li>
-<li class="has-line-data" data-line-start="137" data-line-end="138">Relief angles prevent rubbing and friction on the flank faces.</li>
-<li class="has-line-data" data-line-start="138" data-line-end="139">Cutting-edge angles define the tool point geometry.</li>
-<li class="has-line-data" data-line-start="139" data-line-end="140">Nose radius improves surface finish and edge strength.</li>
-<li class="has-line-data" data-line-start="140" data-line-end="141">Positive rake reduces cutting force but weakens the cutting edge.</li>
-<li class="has-line-data" data-line-start="141" data-line-end="143">Negative rake is preferred for hard, brittle, and interrupted cutting conditions.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="143" data-line-end="144"><a id="2_Formulas_143"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="145" data-line-end="146">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{\alpha_b - \alpha_s - \gamma_e - \gamma_s - C_e - C_s - r}$$</div><div class="formula-card">$$\boxed{\text{Lip angle} = 90^\circ - $\text{rake} + \text{clearance}$}$$</div><p class="has-line-data" data-line-start="151" data-line-end="152"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="152" data-line-end="153">Nose radius is usually stated in mm in modern problems.</li>
-<li class="has-line-data" data-line-start="153" data-line-end="154">ASA order must be read strictly left to right.</li>
-<li class="has-line-data" data-line-start="154" data-line-end="156">The second element is side rake angle.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="156" data-line-end="157"><a id="3_Diagram_156"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="158" data-line-end="159"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="160" data-line-end="161"><a id="4_Worked_Example_160"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="162" data-line-end="163"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="164" data-line-end="166"><strong>Given:</strong> Tool signature <code>0�-10�-8�-6�-20�-60�-0 mm</code>.<br>
-<strong>Find:</strong> Side rake angle.</p>
-<p class="has-line-data" data-line-start="167" data-line-end="168"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="168" data-line-end="169">ASA order is back rake - side rake - end relief - side relief - end cutting-edge angle - side cutting-edge angle - nose radius.</li>
-<li class="has-line-data" data-line-start="169" data-line-end="170">The second element is side rake.</li>
-<li class="has-line-data" data-line-start="170" data-line-end="172"><strong>Answer:</strong> 10�.</li>
-</ol>
-<p class="has-line-data" data-line-start="172" data-line-end="173"><strong>Key Insight:</strong> Always read the signature in the fixed seven-element order; the second value is side rake.</p>
-<h4 class="code-line has-line-data" data-line-start="174" data-line-end="175"><a id="32_Chip_Formation_and_Chip_Thickness_Ratio_174"></a>3.2 Chip Formation and Chip Thickness Ratio</h4>
-<h5 class="code-line has-line-data" data-line-start="176" data-line-end="177"><a id="1_Concept_Pointers_176"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="177" data-line-end="178">Continuous chips usually occur with ductile materials, high speed, low feed, and high rake.</li>
-<li class="has-line-data" data-line-start="178" data-line-end="179">Discontinuous chips usually occur with brittle materials or severe cutting conditions.</li>
-<li class="has-line-data" data-line-start="179" data-line-end="180">Continuous chips with built-up edge form when friction is high and speed is moderate.</li>
-<li class="has-line-data" data-line-start="180" data-line-end="181">Higher cutting speed tends to reduce built-up edge.</li>
-<li class="has-line-data" data-line-start="181" data-line-end="182">Chip thickness ratio is always less than 1 in ordinary turning.</li>
-<li class="has-line-data" data-line-start="182" data-line-end="184">Good surface finish is associated with continuous chips, but handling them is difficult.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="184" data-line-end="185"><a id="2_Formulas_184"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="186" data-line-end="187">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{r = \frac{t}{t_c} = \frac{\sin\phi}{\cos$\phi-\alpha$}}$$</div><div class="formula-card">$$\boxed{r = \frac{l_c}{l}}$$</div><p class="has-line-data" data-line-start="192" data-line-end="193"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="193" data-line-end="194">(r &lt; 1) in ordinary turning.</li>
-<li class="has-line-data" data-line-start="194" data-line-end="196">Use either thickness form or length form consistently.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="196" data-line-end="197"><a id="3_Diagram_196"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="198" data-line-end="199"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="200" data-line-end="201"><a id="4_Worked_Example_200"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="202" data-line-end="203"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="204" data-line-end="206"><strong>Given:</strong> Cut length $l = 76$ mm, chip length $l_c = 61$ mm, uncut thickness (t = 0.2) mm.<br>
-<strong>Find:</strong> Chip thickness (t_c).</p>
-<p class="has-line-data" data-line-start="207" data-line-end="208"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="208" data-line-end="209">$r = l_c/l = 61/76 \approx 0.803$.</li>
-<li class="has-line-data" data-line-start="209" data-line-end="210">$t_c = t/r = 0.2/0.803 \approx 0.249$ mm.</li>
-<li class="has-line-data" data-line-start="210" data-line-end="212"><strong>Answer:</strong> 0.25 mm.</li>
-</ol>
-<p class="has-line-data" data-line-start="212" data-line-end="213"><strong>Key Insight:</strong> Chip ratio can be obtained from lengths or thicknesses; both forms are equivalent.</p>
-<h4 class="code-line has-line-data" data-line-start="214" data-line-end="215"><a id="33_Merchant_Theory_and_Shear_Angle_214"></a>3.3 Merchant Theory and Shear Angle</h4>
-<h5 class="code-line has-line-data" data-line-start="216" data-line-end="217"><a id="1_Concept_Pointers_216"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="217" data-line-end="218">Shear angle is the angle between the shear plane and the cutting direction.</li>
-<li class="has-line-data" data-line-start="218" data-line-end="219">Merchant theory is based on minimum energy consumption.</li>
-<li class="has-line-data" data-line-start="219" data-line-end="220">Larger shear angle means thinner chips and generally lower cutting force.</li>
-<li class="has-line-data" data-line-start="220" data-line-end="221">Friction angle and rake angle appear together in the standard Merchant relation.</li>
-<li class="has-line-data" data-line-start="221" data-line-end="222">Orthogonal cutting is the usual assumption for the theory.</li>
-<li class="has-line-data" data-line-start="222" data-line-end="224">Built-up edge is ignored in the ideal Merchant model.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="224" data-line-end="225"><a id="2_Formulas_224"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="226" data-line-end="227">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{2\phi + \beta - \alpha = 90^\circ}$$</div><div class="formula-card">$$\boxed{\phi = \frac{\pi}{4} + \frac{\alpha - \beta}{2}}$$</div><div class="formula-card">$$\boxed{\tan\phi = \frac{r\cos\alpha}{1-r\sin\alpha}}$$</div><p class="has-line-data" data-line-start="234" data-line-end="235"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="235" data-line-end="236">$\phi$ is shear angle, $\beta$ is friction angle, and $\alpha$ is rake angle.</li>
-<li class="has-line-data" data-line-start="236" data-line-end="238">The relation is standard in orthogonal cutting problems.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="238" data-line-end="239"><a id="3_Diagram_238"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="240" data-line-end="242"><img src="https://www.learnengineering.org/wp-content/uploads/2013/01/merchants-circle-diagram.png" alt="Merchant's Force Circle"><br>
-<em>Force circle showing cutting force, thrust force, shear force, normal force, friction force, and the angles $\alpha$, $\beta$, and $\phi$. Source: LearnEngineering.</em></p>
-<h5 class="code-line has-line-data" data-line-start="243" data-line-end="244"><a id="4_Worked_Example_243"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="245" data-line-end="246"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="247" data-line-end="249"><strong>Given:</strong> $\alpha = 20^\circ$, $\phi = 30^\circ$.<br>
-<strong>Find:</strong> Friction angle $\beta$.</p>
-<p class="has-line-data" data-line-start="250" data-line-end="251"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="251" data-line-end="252">Use Merchant relation: $2\phi + \beta - \alpha = 90^\circ$.</li>
-<li class="has-line-data" data-line-start="252" data-line-end="253">(2(30) + \beta - 20 = 90).</li>
-<li class="has-line-data" data-line-start="253" data-line-end="254">$\beta = 50^\circ$.</li>
-<li class="has-line-data" data-line-start="254" data-line-end="256"><strong>Answer:</strong> 50�.</li>
-</ol>
-<p class="has-line-data" data-line-start="256" data-line-end="257"><strong>Key Insight:</strong> The sign before rake angle must be handled carefully; that is the most common exam mistake.</p>
-<h4 class="code-line has-line-data" data-line-start="258" data-line-end="259"><a id="34_Taylor_ToolLife_Equation_258"></a>3.4 Taylor Tool-Life Equation</h4>
-<h5 class="code-line has-line-data" data-line-start="260" data-line-end="261"><a id="1_Concept_Pointers_260"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="261" data-line-end="262">Taylor’s equation relates cutting speed and tool life empirically.</li>
-<li class="has-line-data" data-line-start="262" data-line-end="263">Smaller (n) means tool life is more sensitive to speed changes.</li>
-<li class="has-line-data" data-line-start="263" data-line-end="264">(C) is the speed corresponding to one-minute tool life.</li>
-<li class="has-line-data" data-line-start="264" data-line-end="265">Tool life changes sharply when cutting speed changes.</li>
-<li class="has-line-data" data-line-start="265" data-line-end="267">The equation is valid when feed and depth of cut are held constant.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="267" data-line-end="268"><a id="2_Formulas_267"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="269" data-line-end="270">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{VT^n = C}$$</div><div class="formula-card">$$\boxed{V_1T_1^n = V_2T_2^n}$$</div><p class="has-line-data" data-line-start="275" data-line-end="276"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="276" data-line-end="277">HSS generally has lower (n) than carbide or ceramic.</li>
-<li class="has-line-data" data-line-start="277" data-line-end="279">Larger (n) means less sensitivity of tool life to cutting speed.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="279" data-line-end="280"><a id="3_Diagram_279"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="281" data-line-end="282"><em>No suitable diagram found; refer to standard textbook schematic.</em></p>
-<h5 class="code-line has-line-data" data-line-start="283" data-line-end="284"><a id="4_Worked_Example_283"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="285" data-line-end="286"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="287" data-line-end="289"><strong>Given:</strong> (n = 0.5), $V_1 = 18$ m/min, $T_1 = 180$ min, $T_2 = 45$ min.<br>
-<strong>Find:</strong> (V_2).</p>
-<p class="has-line-data" data-line-start="290" data-line-end="291"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="291" data-line-end="292">$V_1T_1^n = V_2T_2^n$.</li>
-<li class="has-line-data" data-line-start="292" data-line-end="293">$18\sqrt{180} = V_2\sqrt{45}$.</li>
-<li class="has-line-data" data-line-start="293" data-line-end="294">$V_2 = 36$ m/min.</li>
-<li class="has-line-data" data-line-start="294" data-line-end="296"><strong>Answer:</strong> 36 m/min.</li>
-</ol>
-<p class="has-line-data" data-line-start="296" data-line-end="297"><strong>Key Insight:</strong> The inverse power relation is the entire trick. When (n = 0.5), halving speed has a strong effect on life.</p>
-<h4 class="code-line has-line-data" data-line-start="298" data-line-end="299"><a id="35_Cutting_Speed_Force_Heat_and_Power_298"></a>3.5 Cutting Speed, Force, Heat, and Power</h4>
-<h5 class="code-line has-line-data" data-line-start="300" data-line-end="301"><a id="1_Concept_Pointers_300"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="301" data-line-end="302">Cutting speed is based on workpiece diameter and spindle speed.</li>
-<li class="has-line-data" data-line-start="302" data-line-end="303">Cutting force (F_c) is the primary force used in power calculation.</li>
-<li class="has-line-data" data-line-start="303" data-line-end="304">Coefficient of friction can be derived from measured cutting and thrust forces.</li>
-<li class="has-line-data" data-line-start="304" data-line-end="305">Most heat is generated in the primary shear zone.</li>
-<li class="has-line-data" data-line-start="305" data-line-end="306">The chip carries away the maximum share of heat.</li>
-<li class="has-line-data" data-line-start="306" data-line-end="308">Increasing rake angle generally reduces cutting force and power.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="308" data-line-end="309"><a id="2_Formulas_308"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="310" data-line-end="311">For quick lookup, see Quick Reference Section 2.1.</p>
-<div class="formula-card">$$\boxed{V = \frac{\pi DN}{1000}}$$</div><div class="formula-card">$$\boxed{\mu = \frac{F_c\sin\alpha + F_t\cos\alpha}{F_c\cos\alpha - F_t\sin\alpha}}$$</div><div class="formula-card">$$\boxed{V_c = Vr}$$</div><div class="formula-card">$$\boxed{F_s = F_c\cos\phi - F_t\sin\phi}$$</div><div class="formula-card">$$\boxed{F_n = F_c\sin\phi + F_t\cos\phi}$$</div><div class="formula-card">$$\boxed{\text{Power} \approx F_cV}$$</div><p class="has-line-data" data-line-start="324" data-line-end="325"><strong>Conditions and usage</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="325" data-line-end="326">Use (V) in m/min, (D) in mm, and (N) in rpm.</li>
-<li class="has-line-data" data-line-start="326" data-line-end="328">Heat partition trend: chip &gt; tool &gt; workpiece &gt; environment.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="328" data-line-end="329"><a id="3_Diagram_328"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="330" data-line-end="331"><em>The Merchant force circle in Section 3.3 also serves this section because it contains the same force components.</em></p>
-<h5 class="code-line has-line-data" data-line-start="332" data-line-end="333"><a id="4_Worked_Example_332"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="334" data-line-end="335"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="336" data-line-end="338"><strong>Given:</strong> $F_c = 3000$ N, $F_t = 1200$ N, $\alpha = 32^\circ$ with $\sin 32^\circ \approx 0.53$ and $\cos 32^\circ \approx 0.85$.<br>
-<strong>Find:</strong> Coefficient of friction $\mu$.</p>
-<p class="has-line-data" data-line-start="339" data-line-end="340"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="340" data-line-end="341">Numerator = (3000(0.53) + 1200(0.85) = 2610).</li>
-<li class="has-line-data" data-line-start="341" data-line-end="342">Denominator = (3000(0.85) - 1200(0.53) = 1914).</li>
-<li class="has-line-data" data-line-start="342" data-line-end="343">$\mu \approx 2610/1914 \approx 1.36$.</li>
-<li class="has-line-data" data-line-start="343" data-line-end="345"><strong>Answer:</strong> about 1.37.</li>
-</ol>
-<p class="has-line-data" data-line-start="345" data-line-end="346"><strong>Key Insight:</strong> The denominator must be written with the minus sign before the thrust term.</p>
-<h4 class="code-line has-line-data" data-line-start="347" data-line-end="348"><a id="36_Tool_Wear_347"></a>3.6 Tool Wear</h4>
-<h5 class="code-line has-line-data" data-line-start="349" data-line-end="350"><a id="1_Concept_Pointers_349"></a>1. Concept Pointers</h5>
-<ul>
-<li class="has-line-data" data-line-start="350" data-line-end="351">Flank wear occurs on the clearance or relief faces.</li>
-<li class="has-line-data" data-line-start="351" data-line-end="352">Crater wear occurs on the rake face, away from the tool tip.</li>
-<li class="has-line-data" data-line-start="352" data-line-end="353">Crater wear is mainly due to diffusion and high temperature.</li>
-<li class="has-line-data" data-line-start="353" data-line-end="354">Built-up edge tends to increase heat and accelerate wear.</li>
-<li class="has-line-data" data-line-start="354" data-line-end="356">Flank wear land width is commonly used as a tool-life criterion.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="356" data-line-end="357"><a id="2_Formulas_356"></a>2. Formulas</h5>
-<p class="has-line-data" data-line-start="358" data-line-end="359">No closed-form equation is needed for the PYQ-style questions here.</p>
-<h5 class="code-line has-line-data" data-line-start="360" data-line-end="361"><a id="3_Diagram_360"></a>3. Diagram</h5>
-<p class="has-line-data" data-line-start="362" data-line-end="364"><img src="https://learnmech.com/wp-content/uploads/2018/09/Types-of-Tool-Wear.jpg" alt="Flank and Crater Wear"><br>
-<em>Standard labelled wear diagram showing flank wear on the clearance face and crater wear on the rake face. Source: LearnMech.</em></p>
-<h5 class="code-line has-line-data" data-line-start="365" data-line-end="366"><a id="4_Worked_Example_365"></a>4. Worked Example</h5>
-<p class="has-line-data" data-line-start="367" data-line-end="368"><strong>Worked Example 1</strong></p>
-<p class="has-line-data" data-line-start="369" data-line-end="371"><strong>Given:</strong> Wear is observed on the face of the tool a short distance from the cutting edge.<br>
-<strong>Find:</strong> Type of wear and main mechanism.</p>
-<p class="has-line-data" data-line-start="372" data-line-end="373"><strong>Solution:</strong></p>
-<ol>
-<li class="has-line-data" data-line-start="373" data-line-end="374">Wear on the rake face away from the edge indicates crater wear.</li>
-<li class="has-line-data" data-line-start="374" data-line-end="375">At high temperature, the dominant mechanism is diffusion.</li>
-<li class="has-line-data" data-line-start="375" data-line-end="377"><strong>Answer:</strong> Crater wear due to diffusion.</li>
-</ol>
-<p class="has-line-data" data-line-start="377" data-line-end="378"><strong>Key Insight:</strong> The location tells you the type immediately: rake face means crater wear, flank face means flank wear.</p>
-<h2 class="code-line has-line-data" data-line-start="379" data-line-end="380"><a id="4_Consolidation_Notes_379"></a>4. Consolidation Notes</h2>
-<p class="has-line-data" data-line-start="381" data-line-end="384"><strong>Note on ASA signature and tool geometry:</strong><br>
-The ASA order never changes, so questions usually test identification rather than derivation. Read the seven values in sequence and identify the second element as side rake.<br>
-See Quick Reference Section 2.2.</p>
-<p class="has-line-data" data-line-start="385" data-line-end="388"><strong>Note on Merchant theory and cutting force:</strong><br>
-Merchant’s relation, chip ratio, friction angle, and force circle all belong to the same orthogonal-cutting framework. If one variable is given, the others usually follow from the same relation set.<br>
-See Sections 3.3 and 3.5.</p>
-<p class="has-line-data" data-line-start="389" data-line-end="392"><strong>Note on tool wear:</strong><br>
-Flank wear and crater wear are often asked together, but the difference is mainly location and mechanism. Crater wear starts on the rake face, while flank wear appears on the clearance faces.<br>
-See Section 3.6.</p>
-<h2 class="code-line has-line-data" data-line-start="393" data-line-end="394"><a id="5_Final_QuickFire_Checklist_393"></a>5. Final Quick-Fire Checklist</h2>
-<ul>
-<li class="has-line-data" data-line-start="394" data-line-end="395">Memorize the ASA order: back rake, side rake, end relief, side relief, end cutting-edge angle, side cutting-edge angle, nose radius.</li>
-<li class="has-line-data" data-line-start="395" data-line-end="396">Remember the Merchant relation: $2\phi + \beta - \alpha = 90^\circ$.</li>
-<li class="has-line-data" data-line-start="396" data-line-end="397">Know that chip thickness ratio is always less than 1 in ordinary turning.</li>
-<li class="has-line-data" data-line-start="397" data-line-end="398">Fix Taylor’s equation: $VT^n = C$.</li>
-<li class="has-line-data" data-line-start="398" data-line-end="399">Use $V = \pi DN/1000$ for cutting speed.</li>
-<li class="has-line-data" data-line-start="399" data-line-end="400">Keep wear locations straight: flank wear on the clearance face, crater wear on the rake face.</li>
-<li class="has-line-data" data-line-start="400" data-line-end="402">Remember the heat trend: chip carries away the most heat.</li>
-</ul>
-<p class="has-line-data" data-line-start="402" data-line-end="403"><strong>High-frequency PYQ focus:</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="403" data-line-end="404">ASA tool signature and tool geometry</li>
-<li class="has-line-data" data-line-start="404" data-line-end="405">Chip formation and chip thickness ratio</li>
-<li class="has-line-data" data-line-start="405" data-line-end="406">Merchant theory and shear angle</li>
-<li class="has-line-data" data-line-start="406" data-line-end="407">Taylor tool-life equation</li>
-<li class="has-line-data" data-line-start="407" data-line-end="408">Cutting speed, forces, and friction coefficient</li>
-<li class="has-line-data" data-line-start="408" data-line-end="410">Flank wear, crater wear, and tool-life criteria</li>
-</ul>
-<h2 class="code-line has-line-data" data-line-start="410" data-line-end="411"><a id="Quick_MCQ_Points_410"></a>Quick MCQ Points</h2>
-<h3 class="code-line has-line-data" data-line-start="412" data-line-end="413"><a id="1_Tool_Geometry_ASA_Signature_412"></a>1. Tool Geometry / ASA Signature</h3>
-<ul>
-<li class="has-line-data" data-line-start="413" data-line-end="414">ASA signature always has exactly 7 elements.</li>
-<li class="has-line-data" data-line-start="414" data-line-end="415">Fixed order: Back rake, Side rake, End relief, Side relief, End cutting-edge angle, Side cutting-edge angle, Nose radius.</li>
-<li class="has-line-data" data-line-start="415" data-line-end="416">Nose radius unit is usually mm in modern problems.</li>
-<li class="has-line-data" data-line-start="416" data-line-end="417">Lip angle is the angle between face and flank.</li>
-<li class="has-line-data" data-line-start="417" data-line-end="418">Negative rake is used for ceramic, CBN, hard/brittle materials, and high-speed cutting.</li>
-<li class="has-line-data" data-line-start="418" data-line-end="420">Positive rake reduces cutting force but weakens the tool edge.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="420" data-line-end="421"><a id="2_Chip_Formation_420"></a>2. Chip Formation</h3>
-<ul>
-<li class="has-line-data" data-line-start="421" data-line-end="422">Continuous chips occur with ductile materials, high speed, low feed, and high rake.</li>
-<li class="has-line-data" data-line-start="422" data-line-end="423">Discontinuous chips occur with brittle materials.</li>
-<li class="has-line-data" data-line-start="423" data-line-end="424">Continuous chips with built-up edge occur at low-to-medium speed with high friction.</li>
-<li class="has-line-data" data-line-start="424" data-line-end="425">Chip thickness ratio $r = t/t_c$ is always less than 1.</li>
-<li class="has-line-data" data-line-start="425" data-line-end="426">Higher cutting speed reduces built-up edge.</li>
-<li class="has-line-data" data-line-start="426" data-line-end="428">Continuous chips give good finish but are hard to handle.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="428" data-line-end="429"><a id="3_Shear_Angle_and_Merchant_Theory_428"></a>3. Shear Angle and Merchant Theory</h3>
-<ul>
-<li class="has-line-data" data-line-start="429" data-line-end="430">Shear angle $\phi$ is the angle between the shear plane and the direction of tool travel.</li>
-<li class="has-line-data" data-line-start="430" data-line-end="431">Standard Merchant relation: $2\phi + \beta - \alpha = 90^\circ$.</li>
-<li class="has-line-data" data-line-start="431" data-line-end="432">Equivalent form: $\phi = \frac{\pi}{4} + \frac{\alpha - \beta}{2}$.</li>
-<li class="has-line-data" data-line-start="432" data-line-end="433">Higher $\phi$ means thinner chip and lower cutting force.</li>
-<li class="has-line-data" data-line-start="433" data-line-end="435">From chip ratio: $\tan\phi = \frac{r\cos\alpha}{1-r\sin\alpha}$.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="435" data-line-end="436"><a id="4_Taylors_Tool_Life_435"></a>4. Taylor’s Tool Life</h3>
-<ul>
-<li class="has-line-data" data-line-start="436" data-line-end="437">Equation: ^n = C$.</li>
-<li class="has-line-data" data-line-start="437" data-line-end="438">Typical (n) values: HSS 0.08-0.2, carbide 0.2-0.4, ceramic 0.5-0.7.</li>
-<li class="has-line-data" data-line-start="438" data-line-end="439">Smaller (n) means tool life is more sensitive to speed change.</li>
-<li class="has-line-data" data-line-start="439" data-line-end="440">Doubling cutting speed sharply reduces tool life.</li>
-<li class="has-line-data" data-line-start="440" data-line-end="442">(C) is the cutting speed for 1-minute tool life.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="442" data-line-end="443"><a id="5_Cutting_Speed_Forces_and_Heat_442"></a>5. Cutting Speed, Forces, and Heat</h3>
-<ul>
-<li class="has-line-data" data-line-start="443" data-line-end="444">$V = \frac{\pi DN}{1000}$ with D in mm and V in m/min.</li>
-<li class="has-line-data" data-line-start="444" data-line-end="445">Primary force used for power is tangential force (F_c).</li>
-<li class="has-line-data" data-line-start="445" data-line-end="446">Coefficient of friction: $\mu = \frac{F_c\sin\alpha + F_t\cos\alpha}{F_c\cos\alpha - F_t\sin\alpha}$.</li>
-<li class="has-line-data" data-line-start="446" data-line-end="447">About 80-85% of heat is generated in the shear zone.</li>
-<li class="has-line-data" data-line-start="447" data-line-end="448">Heat carried away order: Chip &gt; Tool &gt; Workpiece &gt; Environment.</li>
-<li class="has-line-data" data-line-start="448" data-line-end="450">Higher rake angle reduces cutting power.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="450" data-line-end="451"><a id="6_Tool_Wear_450"></a>6. Tool Wear</h3>
-<ul>
-<li class="has-line-data" data-line-start="451" data-line-end="452">Flank wear occurs on relief or clearance faces.</li>
-<li class="has-line-data" data-line-start="452" data-line-end="453">Crater wear occurs on the rake face, away from the cutting edge.</li>
-<li class="has-line-data" data-line-start="453" data-line-end="454">Crater wear main cause is diffusion plus high temperature.</li>
-<li class="has-line-data" data-line-start="454" data-line-end="455">Crater starts away from the tip because temperature is maximum there.</li>
-<li class="has-line-data" data-line-start="455" data-line-end="456">Built-up edge increases heat and accelerates wear.</li>
-<li class="has-line-data" data-line-start="456" data-line-end="458">Flank wear land VB about 0.3-0.6 mm is a common tool-life criterion.</li>
-</ul>
-<h3 class="code-line has-line-data" data-line-start="458" data-line-end="459"><a id="Extra_HighFrequency_OneLiners_458"></a>Extra High-Frequency One-Liners</h3>
-<ul>
-<li class="has-line-data" data-line-start="459" data-line-end="460">Orthogonal cutting means the cutting edge is perpendicular to tool travel.</li>
-<li class="has-line-data" data-line-start="460" data-line-end="461">Oblique cutting means the cutting edge is inclined and the cutting is 3-D.</li>
-<li class="has-line-data" data-line-start="461" data-line-end="462">Continuous chips with BUE form on ductile materials at low-to-medium speed.</li>
-<li class="has-line-data" data-line-start="462" data-line-end="463">For brass, rake angle of an HSS tool is usually 0�.</li>
-<li class="has-line-data" data-line-start="463" data-line-end="465">Chatter in machine tools is caused by self-excited vibrations.</li>
-</ul>
-<p class="has-line-data" data-line-start="465" data-line-end="466">These points directly match the repeated options and traps in the source file. Memorize the exact wording, especially the Merchant relation and ASA order.</p>
-<hr>
-<p class="has-line-data" data-line-start="469" data-line-end="470">End of Guide.</p>
+
+    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
+        <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
+        <a href="metal_cutting_machine_tools.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">1. Metal Cutting</a> |
+        <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+        <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
+        <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
+        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs &amp; Fixtures</a> |
+        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+    </div>
+
+    <h1>METAL CUTTING & MACHINE TOOLS<br />Revision Guide for Competitive Exams</h1>
+
+    <div class="exam-focus">High-frequency topics: ASA tool geometry, chip formation, Merchant theory, Taylor's
+        tool-life equation, flank vs crater wear, cutting forces, heat distribution.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>1.1 Orthogonal vs Oblique Cutting</h3>
+    <div class="concept-block">
+        <p><strong>Orthogonal Cutting:</strong> Cutting edge perpendicular to tool feed direction. Two-dimensional
+            stress/strain state. Simplest analysis framework; used in theory and practice (lathe turning with
+            perpendicular CCET insert).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Oblique Cutting:</strong> Cutting edge inclined to feed direction. Three-dimensional chip flow and
+            force components. Reduces cutting forces and vibration compared to orthogonal; improves surface finish.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/orthogonal_vs_oblique.jpg" alt="Orthogonal vs Oblique Cutting" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: Orthogonal Cutting (2D stress state, $\mathbf{V} \perp$ edge) vs Oblique Cutting (3D chip flow, inclined edge).</div>
+    </div>
+
+    <h3>1.2 Tool Geometry — ASA Signature (7 Elements)</h3>
+    <div class="concept-block">
+        <p><strong>Fixed Order (Memorize):</strong> Back rake, Side rake, End relief, Side relief, End cutting-edge
+            angle, Side cutting-edge angle, Nose radius.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Back Rake:</strong> Angle between tool face and axis of tool shank, measured in plane perpendicular
+            to cutting edge. Positive rake reduces cutting force; negative rake used for ceramic, CBN, hard materials
+            and interrupted cuts.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Side Rake:</strong> Angle in side view. Typically positive for ductile metals, zero for brass,
+            negative for hard materials.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Relief Angles (End & Side):</strong> Clearance to prevent rubbing on workpiece. Typical values 5–10°.
+            Excessive relief weakens tool; insufficient relief causes friction and wear.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Cutting-Edge Angles:</strong> End cutting-edge angle (ECEA) and side cutting-edge angle (SCEA)
+            determine chip control direction. Typically 45–90° for stability.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Nose Radius:</strong> Radius at tool tip. Larger radius improves finish and tool strength but reduces
+            corner accuracy. Typical range 0.4–1.6 mm.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/asa_tool_geometry.jpg" alt="ASA Single Point Tool Geometry" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Single Point Tool Geometry &amp; Angles in the ASA System.</div>
+    </div>
+
+    <h3>1.3 Chip Formation Types</h3>
+    <div class="concept-block">
+        <p><strong>Continuous Chip (Ideal):</strong> Occurs with ductile materials at high speed, low feed, high rake.
+            Metal flows plastically up the rake face as ribbon without breaking. Produces good surface finish; difficult
+            to handle (entangles).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Discontinuous Chip (Segmented):</strong> Occurs with brittle materials (cast iron, ceramics), low
+            speed, high feed. Metal fractures as individual segments. Easy chip removal; poor surface finish.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Continuous Chip with Built-Up Edge (BUE):</strong> Occurs at low-to-medium speed with high friction
+            and ductile materials. Layer of work material adheres to rake face, builds up, then breaks off cyclically.
+            Produces poor surface finish (built-up material leaves impressions). Eliminated by increasing speed or
+            reducing friction.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/chip_types_bue.webp" alt="Chip Formation Types" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Primary Chip Formation Types — Continuous, Discontinuous, &amp; Built-Up Edge (BUE).</div>
+    </div>
+
+    <h3>1.4 Merchant Circle Theory (Orthogonal Cutting)</h3>
+    <div class="concept-block">
+        <p><strong>Shear Angle $\phi$:</strong> Angle between shear plane and tool motion direction. Higher $\phi$ means
+            thinner chip (larger chip compression), lower shear strain, lower cutting force. Related to chip ratio $r =
+            t/t_c$ (uncut chip thickness / chip thickness).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Merchant Relation (Standard):</strong> $2\phi + \beta - \alpha = 90°$. Where $\phi$ = shear angle,
+            $\beta$ = friction angle (= $\arctan \mu$), $\alpha$ = rake angle. Predicts shear angle from tool geometry
+            and friction coefficient.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Chip Ratio ($r$):</strong> Ratio of uncut thickness to chip thickness, always $< 1$ in ordinary
+                turning. Relates to shear angle by: $\tan \phi=\frac{r \cos \alpha}{1 - r \sin \alpha}$. Higher $r$
+                means larger shear angle, lower cutting force.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/merchant_force_circle.png" alt="Merchant Force Circle Diagram" style="max-width:100%; max-height:380px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Merchant's Force Circle Diagram in Orthogonal Cutting ($F_c, F_t, F_s, F_n, F, N$).</div>
+    </div>
+
+    <h3>1.5 Taylor's Tool-Life Equation</h3>
+    <div class="concept-block">
+        <p><strong>Form:</strong> $VT^n = C$. Where $V$ = cutting speed (m/min), $T$ = tool life (minutes), $n$ =
+            exponent (material and tool dependent), $C$ = constant (cutting speed for 1-minute tool life).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Exponent $n$ Ranges:</strong> HSS: 0.08–0.2; Carbide: 0.2–0.4; Ceramic: 0.5–0.7. Smaller $n$ means
+            tool life more sensitive to speed changes (HSS more speed-sensitive than carbide). Doubling speed sharply
+            reduces tool life.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Extended Forms:</strong> $VT^n f^y d^x = C'$ accounts for feed ($f$) and depth ($d$). Exponents $x, y$
+            typically much smaller than $n$ (speed dominates tool life).</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/taylor_tool_life_curves.png" alt="Taylor Tool Life Curves" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5: Taylor Tool Life Curves ($V\text{--}T$) for HSS, Carbide, &amp; Ceramic tool materials.</div>
+    </div>
+
+    <h3>1.6 Cutting Speed & Cutting Forces</h3>
+    <div class="concept-block">
+        <p><strong>Cutting Speed (m/min):</strong> $V = \frac{\pi DN}{1000}$. Where $D$ = workpiece diameter (mm), $N$ =
+            spindle speed (rpm). Higher speed reduces cutting time but accelerates tool wear.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Forces in Orthogonal Cutting:</strong> Tangential force ($F_c$, parallel to tool feed), Normal force
+            ($F_t$, perpendicular to rake face). Cutting power $P = F_c \cdot V$ (watts, tangential force dominates).
+            Friction coefficient $\mu = \tan \beta = \frac{F_c \sin \alpha + F_t \cos \alpha}{F_c \cos \alpha - F_t \sin
+            \alpha}$.</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Force Reduction Techniques:</strong> Increase rake angle (reduces force but weakens tool edge).
+            Increase speed (reduces built-up edge, improves chip flow). Use coolant (reduces friction). Decrease feed
+            (reduces overall force but increases tool life requirements).</p>
+    </div>
+
+    <h3>1.7 Heat Generation & Distribution in Cutting</h3>
+    <div class="concept-block">
+        <p><strong>Heat Sources:</strong> Primary shear zone (80–85% of heat); friction at tool-chip interface (10–15%).
+            Total heat $Q = F_c \cdot V \cdot t$ (proportional to power and thickness).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Heat Distribution:</strong> Chip carries away ~80% of heat (exits with chip). Tool receives ~10%,
+            workpiece ~5–10%, environment negligible. High-speed cutting: most heat leaves with chip. Low-speed cutting:
+            more heat reaches tool (accelerates wear).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Temperature Rise in Tool:</strong> Highest at contact zone (chip-rake face interface). Crater wear
+            initiates away from tip (where temperature is maximum, ~1000°C for steel). Flank wear accelerated by heat
+            conduction from rake face.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/cutting_heat_distribution.png" alt="Cutting Heat Distribution" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.7: Heat Generation Zones and Heat Partitioning (Chip ~80%, Tool ~10%, Workpiece ~10%).</div>
+    </div>
+
+    <h3>1.8 Tool Wear Mechanisms</h3>
+    <div class="concept-block">
+        <p><strong>Flank Wear (Dominant Mode):</strong> Wear on relief/clearance faces. Cause: abrasion by workpiece
+            asperities, chemical reaction, adhesion-removal cycles. Occurs uniformly along flank. VB (flank wear land)
+            0.3–0.6 mm is typical tool-life criterion. Increased by low speed (more time rubbing), high feed (higher
+            normal stress).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Crater Wear:</strong> Wear on rake face, away from cutting edge (not at tip). Cause: diffusion of
+            tool material into chip at high temperature, adhesion. Starts where temperature is maximum ($\approx
+            500–1000$mm away from edge). Dominant at high speed and high temperature. Primarily affects HSS tools;
+            carbides more resistant due to hardness.</p>
+    </div>
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/flank_and_crater_wear.jpeg" alt="Flank and Crater Wear Geometry" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.8: Tool Wear Geometry — Flank Wear Land ($VB$) on clearance face vs Crater Wear ($KT$) on rake face.</div>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Built-Up Edge (BUE):</strong> Not true wear, but workpiece material adhesion. Accumulates at tip,
+            increases cutting force, vibration, and heat. Breaks off cyclically (produces poor finish marks). Suppressed
+            by high speed or coolant (reduces friction).</p>
+    </div>
+
+    <div class="concept-block">
+        <p><strong>Notch Wear:</strong> Localized wear at depth-of-cut line (stress concentration). Accelerated at low
+            speeds and high feeds. Caused by thermal cycling and stress concentration.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 Cutting Speed & Kinematics</h3>
+
+    <h4>Cutting Speed</h4>
+    <div class="formula-card">
+        $$V = \frac{\pi D N}{1000}$$
+    </div>
+    <p><strong>Where:</strong> $D$ = workpiece diameter (mm), $N$ = spindle speed (rpm), $V$ = m/min.</p>
+
+    <h4>Chip Thickness Ratio (Chip Compression Ratio)</h4>
+    <div class="formula-card">
+        $$r = \frac{t}{t_c}$$
+    </div>
+    <p><strong>Where:</strong> $t$ = uncut chip thickness (feed per revolution), $t_c$ = actual chip thickness. Always
+        $r < 1$ in ordinary turning. Higher $r$ indicates thicker undeformed chip (larger shear).</p>
+
+    <h3>2.2 Merchant Circle & Shear Angle</h3>
+
+    <h4>Merchant Relation</h4>
+    <div class="formula-card">
+        $$2\phi + \beta - \alpha = 90°$$
+    </div>
+    <p><strong>Equivalent form:</strong> $\phi = 45° + \frac{\alpha - \beta}{2}$. Where $\phi$ = shear angle,
+        $\alpha$ = rake angle, $\beta$ = friction angle ($\beta = \arctan \mu$).</p>
+
+    <h4>Shear Angle from Chip Ratio</h4>
+    <div class="formula-card">
+        $$\tan \phi = \frac{r \cos \alpha}{1 - r \sin \alpha}$$
+    </div>
+    <p>Relates chip compression directly to shear plane orientation.</p>
+
+    <h4>Friction Coefficient</h4>
+    <div class="formula-card">
+        $$\mu = \frac{F_c \sin \alpha + F_t \cos \alpha}{F_c \cos \alpha - F_t \sin \alpha}$$
+    </div>
+    <p><strong>Where:</strong> $F_c$ = tangential (cutting) force, $F_t$ = normal force perpendicular to rake
+        face.</p>
+
+    <h3>2.3 Taylor's Tool-Life Equation</h3>
+
+    <h4>Standard Form</h4>
+    <div class="formula-card">
+        $$VT^n = C$$
+    </div>
+    <p><strong>Where:</strong> $V$ = cutting speed (m/min), $T$ = tool life (minutes), $n$ = exponent (typical:
+        HSS 0.08–0.2, carbide 0.2–0.4, ceramic 0.5–0.7), $C$ = cutting speed at 1-min tool life.</p>
+
+    <h4>Extended Form</h4>
+    <div class="formula-card">
+        $$VT^n f^y d^x = C'$$
+    </div>
+    <p><strong>Where:</strong> $f$ = feed (mm/rev), $d$ = depth of cut (mm). Exponents $x, y$ typically 0.1–0.3
+        (much smaller than $n$).</p>
+
+    <h3>2.4 Cutting Power & Energy</h3>
+
+    <h4>Cutting Power</h4>
+    <div class="formula-card">
+        $$P = F_c \cdot V$$
+    </div>
+    <p><strong>Where:</strong> $P$ = watts (or hp = P/746), $F_c$ = tangential cutting force (N), $V$ = cutting
+        speed (m/min). Convert $V$ to m/s for SI units.</p>
+
+    <h4>Heat Generation Rate</h4>
+    <div class="formula-card">
+        $$Q = F_c \cdot V \cdot t$$
+    </div>
+    <p><strong>Where:</strong> $t$ = uncut chip thickness (feed). Roughly proportional to cutting power and
+        material removal rate.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>3. Tool Wear & Failure Classification Table (Most-Tested in GENCO/SSC JE)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="img-container">
+        <img src="images/metal_cutting_machine_tools/tool_wear_gallery.jpg" alt="Tool Wear Failure Modes Gallery" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 3.1: Visual Classification Guide of Tool Wear &amp; Failure Modes.</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Wear Type</th>
+                <th>Location</th>
+                <th>Primary Cause</th>
+                <th>Severity Factors</th>
+                <th>Mitigation Strategy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Flank Wear</strong></td>
+                <td>Relief/clearance face (contact with workpiece)</td>
+                <td>Abrasion by workpiece asperities; adhesion-removal cycles</td>
+                <td>Low speed (more rubbing time); high feed (normal stress); abrasive workpiece material</td>
+                <td>Increase speed (reduces time in contact). Use coated tools (hardness, adhesion resistance).
+                    Reduce feed. Apply coolant.</td>
+            </tr>
+            <tr>
+                <td><strong>Crater Wear</strong></td>
+                <td>Rake face, away from cutting edge (not at tip)</td>
+                <td>Diffusion of tool atoms into hot chip; chemical reaction at contact zone</td>
+                <td>High speed (high temperature, accelerates diffusion); high temperature materials (steel >
+                    aluminum); absence of crater-resistant coatings</td>
+                <td>Reduce speed (lowers temperature, slows diffusion). Use carbide or ceramic (higher diffusion
+                    resistance than HSS). Apply protective coatings. Use coolant (reduces interface
+                    temperature).</td>
+            </tr>
+            <tr>
+                <td><strong>Built-Up Edge (BUE)</strong></td>
+                <td>Rake face tip (workpiece material adheres)</td>
+                <td>Adhesion of plastically deformed workpiece material under high contact stress and
+                    temperature</td>
+                <td>Low-to-medium speed (high friction, high adhering force); high ductility material; high rake
+                    angle (encourages sticking)</td>
+                <td>Increase speed (reduces friction, promotes sliding over adhesion). Use coolant (reduces
+                    friction and temperature). Reduce feed. Apply dry cutting or high-speed dry cutting
+                    (eliminates coolant interaction).</td>
+            </tr>
+            <tr>
+                <td><strong>Notch Wear</strong></td>
+                <td>At depth-of-cut line (edge of chip contact)</td>
+                <td>Stress concentration from thermal cycling and mechanical stress at tool-workpiece separation
+                    point</td>
+                <td>Thermal cycling (interrupted cuts); high speed with low speed interchanges; high depth of
+                    cut</td>
+                <td>Avoid interrupted cuts if possible. Use stable speed (avoid rapid speed changes). Increase
+                    tool nose radius (distributes stress). Use wear-resistant coatings.</td>
+            </tr>
+            <tr>
+                <td><strong>Chipping / Fracture</strong></td>
+                <td>Tool nose or edge</td>
+                <td>Sudden mechanical overload; thermal shock from coolant; interrupted cuts</td>
+                <td>Excessive feed or depth; vibration; interrupted turning; rapid speed/load changes; tool tip
+                    too sharp</td>
+                <td>Reduce feed/depth incrementally. Ensure machine rigidity (minimize chatter). Avoid sudden
+                    coolant application on hot tool (use through-spindle delivery or mist). Use tougher tool
+                    grade (sacrifice hardness for fracture resistance). Increase nose radius.</td>
+            </tr>
+            <tr>
+                <td><strong>Adhesive Wear</strong></td>
+                <td>Rake face and flank (spotty, micro-scale)</td>
+                <td>Local welding of tool-workpiece asperities followed by shear removal</td>
+                <td>Low speed (promotes adhesion over sliding); ductile workpiece material; low friction
+                    coefficient</td>
+                <td>Increase speed (promotes sliding). Use coolant with EP (extreme pressure) additives. Apply
+                    hard coatings (TiN, AlTiN reduce adhesion). Use negative rake (reduces contact stress).</td>
+            </tr>
+            <tr>
+                <td><strong>Diffusive Wear</strong></td>
+                <td>Rake face (crater wear substrate)</td>
+                <td>Thermal diffusion of tool atoms into chip matrix at very high temperature ($>900$°C)</td>
+                <td>High-speed steel at high speed (HSS poor diffusion resistance); high temperature workpiece
+                    materials (superalloys, titanium); long cutting times</td>
+                <td>Switch to carbide or ceramic (10–20× better diffusion resistance). Reduce speed to lower
+                    interface temperature. Use coated carbides (diffusion barriers). Reduce tool life
+                    requirement (accept higher tool change frequency at high speed).</td>
+            </tr>
+            <tr>
+                <td><strong>Oxidative Wear</strong></td>
+                <td>Flank and rake face (surface oxidation layer)</td>
+                <td>Chemical oxidation of tool material (especially HSS Fe-W-Mo) at elevated temperature in air
+                </td>
+                <td>High speed (high temperature); HSS tools (less oxidation-resistant); absence of protective
+                    atmosphere</td>
+                <td>Use carbide or ceramic (oxidation-resistant at high temp). Reduce speed. Apply protective
+                    coatings. Use dry cutting (eliminates water-induced oxidation).</td>
+            </tr>
+            <tr>
+                <td><strong>Thermal Shock / Microcracks</strong></td>
+                <td>Tool nose and tip region</td>
+                <td>Rapid thermal cycling: hot tool in contact, suddenly cooled by coolant or air exposure</td>
+                <td>Interrupted cuts (thermal cycling). Sudden coolant application. Rapid speed/load changes.
+                    HSS and ceramic (low thermal shock resistance)</td>
+                <td>Use continuous cutting. Avoid mist/flood coolant interactions (use through-spindle or dry
+                    only). Preheat tool in high-speed dry cutting. Use tough carbide grades (sacrifice hardness
+                    for toughness).</td>
+            </tr>
+            <tr>
+                <td><strong>Plastic Deformation / Wear</strong></td>
+                <td>Tool nose (edge rounding, loss of sharpness)</td>
+                <td>Tool material yield under combined thermal and mechanical stress at high temperature</td>
+                <td>High speed + high feed (extreme stress). HSS at high temp (yield point drops significantly).
+                    Negative rake (increases stress on tool)</td>
+                <td>Reduce speed or feed. Use harder tool material (ceramic, cubic boron nitride). Increase tool
+                    nose radius (distributes stress). Apply compressive stress coatings (improves hardness).
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>ASA tool signature has exactly 7 elements in fixed order:</strong> back rake, side rake, end
+            relief, side relief, end cutting-edge angle, side cutting-edge angle, nose radius. This order never
+            changes; identify by position.</li>
+        <li><strong>Positive rake reduces cutting force</strong> but weakens tool edge; negative rake used for
+            hard/brittle materials and high-speed interrupted cutting.</li>
+        <li><strong>Continuous chips occur with ductile materials</strong> at high speed, low feed, high rake.
+            Discontinuous chips form with brittle materials. Built-up edge (BUE) occurs at low-to-medium speed
+            with high friction; eliminated by increasing speed.</li>
+        <li><strong>Chip ratio $r = t/t_c$ always $< 1$.</strong> Higher $r$ means larger shear angle, lower
+                    cutting force. Relates to chip thickness by: $\tan \phi = \frac{r \cos \alpha}{1 - r \sin
+                    \alpha}$.</li>
+        <li><strong>Merchant relation: $2\phi + \beta - \alpha = 90°$</strong> or equivalently $\phi = 45° +
+            \frac{\alpha - \beta}{2}$. Links shear angle to tool geometry and friction coefficient.</li>
+        <li><strong>Higher shear angle $\phi$ means thinner chip</strong> and lower cutting force. Achieved by
+            increasing rake angle or increasing friction (friction angle $\beta$).</li>
+        <li><strong>Taylor's equation $VT^n = C$:</strong> Exponent $n$ ranges: HSS 0.08–0.2, carbide 0.2–0.4,
+            ceramic 0.5–0.7. Smaller $n$ = tool life more sensitive to speed. Doubling speed sharply reduces
+            tool life (nonlinear relationship).</li>
+        <li><strong>Cutting speed $V = \frac{\pi D N}{1000}$ (D in mm, N in rpm, V in m/min).</strong> Speed is
+            the dominant factor affecting tool life (exponent $n$); feed and depth have minor effects ($x, y \ll
+            n$).</li>
+        <li><strong>Flank wear on relief face; crater wear on rake face away from edge.</strong> Flank wear
+            caused by abrasion (low-speed problem). Crater wear caused by diffusion (high-speed problem).
+            Tool-life criterion: VB (flank wear land) 0.3–0.6 mm.</li>
+        <li><strong>Crater wear initiates away from the cutting edge</strong> (not at tip) because temperature
+            is maximum there (~500–1000 mm from edge). Diffusion dominates at high temperature; dominates in HSS
+            at high speed.</li>
+        <li><strong>Heat distribution in cutting:</strong> Shear zone generates 80–85% of heat. Chip carries
+            ~80% away (exits with workpiece). Tool receives ~10%, workpiece ~5–10%. High-speed cutting: most
+            heat leaves with chip (tool stays cooler). Low-speed: more heat reaches tool (accelerates wear).
+        </li>
+        <li><strong>Cutting power $P = F_c \cdot V$ (tangential force dominates).</strong> Power and heat
+            increase with speed but tool life decreases (nonlinear tradeoff). Lower speed = more rubbing
+            friction = higher flank wear rate.</li>
+        <li><strong>Built-up edge increases heat</strong> at rake face, accelerates crater wear and reduces
+            surface finish. Suppressed by increasing speed or applying coolant (reduces friction, promotes
+            sliding).</li>
+        <li><strong>Orthogonal cutting: edge perpendicular to feed (2-D analysis).</strong> Oblique cutting:
+            edge inclined (3-D, reduces forces, improves finish). Forces reduced in oblique mode due to
+            distributed shear.</li>
+        <li><strong>Coining with hardness, brittleness, or ceramic: use negative rake</strong> for interrupted
+            cuts to prevent chipping. Positive rake for continuous, ductile cutting. Zero rake (straight) common
+            for brass and alloys with intermediate properties.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. ASA tool geometry & signature &nbsp; | &nbsp; 2. Merchant theory & shear angle &nbsp; | &nbsp; 3.
+            Taylor's tool-life equation &nbsp; | &nbsp; 4. Chip formation & BUE &nbsp; | &nbsp; 5. Flank vs
+            crater wear mechanisms
+        </p>
+    </div>
 
 </body>
+
 </html>
