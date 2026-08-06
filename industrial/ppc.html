@@ -1,793 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ppc.md</title>
-  <style>
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Planning & Control (PPC) — Competitive Exam Revision Guide</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  body {
-    font-family: Georgia, Cambria, serif;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #373D49;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-  h1 { font-size: 2em; }
-  h2 { font-size: 1.5em; }
-  h3 { font-size: 1.25em; }
-  a { color: #35D7BB; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  code {
-    font-family: "Ubuntu Mono", Monaco, monospace;
-    background: #F5F7FA;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-  }
-  pre {
-    background: #F5F7FA;
-    padding: 1em;
-    border-radius: 3px;
-    overflow-x: auto;
-  }
-  .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0;
-    color: #333;
-  }
-  pre code { background: none; padding: 0; }
-  blockquote {
-    border-left: 3px solid #A0AABF;
-    padding-left: 1em;
-    margin-left: 0;
-    font-style: italic;
-    color: #666;
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  th, td {
-    border: 1px solid #E8E8E8;
-    padding: 0.5em;
-    text-align: left;
-  }
-  th {
-    background: #F5F7FA;
-    font-weight: 600;
-  }
-  #preview .table {
-    width: auto;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  .katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  /* Fix KaTeX fraction line visibility */
-  .frac-line {
-    border-bottom-style: solid !important;
-    border-bottom-color: currentColor !important;
-  }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #2D2926;
+            background-color: #F0ECE1;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 35px 20px;
+        }
 
-  /* ── Back-navigation bar ── */
-  .submodule-nav {
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    padding: 11px 20px;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-size: 10.5pt;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 6px 16px rgba(74,46,27,0.18);
-    flex-wrap: wrap;
-  }
-  .submodule-nav .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #FFFDF9;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 10pt;
-    background: rgba(255,255,255,0.13);
-    padding: 5px 15px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: background 0.2s ease;
-    white-space: nowrap;
-  }
-  .submodule-nav .back-btn:hover { background: rgba(255,255,255,0.25); }
-  .submodule-nav .nav-title {
-    color: #E8DACF;
-    font-size: 10pt;
-    font-weight: 500;
-  }
-</style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: #4A2E1B;
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            color: #FFFDF9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+        }
+
+        h2 {
+            font-size: 17pt;
+            border-bottom: 3px solid #8C5A37;
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
+
+        h3 {
+            font-size: 14pt;
+            color: #664229;
+            margin-top: 24px;
+        }
+
+        h4 {
+            font-size: 12pt;
+            color: #4A2E1B;
+            font-weight: 600;
+        }
+
+        a {
+            color: #8C5A37;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            background: #EAE1D3;
+            color: #4A2E1B;
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #F7F3EC;
+            border: 1px solid #E2D9CC;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        blockquote {
+            border-left: 4px solid #8C5A37;
+            background-color: #F7F3EC;
+            padding: 12px 18px;
+            margin: 18px 0;
+            color: #5C544D;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
+        }
+
+        th,
+        td {
+            border: 1px solid #E2D9CC;
+            padding: 12px 14px;
+            text-align: left;
+            font-size: 10.5pt;
+        }
+
+        th {
+            background: #4A2E1B;
+            color: #FFFDF9;
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FDFBF7;
+        }
+
+        .formula-box,
+        .formula-card {
+            margin: 18px 0;
+            padding: 16px;
+            background: #F7F3EC;
+            border-left: 4px solid #8C5A37;
+            border-radius: 4px;
+            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+            font-size: 10pt;
+            line-height: 1.7;
+        }
+
+        .concept-block {
+            background: #FFFDF9;
+            border: 1px solid #E2D9CC;
+            padding: 14px 18px;
+            margin: 16px 0;
+            border-radius: 6px;
+            border-left: 4px solid #664229;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #4A2E1B;
+        }
+
+        .emphasis {
+            background: #FFEAA7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .key-term {
+            color: #664229;
+            font-weight: 600;
+        }
+
+        .exam-focus {
+            background: #FFF8E1;
+            border-left: 4px solid #FF9800;
+            padding: 14px 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 700;
+            color: #FF6F00;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #E2D9CC;
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 22px 0;
+        }
+
+        .img-caption {
+            font-size: 9.5pt;
+            color: #5C544D;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        .submodule-nav {
+            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
+            padding: 11px 20px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            font-size: 10.5pt;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+            flex-wrap: wrap;
+        }
+
+        .submodule-nav .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #FFFDF9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 10pt;
+            background: rgba(255, 255, 255, 0.13);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .submodule-nav .back-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .submodule-nav .nav-title {
+            color: #E8DACF;
+            font-size: 10pt;
+            font-weight: 500;
+        }
+
+        .katex-display,
+        .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
-<body id="preview">
-<div class="submodule-nav">
-  <a href="industrial_hub.html" class="back-btn">&#8592; Industrial Hub</a>
-  <span class="nav-title">🏭 Production Planning &amp; Control</span>
-</div>
 
-<h1 class="code-line has-line-data" data-line-start="0" data-line-end="1"><a id="Production_Planning_and_Control_PPC_Comprehensive_Exam_Guide_0"></a>Production Planning and Control (PPC) — Comprehensive Exam Guide</h1>
-<hr>
-<h3 class="code-line has-line-data" data-line-start="4" data-line-end="5"><a id="SECTION_1_TOPIC_OVERVIEW_4"></a><strong>SECTION 1: TOPIC OVERVIEW</strong></h3>
-<p class="has-line-data" data-line-start="6" data-line-end="7">This guide covers Production Planning and Control (PPC), Plant Layout, Material Handling, CAD/CAM/CIM/FMS/CNC, and Materials Management as per competitive engineering exam syllabi (AP Genco AE / GATE / ISRO). High-frequency concepts include MRP inputs &amp; logic, PPC operational sequence (Routing–Scheduling–Dispatching–Follow-up), Plant Layout objectives &amp; classifications, Material Handling equipment selection, Group Technology coding, FMS/CNC basics, and Stock Level / Inventory formulas. All definitions, standard formulas, worked PYQ examples, visual diagrams, and examiner watchouts are fully preserved and organized.</p>
-<hr>
-<h3 class="code-line has-line-data" data-line-start="10" data-line-end="11"><a id="SECTION_2_QUICK_REFERENCE_SHEET_10"></a><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h3>
-<h4 class="code-line has-line-data" data-line-start="12" data-line-end="13"><a id="21_All_Formulas_with_symbols_units_12"></a><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="14" data-line-end="15"><a id="A_Material_Requirement_Planning_Inventory_Stock_Levels_14"></a><strong>A. Material Requirement Planning &amp; Inventory Stock Levels</strong></h5>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Inputs</mtext><mo>=</mo><mtext>MPS</mtext><mo>+</mo><mtext>BOM</mtext><mo>+</mo><mtext>Inventory Record File</mtext></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{\text{Inputs} = \text{MPS} + \text{BOM} + \text{Inventory Record File}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5689em;vertical-align:-0.5344em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0344em;"><span style="top:-3.5689em;"><span class="pstrut" style="height:3.5689em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord text"><span class="mord">Inputs</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">MPS</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">BOM</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">Inventory Record File</span></span></span></span></span></span><span style="top:-3.0344em;"><span class="pstrut" style="height:3.5689em;"></span><span class="stretchy fbox" style="height:1.5689em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5344em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{ROP = D \times LT}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.4467em;vertical-align:-0.4233em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0233em;"><span style="top:-3.4467em;"><span class="pstrut" style="height:3.4467em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></span><span style="top:-3.0233em;"><span class="pstrut" style="height:3.4467em;"></span><span class="stretchy fbox" style="height:1.4467em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4233em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi><mo>+</mo><mi>S</mi><mi>S</mi></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{ROP = D \times LT + SS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.4467em;vertical-align:-0.4233em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0233em;"><span style="top:-3.4467em;"><span class="pstrut" style="height:3.4467em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span><span style="top:-3.0233em;"><span class="pstrut" style="height:3.4467em;"></span><span class="stretchy fbox" style="height:1.4467em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4233em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>S</mi><mi>S</mi><mo>=</mo><mi>Z</mi><mo>×</mo><msub><mi>σ</mi><mi>D</mi></msub><mo>×</mo><msqrt><mrow><mi>L</mi><mi>T</mi></mrow></msqrt></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{SS = Z \times \sigma_D \times \sqrt{LT}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.8055em;vertical-align:-0.49em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3155em;"><span style="top:-3.8055em;"><span class="pstrut" style="height:3.8055em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9755em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.9355em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0645em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.3155em;"><span class="pstrut" style="height:3.8055em;"></span><span class="stretchy fbox" style="height:1.8055em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.49em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Max Stock</mtext><mo>≈</mo><mi>S</mi><mi>S</mi><mo>+</mo><mi>E</mi><mi>O</mi><mi>Q</mi></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{\text{Max Stock} \approx SS + EOQ}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.5689em;vertical-align:-0.5344em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0344em;"><span style="top:-3.5689em;"><span class="pstrut" style="height:3.5689em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord text"><span class="mord">Max Stock</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">Q</span></span></span></span></span><span style="top:-3.0344em;"><span class="pstrut" style="height:3.5689em;"></span><span class="stretchy fbox" style="height:1.5689em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5344em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Min Stock</mtext><mo>=</mo><mi>S</mi><mi>S</mi></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{\text{Min Stock} = SS}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3744em;vertical-align:-0.34em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0344em;"><span style="top:-3.3744em;"><span class="pstrut" style="height:3.3744em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord text"><span class="mord">Min Stock</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span><span style="top:-3.0344em;"><span class="pstrut" style="height:3.3744em;"></span><span class="stretchy fbox" style="height:1.3744em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Symbol</th>
-<th style="text-align:left">Meaning</th>
-<th style="text-align:left">Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">ROP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></eq></td>
-<td style="text-align:left">Reorder Point</td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span></eq></td>
-<td style="text-align:left">Average demand rate</td>
-<td style="text-align:left">units / period</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">LT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></eq></td>
-<td style="text-align:left">Lead time</td>
-<td style="text-align:left">periods</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">SS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></eq></td>
-<td style="text-align:left">Safety stock</td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span></eq></td>
-<td style="text-align:left">Service-level factor (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.28</mn><mo>≈</mo><mn>90</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">1.28 \approx 90\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.28</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">90%</span></span></span></span></eq>, <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.645</mn><mo>≈</mo><mn>95</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">1.645 \approx 95\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.645</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">95%</span></span></span></span></eq>, <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.33</mn><mo>≈</mo><mn>99</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">2.33 \approx 99\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2.33</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">99%</span></span></span></span></eq>)</td>
-<td style="text-align:left">dimensionless</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">\sigma_D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Standard deviation of demand per period</td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>O</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">EOQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">Q</span></span></span></span></eq></td>
-<td style="text-align:left">Economic Order Quantity</td>
-<td style="text-align:left">units</td>
-</tr>
-</tbody>
-</table>
-<h5 class="code-line has-line-data" data-line-start="38" data-line-end="39"><a id="B_Demand_Forecasting_Exponential_Smoothing_38"></a><strong>B. Demand Forecasting (Exponential Smoothing)</strong></h5>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><msub><mi>F</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>D</mi><mi>t</mi></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false">)</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{F_t = \alpha D_t + (1 - \alpha) F_{t-1}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.68em;vertical-align:-0.59em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.09em;"><span style="top:-3.68em;"><span class="pstrut" style="height:3.68em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.09em;"><span class="pstrut" style="height:3.68em;"></span><span class="stretchy fbox" style="height:1.68em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.59em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Symbol</th>
-<th style="text-align:left">Meaning</th>
-<th style="text-align:left">Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">F_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Forecast for period <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></eq></td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">D_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Actual demand in period <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span></eq></td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">F_{t-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8917em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Forecast for period <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></eq></td>
-<td style="text-align:left">units</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></eq></td>
-<td style="text-align:left">Smoothing constant (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>α</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0 \le \alpha \le 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></eq>, typically <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><mo>−</mo><mn>0.3</mn></mrow><annotation encoding="application/x-tex">0.1 - 0.3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span></span></span></span></eq>)</td>
-<td style="text-align:left">dimensionless</td>
-</tr>
-</tbody>
-</table>
-<h5 class="code-line has-line-data" data-line-start="49" data-line-end="50"><a id="C_Peripheral_Grouped_Data_Statistics_49"></a><strong>C. Peripheral / Grouped Data Statistics</strong></h5>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mrow><mtext>Mode</mtext><mo>=</mo><mi mathvariant="normal">ℓ</mi><mo>+</mo><mrow><mo fence="true">(</mo><mfrac><mrow><msub><mi>f</mi><mn>1</mn></msub><mo>−</mo><msub><mi>f</mi><mn>0</mn></msub></mrow><mrow><mn>2</mn><msub><mi>f</mi><mn>1</mn></msub><mo>−</mo><msub><mi>f</mi><mn>0</mn></msub><mo>−</mo><msub><mi>f</mi><mn>2</mn></msub></mrow></mfrac><mo fence="true">)</mo></mrow><mo>×</mo><mi>h</mi></mrow></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{\text{Mode} = \ell + \left( \frac{f_1 - f_0}{2f_1 - f_0 - f_2} \right) \times h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.08em;vertical-align:-1.29em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.79em;"><span style="top:-5.08em;"><span class="pstrut" style="height:5.08em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord text"><span class="mord">Mode</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">ℓ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">h</span></span></span></span></span><span style="top:-3.79em;"><span class="pstrut" style="height:5.08em;"></span><span class="stretchy fbox" style="height:3.08em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.29em;"><span></span></span></span></span></span></span></span></span></span></eqn></section><table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Symbol</th>
-<th style="text-align:left">Meaning</th>
-<th style="text-align:left">Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">ℓ</mi></mrow><annotation encoding="application/x-tex">\ell</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">ℓ</span></span></span></span></eq></td>
-<td style="text-align:left">Lower limit of modal class</td>
-<td style="text-align:left">same as variable</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">f_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Frequency of modal class</td>
-<td style="text-align:left">count</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">f_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Frequency of preceding class</td>
-<td style="text-align:left">count</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">f_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Frequency of succeeding class</td>
-<td style="text-align:left">count</td>
-</tr>
-<tr>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span></eq></td>
-<td style="text-align:left">Class width</td>
-<td style="text-align:left">same as variable</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="63" data-line-end="64"><a id="22_Key_Definitions_Master_Concepts_63"></a><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h4>
-<ul>
-<li class="has-line-data" data-line-start="65" data-line-end="66"><strong>Material Requirement Planning (MRP)</strong>: Technique for planning procurement of dependent demand items (raw materials, components, sub-assemblies). Ensures availability at right time and quantity.</li>
-<li class="has-line-data" data-line-start="66" data-line-end="67"><strong>Master Production Schedule (MPS)</strong>: Complete timetable containing quantities and required delivery dates of all final products only.</li>
-<li class="has-line-data" data-line-start="67" data-line-end="68"><strong>Bill of Materials (BOM)</strong>: Hierarchical structure showing how each final product is manufactured (components + sequence of build-up).</li>
-<li class="has-line-data" data-line-start="68" data-line-end="69"><strong>Inventory Record File</strong>: File tracking on-hand inventory, scheduled receipts, and transit inventory.</li>
-<li class="has-line-data" data-line-start="69" data-line-end="70"><strong>Routing</strong>: Determines the sequence of operations, path of work, and machines to be used (<em>“how and where”</em> work is done).</li>
-<li class="has-line-data" data-line-start="70" data-line-end="71"><strong>Scheduling</strong>: Assigns starting/completion time and priority to operations (<em>“when”</em> work is done).</li>
-<li class="has-line-data" data-line-start="71" data-line-end="72"><strong>Dispatching</strong>: Authorises and releases actual production work orders to the shop floor.</li>
-<li class="has-line-data" data-line-start="72" data-line-end="73"><strong>Follow-up (Expediting)</strong>: Tracks progress and resolves bottlenecks.</li>
-<li class="has-line-data" data-line-start="73" data-line-end="74"><strong>Product Layout (Flow Shop)</strong>: Machines arranged strictly in the sequence of operations for high-volume, low-variety production.</li>
-<li class="has-line-data" data-line-start="74" data-line-end="75"><strong>Process Layout (Functional)</strong>: Similar machines grouped by function (e.g., all lathes together) for low-volume, high-variety production (Job Shop).</li>
-<li class="has-line-data" data-line-start="75" data-line-end="76"><strong>Cellular Layout (Group Technology)</strong>: Machines grouped into cells to process a family of similar parts.</li>
-<li class="has-line-data" data-line-start="76" data-line-end="77"><strong>Fixed-Position Layout</strong>: Product remains stationary while men, machines, and materials are brought to it (e.g., ships, aircraft).</li>
-<li class="has-line-data" data-line-start="77" data-line-end="78"><strong>Material Handling</strong>: System of moving, storing, and controlling materials. Considered economic waste that <em>cannot be eliminated</em>, only minimised.</li>
-<li class="has-line-data" data-line-start="78" data-line-end="79"><strong>Automated Guided Vehicle (AGV)</strong>: Driverless internal transport vehicle guided by magnetic tape, laser, or RFID.</li>
-<li class="has-line-data" data-line-start="79" data-line-end="80"><strong>Automated Storage/Retrieval System (AS/RS)</strong>: Computer-controlled high-bay warehouse storage and retrieval system.</li>
-<li class="has-line-data" data-line-start="80" data-line-end="81"><strong>Group Technology (GT)</strong>: Manufacturing philosophy grouping similar parts into families to share machines, tooling, and process plans.</li>
-<li class="has-line-data" data-line-start="81" data-line-end="82"><strong>Flexible Manufacturing System (FMS)</strong>: Automated group of CNC machines linked by automated material handling (AGVs/conveyors) and central computer control.</li>
-<li class="has-line-data" data-line-start="82" data-line-end="83"><strong>Direct Numerical Control (DNC)</strong>: Networked download of G-code from central computer + real-time feedback from multiple CNC machines.</li>
-<li class="has-line-data" data-line-start="83" data-line-end="84"><strong>ABC Analysis</strong>: Inventory classification by annual consumption value (A: high value, tight control; C: low value, loose control).</li>
-<li class="has-line-data" data-line-start="84" data-line-end="85"><strong>VED Analysis</strong>: Inventory classification by functional criticality (Vital, Essential, Desirable).</li>
-<li class="has-line-data" data-line-start="85" data-line-end="87"><strong>XYZ Analysis</strong>: Inventory classification by demand variability (X: stable, Y: moderate, Z: erratic).</li>
-</ul>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="89" data-line-end="90"><a id="23_Standard_Values_Technical_Parameters_89"></a><strong>2.3 — Standard Values &amp; Technical Parameters</strong></h4>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Parameter / Concept</th>
-<th style="text-align:left">Standard Value / Benchmark</th>
-<th style="text-align:left">Context / Relevance</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Aggregate Planning Horizon</td>
-<td style="text-align:left">6–18 months (Exam Key: <em>Long Term</em>)</td>
-<td style="text-align:left">Intermediate/Long-term planning horizon</td>
-</tr>
-<tr>
-<td style="text-align:left">EUR Standard Pallet Size</td>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.2</mn><mtext> m</mtext><mo>×</mo><mn>1.0</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">1.2\text{ m} \times 1.0\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.2</span><span class="mord text"><span class="mord"> m</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.0</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq></td>
-<td style="text-align:left">Standard unit-load container dimensions</td>
-</tr>
-<tr>
-<td style="text-align:left">Gravity Roller Conveyor Incline</td>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>3</mn><mo>∘</mo></msup><mo>−</mo><msup><mn>4</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">3^\circ - 4^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7574em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6741em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6741em;"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6741em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></eq></td>
-<td style="text-align:left">Optimum slope for gravity flow</td>
-</tr>
-<tr>
-<td style="text-align:left">Powered Conveyor Speed</td>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>60</mn><mtext> m/min</mtext></mrow><annotation encoding="application/x-tex">20 - 60\text{ m/min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">60</span><span class="mord text"><span class="mord"> m/min</span></span></span></span></span></eq></td>
-<td style="text-align:left">Typical industrial carton/package flow</td>
-</tr>
-<tr>
-<td style="text-align:left">Fork-lift Aisle Width</td>
-<td style="text-align:left">Counterbalance: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.5</mn><mo>−</mo><mn>4</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">3.5 - 4\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>; Reach: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.5</mn><mo>−</mo><mn>3</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">2.5 - 3\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq></td>
-<td style="text-align:left">Facility layout design constraint</td>
-</tr>
-<tr>
-<td style="text-align:left">FMS Target Production Range</td>
-<td style="text-align:left">Volume: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>−</mo><mn>5000</mn><mtext> units/yr</mtext></mrow><annotation encoding="application/x-tex">500 - 5000\text{ units/yr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5000</span><span class="mord text"><span class="mord"> units/yr</span></span></span></span></span></eq>; Variety: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">10 - 50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span></eq> part types</td>
-<td style="text-align:left">Mid-volume, mid-variety batch zone</td>
-</tr>
-<tr>
-<td style="text-align:left">FMS Setup Time</td>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>10</mn><mo>−</mo><mn>15</mn><mtext> minutes</mtext></mrow><annotation encoding="application/x-tex">&lt; 10 - 15\text{ minutes}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">15</span><span class="mord text"><span class="mord"> minutes</span></span></span></span></span></eq></td>
-<td style="text-align:left">Enables economic batch size of 1</td>
-</tr>
-<tr>
-<td style="text-align:left">Equipment Utilization Target</td>
-<td style="text-align:left"><eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mi mathvariant="normal">%</mi><mo>−</mo><mn>80</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">60\% - 80\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">60%</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">80%</span></span></span></span></eq></td>
-<td style="text-align:left">Optimal operating window without bottlenecks</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="104" data-line-end="105"><a id="24_CrossReference_Map_104"></a><strong>2.4 — Cross-Reference Map</strong></h4>
-<ul>
-<li class="has-line-data" data-line-start="106" data-line-end="107"><strong>MRP</strong>: Introduced in §3.1 (PPC Core), also referenced in §3.4 (CAD/CAM/CIM) and §3.5 (Materials Management). See §3.1 for main body details.</li>
-<li class="has-line-data" data-line-start="107" data-line-end="108"><strong>Group Technology &amp; Cellular Layout</strong>: Introduced in §3.2 (Plant Layout), detailed under §3.4 (CAD/CAM/FMS). See §3.2 and §3.4 for full breakdown.</li>
-<li class="has-line-data" data-line-start="108" data-line-end="109"><strong>Material Handling Systems</strong>: Core coverage in §3.3; hardware integration in FMS/CIM covered in §3.4.</li>
-<li class="has-line-data" data-line-start="109" data-line-end="111"><strong>Reorder Point &amp; Stock Levels</strong>: Covered in §3.5 (Materials Management); relies on MRP concepts from §3.1.</li>
-</ul>
-<hr>
-<h3 class="code-line has-line-data" data-line-start="113" data-line-end="114"><a id="SECTION_3_MAIN_BODY_113"></a><strong>SECTION 3: MAIN BODY</strong></h3>
-<h4 class="code-line has-line-data" data-line-start="115" data-line-end="116"><a id="31_Production_Planning_and_Control_PPC_Core_MRP_115"></a><strong>3.1 — Production Planning and Control (PPC) Core &amp; MRP</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="117" data-line-end="118"><a id="1_Concept_Pointers_117"></a><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="118" data-line-end="123"><strong>PPC Sequence</strong>: Correct chronological sequence is <strong>Routing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Scheduling <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Dispatching <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Follow-up</strong>. (<em>See Quick Reference §2.2</em>).
-<ul>
-<li class="has-line-data" data-line-start="119" data-line-end="120">Routing: Sequence of operations (“how and where”).</li>
-<li class="has-line-data" data-line-start="120" data-line-end="121">Scheduling: Time assignment (“when”).</li>
-<li class="has-line-data" data-line-start="121" data-line-end="122">Dispatching: Work authorization &amp; release.</li>
-<li class="has-line-data" data-line-start="122" data-line-end="123">Follow-up: Monitoring progress &amp; removing bottlenecks.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="123" data-line-end="124">Routing + Scheduling = <em>Planning functions</em>; Dispatching + Follow-up = <em>Control functions</em>.</li>
-<li class="has-line-data" data-line-start="124" data-line-end="128"><strong>MRP Inputs</strong>: Requires exactly <strong>THREE</strong> mandatory inputs:
-<ol>
-<li class="has-line-data" data-line-start="125" data-line-end="126">Master Production Schedule (MPS)</li>
-<li class="has-line-data" data-line-start="126" data-line-end="127">Bill of Materials (BOM)</li>
-<li class="has-line-data" data-line-start="127" data-line-end="128">Inventory Record File (Inventory Position)</li>
-</ol>
-</li>
-<li class="has-line-data" data-line-start="128" data-line-end="129"><strong>MRP Exclusions</strong>: Purchase Orders, Speed Rating, Machine Capacity, and Delivery Details are <strong>NOT</strong> MRP inputs. (<em>Purchase orders are MRP outputs</em>).</li>
-<li class="has-line-data" data-line-start="129" data-line-end="130"><strong>Demand Type</strong>: MRP is for <strong>dependent demand</strong> items (raw materials, sub-assemblies, components). Independent demand uses EOQ.</li>
-<li class="has-line-data" data-line-start="130" data-line-end="131"><strong>MRP Terms</strong>: <em>Time phasing</em>, <em>Time bucket</em>, <em>Planned order release</em>. (Speed rating is <strong>not</strong> an MRP term).</li>
-<li class="has-line-data" data-line-start="131" data-line-end="132"><strong>MRP Objectives</strong>: Inventory reduction, shorter manufacturing/delivery lead times, realistic commitments, higher efficiency.</li>
-<li class="has-line-data" data-line-start="132" data-line-end="134"><strong>Aggregate Production Planning</strong>: Tool to meet weekly fluctuating customer demand. Concerned with quantity &amp; timing of production in the <strong>long term</strong> (6–18 months). Strategies: Level, Chase, Hybrid.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="134" data-line-end="135"><a id="2_Formulas_Context_134"></a><strong>2. Formulas &amp; Context</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="135" data-line-end="137">MRP Explosion &amp; Netting Logic:<br>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Net Requirement</mtext><mo>=</mo><mtext>Gross Requirement</mtext><mo>−</mo><mo stretchy="false">(</mo><mtext>On-Hand Inventory</mtext><mo>+</mo><mtext>Scheduled Receipts</mtext><mo stretchy="false">)</mo><mo>+</mo><mtext>Safety Stock</mtext></mrow><annotation encoding="application/x-tex">\text{Net Requirement} = \text{Gross Requirement} - (\text{On-Hand Inventory} + \text{Scheduled Receipts}) + \text{Safety Stock}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Net Requirement</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Gross Requirement</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">On-Hand Inventory</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">Scheduled Receipts</span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Safety Stock</span></span></span></span></span></span></eqn></section></li>
-<li class="has-line-data" data-line-start="137" data-line-end="139">For quick lookup of Stock &amp; Forecasting formulas, <em>see Quick Reference §2.1</em>.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="139" data-line-end="140"><a id="3_Diagram_139"></a><strong>3. Diagram</strong></h5>
-<p class="has-line-data" data-line-start="140" data-line-end="142"><img src="https://commons.wikimedia.org/wiki/File:OverviewoftheMRPSystem.jpg" alt="Overview of the MRP System"><br>
-<em>Source: Wikimedia Commons — Classic MRP flow showing the three input files (MPS, BOM, Inventory File) feeding the central process to output Planned Orders.</em></p>
-<h5 class="code-line has-line-data" data-line-start="143" data-line-end="144"><a id="4_Worked_Examples_143"></a><strong>4. Worked Examples</strong></h5>
-<p class="has-line-data" data-line-start="145" data-line-end="146"><strong>Worked Example 1: Identification of MRP Inputs</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="146" data-line-end="152"><strong>Question</strong>: Which of the following combinations of items is required for the determination of Material Requirement Planning (MRP)?
-<ol>
-<li class="has-line-data" data-line-start="147" data-line-end="148">Master Production Schedule</li>
-<li class="has-line-data" data-line-start="148" data-line-end="149">Inventory Position / Record File</li>
-<li class="has-line-data" data-line-start="149" data-line-end="150">Machine Capacity</li>
-<li class="has-line-data" data-line-start="150" data-line-end="151">Details of Delivery</li>
-<li class="has-line-data" data-line-start="151" data-line-end="152">Bill of Materials</li>
-</ol>
-</li>
-<li class="has-line-data" data-line-start="152" data-line-end="155"><strong>Solution</strong>:
-<ol>
-<li class="has-line-data" data-line-start="153" data-line-end="154">Recall the three canonical inputs of MRP: MPS (1), Inventory Position (2), BOM (5).</li>
-<li class="has-line-data" data-line-start="154" data-line-end="155">Eliminate options containing Machine Capacity (3) or Details of Delivery (4).</li>
-</ol>
-</li>
-<li class="has-line-data" data-line-start="155" data-line-end="156"><strong>Answer</strong>: 1, 2, and 5 only.</li>
-<li class="has-line-data" data-line-start="156" data-line-end="158"><strong>Key Insight (Examiner Trap)</strong>: Purchase orders, machine capacity, and speed rating are frequently placed as traps. Purchase orders are <em>outputs</em>, while capacity is handled by Capacity Requirements Planning (CRP).</li>
-</ul>
-<p class="has-line-data" data-line-start="158" data-line-end="159"><strong>Worked Example 2: PPC Sequence Identification</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="159" data-line-end="160"><strong>Question</strong>: Select the correct sequence of operations in Production Planning and Control.</li>
-<li class="has-line-data" data-line-start="160" data-line-end="165"><strong>Solution</strong>:
-<ol>
-<li class="has-line-data" data-line-start="161" data-line-end="162">Path &amp; Machine selection (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> <strong>Routing</strong>).</li>
-<li class="has-line-data" data-line-start="162" data-line-end="163">Time assignment (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> <strong>Scheduling</strong>).</li>
-<li class="has-line-data" data-line-start="163" data-line-end="164">Release work to shop floor (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> <strong>Dispatching</strong>).</li>
-<li class="has-line-data" data-line-start="164" data-line-end="165">Monitor progress (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> <strong>Follow-up</strong>).</li>
-</ol>
-</li>
-<li class="has-line-data" data-line-start="165" data-line-end="166"><strong>Answer</strong>: Routing <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Scheduling <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Dispatching <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Follow-up.</li>
-<li class="has-line-data" data-line-start="166" data-line-end="168"><strong>Key Insight (Examiner Trap)</strong>: Routing must always come first. Any sequence starting with Scheduling or Dispatching is wrong.</li>
-</ul>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="170" data-line-end="171"><a id="32_Plant_Layout_Line_Balancing_170"></a><strong>3.2 — Plant Layout &amp; Line Balancing</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="172" data-line-end="173"><a id="1_Concept_Pointers_172"></a><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="173" data-line-end="174"><strong>Primary Objective</strong>: <strong>Overall simplification, safety, and integration</strong> of the production system. (Secondary: economy of space, minimum travel time, convenient shop locations).</li>
-<li class="has-line-data" data-line-start="174" data-line-end="179"><strong>Product Layout (Flow Shop)</strong>:
-<ul>
-<li class="has-line-data" data-line-start="175" data-line-end="176">Machines arranged strictly in sequence of operations.</li>
-<li class="has-line-data" data-line-start="176" data-line-end="177">High volume, low variety, stable demand.</li>
-<li class="has-line-data" data-line-start="177" data-line-end="178">Straight material flow, low WIP, high throughput, automated handling.</li>
-<li class="has-line-data" data-line-start="178" data-line-end="179">High capital cost, inflexible, breakdown stops entire line, worker monotony.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="179" data-line-end="184"><strong>Process Layout (Functional / Job Shop)</strong>:
-<ul>
-<li class="has-line-data" data-line-start="180" data-line-end="181">Similar machines grouped by function (all lathes together, all mills together).</li>
-<li class="has-line-data" data-line-start="181" data-line-end="182">Low volume, high variety.</li>
-<li class="has-line-data" data-line-start="182" data-line-end="183">High flexibility, high machine utilization, no single-point failure.</li>
-<li class="has-line-data" data-line-start="183" data-line-end="184">Complex handling paths, high WIP, long lead times, needs sophisticated control systems.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="184" data-line-end="188"><strong>Cellular Layout (Group Technology)</strong>:
-<ul>
-<li class="has-line-data" data-line-start="185" data-line-end="186">Machines grouped into cells processing families of similar parts.</li>
-<li class="has-line-data" data-line-start="186" data-line-end="187">Medium volume, medium variety (batch 5–50 units).</li>
-<li class="has-line-data" data-line-start="187" data-line-end="188">Combines flow of product layout with flexibility of process layout. Requires GT coding.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="188" data-line-end="190"><strong>Fixed-Position Layout</strong>:
-<ul>
-<li class="has-line-data" data-line-start="189" data-line-end="190">Product remains stationary; men, machines, materials come to it (ships, aircraft, dams).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="190" data-line-end="193"><strong>Layout Principles</strong>:
-<ul>
-<li class="has-line-data" data-line-start="191" data-line-end="192"><em>Primary</em>: Straight-flow (minimise back-tracking), Proximity (related operations close), Gravity (cost-free motion), Safety (isolate hazards).</li>
-<li class="has-line-data" data-line-start="192" data-line-end="193"><em>Secondary</em>: Flexibility, Visibility, Accessibility, Ergonomics.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="193" data-line-end="195"><strong>Line Balancing</strong>: Assigns work elements to stations within a product layout to minimise cycle-time variation and idle time.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="195" data-line-end="196"><a id="2_Layout_Selection_Matrix_195"></a><strong>2. Layout Selection Matrix</strong></h5>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Metric / Feature</th>
-<th style="text-align:left">Product Layout</th>
-<th style="text-align:left">Process Layout</th>
-<th style="text-align:left">Cellular Layout</th>
-<th style="text-align:left">Fixed-Position Layout</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>Volume vs Variety</strong></td>
-<td style="text-align:left">High Volume, Low Variety</td>
-<td style="text-align:left">Low Volume, High Variety</td>
-<td style="text-align:left">Medium Volume, Medium Variety</td>
-<td style="text-align:left">Low Volume, Unique (1 off)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Machine Arrangement</strong></td>
-<td style="text-align:left">Sequence of operations</td>
-<td style="text-align:left">By function (similar machines)</td>
-<td style="text-align:left">By part family cells</td>
-<td style="text-align:left">Equipment moves to product</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>WIP Inventory</strong></td>
-<td style="text-align:left">Low</td>
-<td style="text-align:left">High</td>
-<td style="text-align:left">Moderate</td>
-<td style="text-align:left">Low to Moderate</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Flexibility</strong></td>
-<td style="text-align:left">Very Low</td>
-<td style="text-align:left">Very High</td>
-<td style="text-align:left">Moderate</td>
-<td style="text-align:left">High</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Material Handling</strong></td>
-<td style="text-align:left">Continuous / Automated</td>
-<td style="text-align:left">Intermittent / Manual</td>
-<td style="text-align:left">Short within-cell paths</td>
-<td style="text-align:left">Heavy cranes / Mobile rigs</td>
-</tr>
-</tbody>
-</table>
-<h5 class="code-line has-line-data" data-line-start="205" data-line-end="206"><a id="3_Diagram_205"></a><strong>3. Diagram</strong></h5>
-<p class="has-line-data" data-line-start="206" data-line-end="208"><a href="https://image.slidesharecdn.com/3-240131135441-1189e370/75/3-0-Plant-Layout-Types-pptx-1-2048.jpg">https://image.slidesharecdn.com/3-240131135441-1189e370/75/3-0-Plant-Layout-Types-pptx-1-2048.jpg</a><br>
-<em>Source: Slideshare — Layout classification diagram illustrating Product, Process, Cellular, and Fixed-position layouts.</em></p>
-<h5 class="code-line has-line-data" data-line-start="209" data-line-end="210"><a id="4_Worked_Example_209"></a><strong>4. Worked Example</strong></h5>
-<p class="has-line-data" data-line-start="211" data-line-end="212"><strong>Worked Example 1: Primary Objective of Plant Layout</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="212" data-line-end="217"><strong>Question</strong>: The most important objective behind designing a proper plant layout is:<br>
-(A) Minimum material travel time<br>
-(B) Economy in floor space<br>
-© Overall simplification, safety, and integration<br>
-(D) Convenient shop location</li>
-<li class="has-line-data" data-line-start="217" data-line-end="219"><strong>Solution</strong>:<br>
-Plant layout engineering prioritises overall system integration, safety, and operational simplification over single isolated metrics like travel time or floor space.</li>
-<li class="has-line-data" data-line-start="219" data-line-end="220"><strong>Answer</strong>: ©</li>
-<li class="has-line-data" data-line-start="220" data-line-end="222"><strong>Key Insight (Examiner Trap)</strong>: Do not choose single metrics like “maximum travel time” or pure space economy as the primary objective. Overall simplification and safety rank highest.</li>
-</ul>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="224" data-line-end="225"><a id="33_Material_Handling_Systems_Equipment_Selection_224"></a><strong>3.3 — Material Handling Systems &amp; Equipment Selection</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="226" data-line-end="227"><a id="1_Concept_Pointers_226"></a><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="227" data-line-end="228"><strong>Elements of Material Handling</strong>: <strong>Motion</strong>, <strong>Time</strong>, and <strong>Quantity</strong>. (<em>Quality is explicitly excluded</em>).</li>
-<li class="has-line-data" data-line-start="228" data-line-end="229"><strong>Economic Nature</strong>: Material handling is economically waste that <strong>cannot be eliminated</strong>, only minimised.</li>
-<li class="has-line-data" data-line-start="229" data-line-end="232"><strong>Handling Principles</strong>:
-<ul>
-<li class="has-line-data" data-line-start="230" data-line-end="231"><em>Planning</em>: System principle (receive-handle-dispatch integrated), Standardization (pallets/racks), Space utilization (vertical stacking), Ergonomics.</li>
-<li class="has-line-data" data-line-start="231" data-line-end="232"><em>Economic</em>: Cost-benefit (payback 2–3 yrs), Utilization (60–80% target), Preventive maintenance.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="232" data-line-end="235"><strong>Manual &amp; Non-Powered Handling</strong>:
-<ul>
-<li class="has-line-data" data-line-start="233" data-line-end="234">Manual: Wheelbarrows, dollies, pallet trucks. (Limits: load &lt; 10 kg, distance &lt; 5 m, volume &lt; 1000 units/day).</li>
-<li class="has-line-data" data-line-start="234" data-line-end="235">Mechanical (Non-powered): Gravity rollers, inclined planes, skids. Implements the gravity principle.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="235" data-line-end="242"><strong>Powered Continuous Equipment (Conveyors)</strong>:
-<ul>
-<li class="has-line-data" data-line-start="236" data-line-end="237">Belt Conveyor: Bulk solids (limestone in cement plants, coal) or packages; continuous, high-volume.</li>
-<li class="has-line-data" data-line-start="237" data-line-end="238">Roller Conveyor: Cartons, packages; gravity slope <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>−</mo><msup><mn>4</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">3-4^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6741em;"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6741em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></eq>, powered speed <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>60</mn><mtext> m/min</mtext></mrow><annotation encoding="application/x-tex">20-60\text{ m/min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">60</span><span class="mord text"><span class="mord"> m/min</span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="238" data-line-end="239">Screw / Auger Conveyor: Powders, grains, plastics; enclosed dust control, incline up to <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>45</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">45^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6741em;"></span><span class="mord">4</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6741em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="239" data-line-end="240">Bucket Conveyor / Elevator: Bulk materials needing pure vertical lift (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>30</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">20-30\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">30</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>).</li>
-<li class="has-line-data" data-line-start="240" data-line-end="241">Pneumatic Conveyor: Fine powders/granules in closed tubes over <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>100</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">&gt; 100\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="241" data-line-end="242">Chain Conveyor: Heavy parts/assemblies (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mtext> kg</mtext><mo>−</mo><mn>5</mn><mtext> t</mtext></mrow><annotation encoding="application/x-tex">500\text{ kg} - 5\text{ t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">500</span><span class="mord text"><span class="mord"> kg</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span><span class="mord text"><span class="mord"> t</span></span></span></span></span></eq>).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="242" data-line-end="247"><strong>Powered Mobile / Intermittent Equipment</strong>:
-<ul>
-<li class="has-line-data" data-line-start="243" data-line-end="244">Fork-lift Truck: Counterbalance (aisle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3.5</mn><mo>−</mo><mn>4</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">3.5-4\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>) vs Reach truck (aisle <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.5</mn><mo>−</mo><mn>3</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">2.5-3\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2.5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>).</li>
-<li class="has-line-data" data-line-start="244" data-line-end="245">Overhead Cranes: Bridge crane (full workshop length), Gantry crane (outdoor/shipyard), Jib crane (local circular area).</li>
-<li class="has-line-data" data-line-start="245" data-line-end="246">Automated Guided Vehicle (AGV): Driverless internal transport, 24/7 flexible software routing.</li>
-<li class="has-line-data" data-line-start="246" data-line-end="247">Stacker Crane: Automated high-bay (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>30</mn><mtext> m</mtext><mo>+</mo></mrow><annotation encoding="application/x-tex">30\text{ m}+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">30</span><span class="mord text"><span class="mord"> m</span></span><span class="mord">+</span></span></span></span></eq>) storage retrieval (AS/RS).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="247" data-line-end="249"><strong>Unit Load Formation</strong>: Standard EUR pallet (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.2</mn><mtext> m</mtext><mo>×</mo><mn>1.0</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">1.2\text{ m} \times 1.0\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.2</span><span class="mord text"><span class="mord"> m</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.0</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>).</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="249" data-line-end="250"><a id="2_Equipment_Selection_Table_249"></a><strong>2. Equipment Selection Table</strong></h5>
-<table class="table table-striped table-bordered">
-<thead>
-<tr>
-<th style="text-align:left">Material / Context</th>
-<th style="text-align:left">Recommended Equipment</th>
-<th style="text-align:left">Selection Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Limestone in cement manufacture</td>
-<td style="text-align:left">Belt Conveyor</td>
-<td style="text-align:left">Continuous bulk transport</td>
-</tr>
-<tr>
-<td style="text-align:left">Vertical bulk lift (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>30</mn><mtext> m</mtext></mrow><annotation encoding="application/x-tex">20-30\text{ m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">30</span><span class="mord text"><span class="mord"> m</span></span></span></span></span></eq>)</td>
-<td style="text-align:left">Bucket Elevator</td>
-<td style="text-align:left">Space-efficient vertical lifting</td>
-</tr>
-<tr>
-<td style="text-align:left">Enclosed powder/granule flow</td>
-<td style="text-align:left">Screw / Pneumatic Conveyor</td>
-<td style="text-align:left">Dust suppression and enclosed flow</td>
-</tr>
-<tr>
-<td style="text-align:left">Heavy steel assemblies in factory</td>
-<td style="text-align:left">Overhead Bridge Crane</td>
-<td style="text-align:left">Frees floor space, high load capacity</td>
-</tr>
-<tr>
-<td style="text-align:left">Narrow-aisle warehouse stacking</td>
-<td style="text-align:left">Reach Truck / AGV</td>
-<td style="text-align:left">Compact turning radius</td>
-</tr>
-<tr>
-<td style="text-align:left">24/7 automated flexible transport</td>
-<td style="text-align:left">Automated Guided Vehicle (AGV)</td>
-<td style="text-align:left">Unmanned, software-routed internal flow</td>
-</tr>
-</tbody>
-</table>
-<h5 class="code-line has-line-data" data-line-start="260" data-line-end="261"><a id="3_Diagram_260"></a><strong>3. Diagram</strong></h5>
-<p class="has-line-data" data-line-start="261" data-line-end="263"><a href="https://www.solving.com/app/uploads/2021/04/agvsystem_overview.png">https://www.solving.com/app/uploads/2021/04/agvsystem_overview.png</a><br>
-<em>Source: Solving — System architecture of an Automated Guided Vehicle (AGV) network.</em></p>
-<h5 class="code-line has-line-data" data-line-start="264" data-line-end="265"><a id="4_Worked_Example_264"></a><strong>4. Worked Example</strong></h5>
-<p class="has-line-data" data-line-start="266" data-line-end="267"><strong>Worked Example 1: Material Handling Elements &amp; Traps</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="267" data-line-end="269"><strong>Question</strong>: Which of the following is NOT an element of material handling?<br>
-(A) Motion  (B) Time  © Quantity  (D) Quality</li>
-<li class="has-line-data" data-line-start="269" data-line-end="271"><strong>Solution</strong>:<br>
-Material handling elements are motion, time, and quantity. Quality is a manufacturing/inspection parameter, not a material handling element.</li>
-<li class="has-line-data" data-line-start="271" data-line-end="272"><strong>Answer</strong>: (D)</li>
-<li class="has-line-data" data-line-start="272" data-line-end="274"><strong>Key Insight (Examiner Trap)</strong>: Always eliminate <em>Quality</em> when asked for elements of material handling. Also remember material handling is waste to be minimised, never a profit activity.</li>
-</ul>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="276" data-line-end="277"><a id="34_Computer_Integrated_Manufacturing_CAD_CAM_CIM_FMS_GT_CNC_276"></a><strong>3.4 — Computer Integrated Manufacturing (CAD / CAM / CIM / FMS / GT / CNC)</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="278" data-line-end="279"><a id="1_Concept_Pointers_278"></a><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="279" data-line-end="280"><strong>CAD</strong>: Computer systems for creation, modification, analysis (FEA/CFD/kinematics), and documentation of designs. Parametric feature-based modelling updates entire assemblies when parameters change. Data formats: STEP, IGES, DXF, STL.</li>
-<li class="has-line-data" data-line-start="280" data-line-end="281"><strong>CAM</strong>: Generates toolpaths and post-processes CNC G/M-codes from CAD geometry. Optimises cycle time, tool life, surface finish.</li>
-<li class="has-line-data" data-line-start="281" data-line-end="282"><strong>CIM</strong>: Total enterprise integration of design, planning, manufacturing, quality, and shipping through computer networks. Data flows seamlessly from order entry to delivery.</li>
-<li class="has-line-data" data-line-start="282" data-line-end="283"><strong>Group Technology (GT)</strong>: Groups similar parts into families sharing machines and tooling. Coding systems: Monocode (hierarchical, Opitz) vs Polycode (attribute chains). Enables cellular layouts.</li>
-<li class="has-line-data" data-line-start="283" data-line-end="287"><strong>Flexible Manufacturing System (FMS)</strong>:
-<ul>
-<li class="has-line-data" data-line-start="284" data-line-end="285">Multiple CNC workstations + automated material handling (AGVs/conveyors/pallet changers) + central computer.</li>
-<li class="has-line-data" data-line-start="285" data-line-end="286">Domain: <strong>Medium volume (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>−</mo><mn>5000</mn><mtext> parts/yr</mtext></mrow><annotation encoding="application/x-tex">500-5000\text{ parts/yr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5000</span><span class="mord text"><span class="mord"> parts/yr</span></span></span></span></span></eq>)</strong> and <strong>Medium variety (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">10-50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span></eq> part types)</strong>.</li>
-<li class="has-line-data" data-line-start="286" data-line-end="287">Economic batch size of 1 (setup <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>10</mn><mo>−</mo><mn>15</mn><mtext> min</mtext></mrow><annotation encoding="application/x-tex">&lt; 10-15\text{ min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">15</span><span class="mord text"><span class="mord"> min</span></span></span></span></span></eq>), lead time <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>−</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">2-5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">5</span></span></span></span></eq> days, utilization <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mo>−</mo><mn>75</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">60-75\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">60</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">75%</span></span></span></span></eq>.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="287" data-line-end="290"><strong>CNC Systems</strong>:
-<ul>
-<li class="has-line-data" data-line-start="288" data-line-end="289">G-Codes: <code>G00</code> (rapid), <code>G01</code> (linear feed), <code>G02</code>/<code>G03</code> (circular CW/CCW), <code>G90</code>/<code>G91</code> (absolute/incremental).</li>
-<li class="has-line-data" data-line-start="289" data-line-end="290">M-Codes: <code>M03</code>/<code>M04</code>/<code>M05</code> (spindle CW/CCW/Stop), <code>M06</code> (tool change), <code>M08</code>/<code>M09</code> (coolant ON/OFF), <code>M30</code> (program end).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="290" data-line-end="292"><strong>DNC (Direct/Distributed Numerical Control)</strong>: Central computer network downloading G-code to multiple CNC machines simultaneously with real-time feedback.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="292" data-line-end="293"><a id="2_Process_Architecture_Summary_292"></a><strong>2. Process / Architecture Summary</strong></h5>
-<p class="has-line-data" data-line-start="293" data-line-end="294"><em>No suitable public diagram found; refer to standard textbook schematic for CIM 4-layer architecture (ERP/MES <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> CAD/CAE <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> MRP-II <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> CNC/Robots/PLCs).</em></p>
-<h5 class="code-line has-line-data" data-line-start="295" data-line-end="296"><a id="3_Worked_Example_295"></a><strong>3. Worked Example</strong></h5>
-<p class="has-line-data" data-line-start="297" data-line-end="298"><strong>Worked Example 1: FMS Operating Domain</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="298" data-line-end="303"><strong>Question</strong>: A Flexible Manufacturing System (FMS) is most suitable for which type of production environment?<br>
-(A) High volume, low variety<br>
-(B) Low volume, high variety<br>
-© Medium volume, medium variety<br>
-(D) High volume, high variety</li>
-<li class="has-line-data" data-line-start="303" data-line-end="307"><strong>Solution</strong>:
-<ul>
-<li class="has-line-data" data-line-start="304" data-line-end="305">High volume, low variety <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Dedicated Transfer Lines.</li>
-<li class="has-line-data" data-line-start="305" data-line-end="306">Low volume, high variety <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Job Shop.</li>
-<li class="has-line-data" data-line-start="306" data-line-end="307">Medium volume, medium variety <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> FMS / Cellular Layout.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="307" data-line-end="308"><strong>Answer</strong>: ©</li>
-<li class="has-line-data" data-line-start="308" data-line-end="310"><strong>Key Insight (Examiner Trap)</strong>: FMS is neither a transfer line (mass production) nor a job shop (one-off). It specifically targets mid-volume, mid-variety batch manufacturing.</li>
-</ul>
-<hr>
-<h4 class="code-line has-line-data" data-line-start="312" data-line-end="313"><a id="35_Materials_Management_Inventory_Stock_Levels_312"></a><strong>3.5 — Materials Management &amp; Inventory Stock Levels</strong></h4>
-<h5 class="code-line has-line-data" data-line-start="314" data-line-end="315"><a id="1_Concept_Pointers_314"></a><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li class="has-line-data" data-line-start="315" data-line-end="316"><strong>Procurement Process</strong>: Requisition <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Vendor evaluation (RFQ) <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Purchase order <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Goods receipt &amp; inspection <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> 3-way match (PO–receipt–invoice) <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\to</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span></eq> Payment.</li>
-<li class="has-line-data" data-line-start="316" data-line-end="317"><strong>Vendor Strategies</strong>: Single sourcing (volume discount, single point failure), Multiple sourcing (backup, higher admin cost), JIT supplier (near-zero inventory, needs proximity &amp; high reliability), Consignment stock (vendor owns inventory at buyer site until consumed), Blanket PO (annual commitment with scheduled releases).</li>
-<li class="has-line-data" data-line-start="317" data-line-end="320"><strong>Demand Forecasting</strong>:
-<ul>
-<li class="has-line-data" data-line-start="318" data-line-end="319">Patterns: Deterministic, Seasonal, Trend, Cyclic, Random.</li>
-<li class="has-line-data" data-line-start="319" data-line-end="320">Exponential Smoothing: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>t</mi></msub><mo>=</mo><mi>α</mi><msub><mi>D</mi><mi>t</mi></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false">)</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">F_t = \alpha D_t + (1 - \alpha) F_{t-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span></span></span></span></eq>. Higher <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></eq> reacts faster to recent demand changes; lower <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></eq> smooths noise. (<em>See Quick Reference §2.1</em>).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="320" data-line-end="324"><strong>Inventory Classification</strong>:
-<ul>
-<li class="has-line-data" data-line-start="321" data-line-end="322">ABC: Annual money value (A: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>70</mn><mo>−</mo><mn>80</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">70-80\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">70</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">80%</span></span></span></span></eq> value, <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">10\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">10%</span></span></span></span></eq> items; C: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>−</mo><mn>10</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">5-10\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">10%</span></span></span></span></eq> value, <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">60\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">60%</span></span></span></span></eq> items).</li>
-<li class="has-line-data" data-line-start="322" data-line-end="323">VED: Criticality (Vital, Essential, Desirable).</li>
-<li class="has-line-data" data-line-start="323" data-line-end="324">XYZ: Demand variability (X: stable <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>V</mi><mo>&lt;</mo><mn>0.2</mn></mrow><annotation encoding="application/x-tex">CV&lt;0.2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.2</span></span></span></span></eq>, Y: moderate, Z: erratic <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>V</mi><mo>&gt;</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">CV&gt;0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span></eq>).</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="324" data-line-end="329"><strong>Stock Levels &amp; Reorder Point</strong>:
-<ul>
-<li class="has-line-data" data-line-start="325" data-line-end="326">Deterministic <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ROP = D \times LT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="326" data-line-end="327">With Safety Stock: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi><mo>+</mo><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">ROP = D \times LT + SS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="327" data-line-end="328">Safety Stock formula: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>S</mi><mo>=</mo><mi>Z</mi><mo>×</mo><msub><mi>σ</mi><mi>D</mi></msub><mo>×</mo><msqrt><mrow><mi>L</mi><mi>T</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">SS = Z \times \sigma_D \times \sqrt{LT}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1133em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9267em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.8867em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1133em;"><span></span></span></span></span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="328" data-line-end="329">Max Stock <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mi>S</mi><mi>S</mi><mo>+</mo><mi>E</mi><mi>O</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">\approx SS + EOQ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4831em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">Q</span></span></span></span></eq>; Min Stock <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">= SS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></eq>.</li>
-</ul>
-</li>
-<li class="has-line-data" data-line-start="329" data-line-end="331"><strong>Demand-Supply Matching</strong>: Production smoothing (level strategy), Flexible capacity (overtime/temp), Subcontracting, Product-mix management, Lead-time reduction.</li>
-</ul>
-<h5 class="code-line has-line-data" data-line-start="331" data-line-end="332"><a id="2_Worked_Example_331"></a><strong>2. Worked Example</strong></h5>
-<p class="has-line-data" data-line-start="333" data-line-end="334"><strong>Worked Example 1: Reorder Point &amp; Safety Stock Calculation</strong></p>
-<ul>
-<li class="has-line-data" data-line-start="334" data-line-end="335"><strong>Question</strong>: A component has a daily demand of 50 units, a replenishment lead time of 4 days, and a standard deviation of daily demand of 5 units. If the company maintains a safety stock factor <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">Z = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></eq>, calculate the Reorder Point (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">ROP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></eq>).</li>
-<li class="has-line-data" data-line-start="335" data-line-end="342"><strong>Solution</strong>:
-<ol>
-<li class="has-line-data" data-line-start="336" data-line-end="338">Calculate Safety Stock (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">SS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></eq>):<br>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>S</mi><mi>S</mi><mo>=</mo><mi>Z</mi><mo>×</mo><msub><mi>σ</mi><mi>D</mi></msub><mo>×</mo><msqrt><mrow><mi>L</mi><mi>T</mi></mrow></msqrt><mo>=</mo><mn>2</mn><mo>×</mo><mn>5</mn><mo>×</mo><msqrt><mn>4</mn></msqrt><mo>=</mo><mn>2</mn><mo>×</mo><mn>5</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>20</mn><mtext> units</mtext></mrow><annotation encoding="application/x-tex">SS = Z \times \sigma_D \times \sqrt{LT} = 2 \times 5 \times \sqrt{4} = 2 \times 5 \times 2 = 20\text{ units}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.0645em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9755em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.9355em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0645em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.0839em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9561em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">4</span></span></span><span style="top:-2.9161em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0839em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">20</span><span class="mord text"><span class="mord"> units</span></span></span></span></span></span></eqn></section></li>
-<li class="has-line-data" data-line-start="338" data-line-end="340">Calculate Lead Time Demand (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">D \times LT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></eq>):<br>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Lead Time Demand</mtext><mo>=</mo><mn>50</mn><mo>×</mo><mn>4</mn><mo>=</mo><mn>200</mn><mtext> units</mtext></mrow><annotation encoding="application/x-tex">\text{Lead Time Demand} = 50 \times 4 = 200\text{ units}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Lead Time Demand</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">50</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">200</span><span class="mord text"><span class="mord"> units</span></span></span></span></span></span></eqn></section></li>
-<li class="has-line-data" data-line-start="340" data-line-end="342">Compute <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi></mrow><annotation encoding="application/x-tex">ROP</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span></eq>:<br>
-<section><eqn><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi><mo>+</mo><mi>S</mi><mi>S</mi><mo>=</mo><mn>200</mn><mo>+</mo><mn>20</mn><mo>=</mo><mn>220</mn><mtext> units</mtext></mrow><annotation encoding="application/x-tex">ROP = D \times LT + SS = 200 + 20 = 220\text{ units}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">200</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">220</span><span class="mord text"><span class="mord"> units</span></span></span></span></span></span></eqn></section></li>
-</ol>
-</li>
-<li class="has-line-data" data-line-start="342" data-line-end="343"><strong>Answer</strong>: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mn>220</mn><mtext> units</mtext></mrow><annotation encoding="application/x-tex">ROP = 220\text{ units}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6679em;"></span><span class="mord">220</span><span class="mord text"><span class="mord"> units</span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="343" data-line-end="345"><strong>Key Insight (Examiner Trap)</strong>: Always take the square root of lead time (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mi>L</mi><mi>T</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{LT}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1133em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9267em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.8867em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1133em;"><span></span></span></span></span></span></span></span></span></eq>) when calculating safety stock from daily demand variance.</li>
-</ul>
-<hr>
-<h3 class="code-line has-line-data" data-line-start="347" data-line-end="348"><a id="SECTION_4_CONSOLIDATION_NOTES_347"></a><strong>SECTION 4: CONSOLIDATION NOTES</strong></h3>
-<h4 class="code-line has-line-data" data-line-start="349" data-line-end="350"><a id="Note_on_MRP_across_PPC_Materials_Management_349"></a><strong>Note on MRP across PPC &amp; Materials Management</strong></h4>
-<ul>
-<li class="has-line-data" data-line-start="350" data-line-end="351">MRP is introduced as a PPC core technique (§3.1) and re-examined under Materials Management (§3.5).</li>
-<li class="has-line-data" data-line-start="351" data-line-end="352">In PPC, MRP provides the <em>time-phased shop schedule</em>; in Materials Management, it serves as the <em>procurement explosion engine</em>.</li>
-<li class="has-line-data" data-line-start="352" data-line-end="354">Master inputs remain strictly: MPS + BOM + Inventory Record File. (<em>See Quick Reference §2.2</em>).</li>
-</ul>
-<h4 class="code-line has-line-data" data-line-start="354" data-line-end="355"><a id="Note_on_Group_Technology_FMS_across_Layout_CADCAM_354"></a><strong>Note on Group Technology &amp; FMS across Layout &amp; CAD/CAM</strong></h4>
-<ul>
-<li class="has-line-data" data-line-start="355" data-line-end="356">Cellular layout (§3.2) is the physical layout concept of Group Technology.</li>
-<li class="has-line-data" data-line-start="356" data-line-end="357">FMS (§3.4) is the automated system executing cellular manufacturing.</li>
-<li class="has-line-data" data-line-start="357" data-line-end="359">Both rely on part family coding (Opitz monocode/polycode) to optimize mid-volume, mid-variety batch production.</li>
-</ul>
-<hr>
-<h3 class="code-line has-line-data" data-line-start="361" data-line-end="362"><a id="SECTION_5_FINAL_QUICKFIRE_CHECKLIST_361"></a><strong>SECTION 5: FINAL QUICK-FIRE CHECKLIST</strong></h3>
-<p class="has-line-data" data-line-start="363" data-line-end="364">Before the exam, ensure you have memorized:</p>
-<ol>
-<li class="has-line-data" data-line-start="364" data-line-end="365"><strong>PPC Sequence</strong>: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Routing</mtext><mo>→</mo><mtext>Scheduling</mtext><mo>→</mo><mtext>Dispatching</mtext><mo>→</mo><mtext>Follow-up</mtext></mrow><annotation encoding="application/x-tex">\text{Routing} \to \text{Scheduling} \to \text{Dispatching} \to \text{Follow-up}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Routing</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Scheduling</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Dispatching</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Follow-up</span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="365" data-line-end="366"><strong>MRP Inputs</strong>: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>MPS</mtext><mo>+</mo><mtext>BOM</mtext><mo>+</mo><mtext>Inventory Record File</mtext></mrow><annotation encoding="application/x-tex">\text{MPS} + \text{BOM} + \text{Inventory Record File}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">MPS</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">BOM</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Inventory Record File</span></span></span></span></span></eq>. (Purchase Order is an <em>output</em>).</li>
-<li class="has-line-data" data-line-start="366" data-line-end="367"><strong>Material Handling Elements</strong>: Motion, Time, Quantity. (Exclude <em>Quality</em>).</li>
-<li class="has-line-data" data-line-start="367" data-line-end="368"><strong>Plant Layout Primary Objective</strong>: Overall simplification, safety, and integration.</li>
-<li class="has-line-data" data-line-start="368" data-line-end="369"><strong>Aggregate Planning Horizon</strong>: Exam answer key marks <strong>Long Term</strong>.</li>
-<li class="has-line-data" data-line-start="369" data-line-end="370"><strong>FMS Domain</strong>: Medium volume (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>−</mo><mn>5000</mn><mtext>/yr</mtext></mrow><annotation encoding="application/x-tex">500-5000\text{/yr}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5000</span><span class="mord text"><span class="mord">/yr</span></span></span></span></span></eq>), Medium variety (<eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>−</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">10-50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span></eq> part types).</li>
-<li class="has-line-data" data-line-start="370" data-line-end="371"><strong>Reorder Point Formula</strong>: <eq><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>O</mi><mi>P</mi><mo>=</mo><mi>D</mi><mo>×</mo><mi>L</mi><mi>T</mi><mo>+</mo><mi>Z</mi><msub><mi>σ</mi><mi>D</mi></msub><msqrt><mrow><mi>L</mi><mi>T</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">ROP = D \times LT + Z \sigma_D \sqrt{LT}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0767em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9267em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span><span style="top:-2.8867em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1133em;"><span></span></span></span></span></span></span></span></span></eq>.</li>
-<li class="has-line-data" data-line-start="371" data-line-end="373"><strong>Core G/M Codes</strong>: <code>G00</code> (rapid), <code>G01</code> (linear cut), <code>G02</code>/<code>G03</code> (circular CW/CCW), <code>M03</code> (spindle ON), <code>M06</code> (tool change).</li>
-</ol>
-<p class="has-line-data" data-line-start="373" data-line-end="374"><em>PYQ Weightage Estimate: PPC Sequence &amp; MRP (3–4 marks), Layout &amp; Material Handling (2–3 marks), CAD/CAM/FMS/CNC (2–3 marks), Materials &amp; Stock Levels (1–2 marks).</em></p>
+<body id="preview">
+
+    <div class="submodule-nav">
+        <a href="industrial_hub.html" class="back-btn">&#8592; Industrial Hub</a>
+        <span class="nav-title">🏭 Production Planning &amp; Control</span>
+    </div>
+
+    <h1>PRODUCTION PLANNING & CONTROL (PPC)<br />Exam Revision Guide for Competitive Exams</h1>
+
+    <div class="exam-focus">High-frequency topics: PPC Hierarchy (Demand Forecast → Aggregate Plan → MPS → MRP), Aggregate Planning strategies (Chase vs Level), MRP Logic &amp; Inputs (MPS, BOM, Inventory Records), Capacity Planning (RCCP &amp; CRP), Push (MRP) vs Pull (Kanban/JIT) systems.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>1. Core Concepts & Definitions</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>1.1 Production Planning & Control (PPC) — Overall Scope</h3>
+    <div class="formula-box">
+        PPC = Decision system for managing production flow from demand forecast to delivery<br /><br />
+        Three functions:<br />
+        &nbsp;&nbsp;1. Planning: Decide what to produce, when, how much, with what resources<br />
+        &nbsp;&nbsp;2. Scheduling: Allocate resources and sequencing operations<br />
+        &nbsp;&nbsp;3. Control: Monitor execution vs plan; correct deviations
+    </div>
+
+    <h3>1.2 Aggregate Planning (Most-Tested Concept)</h3>
+    <div class="formula-box">
+        Aggregate Planning = Medium-term planning (6–18 months) at product family level<br /><br />
+        Decision variables:<br />
+        &nbsp;&nbsp;• Production rate (units/month)<br />
+        &nbsp;&nbsp;• Workforce level (hires/fires/layoffs)<br />
+        &nbsp;&nbsp;• Inventory level (safety stock buffer)<br />
+        &nbsp;&nbsp;• Subcontracting volume<br />
+        &nbsp;&nbsp;• Overtime/idle time<br /><br />
+        Objective: Minimize total cost (labor, inventory, subcontracting, overtime)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject to demand constraints
+    </div>
+
+    <h3>1.3 Master Production Schedule (MPS)</h3>
+    <div class="formula-box">
+        MPS = Disaggregated production plan for individual products<br /><br />
+        Input: Aggregate plan (units/month for product families)<br />
+        Output: Specific end-item quantities and due dates<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets demand for Materials Requirement Planning (MRP)<br /><br />
+        Time fence: Frozen zone (near-term, no changes);<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flexible zone (medium-term, limited changes)
+    </div>
+
+    <div class="img-container">
+        <img src="images/ppc/ppc_planning_hierarchy.png" alt="PPC Planning Hierarchy" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: PPC Planning Hierarchy — Disaggregation from Aggregate Planning to MPS and MRP.</div>
+    </div>
+
+    <h3>1.4 Material Requirement Planning (MRP)</h3>
+    <div class="formula-box">
+        MRP = Lot-by-lot scheduling for components and raw materials<br /><br />
+        Inputs: MPS, Bill of Materials (BOM), Inventory status, Lead times<br />
+        Output: Planned order releases for components at right time/quantity<br /><br />
+        Logic: Gross requirement → Scheduled receipts → Available inventory<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ Net requirement → Planned order receipt/release<br /><br />
+        MRP II = Extended MRP including capacity planning, costs, financial data
+    </div>
+
+    <h3>1.5 Bill of Materials (BOM)</h3>
+    <div class="formula-box">
+        BOM = Hierarchical tree showing all components in a product<br /><br />
+        Structure:<br />
+        &nbsp;&nbsp;Level 0: End product<br />
+        &nbsp;&nbsp;Level 1: Sub-assemblies<br />
+        &nbsp;&nbsp;Level 2: Components/raw materials<br /><br />
+        Used by: MRP to cascade requirements down product structure
+    </div>
+
+    <div class="img-container">
+        <img src="images/ppc/mrp_bom_structure.jpeg" alt="MRP BOM Structure" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Material Requirement Planning — Inputs &amp; Product Tree (BOM Level Structure).</div>
+    </div>
+
+    <h3>1.6 Capacity Planning Hierarchy</h3>
+    <div class="formula-box">
+        RCCP (Rough Cut Capacity Planning): Aggregate-level check using key resources<br />
+        ↓<br />
+        CRP (Capacity Requirements Planning): Detailed check against bottleneck work centers<br />
+        ↓<br />
+        Infinite vs Finite loading: Check against available capacity or assume available<br /><br />
+        Objective: Identify capacity bottlenecks before detailed scheduling
+    </div>
+
+    <div class="img-container">
+        <img src="images/ppc/capacity_planning_rccp_crp.png" alt="Capacity Planning Hierarchy" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Capacity Planning Sequence — Rough Cut Capacity Planning (RCCP) vs Detailed CRP.</div>
+    </div>
+
+    <h3>1.7 Demand Forecasting for Planning</h3>
+    <div class="formula-box">
+        Forecasting methods categorized by time horizon:<br />
+        &nbsp;&nbsp;• Short-term (1–3 months): Time series (exponential smoothing, moving avg)<br />
+        &nbsp;&nbsp;• Medium-term (3–12 months): Regression, causal models<br />
+        &nbsp;&nbsp;• Long-term (&gt;1 year): Qualitative (Delphi, market research)<br /><br />
+        Input to: Aggregate planning → Master schedule → MRP
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>2. Essential Formulas & Principles</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>2.1 Aggregate Planning Cost Minimization</h3>
+    <div class="formula-box">
+        $$\text{Total Cost} = \text{Regular Labor} + \text{Overtime} + \text{Inventory Holding} + \text{Shortage} + \text{Hiring/Firing}$$<br />
+
+        Chase Strategy: Vary workforce to match demand (high hiring/firing cost)<br />
+        Level Strategy: Constant workforce, use inventory/backlog (high holding cost)<br />
+        Hybrid: Mixed approach balancing labor and inventory costs
+    </div>
+
+    <h3>2.2 MRP Net Requirement Calculation</h3>
+    <div class="formula-card">
+        $$\text{Net Requirement} = \text{Gross Requirement} - \text{Available Inventory} - \text{Scheduled Receipts}$$
+    </div>
+
+    <div class="formula-card">
+        $$\text{Planned Order Release Date} = \text{Required Date} - \text{Lead Time}$$
+    </div>
+
+    <h3>2.3 Inventory Position Equation</h3>
+    <div class="formula-card">
+        $$\text{Available Inventory} = \text{On-Hand Inventory} + \text{Scheduled Receipts} - \text{Allocated / Reserved}$$
+    </div>
+
+    <h3>2.4 Capacity Utilization Check</h3>
+    <div class="formula-card">
+        $$\text{Capacity Utilization (\%)} = \frac{\text{Required Capacity}}{\text{Available Capacity}} \times 100\%$$
+    </div>
+    <p>Acceptable range: $70\text{--}90\%$ for RCCP (allows flexibility); $80\text{--}100\%$ for CRP (tighter control). Above $100\% \implies$ capacity bottleneck identified.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>3. Planning Approaches & Control Methods Classification</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <h3>3.1 Production Planning Strategies Matrix</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Approach</th>
+                <th>Characteristic</th>
+                <th>Best For</th>
+                <th>Exam Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="key-term">Push System (MRP)</span></td>
+                <td>Central schedule pushes work to production (forecast-driven)</td>
+                <td>Make-to-stock products; high volume, low variety</td>
+                <td>Traditional approach; MRP II is extended MRP</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Pull System (Kanban)</span></td>
+                <td>Downstream demand pulls production (demand-driven)</td>
+                <td>Make-to-order; high variety, low volume; lean production</td>
+                <td>JIT philosophy; reduces inventory</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Chase Strategy</span></td>
+                <td>Workforce size varies with demand</td>
+                <td>Low inventory cost desired; short lead times possible</td>
+                <td>High hiring/firing cost; frequent changes</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Level Strategy</span></td>
+                <td>Constant workforce; inventory absorbs demand variation</td>
+                <td>Stable workforce desired; high inventory cost acceptable</td>
+                <td>Lower disruption; higher holding cost</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">RCCP (Rough Cut)</span></td>
+                <td>Aggregate-level capacity check using key resources</td>
+                <td>Initial feasibility check of aggregate plan</td>
+                <td>Fast; used before detailed CRP</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">CRP (Detailed)</span></td>
+                <td>Detailed capacity check for each work center</td>
+                <td>Final validation before release to shop floor</td>
+                <td>Identifies bottleneck work centers</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="img-container">
+        <img src="images/ppc/push_vs_pull_kanban.jpeg" alt="Push vs Pull Systems" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Push (MRP Forecast-Driven) vs Pull (Kanban Demand-Driven) Systems Comparison.</div>
+    </div>
+
+    <h3>3.2 Inventory Types in PPC Context</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Inventory Type</th>
+                <th>Definition / Role</th>
+                <th>In PPC Context</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="key-term">Safety Stock</span></td>
+                <td>Buffer against demand/supply uncertainty</td>
+                <td>Minimum inventory in MRP; reduces stockouts</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Cycle Stock</span></td>
+                <td>Inventory associated with order quantity</td>
+                <td>Main inventory in MRP calculations</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Pipeline Stock</span></td>
+                <td>Inventory in transit during lead time</td>
+                <td>Accounted for in scheduled receipts</td>
+            </tr>
+            <tr>
+                <td><span class="key-term">Seasonal Stock</span></td>
+                <td>Built up before peak demand season</td>
+                <td>Result of level strategy in aggregate planning</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <h2>4. Key Points to Remember</h2>
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><span class="key-term">PPC hierarchy: Demand forecast → Aggregate plan → MPS → MRP.</span> Each level disaggregates the previous level's output.</li>
+        <li><span class="key-term">Aggregate planning optimizes over 6–18 months at product family level.</span> Decides workforce size, production rate, inventory, and subcontracting.</li>
+        <li><span class="key-term">Master Production Schedule disaggregates aggregate plan to individual end items.</span> Sets demand input for MRP system.</li>
+        <li><span class="key-term">MRP uses push logic: forecast-driven, central authority schedules all production.</span> Contrasts with pull system (Kanban/JIT).</li>
+        <li><span class="key-term">Net requirement = Gross demand - Available inventory - Scheduled receipts.</span> Planned order release offset by lead time.</li>
+        <li><span class="key-term">Chase strategy minimizes inventory but incurs high hiring/firing costs.</span> Level strategy maintains constant workforce, incurs higher holding costs.</li>
+        <li><span class="key-term">RCCP checks aggregate feasibility; CRP checks detailed capacity at work centers.</span> Both must pass before release to shop.</li>
+        <li><span class="key-term">Bill of Materials (BOM) hierarchically defines product structure.</span> Used by MRP to cascade component requirements.</li>
+        <li><span class="key-term">Safety stock in MRP reduces stockout risk against demand/supply uncertainty.</span> Increases inventory cost but improves service level.</li>
+        <li><span class="key-term">Capacity utilization 70–90% for RCCP indicates adequate flexibility;</span> 80–100% for CRP indicates tight capacity control.</li>
+        <li><span class="key-term">MRP II extends MRP with capacity planning, costs, and financial integration.</span> Provides closed-loop feedback for replanning.</li>
+        <li><span class="key-term">Time fences in MPS: frozen zone (no changes), flexible zone (limited changes).</span> Protects schedule stability near-term while allowing medium-term adjustments.</li>
+        <li><span class="key-term">Demand forecasting input to aggregate planning must match planning horizon.</span> Short-term (3mo) vs medium-term (12mo) use different methods.</li>
+        <li><span class="key-term">Scheduled receipts in MRP include purchase orders and work-in-process receipts.</span> Reduce net requirements if due before current period.</li>
+        <li><span class="key-term">Hybrid planning combines chase and level strategies to balance cost.</span> Example: vary workforce moderately; use small inventory buffer.</li>
+    </ul>
+
+    <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
+
+    <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
+        <p><strong>Revision Focus Areas (Frequency-Ranked):</strong><br />
+            1. PPC hierarchy & disaggregation &nbsp; | &nbsp; 2. Aggregate planning strategies (Chase vs Level) &nbsp; | &nbsp; 3. MPS &amp; MRP logic (Net requirement formula) &nbsp; | &nbsp; 4. Capacity planning (RCCP vs CRP) &nbsp; | &nbsp; 5. Push (MRP) vs Pull (Kanban) systems
+        </p>
+    </div>
 
 </body>
+
 </html>
