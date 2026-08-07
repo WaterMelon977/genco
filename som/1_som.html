@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Stresses, Strains &amp; Elastic Constants — SOM Revision — APGENCO / SSC JE</title>
+  <meta name="description" content="Revision guide for Simple Stresses, Strains, Hooke's Law, Elastic Constants and Stress-strain curve of mild steel for APGENCO AE, SSC JE, TSPSC AEE.">
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --page: #F5F1EA; --card: #FFFFFF; --formula-bg: #FAF6F0;
+      --ink: #1E1A16; --ink-mid: #4A3F35; --ink-soft: #7A6A5A;
+      --rule: #D8CEBF; --accent: #7B3F1A; --accent-lt: #C4885A;
+      --chapter-bg: #2B1A0D; --chapter-fg: #F5EFE6;
+      --note-bg: #EEF3FB; --note-bd: #4A7EC4; --note-fg: #1A3D7A;
+      --kp-bg: #FDF6E3; --kp-bd: #C8940A; --kp-fg: #5A3E00;
+      --progress: #7B3F1A; --active-indicator: #2E7D32;
+    }
+    [data-theme="dark"] {
+      --page: #18150F; --card: #221E18; --formula-bg: #1A1710;
+      --ink: #E8DFD0; --ink-mid: #B8A898; --ink-soft: #8A7A6A;
+      --rule: #3A3028; --accent: #C4885A; --accent-lt: #E0A870;
+      --chapter-bg: #120C05; --chapter-fg: #E8DFD0;
+      --note-bg: #162030; --note-bd: #4A7EC4; --note-fg: #90B8F0;
+      --kp-bg: #201800; --kp-bd: #C8940A; --kp-fg: #E0C060;
+      --active-indicator: #4CAF50;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt; line-height: 1.9; color: var(--ink);
+      background: var(--page); padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+    .wrap { max-width: 800px; margin: 0 auto; }
+    .submodule-nav {
+      background: var(--chapter-bg); color: var(--chapter-fg);
+      padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt; border-radius: 8px; margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a { color: var(--chapter-fg); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--progress); z-index: 9999;
+      transition: width .1s linear; border-radius: 0 2px 2px 0;
+    }
+    #fnav {
+      position: fixed; top: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none; transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt; white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px; font-weight: 600;
+      transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    h1 {
+      font-family: "Georgia", serif; font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg); color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22); line-height: 1.3;
+    }
+    h2 {
+      font-family: "Georgia", serif; font-size: 15pt; font-weight: 700;
+      color: var(--accent); border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px; margin-top: 52px; margin-bottom: 18px; letter-spacing: .01em;
+    }
+    h3 {
+      font-family: "Georgia", serif; font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid); margin-top: 32px; margin-bottom: 10px;
+    }
+    h4 {
+      font-family: "Georgia", serif; font-size: 11.5pt; font-weight: 700;
+      color: var(--ink); margin-top: 22px; margin-bottom: 6px;
+    }
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+    .fc, .formula-card {
+      background: var(--formula-bg); border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px; text-align: center;
+      overflow-x: auto; font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    .sym {
+      font-family: system-ui, sans-serif; font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px; line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+    .note {
+      background: var(--note-bg); border-left: 4px solid var(--note-bd);
+      color: var(--note-fg); padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0; font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+    .kp, .key-points {
+      background: var(--kp-bg); border: 1px solid var(--kp-bd);
+      border-radius: 7px; padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt; font-family: system-ui, sans-serif; color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3 {
+      font-weight: 700; letter-spacing: .02em; margin-bottom: 8px;
+      font-size: 10pt; text-transform: uppercase; color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li { margin-bottom: .28em; }
+    table {
+      border-collapse: collapse; width: 100%; margin: 22px 0;
+      background: var(--card); border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="rbar"></div>
+
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#stress-strain">Stress &amp; Strain</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#hookes-law">Hooke's Law</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#elastic-constants">Elastic Constants</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#bar-extensions">Bar Extensions</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#ss-curve">SS Curve</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Back to SOM Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Simple Stresses, Strains &amp; Elastic Constants<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Hooke's Law &middot; Young's Modulus &middot; Poisson's Ratio &middot; Stress&ndash;Strain Curve<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE &nbsp;|&nbsp; TSPSC AEE
+      </span>
+    </h1>
+
+    <!-- ===== SECTION 1 ===== -->
+    <h2 id="stress-strain">1. Stress and Strain — Core Definitions</h2>
+
+    <p><strong>Stress (σ)</strong> is the internal resisting force per unit area developed within a body when subjected to an external load.</p>
+    <div class="formula-card">$$\sigma = \frac{P}{A}$$</div>
+    <p class="sym"><span>$\sigma$ — normal stress (Pa or N/mm²)</span><span>$P$ — axial load (N)</span><span>$A$ — cross-sectional area (m² or mm²)</span></p>
+
+    <ul>
+      <li><strong>Tensile stress (+):</strong> load pulls the bar apart — elongation occurs.</li>
+      <li><strong>Compressive stress (−):</strong> load pushes the bar — shortening occurs.</li>
+      <li><strong>Shear stress (τ):</strong> developed on planes parallel to the applied force.</li>
+    </ul>
+
+    <div class="formula-card">$$\tau = \frac{V}{A}$$</div>
+    <p class="sym"><span>$\tau$ — average shear stress (Pa)</span><span>$V$ — shear force (N)</span><span>$A$ — area on which shear acts (m²)</span></p>
+
+    <p><strong>Strain (ε)</strong> is the ratio of change in dimension to the original dimension. It is <em>dimensionless</em>.</p>
+
+    <div class="formula-card">$$\varepsilon = \frac{\delta L}{L}, \qquad \varepsilon_{lat} = -\nu\varepsilon, \qquad e_v = \varepsilon_x + \varepsilon_y + \varepsilon_z$$</div>
+    <p class="sym">
+      <span>$\varepsilon$ — longitudinal strain</span>
+      <span>$\delta L$ — change in length (m)</span>
+      <span>$\varepsilon_{lat}$ — lateral strain</span>
+      <span>$\nu$ — Poisson's ratio</span>
+      <span>$e_v$ — volumetric strain</span>
+    </p>
+
+    <div class="note">
+      <strong>Exam Trap:</strong> Strain is dimensionless — it has no units. Poisson's ratio is also dimensionless. Do not confuse shear strain $\gamma$ (in radians) with shear stress $\tau$ (in Pa).
+    </div>
+
+    <!-- ===== SECTION 2 ===== -->
+    <h2 id="hookes-law">2. Hooke's Law</h2>
+
+    <p>Within the <strong>elastic limit</strong>, stress is directly proportional to strain. The constant of proportionality is the <em>Young's Modulus</em> (Modulus of Elasticity).</p>
+
+    <div class="formula-card">$$\sigma = E\varepsilon \implies E = \frac{\sigma}{\varepsilon} = \frac{PL}{A\delta L}$$</div>
+    <p class="sym"><span>$E$ — Young's Modulus (Pa or GPa)</span><span>$\delta L = \frac{PL}{AE}$ — extension of bar</span></p>
+
+    <p>Similarly, for shear: <strong>$\tau = G\gamma$</strong>, where $G$ is the Shear Modulus (Modulus of Rigidity) and $\gamma$ is the shear strain.</p>
+
+    <h3>2.1 Extension of Standard Bar Types</h3>
+
+    <h4>Uniform cross-section bar</h4>
+    <div class="formula-card">$$\delta L = \frac{PL}{AE}$$</div>
+
+    <h4>Tapering bar (circular — linear taper from $d_1$ to $d_2$)</h4>
+    <div class="formula-card">$$\delta L = \frac{4PL}{\pi d_1 d_2 E}$$</div>
+    <p class="sym"><span>$d_1, d_2$ — end diameters (mm or m)</span></p>
+
+    <h4>Bar of uniform strength</h4>
+    <p>In a bar of <strong>uniform strength</strong>, the cross-sectional area <em>varies along the length</em> such that the stress $\sigma$ remains constant throughout, including the effect of self-weight. This is different from a bar of uniform section where self-weight causes varying stress.</p>
+
+    <div class="note">
+      <strong>Key distinction:</strong> "Uniform strength" ≠ "Uniform section." In a uniform strength bar, area increases from bottom to top (in a hanging bar) to maintain constant stress despite varying weight.
+    </div>
+
+    <!-- ===== SECTION 3 ===== -->
+    <h2 id="elastic-constants">3. Elastic Constants</h2>
+
+    <table>
+      <thead><tr><th>Constant</th><th>Symbol</th><th>Definition</th><th>Unit</th></tr></thead>
+      <tbody>
+        <tr><td>Young's Modulus</td><td>$E$</td><td>Longitudinal stress / Longitudinal strain</td><td>Pa (GPa)</td></tr>
+        <tr><td>Shear Modulus / Rigidity</td><td>$G$</td><td>Shear stress / Shear strain</td><td>Pa (GPa)</td></tr>
+        <tr><td>Bulk Modulus</td><td>$K$</td><td>Volumetric (hydrostatic) stress / Volumetric strain</td><td>Pa (GPa)</td></tr>
+        <tr><td>Poisson's Ratio</td><td>$\nu$</td><td>Lateral strain / Longitudinal strain (magnitude)</td><td>Dimensionless</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.1 Relations between Elastic Constants</h3>
+
+    <div class="formula-card">$$E = 2G(1 + \nu)$$</div>
+    <div class="formula-card">$$E = 3K(1 - 2\nu)$$</div>
+    <div class="formula-card">$$E = \frac{9KG}{3K + G}$$</div>
+
+    <div class="note">
+      <strong>Special cases of Poisson's ratio:</strong>
+      <ul>
+        <li>$\nu = 0.5$ &rarr; incompressible material (rubber); $K \to \infty$.</li>
+        <li>$\nu = 0$ &rarr; no lateral strain; $E = 2G = 3K$.</li>
+        <li>$0 &lt; \nu &lt; 0.5$ for all real isotropic engineering materials.</li>
+        <li>Steel: $\nu \approx 0.25$–$0.30$; Aluminium: $\nu \approx 0.33$.</li>
+      </ul>
+    </div>
+
+    <h3>3.2 Typical Values for Common Materials</h3>
+    <table>
+      <thead><tr><th>Material</th><th>E (GPa)</th><th>G (GPa)</th><th>K (GPa)</th><th>$\nu$</th></tr></thead>
+      <tbody>
+        <tr><td>Mild steel</td><td>200–210</td><td>80–82</td><td>166</td><td>0.25–0.30</td></tr>
+        <tr><td>Aluminium</td><td>69–70</td><td>26</td><td>75</td><td>0.33</td></tr>
+        <tr><td>Copper</td><td>120</td><td>45</td><td>140</td><td>0.34</td></tr>
+        <tr><td>Cast iron</td><td>100–170</td><td>40–70</td><td>—</td><td>0.21–0.26</td></tr>
+        <tr><td>Rubber</td><td>0.001–0.1</td><td>—</td><td>very large</td><td>&asymp; 0.5</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ===== SECTION 4 ===== -->
+    <h2 id="bar-extensions">4. Compound Bars (Introduction) &amp; Section Properties</h2>
+
+    <p>A <strong>compound bar</strong> consists of two or more materials placed in parallel and bonded together so that they deform by the same amount. The load is shared in proportion to their axial stiffness $AE$.</p>
+
+    <div class="formula-card">$$P = P_1 + P_2 + \cdots \quad\text{(equilibrium)}, \qquad \delta_1 = \delta_2 \quad\text{(compatibility)}$$</div>
+    <div class="formula-card">$$\sigma_i = E_i \cdot \varepsilon \quad\text{(all materials have same strain } \varepsilon\text{)}$$</div>
+
+    <h3>4.1 Standard Section Properties</h3>
+    <table>
+      <thead><tr><th>Section</th><th>$I_{NA}$</th><th>$Z = I/y_{max}$</th><th>$y_{max}$</th></tr></thead>
+      <tbody>
+        <tr><td>Rectangle ($b \times d$)</td><td>$bd^3/12$</td><td>$bd^2/6$</td><td>$d/2$</td></tr>
+        <tr><td>Circle (diameter $D$)</td><td>$\pi D^4/64$</td><td>$\pi D^3/32$</td><td>$D/2$</td></tr>
+        <tr><td>Hollow circle</td><td>$\pi(D^4 - d^4)/64$</td><td>$\pi(D^4 - d^4)/32D$</td><td>$D/2$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ===== SECTION 5 ===== -->
+    <h2 id="ss-curve">5. Stress–Strain Curve of Mild Steel</h2>
+
+    <p>The mild steel tensile test produces a characteristic curve that is one of the most tested topics in all competitive exams. Know every region and the physical meaning of each transition point.</p>
+
+    <table>
+      <thead><tr><th>Region / Point</th><th>Description</th><th>Key Fact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>O–A (Proportional limit)</strong></td><td>Linear; Hooke's law strictly obeyed</td><td>Slope = $E$</td></tr>
+        <tr><td><strong>A–B (Elastic limit)</strong></td><td>No permanent set on unloading</td><td>Slightly beyond proportional limit</td></tr>
+        <tr><td><strong>B (Upper yield point)</strong></td><td>Sudden drop in load; stress falls suddenly</td><td>Unique to mild steel — absent in cast iron, HSS, aluminium</td></tr>
+        <tr><td><strong>C (Lower yield point)</strong></td><td>Stress remains nearly constant; plastic flow occurs</td><td>Used as design yield stress</td></tr>
+        <tr><td><strong>C–D (Strain hardening)</strong></td><td>Stress rises again with increased strain</td><td>Crystal structure realignment (dislocations pile up)</td></tr>
+        <tr><td><strong>D (Ultimate Tensile Strength, UTS)</strong></td><td>Maximum stress on nominal area</td><td>Necking (local constriction) begins here</td></tr>
+        <tr><td><strong>D–E (Necking)</strong></td><td>Nominal stress falls but true stress continues to rise</td><td>Cross-sectional area decreases rapidly</td></tr>
+        <tr><td><strong>E (Fracture / Breaking point)</strong></td><td>Actual fracture</td><td>Nominal (engineering) stress at fracture &lt; UTS</td></tr>
+        <tr><td><strong>Proof stress</strong></td><td>Stress at 0.2% permanent (offset) strain</td><td>Used for non-ferrous materials with no clear yield point (aluminium, copper)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Upper yield point explained:</strong> In mild steel, carbon atoms (interstitial atoms) pin dislocations in place. A higher stress is needed to free them (upper yield point). Once freed, dislocations move easily at a lower stress (lower yield point). This phenomenon is <em>absent</em> in pure metals, cast iron, and high-strength steels.
+    </div>
+
+    <h3>5.1 Key Definitions from the Curve</h3>
+    <table>
+      <thead><tr><th>Property</th><th>Definition</th><th>Represents</th></tr></thead>
+      <tbody>
+        <tr><td>Resilience</td><td>Strain energy stored per unit volume up to elastic limit</td><td>Area under elastic region of $\sigma$–$\varepsilon$ curve</td></tr>
+        <tr><td>Modulus of resilience</td><td>$u_r = \sigma_y^2 / 2E$</td><td>Max resilience — area under linear region</td></tr>
+        <tr><td>Toughness</td><td>Total strain energy per unit volume up to fracture</td><td>Area under the <em>entire</em> $\sigma$–$\varepsilon$ curve</td></tr>
+        <tr><td>Ductility</td><td>% elongation or % reduction in area at fracture</td><td>Ability to undergo plastic deformation</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Resilience vs Toughness:</strong> Resilience = ability to absorb energy elastically (spring-like). Toughness = total energy to fracture (needs both strength AND ductility). A hard brittle material may have high strength but low toughness.
+    </div>
+
+    <!-- KEY POINTS -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>$\sigma = P/A$ (normal stress); $\tau = V/A$ (shear stress). Units: N/mm² = MPa.</li>
+        <li>Hooke's law: $\sigma = E\varepsilon$ valid only within the elastic limit. Extension: $\delta L = PL/AE$.</li>
+        <li>Tapering bar (circular): $\delta L = 4PL/(\pi d_1 d_2 E)$ — use $d_1 \times d_2$, not average diameter.</li>
+        <li>Three elastic constant relations: $E = 2G(1+\nu) = 3K(1-2\nu)$; $E = 9KG/(3K+G)$.</li>
+        <li>$\nu = 0.5$ &rarr; incompressible (rubber, $K\to\infty$). Real materials: $0 &lt; \nu &lt; 0.5$.</li>
+        <li>Upper yield point: unique to mild steel due to dislocation pinning by interstitial carbon.</li>
+        <li>Lower yield point (not upper) is used as the design yield stress $\sigma_y$.</li>
+        <li>Proof stress (0.2% offset) is used for aluminium, copper — metals without a distinct yield point.</li>
+        <li>Modulus of resilience = $\sigma_y^2/2E$. Toughness = area under entire $\sigma$–$\varepsilon$ curve.</li>
+        <li>Toughness requires both high strength AND high ductility — mild steel is tougher than glass even if glass is harder.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; TSPSC AEE &nbsp;&middot;&nbsp; SOM Module 01
+    </p>
+
+  </div><!-- /.wrap -->
+</body>
+</html>

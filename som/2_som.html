@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Bars, Temperature Stresses &amp; Oblique Planes — SOM Revision — APGENCO / SSC JE</title>
+  <meta name="description" content="Revision guide for compound bars, temperature stresses, stresses on oblique planes, principal stresses, and Mohr's circle for APGENCO AE, SSC JE, TSPSC AEE.">
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --page: #F5F1EA; --card: #FFFFFF; --formula-bg: #FAF6F0;
+      --ink: #1E1A16; --ink-mid: #4A3F35; --ink-soft: #7A6A5A;
+      --rule: #D8CEBF; --accent: #7B3F1A; --accent-lt: #C4885A;
+      --chapter-bg: #2B1A0D; --chapter-fg: #F5EFE6;
+      --note-bg: #EEF3FB; --note-bd: #4A7EC4; --note-fg: #1A3D7A;
+      --kp-bg: #FDF6E3; --kp-bd: #C8940A; --kp-fg: #5A3E00;
+      --progress: #7B3F1A; --active-indicator: #2E7D32;
+    }
+    [data-theme="dark"] {
+      --page: #18150F; --card: #221E18; --formula-bg: #1A1710;
+      --ink: #E8DFD0; --ink-mid: #B8A898; --ink-soft: #8A7A6A;
+      --rule: #3A3028; --accent: #C4885A; --accent-lt: #E0A870;
+      --chapter-bg: #120C05; --chapter-fg: #E8DFD0;
+      --note-bg: #162030; --note-bd: #4A7EC4; --note-fg: #90B8F0;
+      --kp-bg: #201800; --kp-bd: #C8940A; --kp-fg: #E0C060;
+      --active-indicator: #4CAF50;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt; line-height: 1.9; color: var(--ink);
+      background: var(--page); padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+    .wrap { max-width: 800px; margin: 0 auto; }
+    .submodule-nav {
+      background: var(--chapter-bg); color: var(--chapter-fg);
+      padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt; border-radius: 8px; margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a { color: var(--chapter-fg); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--progress); z-index: 9999;
+      transition: width .1s linear; border-radius: 0 2px 2px 0;
+    }
+    #fnav {
+      position: fixed; top: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none; transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt; white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a { color: var(--ink-soft); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 600; transition: background .15s, color .15s; }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    h1 { font-family: "Georgia", serif; font-size: 21pt; font-weight: 700; background: var(--chapter-bg); color: var(--chapter-fg); padding: 28px 36px; border-radius: 10px; margin-bottom: 32px; text-align: center; box-shadow: 0 6px 22px rgba(43,26,13,.22); line-height: 1.3; }
+    h2 { font-family: "Georgia", serif; font-size: 15pt; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 52px; margin-bottom: 18px; letter-spacing: .01em; }
+    h3 { font-family: "Georgia", serif; font-size: 12.5pt; font-weight: 700; color: var(--ink-mid); margin-top: 32px; margin-bottom: 10px; }
+    h4 { font-family: "Georgia", serif; font-size: 11.5pt; font-weight: 700; color: var(--ink); margin-top: 22px; margin-bottom: 6px; }
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+    .formula-card { background: var(--formula-bg); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; margin: 20px 0; padding: 13px 18px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: 0 2px 8px rgba(123,63,26,.07); }
+    .sym { font-family: system-ui, sans-serif; font-size: 9.5pt; color: var(--ink-soft); margin: -10px 0 18px 4px; line-height: 1.7; }
+    .sym span { display: inline-block; margin-right: 16px; }
+    .note { background: var(--note-bg); border-left: 4px solid var(--note-bd); color: var(--note-fg); padding: 12px 16px; margin: 20px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; line-height: 1.7; font-family: system-ui, sans-serif; }
+    .key-points { background: var(--kp-bg); border: 1px solid var(--kp-bd); border-radius: 7px; padding: 16px 20px; margin: 22px 0; font-size: 10.5pt; font-family: system-ui, sans-serif; color: var(--kp-fg); }
+    .key-points h3 { font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; font-size: 10pt; text-transform: uppercase; color: var(--kp-fg); border: none; padding: 0; }
+    .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .key-points li { margin-bottom: .28em; }
+    table { border-collapse: collapse; width: 100%; margin: 22px 0; background: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,.07); font-family: system-ui, sans-serif; font-size: 10pt; }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #fnav { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="rbar"></div>
+
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#compound">Compound Bars</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#thermal">Thermal Stress</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#oblique">Oblique Planes</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#principal">Principal Stresses</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#mohrs">Mohr's Circle</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'; localStorage.setItem('ag-theme', t); }
+    apply(saved);
+    tog.addEventListener('click', function(){ var c = document.documentElement.getAttribute('data-theme') || 'light'; apply(c === 'dark' ? 'light' : 'dark'); });
+    var bar = document.getElementById('rbar');
+    function upBar(){ var s = window.scrollY; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%'; }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+    var fn = document.getElementById('fnav'); var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){ var s = window.scrollY; if(s > 220) fn.classList.add('show'); else fn.classList.remove('show'); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if(el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act); }); }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){ lk.addEventListener('click', function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute('href').replace('#','')); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Back to SOM Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Compound Bars, Temperature Stresses &amp; Oblique Planes<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Compound Bars &middot; Thermal Stress &middot; Principal Stresses &middot; Mohr's Circle<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE &nbsp;|&nbsp; TSPSC AEE
+      </span>
+    </h1>
+
+    <!-- ===== SECTION 1 ===== -->
+    <h2 id="compound">1. Compound Bars</h2>
+
+    <p>A <strong>compound bar</strong> consists of two or more materials in parallel (same deformation, shared load). The governing equations are:</p>
+    <ul>
+      <li><strong>Equilibrium:</strong> Total load $P = P_1 + P_2 + \cdots$ (sum of forces in each member).</li>
+      <li><strong>Compatibility:</strong> $\delta_1 = \delta_2 = \cdots$ (same deformation for all members).</li>
+      <li><strong>Constitutive:</strong> $\sigma_i = E_i \varepsilon$ (common strain $\varepsilon$; stress proportional to E).</li>
+    </ul>
+
+    <div class="formula-card">$$\varepsilon = \frac{P}{A_1 E_1 + A_2 E_2}, \qquad \sigma_i = E_i \cdot \varepsilon = \frac{P \cdot E_i}{A_1 E_1 + A_2 E_2}$$</div>
+    <p class="sym">
+      <span>$P$ — total applied load (N)</span>
+      <span>$A_i$ — area of material $i$ (mm²)</span>
+      <span>$E_i$ — Young's modulus of material $i$ (GPa)</span>
+      <span>$\sigma_i$ — stress in material $i$ (MPa)</span>
+    </p>
+
+    <div class="note">
+      <strong>Key result:</strong> In a compound bar, <em>stresses are proportional to Young's Moduli</em> (not areas). The stiffer material (higher $E$) takes more stress. Equilibrium distributes load; compatibility ensures equal strain.
+    </div>
+
+    <!-- ===== SECTION 2 ===== -->
+    <h2 id="thermal">2. Temperature Stresses</h2>
+
+    <p>When a bar is prevented from expanding or contracting freely due to a temperature change, <strong>thermal stresses</strong> develop.</p>
+
+    <h3>2.1 Fully Restrained Bar</h3>
+    <div class="formula-card">$$\delta_T = \alpha L \Delta T \quad\text{(free thermal expansion)}$$</div>
+    <div class="formula-card">$$\sigma_T = E \alpha \Delta T \quad\text{(stress when fully restrained)}$$</div>
+    <p class="sym">
+      <span>$\alpha$ — coefficient of linear thermal expansion (°C⁻¹)</span>
+      <span>$\Delta T$ — temperature change (°C)</span>
+      <span>$\sigma_T$ — thermal stress (compressive on heating if restrained)</span>
+    </p>
+
+    <div class="note">
+      <strong>Sign convention:</strong> If a bar is heated and fully restrained, it cannot expand &rarr; <strong>compressive thermal stress</strong> develops. If cooled and restrained, <strong>tensile stress</strong> develops. If partially restrained, stress is less than $E\alpha\Delta T$.
+    </div>
+
+    <h3>2.2 Compound Bar — Thermal Compatibility</h3>
+    <p>In a compound bar with two materials at the same temperature change $\Delta T$, one will be in tension and the other in compression. The compatibility equation (assuming $\alpha_1 > \alpha_2$, material 1 tends to expand more):</p>
+
+    <div class="formula-card">$$\alpha_1 \Delta T - \frac{\sigma_1}{E_1} = \alpha_2 \Delta T + \frac{\sigma_2}{E_2}$$</div>
+    <p class="sym">
+      <span>$\sigma_1$ — compressive stress in material 1 (material 1 is restrained from expanding)</span>
+      <span>$\sigma_2$ — tensile stress in material 2 (pulled by material 1)</span>
+    </p>
+
+    <p>Combined with equilibrium $\sigma_1 A_1 = \sigma_2 A_2$ (if both have same length), the stresses can be found.</p>
+
+    <!-- ===== SECTION 3 ===== -->
+    <h2 id="oblique">3. Stresses on Oblique Planes</h2>
+
+    <p>For a bar under uniaxial stress $\sigma_x$, consider a plane inclined at angle $\theta$ to the cross-section (or $\theta$ to the axial direction).</p>
+
+    <h3>3.1 General 2D Stress State</h3>
+    <p>For an element with normal stresses $\sigma_x$, $\sigma_y$ and shear stress $\tau_{xy}$, the stresses on a plane inclined at angle $\theta$ from the $x$-axis are:</p>
+
+    <div class="formula-card">$$\sigma_\theta = \frac{\sigma_x + \sigma_y}{2} + \frac{\sigma_x - \sigma_y}{2}\cos 2\theta + \tau_{xy}\sin 2\theta$$</div>
+    <div class="formula-card">$$\tau_\theta = -\frac{\sigma_x - \sigma_y}{2}\sin 2\theta + \tau_{xy}\cos 2\theta$$</div>
+    <p class="sym">
+      <span>$\sigma_\theta$ — normal stress on the inclined plane</span>
+      <span>$\tau_\theta$ — shear stress on the inclined plane</span>
+      <span>$\theta$ — angle from the $x$-plane to the inclined plane</span>
+    </p>
+
+    <h3>3.2 Special Case: Pure Uniaxial Stress ($\sigma_y = 0$, $\tau_{xy} = 0$)</h3>
+    <div class="formula-card">$$\sigma_\theta = \sigma_x \cos^2\theta = \frac{\sigma_x(1+\cos 2\theta)}{2}$$</div>
+    <div class="formula-card">$$\tau_\theta = \frac{\sigma_x}{2}\sin 2\theta$$</div>
+    <ul>
+      <li>Max normal stress = $\sigma_x$ at $\theta = 0°$ (axial plane).</li>
+      <li>Max shear stress = $\sigma_x/2$ at $\theta = 45°$ — this is why ductile materials yield in shear at 45°.</li>
+      <li>At $\theta = 90°$: $\sigma_\theta = 0$, $\tau_\theta = 0$ (free surface perpendicular to load).</li>
+    </ul>
+
+    <!-- ===== SECTION 4 ===== -->
+    <h2 id="principal">4. Principal Stresses and Principal Planes</h2>
+
+    <p><strong>Principal planes</strong> are planes on which shear stress is zero. The normal stresses on these planes are called <strong>principal stresses</strong> — maximum ($\sigma_1$) and minimum ($\sigma_2$).</p>
+
+    <div class="formula-card">$$\sigma_1, \sigma_2 = \frac{\sigma_x + \sigma_y}{2} \pm \sqrt{\left(\frac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2}$$</div>
+    <div class="formula-card">$$\tau_{max} = \frac{\sigma_1 - \sigma_2}{2} = \sqrt{\left(\frac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2}$$</div>
+    <p class="sym">
+      <span>$\sigma_1$ — major principal stress (algebraically largest)</span>
+      <span>$\sigma_2$ — minor principal stress (algebraically smallest)</span>
+      <span>$\tau_{max}$ — maximum shear stress (acts at 45° to principal planes)</span>
+    </p>
+
+    <h3>4.1 Angles of Principal and Max Shear Planes</h3>
+    <div class="formula-card">$$\tan 2\theta_p = \frac{2\tau_{xy}}{\sigma_x - \sigma_y} \quad\text{(principal plane angle)}$$</div>
+    <ul>
+      <li>Principal planes are at $\theta_p$ and $\theta_p + 90°$.</li>
+      <li>Maximum shear stress planes are at $45°$ to the principal planes.</li>
+      <li>On the maximum shear stress planes, the normal stress = $(\sigma_1 + \sigma_2)/2$.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Important:</strong> Maximum shear stress planes are NOT stress-free — they carry a normal stress of $(\sigma_1 + \sigma_2)/2$ (the average normal stress). Only the principal planes are shear-stress free.
+    </div>
+
+    <h3>4.2 Principal Strains</h3>
+    <p>The strains corresponding to principal stresses (using generalized Hooke's law for isotropic material):</p>
+    <div class="formula-card">$$\varepsilon_1 = \frac{\sigma_1 - \nu\sigma_2}{E}, \qquad \varepsilon_2 = \frac{\sigma_2 - \nu\sigma_1}{E}$$</div>
+
+    <!-- ===== SECTION 5 ===== -->
+    <h2 id="mohrs">5. Mohr's Stress Circle</h2>
+
+    <p>Mohr's circle is a graphical method for visualizing the complete state of stress at a point. It is plotted on $(\sigma, \tau)$ axes.</p>
+
+    <h3>5.1 Construction Rules</h3>
+    <ul>
+      <li><strong>Centre:</strong> $C = \left(\dfrac{\sigma_x + \sigma_y}{2},\ 0\right)$ on the $\sigma$-axis.</li>
+      <li><strong>Radius:</strong> $R = \sqrt{\left(\dfrac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2}$</li>
+      <li><strong>Principal stresses:</strong> $\sigma_1 = C + R$ and $\sigma_2 = C - R$ (intercepts on $\sigma$-axis).</li>
+      <li><strong>Maximum shear stress:</strong> = $R$ = radius of the circle.</li>
+      <li><strong>Angle doubling rule:</strong> An angle $\theta$ in the physical element corresponds to $2\theta$ on Mohr's circle.</li>
+    </ul>
+
+    <div class="formula-card">$$\text{Centre: } C = \frac{\sigma_x + \sigma_y}{2}, \qquad \text{Radius: } R = \sqrt{\left(\frac{\sigma_x - \sigma_y}{2}\right)^2 + \tau_{xy}^2}$$</div>
+
+    <h3>5.2 Key Results from Mohr's Circle</h3>
+    <table>
+      <thead><tr><th>Quantity</th><th>From Mohr's Circle</th></tr></thead>
+      <tbody>
+        <tr><td>Major principal stress $\sigma_1$</td><td>Rightmost intercept on $\sigma$-axis = $C + R$</td></tr>
+        <tr><td>Minor principal stress $\sigma_2$</td><td>Leftmost intercept on $\sigma$-axis = $C - R$</td></tr>
+        <tr><td>Max shear stress $\tau_{max}$</td><td>Radius $R$ = top point on circle</td></tr>
+        <tr><td>Normal stress at max $\tau$</td><td>$(\sigma_1 + \sigma_2)/2$ = centre $C$</td></tr>
+        <tr><td>Angle to principal plane</td><td>$2\theta_p$ on circle; $\theta_p$ in reality</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Mohr's circle angle doubling:</strong> In Mohr's circle, a rotation of $2\theta$ on the circle corresponds to a physical rotation of $\theta$ on the element. So the principal planes (at $2 \times 90° = 180°$ apart on the circle) are at $90°$ apart physically — which is correct.
+    </div>
+
+    <h3>5.3 Special Cases</h3>
+    <table>
+      <thead><tr><th>Stress State</th><th>Mohr's Circle</th><th>$\tau_{max}$</th></tr></thead>
+      <tbody>
+        <tr><td>Pure uniaxial: $\sigma_x$, $\sigma_y=0$, $\tau=0$</td><td>Circle passing through origin; Centre at $(\sigma_x/2, 0)$</td><td>$\sigma_x/2$ at $45°$</td></tr>
+        <tr><td>Pure shear: $\sigma_x=\sigma_y=0$, $\tau_{xy}=\tau$</td><td>Circle centred at origin, radius $\tau$</td><td>$\tau$ (= radius)</td></tr>
+        <tr><td>Hydrostatic: $\sigma_x=\sigma_y=\sigma$, $\tau=0$</td><td>Circle degenerates to a point at $(\sigma, 0)$</td><td>$0$ (no shear on any plane)</td></tr>
+        <tr><td>Equal and opposite: $\sigma_x = -\sigma_y$, $\tau=0$</td><td>Circle centred at origin, radius $\sigma_x$</td><td>$\sigma_x$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- KEY POINTS -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Compound bar: load shared in proportion to $AE$; stress proportional to $E$ (not area). Common strain: $\varepsilon = P/(A_1E_1 + A_2E_2)$.</li>
+        <li>Thermal stress (fully restrained): $\sigma_T = E\alpha\Delta T$ — compressive on heating, tensile on cooling.</li>
+        <li>Partial restraint &rarr; smaller stress than $E\alpha\Delta T$. Free bar &rarr; no stress at all.</li>
+        <li>On oblique plane at $45°$ under uniaxial stress $\sigma_x$: $\tau_{max} = \sigma_x/2$. This explains why mild steel (ductile) fails in shear at $45°$.</li>
+        <li>Principal planes: shear stress = 0. Principal stresses = max and min normal stresses.</li>
+        <li>$\sigma_1 + \sigma_2 = \sigma_x + \sigma_y$ (sum of normal stresses is invariant — same on any plane).</li>
+        <li>Max shear stress = radius of Mohr's circle = $(\sigma_1 - \sigma_2)/2$.</li>
+        <li>Max shear stress planes are at $45°$ to principal planes, NOT stress-free — they carry normal stress $(\sigma_1+\sigma_2)/2$.</li>
+        <li>Mohr's circle angle rule: physical angle $\theta$ &rarr; $2\theta$ on circle.</li>
+        <li>Pure shear: Mohr's circle centred at origin; $\sigma_1 = \tau$, $\sigma_2 = -\tau$ — principal stresses are equal and opposite.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; TSPSC AEE &nbsp;&middot;&nbsp; SOM Module 02
+    </p>
+
+  </div><!-- /.wrap -->
+</body>
+</html>

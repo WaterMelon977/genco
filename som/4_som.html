@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deflections, Columns, Struts &amp; Strain Energy — SOM Revision — APGENCO / SSC JE</title>
+  <meta name="description" content="Revision guide for beam deflections, Euler's column theory, Rankine's formula, slenderness ratio and strain energy for APGENCO AE, SSC JE, TSPSC AEE.">
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --page: #F5F1EA; --card: #FFFFFF; --formula-bg: #FAF6F0;
+      --ink: #1E1A16; --ink-mid: #4A3F35; --ink-soft: #7A6A5A;
+      --rule: #D8CEBF; --accent: #7B3F1A; --accent-lt: #C4885A;
+      --chapter-bg: #2B1A0D; --chapter-fg: #F5EFE6;
+      --note-bg: #EEF3FB; --note-bd: #4A7EC4; --note-fg: #1A3D7A;
+      --kp-bg: #FDF6E3; --kp-bd: #C8940A; --kp-fg: #5A3E00;
+      --progress: #7B3F1A; --active-indicator: #2E7D32;
+    }
+    [data-theme="dark"] {
+      --page: #18150F; --card: #221E18; --formula-bg: #1A1710;
+      --ink: #E8DFD0; --ink-mid: #B8A898; --ink-soft: #8A7A6A;
+      --rule: #3A3028; --accent: #C4885A; --accent-lt: #E0A870;
+      --chapter-bg: #120C05; --chapter-fg: #E8DFD0;
+      --note-bg: #162030; --note-bd: #4A7EC4; --note-fg: #90B8F0;
+      --kp-bg: #201800; --kp-bd: #C8940A; --kp-fg: #E0C060;
+      --active-indicator: #4CAF50;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Georgia", "Times New Roman", serif; font-size: 11.5pt; line-height: 1.9; color: var(--ink); background: var(--page); padding: 56px 20px 72px; transition: background .25s, color .25s; }
+    .wrap { max-width: 800px; margin: 0 auto; }
+    .submodule-nav { background: var(--chapter-bg); color: var(--chapter-fg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10pt; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(43,26,13,0.15); }
+    .submodule-nav a { color: var(--chapter-fg); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    #rbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--progress); z-index: 9999; transition: width .1s linear; border-radius: 0 2px 2px 0; }
+    #fnav { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; background: var(--card); border: 1px solid var(--rule); border-radius: 50px; padding: 4px 12px; box-shadow: 0 4px 18px rgba(0,0,0,.13); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity .3s; font-family: system-ui, sans-serif; font-size: 8.5pt; white-space: nowrap; }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a { color: var(--ink-soft); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 600; transition: background .15s, color .15s; }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+    #ttog { position: fixed; top: 10px; right: 18px; background: var(--card); border: 1px solid var(--rule); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14pt; box-shadow: 0 2px 8px rgba(0,0,0,.12); z-index: 9998; transition: transform .15s, border-color .2s; }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    h1 { font-family: "Georgia", serif; font-size: 21pt; font-weight: 700; background: var(--chapter-bg); color: var(--chapter-fg); padding: 28px 36px; border-radius: 10px; margin-bottom: 32px; text-align: center; box-shadow: 0 6px 22px rgba(43,26,13,.22); line-height: 1.3; }
+    h2 { font-family: "Georgia", serif; font-size: 15pt; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 52px; margin-bottom: 18px; letter-spacing: .01em; }
+    h3 { font-family: "Georgia", serif; font-size: 12.5pt; font-weight: 700; color: var(--ink-mid); margin-top: 32px; margin-bottom: 10px; }
+    h4 { font-family: "Georgia", serif; font-size: 11.5pt; font-weight: 700; color: var(--ink); margin-top: 22px; margin-bottom: 6px; }
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+    .formula-card { background: var(--formula-bg); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; margin: 20px 0; padding: 13px 18px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: 0 2px 8px rgba(123,63,26,.07); }
+    .sym { font-family: system-ui, sans-serif; font-size: 9.5pt; color: var(--ink-soft); margin: -10px 0 18px 4px; line-height: 1.7; }
+    .sym span { display: inline-block; margin-right: 16px; }
+    .note { background: var(--note-bg); border-left: 4px solid var(--note-bd); color: var(--note-fg); padding: 12px 16px; margin: 20px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; line-height: 1.7; font-family: system-ui, sans-serif; }
+    .key-points { background: var(--kp-bg); border: 1px solid var(--kp-bd); border-radius: 7px; padding: 16px 20px; margin: 22px 0; font-size: 10.5pt; font-family: system-ui, sans-serif; color: var(--kp-fg); }
+    .key-points h3 { font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; font-size: 10pt; text-transform: uppercase; color: var(--kp-fg); border: none; padding: 0; }
+    .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .key-points li { margin-bottom: .28em; }
+    table { border-collapse: collapse; width: 100%; margin: 22px 0; background: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,.07); font-family: system-ui, sans-serif; font-size: 10pt; }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #fnav { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="rbar"></div>
+
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#deflections">Deflections</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#columns">Columns</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#rankine">Rankine</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#strain-energy">Strain Energy</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'; localStorage.setItem('ag-theme', t); }
+    apply(saved);
+    tog.addEventListener('click', function(){ var c = document.documentElement.getAttribute('data-theme') || 'light'; apply(c === 'dark' ? 'light' : 'dark'); });
+    var bar = document.getElementById('rbar');
+    function upBar(){ var s = window.scrollY; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%'; }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+    var fn = document.getElementById('fnav'); var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){ var s = window.scrollY; if(s > 220) fn.classList.add('show'); else fn.classList.remove('show'); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if(el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act); }); }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){ lk.addEventListener('click', function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute('href').replace('#','')); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Back to SOM Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Deflections, Columns &amp; Strain Energy<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Beam Deflections &middot; Euler's Theory &middot; Rankine's Formula &middot; Strain Energy<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE &nbsp;|&nbsp; TSPSC AEE
+      </span>
+    </h1>
+
+    <!-- ===== SECTION 1 ===== -->
+    <h2 id="deflections">1. Deflections of Beams</h2>
+
+    <p>Beam deflection is governed by the differential equation of the elastic curve:</p>
+
+    <div class="formula-card">$$EI\frac{d^2y}{dx^2} = M(x)$$</div>
+    <p class="sym">
+      <span>$EI$ — flexural rigidity (N·m²)</span>
+      <span>$y$ — transverse deflection (m)</span>
+      <span>$M(x)$ — bending moment at section $x$ (N·m)</span>
+    </p>
+
+    <div class="note">
+      <strong>Key insight:</strong> Deflection is inversely proportional to flexural rigidity $EI$. Increasing $I$ (by using I-sections or wider flanges) is the most efficient way to reduce deflection, as $I$ depends on the cube of depth.
+    </div>
+
+    <h3>1.1 Standard Deflection Formulae</h3>
+    <table>
+      <thead><tr><th>Beam &amp; Loading</th><th>$\delta_{max}$</th><th>Location</th><th>Slope at support / tip</th></tr></thead>
+      <tbody>
+        <tr><td>SS beam, central load $W$</td><td>$WL^3/(48EI)$</td><td>Centre</td><td>$\theta = WL^2/(16EI)$</td></tr>
+        <tr><td>SS beam, UDL $w$ (N/m)</td><td>$5wL^4/(384EI)$</td><td>Centre</td><td>$\theta = wL^3/(24EI)$</td></tr>
+        <tr><td>Cantilever, point load $W$ at free end</td><td>$WL^3/(3EI)$</td><td>Free end</td><td>$\theta = WL^2/(2EI)$</td></tr>
+        <tr><td>Cantilever, UDL $w$</td><td>$wL^4/(8EI)$</td><td>Free end</td><td>$\theta = wL^3/(6EI)$</td></tr>
+        <tr><td>SS beam, eccentric load at $a$ from one end ($b = L-a$)</td><td>$Wab(L^2-a^2-b^2)^{1/2} \cdot \ldots$ (use tabulated)</td><td>Not at centre (if $a \ne b$)</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.2 Methods for Finding Deflections</h3>
+    <ul>
+      <li><strong>Double integration method:</strong> Integrate $EI\,d^2y/dx^2 = M$ twice; apply boundary conditions. Suitable for simple loadings.</li>
+      <li><strong>Macaulay's method:</strong> Extension of double integration for discontinuous loads using angle brackets $\langle x - a \rangle^n$. Integrates the entire BM equation in one go.</li>
+      <li><strong>Moment-area method (Mohr's theorems):</strong>
+        <ul>
+          <li>1st theorem: Change in slope between two points = area of $M/EI$ diagram between them.</li>
+          <li>2nd theorem: Deflection of point B relative to tangent at A = first moment of $M/EI$ area about B.</li>
+        </ul>
+      </li>
+      <li><strong>Conjugate beam method:</strong> Replace real beam with a "conjugate beam" carrying $M/EI$ as a fictitious load; slope = SF in conjugate beam; deflection = BM in conjugate beam.</li>
+    </ul>
+
+    <!-- ===== SECTION 2 ===== -->
+    <h2 id="columns">2. Columns and Struts — Euler's Theory</h2>
+
+    <p><strong>Column:</strong> Vertical structural member carrying axial compressive load. <strong>Strut:</strong> A compression member that may be inclined. Both fail by <strong>buckling</strong> when the axial load exceeds a critical value.</p>
+
+    <p><strong>Crippling Load (Euler's Critical Load, $P_{cr}$):</strong> The minimum axial compressive load at which a column tends to buckle laterally (become unstable).</p>
+
+    <h3>2.1 Euler's Critical Load Formula</h3>
+
+    <div class="formula-card">$$P_{cr} = \frac{\pi^2 EI}{L_{eff}^2}$$</div>
+    <p class="sym">
+      <span>$E$ — Young's Modulus (Pa)</span>
+      <span>$I$ — least second moment of area (m⁴) — always use minimum $I$</span>
+      <span>$L_{eff}$ — effective length (m) — depends on end conditions</span>
+    </p>
+
+    <h3>2.2 End Conditions and Effective Lengths</h3>
+    <table>
+      <thead><tr><th>End Condition</th><th>$L_{eff}$</th><th>$P_{cr}$ (Euler)</th><th>Relative strength</th></tr></thead>
+      <tbody>
+        <tr><td>Both ends pinned (hinged–hinged)</td><td>$L$</td><td>$\pi^2EI/L^2$</td><td>1× (base case)</td></tr>
+        <tr><td>One end fixed, one end free (flagpole)</td><td>$2L$</td><td>$\pi^2EI/4L^2$</td><td>0.25× (weakest)</td></tr>
+        <tr><td>Both ends fixed</td><td>$L/2$</td><td>$4\pi^2EI/L^2$</td><td>4× (strongest)</td></tr>
+        <tr><td>One end fixed, one end pinned (hinged)</td><td>$L/\sqrt{2} \approx 0.707L$</td><td>$2\pi^2EI/L^2$</td><td>2×</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Memory Aid:</strong> End conditions in order of increasing strength: <strong>Fixed–Free &lt; Pin–Pin &lt; Fixed–Pin &lt; Fixed–Fixed</strong>. Ratios: 0.25 : 1 : 2 : 4.
+    </div>
+
+    <h3>2.3 Slenderness Ratio</h3>
+    <div class="formula-card">$$\lambda = \frac{L_{eff}}{k}, \qquad k = \sqrt{\frac{I}{A}} \text{ (radius of gyration)}$$</div>
+    <p class="sym">
+      <span>$\lambda$ — slenderness ratio (dimensionless)</span>
+      <span>$k$ — minimum radius of gyration (m) — use minimum $k$ (smallest $I/A$)</span>
+      <span>$\lambda_{cr}$ — critical slenderness ratio beyond which Euler's formula is valid</span>
+    </p>
+
+    <div class="note">
+      <strong>Euler's formula validity:</strong> Euler's formula applies only to <em>long slender columns</em> where $\lambda &gt; \lambda_{cr} = \pi\sqrt{E/\sigma_y}$. For short or intermediate columns, Rankine's formula is used. Euler gives an <em>unsafe (over-optimistic) answer</em> for short columns.
+    </div>
+
+    <!-- ===== SECTION 3 ===== -->
+    <h2 id="rankine">3. Rankine's Formula (Combined Formula)</h2>
+
+    <p>Rankine's formula gives the crippling load for <em>all column lengths</em> — it bridges the gap between short (crushing) and long (buckling) columns:</p>
+
+    <div class="formula-card">$$P_{Rankine} = \frac{\sigma_c \cdot A}{1 + a\left(\dfrac{L_{eff}}{k}\right)^2}$$</div>
+    <p class="sym">
+      <span>$\sigma_c$ — compressive yield stress (N/m²)</span>
+      <span>$A$ — cross-sectional area (m²)</span>
+      <span>$a = \sigma_c/(\pi^2 E)$ — Rankine's constant (empirical)</span>
+      <span>$L_{eff}/k$ — slenderness ratio $\lambda$</span>
+    </p>
+
+    <ul>
+      <li>For <strong>short columns</strong> ($\lambda \approx 0$): $P_{Rankine} \approx \sigma_c \cdot A$ (crushing load governs).</li>
+      <li>For <strong>long columns</strong> ($\lambda$ large): $P_{Rankine} \approx \pi^2EI/L_{eff}^2$ (Euler's load governs).</li>
+      <li>Rankine's formula is always more conservative (lower) than Euler's formula for the same column.</li>
+    </ul>
+
+    <!-- ===== SECTION 4 ===== -->
+    <h2 id="strain-energy">4. Strain Energy</h2>
+
+    <p><strong>Strain energy (U)</strong> is the energy stored in an elastic body due to deformation. It equals the work done by the external forces during loading (for slow, quasi-static loading).</p>
+
+    <h3>4.1 Strain Energy Formulas for Different Load Types</h3>
+    <table>
+      <thead><tr><th>Load Type</th><th>Strain Energy $U$</th><th>Per unit volume $u$</th></tr></thead>
+      <tbody>
+        <tr><td>Axial (tensile/compressive)</td><td>$P^2L/(2AE) = \sigma^2 V/(2E)$</td><td>$\sigma^2/(2E)$</td></tr>
+        <tr><td>Shear</td><td>$\tau^2 V/(2G)$</td><td>$\tau^2/(2G)$</td></tr>
+        <tr><td>Bending</td><td>$\int M^2\,dx/(2EI)$</td><td>—</td></tr>
+        <tr><td>Torsion</td><td>$T^2L/(2GJ)$</td><td>$\tau^2/(2G)$ (outer fibre)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula-card">$$U = \frac{P^2 L}{2AE} = \frac{\sigma^2 V}{2E} = \frac{\sigma^2 A L}{2E}$$</div>
+
+    <h3>4.2 Impact Loading</h3>
+    <p>When a load $P$ is dropped from height $h$ onto a bar, the impact stress $\sigma_{impact}$ is found by equating strain energy in the bar to the work done by the falling load:</p>
+
+    <div class="formula-card">$$\sigma_{impact} = \frac{P}{A}\left[1 + \sqrt{1 + \frac{2hAE}{PL}}\right]$$</div>
+
+    <h3>4.3 Special Load Cases</h3>
+    <table>
+      <thead><tr><th>Case</th><th>Stress</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Gradual (static) load</td><td>$\sigma_{static} = P/A$</td><td>Base case</td></tr>
+        <tr><td>Sudden load ($h = 0$, dropped from zero height)</td><td>$\sigma_{sudden} = 2P/A = 2\sigma_{static}$</td><td>Twice the static stress</td></tr>
+        <tr><td>Impact load (dropped from $h > 0$)</td><td>$\sigma_{impact} > \sigma_{sudden} > \sigma_{static}$</td><td>Always: impact &gt; sudden &gt; static</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Sudden load doubles the stress:</strong> A load applied suddenly (released from rest just touching the bar, $h = 0$) produces <em>twice</em> the stress of the same load applied gradually. This is a very common exam question. For $h > 0$, stress is even higher.
+    </div>
+
+    <h3>4.4 Proof Resilience and Modulus of Resilience</h3>
+    <div class="formula-card">$$u_r = \frac{\sigma_y^2}{2E} \quad\text{(modulus of resilience — per unit volume)}$$</div>
+    <div class="formula-card">$$U_{proof} = \frac{\sigma_y^2 \cdot V}{2E} \quad\text{(proof resilience — for entire bar of volume } V\text{)}$$</div>
+
+    <!-- KEY POINTS -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Deflection $\propto 1/EI$. Adding flanges (I-section) dramatically increases $I$ ($\propto d^3$) with little extra mass.</li>
+        <li>SS beam, central load: $\delta = WL^3/(48EI)$; Cantilever, end load: $\delta = WL^3/(3EI)$. Ratio = 1:16 for same $W$, $L$, $EI$.</li>
+        <li>Euler: $P_{cr} = \pi^2EI/L_{eff}^2$. Use <em>minimum</em> $I$ (least radius of gyration).</li>
+        <li>End condition strengths: Fixed–Free (0.25) &lt; Pin–Pin (1) &lt; Fixed–Pin (2) &lt; Fixed–Fixed (4).</li>
+        <li>Fixed–Free is the weakest ($L_{eff} = 2L$); Fixed–Fixed is the strongest ($L_{eff} = L/2$).</li>
+        <li>Euler's formula valid only for long columns ($\lambda > \lambda_{cr}$). For short/intermediate: use Rankine.</li>
+        <li>Rankine approaches Euler for long columns and $\sigma_c A$ for short columns.</li>
+        <li>Slenderness ratio $\lambda = L_{eff}/k$; radius of gyration $k = \sqrt{I/A}$.</li>
+        <li>Strain energy: axial = $P^2L/(2AE)$; bending = $\int M^2/(2EI)\,dx$; torsion = $T^2L/(2GJ)$.</li>
+        <li>Sudden load &rarr; stress = 2 &times; static stress ($h = 0$). Impact ($h > 0$) &rarr; even higher. Always: impact &gt; sudden &gt; static.</li>
+        <li>Modulus of resilience = $\sigma_y^2/(2E)$ — high for high-strength, low-modulus materials (e.g., spring steel).</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; TSPSC AEE &nbsp;&middot;&nbsp; SOM Module 04
+    </p>
+
+  </div><!-- /.wrap -->
+</body>
+</html>

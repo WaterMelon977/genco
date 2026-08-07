@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shear Force Diagrams, Bending Moments &amp; Beam Stresses — SOM Revision — APGENCO / SSC JE</title>
+  <meta name="description" content="Revision guide for shear force diagrams, bending moment diagrams, bending and shear stresses in beams for APGENCO AE, SSC JE, TSPSC AEE.">
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --page: #F5F1EA; --card: #FFFFFF; --formula-bg: #FAF6F0;
+      --ink: #1E1A16; --ink-mid: #4A3F35; --ink-soft: #7A6A5A;
+      --rule: #D8CEBF; --accent: #7B3F1A; --accent-lt: #C4885A;
+      --chapter-bg: #2B1A0D; --chapter-fg: #F5EFE6;
+      --note-bg: #EEF3FB; --note-bd: #4A7EC4; --note-fg: #1A3D7A;
+      --kp-bg: #FDF6E3; --kp-bd: #C8940A; --kp-fg: #5A3E00;
+      --progress: #7B3F1A; --active-indicator: #2E7D32;
+    }
+    [data-theme="dark"] {
+      --page: #18150F; --card: #221E18; --formula-bg: #1A1710;
+      --ink: #E8DFD0; --ink-mid: #B8A898; --ink-soft: #8A7A6A;
+      --rule: #3A3028; --accent: #C4885A; --accent-lt: #E0A870;
+      --chapter-bg: #120C05; --chapter-fg: #E8DFD0;
+      --note-bg: #162030; --note-bd: #4A7EC4; --note-fg: #90B8F0;
+      --kp-bg: #201800; --kp-bd: #C8940A; --kp-fg: #E0C060;
+      --active-indicator: #4CAF50;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Georgia", "Times New Roman", serif; font-size: 11.5pt; line-height: 1.9; color: var(--ink); background: var(--page); padding: 56px 20px 72px; transition: background .25s, color .25s; }
+    .wrap { max-width: 800px; margin: 0 auto; }
+    .submodule-nav { background: var(--chapter-bg); color: var(--chapter-fg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10pt; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(43,26,13,0.15); }
+    .submodule-nav a { color: var(--chapter-fg); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    #rbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--progress); z-index: 9999; transition: width .1s linear; border-radius: 0 2px 2px 0; }
+    #fnav { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; background: var(--card); border: 1px solid var(--rule); border-radius: 50px; padding: 4px 12px; box-shadow: 0 4px 18px rgba(0,0,0,.13); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity .3s; font-family: system-ui, sans-serif; font-size: 8.5pt; white-space: nowrap; }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a { color: var(--ink-soft); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 600; transition: background .15s, color .15s; }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+    #ttog { position: fixed; top: 10px; right: 18px; background: var(--card); border: 1px solid var(--rule); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14pt; box-shadow: 0 2px 8px rgba(0,0,0,.12); z-index: 9998; transition: transform .15s, border-color .2s; }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    h1 { font-family: "Georgia", serif; font-size: 21pt; font-weight: 700; background: var(--chapter-bg); color: var(--chapter-fg); padding: 28px 36px; border-radius: 10px; margin-bottom: 32px; text-align: center; box-shadow: 0 6px 22px rgba(43,26,13,.22); line-height: 1.3; }
+    h2 { font-family: "Georgia", serif; font-size: 15pt; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 52px; margin-bottom: 18px; letter-spacing: .01em; }
+    h3 { font-family: "Georgia", serif; font-size: 12.5pt; font-weight: 700; color: var(--ink-mid); margin-top: 32px; margin-bottom: 10px; }
+    h4 { font-family: "Georgia", serif; font-size: 11.5pt; font-weight: 700; color: var(--ink); margin-top: 22px; margin-bottom: 6px; }
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+    .formula-card { background: var(--formula-bg); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; margin: 20px 0; padding: 13px 18px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: 0 2px 8px rgba(123,63,26,.07); }
+    .sym { font-family: system-ui, sans-serif; font-size: 9.5pt; color: var(--ink-soft); margin: -10px 0 18px 4px; line-height: 1.7; }
+    .sym span { display: inline-block; margin-right: 16px; }
+    .note { background: var(--note-bg); border-left: 4px solid var(--note-bd); color: var(--note-fg); padding: 12px 16px; margin: 20px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; line-height: 1.7; font-family: system-ui, sans-serif; }
+    .key-points { background: var(--kp-bg); border: 1px solid var(--kp-bd); border-radius: 7px; padding: 16px 20px; margin: 22px 0; font-size: 10.5pt; font-family: system-ui, sans-serif; color: var(--kp-fg); }
+    .key-points h3 { font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; font-size: 10pt; text-transform: uppercase; color: var(--kp-fg); border: none; padding: 0; }
+    .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .key-points li { margin-bottom: .28em; }
+    table { border-collapse: collapse; width: 100%; margin: 22px 0; background: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,.07); font-family: system-ui, sans-serif; font-size: 10pt; }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #fnav { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="rbar"></div>
+
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#sfd-bmd">SFD &amp; BMD</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#bending-stress">Bending Stress</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#shear-stress">Shear Stress</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#sections">Section Props</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'; localStorage.setItem('ag-theme', t); }
+    apply(saved);
+    tog.addEventListener('click', function(){ var c = document.documentElement.getAttribute('data-theme') || 'light'; apply(c === 'dark' ? 'light' : 'dark'); });
+    var bar = document.getElementById('rbar');
+    function upBar(){ var s = window.scrollY; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%'; }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+    var fn = document.getElementById('fnav'); var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){ var s = window.scrollY; if(s > 220) fn.classList.add('show'); else fn.classList.remove('show'); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if(el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act); }); }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){ lk.addEventListener('click', function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute('href').replace('#','')); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Back to SOM Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>SFD, BMD &amp; Stresses in Beams<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Shear Force &middot; Bending Moment &middot; Flexure Formula &middot; Shear Stress Distribution<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE &nbsp;|&nbsp; TSPSC AEE
+      </span>
+    </h1>
+
+    <!-- ===== SECTION 1 ===== -->
+    <h2 id="sfd-bmd">1. Shear Force and Bending Moment Diagrams</h2>
+
+    <p>Shear Force (V) at a section is the algebraic sum of all transverse forces acting to one side of the section. Bending Moment (M) at a section is the algebraic sum of moments of all forces acting to one side of the section.</p>
+
+    <h3>1.1 Sign Convention (Standard)</h3>
+    <ul>
+      <li><strong>Shear force:</strong> Upward force on left side = positive. (Forces causing clockwise rotation on left = +ve).</li>
+      <li><strong>Bending moment:</strong> Sagging (hogging from below, concave up) = positive. Hogging = negative.</li>
+    </ul>
+
+    <h3>1.2 Load–SF–BM Relations</h3>
+    <div class="formula-card">$$\frac{dV}{dx} = -w(x) \quad\text{(rate of change of SF = negative of load intensity)}$$</div>
+    <div class="formula-card">$$\frac{dM}{dx} = V \quad\text{(rate of change of BM = shear force)}$$</div>
+    <div class="formula-card">$$\frac{d^2M}{dx^2} = -w(x)$$</div>
+    <p class="sym">
+      <span>$w(x)$ — distributed load intensity (N/m), positive downward</span>
+      <span>$V$ — shear force (N)</span>
+      <span>$M$ — bending moment (N·m)</span>
+    </p>
+
+    <div class="note">
+      <strong>Key rule:</strong> Maximum bending moment occurs where $dM/dx = V = 0$, i.e., where the SFD crosses zero. The point of zero shear is where BM is maximum (or minimum).
+    </div>
+
+    <h3>1.3 SFD and BMD Shapes for Standard Loadings</h3>
+    <table>
+      <thead><tr><th>Load Type</th><th>SFD Shape</th><th>BMD Shape</th></tr></thead>
+      <tbody>
+        <tr><td>Concentrated (point) load</td><td>Constant steps between loads</td><td>Linear (triangular)</td></tr>
+        <tr><td>Uniformly distributed load (UDL)</td><td>Linear (1st degree)</td><td>Parabolic (2nd degree)</td></tr>
+        <tr><td>Uniformly varying load (UVL / triangular)</td><td>Parabolic (2nd degree)</td><td>Cubic (3rd degree)</td></tr>
+        <tr><td>Applied couple / moment</td><td>No change in SFD</td><td>Step change at point of couple</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.4 Maximum BM for Standard Beams</h3>
+    <table>
+      <thead><tr><th>Beam &amp; Loading</th><th>$M_{max}$</th><th>Location</th></tr></thead>
+      <tbody>
+        <tr><td>SS beam, central point load $W$</td><td>$WL/4$</td><td>Centre</td></tr>
+        <tr><td>SS beam, UDL $w$ (total $W = wL$)</td><td>$wL^2/8$</td><td>Centre</td></tr>
+        <tr><td>Cantilever, point load $W$ at free end</td><td>$WL$</td><td>Fixed end</td></tr>
+        <tr><td>Cantilever, UDL $w$</td><td>$wL^2/2$</td><td>Fixed end</td></tr>
+        <tr><td>SS beam, two equal loads $W$ at $L/3$ from each end</td><td>$WL/3$</td><td>Between the two loads (uniform)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Point of Contraflexure:</strong> The point where BM changes sign (M = 0 and changes from + to &minus; or vice versa). Do NOT confuse it with the point of zero SF (which gives max BM). These are different points.
+    </div>
+
+    <!-- ===== SECTION 2 ===== -->
+    <h2 id="bending-stress">2. Bending Stresses in Beams</h2>
+
+    <p>Based on the Euler-Bernoulli beam theory, the bending (flexural) stress at any point in the cross-section is derived from the flexure formula:</p>
+
+    <div class="formula-card">$$\frac{M}{I} = \frac{\sigma}{y} = \frac{E}{R}$$</div>
+    <p class="sym">
+      <span>$M$ — bending moment at the section (N·m)</span>
+      <span>$I$ — second moment of area (moment of inertia) about the neutral axis (m⁴)</span>
+      <span>$\sigma$ — bending stress at distance $y$ from NA (Pa)</span>
+      <span>$y$ — distance from the neutral axis (m)</span>
+      <span>$E$ — Young's Modulus (Pa)</span>
+      <span>$R$ — radius of curvature (m)</span>
+    </p>
+
+    <div class="formula-card">$$\sigma = \frac{My}{I} = \frac{M}{Z}$$</div>
+
+    <h3>2.1 Section Modulus</h3>
+    <div class="formula-card">$$Z = \frac{I}{y_{max}}$$</div>
+    <p>Section modulus $Z$ (m³) is a measure of the bending strength of a cross-section. Higher $Z$ means more resistance to bending. Maximum bending stress occurs at the extreme fibre: $\sigma_{max} = M/Z$.</p>
+
+    <h3>2.2 Assumptions of Euler-Bernoulli Beam Theory</h3>
+    <ul>
+      <li>Plane sections remain plane after bending (Bernoulli's hypothesis).</li>
+      <li>Material is homogeneous, isotropic, and linearly elastic (obeys Hooke's law).</li>
+      <li>The beam is initially straight and of uniform cross-section.</li>
+      <li>Deflections are small compared to beam length.</li>
+      <li>Shear deformations are neglected (Timoshenko beam theory includes them).</li>
+      <li>The neutral axis passes through the centroid of the cross-section.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Neutral Axis (NA):</strong> At the NA, bending stress = 0. The NA coincides with the centroidal axis for symmetric sections. Maximum bending stress (tensile or compressive) occurs at the extreme fibres, farthest from the NA.
+    </div>
+
+    <h3>2.3 Standard Section Properties for Bending</h3>
+    <table>
+      <thead><tr><th>Section</th><th>$I_{NA}$ (m⁴)</th><th>$Z$ (m³)</th><th>$y_{max}$ (m)</th></tr></thead>
+      <tbody>
+        <tr><td>Rectangle ($b \times d$)</td><td>$bd^3/12$</td><td>$bd^2/6$</td><td>$d/2$</td></tr>
+        <tr><td>Circle (diameter $D$)</td><td>$\pi D^4/64$</td><td>$\pi D^3/32$</td><td>$D/2$</td></tr>
+        <tr><td>Hollow circle ($D, d$)</td><td>$\pi(D^4 - d^4)/64$</td><td>$\pi(D^4 - d^4)/(32D)$</td><td>$D/2$</td></tr>
+        <tr><td>Triangle (base $b$, height $h$)</td><td>$bh^3/36$ (about centroidal axis)</td><td>$bh^2/24$</td><td>$2h/3$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ===== SECTION 3 ===== -->
+    <h2 id="shear-stress">3. Shear Stresses in Beams</h2>
+
+    <p>Shear stress distribution across the cross-section of a beam is given by the <strong>shear formula</strong>:</p>
+
+    <div class="formula-card">$$\tau = \frac{V A' \bar{y}'}{I b}$$</div>
+    <p class="sym">
+      <span>$V$ — shear force at the section (N)</span>
+      <span>$A'$ — area of cross-section above the layer of interest (m²)</span>
+      <span>$\bar{y}'$ — distance of centroid of $A'$ from NA (m)</span>
+      <span>$I$ — moment of inertia about NA (m⁴)</span>
+      <span>$b$ — width of cross-section at the layer of interest (m)</span>
+    </p>
+
+    <h3>3.1 Maximum Shear Stress — Standard Sections</h3>
+    <table>
+      <thead><tr><th>Section</th><th>$\tau_{max}$ location</th><th>$\tau_{max}$</th><th>$\tau_{max}/\tau_{avg}$</th></tr></thead>
+      <tbody>
+        <tr><td>Rectangle ($b \times d$)</td><td>At neutral axis</td><td>$1.5\, V/A$</td><td>1.5</td></tr>
+        <tr><td>Circle (solid, dia $D$)</td><td>At neutral axis</td><td>$(4/3)\, V/A$</td><td>4/3 &asymp; 1.33</td></tr>
+        <tr><td>Triangle (apex up)</td><td>At $h/2$ from base (not at NA)</td><td>$1.5\, V/A$</td><td>1.5</td></tr>
+        <tr><td>I-section</td><td>At neutral axis (in web)</td><td>&asymp; $2\, V/A$ (approx)</td><td>&sim;2</td></tr>
+        <tr><td>Flange of I-section</td><td>—</td><td>Very low</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>I-section efficiency:</strong> In an I-section, the flanges carry most of the bending stress (far from NA, large $y$). The web carries most of the shear stress. Flanges can be thin; web must be thick enough for shear. This is the basis for efficient beam design.
+    </div>
+
+    <h3>3.2 Shear Stress Distribution Patterns</h3>
+    <ul>
+      <li><strong>Rectangle:</strong> Parabolic distribution — zero at top and bottom, max at NA.</li>
+      <li><strong>Circle:</strong> Parabolic — zero at top and bottom, max at NA.</li>
+      <li><strong>Triangle:</strong> NOT max at NA — max at $h/2$ from base (= $h/3$ from apex). This is a frequently tested exception.</li>
+      <li><strong>I-section:</strong> Nearly uniform in the web (slight parabola); very low in flanges (drops sharply at flange-web junction).</li>
+    </ul>
+
+    <div class="note">
+      <strong>Bending vs Shear stress locations:</strong> Bending stress is MAXIMUM at extreme fibres (max $y$) and ZERO at the NA. Shear stress is MAXIMUM at the NA and ZERO at the extreme fibres. These are complementary.
+    </div>
+
+    <!-- ===== SECTION 4 ===== -->
+    <h2 id="sections">4. Comparison of Cross-Sections for Bending Efficiency</h2>
+
+    <table>
+      <thead><tr><th>Section</th><th>$I/A$ ratio</th><th>Comment</th></tr></thead>
+      <tbody>
+        <tr><td>Solid rectangle</td><td>$d^2/12$</td><td>Moderate; area concentrated near NA (less efficient)</td></tr>
+        <tr><td>Solid circle</td><td>$D^2/16$</td><td>Slightly more efficient than rectangle of same area</td></tr>
+        <tr><td>Hollow rectangle/I-section</td><td>Much higher</td><td>Most efficient — material placed away from NA</td></tr>
+        <tr><td>Hollow circle</td><td>$(D^2 + d^2)/16$</td><td>Better than solid for same weight</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Section Modulus per unit area</strong> ($Z/A$) or <strong>Modulus of section</strong> is a measure of bending efficiency. I-sections have the highest $Z/A$ ratio.</p>
+
+    <!-- KEY POINTS -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>$dV/dx = -w$; $dM/dx = V$. Point loads cause steps in SFD; UDL causes linear SFD and parabolic BMD.</li>
+        <li>Max BM occurs where $V = 0$ (SF crosses zero). Max SF occurs near supports or at point loads.</li>
+        <li>Point of contraflexure: $M = 0$ and changes sign. NOT the same as zero SF point.</li>
+        <li>Flexure formula: $M/I = \sigma/y = E/R$. Bending stress $\sigma = My/I$; max at extreme fibres.</li>
+        <li>Section modulus $Z = I/y_{max}$; $\sigma_{max} = M/Z$. Higher $Z$ &rarr; lower bending stress for same $M$.</li>
+        <li>Neutral axis: passes through centroid; $\sigma_{bending} = 0$ at NA.</li>
+        <li>Shear stress formula: $\tau = VA'\bar{y}'/(Ib)$. Max at NA for rectangle and circle.</li>
+        <li>$\tau_{max}/\tau_{avg}$: Rectangle = 1.5; Circle = 4/3; Triangle = 1.5 (at $h/2$ from base, NOT at NA).</li>
+        <li>I-section: flanges resist bending; web resists shear. Efficient — area placed far from NA.</li>
+        <li>Adding a flange dramatically increases $I$ (∝ $d^3$) with little extra area — hence efficient use of material.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; TSPSC AEE &nbsp;&middot;&nbsp; SOM Module 03
+    </p>
+
+  </div><!-- /.wrap -->
+</body>
+</html>

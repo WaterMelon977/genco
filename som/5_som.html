@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torsion of Circular Shafts &amp; Springs — SOM Revision — APGENCO / SSC JE</title>
+  <meta name="description" content="Revision guide for torsion of circular shafts, polar moment of inertia, angle of twist, power transmission, helical springs and leaf springs for APGENCO AE, SSC JE, TSPSC AEE.">
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --page: #F5F1EA; --card: #FFFFFF; --formula-bg: #FAF6F0;
+      --ink: #1E1A16; --ink-mid: #4A3F35; --ink-soft: #7A6A5A;
+      --rule: #D8CEBF; --accent: #7B3F1A; --accent-lt: #C4885A;
+      --chapter-bg: #2B1A0D; --chapter-fg: #F5EFE6;
+      --note-bg: #EEF3FB; --note-bd: #4A7EC4; --note-fg: #1A3D7A;
+      --kp-bg: #FDF6E3; --kp-bd: #C8940A; --kp-fg: #5A3E00;
+      --progress: #7B3F1A; --active-indicator: #2E7D32;
+    }
+    [data-theme="dark"] {
+      --page: #18150F; --card: #221E18; --formula-bg: #1A1710;
+      --ink: #E8DFD0; --ink-mid: #B8A898; --ink-soft: #8A7A6A;
+      --rule: #3A3028; --accent: #C4885A; --accent-lt: #E0A870;
+      --chapter-bg: #120C05; --chapter-fg: #E8DFD0;
+      --note-bg: #162030; --note-bd: #4A7EC4; --note-fg: #90B8F0;
+      --kp-bg: #201800; --kp-bd: #C8940A; --kp-fg: #E0C060;
+      --active-indicator: #4CAF50;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Georgia", "Times New Roman", serif; font-size: 11.5pt; line-height: 1.9; color: var(--ink); background: var(--page); padding: 56px 20px 72px; transition: background .25s, color .25s; }
+    .wrap { max-width: 800px; margin: 0 auto; }
+    .submodule-nav { background: var(--chapter-bg); color: var(--chapter-fg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10pt; border-radius: 8px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(43,26,13,0.15); }
+    .submodule-nav a { color: var(--chapter-fg); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    #rbar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--progress); z-index: 9999; transition: width .1s linear; border-radius: 0 2px 2px 0; }
+    #fnav { position: fixed; top: 10px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 2px; background: var(--card); border: 1px solid var(--rule); border-radius: 50px; padding: 4px 12px; box-shadow: 0 4px 18px rgba(0,0,0,.13); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity .3s; font-family: system-ui, sans-serif; font-size: 8.5pt; white-space: nowrap; }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a { color: var(--ink-soft); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 600; transition: background .15s, color .15s; }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+    #ttog { position: fixed; top: 10px; right: 18px; background: var(--card); border: 1px solid var(--rule); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14pt; box-shadow: 0 2px 8px rgba(0,0,0,.12); z-index: 9998; transition: transform .15s, border-color .2s; }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    h1 { font-family: "Georgia", serif; font-size: 21pt; font-weight: 700; background: var(--chapter-bg); color: var(--chapter-fg); padding: 28px 36px; border-radius: 10px; margin-bottom: 32px; text-align: center; box-shadow: 0 6px 22px rgba(43,26,13,.22); line-height: 1.3; }
+    h2 { font-family: "Georgia", serif; font-size: 15pt; font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 5px; margin-top: 52px; margin-bottom: 18px; letter-spacing: .01em; }
+    h3 { font-family: "Georgia", serif; font-size: 12.5pt; font-weight: 700; color: var(--ink-mid); margin-top: 32px; margin-bottom: 10px; }
+    h4 { font-family: "Georgia", serif; font-size: 11.5pt; font-weight: 700; color: var(--ink); margin-top: 22px; margin-bottom: 6px; }
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+    .formula-card { background: var(--formula-bg); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; margin: 20px 0; padding: 13px 18px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: 0 2px 8px rgba(123,63,26,.07); }
+    .sym { font-family: system-ui, sans-serif; font-size: 9.5pt; color: var(--ink-soft); margin: -10px 0 18px 4px; line-height: 1.7; }
+    .sym span { display: inline-block; margin-right: 16px; }
+    .note { background: var(--note-bg); border-left: 4px solid var(--note-bd); color: var(--note-fg); padding: 12px 16px; margin: 20px 0; border-radius: 0 6px 6px 0; font-size: 10.5pt; line-height: 1.7; font-family: system-ui, sans-serif; }
+    .key-points { background: var(--kp-bg); border: 1px solid var(--kp-bd); border-radius: 7px; padding: 16px 20px; margin: 22px 0; font-size: 10.5pt; font-family: system-ui, sans-serif; color: var(--kp-fg); }
+    .key-points h3 { font-weight: 700; letter-spacing: .02em; margin-bottom: 8px; font-size: 10pt; text-transform: uppercase; color: var(--kp-fg); border: none; padding: 0; }
+    .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .key-points li { margin-bottom: .28em; }
+    table { border-collapse: collapse; width: 100%; margin: 22px 0; background: var(--card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,.07); font-family: system-ui, sans-serif; font-size: 10pt; }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    @media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #fnav { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="rbar"></div>
+
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#torsion">Torsion</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#polar-section">Polar Props</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#power">Power</a><span class="fn-sep">&middot;</span>
+    <a class="fn-a" href="#springs">Springs</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){ document.documentElement.setAttribute('data-theme', t); tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F'; localStorage.setItem('ag-theme', t); }
+    apply(saved);
+    tog.addEventListener('click', function(){ var c = document.documentElement.getAttribute('data-theme') || 'light'; apply(c === 'dark' ? 'light' : 'dark'); });
+    var bar = document.getElementById('rbar');
+    function upBar(){ var s = window.scrollY; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%'; }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+    var fn = document.getElementById('fnav'); var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){ var s = window.scrollY; if(s > 220) fn.classList.add('show'); else fn.classList.remove('show'); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if(el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act); }); }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){ lk.addEventListener('click', function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute('href').replace('#','')); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }); });
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Back to SOM Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Torsion of Circular Shafts &amp; Springs<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Torsion Formula &middot; Polar Moment &middot; Power Transmission &middot; Helical &amp; Leaf Springs<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE &nbsp;|&nbsp; TSPSC AEE
+      </span>
+    </h1>
+
+    <!-- ===== SECTION 1 ===== -->
+    <h2 id="torsion">1. Torsion of Circular Shafts</h2>
+
+    <p>When a circular shaft is subjected to a twisting couple (torque $T$), shear stresses are induced. The stress distribution is linear — zero at the axis, maximum at the outer surface.</p>
+
+    <h3>1.1 Torsion Formula (Analogy with Flexure Formula)</h3>
+    <div class="formula-card">$$\frac{T}{J} = \frac{\tau}{r} = \frac{G\theta}{L}$$</div>
+    <p class="sym">
+      <span>$T$ — applied torque (N·m)</span>
+      <span>$J$ — polar moment of inertia (m⁴)</span>
+      <span>$\tau$ — shear stress at radius $r$ (Pa)</span>
+      <span>$r$ — radial distance from axis (m)</span>
+      <span>$G$ — modulus of rigidity / shear modulus (Pa)</span>
+      <span>$\theta$ — angle of twist (radians)</span>
+      <span>$L$ — length of shaft (m)</span>
+    </p>
+
+    <h3>1.2 Maximum Shear Stress and Angle of Twist</h3>
+    <div class="formula-card">$$\tau_{max} = \frac{T \cdot R}{J} = \frac{16T}{\pi D^3} \quad\text{(solid circular shaft)}$$</div>
+    <div class="formula-card">$$\theta = \frac{TL}{GJ} \quad\text{(angle of twist, radians)}$$</div>
+    <p class="sym">
+      <span>$R = D/2$ — outer radius (m)</span>
+      <span>$D$ — outer diameter (m)</span>
+      <span>$J = \pi D^4/32$ for solid shaft</span>
+    </p>
+
+    <div class="note">
+      <strong>Shear stress variation:</strong> Shear stress is zero at the axis (centre of solid shaft) and maximum at the outer surface. The material at the centre of a solid shaft is therefore lightly stressed — hence hollow shafts are more material-efficient for torsion.
+    </div>
+
+    <!-- ===== SECTION 2 ===== -->
+    <h2 id="polar-section">2. Polar Moment of Inertia &amp; Polar Section Modulus</h2>
+
+    <h3>2.1 Polar Moment of Inertia $J$</h3>
+    <table>
+      <thead><tr><th>Section</th><th>$J$ (polar moment)</th><th>$\tau_{max}$</th></tr></thead>
+      <tbody>
+        <tr><td>Solid circular shaft (dia $D$)</td><td>$\pi D^4/32$</td><td>$16T/\pi D^3$</td></tr>
+        <tr><td>Hollow circular shaft ($D$, $d$)</td><td>$\pi(D^4 - d^4)/32$</td><td>$16TD/\pi(D^4 - d^4)$</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 Polar Section Modulus $Z_p$</h3>
+    <div class="formula-card">$$Z_p = \frac{J}{R}, \qquad \tau_{max} = \frac{T}{Z_p}$$</div>
+    <ul>
+      <li>Solid shaft: $Z_p = J/R = \pi D^3/16$</li>
+      <li>Hollow shaft: $Z_p = \pi(D^4 - d^4)/(16D)$</li>
+    </ul>
+
+    <h3>2.3 Relation between $I$, $J$, and $I_P$</h3>
+    <div class="formula-card">$$J = I_P = I_x + I_y = 2I \quad\text{(for circular section, where } I_x = I_y = I\text{)}$$</div>
+    <p>For a circular cross-section: $J = \pi D^4/32$ and $I = \pi D^4/64$, so $J = 2I$. This is the <strong>perpendicular axis theorem</strong>.</p>
+
+    <h3>2.4 Hollow Shaft vs Solid Shaft (Same Weight and Material)</h3>
+    <p>For the same cross-sectional area (same weight per unit length and same material), a hollow shaft has a <strong>larger polar moment $J$</strong> than a solid shaft, making it stronger and stiffer in torsion.</p>
+    <div class="note">
+      <strong>Standard result:</strong> A hollow shaft of the same weight and material is stronger in torsion than a solid shaft. The advantage comes from distributing material at a larger radius (where shear stress and hence moment arm are maximum).
+    </div>
+
+    <!-- ===== SECTION 3 ===== -->
+    <h2 id="power">3. Power Transmitted by a Shaft</h2>
+
+    <div class="formula-card">$$P = \frac{2\pi N T}{60} = T \cdot \omega$$</div>
+    <p class="sym">
+      <span>$P$ — power (W = J/s)</span>
+      <span>$N$ — rotational speed (rpm)</span>
+      <span>$T$ — torque (N·m)</span>
+      <span>$\omega = 2\pi N/60$ — angular velocity (rad/s)</span>
+    </p>
+
+    <div class="formula-card">$$T = \frac{60P}{2\pi N} = \frac{P}{\omega}$$</div>
+
+    <h3>3.1 Shafts in Series vs Parallel</h3>
+    <table>
+      <thead><tr><th>Configuration</th><th>Torque</th><th>Angle of Twist</th></tr></thead>
+      <tbody>
+        <tr><td>Shafts in series (same torque)</td><td>$T_1 = T_2 = T$</td><td>$\theta_{total} = \theta_1 + \theta_2$</td></tr>
+        <tr><td>Shafts in parallel (same twist)</td><td>$T_{total} = T_1 + T_2$</td><td>$\theta_1 = \theta_2 = \theta$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ===== SECTION 4 ===== -->
+    <h2 id="springs">4. Springs</h2>
+
+    <h3>4.1 Close-Coiled Helical Spring (Axial Load)</h3>
+    <p>When a close-coiled helical spring (helix angle $\alpha &lt; 10°$) is subjected to an axial load $W$, it is primarily under torsion. Bending effects are negligible.</p>
+
+    <div class="formula-card">$$\tau = \frac{8WD}{\pi d^3} \quad\text{(max shear stress, Wahl's correction neglected)}$$</div>
+    <div class="formula-card">$$\delta = \frac{64 W R^3 n}{G d^4} = \frac{8 W D^3 n}{G d^4}$$</div>
+    <div class="formula-card">$$k = \frac{W}{\delta} = \frac{G d^4}{64 R^3 n} = \frac{G d^4}{8 D^3 n}$$</div>
+    <p class="sym">
+      <span>$W$ — axial load (N)</span>
+      <span>$D = 2R$ — mean coil diameter (m)</span>
+      <span>$R$ — mean coil radius (m)</span>
+      <span>$d$ — wire diameter (m)</span>
+      <span>$n$ — number of active coils</span>
+      <span>$G$ — shear modulus (Pa)</span>
+      <span>$k$ — spring stiffness / spring rate (N/m)</span>
+    </p>
+
+    <div class="note">
+      <strong>Wahl's correction factor:</strong> The formula above neglects the curvature effect and direct shear. Wahl's factor $K_W$ accounts for these: $\tau = K_W \cdot 8WD/(\pi d^3)$, where $K_W = (4C-1)/(4C-4) + 0.615/C$ and $C = D/d$ (spring index). In most exam problems, Wahl's correction is not applied unless specified.
+    </div>
+
+    <h3>4.2 Spring Stiffness Dependency</h3>
+    <div class="formula-card">$$k \propto \frac{d^4}{D^3 n} = \frac{d^4}{R^3 n}$$</div>
+    <ul>
+      <li>Stiffness $k$ increases with the <strong>4th power of wire diameter</strong> $d$ — doubling $d$ increases $k$ by 16×.</li>
+      <li>Stiffness $k$ decreases with the <strong>3rd power of coil radius</strong> $R$ — doubling $R$ decreases $k$ by 8×.</li>
+      <li>Stiffness $k$ decreases linearly with number of coils $n$.</li>
+    </ul>
+
+    <h3>4.3 Springs in Series and Parallel</h3>
+    <table>
+      <thead><tr><th>Configuration</th><th>Equivalent Stiffness $k_{eq}$</th><th>Condition</th></tr></thead>
+      <tbody>
+        <tr><td>Springs in series</td><td>$\dfrac{1}{k_{eq}} = \dfrac{1}{k_1} + \dfrac{1}{k_2}$</td><td>Same load $W$; total deflection = sum</td></tr>
+        <tr><td>Springs in parallel</td><td>$k_{eq} = k_1 + k_2$</td><td>Same deflection; load is shared</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Analogy with capacitors:</strong> Springs in series → stiffnesses add like capacitors in series (reciprocal formula). Springs in parallel → stiffnesses add directly like capacitors in parallel. This is opposite to resistors/inductors.
+    </div>
+
+    <h3>4.4 Open-Coiled Helical Spring</h3>
+    <p>An open-coiled helical spring has a significant helix angle $\alpha &gt; 10°$. Under axial load, it experiences both:</p>
+    <ul>
+      <li><strong>Torsion ($T$):</strong> $T = WR\cos\alpha$ — tends to close the coils.</li>
+      <li><strong>Bending ($M$):</strong> $M = WR\sin\alpha$ — tends to increase helix angle.</li>
+    </ul>
+    <p>Both torsion and bending must be considered together for open-coiled springs. A close-coiled spring is the special case where $\alpha \approx 0$ and bending is negligible.</p>
+
+    <h3>4.5 Leaf Spring (Semi-Elliptic)</h3>
+    <div class="formula-card">$$\delta = \frac{3WL^3}{8Enbt^3}$$</div>
+    <div class="formula-card">$$\sigma_{max} = \frac{3WL}{2nbt^2}$$</div>
+    <p class="sym">
+      <span>$W$ — central transverse load (N)</span>
+      <span>$L$ — half-length (span/2) of spring (m)</span>
+      <span>$n$ — number of leaves</span>
+      <span>$b$ — width of each leaf (m)</span>
+      <span>$t$ — thickness of each leaf (m)</span>
+    </p>
+
+    <p>A leaf spring operates primarily in <strong>bending</strong> (unlike helical springs which operate in torsion). The leaves act as a beam in bending.</p>
+
+    <h3>4.6 Spring Comparison Table</h3>
+    <table>
+      <thead><tr><th>Property</th><th>Close-Coiled Helical</th><th>Open-Coiled Helical</th><th>Leaf Spring</th></tr></thead>
+      <tbody>
+        <tr><td>Primary stress</td><td>Shear (torsion)</td><td>Torsion + Bending</td><td>Bending</td></tr>
+        <tr><td>Helix angle</td><td>Small ($\alpha &lt; 10°$)</td><td>Large ($\alpha &gt; 10°$)</td><td>—</td></tr>
+        <tr><td>Load type</td><td>Axial (or torque)</td><td>Axial</td><td>Transverse (central)</td></tr>
+        <tr><td>Energy stored</td><td>$\tau^2V/(2G)$</td><td>Combined</td><td>$\sigma^2V/(2E)$ (bending)</td></tr>
+        <tr><td>Stiffness formula</td><td>$k = Gd^4/(64R^3n)$</td><td>Complex (both $G$ &amp; $E$)</td><td>$k = 8Enbt^3/(3L^3)$</td></tr>
+        <tr><td>Application</td><td>Mechanical clocks, valves</td><td>Buffer springs</td><td>Vehicle suspension</td></tr>
+      </tbody>
+    </table>
+
+    <!-- KEY POINTS -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Torsion formula: $T/J = \tau/r = G\theta/L$. Max shear stress at outer surface; zero at axis.</li>
+        <li>Solid shaft: $J = \pi D^4/32$; $\tau_{max} = 16T/\pi D^3$; $\theta = TL/GJ$.</li>
+        <li>Hollow shaft (same weight as solid) &rarr; larger $J$ &rarr; stronger and stiffer in torsion.</li>
+        <li>$J = 2I$ for circular section (from perpendicular axis theorem: $J = I_x + I_y = 2I$).</li>
+        <li>Power: $P = 2\pi NT/60 = T\omega$. To find $T$: $T = 60P/(2\pi N)$.</li>
+        <li>Close-coiled helical spring: primarily torsion. $\delta = 64WR^3n/(Gd^4)$; $k = Gd^4/(64R^3n)$.</li>
+        <li>Stiffness $k \propto d^4$ (wire dia) and $k \propto 1/R^3$ (coil radius). Doubling $d$ &rarr; $k$ increases 16×.</li>
+        <li>Series springs: $1/k_{eq} = 1/k_1 + 1/k_2$ (deflections add). Parallel: $k_{eq} = k_1 + k_2$ (loads add).</li>
+        <li>Open-coiled spring: both torsion AND bending act. Close-coiled: bending negligible ($\alpha &lt; 10°$).</li>
+        <li>Leaf spring: operates in bending; $\delta = 3WL^3/(8Enbt^3)$. Used in vehicle suspension.</li>
+        <li>Strain energy in torsion: $U = T^2L/(2GJ)$; per unit volume: $u = \tau^2/(2G)$.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; TSPSC AEE &nbsp;&middot;&nbsp; SOM Module 05
+    </p>
+
+  </div><!-- /.wrap -->
+</body>
+</html>
