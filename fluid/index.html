@@ -3,362 +3,474 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluid Mechanics & Machinery — Master Portal — AP GenCo Exam Guide</title>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath:  [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>Fluid Mechanics &amp; Machinery — Master Portal — APGENCO / SSC JE</title>
   <style>
+    /* ---------- token system ---------- */
     :root {
-      --bg-page: #F0ECE1;
-      --bg-card: #FFFFFF;
-      --bg-card-hover: #FFFDF9;
-      --bg-header-gradient: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-
-      --font-heading: "Bookman Old Style", Georgia, serif;
-      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-
-      --text-primary: #2D2926;
-      --text-secondary: #5C544D;
-      --text-header: #FFFDF9;
-      --text-accent: #8C5A37;
-
-      --border-light: #E2D9CC;
-      --border-accent: #8C5A37;
-      --active-indicator: #2E7D32;
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --card-hover: #FDFBF7;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --card-hover: #2A251F;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
     }
 
-    * { box-sizing: border-box; }
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      font-size: 11pt;
-      line-height: 1.75;
-      color: var(--text-primary);
-      background-color: var(--bg-page);
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 35px 20px;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.8;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 960px; margin: 0 auto; }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* Back Button Bar */
+    .nav-back-bar {
+      margin-bottom: 24px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 600;
+      font-size: 10pt;
+      box-shadow: 0 4px 14px rgba(43, 26, 13, 0.15);
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-back:hover {
+      opacity: 0.92;
+      transform: translateX(-2px);
+      text-decoration: none;
     }
 
     /* Master Portal Header */
     .portal-header {
       text-align: center;
-      background: var(--bg-header-gradient);
-      color: var(--text-header);
-      padding: 40px 28px;
-      border-radius: 16px;
-      margin-bottom: 35px;
-      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 36px 28px 30px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
     }
 
     .portal-header h1 {
-      font-family: var(--font-heading);
-      font-size: 26pt;
-      margin: 0 0 10px 0;
-      letter-spacing: 0.5px;
-      color: #FFFDF9;
+      font-family: "Georgia", serif;
+      font-size: 22pt;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--chapter-fg);
+      line-height: 1.3;
     }
 
     .portal-header p {
-      font-size: 12pt;
-      margin: 0;
-      color: #E2D9CC;
-      font-weight: 300;
-    }
-
-    /* Quick Stats Bar */
-    .stats-bar {
-      display: flex;
-      justify-content: space-around;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 35px;
-      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.05);
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 18pt;
-      font-weight: 700;
-      color: var(--text-accent);
-    }
-
-    .stat-label {
-      font-size: 9.5pt;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Section Title */
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 18pt;
-      color: #4A2E1B;
-      border-bottom: 2px solid var(--border-accent);
-      padding-bottom: 8px;
-      margin-bottom: 24px;
-    }
-
-    /* Card Grid Layout */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    /* Topic Module Card */
-    .topic-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-left: 6px solid var(--active-indicator);
-      border-radius: 14px;
-      padding: 24px;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.06);
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .topic-card:hover {
-      background: var(--bg-card-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(74, 46, 27, 0.14);
-      border-color: var(--border-accent);
-    }
-
-    .card-badge {
-      display: inline-block;
-      background: #E8F5E9;
-      color: var(--active-indicator);
-      font-size: 8.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 6px;
-      margin-bottom: 12px;
-      width: fit-content;
-    }
-
-    .card-title {
-      font-family: var(--font-heading);
-      font-size: 14pt;
-      color: #4A2E1B;
-      margin: 0 0 10px 0;
-      line-height: 1.4;
-    }
-
-    .card-description {
-      font-size: 10pt;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
+      font-family: system-ui, sans-serif;
+      font-size: 10.5pt;
+      color: var(--chapter-fg);
+      opacity: 0.85;
+      max-width: 660px;
+      margin: 0 auto 16px;
       line-height: 1.6;
     }
 
-    .formula-preview {
-      background: #F9F6F0;
-      border-radius: 8px;
-      padding: 10px 14px;
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.12);
+      color: var(--chapter-fg);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      font-family: system-ui, sans-serif;
+      font-size: 9pt;
+      font-weight: 500;
+      padding: 3px 12px;
+    }
+
+    /* Info Bar Callout */
+    .info-bar {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      font-family: system-ui, sans-serif;
+      font-size: 10pt;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .info-bar strong { font-weight: 700; }
+
+    /* Section Heading */
+    h2.section-heading {
+      font-family: "Georgia", serif;
+      font-size: 15pt;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+      margin-bottom: 24px;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    /* Card Styling with Topic Pills */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(60,40,20,.05);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(43,26,13,.12);
+      border-color: var(--accent-lt);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 14px; bottom: 14px;
+      width: 5px;
+      border-radius: 0 4px 4px 0;
+      background: var(--accent);
+      transition: background 0.22s;
+    }
+
+    .card-num {
+      font-family: system-ui, sans-serif;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      background: var(--formula-bg);
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 10px;
+      border: 1px solid var(--rule);
+    }
+
+    .card-title {
+      font-family: "Georgia", serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--ink-mid);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
       margin-bottom: 18px;
-      font-size: 9.5pt;
-      text-align: center;
-      border: 1px dashed var(--border-light);
+    }
+
+    .pill {
+      background: var(--formula-bg);
+      color: var(--ink-mid);
+      border: 1px solid var(--rule);
+      border-radius: 20px;
+      font-family: system-ui, sans-serif;
+      font-size: 8.5pt;
+      font-weight: 600;
+      padding: 2px 9px;
     }
 
     .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-family: system-ui, sans-serif;
       font-size: 9.5pt;
       font-weight: 600;
-      color: var(--text-accent);
+      color: var(--accent);
+      text-align: right;
+      border-top: 1px solid var(--rule);
       padding-top: 12px;
-      border-top: 1px solid #F4EFE6;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 4px;
     }
 
-    .btn-open {
-      background: var(--bg-header-gradient);
-      color: #FFFDF9;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 9.5pt;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-
-    .topic-card:hover .btn-open {
-      background: linear-gradient(135deg, #664229 0%, #8C5A37 100%);
+    .card:hover .card-footer {
+      color: var(--accent-lt);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-light);
-      color: var(--text-secondary);
+      font-family: system-ui, sans-serif;
       font-size: 9.5pt;
+      color: var(--ink-soft);
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media(max-width: 640px){
+      body { padding: 50px 14px 56px; }
+      .portal-header h1 { font-size: 17pt; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Back to Main Portal Navigation -->
-  <div style="margin-bottom: 20px;">
-    <a href="../index.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); color: #FFFDF9; padding: 10px 18px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 10pt; box-shadow: 0 4px 12px rgba(74,46,27,0.15); transition: opacity 0.2s ease;">&larr; Back to Main Exam Portal</a>
-  </div>
+  <div id="rbar"></div>
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
 
-  <!-- Master Portal Header -->
-  <header class="portal-header">
-    <h1>Fluid Mechanics & Machinery</h1>
-    <p>AP GenCo Mechanical Engineering AE / GATE / SSC JE Master Revision Portal</p>
-  </header>
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
 
-  <!-- Quick Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-value">6</div>
-      <div class="stat-label">Master Modules</div>
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <!-- Back to Main Portal Button -->
+    <div class="nav-back-bar">
+      <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
     </div>
-    <div class="stat-item">
-      <div class="stat-value">3,100+</div>
-      <div class="stat-label">Lines of Content</div>
+
+    <!-- Master Portal Header -->
+    <header class="portal-header">
+      <h1>Fluid Mechanics &amp; Machinery Hub</h1>
+      <p>Revision hub covering the complete APGENCO AE / SSC JE Fluid Mechanics syllabus — six modules in textbook progression order.</p>
+      <div class="tag-row">
+        <span class="tag">APGENCO AE</span>
+        <span class="tag">SSC JE</span>
+        <span class="tag">GATE Mechanical</span>
+        <span class="tag">6 Modules</span>
+      </div>
+    </header>
+
+    <!-- Info Bar Callout -->
+    <div class="info-bar">
+      <strong>How to use:</strong> Modules follow textbook progression — properties &rarr; statics &rarr; kinematics &rarr; pipe flow &rarr; compressible &rarr; machinery. Each module includes formula cards, symbol definitions, key points, and Q&amp;A traps.
     </div>
-    <div class="stat-item">
-      <div class="stat-value">85+</div>
-      <div class="stat-label">Core Q&A & Traps</div>
+
+    <h2 class="section-heading">Fluid Mechanics Modules</h2>
+
+    <!-- Grid Container -->
+    <div class="grid">
+
+      <!-- Module 1 -->
+      <a href="1_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 01</span>
+          <div class="card-title">Fluid Properties, Statics, Kinematics &amp; Dynamics</div>
+          <div class="card-topics">
+            <span class="pill">Viscosity</span>
+            <span class="pill">Surface tension</span>
+            <span class="pill">Hydrostatic forces</span>
+            <span class="pill">Buoyancy</span>
+            <span class="pill">Stream function</span>
+            <span class="pill">Bernoulli</span>
+            <span class="pill">Flow measurement</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 1 &rarr;</div>
+      </a>
+
+      <!-- Module 2 -->
+      <a href="2_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 02</span>
+          <div class="card-title">Pipe Flow, Losses &amp; Boundary Layer Theory</div>
+          <div class="card-topics">
+            <span class="pill">Darcy-Weisbach</span>
+            <span class="pill">Minor losses</span>
+            <span class="pill">TEL &amp; HGL</span>
+            <span class="pill">Pipe networks</span>
+            <span class="pill">BL thickness</span>
+            <span class="pill">Separation</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 2 &rarr;</div>
+      </a>
+
+      <!-- Module 3 -->
+      <a href="3_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 03</span>
+          <div class="card-title">Laminar Flow Geometries &amp; BL Profiles</div>
+          <div class="card-topics">
+            <span class="pill">Hagen-Poiseuille</span>
+            <span class="pill">Parallel plates</span>
+            <span class="pill">Couette flow</span>
+            <span class="pill">&delta;* &theta; &delta;_e</span>
+            <span class="pill">Shape factor</span>
+            <span class="pill">Blasius</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 3 &rarr;</div>
+      </a>
+
+      <!-- Module 4 -->
+      <a href="4_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 04</span>
+          <div class="card-title">Compressible Flow, Drag &amp; Dimensional Analysis</div>
+          <div class="card-topics">
+            <span class="pill">Mach number</span>
+            <span class="pill">Normal shock</span>
+            <span class="pill">De Laval nozzle</span>
+            <span class="pill">Stokes law</span>
+            <span class="pill">Buckingham Pi</span>
+            <span class="pill">Froude/Reynolds</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 4 &rarr;</div>
+      </a>
+
+      <!-- Module 5 -->
+      <a href="5_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 05</span>
+          <div class="card-title">Impact of Jets, Water Hammer &amp; Turbines</div>
+          <div class="card-topics">
+            <span class="pill">Jet on vanes</span>
+            <span class="pill">Water hammer</span>
+            <span class="pill">Pelton wheel</span>
+            <span class="pill">Francis turbine</span>
+            <span class="pill">Kaplan turbine</span>
+            <span class="pill">Draft tube</span>
+            <span class="pill">Specific speed</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 5 &rarr;</div>
+      </a>
+
+      <!-- Module 6 -->
+      <a href="6_reorganized.html" class="card">
+        <div>
+          <span class="card-num">Module 06</span>
+          <div class="card-title">Pumps, Hydraulic Ram, Accumulator &amp; Intensifier</div>
+          <div class="card-topics">
+            <span class="pill">Reciprocating pump</span>
+            <span class="pill">Centrifugal pump</span>
+            <span class="pill">Affinity laws</span>
+            <span class="pill">NPSH</span>
+            <span class="pill">Hydraulic ram</span>
+            <span class="pill">Accumulator</span>
+            <span class="pill">Intensifier</span>
+          </div>
+        </div>
+        <div class="card-footer">Open Module 6 &rarr;</div>
+      </a>
+
     </div>
-    <div class="stat-item">
-      <div class="stat-value">100%</div>
-      <div class="stat-label">PYQ Covered</div>
-    </div>
-  </div>
 
-  <h2 class="section-title">Topic Modules & Revision Guides</h2>
+    <footer>Fluid Mechanics &amp; Machinery — APGENCO AE &amp; SSC JE Revision | Thermo Revised Design System</footer>
 
-  <!-- Card Grid Container -->
-  <div class="card-grid">
-
-    <!-- Card 1 -->
-    <a href="1_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 01</span>
-        <h3 class="card-title">Basic Properties, Statics, Kinematics & Dynamics</h3>
-        <p class="card-description">Viscosity ($\mu, \nu$), capillarity, surface tension, manometers, hydrostatic forces, centre of pressure, Archimedes principle, metacentric height ($GM$), stream/potential functions ($\psi, \phi$), and Bernoulli's equation.</p>
-        <div class="formula-preview">
-          $$\tau = \mu \frac{du}{dy}, \quad h^* = \bar{h} + \frac{I_G \sin^2\theta}{A \bar{h}}, \quad \frac{p}{\rho g} + \frac{V^2}{2g} + z = \text{const}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>550+ Lines • 14 Q&As</span>
-        <span class="btn-open">Open Module 1 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 2 -->
-    <a href="2_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 02</span>
-        <h3 class="card-title">Flow Through Pipes, Pipe Losses & Boundary Layer</h3>
-        <p class="card-description">Darcy-Weisbach major friction loss, Borda-Carnot sudden expansion loss, TEL vs HGL elevation gap, Hagen-Poiseuille pipe flow, max power transmission ($h_f = H/3$), and equivalent pipe ($D = d \cdot n^{2/5}$).</p>
-        <div class="formula-preview">
-          $$h_f = \frac{f L V^2}{2gD}, \quad h_L = \frac{(V_1 - V_2)^2}{2g}, \quad \text{TEL} - \text{HGL} = \frac{V^2}{2g}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>540+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 2 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="3_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 03</span>
-        <h3 class="card-title">Advanced Laminar, Parallel Plates & Boundary Layer</h3>
-        <p class="card-description">Reynolds criteria, flow between fixed parallel plates ($\Delta P = \frac{12\mu VL}{h^2}$), velocity profile integration ($\delta^*, \theta, \delta_e$), Blasius flat plate BL growth ($\delta \propto x^{1/2}$), and separation criteria ($\tau_w = 0$).</p>
-        <div class="formula-preview">
-          $$u_{\max} = 1.5 V_{\text{avg}}, \quad \delta^* = \int_0^\delta \left(1 - \frac{u}{U}\right) dy, \quad \left.\frac{\partial u}{\partial y}\right|_0 = 0$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>540+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 3 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 4 -->
-    <a href="4_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 04</span>
-        <h3 class="card-title">Compressible Flow, Drag & Lift, Dimensional Analysis</h3>
-        <p class="card-description">Mach regimes ($M < 0.3$), speed of sound ($c = \sqrt{\gamma RT}$), normal shock wave property jumps ($M_1 > 1 \to M_2 < 1$), nozzle dynamics ($\frac{dA}{A} = (M^2-1)\frac{dV}{V}$), Stokes sphere drag ($3\pi\mu dV$), and Froude/Reynolds model laws.</p>
-        <div class="formula-preview">
-          $$c = \sqrt{\gamma R T}, \quad \frac{dA}{A} = (M^2 - 1) \frac{dV}{V}, \quad F_D = 3 \pi \mu d V$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>510+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 4 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 5 -->
-    <a href="5_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 05</span>
-        <h3 class="card-title">Impact of Jets, Hydraulic Turbines & Water Hammer</h3>
-        <p class="card-description">Jet impact forces on plates/vanes, penstock water hammer, surge tank function, Pelton impulse wheel ($\eta_{h,\max} = \frac{1+\cos\phi}{2}$), Francis mixed flow, Kaplan axial flow, draft tubes, and specific speed ($N_s = \frac{N\sqrt{P}}{H^{5/4}}$).</p>
-        <div class="formula-preview">
-          $$F = \rho A (V - u)^2, \quad N_s = \frac{N \sqrt{P}}{H^{5/4}}, \quad Z = 15 + \frac{D}{2d}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>510+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 5 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 6 -->
-    <a href="6_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 06</span>
-        <h3 class="card-title">Hydraulic Pumps, Ram, Accumulator & Intensifier</h3>
-        <p class="card-description">Reciprocating pump slip and air vessel power saving ($84.8\%$), centrifugal pump manometric head ($H_m$) and efficiency ($\eta_{man} = \frac{gH_m}{V_{w2}u_2}$), pump specific speed ($N_s = \frac{N\sqrt{Q}}{H^{3/4}}$), affinity scaling laws, NPSH, and intensifiers.</p>
-        <div class="formula-preview">
-          $$Q_{th} = \frac{A L N}{60}, \quad N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}, \quad p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>520+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 6 &rarr;</span>
-      </div>
-    </a>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Warm Reader Design System</p>
-  </footer>
-
+  </div><!-- /.wrap -->
 </body>
 </html>

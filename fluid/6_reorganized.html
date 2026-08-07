@@ -3,459 +3,561 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hydraulic Pumps, Ram, Accumulator & Intensifier — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Pumps, Hydraulic Ram, Accumulator &amp; Intensifier — Exam Revision Guide — APGENCO / SSC JE</title>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    /* ---------- token system ---------- */
+    :root {
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
+    }
+
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.9;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    /* ---------- submodule nav ---------- */
+    .submodule-nav {
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 11px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a {
+      color: var(--chapter-fg);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .submodule-nav a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- floating nav ---------- */
+    #fnav {
+      position: fixed; top: 10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px;
+      font-weight: 600; transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* ---------- chapter headers (h1 → chapter title) ---------- */
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      line-height: 1.3;
+    }
+
+    /* ---------- section & subsection headings ---------- */
+    h2 {
+      font-family: "Georgia", serif;
+      font-size: 15pt; font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-top: 52px; margin-bottom: 18px;
+      letter-spacing: .01em;
+    }
+    h3 {
+      font-family: "Georgia", serif;
+      font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid);
+      margin-top: 32px; margin-bottom: 10px;
+    }
+    h4 {
+      font-family: "Georgia", serif;
+      font-size: 11.5pt; font-weight: 700;
+      color: var(--ink);
+      margin-top: 22px; margin-bottom: 6px;
+    }
+
+    /* ---------- prose ---------- */
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- lists ---------- */
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+
+    /* ---------- formula cards ---------- */
+    .fc, .formula-card {
+      background: var(--formula-bg);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    /* symbol legend below formula */
+    .sym {
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px;
+      line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* ---------- note callout ---------- */
+    .note {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ---------- key-point box ---------- */
+    .kp, .key-points {
+      background: var(--kp-bg);
+      border: 1px solid var(--kp-bd);
+      border-radius: 7px;
+      padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3 {
+      font-weight: 700; letter-spacing: .02em;
+      margin-bottom: 8px; font-size: 10pt;
+      text-transform: uppercase;
+      color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li { margin-bottom: .28em; }
+
+    /* ---------- comparison / quick-facts table ---------- */
+    table {
+      border-collapse: collapse; width: 100%;
+      margin: 22px 0; background: var(--card);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+
+    /* ---------- MathJax overflow ---------- */
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
+<body>
+  <div id="rbar"></div>
+
+  <!-- floating nav -->
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#classification">Classification</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#reciprocating">Reciprocating</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#centrifugal">Centrifugal</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#affinity">Affinity &amp; NPSH</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#ram">Ram</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#accumulator">Accumulator</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#intensifier">Intensifier</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+
+    /* floating nav */
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="hydraulic-pumps-ram-accumulator-intensifier-comprehensive-reorganized-study-guide">Hydraulic Pumps, Ram, Accumulator &amp; Intensifier — Comprehensive Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Hydraulic Pumps (Reciprocating Pumps, Centrifugal Pumps, Specific Speed, NPSH &amp; Cavitation, Series/Parallel Multistage Systems) and Special Hydraulic Machinery (Hydraulic Ram, Accumulator, Intensifier) for AP GenCo AE, GATE, and SSC JE examinations. High-yield PYQ areas include reciprocating pump discharge $Q_{th} = \frac{A L N}{60}$ and slip, air vessel function (power saving + uniform flow), centrifugal pump manometric head $H_m$ and manometric efficiency $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$, pump specific speed $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$, pump affinity laws ($Q \propto N$, $H \propto N^2$, $P \propto N^3$), NPSH formula, and operational starting procedures (priming and starting with delivery valve closed). All raw file content has been consolidated without losing any theory Q&amp;As or worked examples.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
-<h4 id="1-reciprocating-pumps"><strong>1. Reciprocating Pumps</strong></h4>
-<ul>
-<li><strong>Theoretical Discharge</strong>:</li>
-<li>Single-acting:
-    <div class="formula-card">$${\boxed{Q_{th} = \frac{A L N}{60}}}$$</div></li>
-<li>Double-acting:
-    <div class="formula-card">$${\boxed{Q_{th} = \frac{2 A L N}{60}}}$$</div></li>
-<li>$A$: piston cross-sectional area $\text{m}^2$</li>
-<li>$L$: stroke length $\text{m}$</li>
-<li>
-<p>$N$: rotational speed $\text{rpm}$</p>
-</li>
-<li>
-<p><strong>Percentage Slip &amp; Coefficient of Discharge $C_d$</strong>:
-  <div class="formula-card">$${\boxed{\%\text{Slip} = \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100 = (1 - C_d) \times 100}}$$</div></p>
-</li>
-<li>
-<p>Negative Slip occurs when $Q_{act} &gt; Q_{th}$ (due to short delivery pipe and high suction acceleration head).</p>
-</li>
-<li>
-<p><strong>Theoretical Power Required</strong>:
-  <div class="formula-card">$${\boxed{P = \frac{\rho g Q_{th} (h_s + h_d)}{1000} \quad (\text{kW})}}$$</div></p>
-</li>
-<li>$h_s$: suction lift $\text{m}$</li>
-<li>$h_d$: delivery head $\text{m}$</li>
-</ul>
-<hr />
-<h4 id="2-centrifugal-pumps"><strong>2. Centrifugal Pumps</strong></h4>
-<ul>
-<li><strong>Manometric Head $H_m$</strong>:
-  <div class="formula-card">$${\boxed{H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}}}$$</div></li>
-<li>$h_{fs}, h_{fd}$: friction head losses in suction and delivery pipes $\text{m}$</li>
-<li>
-<p>$V_d$: velocity in delivery pipe $\text{m/s}$</p>
-</li>
-<li>
-<p><strong>Manometric Efficiency $\eta_{man}$</strong>:
-  <div class="formula-card">$${\boxed{\eta_{man} = \frac{g H_m}{V_{w2} u_2}}}$$</div></p>
-</li>
-<li>$V_{w2}$: whirl velocity at impeller outlet $\text{m/s}$</li>
-<li>
-<p>$u_2$: peripheral impeller velocity at outlet $\frac{\pi D_2 N}{60}$ $\text{m/s}$</p>
-</li>
-<li>
-<p><strong>Impeller Discharge</strong>:
-  <div class="formula-card">$${\boxed{Q = \pi D_1 b_1 V_{f1} = \pi D_2 b_2 V_{f2}}}$$</div></p>
-</li>
-<li>$D$: impeller diameter $\text{m}$</li>
-<li>$b$: impeller width $\text{m}$</li>
-<li>
-<p>$V_f$: radial flow velocity $\text{m/s}$</p>
-</li>
-<li>
-<p><strong>Overall Efficiency $\eta_o$</strong>:
-  <div class="formula-card">$${\boxed{\eta_o = \frac{\text{Water Power}}{\text{Shaft Power}} = \frac{\rho g Q H_m}{1000 \cdot P_{\text{shaft}}}}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="3-specific-speed-affinity-laws-pumps"><strong>3. Specific Speed &amp; Affinity Laws (Pumps)</strong></h4>
-<ul>
-<li><strong>Pump Specific Speed $N_s$</strong>:
-  <div class="formula-card">$${\boxed{N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}}}$$</div></li>
-<li>$N$: rotational speed $\text{rpm}$</li>
-<li>$Q$: discharge $\text{m}^3/\text{s}$</li>
-<li>
-<p>$H_m$: head per stage $\text{m}$</p>
-</li>
-<li>
-<p><strong>Affinity Laws (Variable Speed $N$)</strong>:
-  <div class="formula-card">$${\boxed{\frac{Q_1}{Q_2} = \frac{N_1}{N_2}, \quad \frac{H_1}{H_2} = \left(\frac{N_1}{N_2}\right)^2, \quad \frac{P_1}{P_2} = \left(\frac{N_1}{N_2}\right)^3}}$$</div></p>
-</li>
-<li>
-<p><strong>Affinity Laws (Variable Impeller Diameter $D$)</strong>:
-  <div class="formula-card">$${\boxed{\frac{Q_1}{Q_2} = \left(\frac{D_1}{D_2}\right)^3, \quad \frac{H_1}{H_2} = \left(\frac{D_1}{D_2}\right)^2, \quad \frac{P_1}{P_2} = \left(\frac{D_1}{D_2}\right)^5}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="4-npsh-cavitation"><strong>4. NPSH &amp; Cavitation</strong></h4>
-<ul>
-<li><strong>Net Positive Suction Head (NPSH Available)</strong>:
-  <div class="formula-card">$${\boxed{\text{NPSH}<em>A = \frac{P</em>{atm}}{\rho g} - \frac{P_v}{\rho g} - h_s - h_{fs}}}$$</div></li>
-<li>$P_{atm}$: atmospheric pressure $\text{Pa}$</li>
-<li>
-<p>$P_v$: liquid vapour pressure $\text{Pa}$</p>
-</li>
-<li>
-<p><strong>Thoma's Cavitation Factor for Pumps</strong>:
-  <div class="formula-card">$${\boxed{\sigma = \frac{\text{NPSH}}{H_m}}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="5-special-hydraulic-machinery"><strong>5. Special Hydraulic Machinery</strong></h4>
-<ul>
-<li><strong>Hydraulic Ram Efficiency</strong>:</li>
-<li>D'Aubuisson's Efficiency: $\eta = \frac{q h}{Q H}$</li>
-<li>Rankine's Efficiency: $\eta = \frac{q h}{(Q - q) H}$</li>
-<li>
-<p>$Q$: supply water rate; $q$: raised water rate; $H$: supply head; $h$: delivery height above supply reservoir.</p>
-</li>
-<li>
-<p><strong>Hydraulic Intensifier</strong>:
-  <div class="formula-card">$${\boxed{p_2 A_2 = p_1 A_1 \implies p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Positive-Displacement Pump</strong>: Pump where liquid is physically trapped in a chamber and forced out by a reciprocating piston or rotary screw/gear (e.g. reciprocating, gear, screw pumps).</li>
-<li><strong>Roto-Dynamic Pump</strong>: Pump where dynamic kinetic energy is continuously imparted to liquid by a rotating impeller and converted to pressure in a casing (e.g. centrifugal, axial pumps).</li>
-<li><strong>Air Vessel</strong>: Cast iron vessel containing compressed air attached to suction and delivery lines of a reciprocating pump to smooth flow pulsations, reduce friction losses, and save power.</li>
-<li><strong>Negative Slip</strong>: Condition in reciprocating pumps where actual discharge exceeds theoretical discharge $Q_{act} &gt; Q_{th}$ due to inertia effects in short delivery lines.</li>
-<li><strong>Priming</strong>: Operation of filling the suction pipe, casing, and pump cavity with liquid to displace trapped air before starting a centrifugal pump.</li>
-<li><strong>Manometric Head $H_m$</strong>: Total head against which a centrifugal pump must work, equal to total static lift plus friction and exit velocity heads.</li>
-<li><strong>Hydraulic Ram</strong>: Automatic device that uses the inertia energy of a large quantity of falling water (water hammer) to lift a small fraction of water to a much higher elevation without external power.</li>
-<li><strong>Hydraulic Accumulator</strong>: Device that stores energy in the form of high-pressure fluid using a weighted ram.</li>
-<li><strong>Hydraulic Intensifier</strong>: Device used to increase the intensity of fluid pressure using differential piston areas.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
-<ul>
-<li><strong>Starting Delivery Valve Position (Centrifugal)</strong>: Fully CLOSED (to minimize starting torque).</li>
-<li><strong>Starting Delivery Valve Position (Reciprocating)</strong>: Fully OPEN.</li>
-<li><strong>Vane Exit Angle $\phi$</strong>: $20^\circ - 25^\circ$ (backward curved blades for maximum stability).</li>
-<li><strong>Pump vs Turbine Specific Speed Exponents</strong>: Pump uses $H^{3/4}$ and $\sqrt{Q}$; Turbine uses $H^{5/4}$ and $\sqrt{P}$.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Specific Speed</strong>: Pump formula $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$ contrasted with Turbine formula $N_s = \frac{N \sqrt{P}}{H^{5/4}}$ in 5_reorganized.md.</li>
-<li><strong>Cavitation Mechanism</strong>: Examined for reaction turbines in 5_reorganized.md and for centrifugal pump impellers in §3.4.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-reciprocating-pumps-air-vessels"><strong>3.1 Reciprocating Pumps &amp; Air Vessels</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Reciprocating pumps are positive-displacement machines ideal for high pressure and low flow rates.</li>
-<li>Theoretical discharge for single-acting pump is $Q_{th} = \frac{A L N}{60}$; double-acting is $2 \times \frac{A L N}{60}$.</li>
-<li>Slip $= Q_{th} - Q_{act}$. Percentage slip $= \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100$.</li>
-<li>Negative slip $Q_{act} &gt; Q_{th}$ occurs when delivery pipe is short, suction pipe is long, and speed is high, causing momentum to force liquid past the delivery valve before the stroke completes.</li>
-<li>Air vessels fitted close to the cylinder on both suction and delivery sides convert pulsating flow into steady uniform flow, saving up to $84.8\%$ of friction work in single-acting pumps.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Power Saved by Air Vessels</strong>:
-- Single-acting reciprocating pump: Air vessel saves $84.8\%$ of work done against friction.
-- Double-acting reciprocating pump: Air vessel saves $39.2\%$ of work done against friction.</p>
-<p>[!TRAP]
-<strong>Reciprocating vs Centrifugal Starting Procedure</strong>:
-- Centrifugal Pump: Start with delivery valve FULLY CLOSED.
-- Reciprocating Pump: Start with delivery valve FULLY OPEN. (Starting a reciprocating pump with closed delivery valve causes severe over-pressurization!)</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Reciprocating Pump Problem?
-├─ Theoretical Discharge → Q_th = (A * L * N) / 60 (Single), 2*A*L*N / 60 (Double)
-├─ Slip Evaluation → Slip% = [(Q_th - Q_act) / Q_th] * 100
-├─ Negative Slip Condition → Q_act &gt; Q_th (Short delivery pipe + High suction accel head)
-└─ Air Vessel Function → Saves friction work (84.8% single, 39.2% double) + ensures uniform flow
-</code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Single-acting $Q_{th} = A L N / 60$; Double-acting $Q_{th} = 2 A L N / 60$.</li>
-<li>[ ] Slip $\% = (1 - C_d) \times 100$.</li>
-<li>[ ] Negative slip occurs when $Q_{act} &gt; Q_{th}$.</li>
-<li>[ ] Air vessel saves $84.8\%$ friction power in single-acting pump.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A single-acting reciprocating pump has a cylinder diameter of $150 \text{ mm}$ $A = 0.01767 \text{ m}^2$ and stroke length of $300 \text{ mm}$. It runs at $50 \text{ rpm}$ and delivers $0.004 \text{ m}^3/\text{s}$. Calculate percentage slip.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${Q_{th} = \frac{A L N}{60} = \frac{0.01767 \times 0.30 \times 50}{60} = \frac{0.26505}{60} = 0.004418 \text{ m}^3/\text{s}}$$</div>
-  <div class="formula-card">$${\%\text{Slip} = \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100 = \frac{0.004418 - 0.0040}{0.004418} \times 100 = \frac{0.000418}{0.004418} \times 100 = 9.46\%}$$</div>
-- <strong>Key Insight</strong>: Always verify units ($N$ in rpm divided by 60 gives stroke frequency per second).</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: A double-acting reciprocating pump has piston area $0.02 \text{ m}^2$ and stroke $0.4 \text{ m}$, running at $60 \text{ rpm}$. Calculate theoretical discharge in L/s.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${Q_{th} = \frac{2 A L N}{60} = \frac{2 \times 0.02 \times 0.4 \times 60}{60} = 0.016 \text{ m}^3/\text{s} = 16 \text{ L/s}}$$</div>
-- <strong>Key Insight</strong>: Double-acting pump delivers twice the discharge of a single-acting pump $2 A L N / 60$.</p>
-<hr />
-<h3 id="32-centrifugal-pumps-head-efficiency-casings"><strong>3.2 Centrifugal Pumps: Head, Efficiency &amp; Casings</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Liquid enters the impeller axially at the eye $V_{w1} = 0$ and is discharged radially outward into a casing.</li>
-<li>Manometric Head $H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}$.</li>
-<li>Backward curved vanes ($\phi &lt; 90^\circ$, typically $20^\circ - 25^\circ$) are universally used in centrifugal pumps because they provide a stable head-capacity curve and high efficiency.</li>
-<li>Casings convert kinetic head exiting impeller into static pressure:</li>
-<li>Volute Casing: Spiral chamber of gradually increasing area.</li>
-<li>Vortex Casing: Circular chamber inserted between impeller and volute to reduce eddy losses.</li>
-<li>Diffuser (Guide Vane) Casing: Ring of fixed guide vanes surrounding impeller; provides highest pressure recovery.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Manometric Efficiency</strong>: $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$. For backward curved vanes with radial entry $V_{w1} = 0$, $V_{w2} = u_2 - V_{f2} \cot\phi$.</p>
-<p>[!TRAP]
-<strong>Priming Requirement</strong>: Centrifugal pumps CANNOT pump air because the pressure generated $\Delta P = \rho g H_m$ is proportional to fluid density. Air density is $\approx 1/800$ of water density, so unprimed centrifugal pumps generate negligible pressure.</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Centrifugal Pump Problem?
-├─ Starting Condition → Delivery valve FULLY CLOSED, Casing fully PRIMED
-├─ Manometric Head → H_m = h_s + h_d + h_fs + h_fd + V_d^2/(2*g)
-├─ Manometric Efficiency → eta_man = (g * H_m) / (V_w2 * u_2)
-└─ Casing Selection → Volute (Spiral) vs Vortex (Circular chamber) vs Diffuser (Guide vanes)
-</code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Fluid enters at impeller eye $V_{w1} = 0$.</li>
-<li>[ ] Vanes curved backward $\phi \approx 20^\circ - 25^\circ$.</li>
-<li>[ ] Delivery valve fully CLOSED at start.</li>
-<li>[ ] Priming removes air from casing and suction line.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A centrifugal pump impeller has an outer diameter of $300 \text{ mm}$ and runs at $1000 \text{ rpm}$. Manometric head is $25 \text{ m}$ and outlet whirl velocity $V_{w2} = 18 \text{ m/s}$. Find peripheral velocity $u_2$ and manometric efficiency $g = 9.81 \text{ m/s}^2$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${u_2 = \frac{\pi D_2 N}{60} = \frac{\pi \times 0.30 \times 1000}{60} = 5 \pi \approx 15.708 \text{ m/s}}$$</div>
-  <div class="formula-card">$${\eta_{man} = \frac{g H_m}{V_{w2} u_2} = \frac{9.81 \times 25}{18 \times 15.708} = \frac{245.25}{282.74} = 0.8674 = 86.74\%}$$</div>
-- <strong>Key Insight</strong>: Manometric efficiency evaluates actual work delivered vs Euler head $V_{w2} u_2 / g$.</p>
-<hr />
-<h3 id="33-specific-speed-affinity-laws-multistage-pumps"><strong>3.3 Specific Speed, Affinity Laws &amp; Multistage Pumps</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Pump Specific Speed $N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}$ classifies impeller shape:</li>
-<li>Low $N_s$ $10 - 30$: Radial flow impeller (high head, low discharge).</li>
-<li>Medium $N_s$ $30 - 80$: Mixed flow impeller.</li>
-<li>High $N_s$ $80 - 300+$: Axial flow / propeller pump (low head, high discharge).</li>
-<li>Multistage Pumps:</li>
-<li>Impellers in Series: Increases total head $H_{\text{total}} = n \times H_{\text{single}}$ at constant discharge.</li>
-<li>Impellers in Parallel: Increases total discharge $Q_{\text{total}} = n \times Q_{\text{single}}$ at constant head.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Affinity Scaling Rules</strong>:
-- Discharge: $Q \propto N \cdot D^3$
-- Head: $H \propto N^2 \cdot D^2$
-- Power: $P \propto N^3 \cdot D^5$
-Doubling pump speed $N \implies Q \times 2, H \times 4, P \times 8$!</p>
-<p>[!TRAP]
-<strong>Multistage Pump Specific Speed</strong>: In $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$, $H$ represents head PER STAGE $H = H_{\text{total}} / n$, NOT total head!</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>Pump Scaling / Multistage Problem?
-├─ Speed Change (Affinity) → Q2/Q1 = N2/N1, H2/H1 = (N2/N1)^2, P2/P1 = (N2/N1)^3
-├─ Multistage High Head → Impellers in Series (H_total = n * H_stage)
-├─ Multistage High Discharge → Impellers in Parallel (Q_total = n * Q_stage)
-└─ Specific Speed Formula → N_s = (N * sqrt(Q)) / H_stage^(3/4)
-</code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Specific speed $N_s = N \sqrt{Q} / H_m^{3/4}$ (head per stage).</li>
-<li>[ ] Series impellers $\implies$ high head; Parallel impellers $\implies$ high discharge.</li>
-<li>[ ] Speed scaling: $Q \propto N$, $H \propto N^2$, $P \propto N^3$.</li>
-<li>[ ] Diameter scaling: $Q \propto D^3$, $H \propto D^2$, $P \propto D^5$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A centrifugal pump delivers $0.04 \text{ m}^3/\text{s}$ against a head of $20 \text{ m}$ at $1450 \text{ rpm}$ requiring $10 \text{ kW}$. If speed is increased to $2900 \text{ rpm}$, calculate the new discharge, head, and power required.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${\frac{N_2}{N_1} = \frac{2900}{1450} = 2}$$</div>
-  <div class="formula-card">$${Q_2 = Q_1 \times 2 = 0.04 \times 2 = 0.08 \text{ m}^3/\text{s}}$$</div>
-  <div class="formula-card">$${H_2 = H_1 \times (2)^2 = 20 \times 4 = 80 \text{ m}}$$</div>
-  <div class="formula-card">$${P_2 = P_1 \times (2)^3 = 10 \times 8 = 80 \text{ kW}}$$</div>
-- <strong>Key Insight</strong>: Doubling pump speed increases power consumption by a factor of 8 $2^3$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: A 4-stage centrifugal pump runs at $1000 \text{ rpm}$ delivering $0.1 \text{ m}^3/\text{s}$ against a total head of $80 \text{ m}$. Calculate its specific speed.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${H_{\text{stage}} = \frac{80}{4} = 20 \text{ m}}$$</div>
-  <div class="formula-card">$${N_s = \frac{N \sqrt{Q}}{H_{\text{stage}}^{3/4}} = \frac{1000 \times \sqrt{0.1}}{(20)^{3/4}} = \frac{1000 \times 0.3162}{9.457} \approx 33.43}$$</div>
-- <strong>Key Insight</strong>: Use head per stage $H_{\text{stage}} = 20 \text{ m}$ in specific speed calculation.</p>
-<hr />
-<h3 id="34-special-hydraulic-machinery-ram-accumulator-intensifier"><strong>3.4 Special Hydraulic Machinery: Ram, Accumulator &amp; Intensifier</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Hydraulic Ram</strong>: Uses water hammer inertia to lift water without external energy. Contains drive pipe, waste valve, delivery valve, and air vessel.</li>
-<li><strong>Hydraulic Accumulator</strong>: Stores high-pressure water under a heavy weight/ram to supply sudden peak demands (equalizes pump load).</li>
-<li><strong>Hydraulic Intensifier</strong>: Increases fluid pressure intensity for hydraulic presses using stepped cylinders $p_2 = p_1 \frac{A_1}{A_2}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Hydraulic Intensifier Pressure Multiplication</strong>: $p_2 A_2 = p_1 A_1 \implies p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2$. High pressure output is inversely proportional to ratio of piston areas.</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>Hydraulic Auxiliary Device Problem?
-├─ Hydraulic Ram → Uses water hammer energy to raise small Q to high elevation without external power
-├─ Hydraulic Accumulator → Stores high-pressure fluid energy under a weighted ram to supply peak demand
-└─ Hydraulic Intensifier → Increases pressure intensity: p2 = p1 * (D1/D2)^2
-</code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Hydraulic Ram uses water hammer force.</li>
-<li>[ ] Accumulator stores energy to smooth out pump load fluctuations.</li>
-<li>[ ] Intensifier multiplies pressure: $p_2 = p_1 (A_1 / A_2)$.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A hydraulic intensifier receives water at $3 \text{ MPa}$ $30 \text{ bar}$. Low-pressure ram diameter is $250 \text{ mm}$ and high-pressure ram diameter is $50 \text{ mm}$. Calculate the intensified pressure output.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${p_2 = p_1 \left(\frac{D_1}{D_2}\right)^2 = 3 \times \left(\frac{250}{50}\right)^2 = 3 \times (5)^2 = 3 \times 25 = 75 \text{ MPa}}$$</div>
-- <strong>Key Insight</strong>: Pressure multiplies by the square of the diameter ratio $(250/50)^2 = 25$.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1: What is the theoretical discharge of a single-acting reciprocating pump?</strong><br />
-A: $Q_{th} = \frac{A L N}{60}$.</p>
-<p><strong>Q2: What causes negative slip in a reciprocating pump?</strong><br />
-A: High speed, long suction pipe, and short delivery pipe causing liquid momentum to force the delivery valve open before stroke completion $Q_{act} &gt; Q_{th}$.</p>
-<p><strong>Q3: What is the main function of an air vessel in a reciprocating pump?</strong><br />
-A: To provide continuous uniform flow and reduce friction/acceleration head losses, saving up to $84.8\%$ of friction work in single-acting pumps.</p>
-<p><strong>Q4: Why must a centrifugal pump be primed before starting?</strong><br />
-A: Because air has extremely low density ($\approx 1/800$ of water), resulting in negligible pressure rise $\Delta P = \rho g H_m$ if unprimed.</p>
-<p><strong>Q5: What is the starting position of the delivery valve for a centrifugal pump vs a reciprocating pump?</strong><br />
-A: Centrifugal pump: FULLY CLOSED (minimizes starting torque). Reciprocating pump: FULLY OPEN.</p>
-<p><strong>Q6: Why are backward curved vanes $\phi \approx 20^\circ - 25^\circ$ preferred in centrifugal pumps?</strong><br />
-A: They produce a stable head-capacity characteristic curve and provide high manometric efficiency.</p>
-<p><strong>Q7: Define manometric head $H_m$ of a centrifugal pump.</strong><br />
-A: Total head generated by the impeller, equal to static lift plus pipe friction losses and exit velocity head $H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}$.</p>
-<p><strong>Q8: What is the specific speed formula for a pump?</strong><br />
-A: $N_s = \frac{N \sqrt{Q}}{H_m^{3/4}}$.</p>
-<p><strong>Q9: How do discharge, head, and power scale with rotational speed $N$ for a centrifugal pump?</strong><br />
-A: Discharge $Q \propto N$, Head $H \propto N^2$, Power $P \propto N^3$.</p>
-<p><strong>Q10: What is the difference between connecting impellers in series vs parallel in multistage pumps?</strong><br />
-A: Series connection increases total head $H_{total} = n H_{\text{stage}}$; parallel connection increases total discharge $Q_{total} = n Q_{\text{stage}}$.</p>
-<p><strong>Q11: What is Net Positive Suction Head (NPSH)?</strong><br />
-A: Total suction head available at the impeller inlet above the liquid's vapour pressure head $\text{NPSH}<em>A = \frac{P</em>{atm}-P_v}{\rho g} - h_s - h_{fs}$.</p>
-<p><strong>Q12: Where does cavitation occur in a centrifugal pump?</strong><br />
-A: At the impeller eye (inlet), where local static pressure drops to its minimum level $P \le P_v$.</p>
-<p><strong>Q13: How does a hydraulic ram lift water without an external power source?</strong><br />
-A: It utilizes the water hammer pressure impulse generated by the sudden closure of its waste valve.</p>
-<p><strong>Q14: What is the primary function of a hydraulic accumulator?</strong><br />
-A: Stores fluid energy under high pressure using a weighted ram to supply peak demand requirements and equalize pump load.</p>
-<p><strong>Q15: How does a hydraulic intensifier increase fluid pressure?</strong><br />
-A: By transferring force from a large-diameter low-pressure piston to a small-diameter high-pressure piston $p_2 = p_1 \frac{A_1}{A_2}$.</p>
-<hr />
-<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
-<ul>
-<li><strong>Note on Pump vs Turbine Specific Speed</strong>:</li>
-<li>Pump: $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$</li>
-<li>Turbine: $N_s = \frac{N \sqrt{P}}{H^{5/4}}$</li>
-<li><strong>Note on Pump Starting Procedures</strong>:</li>
-<li>Centrifugal Pump: Start with delivery valve fully CLOSED and suction fully PRIMED.</li>
-<li>Reciprocating Pump: Start with delivery valve fully OPEN.</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize Reciprocating Discharge: Single $Q_{th} = \frac{A L N}{60}$, Double $Q_{th} = \frac{2 A L N}{60}$.</li>
-<li>[ ] Memorize Slip &amp; Air Vessel: $\% \text{Slip} = (1 - C_d) \times 100$. Air vessel saves $84.8\%$ friction work (single-acting).</li>
-<li>[ ] Memorize Centrifugal Manometric Efficiency: $\eta_{man} = \frac{g H_m}{V_{w2} u_2}$. Start with delivery valve CLOSED.</li>
-<li>[ ] Memorize Pump Specific Speed: $N_s = \frac{N \sqrt{Q}}{H^{3/4}}$ (use head per stage for multistage).</li>
-<li>[ ] Memorize Speed Affinity Laws: $Q \propto N$, $H \propto N^2$, $P \propto N^3$.</li>
-<li>[ ] Memorize Diameter Affinity Laws: $Q \propto D^3$, $H \propto D^2$, $P \propto D^5$.</li>
-<li>[ ] Memorize Special Devices: Hydraulic Ram (water hammer pump), Accumulator (energy storage), Intensifier $p_2 = p_1 \frac{A_1}{A_2}$.</li>
-</ul>
-  </div>
+      <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Pumps, Hydraulic Ram, Accumulator &amp; Intensifier<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Reciprocating &amp; Centrifugal Pumps &middot; Affinity Laws &middot; NPSH &middot; Hydraulic Devices<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical
+      </span>
+    </h1>
+
+    <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
+    <h2 id="classification">1. Pump Classification</h2>
+
+    <p>Pumps convert mechanical energy into hydraulic energy to move fluid against a pressure difference. They fall into two broad categories based on their operating principle.</p>
+
+    <table>
+      <thead><tr><th>Category</th><th>Type</th><th>Mechanism</th><th>Characteristics</th></tr></thead>
+      <tbody>
+        <tr><td>Positive Displacement</td><td>Reciprocating (piston/plunger)</td><td>Piston traps fluid and displaces it</td><td>High pressure, pulsating flow, low flow rate</td></tr>
+        <tr><td>Positive Displacement</td><td>Rotary (gear, screw, vane)</td><td>Rotating elements trap and move fluid</td><td>Steady flow, self-priming, high viscosity fluids</td></tr>
+        <tr><td>Roto-dynamic</td><td>Centrifugal</td><td>Impeller imparts kinetic energy; casing converts to pressure</td><td>Smooth continuous flow, high flow, low–medium pressure</td></tr>
+        <tr><td>Roto-dynamic</td><td>Axial flow</td><td>Propeller-type impeller; flow axial</td><td>Very high flow, low head; like Kaplan in reverse</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
+    <h2 id="reciprocating">2. Reciprocating Pumps</h2>
+
+    <p>A reciprocating pump uses a piston moving back and forth in a cylinder. Suction and delivery valves (non-return valves) control flow direction. Flow is inherently pulsating — an air vessel is used to smooth the discharge.</p>
+
+    <h3>2.1 Theoretical Discharge</h3>
+    <div class="formula-card">$$Q_{th} = \frac{ALN}{60} \quad \text{(single-acting)}$$</div>
+    <div class="formula-card">$$Q_{th} = \frac{2ALN}{60} \quad \text{(double-acting)}$$</div>
+    <ul>
+      <li>$A$ — piston cross-sectional area (m²); $L$ — stroke length (m); $N$ — speed (rpm)</li>
+      <li>Double-acting pump displaces fluid on both forward and return strokes</li>
+      <li>For double-acting with piston rod on one side: $Q_{th} = \frac{(2A - a)LN}{60}$ where $a$ = rod cross-section area</li>
+    </ul>
+
+    <h3>2.2 Slip &amp; Coefficient of Discharge</h3>
+    <div class="formula-card">$$\%\,\text{Slip} = \frac{Q_{th} - Q_{act}}{Q_{th}} \times 100 = (1 - C_d) \times 100$$</div>
+    <ul>
+      <li>$C_d = Q_{act}/Q_{th}$ — coefficient of discharge (typically 0.97–0.99 for well-maintained pumps)</li>
+      <li><strong>Negative slip</strong>: $Q_{act} > Q_{th}$ — occurs when delivery pipe is short and inertia effects are large, keeping delivery valve open during part of the suction stroke</li>
+    </ul>
+
+    <h3>2.3 Power &amp; Head</h3>
+    <div class="formula-card">$$P = \frac{\rho\,g\,Q_{th}\,(h_s + h_d)}{1000} \quad \text{(kW, theoretical)}$$</div>
+    <ul>
+      <li>$h_s$ — suction lift (m); $h_d$ — delivery head (m); total = static head the pump must overcome</li>
+      <li>Actual power > theoretical due to friction and mechanical losses</li>
+    </ul>
+
+    <h3>2.4 Indicator Diagram &amp; Air Vessel</h3>
+    <p>The indicator diagram plots cylinder pressure against piston stroke. Ideally it is a rectangle; in practice, inertia and friction modify its shape. The <strong>air vessel</strong> — a sealed chamber of compressed air connected near the pump — absorbs flow fluctuations, reduces friction work, and prevents cavitation in the suction line.</p>
+
+    <ul>
+      <li>Without air vessel: velocity in suction/delivery pipes varies sinusoidally each stroke</li>
+      <li>With air vessel close to pump: velocity in long pipe beyond the vessel becomes nearly constant = $Q_{avg}/A_{pipe}$</li>
+      <li>Air vessel on suction side prevents separation when suction pressure approaches vapour pressure</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
+    <h2 id="centrifugal">3. Centrifugal Pumps</h2>
+
+    <p>The centrifugal pump is the most widely used pump in industry. An impeller rotating inside a casing imparts kinetic energy to the fluid; the volute casing or diffuser converts this kinetic energy into pressure.</p>
+
+    <h3>3.1 Working Principle &amp; Priming</h3>
+    <p>The impeller creates a low-pressure zone at its eye (inlet), drawing liquid in, and a high-pressure zone at its periphery. Because a centrifugal pump cannot generate suction on its own if air is present, it must be <strong>primed</strong> (filled with liquid) before starting. Self-priming pumps have special designs to handle this automatically.</p>
+
+    <h3>3.2 Manometric Head</h3>
+    <div class="formula-card">$$H_m = h_s + h_d + h_{fs} + h_{fd} + \frac{V_d^2}{2g}$$</div>
+    <ul>
+      <li>$h_s, h_d$ — static suction lift and static delivery head (m)</li>
+      <li>$h_{fs}, h_{fd}$ — friction head losses in suction and delivery pipes (m)</li>
+      <li>$V_d^2/2g$ — velocity head at delivery pipe exit (m); sometimes negligible</li>
+    </ul>
+
+    <h3>3.3 Euler's Equation Applied to Impeller</h3>
+    <p>The theoretical work done per unit weight of fluid by the impeller (Euler's head) is:</p>
+    <div class="formula-card">$$H_{Euler} = \frac{V_{w2}u_2 - V_{w1}u_1}{g}$$</div>
+    <ul>
+      <li>$V_{w1}, V_{w2}$ — whirl (tangential) components of absolute velocity at inlet and outlet (m/s)</li>
+      <li>$u_1, u_2$ — peripheral (blade tip) velocity at inlet and outlet (m/s)</li>
+      <li>For radial entry ($V_{w1} = 0$): $H_{Euler} = V_{w2}u_2/g$</li>
+    </ul>
+
+    <h3>3.4 Efficiency &amp; Output</h3>
+    <div class="formula-card">$$\eta_{man} = \frac{g\,H_m}{V_{w2}\,u_2} \qquad \text{(manometric efficiency)}$$</div>
+    <div class="formula-card">$$Q = \pi D_1 b_1 V_{f1} = \pi D_2 b_2 V_{f2} \qquad \text{(discharge; continuity)}$$</div>
+    <div class="formula-card">$$\eta_o = \frac{\rho\,g\,Q\,H_m}{1000\,P_{\text{shaft}}} \qquad \text{(overall efficiency)}$$</div>
+    <ul>
+      <li>$b_1, b_2$ — impeller width at inlet/outlet (m); $V_{f1}, V_{f2}$ — radial (flow) velocity (m/s)</li>
+      <li>Overall efficiency $\eta_o = \eta_{man} \times \eta_{mech} \times \eta_{vol}$</li>
+    </ul>
+
+    <h3>3.5 Minimum Starting Speed</h3>
+    <p>A centrifugal pump will not deliver flow against the manometric head unless it runs at or above a minimum speed $N_{min}$, at which the centrifugal head generated equals the manometric head:</p>
+    <div class="formula-card">$$N_{min} = \frac{60}{\pi}\sqrt{\frac{g\,H_m}{r_2^2 - r_1^2}} \qquad \text{(approximate)}$$</div>
+
+    <!-- ═══════════════════════════ PART 4 ═══════════════════════════ -->
+    <h2 id="affinity">4. Specific Speed, Affinity Laws &amp; NPSH</h2>
+
+    <h3>4.1 Pump Specific Speed</h3>
+    <div class="formula-card">$$N_s = \frac{N\sqrt{Q}}{H_m^{3/4}}$$</div>
+    <ul>
+      <li>$N$ — speed (rpm); $Q$ — discharge (m³/s or L/s depending on convention); $H_m$ — head per stage (m)</li>
+      <li>Low $N_s$ → radial flow (centrifugal); high $N_s$ → axial flow. Typical centrifugal: $N_s = 10$–70; mixed flow: 70–160; axial: 160–500</li>
+      <li><strong>Note:</strong> Turbine specific speed uses $P$ in numerator ($N\sqrt{P}/H^{5/4}$); pump uses $Q$ ($N\sqrt{Q}/H^{3/4}$)</li>
+    </ul>
+
+    <h3>4.2 Affinity Laws (Similarity Laws for Pumps)</h3>
+    <p>For a given pump at constant impeller diameter, changing rotational speed $N$:</p>
+    <div class="formula-card">$$\frac{Q_1}{Q_2} = \frac{N_1}{N_2}, \qquad \frac{H_1}{H_2} = \left(\frac{N_1}{N_2}\right)^2, \qquad \frac{P_1}{P_2} = \left(\frac{N_1}{N_2}\right)^3$$</div>
+
+    <p>For geometrically similar pumps at constant speed, changing impeller diameter $D$:</p>
+    <div class="formula-card">$$\frac{Q_1}{Q_2} = \left(\frac{D_1}{D_2}\right)^3, \qquad \frac{H_1}{H_2} = \left(\frac{D_1}{D_2}\right)^2, \qquad \frac{P_1}{P_2} = \left(\frac{D_1}{D_2}\right)^5$$</div>
+    <ul>
+      <li>Doubling speed: $Q$ doubles, $H$ quadruples, $P$ increases 8×</li>
+      <li>Affinity laws assume efficiency remains constant (valid for small changes)</li>
+    </ul>
+
+    <h3>4.3 NPSH &amp; Cavitation in Pumps</h3>
+    <p>Cavitation in centrifugal pumps occurs at the impeller eye where pressure is lowest. The <strong>Net Positive Suction Head Available (NPSH<sub>A</sub>)</strong> must exceed the pump's required NPSH (NPSH<sub>R</sub>) to prevent cavitation.</p>
+    <div class="formula-card">$$\text{NPSH}_A = \frac{P_{atm}}{\rho g} - \frac{P_v}{\rho g} - h_s - h_{fs}$$</div>
+    <ul>
+      <li>$P_{atm}$ — atmospheric pressure (Pa); $P_v$ — vapour pressure at operating temperature (Pa)</li>
+      <li>$h_s$ — suction lift; $h_{fs}$ — friction loss in suction pipe</li>
+      <li>To avoid cavitation: $\text{NPSH}_A \ge \text{NPSH}_R$ (required, from pump curve)</li>
+      <li>Reducing $h_s$ (install pump lower, closer to sump) and minimising $h_{fs}$ (short, large-diameter suction pipe) improves NPSH margin</li>
+    </ul>
+
+    <h3>4.4 Pump in Series &amp; Parallel</h3>
+    <table>
+      <thead><tr><th>Configuration</th><th>Effect on $H$</th><th>Effect on $Q$</th><th>Use case</th></tr></thead>
+      <tbody>
+        <tr><td>Series (multistage)</td><td>Heads add ($H_{total} = H_1 + H_2$)</td><td>Same $Q$ through each</td><td>High-head requirement</td></tr>
+        <tr><td>Parallel</td><td>Same $H$ across each</td><td>Flows add ($Q_{total} = Q_1 + Q_2$)</td><td>High-flow requirement</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ PART 5 ═══════════════════════════ -->
+    <h2 id="ram">5. Hydraulic Ram</h2>
+
+    <p>A hydraulic ram is a water-powered pump that uses the inertia (water hammer) of a falling supply to raise a smaller fraction of water to a much greater height — with no external power source. It has only two moving parts: the waste valve and the delivery valve.</p>
+
+    <h3>5.1 Operating Principle</h3>
+    <ol>
+      <li>Supply water flows down from reservoir through drive pipe, building velocity</li>
+      <li>Waste valve snaps shut; pressure surge (water hammer) forces delivery valve open</li>
+      <li>Small quantity of water is pumped into air vessel and up the delivery pipe</li>
+      <li>Delivery valve closes; waste valve reopens; cycle repeats (50–100 times per minute)</li>
+    </ol>
+
+    <h3>5.2 Efficiency</h3>
+    <div class="formula-card">$$\eta_\text{D'Aubuisson} = \frac{q\,h}{Q\,H}$$</div>
+    <div class="formula-card">$$\eta_\text{Rankine} = \frac{q\,h}{(Q-q)\,H}$$</div>
+    <ul>
+      <li>$Q$ — total supply flow rate (m³/s); $q$ — delivery (pumped) flow rate (m³/s)</li>
+      <li>$H$ — supply head (m); $h$ — total delivery height above supply reservoir (m)</li>
+      <li>D'Aubuisson's efficiency is based on total supply; Rankine's on wasted supply $(Q-q)$</li>
+      <li>Typical efficiency: 60–80% depending on head ratio $h/H$</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 6 ═══════════════════════════ -->
+    <h2 id="accumulator">6. Hydraulic Accumulator</h2>
+
+    <p>A hydraulic accumulator stores energy in the form of pressurised fluid and releases it rapidly when demand exceeds pump capacity. It acts as an energy buffer, allowing a smaller pump to handle intermittent peak loads.</p>
+
+    <ul>
+      <li>Consists of a vertical cylinder containing a heavy ram (piston) loaded with dead weights</li>
+      <li>Fluid pumped in raises the ram; ram descends under its own weight to deliver fluid at constant pressure</li>
+      <li>Energy stored: $E = P \cdot V_\text{displacement}$ (N·m) where $P = W/A$ (weight on ram / ram area)</li>
+      <li>Applications: hydraulic presses, forging machines, dock gates, cranes</li>
+    </ul>
+
+    <div class="formula-card">$$P = \frac{W}{A} \qquad \text{(pressure maintained by accumulator)}$$</div>
+    <div class="formula-card">$$E = P \cdot A \cdot h = W \cdot h \qquad \text{(energy stored; }h\text{ = ram stroke)}$$</div>
+
+    <!-- ═══════════════════════════ PART 7 ═══════════════════════════ -->
+    <h2 id="intensifier">7. Hydraulic Intensifier</h2>
+
+    <p>A hydraulic intensifier (pressure booster) increases the pressure of a fluid beyond what the supply pump can provide, using differential piston areas. It receives a large volume of low-pressure fluid and outputs a small volume at high pressure.</p>
+
+    <div class="formula-card">$$p_2 A_2 = p_1 A_1 \implies p_2 = p_1\left(\frac{D_1}{D_2}\right)^2$$</div>
+    <ul>
+      <li>$p_1, A_1$ — low-pressure supply and large piston area; $p_2, A_2$ — high-pressure output and small piston area</li>
+      <li>Pressure multiplication factor = $A_1/A_2 = (D_1/D_2)^2$</li>
+      <li>Flow rate is reduced by same ratio: $Q_2 = Q_1 \cdot A_2/A_1$ (power is conserved, minus losses)</li>
+      <li>Applications: hydraulic presses, punching machines, riveting machines</li>
+    </ul>
+
+    <h3>Accumulator vs Intensifier — Distinction</h3>
+    <table>
+      <thead><tr><th>Device</th><th>Function</th><th>Energy source</th><th>Pressure relation</th></tr></thead>
+      <tbody>
+        <tr><td>Accumulator</td><td>Stores and releases energy at constant pressure</td><td>Pump energy stored in weighted ram</td><td>Fixed output pressure = $W/A$</td></tr>
+        <tr><td>Intensifier</td><td>Converts low-pressure high-flow to high-pressure low-flow</td><td>Low-pressure supply fluid</td><td>$p_2 = p_1 \cdot (A_1/A_2)$; variable with supply</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ KEY POINTS ═══════════════════════════ -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Reciprocating pump: single-acting $Q_{th} = ALN/60$; double-acting $Q_{th} = 2ALN/60$. Positive displacement — actual discharge close to theoretical.</li>
+        <li>Slip = $(Q_{th} - Q_{act})/Q_{th} \times 100$. Negative slip ($Q_{act} > Q_{th}$) occurs with short delivery pipes due to inertia keeping delivery valve open.</li>
+        <li>Air vessel smooths pulsating flow of reciprocating pump; placed as close to pump as possible. Reduces friction work and prevents separation on suction side.</li>
+        <li>Centrifugal pump requires priming (filling with liquid before starting) — cannot self-prime if air is present in the casing.</li>
+        <li>Manometric head: $H_m = h_s + h_d + h_{fs} + h_{fd} + V_d^2/2g$. This is the total head the pump must develop.</li>
+        <li>Manometric efficiency: $\eta_{man} = gH_m/(V_{w2}u_2)$. For radial entry: $V_{w1} = 0$, so Euler head $= V_{w2}u_2/g$.</li>
+        <li>Impeller discharge (continuity): $Q = \pi D_1 b_1 V_{f1} = \pi D_2 b_2 V_{f2}$.</li>
+        <li>Pump specific speed: $N_s = N\sqrt{Q}/H_m^{3/4}$. Different from turbine specific speed ($N\sqrt{P}/H^{5/4}$).</li>
+        <li>Affinity laws (speed change): $Q \propto N$, $H \propto N^2$, $P \propto N^3$. Doubling speed: double $Q$, quadruple $H$, 8× power.</li>
+        <li>Affinity laws (diameter change): $Q \propto D^3$, $H \propto D^2$, $P \propto D^5$.</li>
+        <li>NPSH$_A$ must exceed NPSH$_R$ to avoid cavitation. Increase NPSH$_A$ by reducing suction lift $h_s$ or minimising suction pipe friction $h_{fs}$.</li>
+        <li>Series pumps: heads add, same flow. Parallel pumps: flows add, same head. Series for high head; parallel for high flow.</li>
+        <li>Hydraulic ram: no external power; uses water hammer to lift a small $q$ to height $h$ using large $Q$ falling through $H$. D'Aubuisson efficiency = $qh/(QH)$.</li>
+        <li>Hydraulic accumulator: stores energy at constant pressure $p = W/A$ using a weighted ram. Energy stored = $W \times$ stroke length.</li>
+        <li>Hydraulic intensifier: boosts pressure using differential piston areas. $p_2 = p_1(A_1/A_2)$. Flow rate reduced proportionally — power conserved.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Fluid Mechanics Revision Guide
+    </p>
+
+  </div><!-- /.wrap -->
 </body>
 </html>

@@ -3,455 +3,515 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compressible Flow, External Drag & Lift, and Dimensional Analysis — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Compressible Flow, External Drag &amp; Lift, and Dimensional Analysis — Exam Revision Guide — APGENCO / SSC JE</title>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    /* ---------- token system ---------- */
+    :root {
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
+    }
+
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.9;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    /* ---------- submodule nav ---------- */
+    .submodule-nav {
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 11px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a {
+      color: var(--chapter-fg);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .submodule-nav a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- floating nav ---------- */
+    #fnav {
+      position: fixed; top: 10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px;
+      font-weight: 600; transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* ---------- chapter headers (h1 → chapter title) ---------- */
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      line-height: 1.3;
+    }
+
+    /* ---------- section & subsection headings ---------- */
+    h2 {
+      font-family: "Georgia", serif;
+      font-size: 15pt; font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-top: 52px; margin-bottom: 18px;
+      letter-spacing: .01em;
+    }
+    h3 {
+      font-family: "Georgia", serif;
+      font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid);
+      margin-top: 32px; margin-bottom: 10px;
+    }
+    h4 {
+      font-family: "Georgia", serif;
+      font-size: 11.5pt; font-weight: 700;
+      color: var(--ink);
+      margin-top: 22px; margin-bottom: 6px;
+    }
+
+    /* ---------- prose ---------- */
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- lists ---------- */
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+
+    /* ---------- formula cards ---------- */
+    .fc, .formula-card {
+      background: var(--formula-bg);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    /* symbol legend below formula */
+    .sym {
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px;
+      line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* ---------- note callout ---------- */
+    .note {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ---------- key-point box ---------- */
+    .kp, .key-points {
+      background: var(--kp-bg);
+      border: 1px solid var(--kp-bd);
+      border-radius: 7px;
+      padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3 {
+      font-weight: 700; letter-spacing: .02em;
+      margin-bottom: 8px; font-size: 10pt;
+      text-transform: uppercase;
+      color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li { margin-bottom: .28em; }
+
+    /* ---------- comparison / quick-facts table ---------- */
+    table {
+      border-collapse: collapse; width: 100%;
+      margin: 22px 0; background: var(--card);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+
+    /* ---------- MathJax overflow ---------- */
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
+<body>
+  <div id="rbar"></div>
+
+  <!-- floating nav -->
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#compressible">Compressible Flow</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#external">Drag &amp; Lift</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#dimensional">Dimensional Analysis</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+
+    /* floating nav */
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="compressible-flow-external-drag-lift-and-dimensional-analysis-comprehensive-reorganized-study-guide">Compressible Flow, External Drag &amp; Lift, and Dimensional Analysis — Comprehensive Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Compressible Fluid Flow (Mach regimes, speed of sound, normal shocks, 1D steady continuity, adiabatic Bernoulli, nozzle dynamics), Submerged Body Dynamics (streamlined vs bluff bodies, drag &amp; lift coefficients, airfoil stall, Stokes law), and Dimensional &amp; Model Analysis (Buckingham Pi theorem, dimensionless parameters like Reynolds, Froude, Mach, Euler, Weber, and scale modeling laws) for AP GenCo AE, GATE, and SSC JE examinations. High-yield PYQ areas include sonic velocity $c = \sqrt{\gamma R T}$, incompressible flow limit $M &lt; 0.3$, normal shock transition $M_1 &gt; 1 \to M_2 &lt; 1$, nozzle area-velocity relation $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$, Stokes drag on spheres $F_D = 3 \pi \mu d V$, and Froude/Reynolds model scaling laws. All raw file content has been consolidated without losing any theory Q&amp;As or worked examples.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
-<h4 id="1-compressible-flow-mach-number"><strong>1. Compressible Flow &amp; Mach Number</strong></h4>
-<ul>
-<li><strong>Mach Number</strong>:
-  <div class="formula-card">$${\boxed{M = \frac{V}{c} = \sqrt{\frac{\text{Inertia force}}{\text{Elastic force}}}}}$$</div></li>
-<li>Subsonic: $M &lt; 1$</li>
-<li>Sonic: $M = 1$</li>
-<li>Supersonic: $M &gt; 1$</li>
-<li>
-<p>Hypersonic: $M &gt; 5$</p>
-</li>
-<li>
-<p><strong>Sonic Velocity (Speed of Sound)</strong>:
-  <div class="formula-card">$${\boxed{c = \sqrt{\gamma R T} = \sqrt{\frac{K}{\rho}}}}$$</div></p>
-</li>
-<li>$\gamma$: ratio of specific heats ($C_p/C_v \approx 1.4$ for air)</li>
-<li>$R$: specific gas constant ($287 \text{ J/kg}\cdot\text{K}$ for air)</li>
-<li>$T$: absolute temperature $\text{K}$</li>
-<li>
-<p>$K$: bulk modulus of elasticity $\text{Pa}$</p>
-</li>
-<li>
-<p><strong>Incompressible Approximation Criterion</strong>:
-  <div class="formula-card">$${\boxed{M &lt; 0.3} \quad (\text{Density changes } &lt; 5\%)}$$</div></p>
-</li>
-<li>
-<p><strong>1D Steady Compressible Continuity</strong>:
-  <div class="formula-card">$${\boxed{\frac{dA}{A} + \frac{dV}{V} + \frac{d\rho}{\rho} = 0} \quad \implies \quad \rho A V = \text{constant}}$$</div></p>
-</li>
-<li>
-<p><strong>Adiabatic Compressible Bernoulli Equation</strong>:
-  <div class="formula-card">$${\boxed{\frac{\gamma}{\gamma-1} \frac{P}{\rho} + \frac{V^2}{2} + g z = \text{constant}}}$$</div></p>
-</li>
-<li>
-<p><strong>Isothermal Compressible Bernoulli Equation</strong>:
-  <div class="formula-card">$${\boxed{\frac{P}{\rho} \ln P + \frac{V^2}{2} + g z = \text{constant}}}$$</div></p>
-</li>
-<li>
-<p><strong>Area-Velocity Relation for Variable Area Ducts</strong>:
-  <div class="formula-card">$${\boxed{\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}}}$$</div></p>
-</li>
-<li>Subsonic $M &lt; 1$: $dA &lt; 0 \implies dV &gt; 0$ (Convergent duct accelerates flow)</li>
-<li>Supersonic $M &gt; 1$: $dA &gt; 0 \implies dV &gt; 0$ (Divergent duct accelerates flow)</li>
-<li>Throat $M = 1$: $dA = 0$ (Minimum area occurs at sonic state)</li>
-</ul>
-<hr />
-<h4 id="2-external-flow-drag-lift-stokes-law"><strong>2. External Flow: Drag, Lift &amp; Stokes Law</strong></h4>
-<ul>
-<li><strong>Total Drag Force</strong>:
-  <div class="formula-card">$${\boxed{F_D = C_D \cdot \frac{1}{2} \rho A V^2}}$$</div></li>
-<li>$F_D$: total drag force $\text{N}$</li>
-<li>$C_D$: drag coefficient (dimensionless)</li>
-<li>
-<p>$A$: projected frontal area $\text{m}^2$</p>
-</li>
-<li>
-<p><strong>Lift Force</strong>:
-  <div class="formula-card">$${\boxed{F_L = C_L \cdot \frac{1}{2} \rho A V^2}}$$</div></p>
-</li>
-<li>
-<p>$C_L$: lift coefficient (dimensionless)</p>
-</li>
-<li>
-<p><strong>Stokes Law for Low Reynolds Number Sphere ($Re &lt; 0.2$ or $Re &lt; 1.0$)</strong>:
-  <div class="formula-card">$${\boxed{F_D = 3 \pi \mu d V = 6 \pi \mu r V}}$$</div></p>
-</li>
-<li>Friction drag $= 2 \pi \mu d V$ ($2/3$ of total)</li>
-<li>Pressure drag $= \pi \mu d V$ ($1/3$ of total)</li>
-<li>Drag coefficient $C_D = \frac{24}{Re}$</li>
-</ul>
-<hr />
-<h4 id="3-dimensional-model-analysis"><strong>3. Dimensional &amp; Model Analysis</strong></h4>
-<ul>
-<li><strong>Buckingham $\Pi$ Theorem</strong>:</li>
-<li>Number of dimensionless $\Pi$-terms $= n - m$</li>
-<li>$n$: total physical variables</li>
-<li>
-<p>$m$: number of fundamental dimensions $M, L, T \implies m = 3$</p>
-</li>
-<li>
-<p><strong>Model Law Scaling Factors</strong>:</p>
-</li>
-<li><strong>Reynolds Model Law</strong> $\frac{\rho V L}{\mu} = \text{const}$: Viscous forces dominate (pipe flow, submerged submarines).</li>
-<li><strong>Froude Model Law</strong> $\frac{V}{\sqrt{g L}} = \text{const}$: Gravity forces dominate (ships, open channel flow, spillways).</li>
-<li><strong>Mach Model Law</strong> $\frac{V}{c} = \text{const}$: Compressibility forces dominate (supersonic aircraft, missiles).</li>
-<li><strong>Weber Model Law</strong> $\frac{\rho V^2 L}{\sigma} = \text{const}$: Surface tension dominates (droplets, capillary waves).</li>
-<li>
-<p><strong>Euler Model Law</strong> $\frac{V}{\sqrt{\Delta P / \rho}} = \text{const}$: Pressure forces dominate (cavitation, enclosed fluid machinery).</p>
-</li>
-<li>
-<p><strong>Froude Scale Ratios</strong>:</p>
-</li>
-<li>Length ratio: $L_r = \frac{L_p}{L_m}$</li>
-<li>Velocity ratio: $V_r = \sqrt{L_r}$</li>
-<li>Time ratio: $T_r = \sqrt{L_r}$</li>
-<li>Discharge ratio: $Q_r = L_r^{5/2}$</li>
-<li>Force ratio: $F_r = \rho_r L_r^3$</li>
-</ul>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Mach Number $M$</strong>: Ratio of flow velocity to local speed of sound; square root of ratio of inertia force to elastic force.</li>
-<li><strong>Normal Shock Wave</strong>: Extremely thin, irreversible pressure discontinuity across which supersonic flow $M_1 &gt; 1$ abruptly slows down to subsonic flow $M_2 &lt; 1$. Static pressure, temperature, and density jump upward, while stagnation pressure decreases $\Delta s &gt; 0$.</li>
-<li><strong>Stagnation State</strong>: State attained when a gas stream is brought to rest reversibly and adiabatically $V \to 0$.</li>
-<li><strong>Streamlined Body</strong>: Body shaped such that its surface contours closely align with flow streamlines, delaying boundary layer separation and minimizing form (pressure) drag.</li>
-<li><strong>Bluff Body</strong>: Body whose surface geometry causes early boundary layer separation, creating a large turbulent wake and high pressure drag (e.g. flat plate, cylinder, sphere).</li>
-<li><strong>Stall</strong>: Sudden drop in lift force and sharp increase in drag on an airfoil when angle of attack exceeds a critical threshold $\alpha &gt; \alpha_{cr}$.</li>
-<li><strong>Froude Number $Fr$</strong>: Ratio of inertial force to gravity force $Fr = \frac{V}{\sqrt{g L}}$.</li>
-<li><strong>Reynolds Model Law</strong>: Applied when viscous forces dominate flow dynamics $Re_m = Re_p$.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
-<ul>
-<li><strong>Speed of Sound in Standard Air $15^\circ\text{C}$</strong>: $c \approx 340 \text{ m/s}$.</li>
-<li><strong>Air Specific Heat Ratio $\gamma$</strong>: $\gamma = 1.40$.</li>
-<li><strong>Air Gas Constant $R$</strong>: $R = 287 \text{ J/kg}\cdot\text{K}$.</li>
-<li><strong>Incompressible Limit</strong>: $M &lt; 0.3$.</li>
-<li><strong>Stokes Sphere Drag Coefficients</strong>: $C_D = \frac{24}{Re}$, Total Drag $F_D = 3 \pi \mu d V$.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Mach Number</strong>: Introduced in §3.1, used in §3.2 (Nozzles) and §3.4 (Model Laws).</li>
-<li><strong>Boundary Layer Separation</strong>: Introduced in 3_reorganized.md, applied to Bluff vs Streamlined Bodies in §3.3.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-speed-of-sound-compressible-flow-regimes"><strong>3.1 Speed of Sound &amp; Compressible Flow Regimes</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Speed of sound $c = \sqrt{\gamma R T}$ depends strictly on absolute temperature $T$ in Kelvin, NOT pressure.</li>
-<li>Compressibility effects alter fluid density when $M &gt; 0.3$. Below $M = 0.3$, density change is $&lt; 5\%$, allowing incompressible flow assumptions.</li>
-<li>Mach number is the square root of the ratio of inertia force to elastic force $M = \sqrt{\frac{\text{Inertia}}{\text{Elastic}}}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Sonic Speed Formula</strong>: $c = \sqrt{\gamma R T} = \sqrt{\frac{K}{\rho}}$. For air $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$, $c \approx 20.05 \sqrt{T(\text{K})} \text{ m/s}$. Double absolute temperature $\implies c$ increases by $\sqrt{2} \approx 1.414$ times.</p>
-<p>[!TRAP]
-<strong>Celsius vs Kelvin in Sonic Speed</strong>: ALWAYS convert temperature to Kelvin $T(\text{K}) = T(^\circ\text{C}) + 273.15$. Using Celsius directly in $\sqrt{\gamma R T}$ is a major calculation error!</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Compressible Flow Regime?
-├─ M &lt; 0.3 → Incompressible approximation valid (density variation &lt; 5%)
-├─ 0.3 &lt;= M &lt; 1.0 → Subsonic compressible flow
-├─ M = 1.0 → Sonic flow (occurs at throat)
-├─ 1.0 &lt; M &lt; 5.0 → Supersonic flow
-└─ M &gt; 5.0 → Hypersonic flow
-</code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $c = \sqrt{\gamma R T}$ depends on absolute temperature $T(\text{K})$.</li>
-<li>[ ] Mach number $M = V / c$.</li>
-<li>[ ] Inertia / Elastic force ratio $= M^2$.</li>
-<li>[ ] Incompressible limit $M &lt; 0.3$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Calculate the speed of sound in air at $27^\circ\text{C}$ $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${T = 27 + 273 = 300 \text{ K}}$$</div>
-  <div class="formula-card">$${c = \sqrt{\gamma R T} = \sqrt{1.4 \times 287 \times 300} = \sqrt{120540} \approx 347.18 \text{ m/s}}$$</div>
-- <strong>Key Insight</strong>: Always convert $27^\circ\text{C}$ to $300 \text{ K}$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: An aircraft flies at $250 \text{ m/s}$ in air at $-23^\circ\text{C}$ $T = 250 \text{ K}$. Calculate its Mach number $\gamma = 1.4, R = 287 \text{ J/kg}\cdot\text{K}$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${c = \sqrt{1.4 \times 287 \times 250} = \sqrt{100450} \approx 316.93 \text{ m/s}}$$</div>
-  <div class="formula-card">$${M = \frac{V}{c} = \frac{250}{316.93} \approx 0.789 \quad (\text{Subsonic})}$$</div>
-- <strong>Key Insight</strong>: Mach number $M = V / c = 0.789$.</p>
-<hr />
-<h3 id="32-normal-shocks-nozzle-dynamics"><strong>3.2 Normal Shocks &amp; Nozzle Dynamics</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>A normal shock wave occurs ONLY when upstream flow is supersonic $M_1 &gt; 1$.</li>
-<li>Across a normal shock:</li>
-<li>Downstream Mach number becomes subsonic $M_2 &lt; 1$.</li>
-<li>Static pressure $P_2 &gt; P_1$, static temperature $T_2 &gt; T_1$, and density $\rho_2 &gt; \rho_1$ jump upward sharply.</li>
-<li>Flow velocity drops $V_2 &lt; V_1$.</li>
-<li>Total stagnation pressure decreases $P_{02} &lt; P_{01}$ due to irreversible entropy increase $\Delta s &gt; 0$.</li>
-<li>Total stagnation temperature remains constant $T_{02} = T_{01}$ for adiabatic shock.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Area-Velocity Relation</strong>: $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.
-- Subsonic Flow $M &lt; 1$: $(M^2 - 1) &lt; 0 \implies$ Decreasing area $dA &lt; 0$ causes acceleration $dV &gt; 0$. (Convergent Nozzle)
-- Supersonic Flow $M &gt; 1$: $(M^2 - 1) &gt; 0 \implies$ Increasing area $dA &gt; 0$ causes acceleration $dV &gt; 0$. (Divergent Nozzle)
-- Throat $M = 1$: $dA = 0$.</p>
-<p>[!TRAP]
-<strong>Normal Shock Changes</strong>: Static temperature RISES across a normal shock $T_2 &gt; T_1$, but total stagnation temperature remains CONSTANT $T_{02} = T_{01}$. Do not confuse static and stagnation quantities!</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Duct / Shock Wave Problem?
-├─ Convergent Duct Subsonic (M &lt; 1) → Area decreases (dA &lt; 0) -&gt; Velocity increases (dV &gt; 0)
-├─ Divergent Duct Supersonic (M &gt; 1) → Area increases (dA &gt; 0) -&gt; Velocity increases (dV &gt; 0)
-├─ Minimum Area Throat → M = 1 (Sonic state)
-└─ Normal Shock → M1 &gt; 1 -&gt; M2 &lt; 1. P, T, rho jump UP; V, M, P_0 drop DOWN; T_0 CONSTANT
-</code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.</li>
-<li>[ ] Convergent duct accelerates subsonic flow, decelerates supersonic flow.</li>
-<li>[ ] Normal shock: $M_1 &gt; 1 \to M_2 &lt; 1$.</li>
-<li>[ ] Across normal shock: $P_2 &gt; P_1$, $T_2 &gt; T_1$, $V_2 &lt; V_1$, $P_{02} &lt; P_{01}$, $T_{02} = T_{01}$.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Air enters a normal shock at $M_1 = 2.0$, static pressure $P_1 = 50 \text{ kPa}$, static temperature $T_1 = 300 \text{ K}$. Downstream Mach number $M_2 = 0.577$. Calculate the static pressure jump across the shock if $P_2 / P_1 = 4.50$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${P_2 = 4.50 \times P_1 = 4.50 \times 50 = 225 \text{ kPa}}$$</div>
-  <div class="formula-card">$${\Delta P = P_2 - P_1 = 225 - 50 = 175 \text{ kPa}}$$</div>
-- <strong>Key Insight</strong>: Static pressure jumps sharply across a normal shock wave $P_2 &gt; P_1$.</p>
-<hr />
-<h3 id="33-external-flow-streamlined-bodies-drag-lift-stokes-law"><strong>3.3 External Flow: Streamlined Bodies, Drag, Lift &amp; Stokes Law</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Total Drag = Friction Drag (viscous shear) + Pressure Drag (form drag from wake).</li>
-<li>Streamlined body: Thin wake, small pressure drag; friction drag dominates.</li>
-<li>Bluff body: Broad wake, large pressure drag; pressure drag dominates.</li>
-<li>Stokes Law applies to creeping flow past a sphere ($Re &lt; 0.2$ or $Re &lt; 1.0$):</li>
-<li>Total Drag $F_D = 3 \pi \mu d V$.</li>
-<li>Friction Drag $= 2 \pi \mu d V$ ($66.7\%$ of total).</li>
-<li>Pressure Drag $= \pi \mu d V$ ($33.3\%$ of total).</li>
-<li>Drag Coefficient $C_D = \frac{24}{Re}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stokes Law Breakdown</strong>: Total sphere drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$. Friction drag contributes $\frac{2}{3}$ of total drag, while pressure drag contributes $\frac{1}{3}$.</p>
-<p>[!TRAP]
-<strong>Airfoil Stall</strong>: Stall is caused by boundary layer separation on the upper (suction) surface of the airfoil at high angles of attack, resulting in a sudden DROP in lift and STEEP RISE in drag.</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>External Drag / Lift Problem?
-├─ Body Geometry → Streamlined (Friction Drag Dominates) vs Bluff (Pressure Drag Dominates)
-├─ Creeping Sphere Flow (Re &lt; 0.2) → Stokes Law: F_D = 3*pi*mu*d*V, C_D = 24/Re
-├─ Flat Plate Normal to Flow → Pure Pressure Drag (Friction Drag = 0)
-└─ Airfoil Stall → Angle of attack &gt; alpha_cr -&gt; Separation -&gt; Lift drops, Drag surges
-</code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Total Drag $F_D = C_D \cdot \frac{1}{2} \rho A V^2$.</li>
-<li>[ ] Lift Force $F_L = C_L \cdot \frac{1}{2} \rho A V^2$.</li>
-<li>[ ] Stokes sphere drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$.</li>
-<li>[ ] Stokes drag breakdown: Friction $= 2/3$, Pressure $= 1/3$, $C_D = 24/Re$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A tiny sphere of diameter $2 \text{ mm}$ falls through oil $\mu = 0.5 \text{ Pa}\cdot\text{s}$ at a terminal velocity of $0.01 \text{ m/s}$. Calculate the total drag force on the sphere.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${F_D = 3 \pi \mu d V = 3 \times \pi \times 0.5 \times (0.002) \times 0.01 = 3 \pi \times 10^{-5} \approx 9.425 \times 10^{-5} \text{ N} = 94.25 \ \mu\text{N}}$$</div>
-- <strong>Key Insight</strong>: Use Stokes Law formula $F_D = 3 \pi \mu d V$ for very low velocity flows past tiny spheres.</p>
-<hr />
-<h3 id="34-dimensional-analysis-model-testing-laws"><strong>3.4 Dimensional Analysis &amp; Model Testing Laws</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Buckingham $\Pi$ Theorem: If a physical process involves $n$ variables expressed in $m$ fundamental dimensions $M, L, T$, the relationship can be expressed with $n - m$ independent dimensionless $\Pi$-terms.</li>
-<li>Model Similarity requires Geometric, Kinematic, and Dynamic similarity.</li>
-<li>Model Laws:</li>
-<li>Reynolds Law $Re_m = Re_p$: Pipe flow, submarine, fully submerged bodies.</li>
-<li>Froude Law $Fr_m = Fr_p$: Open channel flow, ships, spillways, wave action.</li>
-<li>Mach Law $M_m = M_p$: High-speed aircraft, missiles.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Froude Model Scaling Relations</strong> $Fr_m = Fr_p \implies \frac{V_m}{\sqrt{g L_m}} = \frac{V_p}{\sqrt{g L_p}}$:
-- Length ratio: $L_r = \frac{L_p}{L_m}$
-- Velocity ratio: $V_r = \sqrt{L_r}$
-- Time ratio: $T_r = \sqrt{L_r}$
-- Discharge ratio: $Q_r = A_r V_r = L_r^2 \cdot L_r^{1/2} = L_r^{5/2}$
-- Force ratio: $F_r = \rho_r L_r^3$</p>
-<p>[!TRAP]
-<strong>Selecting Model Laws</strong>:
-- Viscous forces dominate $\implies$ Reynolds Law $Re$.
-- Gravity / free surface dominates $\implies$ Froude Law $Fr$.
-- Surface tension dominates $\implies$ Weber Law $We$.
-- Compressibility dominates $\implies$ Mach Law $M$.</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>Model Law Selection?
-├─ Open channel / Ships / Spillways → Froude Law (Fr = V / sqrt(g*L)). Q_r = L_r^(5/2), V_r = sqrt(L_r)
-├─ Submarines / Pipe Flow / Aircraft Low Speed → Reynolds Law (Re = rho*V*L / mu)
-├─ Supersonic Aircraft / Missiles → Mach Law (M = V / c)
-└─ Capillary / Droplets → Weber Law (We = rho*V^2*L / sigma)
-</code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Buckingham $\Pi$ terms $= n - m$.</li>
-<li>[ ] Froude Law $V_r = \sqrt{L_r}$, $Q_r = L_r^{5/2}$.</li>
-<li>[ ] Reynolds Law $V_r = \nu_r / L_r$.</li>
-<li>[ ] Geometric (shape), Kinematic (velocity field), Dynamic (force field) similarity.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A $1:25$ scale model of a spillway is tested. If the prototype discharge is $2500 \text{ m}^3/\text{s}$, calculate the required model discharge using Froude Model Law.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${L_r = 25}$$</div>
-  <div class="formula-card">$${Q_r = \frac{Q_p}{Q_m} = L_r^{5/2} = (25)^{5/2} = (5^2)^{5/2} = 5^5 = 3125}$$</div>
-  <div class="formula-card">$${Q_m = \frac{Q_p}{3125} = \frac{2500}{3125} = 0.80 \text{ m}^3/\text{s}}$$</div>
-- <strong>Key Insight</strong>: Under Froude Law, discharge scales as $Q_r = L_r^{5/2}$.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1. How is Mach number defined?</strong><br />
-A: Ratio of local flow velocity to local speed of sound $M = V / c$. It is the square root of the ratio of inertia force to elastic force.</p>
-<p><strong>Q2. At what Mach number can compressibility effects be safely neglected?</strong><br />
-A: Below $M = 0.3$, where fluid density variations remain under $5\%$.</p>
-<p><strong>Q3. What is the formula for the speed of sound in an ideal gas under isentropic conditions?</strong><br />
-A: $c = \sqrt{\gamma R T}$, where $T$ is absolute temperature in Kelvin.</p>
-<p><strong>Q4. What type of flow is required upstream for a normal shock wave to occur?</strong><br />
-A: Upstream flow MUST be supersonic $M_1 &gt; 1$.</p>
-<p><strong>Q5. How do static pressure and Mach number change across a normal shock wave?</strong><br />
-A: Static pressure jumps upward $P_2 &gt; P_1$, while Mach number drops below unity ($M_2 &lt; 1$, subsonic).</p>
-<p><strong>Q6. What happens to stagnation pressure across a normal shock wave?</strong><br />
-A: Stagnation pressure decreases $P_{02} &lt; P_{01}$ due to irreversible entropy generation across the shock.</p>
-<p><strong>Q7. What is the area-velocity relation for variable-area compressible duct flow?</strong><br />
-A: $\frac{dA}{A} = (M^2 - 1) \frac{dV}{V}$.</p>
-<p><strong>Q8. How does a convergent duct affect subsonic vs supersonic flow?</strong><br />
-A: A convergent duct accelerates subsonic flow $M &lt; 1$, but decelerates supersonic flow $M &gt; 1$.</p>
-<p><strong>Q9. Where does sonic condition $M = 1$ occur in a converging-diverging nozzle?</strong><br />
-A: At the minimum cross-sectional area (the throat).</p>
-<p><strong>Q10. What is a streamlined body?</strong><br />
-A: A body whose geometric shape conforms closely to flow streamlines, suppressing boundary layer separation and minimizing form (pressure) drag.</p>
-<p><strong>Q11. What is a bluff body?</strong><br />
-A: A body whose geometry causes early boundary layer separation, creating a large turbulent wake and high pressure drag.</p>
-<p><strong>Q12. State Stokes Law for low Reynolds number creeping flow past a sphere.</strong><br />
-A: Total drag $F_D = 3 \pi \mu d V = 6 \pi \mu r V$, where friction drag is $2/3$ and pressure drag is $1/3$ of the total.</p>
-<p><strong>Q13. What causes airfoil stall?</strong><br />
-A: Severe boundary layer separation on the upper suction surface when angle of attack exceeds the critical angle $\alpha_{cr}$.</p>
-<p><strong>Q14. State Buckingham's $\Pi$ theorem.</strong><br />
-A: If a physical relationship involves $n$ variables expressed in $m$ fundamental dimensions, it can be grouped into $n - m$ independent dimensionless $\Pi$-terms.</p>
-<p><strong>Q15. Which model law governs open channel and ship model testing?</strong><br />
-A: Froude Model Law $Fr_m = Fr_p$, where gravity forces dominate free-surface flow.</p>
-<hr />
-<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
-<ul>
-<li><strong>Note on Speed of Sound &amp; Temperature</strong>:</li>
-<li>$c = \sqrt{\gamma R T}$ depends strictly on absolute temperature $T$ (Kelvin). Density and pressure changes do not alter $c$ for an ideal gas at constant temperature.</li>
-<li><strong>Note on Shock Waves</strong>:</li>
-<li>Normal shocks ONLY occur in supersonic flow $M_1 &gt; 1$. Downstream flow is always subsonic $M_2 &lt; 1$. Static pressure, static temperature, and density INCREASE; total stagnation pressure DECREASES.</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize Speed of Sound: $c = \sqrt{\gamma R T} = \sqrt{K/\rho}$. Air $c \approx 20.05 \sqrt{T(\text{K})}$.</li>
-<li>[ ] Memorize Incompressible Limit: $M &lt; 0.3$.</li>
-<li>[ ] Memorize Area-Velocity Relation: $\frac{dA}{A} = (M^2-1)\frac{dV}{V}$. Subsonic converges to accelerate; Supersonic diverges to accelerate.</li>
-<li>[ ] Memorize Normal Shock Jumps: $M_1 &gt; 1 \to M_2 &lt; 1$. $P_2 &gt; P_1, T_2 &gt; T_1, \rho_2 &gt; \rho_1, V_2 &lt; V_1, P_{02} &lt; P_{01}, T_{02} = T_{01}$.</li>
-<li>[ ] Memorize Stokes Drag: Total $F_D = 3 \pi \mu d V$, Friction $= 2 \pi \mu d V$, Pressure $= \pi \mu d V$, $C_D = \frac{24}{Re}$.</li>
-<li>[ ] Memorize Buckingham Pi: Number of $\Pi$ terms $= n - m$.</li>
-<li>[ ] Memorize Froude Scaling Ratios: $V_r = \sqrt{L_r}$, $Q_r = L_r^{5/2}$.</li>
-</ul>
-  </div>
+      <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Compressible Flow, External Flow &amp; Dimensional Analysis<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Mach Regimes &middot; Normal Shocks &middot; Drag &amp; Lift &middot; Buckingham Pi Theorem<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical
+      </span>
+    </h1>
+
+    <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
+    <h2 id="compressible">1. Compressible Flow &amp; Mach Number</h2>
+
+    <p>When a fluid's density changes significantly with pressure — typically gases at high speeds — the flow is compressible. The Mach number $M$ is the key parameter governing compressible flow behaviour.</p>
+
+    <div class="formula-card">$$M = \frac{V}{c}, \qquad c = \sqrt{\gamma R T} = \sqrt{\frac{K}{\rho}}$$</div>
+    <ul>
+      <li>$V$ — flow velocity (m/s); $c$ — local speed of sound (m/s)</li>
+      <li>$\gamma = C_p/C_v$ — ratio of specific heats (≈ 1.4 for air, diatomic gases)</li>
+      <li>$R$ — specific gas constant (287 J/kg·K for air); $T$ — absolute temperature (K)</li>
+    </ul>
+
+    <table>
+      <thead><tr><th>Flow regime</th><th>Mach number</th><th>Behaviour</th></tr></thead>
+      <tbody>
+        <tr><td>Incompressible</td><td>$M < 0.3$</td><td>Density change &lt; 5%; Bernoulli applicable</td></tr>
+        <tr><td>Subsonic</td><td>$0.3 \le M < 1$</td><td>Compressibility matters; no shock waves</td></tr>
+        <tr><td>Transonic</td><td>$M \approx 1$</td><td>Mixed sub/supersonic regions</td></tr>
+        <tr><td>Sonic</td><td>$M = 1$</td><td>Flow velocity equals speed of sound</td></tr>
+        <tr><td>Supersonic</td><td>$1 < M < 5$</td><td>Shock waves possible; pressure signals can't propagate upstream</td></tr>
+        <tr><td>Hypersonic</td><td>$M > 5$</td><td>Extreme compressibility and heating effects</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.1 Area-Velocity Relation (Variable Area Ducts)</h3>
+    <p>For isentropic, 1D, steady compressible flow in a variable-area duct, differentiating the continuity equation $\rho AV = \text{const}$ gives:</p>
+    <div class="formula-card">$$\frac{dA}{A} = (M^2 - 1)\frac{dV}{V}$$</div>
+
+    <table>
+      <thead><tr><th>Duct geometry</th><th>Mach regime</th><th>Velocity change</th></tr></thead>
+      <tbody>
+        <tr><td>Converging ($dA < 0$)</td><td>Subsonic ($M < 1$)</td><td>Accelerates ($dV > 0$)</td></tr>
+        <tr><td>Diverging ($dA > 0$)</td><td>Subsonic ($M < 1$)</td><td>Decelerates ($dV < 0$)</td></tr>
+        <tr><td>Converging ($dA < 0$)</td><td>Supersonic ($M > 1$)</td><td>Decelerates ($dV < 0$)</td></tr>
+        <tr><td>Diverging ($dA > 0$)</td><td>Supersonic ($M > 1$)</td><td>Accelerates ($dV > 0$)</td></tr>
+        <tr><td>Throat ($dA = 0$)</td><td>Sonic ($M = 1$)</td><td>Minimum area; transition point</td></tr>
+      </tbody>
+    </table>
+
+    <p>To accelerate flow from subsonic to supersonic, a <strong>converging-diverging (de Laval) nozzle</strong> is required — flow accelerates in the converging section to $M = 1$ at the throat, then continues to accelerate in the diverging section.</p>
+
+    <h3>1.2 Compressible Bernoulli Equations</h3>
+    <h4>Adiabatic (isentropic) process:</h4>
+    <div class="formula-card">$$\frac{\gamma}{\gamma-1}\frac{P}{\rho} + \frac{V^2}{2} + gz = \text{constant}$$</div>
+
+    <h4>Isothermal process (constant temperature):</h4>
+    <div class="formula-card">$$\frac{P}{\rho}\ln P + \frac{V^2}{2} + gz = \text{constant}$$</div>
+
+    <h3>1.3 Normal Shock Waves</h3>
+    <p>A normal shock wave is an extremely thin, irreversible discontinuity that forms in supersonic flow. Across the shock, supersonic flow ($M_1 > 1$) abruptly becomes subsonic ($M_2 < 1$). The following changes occur:</p>
+    <ul>
+      <li>Static pressure, temperature, and density all increase sharply</li>
+      <li>Stagnation pressure decreases (irreversible process; entropy increases)</li>
+      <li>Stagnation temperature remains constant (adiabatic)</li>
+      <li>Velocity decreases; flow becomes subsonic downstream</li>
+    </ul>
+
+    <h3>1.4 Stagnation Properties</h3>
+    <p>Stagnation (total) state is reached when flow is brought to rest isentropically. Stagnation temperature $T_0$ and pressure $P_0$ are constant in isentropic flow:</p>
+    <div class="formula-card">$$T_0 = T + \frac{V^2}{2C_p} = T\left(1 + \frac{\gamma-1}{2}M^2\right)$$</div>
+    <div class="formula-card">$$\frac{P_0}{P} = \left(1 + \frac{\gamma-1}{2}M^2\right)^{\gamma/(\gamma-1)}$$</div>
+
+    <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
+    <h2 id="external">2. External Flow — Drag, Lift &amp; Stokes Law</h2>
+
+    <p>External flow refers to flow over immersed bodies. The key forces are drag (in flow direction) and lift (perpendicular to flow).</p>
+
+    <h3>2.1 Drag &amp; Lift Forces</h3>
+    <div class="formula-card">$$F_D = C_D \cdot \frac{1}{2}\rho A V^2, \qquad F_L = C_L \cdot \frac{1}{2}\rho A V^2$$</div>
+    <ul>
+      <li>$A$ — projected frontal area (m²) for bluff bodies; planform area for airfoils</li>
+      <li>$C_D$, $C_L$ — drag and lift coefficients (dimensionless; depend on shape, $Re$, angle of attack)</li>
+    </ul>
+
+    <h4>Total drag = Friction drag + Pressure (form) drag</h4>
+    <ul>
+      <li><strong>Streamlined bodies</strong> (airfoil, torpedo): friction drag dominates; boundary layer stays attached</li>
+      <li><strong>Bluff bodies</strong> (sphere, cylinder, flat plate normal to flow): pressure drag dominates; large separated wake</li>
+    </ul>
+
+    <h3>2.2 Stokes Law (Creeping Flow over a Sphere)</h3>
+    <p>For very slow flow over a sphere ($Re < 0.2$ strictly; $Re < 1$ approximately), inertia is negligible and Stokes's law gives:</p>
+    <div class="formula-card">$$F_D = 3\pi\mu d V = 6\pi\mu r V$$</div>
+    <div class="formula-card">$$C_D = \frac{24}{Re} \qquad (Re < 0.2)$$</div>
+    <ul>
+      <li>$d$ — sphere diameter; $r$ — sphere radius; $V$ — free-stream velocity</li>
+      <li>Friction drag = 2/3 of total; pressure drag = 1/3 of total</li>
+      <li>Terminal velocity of a falling sphere: $V_t = \frac{(\rho_s - \rho_f)gd^2}{18\mu}$ (from $F_D = W - F_B$)</li>
+    </ul>
+
+    <h3>2.3 Drag Coefficient Variations</h3>
+    <table>
+      <thead><tr><th>Body</th><th>$C_D$ (approx.)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Sphere ($Re \approx 10^5$)</td><td>≈ 0.47</td><td>Sudden drop at $Re \approx 5\times10^5$ (turbulent BL)</td></tr>
+        <tr><td>Long cylinder</td><td>≈ 1.2</td><td>Based on projected area per unit length</td></tr>
+        <tr><td>Flat plate (normal)</td><td>≈ 1.9–2.0</td><td>Maximum form drag; fully separated</td></tr>
+        <tr><td>Streamlined airfoil</td><td>≈ 0.01–0.04</td><td>Minimum drag; friction-dominated</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
+    <h2 id="dimensional">3. Dimensional Analysis &amp; Model Testing</h2>
+
+    <h3>3.1 Buckingham Pi Theorem</h3>
+    <p>If a physical phenomenon involves $n$ variables and $m$ fundamental dimensions ($M$, $L$, $T$ — giving $m = 3$), the relationship can be expressed using $(n - m)$ independent dimensionless $\Pi$-groups.</p>
+    <div class="formula-card">$$\text{Number of }\Pi\text{-groups} = n - m$$</div>
+    <ul>
+      <li>Choose $m$ repeating variables (must together contain all $m$ dimensions)</li>
+      <li>Combine each remaining variable with the repeating set to form a $\Pi$-group</li>
+      <li>Express the physical law as $f(\Pi_1, \Pi_2, \ldots) = 0$</li>
+    </ul>
+
+    <h3>3.2 Important Dimensionless Numbers</h3>
+    <table>
+      <thead><tr><th>Number</th><th>Formula</th><th>Force ratio</th><th>Governs</th></tr></thead>
+      <tbody>
+        <tr><td>Reynolds $Re$</td><td>$\rho VL/\mu$</td><td>Inertia / Viscous</td><td>Pipe flow, submerged bodies, viscous effects</td></tr>
+        <tr><td>Froude $Fr$</td><td>$V/\sqrt{gL}$</td><td>Inertia / Gravity</td><td>Free surface flow, ships, spillways, open channels</td></tr>
+        <tr><td>Mach $M$</td><td>$V/c$</td><td>Inertia / Elastic</td><td>Compressible flow, high-speed aerodynamics</td></tr>
+        <tr><td>Weber $We$</td><td>$\rho V^2 L/\sigma$</td><td>Inertia / Surface tension</td><td>Droplets, bubbles, capillary waves</td></tr>
+        <tr><td>Euler $Eu$</td><td>$\Delta P/(\rho V^2)$</td><td>Pressure / Inertia</td><td>Cavitation, enclosed machinery, pressure-dominated flow</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.3 Model Similarity Laws</h3>
+    <p>For a model to reproduce prototype behaviour, the governing dimensionless number must be equal in model and prototype (dynamic similarity). Complete similarity requires geometric, kinematic, and dynamic similarity simultaneously — often impossible in practice, so the most important force is matched.</p>
+
+    <table>
+      <thead><tr><th>Similarity law</th><th>Condition</th><th>Applied when</th></tr></thead>
+      <tbody>
+        <tr><td>Reynolds similarity</td><td>$Re_m = Re_p$</td><td>Viscous forces dominate: pipe flow, submerged submarines, wind tunnels</td></tr>
+        <tr><td>Froude similarity</td><td>$Fr_m = Fr_p$</td><td>Gravity forces dominate: ships, spillways, open channel hydraulics</td></tr>
+        <tr><td>Mach similarity</td><td>$M_m = M_p$</td><td>Compressibility dominates: supersonic aircraft, missiles</td></tr>
+        <tr><td>Weber similarity</td><td>$We_m = We_p$</td><td>Surface tension dominates: spray nozzles, droplet formation</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.4 Froude Scale Ratios</h3>
+    <p>For hydraulic models operating under Froude similarity (gravity forces dominant, e.g. spillways, rivers, ships), if the length scale ratio is $L_r = L_p/L_m$:</p>
+
+    <table>
+      <thead><tr><th>Quantity</th><th>Scale ratio</th></tr></thead>
+      <tbody>
+        <tr><td>Velocity</td><td>$V_r = \sqrt{L_r}$</td></tr>
+        <tr><td>Time</td><td>$T_r = \sqrt{L_r}$</td></tr>
+        <tr><td>Discharge</td><td>$Q_r = L_r^{5/2}$</td></tr>
+        <tr><td>Force</td><td>$F_r = \rho_r L_r^3$ (= $L_r^3$ if same fluid)</td></tr>
+        <tr><td>Pressure</td><td>$P_r = \rho_r L_r$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ KEY POINTS ═══════════════════════════ -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>$M = V/c$; $c = \sqrt{\gamma RT}$. For air: $\gamma = 1.4$, $R = 287$ J/kg·K. Flow is incompressible when $M < 0.3$ (density change < 5%).</li>
+        <li>Area-velocity relation: $(dA/A) = (M^2-1)(dV/V)$. Subsonic: converging duct accelerates; diverging decelerates. Supersonic: opposite — diverging duct accelerates.</li>
+        <li>To achieve supersonic flow from rest requires a converging-diverging (de Laval) nozzle. Throat area is where $M = 1$ (sonic).</li>
+        <li>Normal shock: supersonic ($M_1 > 1$) → subsonic ($M_2 < 1$). Pressure, temperature, density all jump. Stagnation pressure drops (irreversible). Stagnation temperature is unchanged (adiabatic).</li>
+        <li>Stokes law for sphere: $F_D = 3\pi\mu dV$; valid for $Re < 0.2$. Friction drag = 2/3 total; pressure drag = 1/3 total. $C_D = 24/Re$.</li>
+        <li>Drag and lift: $F = C \cdot \tfrac{1}{2}\rho A V^2$. $C_D$ depends on body shape and $Re$. Streamlined body: friction drag dominates. Bluff body: form (pressure) drag dominates.</li>
+        <li>Buckingham Pi theorem: $(n - m)$ dimensionless groups from $n$ variables and $m$ fundamental dimensions. $m = 3$ for $M$, $L$, $T$ systems.</li>
+        <li>Reynolds similarity: viscous forces match ($Re_m = Re_p$). Used for submerged models, pipe flow, low-speed wind tunnel tests.</li>
+        <li>Froude similarity: gravity forces match ($Fr_m = Fr_p$). Used for ships, spillways, open channels. Velocity scales as $\sqrt{L_r}$; discharge as $L_r^{5/2}$.</li>
+        <li>Mach similarity: compressibility matches ($M_m = M_p$). Used for supersonic wind tunnels and high-speed aerodynamics.</li>
+        <li>Reynolds and Froude similarity cannot both be satisfied simultaneously using the same fluid — a fundamental conflict in hydraulic model testing.</li>
+        <li>Drag coefficient of sphere drops sharply at $Re \approx 5\times10^5$ (transition to turbulent BL reduces separation-induced pressure drag — the "drag crisis").</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Fluid Mechanics Revision Guide
+    </p>
+
+  </div><!-- /.wrap -->
 </body>
 </html>

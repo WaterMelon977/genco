@@ -3,499 +3,523 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impact of Jets, Hydraulic Turbines & Water Hammer — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Impact of Jets, Water Hammer &amp; Hydraulic Turbines — Exam Revision Guide — APGENCO / SSC JE</title>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    /* ---------- token system ---------- */
+    :root {
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
+    }
+
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.9;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    /* ---------- submodule nav ---------- */
+    .submodule-nav {
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 11px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a {
+      color: var(--chapter-fg);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .submodule-nav a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- floating nav ---------- */
+    #fnav {
+      position: fixed; top: 10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px;
+      font-weight: 600; transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* ---------- chapter headers (h1 → chapter title) ---------- */
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      line-height: 1.3;
+    }
+
+    /* ---------- section & subsection headings ---------- */
+    h2 {
+      font-family: "Georgia", serif;
+      font-size: 15pt; font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-top: 52px; margin-bottom: 18px;
+      letter-spacing: .01em;
+    }
+    h3 {
+      font-family: "Georgia", serif;
+      font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid);
+      margin-top: 32px; margin-bottom: 10px;
+    }
+    h4 {
+      font-family: "Georgia", serif;
+      font-size: 11.5pt; font-weight: 700;
+      color: var(--ink);
+      margin-top: 22px; margin-bottom: 6px;
+    }
+
+    /* ---------- prose ---------- */
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- lists ---------- */
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+
+    /* ---------- formula cards ---------- */
+    .fc, .formula-card {
+      background: var(--formula-bg);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    /* symbol legend below formula */
+    .sym {
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px;
+      line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* ---------- note callout ---------- */
+    .note {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ---------- key-point box ---------- */
+    .kp, .key-points {
+      background: var(--kp-bg);
+      border: 1px solid var(--kp-bd);
+      border-radius: 7px;
+      padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3 {
+      font-weight: 700; letter-spacing: .02em;
+      margin-bottom: 8px; font-size: 10pt;
+      text-transform: uppercase;
+      color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li { margin-bottom: .28em; }
+
+    /* ---------- comparison / quick-facts table ---------- */
+    table {
+      border-collapse: collapse; width: 100%;
+      margin: 22px 0; background: var(--card);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+
+    /* ---------- MathJax overflow ---------- */
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
+<body>
+  <div id="rbar"></div>
+
+  <!-- floating nav -->
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#jets">Impact of Jets</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#hammer">Water Hammer &amp; Surge Tank</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#turbines">Hydraulic Turbines</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+
+    /* floating nav */
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="impact-of-jets-hydraulic-turbines-water-hammer-comprehensive-reorganized-study-guide">Impact of Jets, Hydraulic Turbines &amp; Water Hammer — Comprehensive Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Impact of Water Jets (flat/inclined/curved plates, moving vanes), Water Hammer &amp; Penstock Protection (surge tanks, valve closure criteria), and Classification, Design &amp; Performance of Hydraulic Turbines (Pelton wheel impulse turbine, Francis mixed-flow turbine, Kaplan axial-flow turbine, draft tube energy recovery, cavitation prevention, and specific speed scaling) for AP GenCo AE, GATE, and SSC JE examinations. High-yield PYQ areas include jet impact force $F = \rho A V^2$ (stationary) and $F = \rho A (V-u)^2$ (moving), Pelton wheel maximum efficiency condition $u = V/2 \implies \eta_{h,\max} = \frac{1+\cos\phi}{2}$, turbine specific speed $N_s = \frac{N \sqrt{P}}{H^{5/4}}$, draft tube kinetic head recovery, and cavitation prevention at runner outlets. All initial raw file content has been consolidated without losing any theory Q&amp;As or worked examples.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
-<h4 id="1-impact-of-jets"><strong>1. Impact of Jets</strong></h4>
-<ul>
-<li><strong>Fixed Normal Flat Plate</strong>:
-  <div class="formula-card">$${\boxed{F = \rho A V^2}}$$</div></li>
-<li>$F$: normal force on plate $\text{N}$</li>
-<li>$\rho$: fluid mass density $\text{kg/m}^3$</li>
-<li>$A$: jet cross-sectional area $\text{m}^2$</li>
-<li>
-<p>$V$: jet velocity $\text{m/s}$</p>
-</li>
-<li>
-<p><strong>Moving Normal Flat Plate (velocity $u$)</strong>:
-  <div class="formula-card">$${\boxed{F = \rho A (V - u)^2}}$$</div>
-  <div class="formula-card">$${\text{Work Done / sec} = F \cdot u = \rho A (V - u)^2 u}$$</div></p>
-</li>
-<li>
-<p><strong>Series of Moving Flat Vanes on Wheel</strong>:
-  <div class="formula-card">$${\boxed{F = \rho A V (V - u)}}$$</div>
-  <div class="formula-card">$${\text{Efficiency } \eta = \frac{2 u (V - u)}{V^2} \quad \implies \quad \eta_{\max} = 50\% \quad \text{at } u = \frac{V}{2}}$$</div></p>
-</li>
-<li>
-<p><strong>Fixed Inclined Flat Plate (angle $\theta$ to plate surface)</strong>:
-  <div class="formula-card">$${\boxed{F_n = \rho A V^2 \sin\theta}}$$</div></p>
-</li>
-<li>
-<p><strong>Moving Curved Vane (Central Impact)</strong>:
-  <div class="formula-card">$${\boxed{F_x = \rho A (V - u)^2 (1 + \cos\phi)}}$$</div></p>
-</li>
-<li>$\phi$: vane exit deflecting angle</li>
-</ul>
-<hr />
-<h4 id="2-water-hammer-surge-tank"><strong>2. Water Hammer &amp; Surge Tank</strong></h4>
-<ul>
-<li><strong>Critical Valve Closure Time</strong>:
-  <div class="formula-card">$${\boxed{t_{\text{cr}} = \frac{2 L}{C}}}$$</div></li>
-<li>Gradual Closure: $t &gt; \frac{2L}{C}$</li>
-<li>Sudden Closure: $t \le \frac{2L}{C}$</li>
-<li>$L$: penstock length $\text{m}$</li>
-<li>$C$: acoustic pressure wave speed $\text{m/s}$</li>
-</ul>
-<hr />
-<h4 id="3-hydraulic-turbines-specific-speed"><strong>3. Hydraulic Turbines &amp; Specific Speed</strong></h4>
-<ul>
-<li><strong>Turbine Specific Speed $N_s$</strong>:
-  <div class="formula-card">$${\boxed{N_s = \frac{N \sqrt{P}}{H^{5/4}}}}$$</div></li>
-<li>$N$: rotational speed $\text{rpm}$</li>
-<li>$P$: shaft power output $\text{kW}$</li>
-<li>
-<p>$H$: net working head $\text{m}$</p>
-</li>
-<li>
-<p><strong>Specific Speed Ranges (SI/Metric Units)</strong>:</p>
-</li>
-<li>Single-Jet Pelton: $N_s = 8 - 30$</li>
-<li>Multi-Jet Pelton: $N_s = 30 - 70$</li>
-<li>Francis Turbine: $N_s = 50 - 300$</li>
-<li>
-<p>Kaplan / Propeller Turbine: $N_s = 300 - 1000$</p>
-</li>
-<li>
-<p><strong>Turbine Head &amp; Unit Quantities</strong>:
-  <div class="formula-card">$${\boxed{N_u = \frac{N}{\sqrt{H}}, \quad Q_u = \frac{Q}{\sqrt{H}}, \quad P_u = \frac{P}{H^{3/2}}}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="4-pelton-wheel-impulse-turbine"><strong>4. Pelton Wheel (Impulse Turbine)</strong></h4>
-<ul>
-<li>
-<p><strong>Jet Velocity</strong>:
-  <div class="formula-card">$${\boxed{V_1 = C_v \sqrt{2 g H}}}$$</div></p>
-</li>
-<li>
-<p><strong>Bucket Speed</strong>:
-  <div class="formula-card">$${\boxed{u = \phi \sqrt{2 g H}} \quad (\phi \approx 0.43 - 0.48)}$$</div></p>
-</li>
-<li>
-<p><strong>Maximum Hydraulic Efficiency</strong>:
-  <div class="formula-card">$${\boxed{\eta_{h,\max} = \frac{1 + \cos\phi}{2} \quad \text{occurring at } u = \frac{V_1}{2}}}$$</div></p>
-</li>
-<li>
-<p><strong>Number of Buckets (Taygun's Formula)</strong>:
-  <div class="formula-card">$${\boxed{Z = 15 + \frac{D}{2d} = 15 + \frac{m}{2}}}$$</div></p>
-</li>
-<li>$m$: jet ratio $\frac{D}{d} \approx 11 - 15$</li>
-</ul>
-<hr />
-<h4 id="5-francis-kaplan-turbines-reaction-turbines"><strong>5. Francis &amp; Kaplan Turbines (Reaction Turbines)</strong></h4>
-<ul>
-<li>
-<p><strong>Francis Discharge</strong>:
-  <div class="formula-card">$${\boxed{Q = \pi D_1 B_1 V_{f1} = \pi D_2 B_2 V_{f2}}}$$</div></p>
-</li>
-<li>
-<p><strong>Kaplan Discharge</strong>:
-  <div class="formula-card">$${\boxed{Q = \frac{\pi}{4} (D_o^2 - D_b^2) V_f}}$$</div></p>
-</li>
-<li>$D_o$: runner outer tip diameter $\text{m}$</li>
-<li>
-<p>$D_b$: runner hub/boss diameter $\text{m}$</p>
-</li>
-<li>
-<p><strong>Francis Hydraulic Efficiency (Radial Outlet, $V_{w2} = 0$)</strong>:
-  <div class="formula-card">$${\boxed{\eta_h = \frac{V_{w1} u_1}{g H}}}$$</div></p>
-</li>
-<li>
-<p><strong>Draft Tube Energy Efficiency</strong>:
-  <div class="formula-card">$${\boxed{\eta_d = \frac{\frac{V_1^2}{2g} - \frac{V_2^2}{2g} - h_f}{\frac{V_1^2}{2g}}}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Impulse Turbine</strong>: Turbine where the entire available hydraulic head is converted into kinetic energy in a nozzle before entering the runner (e.g. Pelton wheel). Operating pressure remains constant (atmospheric) throughout runner.</li>
-<li><strong>Reaction Turbine</strong>: Turbine where fluid enters runner partly with pressure energy and partly with kinetic energy. Pressure drops continuously across runner blades (e.g. Francis, Kaplan). Requires airtight casing and draft tube.</li>
-<li><strong>Draft Tube</strong>: Diverging outlet conduit fitted below reaction turbine runner that recovers exit kinetic head $\frac{V_1^2}{2g}$ into pressure head, allowing turbine elevation above tailrace.</li>
-<li><strong>Water Hammer</strong>: Severe pressure spike in a closed pipe caused by rapid closure of a control valve, converting kinetic energy into acoustic pressure waves.</li>
-<li><strong>Surge Tank</strong>: Open standpipe or storage chamber installed near penstock bottom to relieve water hammer pressure surges during load reduction and supply water during load acceptance.</li>
-<li><strong>Thoma's Cavitation Factor $\sigma$</strong>: Parameter determining cavitation onset $\sigma = \frac{H_a - H_v - H_s}{H}$.</li>
-<li><strong>Cavitation</strong>: Formation and violent collapse of vapor bubbles at low pressure zones (runner outlet / draft tube inlet), causing blade erosion and noise.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
-<ul>
-<li><strong>Pelton Speed Ratio $\phi$</strong>: $\phi \approx 0.45$.</li>
-<li><strong>Pelton Max Efficiency Bucket Speed</strong>: $u = 0.5 V_1$.</li>
-<li><strong>Pelton Jet Ratio $m = D/d$</strong>: Typically $11 - 15$.</li>
-<li><strong>Kaplan Speed Ratio $\phi$</strong>: $\phi \approx 1.8 - 2.2$.</li>
-<li><strong>Francis Blade Count</strong>: $16 - 24$ (fixed).</li>
-<li><strong>Kaplan Blade Count</strong>: $4 - 8$ (adjustable).</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Impulse-Momentum Principle</strong>: Formulated in 1_reorganized.md, applied to Jet Impact in §3.1 and Pelton Buckets in §3.3.</li>
-<li><strong>Boundary Layer Separation</strong>: Applied to Draft Tube divergent cone angle $&lt; 8^\circ$ in §3.5.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-impact-of-jets-on-plates-vanes"><strong>3.1 Impact of Jets on Plates &amp; Vanes</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Force exerted by a jet equals mass flow rate times net velocity reduction $\mathbf{F} = \dot{m} \Delta \mathbf{V}$.</li>
-<li>For a fixed normal plate: jet is completely deflected through $90^\circ$, so $F = \rho A V^2$.</li>
-<li>For a moving normal plate: effective mass flow striking plate per sec is $\rho A (V - u)$, and relative velocity destroyed is $(V - u) \implies F = \rho A (V - u)^2$.</li>
-<li>For a series of flat vanes mounted on a wheel rim: mass flow passing through jet per sec is $\rho A V$, so $F = \rho A V (V - u)$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Single Plate vs Series of Vanes</strong>:
-- Single Moving Flat Plate: Force $F = \rho A (V - u)^2$; Max Efficiency $\eta_{\max} = 29.6\%$ at $u = \frac{V}{3}$.
-- Series of Vanes on Wheel: Force $F = \rho A V (V - u)$; Max Efficiency $\eta_{\max} = 50\%$ at $u = \frac{V}{2}$.</p>
-<p>[!TRAP]
-<strong>Inclined Plate Angle Definition</strong>: Check whether $\theta$ is given relative to the plate surface or normal to the plate! If $\theta$ is angle between jet and plate surface, normal force $F_n = \rho A V^2 \sin\theta$.</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Jet Impact Problem?
-├─ Fixed Normal Plate → F = rho * A * V^2
-├─ Moving Normal Plate → F = rho * A * (V - u)^2, Work = F * u, Max efficiency at u = V/3
-├─ Series of Vanes on Wheel → F = rho * A * V * (V - u), Max efficiency = 50% at u = V/2
-└─ Moving Curved Vane → F_x = rho * A * (V - u)^2 * (1 + cos(phi))
-</code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Fixed normal plate $F = \rho A V^2$.</li>
-<li>[ ] Moving normal plate $F = \rho A (V - u)^2$.</li>
-<li>[ ] Vane series max efficiency $\eta = 50\%$ at $u = V/2$.</li>
-<li>[ ] Nozzle joint reaction force $F = \rho Q (V_2 - V_1)$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A jet of water $50 \text{ mm}$ in diameter $V = 20 \text{ m/s}$ strikes a series of flat vanes moving at $10 \text{ m/s}$ in the direction of the jet. Calculate the force exerted, work done per second, and efficiency.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${A = \frac{\pi}{4}(0.05)^2 = 0.0019635 \text{ m}^2}$$</div>
-  <div class="formula-card">$${F = \rho A V (V - u) = 1000 \times 0.0019635 \times 20 \times (20 - 10) = 392.7 \text{ N}}$$</div>
-  <div class="formula-card">$${\text{Work Done / sec} = F \cdot u = 392.7 \times 10 = 3927 \text{ W} = 3.927 \text{ kW}}$$</div>
-  <div class="formula-card">$${\text{Jet Kinetic Energy / sec} = \frac{1}{2} \rho A V^3 = \frac{1}{2} \times 1000 \times 0.0019635 \times (20)^3 = 7854 \text{ W}}$$</div>
-  <div class="formula-card">$${\eta = \frac{3927}{7854} = 0.50 = 50\%}$$</div>
-- <strong>Key Insight</strong>: Series of vanes at $u = V/2 = 10 \text{ m/s}$ achieves exact maximum efficiency of $50\%$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: A jet of area $0.01 \text{ m}^2$ moving at $30 \text{ m/s}$ strikes a single flat plate moving at $10 \text{ m/s}$ in the same direction. Calculate force on plate and work done per second.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${F = \rho A (V - u)^2 = 1000 \times 0.01 \times (30 - 10)^2 = 10 \times 400 = 4000 \text{ N}}$$</div>
-  <div class="formula-card">$${\text{Work Done / sec} = F \cdot u = 4000 \times 10 = 40,000 \text{ W} = 40 \text{ kW}}$$</div>
-- <strong>Key Insight</strong>: Single moving plate force uses $(V - u)^2$, whereas vane series uses $V(V - u)$.</p>
-<hr />
-<h3 id="32-water-hammer-surge-tank-protection"><strong>3.2 Water Hammer &amp; Surge Tank Protection</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Water hammer occurs in penstocks when a valve is rapidly closed, converting liquid kinetic energy into acoustic pressure waves.</li>
-<li>Critical time of closure $t_{\text{cr}} = \frac{2 L}{C}$.</li>
-<li>Sudden Closure: $t \le \frac{2L}{C}$ (pressure wave returns after valve is closed $\implies \Delta P = \rho C V$).</li>
-<li>Gradual Closure: $t &gt; \frac{2L}{C}$ (pressure wave returns while valve is closing $\implies \Delta P = \frac{\rho L V}{t}$).</li>
-<li>Liquid temperature does NOT affect water hammer magnitude.</li>
-<li>Surge tanks protect the penstock by storing excess water during sudden valve closure and supplying water during sudden load acceptance.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Surge Tank Functions</strong>:
-1. Protects penstock from water hammer pressure spikes during sudden valve closure.
-2. Acts as a small storage reservoir to supply water to turbine during load acceleration.
-Located as close to the powerhouse as practicable.</p>
-<p>[!TRAP]
-<strong>Water Hammer Misconceptions</strong>: Water hammer develops in the PENSTOCK, not the draft tube or turbine casing. Liquid temperature has no influence on water hammer pressure.</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Water Hammer Problem?
-├─ Closure Time Check → t &lt;= 2L/C (Sudden Closure), t &gt; 2L/C (Gradual Closure)
-├─ Sudden Pressure Rise → Delta P = rho * C * V
-├─ Gradual Pressure Rise → Delta P = rho * L * V / t
-└─ Surge Tank Purpose → Protects penstock, absorbs pressure surge, supplies load acceptance water
-</code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Sudden closure: $t \le 2L/C$; Gradual closure: $t &gt; 2L/C$.</li>
-<li>[ ] Sudden pressure rise $\Delta P = \rho C V$.</li>
-<li>[ ] Surge tank is installed on penstock near powerhouse.</li>
-<li>[ ] Temperature of water does not affect water hammer pressure.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Water flows at $2 \text{ m/s}$ in a $1000 \text{ m}$ penstock $C = 1000 \text{ m/s}$. Calculate critical valve closure time and maximum pressure rise for sudden closure.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${t_{\text{cr}} = \frac{2 L}{C} = \frac{2 \times 1000}{1000} = 2.0 \text{ s}}$$</div>
-  <div class="formula-card">$${\Delta P_{\text{sudden}} = \rho C V = 1000 \times 1000 \times 2 = 2,000,000 \text{ Pa} = 2.0 \text{ MPa}}$$</div>
-- <strong>Key Insight</strong>: Closure time $t \le 2.0 \text{ s}$ is sudden closure, producing $\Delta P = 2.0 \text{ MPa}$.</p>
-<hr />
-<h3 id="33-pelton-wheel-high-head-impulse-turbine"><strong>3.3 Pelton Wheel (High Head Impulse Turbine)</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Pelton wheel is an impulse turbine suited for high working heads $H &gt; 250 \text{ m}$ and low flow rates.</li>
-<li>Runner operates under atmospheric pressure inside casing.</li>
-<li>Double-cupped buckets split the jet into two equal halves to eliminate axial thrust.</li>
-<li>Maximum hydraulic efficiency occurs when bucket speed $u = \frac{V_1}{2}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Pelton Hydraulic Efficiency</strong>: $\eta_h = \frac{2 u (V_1 - u)(1 + k \cos\phi)}{V_1^2}$. For smooth buckets $k = 1$, maximum efficiency occurs at $u = 0.5 V_1$, yielding $\eta_{h,\max} = \frac{1 + \cos\phi}{2}$.</p>
-<p>[!TRAP]
-<strong>Specific Speed and Number of Jets</strong>: Specific speed of a multi-jet Pelton wheel increases with the number of jets $n$: $N_{s,\text{total}} = \sqrt{n} \cdot N_{s,\text{single jet}}$.</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>Pelton Turbine Problem?
-├─ Jet Velocity → V1 = C_v * sqrt(2*g*H)
-├─ Bucket Speed → u = phi * sqrt(2*g*H), phi approx 0.45
-├─ Maximum Efficiency Condition → u = V1 / 2, Max Efficiency = (1 + cos(phi)) / 2
-└─ Number of Buckets → Z = 15 + D / (2*d) = 15 + m / 2
-</code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] High head $&gt; 250 \text{ m}$, low discharge, tangential flow.</li>
-<li>[ ] Inlet velocity triangle is a straight line $V_{w1} = V_1$.</li>
-<li>[ ] Maximum efficiency occurs at $u = 0.5 V_1$.</li>
-<li>[ ] Number of buckets $Z = 15 + D/(2d)$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A Pelton wheel operates under a net head of $400 \text{ m}$ at $600 \text{ rpm}$. Jet velocity coefficient $C_v = 0.98$ and bucket deflection angle is $160^\circ$ $\cos 160^\circ = -0.9397$. Find jet velocity and maximum theoretical hydraulic efficiency.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${V_1 = C_v \sqrt{2 g H} = 0.98 \times \sqrt{2 \times 9.81 \times 400} = 0.98 \times 88.588 = 86.816 \text{ m/s}}$$</div>
-  <div class="formula-card">$${\phi_{\text{vane}} = 180^\circ - 160^\circ = 20^\circ \implies \cos 20^\circ = 0.9397}$$</div>
-  <div class="formula-card">$${\eta_{h,\max} = \frac{1 + \cos 20^\circ}{2} = \frac{1 + 0.9397}{2} = \frac{1.9397}{2} = 0.9698 = 96.98\%}$$</div>
-- <strong>Key Insight</strong>: Deflection angle $160^\circ$ means bucket outlet angle $\phi = 180^\circ - 160^\circ = 20^\circ$.</p>
-<hr />
-<h3 id="34-francis-kaplan-turbines-reaction-turbines"><strong>3.4 Francis &amp; Kaplan Turbines (Reaction Turbines)</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Reaction turbines operate under dropping pressure across runner blades.</li>
-<li><strong>Francis Turbine</strong>: Medium head $30 - 250 \text{ m}$, mixed flow (inward radial inlet, axial outlet). Fixed blades $16 - 24$.</li>
-<li><strong>Kaplan Turbine</strong>: Low head $&lt; 70 \text{ m}$, high discharge, purely axial flow. Adjustable runner blades $4 - 8$, enabling high efficiency across wide load ranges.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Francis vs Kaplan Discharge Formulas</strong>:
-- Francis: $Q = \pi D_1 B_1 V_{f1}$
-- Kaplan: $Q = \frac{\pi}{4} (D_o^2 - D_b^2) V_f$
-Kaplan discharge accounts for hub blockage diameter $D_b$!</p>
-<p>[!TRAP]
-<strong>Specific Speed Ordering</strong>:
-<div class="formula-card">$${\text{Pelton (Single Jet)} &lt; \text{Pelton (Multi-Jet)} &lt; \text{Francis} &lt; \text{Propeller} &lt; \text{Kaplan}}$$</div>
-Kaplan turbine has the HIGHEST specific speed $300 - 1000$.</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>Reaction Turbine Problem?
-├─ Medium Head (30-250m), Mixed Flow → Francis Turbine (Q = pi * D1 * B1 * V_f1)
-├─ Low Head (&lt; 70m), High Discharge, Axial Flow → Kaplan Turbine (Q = pi/4 * (Do^2 - Db^2) * V_f)
-├─ Radial Outlet Condition → V_w2 = 0 -&gt; Hydraulic Efficiency eta_h = (V_w1 * u1) / (g * H)
-└─ Specific Speed -&gt; N_s = (N * sqrt(P)) / H^(5/4)
-</code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Francis: Medium head, mixed flow, fixed runner blades $16 - 24$.</li>
-<li>[ ] Kaplan: Low head, high discharge, axial flow, adjustable runner blades $4 - 8$.</li>
-<li>[ ] Specific speed formula $N_s = \frac{N \sqrt{P}}{H^{5/4}}$.</li>
-<li>[ ] Unit quantities: $N_u = N/\sqrt{H}$, $Q_u = Q/\sqrt{H}$, $P_u = P/H^{3/2}$.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A Kaplan turbine runner has an outer diameter of $4 \text{ m}$ and a hub diameter of $2 \text{ m}$. Flow velocity is $8 \text{ m/s}$. Calculate the discharge through the turbine.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${Q = \frac{\pi}{4} (D_o^2 - D_b^2) V_f = \frac{\pi}{4} (4^2 - 2^2) \times 8 = \frac{\pi}{4} (16 - 4) \times 8 = \frac{\pi}{4} (12) \times 8 = 24 \pi \approx 75.4 \text{ m}^3/\text{s}}$$</div>
-- <strong>Key Insight</strong>: Net flow area for Kaplan runner is $\frac{\pi}{4} (D_o^2 - D_b^2)$.</p>
-<hr />
-<h3 id="35-draft-tube-cavitation"><strong>3.5 Draft Tube &amp; Cavitation</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Draft tube is used ONLY in reaction turbines (never in Pelton impulse wheels).</li>
-<li>Functions of Draft Tube:</li>
-<li>Permits placing turbine runner above tailrace level without loss of net head.</li>
-<li>Recovers residual kinetic energy $\frac{V_1^2}{2g}$ at runner outlet into static pressure.</li>
-<li>Maximum draft tube divergent cone angle is limited to $7^\circ - 8^\circ$ to prevent boundary layer separation.</li>
-<li>Cavitation in reaction turbines occurs at the runner exit or draft tube inlet where pressure drops to minimum $P \le P_{vop}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Draft Tube Efficiency</strong>: $\eta_d = \frac{\frac{V_1^2}{2g} - \frac{V_2^2}{2g} - h_f}{\frac{V_1^2}{2g}}$. Higher inlet velocity $V_1$ and lower exit velocity $V_2$ increase kinetic head recovery.</p>
-<p>[!TRAP]
-<strong>Draft Tube Purpose</strong>: Draft tube converts kinetic energy to pressure energy $V \downarrow \implies P \uparrow$. NEVER confuse this with nozzles which convert pressure to kinetic energy!</div>
-<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
-<pre><code>Draft Tube / Cavitation Problem?
-├─ Draft Tube Function → Recovers kinetic head V1^2/2g into pressure head; enables runner elevation above tailrace
-├─ Max Cone Angle → 7-8 degrees (prevents boundary layer separation)
-├─ Draft Tube Efficiency → eta_d = [(V1^2/2g - V2^2/2g - h_f) / (V1^2/2g)]
-└─ Cavitation Location → Runner outlet / Draft tube inlet (lowest pressure zone)
-</code></pre>
-<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Draft tube is used ONLY on reaction turbines (Francis, Kaplan).</li>
-<li>[ ] Divergent cone angle $&lt; 8^\circ$ prevents flow separation.</li>
-<li>[ ] Cavitation occurs at lowest pressure zone (runner outlet / draft tube inlet).</li>
-<li>[ ] Stainless steel blades and smooth surface delay cavitation.</li>
-</ul>
-<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Water enters a draft tube at $6 \text{ m/s}$ and exits at $1.5 \text{ m/s}$. Head loss in the tube is $0.4 \text{ m}$. Calculate draft tube efficiency $g = 9.81 \text{ m/s}^2$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${\frac{V_1^2}{2g} = \frac{6^2}{2 \times 9.81} = \frac{36}{19.62} = 1.835 \text{ m}}$$</div>
-  <div class="formula-card">$${\frac{V_2^2}{2g} = \frac{1.5^2}{2 \times 9.81} = \frac{2.25}{19.62} = 0.115 \text{ m}}$$</div>
-  <div class="formula-card">$${\eta_d = \frac{1.835 - 0.115 - 0.4}{1.835} = \frac{1.320}{1.835} = 0.7193 = 71.93\%}$$</div>
-- <strong>Key Insight</strong>: Draft tube efficiency is $\eta_d = \frac{H_{k1} - H_{k2} - h_f}{H_{k1}} = 71.93\%$.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1: What is the force exerted by a jet of area $A$ and velocity $V$ striking a fixed normal plate?</strong><br />
-A: $F = \rho A V^2$.</p>
-<p><strong>Q2: What is the maximum efficiency of a series of flat vanes mounted on a wheel struck by a jet?</strong><br />
-A: Maximum efficiency is $50\%$, occurring when vane speed $u = \frac{V}{2}$.</p>
-<p><strong>Q3: What causes water hammer in penstocks?</strong><br />
-A: Rapid valve closure converting fluid kinetic energy into acoustic pressure waves.</p>
-<p><strong>Q4: Where is a surge tank located and what is its main function?</strong><br />
-A: Located on the penstock near the powerhouse to absorb pressure spikes during valve closure and supply water during load acceptance.</p>
-<p><strong>Q5: What is the specific speed formula for hydraulic turbines?</strong><br />
-A: $N_s = \frac{N \sqrt{P}}{H^{5/4}}$.</p>
-<p><strong>Q6: Compare the specific speed ranges of Pelton, Francis, and Kaplan turbines.</strong><br />
-A: Pelton single-jet $8 - 30$ &lt; Pelton multi-jet $30 - 70$ &lt; Francis $50 - 300$ &lt; Kaplan $300 - 1000$.</p>
-<p><strong>Q7: Why does a Pelton wheel use double-cupped buckets?</strong><br />
-A: To split the jet into two equal side streams, eliminating axial thrust on the wheel shaft.</p>
-<p><strong>Q8: What bucket speed $u$ maximizes the hydraulic efficiency of a Pelton wheel?</strong><br />
-A: Bucket speed $u = \frac{V_1}{2}$ (half the jet velocity).</p>
-<p><strong>Q9: What formula gives the recommended number of buckets on a Pelton wheel?</strong><br />
-A: Taygun's formula: $Z = 15 + \frac{D}{2d} = 15 + \frac{m}{2}$.</p>
-<p><strong>Q10: What is the difference between Francis and Kaplan turbine flow directions?</strong><br />
-A: Francis is a mixed-flow turbine (inward radial inlet, axial outlet); Kaplan is a purely axial-flow turbine.</p>
-<p><strong>Q11: Why does a Kaplan turbine maintain high efficiency across part-load conditions?</strong><br />
-A: Because its runner blades are adjustable, optimizing the flow angle at different load demands.</p>
-<p><strong>Q12: What is the primary function of a draft tube in reaction turbines?</strong><br />
-A: Converts residual kinetic energy $\frac{V_1^2}{2g}$ at runner outlet into static pressure and permits runner placement above tailrace level.</p>
-<p><strong>Q13: Why is the divergent angle of a draft tube restricted to $7^\circ - 8^\circ$?</strong><br />
-A: To prevent boundary layer flow separation and eddy losses inside the tube.</p>
-<p><strong>Q14: Where does cavitation most frequently occur in a reaction turbine installation?</strong><br />
-A: At the runner exit and draft tube inlet, where local static pressure drops to its minimum.</p>
-<p><strong>Q15: How do turbine speed and power scale with net head $H$?</strong><br />
-A: Speed scales as $N \propto \sqrt{H}$; power scales as $P \propto H^{3/2}$.</p>
-<hr />
-<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
-<ul>
-<li><strong>Note on Governing vs Flywheel</strong>:</li>
-<li>Flywheel controls short-term cyclic speed fluctuations within a single revolution due to torque variation.</li>
-<li>Governor controls long-term average rotational speed under varying external electrical loads by regulating water supply $Q$.</li>
-<li><strong>Note on Unit Quantities</strong>:</li>
-<li>Unit Speed $N_u = \frac{N}{\sqrt{H}}$</li>
-<li>Unit Discharge $Q_u = \frac{Q}{\sqrt{H}}$</li>
-<li>Unit Power $P_u = \frac{P}{H^{3/2}}$</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize Jet Impact Forces: Fixed Normal $F = \rho A V^2$, Moving Normal $F = \rho A (V-u)^2$, Vane Series $F = \rho A V (V-u)$.</li>
-<li>[ ] Memorize Vane Series Max Efficiency: $\eta_{\max} = 50\%$ at $u = \frac{V}{2}$.</li>
-<li>[ ] Memorize Turbine Specific Speed: $N_s = \frac{N \sqrt{P}}{H^{5/4}}$.</li>
-<li>[ ] Memorize Specific Speed Ranges: Pelton Single $8 - 30$, Multi $30 - 70$, Francis $50 - 300$, Kaplan $300 - 1000$.</li>
-<li>[ ] Memorize Pelton Max Efficiency: $u = 0.5 V_1 \implies \eta_{h,\max} = \frac{1+\cos\phi}{2}$. Buckets $Z = 15 + \frac{D}{2d}$.</li>
-<li>[ ] Memorize Kaplan Discharge: $Q = \frac{\pi}{4} (D_o^2 - D_b^2) V_f$.</li>
-<li>[ ] Memorize Draft Tube Function: Converts exit kinetic head to pressure head in reaction turbines; max cone angle $7^\circ - 8^\circ$.</li>
-</ul>
-  </div>
+      <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Impact of Jets, Water Hammer &amp; Hydraulic Turbines<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Jet Impulse &middot; Water Hammer &middot; Pelton, Francis &amp; Kaplan Turbines &middot; Specific Speed<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical
+      </span>
+    </h1>
+
+    <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
+    <h2 id="jets">1. Impact of Jets</h2>
+
+    <p>When a fluid jet strikes a plate or vane, the impulse-momentum principle gives the resulting force. The key distinction is between a single plate and a series of vanes — the latter is relevant to turbine analysis.</p>
+
+    <h3>1.1 Jet on a Fixed Normal Flat Plate</h3>
+    <div class="formula-card">$$F = \rho A V^2$$</div>
+    <ul>
+      <li>$A$ — jet cross-sectional area (m²); $V$ — jet velocity (m/s)</li>
+      <li>The jet loses all normal momentum on impact and spreads along the plate</li>
+    </ul>
+
+    <h3>1.2 Jet on a Single Moving Normal Flat Plate (velocity $u$)</h3>
+    <div class="formula-card">$$F = \rho A (V - u)^2$$</div>
+    <div class="formula-card">$$\text{Power (work done per second)} = F \cdot u = \rho A (V-u)^2 u$$</div>
+    <ul>
+      <li>$(V - u)$ = relative velocity of jet with respect to the moving plate</li>
+      <li>Mass flow rate striking plate per second = $\rho A (V - u)$, not $\rho AV$</li>
+    </ul>
+
+    <h3>1.3 Jet on a Series of Moving Flat Vanes (Wheel)</h3>
+    <p>When the plate is one of many on a wheel, every part of the jet is continuously intercepted. The entire jet mass per second strikes the vanes:</p>
+    <div class="formula-card">$$F = \rho A V (V - u)$$</div>
+    <div class="formula-card">$$\eta = \frac{2u(V-u)}{V^2}, \qquad \eta_{\max} = 50\% \text{ at } u = \frac{V}{2}$$</div>
+    <ul>
+      <li>Maximum efficiency 50% at bucket speed = half jet speed</li>
+      <li>In practice: single moving plate $F \propto (V-u)^2$; series of vanes $F \propto V(V-u)$</li>
+    </ul>
+
+    <h3>1.4 Jet on a Fixed Inclined Flat Plate (angle $\theta$ to plate surface)</h3>
+    <div class="formula-card">$$F_n = \rho A V^2 \sin\theta$$</div>
+    <ul>
+      <li>$F_n$ — force normal to the plate; $\theta$ = angle between jet and plate surface (not the normal)</li>
+      <li>Force along jet direction = $F_n \sin\theta$; force perpendicular to jet = $F_n \cos\theta$</li>
+    </ul>
+
+    <h3>1.5 Jet on a Moving Curved Vane</h3>
+    <div class="formula-card">$$F_x = \rho A (V-u)^2(1 + \cos\phi)$$</div>
+    <div class="formula-card">$$\text{Power} = F_x \cdot u = \rho A (V-u)^2(1+\cos\phi)\,u$$</div>
+    <ul>
+      <li>$\phi$ — exit angle of the vane (deflection angle from the inlet direction); for a semicircular vane $\phi = 180°$, giving maximum force</li>
+      <li>For series of curved vanes: $F_x = \rho A V(V-u)(1+\cos\phi)$</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
+    <h2 id="hammer">2. Water Hammer &amp; Surge Tank</h2>
+
+    <h3>2.1 Water Hammer</h3>
+    <p>Water hammer occurs when flow in a penstock or pipe is rapidly decelerated, usually by quick valve closure. The kinetic energy of the moving water column converts into a high-pressure acoustic wave that travels back and forth along the pipe. The wave speed depends on pipe elasticity and fluid compressibility.</p>
+
+    <div class="formula-card">$$t_{cr} = \frac{2L}{C} \qquad \text{(critical valve closure time)}$$</div>
+    <ul>
+      <li>$L$ — pipe length from reservoir to valve (m); $C$ — pressure wave speed (m/s)</li>
+      <li>If valve closes in $t \le t_{cr}$: <strong>sudden (rapid) closure</strong> — maximum water hammer pressure</li>
+      <li>If valve closes in $t > t_{cr}$: <strong>gradual closure</strong> — reduced pressure surge</li>
+      <li>Pressure rise for instantaneous closure: $\Delta P = \rho C V$ where $V$ = initial flow velocity</li>
+    </ul>
+
+    <h3>2.2 Surge Tank</h3>
+    <p>A surge tank is an open standpipe or chamber connected to the penstock near the turbine. It provides a nearby reservoir that limits the rate of pressure change when the turbine load changes.</p>
+    <ul>
+      <li><strong>During load rejection</strong> (turbine shut down): water flows into surge tank, limiting pressure rise</li>
+      <li><strong>During load acceptance</strong> (turbine starting): surge tank supplies water, preventing excessive pressure drop</li>
+      <li>Placement: as close to the turbine as possible for maximum effectiveness</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
+    <h2 id="turbines">3. Hydraulic Turbines</h2>
+
+    <p>Hydraulic turbines convert the potential and kinetic energy of water into mechanical shaft energy. They are classified as impulse (all energy in kinetic form before runner) or reaction (mixed pressure and kinetic energy at runner entry).</p>
+
+    <h3>3.1 Classification &amp; Selection</h3>
+    <table>
+      <thead><tr><th>Type</th><th>Turbine</th><th>$N_s$ range</th><th>Suitable head</th><th>Operating pressure</th></tr></thead>
+      <tbody>
+        <tr><td>Impulse</td><td>Pelton wheel</td><td>8–70 (single/multi-jet)</td><td>High (>250 m)</td><td>Atmospheric throughout runner</td></tr>
+        <tr><td>Reaction</td><td>Francis</td><td>50–300</td><td>Medium (30–600 m)</td><td>Above atmospheric; pressure drops across runner</td></tr>
+        <tr><td>Reaction</td><td>Kaplan/Propeller</td><td>300–1000</td><td>Low (<30 m)</td><td>Above atmospheric; fully adjustable blades (Kaplan)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.2 Specific Speed</h3>
+    <p>Specific speed $N_s$ is the speed of a geometrically similar turbine of unit size developing unit power under unit head. It is used to select the appropriate turbine type for given site conditions.</p>
+    <div class="formula-card">$$N_s = \frac{N\sqrt{P}}{H^{5/4}}$$</div>
+    <ul>
+      <li>$N$ — rotational speed (rpm); $P$ — shaft power output (kW or metric HP); $H$ — net head (m)</li>
+      <li>Low $N_s$ → high head, low flow → Pelton. High $N_s$ → low head, high flow → Kaplan.</li>
+    </ul>
+
+    <h3>3.3 Pelton Wheel (Impulse Turbine)</h3>
+    <p>The Pelton wheel is the only commercially used impulse turbine. A high-speed free jet of water strikes double-cupped buckets mounted on the runner periphery. All the hydraulic energy is converted to kinetic energy in the nozzle before entry.</p>
+
+    <div class="formula-card">$$V_1 = C_v\sqrt{2gH} \qquad \text{(jet velocity)}$$</div>
+    <div class="formula-card">$$u = \phi\sqrt{2gH} \qquad \text{(bucket/peripheral speed; } \phi \approx 0.43\text{–}0.48\text{)}$$</div>
+    <div class="formula-card">$$\eta_{h,\max} = \frac{1+\cos\phi}{2} \quad \text{at } u = \frac{V_1}{2}$$</div>
+    <div class="formula-card">$$Z = 15 + \frac{D}{2d} = 15 + \frac{m}{2} \qquad \text{(number of buckets, Taygun's formula)}$$</div>
+    <ul>
+      <li>$C_v$ — nozzle velocity coefficient (≈ 0.97–0.99); $\phi$ — speed ratio</li>
+      <li>$m = D/d$ — jet ratio (D = runner diameter, d = jet diameter); typically $m = 11$–15</li>
+      <li>$\phi$ in efficiency formula is vane exit angle; for perfect reversal $\phi = 180°$, but friction makes real $\phi < 180°$</li>
+      <li>Optimum bucket speed $u = V_1/2$ gives maximum hydraulic efficiency</li>
+    </ul>
+
+    <h3>3.4 Francis Turbine (Inward-Flow Reaction Turbine)</h3>
+    <p>Water enters radially inward through guide vanes (wicket gates) and exits axially. Both pressure energy and kinetic energy drive the runner. The guide vane angle is adjustable for part-load efficiency.</p>
+
+    <div class="formula-card">$$Q = \pi D_1 B_1 V_{f1} = \pi D_2 B_2 V_{f2} \qquad \text{(discharge; continuity at inlet/outlet)}$$</div>
+    <div class="formula-card">$$\eta_h = \frac{V_{w1}u_1}{gH} \qquad \text{(hydraulic efficiency; radial exit: } V_{w2}=0\text{)}$$</div>
+    <ul>
+      <li>$D_1, D_2$ — inlet/outlet runner diameter; $B_1, B_2$ — width at inlet/outlet; $V_{f1}, V_{f2}$ — radial (flow) velocity</li>
+      <li>$V_{w1}$ — whirl (tangential) component of absolute velocity at runner inlet</li>
+      <li>For maximum efficiency, design for radial exit: $V_{w2} = 0$ (no swirl leaving runner)</li>
+    </ul>
+
+    <h3>3.5 Kaplan Turbine (Axial-Flow Reaction Turbine)</h3>
+    <p>Similar to Francis but flow is axial rather than radial. Both runner blades and guide vanes are adjustable, giving excellent part-load efficiency over a wide range of heads and flows.</p>
+
+    <div class="formula-card">$$Q = \frac{\pi}{4}(D_o^2 - D_b^2)V_f$$</div>
+    <ul>
+      <li>$D_o$ — outer tip diameter; $D_b$ — hub (boss) diameter; $V_f$ — axial flow velocity</li>
+      <li>Suitable for very low heads (1–30 m) with high discharges</li>
+      <li>Propeller turbine = fixed blade Kaplan (no adjustment)</li>
+    </ul>
+
+    <h3>3.6 Draft Tube</h3>
+    <p>A diverging tube fitted below the runner of a reaction turbine. It recovers the exit kinetic energy as pressure, allowing the turbine to be installed above the tailrace level without sacrificing net head.</p>
+
+    <div class="formula-card">$$\eta_d = \frac{V_1^2/(2g) - V_2^2/(2g) - h_f}{V_1^2/(2g)}$$</div>
+    <ul>
+      <li>$V_1$ — velocity at draft tube inlet (runner exit); $V_2$ — velocity at draft tube outlet; $h_f$ — friction loss in draft tube</li>
+      <li>A well-designed draft tube converts most of the runner exit kinetic energy into useful pressure</li>
+    </ul>
+
+    <h3>3.7 Turbine Efficiencies &amp; Unit Quantities</h3>
+    <table>
+      <thead><tr><th>Efficiency</th><th>Definition</th></tr></thead>
+      <tbody>
+        <tr><td>Hydraulic $\eta_h$</td><td>Runner power / Water power = $V_{w1}u_1/(gH)$</td></tr>
+        <tr><td>Mechanical $\eta_m$</td><td>Shaft power / Runner power (accounts for bearing friction)</td></tr>
+        <tr><td>Volumetric $\eta_v$</td><td>Flow through runner / Total flow (accounts for leakage)</td></tr>
+        <tr><td>Overall $\eta_o$</td><td>$\eta_h \times \eta_m \times \eta_v$</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula-card">$$N_u = \frac{N}{\sqrt{H}}, \quad Q_u = \frac{Q}{\sqrt{H}}, \quad P_u = \frac{P}{H^{3/2}} \qquad \text{(unit quantities)}$$</div>
+    <ul>
+      <li>Unit quantities allow comparison of turbines operating at different heads; used for model-prototype scaling</li>
+    </ul>
+
+    <h3>3.8 Cavitation in Turbines</h3>
+    <p>Cavitation occurs when local pressure falls below the vapour pressure, forming vapour bubbles that implode violently near runner surfaces. This causes pitting, vibration, and noise. Kaplan and Francis turbines are more susceptible than Pelton wheels.</p>
+
+    <div class="formula-card">$$\sigma = \frac{H_a - H_v - H_s}{H} \qquad \text{(Thoma's cavitation parameter)}$$</div>
+    <ul>
+      <li>$H_a$ — atmospheric pressure head; $H_v$ — vapour pressure head; $H_s$ — suction head (draft tube height)</li>
+      <li>Cavitation avoided if $\sigma > \sigma_\text{critical}$ (specific to turbine type)</li>
+      <li>Reducing $H_s$ (lower turbine installation) reduces cavitation risk</li>
+    </ul>
+
+    <!-- ═══════════════════════════ KEY POINTS ═══════════════════════════ -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Fixed plate: $F = \rho AV^2$. Single moving plate: $F = \rho A(V-u)^2$. Series of moving vanes: $F = \rho AV(V-u)$ — full jet mass rate continuously intercepted.</li>
+        <li>Maximum efficiency for flat vane series: $\eta_{\max} = 50\%$ at $u = V/2$.</li>
+        <li>Moving curved vane: $F_x = \rho A(V-u)^2(1+\cos\phi)$. Maximum when $\phi = 180°$ (semicircular vane).</li>
+        <li>Water hammer critical time: $t_{cr} = 2L/C$. Closure faster than $t_{cr}$ = sudden closure (maximum pressure surge).</li>
+        <li>Pelton: impulse; high head (>250 m); atmospheric pressure at runner; jet velocity $V_1 = C_v\sqrt{2gH}$; optimum $u = V_1/2$.</li>
+        <li>Pelton max hydraulic efficiency: $\eta_h = (1+\cos\phi)/2$ where $\phi$ is vane exit angle. Perfect reversal ($\phi = 180°$) gives $\eta_h = 100\%$ theoretically.</li>
+        <li>Taygun's formula: $Z = 15 + D/(2d)$ buckets. Jet ratio $m = D/d \approx 11$–15.</li>
+        <li>Francis: reaction; medium head (30–600 m); inward radial flow. For max efficiency: design for $V_{w2} = 0$ (no exit swirl).</li>
+        <li>Kaplan: reaction; low head (<30 m); axial flow; adjustable blades — best part-load performance of all turbine types.</li>
+        <li>Specific speed $N_s = N\sqrt{P}/H^{5/4}$: Pelton 8–70; Francis 50–300; Kaplan 300–1000. Higher $N_s$ → lower head, higher flow.</li>
+        <li>Draft tube recovers exit kinetic energy as pressure; allows turbine to be placed above tailrace without losing effective head.</li>
+        <li>Cavitation: $\sigma = (H_a - H_v - H_s)/H$. Reduce $H_s$ (install turbine lower) to avoid cavitation. Pelton wheels are not susceptible (operate at atmospheric pressure).</li>
+        <li>Unit quantities ($N_u$, $Q_u$, $P_u$) remove the effect of head, allowing model-to-prototype scaling and performance curve comparison.</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Fluid Mechanics Revision Guide
+    </p>
+
+  </div><!-- /.wrap -->
 </body>
 </html>

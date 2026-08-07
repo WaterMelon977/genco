@@ -3,710 +3,607 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic Fluid Properties, Statics, Kinematics & Dynamics — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Fluid Properties, Statics, Kinematics &amp; Dynamics — Exam Revision Guide — APGENCO / SSC JE</title>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    /* ---------- token system ---------- */
+    :root {
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
+    }
+
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.9;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    /* ---------- submodule nav ---------- */
+    .submodule-nav {
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 11px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a {
+      color: var(--chapter-fg);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .submodule-nav a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- floating nav ---------- */
+    #fnav {
+      position: fixed; top: 10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px;
+      font-weight: 600; transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* ---------- chapter headers (h1 → chapter title) ---------- */
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      line-height: 1.3;
+    }
+
+    /* ---------- section & subsection headings ---------- */
+    h2 {
+      font-family: "Georgia", serif;
+      font-size: 15pt; font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-top: 52px; margin-bottom: 18px;
+      letter-spacing: .01em;
+    }
+    h3 {
+      font-family: "Georgia", serif;
+      font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid);
+      margin-top: 32px; margin-bottom: 10px;
+    }
+    h4 {
+      font-family: "Georgia", serif;
+      font-size: 11.5pt; font-weight: 700;
+      color: var(--ink);
+      margin-top: 22px; margin-bottom: 6px;
+    }
+
+    /* ---------- prose ---------- */
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- lists ---------- */
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+
+    /* ---------- formula cards ---------- */
+    .fc, .formula-card {
+      background: var(--formula-bg);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    /* symbol legend below formula */
+    .sym {
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px;
+      line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* ---------- note callout ---------- */
+    .note {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ---------- key-point box ---------- */
+    .kp, .key-points {
+      background: var(--kp-bg);
+      border: 1px solid var(--kp-bd);
+      border-radius: 7px;
+      padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3 {
+      font-weight: 700; letter-spacing: .02em;
+      margin-bottom: 8px; font-size: 10pt;
+      text-transform: uppercase;
+      color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li { margin-bottom: .28em; }
+
+    /* ---------- comparison / quick-facts table ---------- */
+    table {
+      border-collapse: collapse; width: 100%;
+      margin: 22px 0; background: var(--card);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+
+    /* ---------- MathJax overflow ---------- */
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
+<body>
+  <div id="rbar"></div>
+
+  <!-- floating nav -->
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#properties">Properties</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#statics">Statics</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#buoyancy">Buoyancy</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#kinematics">Kinematics</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#dynamics">Dynamics</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+
+    /* floating nav */
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="basic-fluid-properties-statics-kinematics-dynamics-comprehensive-reorganized-study-guide">Basic Fluid Properties, Statics, Kinematics &amp; Dynamics — Comprehensive Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Basic Fluid Properties, Fluid Statics (pressure measurements, hydrostatic forces, buoyancy, flotation), Fluid Kinematics (flow types, continuity, stream/velocity functions, acceleration, vorticity), and Fluid Dynamics (Euler's equation, Bernoulli's equation, impulse-momentum, venturimeter, pitot tube) for AP GenCo AE, GATE, and SSC JE mechanical engineering exams. High-yield PYQ areas include viscosity, capillarity, bulk modulus, differential manometers, centre of pressure location, Archimedes principle, metacentric height stability, stream vs potential functions, Laplace irrotationality, Bernoulli's applications, and jet impulse forces. All redundancies across initial AI outputs have been consolidated without losing any worked examples or theory Q&amp;As.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-with-symbols-units"><strong>2.1 — All Formulas (with symbols &amp; units)</strong></h3>
-<h4 id="1-basic-fluid-properties-compressibility"><strong>1. Basic Fluid Properties &amp; Compressibility</strong></h4>
-<ul>
-<li><strong>Newton's Law of Viscosity</strong>:
-  <div class="formula-card">$${\boxed{\tau = \mu \frac{du}{dy}}}$$</div></li>
-<li>$\tau$: shear stress ($\text{N/m}^2$ or $\text{Pa}$)</li>
-<li>$\mu$: dynamic (absolute) viscosity ($\text{Pa}\cdot\text{s}$ or $\text{N}\cdot\text{s/m}^2$; $1 \text{ poise} = 0.1 \text{ Pa}\cdot\text{s}$)</li>
-<li>
-<p>$\frac{du}{dy}$: velocity gradient or rate of shear strain $\text{s}^{-1}$</p>
-</li>
-<li>
-<p><strong>Kinematic Viscosity</strong>:
-  <div class="formula-card">$${\boxed{\nu = \frac{\mu}{\rho}}}$$</div></p>
-</li>
-<li>$\nu$: kinematic viscosity ($\text{m}^2/\text{s}$; $1 \text{ stoke} = 10^{-4} \text{ m}^2/\text{s} = 1 \text{ cm}^2/\text{s}$)</li>
-<li>
-<p>$\rho$: fluid mass density $\text{kg/m}^3$</p>
-</li>
-<li>
-<p><strong>Specific Gravity</strong>:
-  <div class="formula-card">$${\boxed{S = \frac{\rho_{\text{fluid}}}{\rho_{\text{water}}}}}$$</div></p>
-</li>
-<li>
-<p>$S$: specific gravity (dimensionless; $S_{\text{water}} = 1.0$, $S_{\text{Hg}} = 13.6$)</p>
-</li>
-<li>
-<p><strong>Specific Weight</strong>:
-  <div class="formula-card">$${\boxed{\gamma = \rho g}}$$</div></p>
-</li>
-<li>
-<p>$\gamma$: specific weight ($\text{N/m}^3$; $\gamma_{\text{water}} = 9810 \text{ N/m}^3$)</p>
-</li>
-<li>
-<p><strong>Capillary Rise / Fall</strong>:
-  <div class="formula-card">$${\boxed{h = \frac{4 \sigma \cos\theta}{\rho g d} = \frac{2 \sigma \cos\theta}{\rho g R}}}$$</div></p>
-</li>
-<li>$h$: capillary rise $+$ or depression $-$ $\text{m}$</li>
-<li>$\sigma$: surface tension $\text{N/m}$</li>
-<li>$\theta$: contact angle ($0^\circ$ for water-glass, $\approx 130^\circ - 140^\circ$ for mercury-glass)</li>
-<li>
-<p>$d$: tube diameter $\text{m}$</p>
-</li>
-<li>
-<p><strong>Excess Pressure in Liquid Drop</strong>:
-  <div class="formula-card">$${\boxed{\Delta P = \frac{4 \sigma}{d} = \frac{2 \sigma}{R}}}$$</div></p>
-</li>
-<li>
-<p><strong>Excess Pressure in Soap Bubble</strong>:
-  <div class="formula-card">$${\boxed{\Delta P = \frac{8 \sigma}{d} = \frac{4 \sigma}{R}}}$$</div></p>
-</li>
-<li>
-<p><strong>Excess Pressure in Liquid Jet</strong>:
-  <div class="formula-card">$${\boxed{\Delta P = \frac{2 \sigma}{d} = \frac{\sigma}{R}}}$$</div></p>
-</li>
-<li>
-<p><strong>Bulk Modulus of Elasticity</strong>:
-  <div class="formula-card">$${\boxed{K = -\frac{\Delta P}{\Delta V / V} = \frac{\Delta P}{\Delta \rho / \rho}}}$$</div></p>
-</li>
-<li>$K$: bulk modulus ($\text{N/m}^2$ or $\text{Pa}$)</li>
-<li>
-<p>$\frac{\Delta V}{V}$: volumetric strain (dimensionless)</p>
-</li>
-<li>
-<p><strong>Compressibility</strong>:
-  <div class="formula-card">$${\boxed{\beta = \frac{1}{K}}}$$</div></p>
-</li>
-<li>
-<p>$\beta$: compressibility $\text{Pa}^{-1}$</p>
-</li>
-<li>
-<p><strong>Speed of Sound / Acoustic Pressure Wave</strong>:
-  <div class="formula-card">$${\boxed{c = \sqrt{\frac{K}{\rho}} = \sqrt{\gamma R T}}}$$</div></p>
-</li>
-<li>$c$: acoustic wave velocity $\text{m/s}$</li>
-</ul>
-<hr />
-<h4 id="2-fluid-statics-hydrostatic-forces-buoyancy"><strong>2. Fluid Statics, Hydrostatic Forces &amp; Buoyancy</strong></h4>
-<ul>
-<li>
-<p><strong>Absolute &amp; Gauge Pressure Relation</strong>:
-  <div class="formula-card">$${\boxed{P_{\text{abs}} = P_{\text{atm}} + P_{\text{gauge}}}}$$</div>
-  <div class="formula-card">$${\boxed{P_{\text{vac}} = P_{\text{atm}} - P_{\text{abs}}}}$$</div></p>
-</li>
-<li>
-<p><strong>Hydrostatic Pressure Intensity</strong>:
-  <div class="formula-card">$${\boxed{p = \rho g h = \gamma h}}$$</div></p>
-</li>
-<li>
-<p>$p$: static pressure at vertical depth $h$ $\text{Pa}$</p>
-</li>
-<li>
-<p><strong>Differential U-Tube Manometer (Heavier Liquid $\rho_m$)</strong>:
-  <div class="formula-card">$${\boxed{\Delta P = P_A - P_B = (\rho_m - \rho) g x = \rho g h_w}}$$</div></p>
-</li>
-<li>$x$: manometer liquid column deflection $\text{m}$</li>
-<li>
-<p>$h_w$: differential pressure head in meters of water $h_w = x \left(\frac{S_m}{S_f} - 1\right)$</p>
-</li>
-<li>
-<p><strong>Differential U-Tube Manometer (Lighter Liquid $\rho_m$)</strong>:
-  <div class="formula-card">$${\boxed{h_w = x \left(1 - \frac{S_m}{S_f}\right)}}$$</div></p>
-</li>
-<li>
-<p><strong>Hydrostatic Force on Submerged Plane Surface</strong>:
-  <div class="formula-card">$${\boxed{F = \rho g \bar{h} A}}$$</div></p>
-</li>
-<li>$F$: total hydrostatic force $\text{N}$</li>
-<li>$\bar{h}$: vertical depth of area centroid from free surface $\text{m}$</li>
-<li>
-<p>$A$: area of submerged plane surface $\text{m}^2$</p>
-</li>
-<li>
-<p><strong>Centre of Pressure $h^*$ for Submerged Vertical Plane</strong>:
-  <div class="formula-card">$${\boxed{h^* = \bar{h} + \frac{I_G}{A \bar{h}}}}$$</div></p>
-</li>
-<li>
-<p>$I_G$: area moment of inertia about horizontal centroidal axis $\text{m}^4$</p>
-</li>
-<li>
-<p><strong>Centre of Pressure $h^*$ for Inclined Plane (Angle $\theta$ to free surface)</strong>:
-  <div class="formula-card">$${\boxed{h^* = \bar{h} + \frac{I_G \sin^2\theta}{A \bar{h}}}}$$</div></p>
-</li>
-<li>
-<p><strong>Hydrostatic Force on Curved Surface</strong>:
-  <div class="formula-card">$${\boxed{F = \sqrt{F_H^2 + F_V^2}, \quad \tan\theta = \frac{F_V}{F_H}}}$$</div></p>
-</li>
-<li>$F_H$: force on vertical projection of curved surface $\rho g \bar{h} A_v$</li>
-<li>
-<p>$F_V$: weight of fluid volume vertically above curved surface to free surface</p>
-</li>
-<li>
-<p><strong>Buoyant Force (Archimedes Principle)</strong>:
-  <div class="formula-card">$${\boxed{F_B = \rho_{\text{fluid}} V_{\text{displaced}} g}}$$</div></p>
-</li>
-<li>
-<p>$F_B$: upward buoyant force acting through Centre of Buoyancy $B$ $\text{N}$</p>
-</li>
-<li>
-<p><strong>Apparent Weight in Fluid</strong>:
-  <div class="formula-card">$${\boxed{W_{\text{app}} = W_{\text{true}} - F_B}}$$</div></p>
-</li>
-<li>
-<p><strong>Metacentric Height $GM$ for Floating Body</strong>:
-  <div class="formula-card">$${\boxed{GM = BM - BG \quad \text{where } BM = \frac{I}{V_{\text{displaced}}}}}$$</div></p>
-</li>
-<li>$GM$: metacentric height $\text{m}$</li>
-<li>$BM$: metacentric radius $\text{m}$</li>
-<li>$I$: second moment of area of waterplane about longitudinal tilting axis $\text{m}^4$</li>
-<li>$BG$: distance between centre of buoyancy $B$ and centre of gravity $G$ $\text{m}$</li>
-</ul>
-<hr />
-<h4 id="3-fluid-kinematics"><strong>3. Fluid Kinematics</strong></h4>
-<ul>
-<li>
-<p><strong>3D Continuity Equation (Incompressible)</strong>:
-  <div class="formula-card">$${\boxed{\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0}}$$</div></p>
-</li>
-<li>
-<p><strong>1D Continuity Equation (Incompressible)</strong>:
-  <div class="formula-card">$${\boxed{A_1 V_1 = A_2 V_2 = Q = \text{constant}}}$$</div></p>
-</li>
-<li>
-<p><strong>Stream Function $\psi$ Relations (2D Incompressible)</strong>:
-  <div class="formula-card">$${\boxed{u = \frac{\partial\psi}{\partial y}, \quad v = -\frac{\partial\psi}{\partial x}}}$$</div></p>
-</li>
-<li>
-<p><strong>Velocity Potential $\phi$ Relations (2D Irrotational)</strong>:
-  <div class="formula-card">$${\boxed{u = -\frac{\partial\phi}{\partial x}, \quad v = -\frac{\partial\phi}{\partial y}}}$$</div></p>
-</li>
-<li>
-<p><strong>Cauchy-Riemann Grid Orthogonality</strong>:
-  <div class="formula-card">$${\boxed{\frac{\partial\phi}{\partial x} = -\frac{\partial\psi}{\partial y}, \quad \frac{\partial\phi}{\partial y} = \frac{\partial\psi}{\partial x}}}$$</div></p>
-</li>
-<li>
-<p><strong>Laplace Equation for Irrotational Flow</strong>:
-  <div class="formula-card">$${\boxed{\nabla^2 \phi = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} = 0}}$$</div></p>
-</li>
-<li>
-<p><strong>Total Acceleration Components</strong>:
-  <div class="formula-card">$${\boxed{a_x = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}}}$$</div>
-  <div class="formula-card">$${\boxed{a_y = \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z}}}$$</div></p>
-</li>
-<li>Local (Temporal) Acceleration: $\frac{\partial u}{\partial t}$</li>
-<li>
-<p>Convective (Spatial) Acceleration: $u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y}$</p>
-</li>
-<li>
-<p><strong>Vorticity $\boldsymbol{\xi}$ &amp; Angular Velocity $\boldsymbol{\omega}$</strong>:
-  <div class="formula-card">$${\boxed{\omega_z = \frac{1}{2} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right)}}$$</div>
-  <div class="formula-card">$${\boxed{\xi_z = 2 \omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}}}$$</div></p>
-</li>
-<li>
-<p><strong>Vortex Flow Velocity Distributions</strong>:</p>
-</li>
-<li>Free Vortex (Irrotational): $\boxed{v_\theta \cdot r = \text{constant} \implies v_\theta \propto \frac{1}{r}}$</li>
-<li>Forced Vortex (Rotational): $\boxed{v_\theta = \omega r \implies v_\theta \propto r}$</li>
-</ul>
-<hr />
-<h4 id="4-fluid-dynamics-flow-measurement"><strong>4. Fluid Dynamics &amp; Flow Measurement</strong></h4>
-<ul>
-<li>
-<p><strong>Euler's Equation along a Streamline</strong>:
-  <div class="formula-card">$${\boxed{\frac{dp}{\rho} + V dV + g dz = 0}}$$</div></p>
-</li>
-<li>
-<p><strong>Bernoulli's Equation (Head Form)</strong>:
-  <div class="formula-card">$${\boxed{\frac{p}{\rho g} + \frac{V^2}{2g} + z = \text{constant}}}$$</div></p>
-</li>
-<li>$\frac{p}{\rho g}$: pressure head $\text{m}$</li>
-<li>$\frac{V^2}{2g}$: velocity (kinetic) head $\text{m}$</li>
-<li>
-<p>$z$: datum (potential) head $\text{m}$</p>
-</li>
-<li>
-<p><strong>Bernoulli's Equation with Head Loss &amp; Machinery</strong>:
-  <div class="formula-card">$${\boxed{\frac{p_1}{\rho g} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\rho g} + \frac{V_2^2}{2g} + z_2 + h_L \pm H_{\text{machine}}}}$$</div></p>
-</li>
-<li>
-<p><strong>Venturimeter Discharge</strong>:
-  <div class="formula-card">$${\boxed{Q = C_d \frac{A_1 A_2}{\sqrt{A_1^2 - A_2^2}} \sqrt{2 g h}}}$$</div></p>
-</li>
-<li>$C_d$: coefficient of discharge $0.95 - 0.99$</li>
-<li>
-<p>$h$: differential head in meters of water $h = x \left(\frac{S_m}{S_f} - 1\right)$</p>
-</li>
-<li>
-<p><strong>Orifice Meter Discharge</strong>:
-  <div class="formula-card">$${\boxed{Q = C_d A_o \sqrt{2 g H}, \quad C_d = C_c \times C_v \approx 0.62 - 0.65}}$$</div></p>
-</li>
-<li>
-<p><strong>Pitot Tube Stagnation Velocity</strong>:
-  <div class="formula-card">$${\boxed{V = C_v \sqrt{2 g h}}}$$</div></p>
-</li>
-<li>
-<p><strong>Impulse-Momentum Force Equation</strong>:
-  <div class="formula-card">$${\boxed{\sum \mathbf{F} = \dot{m} (\mathbf{V}<em>{\text{out}} - \mathbf{V}</em>{\text{in}}) = \rho Q (\mathbf{V}<em>{\text{out}} - \mathbf{V}</em>{\text{in}})}}$$</div></p>
-</li>
-<li>
-<p><strong>Kinetic Energy &amp; Momentum Correction Factors (Laminar Pipe)</strong>:
-  <div class="formula-card">$${\boxed{\alpha = 2.0, \quad \beta = \frac{4}{3} \approx 1.33}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Ideal Fluid</strong>: Hypothetical fluid with zero viscosity $\mu = 0$, complete incompressibility $\rho = \text{const}$, zero surface tension, and irrotational flow.</li>
-<li><strong>Newtonian Fluid</strong>: Fluid obeying Newton's law of viscosity where shear stress is directly proportional to velocity gradient $\tau = \mu \frac{du}{dy}$.</li>
-<li><strong>Pseudoplastic (Shear-thinning)</strong>: Non-Newtonian fluid whose apparent viscosity decreases as shear rate increases (e.g. blood, milk, paint, gelatin).</li>
-<li><strong>Dilatant (Shear-thickening)</strong>: Non-Newtonian fluid whose apparent viscosity increases as shear rate increases (e.g. cornstarch in water, quicksand).</li>
-<li><strong>Bingham Plastic</strong>: Thixotropic fluid requiring a critical yield stress $\tau_0$ before flow initiates linearly (e.g. toothpaste, sewage sludge, drilling mud).</li>
-<li><strong>Surface Tension $\sigma$</strong>: Tensile force per unit length existing along liquid-gas interfaces ($\text{N/m}$ or $\text{J/m}^2$), dimension $\text{MT}^{-2}$.</li>
-<li><strong>Capillarity</strong>: Phenomenon of rise or fall of liquid column in a small diameter tube due to relative strength of adhesive forces (liquid-glass) vs cohesive forces (liquid-liquid).</li>
-<li><strong>Bulk Modulus $K$</strong>: Measure of resistance to volumetric compression $\text{N/m}^2$; $K = \frac{1}{\beta}$.</li>
-<li><strong>Pascal's Law</strong>: Pressure intensity at any point in a static fluid is isotropic (equal in all directions).</li>
-<li><strong>Hydrostatic Paradox</strong>: Hydrostatic force on the base of a vessel depends only on fluid depth and base area, independent of container shape or total liquid volume.</li>
-<li><strong>Centre of Pressure $h^*$</strong>: Point of application of the total resultant hydrostatic force on a submerged surface; always lies deeper than the centroid $\bar{h}$ for inclined/vertical plane surfaces.</li>
-<li><strong>Archimedes Principle</strong>: A submerged body experiences an upward buoyant force equal to the weight of fluid displaced by the body.</li>
-<li><strong>Metacentre $M$</strong>: Point of intersection of the buoyant force line of action with the original vertical symmetry axis when a floating body undergoes a small heel angle.</li>
-<li><strong>Metacentric Height $GM$</strong>: Distance between metacentre $M$ and centre of gravity $G$. $GM &gt; 0 \implies$ stable equilibrium.</li>
-<li><strong>Streamline</strong>: Instantaneous continuous curve whose tangent at any point gives the direction of the velocity vector.</li>
-<li><strong>Pathline</strong>: Actual path traced by an individual fluid particle over a time interval.</li>
-<li><strong>Streakline</strong>: Locus of all fluid particles that have passed sequentially through a fixed spatial point.</li>
-<li><strong>Irrotational Flow</strong>: Flow field in which fluid elements undergo no net angular rotation about their own axes $\boldsymbol{\omega} = 0$. Velocity potential $\phi$ exists ONLY for irrotational flow.</li>
-<li><strong>Stream Function $\psi$</strong>: Scalar function existing for any 2D incompressible flow; lines of constant $\psi$ define streamlines.</li>
-<li><strong>Stagnation Point</strong>: Spatial point where local velocity drops to zero $V = 0$ and kinetic energy converts into pressure head $H_{\text{stag}} = \frac{p}{\rho g} + \frac{V^2}{2g}$.</li>
-<li><strong>Free Vortex</strong>: Fluid rotation driven without external torque $v_\theta \cdot r = \text{const}$, rendering the flow irrotational.</li>
-<li><strong>Forced Vortex</strong>: Fluid rotation driven by an external torque at constant angular velocity $v_\theta = \omega r$, rendering the flow rotational.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-constants"><strong>2.3 — Standard Values &amp; Constants</strong></h3>
-<ul>
-<li><strong>Density of Pure Water $\rho_{\text{water}}$</strong>: $1000 \text{ kg/m}^3$ $1.0 \text{ g/cm}^3$ at $4^\circ\text{C}$.</li>
-<li><strong>Specific Gravity of Mercury $S_{\text{Hg}}$</strong>: $13.6$.</li>
-<li><strong>Dynamic Viscosity Unit Conversion</strong>: $1 \text{ poise} = 0.1 \text{ Pa}\cdot\text{s} = 0.1 \text{ N}\cdot\text{s/m}^2 = 0.1 \text{ kg/m}\cdot\text{s}$.</li>
-<li><strong>Kinematic Viscosity Unit Conversion</strong>: $1 \text{ stoke} = 10^{-4} \text{ m}^2/\text{s} = 1 \text{ cm}^2/\text{s}$.</li>
-<li><strong>Standard Atmospheric Pressure</strong>: $101.325 \text{ kPa} = 1.01325 \text{ bar} = 10.33 \text{ m of H}_2\text{O} = 760 \text{ mm of Hg} = 760 \text{ torr}$.</li>
-<li><strong>Water-Glass Contact Angle</strong>: $\theta \approx 0^\circ$ $\cos\theta = 1$.</li>
-<li><strong>Mercury-Glass Contact Angle</strong>: $\theta \approx 130^\circ - 140^\circ$ (non-wetting, capillary depression).</li>
-<li><strong>Venturimeter Discharge Coefficient $C_d$</strong>: $0.95 - 0.99$.</li>
-<li><strong>Orifice Meter Discharge Coefficient $C_d$</strong>: $0.62 - 0.65$.</li>
-<li><strong>Flow Nozzle Discharge Coefficient $C_d$</strong>: $0.90 - 0.92$.</li>
-<li><strong>Venturimeter Convergent Angle</strong>: $20^\circ - 22^\circ$.</li>
-<li><strong>Venturimeter Divergent Angle</strong>: $5^\circ - 7^\circ$ (small to prevent boundary layer separation and eddy formation).</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Viscosity</strong>: Introduced in §3.1 (Properties), applied in §3.4 (Kinematics laminar criterion) and pipe friction losses.</li>
-<li><strong>Euler's Equation</strong>: Derived in §3.5 (Dynamics), integrated along a streamline to produce Bernoulli's equation.</li>
-<li><strong>Stagnation Pressure</strong>: Introduced in §3.4 (Kinematics), applied to Pitot tube velocity measurement in §3.5.</li>
-<li><strong>Impulse-Momentum Principle</strong>: Formulated in §3.5 (Dynamics), applied to jet impact forces on vanes in module 5.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-basic-fluid-properties-rheology"><strong>3.1 Basic Fluid Properties &amp; Rheology</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Fluids (liquids and gases) offer zero static resistance to shear stress; they deform continuously under any applied shear force.</li>
-<li>Dynamic viscosity $\mu$ represents internal friction caused by intermolecular cohesion in liquids and molecular momentum transfer in gases.</li>
-<li>Temperature dependence:</li>
-<li>Liquids: Viscosity decreases with temperature ($\mu \downarrow$ as $T \uparrow$) because cohesive forces weaken.</li>
-<li>Gases: Viscosity increases with temperature ($\mu \uparrow$ as $T \uparrow$) because molecular collision frequency rises $\mu \propto \sqrt{T}$.</li>
-<li>Surface tension $\sigma$ results from unbalanced cohesive forces on surface molecules, causing liquid surfaces to act like stretched elastic membranes.</li>
-<li>Capillarity occurs in small tubes due to the balance between adhesive forces (liquid-glass) and cohesive forces (liquid-liquid). Water wets glass ($\theta &lt; 90^\circ$, rise); mercury depresses ($\theta &gt; 90^\circ$, fall).</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Newton's Law of Viscosity</strong>: $\tau = \mu \frac{du}{dy}$. Dynamic viscosity unit is $\text{Pa}\cdot\text{s}$ $\text{N}\cdot\text{s/m}^2$. Kinematic viscosity $\nu = \frac{\mu}{\rho}$ has unit $\text{m}^2/\text{s}$ (stokes). $1 \text{ poise} = 0.1 \text{ Pa}\cdot\text{s}$, $1 \text{ stoke} = 10^{-4} \text{ m}^2/\text{s}$.</p>
-<p>[!TRAP]
-<strong>Temperature Effects on Viscosity</strong>: Liquid viscosity DECREASES with temperature, whereas gas viscosity INCREASES with temperature. Do not mix up liquids and gases in exam questions!</p>
-<p>[!FOCUS]
-<strong>Non-Newtonian Fluid Classification</strong>:
-- Newtonian: $\tau = \mu \frac{du}{dy}$ (water, air, gasoline, kerosene, mercury).
-- Pseudoplastic (Shear-thinning): Viscosity decreases with shear rate (blood, milk, paint, ink).
-- Dilatant (Shear-thickening): Viscosity increases with shear rate (starch solution, quicksand).
-- Bingham Plastic: Yield stress $\tau_0$ required before linear flow (toothpaste, mud, sewage sludge).</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Fluid Rheology Problem?
-├─ Linear plot through origin (tau = mu * du/dy) → Newtonian
-├─ Requires initial yield stress tau_0 → Bingham Plastic (toothpaste)
-├─ Slope decreases with rate of shear → Pseudoplastic (paint, blood)
-└─ Slope increases with rate of shear → Dilatant (quicksand, starch)
-</code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Memorize Viscosity Units: $1 \text{ poise} = 0.1 \text{ Pa}\cdot\text{s}$; $1 \text{ stoke} = 10^{-4} \text{ m}^2/\text{s}$.</li>
-<li>[ ] Memorize Capillary Rise: $h = \frac{4 \sigma \cos\theta}{\rho g d}$ ($\theta = 0^\circ$ for water, $\theta = 130^\circ$ for mercury).</li>
-<li>[ ] Memorize Droplet Excess Pressure: Drop $= \frac{4 \sigma}{d}$, Soap Bubble $= \frac{8 \sigma}{d}$, Jet $= \frac{2 \sigma}{d}$.</li>
-<li>[ ] Memorize Bulk Modulus &amp; Acoustic Velocity: $K = \rho \frac{dP}{d\rho}$, $c = \sqrt{K/\rho}$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A flat plate of area $0.1 \text{ m}^2$ is pulled at $0.3 \text{ m/s}$ over an oil film of thickness $0.1 \text{ mm}$ $\mu = 0.001 \text{ N}\cdot\text{s/m}^2$. Calculate the shear stress, pulling force, and power required.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${\frac{du}{dy} = \frac{0.3}{0.0001} = 3000 \text{ s}^{-1}}$$</div>
-  <div class="formula-card">$${\tau = \mu \frac{du}{dy} = 0.001 \times 3000 = 3 \text{ N/m}^2 \text{ (Pa)}}$$</div>
-  <div class="formula-card">$${F = \tau \times A = 3 \times 0.1 = 0.3 \text{ N}}$$</div>
-  <div class="formula-card">$${P = F \times V = 0.3 \times 0.3 = 0.09 \text{ W}}$$</div>
-- <strong>Key Insight</strong>: Always convert film thickness from mm to m $0.1 \text{ mm} = 10^{-4} \text{ m}$. Power is $F \cdot V$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: A soap bubble of diameter $50 \text{ mm}$ has an internal pressure of $4 \text{ N/m}^2$ above atmospheric. Calculate the surface tension of the soap solution.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${\Delta P = \frac{8 \sigma}{d} \implies 4 = \frac{8 \sigma}{0.05} \implies \sigma = \frac{4 \times 0.05}{8} = 0.025 \text{ N/m}}$$</div>
-- <strong>Key Insight</strong>: Soap bubbles have TWO liquid-gas interfaces, so excess pressure is $\Delta P = \frac{8 \sigma}{d}$, whereas liquid droplets have $\Delta P = \frac{4 \sigma}{d}$.</p>
-<hr />
-<h3 id="32-fluid-statics-pressure-measurement-hydrostatic-forces"><strong>3.2 Fluid Statics: Pressure Measurement &amp; Hydrostatic Forces</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Hydrostatic pressure increases linearly with vertical depth $p = \rho g h$.</li>
-<li>Atmospheric pressure decreases with altitude; absolute pressure $P_{\text{abs}} = P_{\text{atm}} + P_{\text{gauge}}$.</li>
-<li>Manometers measure pressure differences by balancing liquid column heights.</li>
-<li>Total hydrostatic force on a plane surface equals pressure at centroid times surface area $F = \rho g \bar{h} A$.</li>
-<li>Centre of pressure $h^*$ is ALWAYS deeper than centroid $\bar{h}$ for submerged inclined or vertical plane surfaces.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Pascal's Law</strong>: Pressure at any point in a static fluid is isotropic (equal in all directions). Hydrostatic pressure intensity depends strictly on vertical depth $h$, not container geometry (hydrostatic paradox).</p>
-<p>[!TRAP]
-<strong>Centre of Pressure Location</strong>: $h^<em> = \bar{h} + \frac{I_G \sin^2\theta}{A \bar{h}}$. Notice that $h^</em>$ is ALWAYS below $\bar{h}$. As depth increases $\bar{h} \to \infty$, the gap $\frac{I_G \sin^2\theta}{A \bar{h}} \to 0$, so $h^*$ approaches $\bar{h}$ at great depths.</p>
-<p>[!FOCUS]
-<strong>Barometer Fluid Choice</strong>: Mercury is selected for barometers due to its extremely low vapor pressure, high density $S = 13.6$, and non-wetting meniscus.</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Hydrostatic Pressure Problem?
-├─ Depth given → p = rho * g * h
-├─ U-tube Manometer → Delta P = (rho_m - rho) * g * x
-├─ Force on Plane Surface → F = rho * g * h_bar * A
-└─ Centre of Pressure → h_star = h_bar + (I_G * sin^2(theta)) / (A * h_bar)
-</code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Absolute = Gauge + Atmospheric; Vacuum = Atmospheric - Absolute.</li>
-<li>[ ] Barometer measures atmospheric pressure $760 \text{ mm Hg} = 10.33 \text{ m H}_2\text{O}$.</li>
-<li>[ ] Hydrostatic force magnitude depends on centroid depth $\bar{h}$.</li>
-<li>[ ] Centre of pressure location is independent of fluid density.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A vertical square gate $2 \text{ m} \times 2 \text{ m}$ is submerged in water with its top edge $1 \text{ m}$ below the free surface. Find the total hydrostatic force and location of centre of pressure.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${A = 2 \times 2 = 4 \text{ m}^2}$$</div>
-  <div class="formula-card">$${\bar{h} = 1 + \frac{2}{2} = 2 \text{ m}}$$</div>
-  <div class="formula-card">$${F = \rho g \bar{h} A = 1000 \times 9.81 \times 2 \times 4 = 78.48 \text{ kN}}$$</div>
-  <div class="formula-card">$${I_G = \frac{b h^3}{12} = \frac{2 \times 2^3}{12} = \frac{16}{12} = 1.333 \text{ m}^4}$$</div>
-  <div class="formula-card">$${h^<em> = \bar{h} + \frac{I_G}{A \bar{h}} = 2 + \frac{1.333}{4 \times 2} = 2 + 0.1667 = 2.167 \text{ m}}$$</div>
-- </em><em>Key Insight</em><em>: Centroid depth $\bar{h}$ is measured from the free surface to the centroid of the area $1 + 1 = 2 \text{ m}$. $h^</em> = 2.167 \text{ m}$ lies below $2 \text{ m}$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: Water lake maximum depth is $100 \text{ m}$, $P_{\text{atm}} = 101 \text{ kPa}$. Calculate absolute pressure at the bottom $g = 9.81 \text{ m/s}^2$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${P_{\text{gauge}} = \rho g h = 1000 \times 9.81 \times 100 = 981,000 \text{ Pa} = 981 \text{ kPa}}$$</div>
-  <div class="formula-card">$${P_{\text{abs}} = P_{\text{atm}} + P_{\text{gauge}} = 101 + 981 = 1082 \text{ kPa}}$$</div>
-- <strong>Key Insight</strong>: Always add atmospheric pressure when absolute pressure is requested.</p>
-<hr />
-<h3 id="33-buoyancy-flotation-stability"><strong>3.3 Buoyancy &amp; Flotation Stability</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Buoyant force $F_B$ acts vertically upward through the Centre of Buoyancy $B$, which is the centroid of the displaced fluid volume.</li>
-<li>Apparent weight of a submerged body = True Weight in air $- F_B$.</li>
-<li>Floating body equilibrium: Weight of body $W$ = Buoyant force $F_B$ (body displaces its own weight of liquid).</li>
-<li>Stability of floating bodies is determined by Metacentric Height $GM = BM - BG$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Archimedes Principle</strong>: A body submerged in a fluid experiences an upward buoyant force equal to the weight of fluid displaced by the body $F_B = \rho_{\text{fluid}} V_{\text{displaced}} g$.</p>
-<p>[!TRAP]
-<strong>Submerged vs Floating Stability Criteria</strong>:
-- <strong>Submerged Body</strong>: Stable if $B$ is ABOVE $G$ $BG &gt; 0$.
-- <strong>Floating Body</strong>: Stable if Metacentre $M$ is ABOVE $G$ $GM &gt; 0$, even if $B$ is below $G$!</p>
-<p>[!FOCUS]
-<strong>Metacentric Height $GM$ Summary</strong>:
-- $GM &gt; 0$ ($M$ above $G$): Stable Equilibrium (restoring couple).
-- $GM = 0$ ($M$ coincides with $G$): Neutral Equilibrium.
-- $GM &lt; 0$ ($M$ below $G$): Unstable Equilibrium (overturning couple).</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>Body in Fluid Problem?
-├─ Completely Submerged → F_B = rho_f * V_body * g
-│  └─ Stability → B above G (Stable), B below G (Unstable)
-└─ Floating Body → F_B = W_body
-   └─ Stability → M above G (GM &gt; 0 Stable), M below G (GM &lt; 0 Unstable)
-</code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Buoyant force = weight of displaced fluid only.</li>
-<li>[ ] Centre of buoyancy = centroid of displaced volume.</li>
-<li>[ ] $BM = I / V_{\text{displaced}}$, where $I$ is waterplane area moment of inertia.</li>
-<li>[ ] Metacentric height $GM = BM - BG$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A stone weighs $400 \text{ N}$ in air and $225 \text{ N}$ when completely submerged in water. Calculate the volume of the stone and its specific gravity $g = 9.81 \text{ m/s}^2$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${F_B = W_{\text{air}} - W_{\text{water}} = 400 - 225 = 175 \text{ N}}$$</div>
-  <div class="formula-card">$${F_B = \rho_{\text{water}} g V \implies 175 = 1000 \times 9.81 \times V \implies V = \frac{175}{9810} = 0.01784 \text{ m}^3}$$</div>
-  <div class="formula-card">$${S = \frac{W_{\text{air}}}{F_B} = \frac{400}{175} \approx 2.286}$$</div>
-- <strong>Key Insight</strong>: Specific gravity of a solid fully submerged in water is given by $S = \frac{W_{\text{air}}}{W_{\text{air}} - W_{\text{water}}}$.</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: A solid wooden block of specific gravity $0.6$ floats in water. Calculate the percentage of volume submerged.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${W_{\text{body}} = F_B \implies \rho_{\text{body}} V_{\text{total}} g = \rho_{\text{water}} V_{\text{submerged}} g}$$</div>
-  <div class="formula-card">$${\frac{V_{\text{submerged}}}{V_{\text{total}}} = \frac{\rho_{\text{body}}}{\rho_{\text{water}}} = S_{\text{body}} = 0.60 = 60\%}$$</div>
-- <strong>Key Insight</strong>: For a floating body in water, percentage submerged volume equals its specific gravity $\times 100\%$.</p>
-<hr />
-<h3 id="34-fluid-kinematics"><strong>3.4 Fluid Kinematics</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Kinematics analyzes fluid motion without considering forces.</li>
-<li>Flow Classifications:</li>
-<li>Steady vs Unsteady: $\frac{\partial \mathbf{V}}{\partial t} = 0$ vs $\frac{\partial \mathbf{V}}{\partial t} \neq 0$.</li>
-<li>Uniform vs Non-uniform: $\frac{\partial \mathbf{V}}{\partial s} = 0$ vs $\frac{\partial \mathbf{V}}{\partial s} \neq 0$.</li>
-<li>Laminar $Re &lt; 2300$ vs Turbulent $Re &gt; 4000$.</li>
-<li>Streamlines, Pathlines, and Streaklines coincide in steady flow.</li>
-<li>Velocity potential $\phi$ exists ONLY for irrotational flow $\boldsymbol{\omega} = 0$.</li>
-<li>Stream function $\psi$ exists for ANY 2D incompressible flow (rotational or irrotational).</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stream Function $\psi$ &amp; Velocity Potential $\phi$</strong>:
-- $u = \frac{\partial\psi}{\partial y}$, $v = -\frac{\partial\psi}{\partial x}$
-- $u = -\frac{\partial\phi}{\partial x}$, $v = -\frac{\partial\phi}{\partial y}$
-- Lines of constant $\psi$ (streamlines) and constant $\phi$ (equipotential lines) intersect orthogonally everywhere.</p>
-<p>[!TRAP]
-<strong>Vorticity vs Angular Velocity</strong>: Vorticity $\boldsymbol{\xi} = \nabla \times \mathbf{V} = 2 \boldsymbol{\omega}$. Vorticity is TWICE the angular velocity vector, not equal to it.</p>
-<p>[!FOCUS]
-<strong>Acceleration Components</strong>:
-- Local (Temporal) Acceleration: $\frac{\partial \mathbf{V}}{\partial t}$ (present in unsteady flow).
-- Convective (Spatial) Acceleration: $u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y}$ (present in non-uniform flow).</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>Velocity Field Given?
-├─ Check Continuity → du/dx + dv/dy = 0 → Possible 2D incompressible flow
-├─ Check Irrotationality → dv/dx - du/dy = 0 → Irrotational (phi exists)
-├─ Stream Function psi → u = d(psi)/dy, v = -d(psi)/dx
-└─ Acceleration → Local (du/dt) + Convective (u*du/dx + v*du/dy)
-</code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] 2D Continuity: $\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$.</li>
-<li>[ ] $\psi$ existence $\implies$ continuity satisfied.</li>
-<li>[ ] $\phi$ existence $\implies$ irrotational flow $\nabla^2 \phi = 0$.</li>
-<li>[ ] Free vortex: $v_\theta r = \text{const}$ (irrotational); Forced vortex: $v_\theta = \omega r$ (rotational).</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Given velocity field $u = 3 x^2$, $v = -6 x y$. Verify if this 2D flow is physically possible for an incompressible fluid and check if it is irrotational.
-- <strong>Solution</strong>:
-  1. Continuity check:
-     <div class="formula-card">$${\frac{\partial u}{\partial x} = \frac{\partial}{\partial x}(3 x^2) = 6 x}$$</div>
-     <div class="formula-card">$${\frac{\partial v}{\partial y} = \frac{\partial}{\partial y}(-6 x y) = -6 x}$$</div>
-     <div class="formula-card">$${\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 6 x - 6 x = 0 \quad \text{(Continuity satisfied } \implies \text{Possible flow)}}$$</div>
-  2. Irrotationality check:
-     <div class="formula-card">$${\omega_z = \frac{1}{2} \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) = \frac{1}{2} (-6 y - 0) = -3 y \neq 0 \quad \text{(Rotational flow)}}$$</div>
-- <strong>Key Insight</strong>: A flow can satisfy continuity (physically possible) while still being rotational!</p>
-<p><strong>Worked Example 2</strong>
-- <strong>Problem</strong>: Given stream function $\psi = 3 x^2 y - y^3$, find velocity components $u$ and $v$ at point $(1, 2)$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${u = \frac{\partial\psi}{\partial y} = 3 x^2 - 3 y^2 = 3(1)^2 - 3(2)^2 = 3 - 12 = -9 \text{ units}}$$</div>
-  <div class="formula-card">$${v = -\frac{\partial\psi}{\partial x} = -\frac{\partial}{\partial x}(3 x^2 y - y^3) = -6 x y = -6(1)(2) = -12 \text{ units}}$$</div>
-  <div class="formula-card">$${V = \sqrt{u^2 + v^2} = \sqrt{(-9)^2 + (-12)^2} = \sqrt{81 + 144} = \sqrt{225} = 15 \text{ units}}$$</div>
-- <strong>Key Insight</strong>: Velocity magnitude at a point is $V = \sqrt{u^2 + v^2}$.</p>
-<hr />
-<h3 id="35-fluid-dynamics-euler-bernoulli-flow-measurement"><strong>3.5 Fluid Dynamics: Euler, Bernoulli &amp; Flow Measurement</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Euler's equation assumes inviscid, steady flow along a streamline (pressure + gravity forces only).</li>
-<li>Integrating Euler's equation yields Bernoulli's equation for incompressible flow.</li>
-<li>Bernoulli's equation represents energy conservation per unit weight ($\text{m}$ of fluid).</li>
-<li>Stagnation point: velocity $V = 0$; all kinetic head converts to pressure head $H_{\text{stag}} = \frac{P_{\text{stat}}}{\rho g} + \frac{V^2}{2g}$.</li>
-<li>Flow Meters:</li>
-<li>Venturimeter: Least head loss, highest $C_d$ $0.95 - 0.99$. Divergent cone angle is small $5^\circ - 7^\circ$ to avoid flow separation.</li>
-<li>Orifice Meter: Highest head loss, lower $C_d$ $0.62 - 0.65$.</li>
-<li>Pitot Tube: Measures stagnation pressure to compute local velocity $V = C_v \sqrt{2 g h}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Bernoulli's Equation Assumptions</strong>:
-1. Steady flow
-2. Incompressible fluid $\rho = \text{const}$
-3. Inviscid fluid $\mu = 0$
-4. Flow along a single streamline (or irrotational entire field)
-5. No shaft work added or extracted (no pumps/turbines)</p>
-<p>[!TRAP]
-<strong>Total Energy Line (TEL) vs Hydraulic Gradient Line (HGL)</strong>:
-- $\text{TEL} = \frac{p}{\rho g} + \frac{V^2}{2g} + z$
-- $\text{HGL} = \frac{p}{\rho g} + z$
-- The vertical distance between TEL and HGL is ALWAYS velocity head $\frac{V^2}{2g}$. TEL is ALWAYS above HGL.</p>
-<p>[!FOCUS]
-<strong>Venturimeter Design Rule</strong>: Divergent section is longer with a smaller cone angle $5^\circ - 7^\circ$ than the convergent section $20^\circ - 22^\circ$ strictly to prevent flow boundary-layer separation and eddy formation.</div>
-<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
-<pre><code>Flow Dynamics Problem?
-├─ Ideal Flow Energy → Bernoulli (p/rho*g + V^2/2g + z = const)
-├─ Venturimeter Flow → Q = C_d * [A1*A2 / sqrt(A1^2 - A2^2)] * sqrt(2*g*h)
-├─ Pitot Tube Velocity → V = C_v * sqrt(2*g*h)
-└─ Jet Impact Force → F_x = rho * Q * (V_2x - V_1x)
-</code></pre>
-<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Bernoulli units = energy per unit weight (metres).</li>
-<li>[ ] Venturimeter $C_d \approx 0.98$; Orifice meter $C_d \approx 0.62$.</li>
-<li>[ ] Kinetic energy correction factor $\alpha = 2.0$ (laminar).</li>
-<li>[ ] Momentum correction factor $\beta = 4/3$ (laminar).</li>
-</ul>
-<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A horizontal venturimeter with inlet diameter $200 \text{ mm}$ and throat diameter $100 \text{ mm}$ measures water flow. Differential mercury manometer reading is $200 \text{ mm}$. Calculate flow rate $Q$ ($C_d = 0.98$, $S_{\text{Hg}} = 13.6$).
-- <strong>Solution</strong>:
-  <div class="formula-card">$${A_1 = \frac{\pi}{4}(0.2)^2 = 0.0314 \text{ m}^2, \quad A_2 = \frac{\pi}{4}(0.1)^2 = 0.00785 \text{ m}^2}$$</div>
-  <div class="formula-card">$${h = x \left(\frac{S_{\text{Hg}}}{S_{\text{water}}} - 1\right) = 0.20 \times (13.6 - 1) = 0.20 \times 12.6 = 2.52 \text{ m of water}}$$</div>
-  <div class="formula-card">$${\sqrt{A_1^2 - A_2^2} = \sqrt{(0.0314)^2 - (0.00785)^2} = \sqrt{0.000986 - 0.0000616} = 0.0304 \text{ m}^2}$$</div>
-  <div class="formula-card">$${Q = 0.98 \times \frac{0.0314 \times 0.00785}{0.0304} \times \sqrt{2 \times 9.81 \times 2.52} = 0.98 \times 0.00811 \times 7.03 = 0.0559 \text{ m}^3/\text{s} \text{ (55.9 L/s)}}$$</div>
-- <strong>Key Insight</strong>: Differential head $h$ in terms of water column must be converted from manometer deflection using $h = x \left(\frac{S_m}{S_f} - 1\right)$.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1: What is Pascal’s law?</strong><br />
-A: Intensity of pressure at any point in a fluid at rest is isotropic (equal in all directions).</p>
-<p><strong>Q2: What is the relation between absolute and gauge pressure?</strong><br />
-A: Absolute pressure = Atmospheric pressure + Gauge pressure. Gauge pressure can be positive or negative (vacuum).</p>
-<p><strong>Q3: Why is mercury commonly used in barometers?</strong><br />
-A: Mercury has an extremely low vapour pressure, high density $S = 13.6$, and non-wetting capillary behavior.</p>
-<p><strong>Q4: Where is the centre of pressure located for a submerged plane surface?</strong><br />
-A: Always deeper than the area centroid $h^* &gt; \bar{h}$. The vertical distance decreases as submergence depth increases.</p>
-<p><strong>Q5: What is Archimedes principle?</strong><br />
-A: An immersed body experiences an upward buoyant force equal to the weight of fluid displaced by the body, acting through the centre of buoyancy.</p>
-<p><strong>Q6: What are the stability criteria for floating bodies?</strong><br />
-A: Stable if metacentre $M$ lies above centre of gravity $G$ $GM &gt; 0$; neutral if $M$ coincides with $G$; unstable if $M$ lies below $G$.</p>
-<p><strong>Q7: Define a streamline.</strong><br />
-A: An instantaneous curve drawn such that the tangent at every point gives the direction of velocity vector at that point.</p>
-<p><strong>Q8: When do streamlines, pathlines, and streaklines coincide?</strong><br />
-A: In steady flow (all three lines are identical).</p>
-<p><strong>Q9: What condition must be met for a velocity potential function $\phi$ to exist?</strong><br />
-A: The flow must be irrotational $\boldsymbol{\omega} = 0$.</p>
-<p><strong>Q10: What does the existence of a stream function $\psi$ guarantee?</strong><br />
-A: The 2D incompressible continuity equation is automatically satisfied.</p>
-<p><strong>Q11: What is the physical difference between local and convective acceleration?</strong><br />
-A: Local acceleration is the velocity change with time at a fixed point (unsteady flow); convective acceleration is the velocity change due to motion in space (non-uniform flow).</p>
-<p><strong>Q12: State Bernoulli's equation assumptions.</strong><br />
-A: Steady flow, incompressible fluid, inviscid fluid, flow along a single streamline, and no shaft work added/extracted.</p>
-<p><strong>Q13: Why is the divergent cone of a venturimeter longer than its convergent cone?</strong><br />
-A: To prevent boundary layer separation and minimize head loss ($5^\circ - 7^\circ$ divergent vs $20^\circ - 22^\circ$ convergent).</p>
-<p><strong>Q14: What is a stagnation point?</strong><br />
-A: A point where fluid velocity drops to zero and kinetic head is completely converted into static pressure head.</p>
-<hr />
-<h2 id="section-5-consolidation-notes"><strong>SECTION 5: CONSOLIDATION NOTES</strong></h2>
-<ul>
-<li><strong>Note on Viscosity across Fluid Statics &amp; Kinematics</strong>:</li>
-<li>In Statics, fluid is at rest so velocity gradient $\frac{du}{dy} = 0 \implies$ shear stress $\tau = 0$ everywhere regardless of viscosity value.</li>
-<li>In Kinematics &amp; Dynamics, real viscous fluids create boundary layers and friction head losses $h_f$. Ideal fluids $\mu = 0$ are assumed for basic Euler and Bernoulli equations.</li>
-<li><strong>Note on Stagnation Pressure in Pitot vs Venturi</strong>:</li>
-<li>Pitot tube directly creates a stagnation point $V = 0$ at its impact opening to measure total head.</li>
-<li>Venturimeter does not stop the flow; it accelerates flow at the throat to create a static pressure drop measured by differential manometer.</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize Viscosity Units: $1 \text{ poise} = 0.1 \text{ Pa}\cdot\text{s}$; $1 \text{ stoke} = 10^{-4} \text{ m}^2/\text{s}$.</li>
-<li>[ ] Memorize Capillary Rise: $h = \frac{4 \sigma \cos\theta}{\rho g d}$ ($\theta = 0^\circ$ for water, $\theta = 130^\circ$ for mercury).</li>
-<li>[ ] Memorize Excess Pressure: Drop $= \frac{4 \sigma}{d}$, Soap Bubble $= \frac{8 \sigma}{d}$, Jet $= \frac{2 \sigma}{d}$.</li>
-<li>[ ] Memorize Hydrostatic Force &amp; Centre of Pressure: $F = \rho g \bar{h} A$, $h^<em> = \bar{h} + \frac{I_G \sin^2\theta}{A \bar{h}}$ ($h^</em>$ is always below $\bar{h}$).</li>
-<li>[ ] Memorize Floating Stability: Stable if $GM &gt; 0$ ($M$ above $G$). Submerged stable if $B$ above $G$.</li>
-<li>[ ] Memorize Stream Function vs Velocity Potential: $\psi$ exists for 2D incompressible; $\phi$ exists ONLY for irrotational. $\nabla^2 \phi = 0$.</li>
-<li>[ ] Memorize Bernoulli Assumptions: Steady, Incompressible, Inviscid, Streamline flow, No shaft work.</li>
-<li>[ ] Memorize TEL vs HGL: $\text{TEL} - \text{HGL} = \frac{V^2}{2g}$. TEL is always above HGL.</li>
-<li>[ ] Memorize Venturimeter Geometry: Divergent angle $5^\circ - 7^\circ$ (long cone) to prevent separation; convergent angle $20^\circ - 22^\circ$. $C_d \approx 0.98$.</li>
-</ul>
-  </div>
+      <a href="index.html">&larr; Back to Fluid Mechanics Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Fluid Properties, Statics, Kinematics &amp; Dynamics<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Viscosity &middot; Statics &middot; Kinematics &middot; Bernoulli &middot; Flow Measurement<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical
+      </span>
+    </h1>
+
+    <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
+    <h2 id="properties">1. Basic Fluid Properties</h2>
+
+    <p>A fluid is a substance that deforms continuously under any applied shear stress, regardless of how small. Unlike solids, fluids cannot sustain a static shear stress. Both liquids and gases are fluids; liquids are nearly incompressible while gases are readily compressible.</p>
+
+    <h3>1.1 Viscosity</h3>
+    <p>Viscosity is the internal resistance of a fluid to shear deformation. Newton's Law of Viscosity states that the shear stress is proportional to the velocity gradient normal to the flow direction.</p>
+
+    <div class="formula-card">$$\tau = \mu \frac{du}{dy}$$</div>
+
+    <ul>
+      <li>$\tau$ — shear stress (Pa or N/m²)</li>
+      <li>$\mu$ — dynamic (absolute) viscosity (Pa·s or N·s/m²)</li>
+      <li>$du/dy$ — velocity gradient (s⁻¹); rate of angular deformation</li>
+      <li><strong>Kinematic viscosity:</strong> $\nu = \mu/\rho$ (m²/s)</li>
+      <li><strong>Unit conversions:</strong> 1 poise = 0.1 Pa·s; 1 stoke = 10⁻⁴ m²/s = 1 cm²/s</li>
+    </ul>
+
+    <p><strong>Effect of temperature on viscosity:</strong> For liquids, viscosity decreases with increasing temperature (cohesive forces weaken). For gases, viscosity increases with temperature (momentum transfer between faster-moving molecules increases: $\mu \propto \sqrt{T}$).</p>
+
+    <h4>Non-Newtonian Fluid Classification</h4>
+    <table>
+      <thead><tr><th>Type</th><th>Behaviour</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td>Newtonian</td><td>Linear $\tau$–$(du/dy)$ through origin; $\mu$ = constant</td><td>Water, air, gasoline, mercury</td></tr>
+        <tr><td>Pseudoplastic (shear-thinning)</td><td>Apparent viscosity decreases with shear rate</td><td>Blood, milk, paint, polymer solutions</td></tr>
+        <tr><td>Dilatant (shear-thickening)</td><td>Apparent viscosity increases with shear rate</td><td>Cornstarch suspension, quicksand</td></tr>
+        <tr><td>Bingham Plastic</td><td>Requires yield stress $\tau_0$ before flowing linearly</td><td>Toothpaste, drilling mud, sewage sludge</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.2 Surface Tension &amp; Capillarity</h3>
+    <p>Surface tension $\sigma$ (N/m) arises from unbalanced intermolecular forces at a liquid–gas interface. Capillarity occurs in small tubes due to the competition between adhesive (liquid–solid) and cohesive (liquid–liquid) forces.</p>
+
+    <div class="formula-card">$$h = \frac{4\sigma\cos\theta}{\rho g d} = \frac{2\sigma\cos\theta}{\rho g R}$$</div>
+    <ul>
+      <li>$h$ — capillary rise (+) or depression (−) in metres</li>
+      <li>$\sigma$ — surface tension (N/m)</li>
+      <li>$\theta$ — contact angle: ≈0° for water–glass (wetting, rise); ≈130°–140° for mercury–glass (non-wetting, depression)</li>
+      <li>$d$ — tube diameter (m); valid for small $d$ where gravity–surface tension balance holds</li>
+    </ul>
+
+    <h4>Excess Pressure inside Curved Surfaces</h4>
+    <table>
+      <thead><tr><th>Surface</th><th>Formula</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Liquid droplet</td><td>$\Delta P = 4\sigma/d$</td><td>One liquid–gas interface</td></tr>
+        <tr><td>Soap bubble</td><td>$\Delta P = 8\sigma/d$</td><td>Two interfaces (inner + outer film)</td></tr>
+        <tr><td>Liquid jet</td><td>$\Delta P = 2\sigma/d$</td><td>Cylindrical interface (one curved direction)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.3 Bulk Modulus &amp; Compressibility</h3>
+    <div class="formula-card">$$K = -\frac{\Delta P}{\Delta V/V} = \frac{\Delta P}{\Delta\rho/\rho}, \qquad \beta = \frac{1}{K}$$</div>
+    <ul>
+      <li>$K$ — bulk modulus of elasticity (Pa); resistance to volumetric compression</li>
+      <li>$\beta$ — compressibility (Pa⁻¹)</li>
+      <li>Speed of sound: $c = \sqrt{K/\rho} = \sqrt{\gamma RT}$ (m/s); valid for ideal gas with ratio of specific heats $\gamma$</li>
+      <li>Standard values: $K_\text{water} \approx 2.1 \times 10^9$ Pa; $K_\text{air}$ varies with pressure</li>
+    </ul>
+
+    <h3>1.4 Other Fluid Properties</h3>
+    <ul>
+      <li><strong>Specific weight:</strong> $\gamma = \rho g$ (N/m³); $\gamma_\text{water} = 9810$ N/m³</li>
+      <li><strong>Specific gravity:</strong> $S = \rho_\text{fluid}/\rho_\text{water}$; dimensionless; $S_\text{Hg} = 13.6$</li>
+      <li><strong>Standard atmospheric pressure:</strong> 101.325 kPa = 760 mmHg = 10.33 m H₂O</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
+    <h2 id="statics">2. Fluid Statics</h2>
+
+    <p>In a static fluid, there is no relative motion between fluid layers, so shear stress is zero everywhere regardless of viscosity. Pressure is the only stress acting, and it acts equally in all directions (Pascal's Law).</p>
+
+    <h3>2.1 Pressure Measurement</h3>
+    <div class="formula-card">$$P_\text{abs} = P_\text{atm} + P_\text{gauge}, \qquad P_\text{vac} = P_\text{atm} - P_\text{abs}$$</div>
+    <div class="formula-card">$$p = \rho g h = \gamma h$$</div>
+    <ul>
+      <li>$p$ — hydrostatic pressure at vertical depth $h$ (Pa)</li>
+      <li>Pressure increases linearly with depth; depends only on vertical depth, not on container shape (hydrostatic paradox)</li>
+      <li><strong>Barometer:</strong> mercury preferred for its high density ($S = 13.6$) and negligible vapour pressure</li>
+    </ul>
+
+    <h4>Differential Manometers</h4>
+    <p>For a U-tube manometer with gauge fluid of specific gravity $S_m$ and flowing fluid $S_f$, the differential head in metres of the flowing fluid is:</p>
+    <div class="formula-card">$$h = x\left(\frac{S_m}{S_f} - 1\right) \quad \text{(heavier gauge fluid)}$$</div>
+    <div class="formula-card">$$h = x\left(1 - \frac{S_m}{S_f}\right) \quad \text{(lighter gauge fluid)}$$</div>
+    <ul>
+      <li>$x$ — manometer fluid deflection (m)</li>
+      <li>For mercury manometer with water: $h = x(13.6 - 1) = 12.6\,x$</li>
+    </ul>
+
+    <h3>2.2 Hydrostatic Forces on Submerged Surfaces</h3>
+
+    <h4>Plane Surface</h4>
+    <div class="formula-card">$$F = \rho g \bar{h} A$$</div>
+    <ul>
+      <li>$F$ — total hydrostatic force (N)</li>
+      <li>$\bar{h}$ — vertical depth of the area centroid below free surface (m)</li>
+      <li>$A$ — area of the submerged plane surface (m²)</li>
+    </ul>
+
+    <p>The total force acts at the <strong>centre of pressure</strong> $h^*$, which always lies below the centroid:</p>
+    <div class="formula-card">$$h^* = \bar{h} + \frac{I_G \sin^2\theta}{A\bar{h}}$$</div>
+    <ul>
+      <li>$I_G$ — second moment of area of the surface about its own centroidal axis (m⁴)</li>
+      <li>$\theta$ — angle of inclined surface with the free surface; for vertical surface $\theta = 90°$, so $\sin^2\theta = 1$</li>
+      <li>As $\bar{h} \to \infty$ (deep submergence), $h^* \to \bar{h}$ (centre of pressure approaches centroid)</li>
+    </ul>
+
+    <h4>Curved Surface</h4>
+    <div class="formula-card">$$F = \sqrt{F_H^2 + F_V^2}, \qquad \tan\theta = \frac{F_V}{F_H}$$</div>
+    <ul>
+      <li>$F_H$ — horizontal component = force on the vertical projection of the curved surface</li>
+      <li>$F_V$ — vertical component = weight of real or imaginary fluid column above the curved surface up to free surface</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
+    <h2 id="buoyancy">3. Buoyancy &amp; Flotation Stability</h2>
+
+    <p>Archimedes' Principle: any body fully or partially submerged in a static fluid experiences an upward buoyant force equal to the weight of the fluid displaced, acting through the <em>centre of buoyancy</em> $B$ (centroid of displaced volume).</p>
+
+    <div class="formula-card">$$F_B = \rho_\text{fluid}\, V_\text{displaced}\, g$$</div>
+    <div class="formula-card">$$W_\text{apparent} = W_\text{true} - F_B$$</div>
+
+    <h3>3.1 Floating Body Equilibrium</h3>
+    <p>A floating body displaces fluid equal to its own weight: $W = F_B$. As a consequence, the fraction of volume submerged equals the ratio of the body's density to the fluid's density:</p>
+    <div class="formula-card">$$\frac{V_\text{submerged}}{V_\text{total}} = \frac{\rho_\text{body}}{\rho_\text{fluid}} = S_\text{body} \quad \text{(when floating in water)}$$</div>
+
+    <h3>3.2 Stability of Floating Bodies</h3>
+    <p>When a floating body is tilted slightly, the line of action of the buoyant force intersects the original vertical axis at a point called the <strong>metacentre</strong> $M$. Stability depends on the metacentric height $GM$:</p>
+
+    <div class="formula-card">$$GM = BM - BG, \qquad BM = \frac{I_\text{waterplane}}{V_\text{displaced}}$$</div>
+    <ul>
+      <li>$I_\text{waterplane}$ — second moment of the waterplane area about the axis of tilt (m⁴)</li>
+      <li>$BG$ — distance from centre of buoyancy $B$ to centre of gravity $G$ (m)</li>
+      <li>$GM > 0$ (M above G) → stable; $GM = 0$ → neutral; $GM < 0$ → unstable</li>
+    </ul>
+
+    <table>
+      <thead><tr><th>Body type</th><th>Stability criterion</th></tr></thead>
+      <tbody>
+        <tr><td>Completely submerged</td><td>Stable if $B$ is above $G$</td></tr>
+        <tr><td>Floating (partially submerged)</td><td>Stable if metacentre $M$ is above $G$ ($GM > 0$), even if $B$ is below $G$</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ═══════════════════════════ PART 4 ═══════════════════════════ -->
+    <h2 id="kinematics">4. Fluid Kinematics</h2>
+
+    <p>Kinematics describes fluid motion without reference to the forces causing it. The Eulerian approach describes velocity as a function of position and time: $\mathbf{V} = \mathbf{V}(x,y,z,t)$.</p>
+
+    <h3>4.1 Flow Classifications</h3>
+    <table>
+      <thead><tr><th>Classification</th><th>Criterion</th></tr></thead>
+      <tbody>
+        <tr><td>Steady / Unsteady</td><td>$\partial\mathbf{V}/\partial t = 0$ (steady); $\neq 0$ (unsteady)</td></tr>
+        <tr><td>Uniform / Non-uniform</td><td>$\partial\mathbf{V}/\partial s = 0$ along streamline (uniform)</td></tr>
+        <tr><td>Laminar / Turbulent</td><td>$Re < 2300$ laminar; $Re > 4000$ turbulent (pipe flow)</td></tr>
+        <tr><td>Rotational / Irrotational</td><td>Fluid elements rotate about own axes (rotational) vs no rotation (irrotational)</td></tr>
+      </tbody>
+    </table>
+
+    <p>In steady flow, streamlines, pathlines, and streaklines all coincide.</p>
+
+    <h3>4.2 Continuity Equation</h3>
+    <div class="formula-card">$$\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 \quad \text{(3D incompressible)}$$</div>
+    <div class="formula-card">$$A_1 V_1 = A_2 V_2 = Q \quad \text{(1D steady, incompressible)}$$</div>
+
+    <h3>4.3 Stream Function &amp; Velocity Potential</h3>
+    <p>The <strong>stream function</strong> $\psi$ exists for any 2D incompressible flow. Lines of constant $\psi$ are streamlines, and the flow rate between two streamlines equals $\Delta\psi$:</p>
+    <div class="formula-card">$$u = \frac{\partial\psi}{\partial y}, \qquad v = -\frac{\partial\psi}{\partial x}$$</div>
+
+    <p>The <strong>velocity potential</strong> $\phi$ exists only for irrotational flow. Lines of constant $\phi$ (equipotential lines) are everywhere orthogonal to streamlines:</p>
+    <div class="formula-card">$$u = -\frac{\partial\phi}{\partial x}, \qquad v = -\frac{\partial\phi}{\partial y}$$</div>
+    <div class="formula-card">$$\nabla^2\phi = \frac{\partial^2\phi}{\partial x^2} + \frac{\partial^2\phi}{\partial y^2} = 0 \quad \text{(Laplace equation; irrotational flow)}$$</div>
+
+    <h3>4.4 Acceleration &amp; Vorticity</h3>
+    <p>Total fluid acceleration has two components — local (due to time variation) and convective (due to spatial variation of velocity):</p>
+    <div class="formula-card">$$a_x = \underbrace{\frac{\partial u}{\partial t}}_{\text{local}} + \underbrace{u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z}}_{\text{convective}}$$</div>
+
+    <p>Vorticity is twice the angular velocity of a fluid element:</p>
+    <div class="formula-card">$$\xi_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 2\omega_z$$</div>
+    <ul>
+      <li>Irrotational flow: $\xi = 0$ everywhere; velocity potential $\phi$ exists</li>
+      <li><strong>Free vortex</strong> (irrotational): $v_\theta \cdot r = \text{const}$, so $v_\theta \propto 1/r$</li>
+      <li><strong>Forced vortex</strong> (rotational): $v_\theta = \omega r$, so $v_\theta \propto r$</li>
+    </ul>
+
+    <!-- ═══════════════════════════ PART 5 ═══════════════════════════ -->
+    <h2 id="dynamics">5. Fluid Dynamics</h2>
+
+    <h3>5.1 Euler's Equation</h3>
+    <p>For steady, inviscid flow along a streamline (pressure and gravity forces only):</p>
+    <div class="formula-card">$$\frac{dp}{\rho} + V\,dV + g\,dz = 0$$</div>
+    <p>Integrating along a streamline for an incompressible fluid ($\rho$ = constant) gives Bernoulli's equation.</p>
+
+    <h3>5.2 Bernoulli's Equation</h3>
+    <div class="formula-card">$$\frac{p}{\rho g} + \frac{V^2}{2g} + z = \text{constant along a streamline}$$</div>
+    <ul>
+      <li>$p/\rho g$ — pressure head (m)</li>
+      <li>$V^2/2g$ — velocity (kinetic) head (m)</li>
+      <li>$z$ — datum (potential) head (m)</li>
+      <li><strong>Assumptions:</strong> steady flow; incompressible fluid; inviscid fluid; applied along a single streamline; no shaft work</li>
+      <li>With losses and machinery: $\frac{p_1}{\rho g} + \frac{V_1^2}{2g} + z_1 = \frac{p_2}{\rho g} + \frac{V_2^2}{2g} + z_2 + h_L \pm H_\text{machine}$</li>
+    </ul>
+
+    <p>The Total Energy Line (TEL) and Hydraulic Gradient Line (HGL) are related by the velocity head:</p>
+    <div class="formula-card">$$\text{TEL} - \text{HGL} = \frac{V^2}{2g} \quad \text{(TEL always above HGL)}$$</div>
+
+    <h3>5.3 Flow Measurement Devices</h3>
+
+    <h4>Venturimeter</h4>
+    <div class="formula-card">$$Q = C_d \frac{A_1 A_2}{\sqrt{A_1^2 - A_2^2}}\sqrt{2gh}$$</div>
+    <ul>
+      <li>$C_d$ = 0.95–0.99; least head loss among flow meters</li>
+      <li>Convergent angle: 20°–22°; Divergent angle: 5°–7° (small to prevent boundary layer separation)</li>
+      <li>Differential head: $h = x(S_m/S_f - 1)$ metres of flowing fluid</li>
+    </ul>
+
+    <h4>Orifice Meter</h4>
+    <div class="formula-card">$$Q = C_d A_o \sqrt{2gH}, \qquad C_d = C_c \times C_v \approx 0.62\text{–}0.65$$</div>
+    <ul>
+      <li>Highest pressure loss; simplest construction; $C_c$ = contraction coefficient, $C_v$ = velocity coefficient</li>
+    </ul>
+
+    <h4>Pitot Tube</h4>
+    <div class="formula-card">$$V = C_v\sqrt{2gh}$$</div>
+    <ul>
+      <li>Measures local velocity at a point by creating a stagnation point; $h$ = difference between stagnation and static pressure heads</li>
+      <li>$C_v \approx 0.98\text{–}0.99$; stagnation point: $V = 0$, all kinetic energy converts to pressure</li>
+    </ul>
+
+    <h3>5.4 Impulse–Momentum Equation</h3>
+    <div class="formula-card">$$\sum\mathbf{F} = \dot{m}(\mathbf{V}_\text{out} - \mathbf{V}_\text{in}) = \rho Q(\mathbf{V}_\text{out} - \mathbf{V}_\text{in})$$</div>
+    <ul>
+      <li>Applied to control volumes; forces include pressure, body, and reaction forces</li>
+      <li>Kinetic energy correction factor $\alpha = 2.0$ (laminar pipe); momentum correction factor $\beta = 4/3 \approx 1.33$ (laminar pipe)</li>
+      <li>For turbulent flow: $\alpha \approx 1.01\text{–}1.1$; $\beta \approx 1.01\text{–}1.05$</li>
+    </ul>
+
+    <!-- ═══════════════════════════ KEY POINTS ═══════════════════════════ -->
+    <div class="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Fluid viscosity: liquid $\mu$ decreases with $T$; gas $\mu$ increases with $T$ ($\mu \propto \sqrt{T}$). Unit conversions: 1 poise = 0.1 Pa·s; 1 stoke = 10⁻⁴ m²/s.</li>
+        <li>Excess pressure: liquid drop = $4\sigma/d$; soap bubble = $8\sigma/d$ (two interfaces); liquid jet = $2\sigma/d$.</li>
+        <li>Hydrostatic force on a plane surface acts at the centroid: $F = \rho g \bar{h} A$. Centre of pressure $h^*$ always lies below the centroid $\bar{h}$.</li>
+        <li>Pascal's Law: pressure at any point in a static fluid is equal in all directions. Hydrostatic pressure depends only on depth, not container shape (hydrostatic paradox).</li>
+        <li>Archimedes: buoyant force = weight of displaced fluid, acting through centre of buoyancy $B$ (centroid of displaced volume).</li>
+        <li>Floating body: fraction submerged = specific gravity. Stable if $GM > 0$ (metacentre above centre of gravity).</li>
+        <li>For completely submerged body: stable if $B$ is above $G$; floating body can be stable even if $B$ below $G$ provided $M$ is above $G$.</li>
+        <li>Stream function $\psi$ exists for any 2D incompressible flow. Velocity potential $\phi$ exists only for irrotational flow.</li>
+        <li>Free vortex: $v_\theta r = $ const (irrotational); forced vortex: $v_\theta = \omega r$ (rotational — like a rigid body).</li>
+        <li>Streamlines, pathlines, and streaklines coincide only in steady flow.</li>
+        <li>Bernoulli requires: steady, incompressible, inviscid, along a streamline, no shaft work. TEL always lies above HGL by exactly $V^2/2g$.</li>
+        <li>Venturimeter: least head loss ($C_d \approx 0.98$); orifice meter: highest head loss ($C_d \approx 0.62$); divergent cone angle 5°–7° to prevent separation.</li>
+        <li>Kinetic energy correction factor $\alpha = 2$ (laminar); momentum correction factor $\beta = 4/3$ (laminar).</li>
+        <li>Vorticity $\xi = 2\omega$; irrotational flow has $\xi = 0$ everywhere and satisfies $\nabla^2\phi = 0$ (Laplace equation).</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Fluid Mechanics Revision Guide
+    </p>
+
+  </div><!-- /.wrap -->
 </body>
 </html>
