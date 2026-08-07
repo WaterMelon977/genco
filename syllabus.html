@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Syllabus — AP GenCo Mechanical Engineering</title>
+    <meta name="description" content="AP GenCo Mechanical Engineering exam syllabus — complete topic-wise breakdown for Core Mechanical and General Aptitude sections.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        /* ── Tokens ───────────────────────────────────────────────────── */
+        :root {
+            --page:       #F5F1EA;
+            --card:       #FFFFFF;
+            --card-hover: #FDFBF7;
+            --ink:        #1E1A16;
+            --ink-mid:    #4A3F35;
+            --ink-soft:   #7A6A5A;
+            --rule:       #D8CEBF;
+            --accent:     #7B3F1A;
+            --accent-lt:  #C4885A;
+            --chapter-bg: #2B1A0D;
+            --chapter-fg: #F5EFE6;
+            --shadow-sm:  0 1px 4px rgba(44,28,14,0.07);
+            --shadow-md:  0 6px 24px rgba(44,28,14,0.10);
+            --radius:     13px;
+            --tr:         all 0.22s cubic-bezier(0.16,1,0.3,1);
+        }
+        [data-theme="dark"] {
+            --page:       #18150F;
+            --card:       #221E18;
+            --card-hover: #2A251F;
+            --ink:        #E8DFD0;
+            --ink-mid:    #B8A898;
+            --ink-soft:   #8A7A6A;
+            --rule:       #3A3028;
+            --accent:     #C4885A;
+            --accent-lt:  #E0A870;
+            --chapter-bg: #120C05;
+            --chapter-fg: #E8DFD0;
+            --shadow-sm:  0 1px 4px rgba(0,0,0,0.25);
+            --shadow-md:  0 6px 24px rgba(0,0,0,0.35);
+        }
+
+        /* ── Reset ───────────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--page);
+            color: var(--ink);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* ── Progress Bar ────────────────────────────────────────────── */
+        #rbar {
+            position: fixed; top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: var(--accent); z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* ── Dark Mode Toggle ─────────────────────────────────────────── */
+        #ttog {
+            position: fixed; top: 18px; right: 20px;
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--card); border: 1.5px solid var(--rule);
+            border-radius: 50%; cursor: pointer; font-size: 18px;
+            box-shadow: var(--shadow-md); z-index: 1000;
+            transition: var(--tr); user-select: none;
+        }
+        #ttog:hover { transform: scale(1.12); border-color: var(--accent); }
+
+        /* ── Layout ──────────────────────────────────────────────────── */
+        .wrap { max-width: 900px; margin: 0 auto; padding: 44px 24px 80px; }
+
+        /* ── Back Nav ────────────────────────────────────────────────── */
+        .nav-back {
+            margin-bottom: 28px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .btn-back {
+            font-size: 10pt; font-weight: 500; color: var(--ink-soft);
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: color 0.2s;
+        }
+        .btn-back:hover { color: var(--accent); }
+        .pdf-link-btn {
+            font-size: 9.5pt; font-weight: 600; color: var(--accent);
+            border: 1.5px solid var(--accent); border-radius: 8px;
+            padding: 6px 14px; transition: var(--tr);
+        }
+        .pdf-link-btn:hover {
+            background: var(--accent); color: #fff;
+        }
+
+        /* ── Page Header ─────────────────────────────────────────────── */
+        .page-header {
+            background: var(--chapter-bg); color: var(--chapter-fg);
+            border-radius: 18px; padding: 44px 36px 36px;
+            margin-bottom: 36px; position: relative; overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .page-header::before {
+            content: ''; position: absolute; top: -50px; right: -50px;
+            width: 280px; height: 280px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(196,136,90,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-header-inner { position: relative; z-index: 1; }
+        .page-eyebrow {
+            display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;
+        }
+        .etag {
+            font-size: 9.5px; font-weight: 600; letter-spacing: 1.2px;
+            text-transform: uppercase; padding: 3px 11px; border-radius: 20px;
+            border: 1px solid rgba(196,136,90,0.4); color: var(--accent-lt);
+            background: rgba(196,136,90,0.08);
+        }
+        .page-header h1 {
+            font-family: 'Fraunces', Georgia, serif; font-size: clamp(19pt, 3.5vw, 26pt);
+            font-weight: 300; margin-bottom: 8px;
+        }
+        .page-header h1 em { font-style: italic; font-weight: 600; color: var(--accent-lt); }
+        .page-header p {
+            font-size: 10.5pt; color: rgba(232,223,208,0.65);
+            max-width: 560px; line-height: 1.65;
+        }
+
+        /* ── Section Switcher ────────────────────────────────────────── */
+        .section-switcher {
+            display: flex; gap: 0; margin-bottom: 28px;
+            background: var(--card); border: 1.5px solid var(--rule);
+            border-radius: 13px; padding: 5px; box-shadow: var(--shadow-sm);
+        }
+        .sw-btn {
+            flex: 1; padding: 13px 20px; border-radius: 9px;
+            border: none; background: transparent; cursor: pointer;
+            font-family: 'Inter', sans-serif; font-size: 10.5pt;
+            font-weight: 500; color: var(--ink-soft);
+            transition: var(--tr); display: flex; align-items: center;
+            justify-content: center; gap: 9px;
+        }
+        .sw-btn .sw-count {
+            font-size: 9pt; background: var(--rule);
+            color: var(--ink-soft); border-radius: 20px;
+            padding: 1px 8px; transition: var(--tr);
+        }
+        .sw-btn.active {
+            background: var(--chapter-bg); color: var(--chapter-fg);
+            box-shadow: var(--shadow-sm);
+        }
+        .sw-btn.active .sw-count {
+            background: rgba(196,136,90,0.25); color: var(--accent-lt);
+        }
+
+        /* ── Search ──────────────────────────────────────────────────── */
+        .search-wrap {
+            position: relative; margin-bottom: 26px;
+        }
+        .search-icon {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            font-size: 14px; opacity: 0.45; pointer-events: none;
+        }
+        .search-wrap input {
+            width: 100%; background: var(--card); border: 1.5px solid var(--rule);
+            border-radius: 11px; padding: 12px 16px 12px 44px;
+            font-size: 10.5pt; font-family: 'Inter', sans-serif;
+            color: var(--ink); outline: none; transition: var(--tr);
+            box-shadow: var(--shadow-sm);
+        }
+        .search-wrap input:focus {
+            border-color: var(--accent-lt);
+            box-shadow: 0 0 0 3px rgba(196,136,90,0.10), var(--shadow-sm);
+        }
+        .search-wrap input::placeholder { color: var(--ink-soft); }
+        .search-clear {
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            font-size: 14px; cursor: pointer; opacity: 0; color: var(--ink-soft);
+            transition: opacity 0.2s; pointer-events: none;
+        }
+        .search-clear.visible { opacity: 0.5; pointer-events: auto; }
+        .search-clear:hover { opacity: 1; }
+
+        /* ── Results count ───────────────────────────────────────────── */
+        .results-label {
+            font-size: 9pt; color: var(--ink-soft);
+            margin-bottom: 14px; min-height: 18px;
+            transition: opacity 0.2s;
+        }
+
+        /* ── Accordion Grid ──────────────────────────────────────────── */
+        .accordion-list {
+            display: flex; flex-direction: column; gap: 10px;
+        }
+
+        /* ── Accordion Item ──────────────────────────────────────────── */
+        .acc-item {
+            background: var(--card); border: 1.5px solid var(--rule);
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-sm); transition: var(--tr);
+        }
+        .acc-item:hover { border-color: rgba(196,136,90,0.35); }
+        .acc-item.open {
+            border-color: var(--accent-lt);
+            box-shadow: var(--shadow-md);
+        }
+        .acc-item.hidden { display: none; }
+
+        /* Header row */
+        .acc-header {
+            display: flex; align-items: center; gap: 14px;
+            padding: 18px 20px; cursor: pointer;
+            user-select: none;
+        }
+        .acc-num {
+            min-width: 28px; height: 28px; border-radius: 50%;
+            background: var(--page); border: 1.5px solid var(--rule);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9pt; font-weight: 600; color: var(--ink-soft);
+            flex-shrink: 0; transition: var(--tr);
+        }
+        .acc-item.open .acc-num {
+            background: var(--accent); border-color: var(--accent); color: #fff;
+        }
+        .acc-title {
+            font-size: 11pt; font-weight: 600; color: var(--ink);
+            flex: 1; line-height: 1.3;
+        }
+        .acc-chevron {
+            font-size: 11px; color: var(--ink-soft);
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .acc-item.open .acc-chevron { transform: rotate(180deg); }
+
+        /* Body */
+        .acc-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.38s cubic-bezier(0.16,1,0.3,1);
+        }
+        .acc-body-inner {
+            padding: 0 20px 22px 62px;
+            border-top: 1px solid var(--rule);
+            padding-top: 18px;
+        }
+        .acc-body-inner p {
+            font-size: 10.5pt; line-height: 1.8;
+            color: var(--ink-mid);
+        }
+
+        /* Keyword highlight */
+        .acc-body-inner mark {
+            background: rgba(196,136,90,0.22);
+            color: var(--ink); border-radius: 3px;
+            padding: 0 2px;
+        }
+        [data-theme="dark"] .acc-body-inner mark {
+            background: rgba(196,136,90,0.28); color: var(--chapter-fg);
+        }
+
+        /* Copy button */
+        .copy-row {
+            display: flex; justify-content: flex-end;
+            margin-top: 14px;
+        }
+        .copy-btn {
+            font-size: 8.5pt; font-weight: 600;
+            color: var(--ink-soft); background: var(--page);
+            border: 1.5px solid var(--rule); border-radius: 7px;
+            padding: 5px 12px; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: var(--tr); display: flex; align-items: center; gap: 5px;
+        }
+        .copy-btn:hover { border-color: var(--accent-lt); color: var(--accent); }
+        .copy-btn.copied { border-color: #2E7D32; color: #2E7D32; }
+
+        /* No results */
+        .no-results {
+            display: none; text-align: center; padding: 52px 24px;
+            color: var(--ink-soft); font-size: 11pt;
+        }
+        .no-results.visible { display: block; }
+
+        /* ── Footer ──────────────────────────────────────────────────── */
+        footer {
+            text-align: center; margin-top: 64px; padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            color: var(--ink-soft); font-size: 9pt;
+        }
+
+        /* ── Responsive ─────────────────────────────────────────────── */
+        @media (max-width: 600px) {
+            .wrap { padding: 28px 14px 60px; }
+            .page-header { padding: 30px 20px 24px; }
+            .acc-body-inner { padding-left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="rbar"></div>
+    <button id="ttog" aria-label="Toggle dark mode">☀️</button>
+
+    <div class="wrap">
+
+        <!-- Nav -->
+        <div class="nav-back">
+            <a href="index.html" class="btn-back">← Main Exam Portal</a>
+            <a href="syllabus.pdf" class="pdf-link-btn" target="_blank" rel="noopener">📥 PDF Syllabus</a>
+        </div>
+
+        <!-- Header -->
+        <header class="page-header">
+            <div class="page-header-inner">
+                <div class="page-eyebrow">
+                    <span class="etag">AP GenCo 2025–26</span>
+                    <span class="etag">Mechanical Engineering</span>
+                    <span class="etag">100 Marks Total</span>
+                </div>
+                <h1>Exam <em>Syllabus</em></h1>
+                <p>Complete topic-wise syllabus for the AP GenCo Mechanical Engineering recruitment examination. All text is verbatim from the official notification.</p>
+            </div>
+        </header>
+
+        <!-- Section Switcher -->
+        <div class="section-switcher" role="tablist">
+            <button class="sw-btn active" id="tab-core" data-section="core" onclick="switchSection('core')" role="tab">
+                ⚙️ Core Mechanical Branch
+                <span class="sw-count">13 topics</span>
+            </button>
+            <button class="sw-btn" id="tab-general" data-section="general" onclick="switchSection('general')" role="tab">
+                📖 Common Aptitude
+                <span class="sw-count">5 topics</span>
+            </button>
+        </div>
+
+        <!-- Search -->
+        <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search syllabus topics or keywords…" autocomplete="off">
+            <span class="search-clear" id="searchClear" title="Clear">✕</span>
+        </div>
+
+        <!-- Results label -->
+        <div class="results-label" id="resultsLabel"></div>
+
+        <!-- Accordion List -->
+        <div class="accordion-list" id="accordionList">
+
+            <!-- ── CORE MECHANICAL ─────────────────────────── -->
+
+            <div class="acc-item" data-section="core" data-title="Strength of Materials">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">1</div>
+                    <div class="acc-title">Strength of Materials</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Simple stresses and strains Hooke’s law, elastic constants, stress strain curve of mild steel bars of uniform strength, compound bars, temperature stresses, stresses on oblique planes – principal stresses and strains, Mohr’s stress circle, shear force and bending moment diagrams for beams, bending and shear stresses in beams, deflections of beams, columns and struts, strain energy, torsion of circular shafts and springs.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Fluid Mechanics and Machinery">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">2</div>
+                    <div class="acc-title">Fluid Mechanics and Machinery</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Basic fluid properties, fluid static – pressure measurements, buoyancy and flotation, fluid kinematics, fluid dynamics – Euler’s Bernoulli’s and Impulse momentum equations, laminar and turbulent flows, flow through pipes and losses in pipes, bends, boundary layer theory, compressible fluid flow, impact of jets, Hydraulic turbines and pumps, Ram, Accumulator and intensifier.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Material Science and Metallurgy">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">3</div>
+                    <div class="acc-title">Material Science and Metallurgy</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Structure and properties of engineering materials, bonding in solids, imperfections in crystals and metals, structure of alloys, manufacture of iron and steel, heat treatment, alloy steels, principles of powder metallurgy.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Theory of Machines">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">4</div>
+                    <div class="acc-title">Theory of Machines</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Displacement, velocity and acceleration analysis of plane mechanisms, dynamic analysis of slider – crank mechanism, gear trains, flywheels.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Vibrations">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">5</div>
+                    <div class="acc-title">Vibrations</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Free and forced vibrations, effect of damping, resonance, vibration isolation, critical speeds of shafts.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Design of Machine Elements">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">6</div>
+                    <div class="acc-title">Design of Machine Elements</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Design for static and dynamic loading failure theories, fatigue strength, S-N diagram, design of joints, shafts, bearings, gears, brakes, clutches, screws, springs, cranks, piston, gyroscopes, balancing and governors.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Heat Transfer">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">7</div>
+                    <div class="acc-title">Heat Transfer</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Various modes of heat transfer, fins, heat exchangers, LMTD &amp; NTU methods, unsteady state heat conduction, dimensionless parameters, free and forced convective heat transfer, thermal boundary layer, heat transfer in flow-over flat plates and through pipes, effect of turbulence, radiative heat transfer, shape factors, network analysis, condensation and boiling.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Thermodynamics">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">8</div>
+                    <div class="acc-title">Thermodynamics</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Zeroth, first and second laws of thermodynamics, thermodynamics systems and processes, Carnot cycle, Air-standard cycles, irreversibility and availability, properties of pure substances, psychometry, Refrigeration and Air conditioning, working principles and their applications.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Applied Thermodynamics">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">9</div>
+                    <div class="acc-title">Applied Thermodynamics</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Classification of compressors and its working principles, Classification of I.C. Engines and its working principles, performances, Design considerations of combustion chambers for C.I. &amp; S.L Engines, knocking, rating of fuels, lubrications, Ignition systems.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Turbo Machines">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">10</div>
+                    <div class="acc-title">Turbo Machines</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Working principles of gas turbines, steam turbines, Rankine’s cycle. Modified Rankine’s cycle, jet propulsion and nozzles.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Metal Cutting and Machine Tools">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">11</div>
+                    <div class="acc-title">Metal Cutting and Machine Tools</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Mechanics of machining, single and multi-point cutting tools, tool geometry, tool life wear, cutting force analysis, micro finishing machines – EDM, ECM and USM, NC machines, jigs and fixtures. Standards of measurements, limits, fits, tolerances, linear and angular measurements, comparators, lathes, drilling, shaping, planning, milling, gear cutting. Broaching and grinding machines.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Foundry, Welding and Forging">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">12</div>
+                    <div class="acc-title">Foundry, Welding and Forging</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Design of patterns moulds and cores, solidification, design consideration of runner, riser and gate. Physics of welding, types of welding and their principles, brazing, soldering, adhesive bonding, Fundamental of hot and cold working processes, forging, rolling, extrusion, drawing, shearing and bending.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="core" data-title="Production and Operation Management">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">13</div>
+                    <div class="acc-title">Production and Operation Management</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Plant layout, material handling, production planning and control, materials, management and work studies, inspections, quality control, cost analysis, operation research, basic concepts of CAD/CAM, inventory control.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── COMMON / GENERAL APTITUDE ──────────────── -->
+
+            <div class="acc-item" data-section="general" data-title="Reasoning and General Intelligence">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">i</div>
+                    <div class="acc-title">Reasoning and General Intelligence</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Questions of both verbal and non-verbal type. These will include questions on Semantic Analogy, Symbolic operations, Symbolic/Number Analogy, Trends, Figural Analogy, Space Orientation, Semantic Classification, Venn Diagrams, Symbolic/ Number Classification, Drawing inferences, Figural Classification, Punched hole/ pattern-folding &amp; unfolding, Semantic Series, Figural Pattern-folding and completion, Number Series, Embedded figures, Figural Series, Critical Thinking, Problem Solving, Emotional Intelligence, Word Building, Social Intelligence, Coding and de-coding, Numerical operations, Other sub-topics, if any.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="general" data-title="General Awareness">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">ii</div>
+                    <div class="acc-title">General Awareness</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Questions are designed to test the candidates general awareness of the environment around them and its application to society. Questions are also designed to test knowledge of current events and of such matters of everyday observation and experience in their scientific aspect as may be expected of an educated person. The test will also include questions relating to India and its neighboring countries especially pertaining to History, Culture, Geography, Economic Scene, General policy and scientific research.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="general" data-title="Quantitative Aptitude">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">iii</div>
+                    <div class="acc-title">Quantitative Aptitude</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>The questions will be designed to test the ability of appropriate use of numbers and number sense of the candidate. The scope of the test will be the computation of whole numbers, decimals and fractions and relationships between numbers. It will test sense of order among numbers, ability to translate from one name to another, sense or order of magnitude, estimation or prediction of the outcome of computation, selection of an appropriate operation for the solution of real life problems and knowledge of alternative computation procedures to find answers. The questions would also be based on arithmetical concepts and relationship between numbers and not on complicated arithmetical computation (The standard of the questions will be of 10+2 level).</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="general" data-title="English Language And Comprehension">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">iv</div>
+                    <div class="acc-title">English Language And Comprehension</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Vocabulary, grammar, sentence structure, synonyms, antonyms and their correct usage; Spot the Error, Fill in the Blanks, Synonyms/ Homonyms, Antonyms, Spellings/ Detecting mis-spelt words, Idioms &amp; Phrases, One word substitution, Improvement of Sentences, Active/ Passive Voice of Verbs, Conversion into Direct/ Indirect narration, Shuffling of Sentence parts, Shuffling of Sentences in a passage, Cloze Passage, Comprehension Passage. To test comprehension, two or more paragraphs will be given and questions based on those will be asked. At least one paragraph should be a simple one based on a book or a story and the other paragraph should be based on current affairs editorial or a report.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-item" data-section="general" data-title="Computer Knowledge / Proficiency">
+                <div class="acc-header" onclick="toggleAcc(this)">
+                    <div class="acc-num">v</div>
+                    <div class="acc-title">Computer Knowledge / Proficiency</div>
+                    <span class="acc-chevron">▼</span>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <p>Computer Basics: Organization of a computer, Central Processing Unit (CPU), input/ output devices, computer memory, memory organization, back-up devices, PORTs, Windows Explorer, Keyboard shortcuts. Software: Windows Operating system including basics of Microsoft Office like MS word, MS Excel and Power Point etc.. Working with Internet and e-mails: Web Browsing &amp; Searching, Downloading &amp; Uploading, Managing an E-mail Account, e-Banking. Basics of networking and cyber security: Networking devices and protocols, Network and information security threats (like hacking, virus, worms, Trojan etc.) and preventive measures.</p>
+                        <div class="copy-row"><button class="copy-btn" onclick="copyText(this)">⎘ Copy</button></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- No results -->
+        <div class="no-results" id="noResults">No topics match your search.</div>
+
+        <footer>&copy; AP GenCo Mechanical Study Guide Portal &nbsp;·&nbsp; Verbatim from official notification</footer>
+    </div>
+
+    <script>
+        // ── Progress Bar ─────────────────────────────────────────────────
+        const rbar = document.getElementById('rbar');
+        window.addEventListener('scroll', () => {
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            rbar.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+        });
+
+        // ── Dark Mode ────────────────────────────────────────────────────
+        const ttog = document.getElementById('ttog');
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            ttog.textContent = t === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('ag-theme', t);
+        }
+        applyTheme(localStorage.getItem('ag-theme') || 'light');
+        ttog.addEventListener('click', () =>
+            applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+        // ── Section Switcher ─────────────────────────────────────────────
+        let activeSection = 'core';
+
+        function switchSection(sec) {
+            activeSection = sec;
+            document.querySelectorAll('.sw-btn').forEach(b => b.classList.toggle('active', b.dataset.section === sec));
+            applyFilters();
+        }
+
+        // ── Accordion ────────────────────────────────────────────────────
+        function toggleAcc(header) {
+            const item = header.parentElement;
+            const body = item.querySelector('.acc-body');
+            const isOpen = item.classList.contains('open');
+
+            if (isOpen) {
+                item.classList.remove('open');
+                body.style.maxHeight = '0';
+            } else {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
+        // ── Search & Filter ──────────────────────────────────────────────
+        const searchInput = document.getElementById('searchInput');
+        const searchClear = document.getElementById('searchClear');
+        const noResults   = document.getElementById('noResults');
+        const resultsLabel = document.getElementById('resultsLabel');
+        const allItems    = document.querySelectorAll('.acc-item');
+
+        function escapeReg(s) {
+            return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function highlightText(el, query) {
+            el.querySelectorAll('p').forEach(p => {
+                p.innerHTML = p.innerHTML.replace(/<\/?mark>/g, '');
+                if (!query) return;
+                const re = new RegExp('(' + escapeReg(query) + ')', 'gi');
+                p.innerHTML = p.innerHTML.replace(re, '<mark>$1</mark>');
+            });
+        }
+
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase().trim();
+            searchClear.classList.toggle('visible', query.length > 0);
+
+            let visible = 0;
+            allItems.forEach(item => {
+                const secMatch   = item.dataset.section === activeSection;
+                const title      = item.dataset.title.toLowerCase();
+                const bodyText   = item.querySelector('.acc-body-inner').innerText.toLowerCase();
+                const queryMatch = !query || title.includes(query) || bodyText.includes(query);
+
+                if (secMatch && queryMatch) {
+                    item.classList.remove('hidden');
+                    highlightText(item, query);
+                    visible++;
+                } else {
+                    item.classList.add('hidden');
+                    if (item.classList.contains('open')) {
+                        item.classList.remove('open');
+                        item.querySelector('.acc-body').style.maxHeight = '0';
+                    }
+                }
+            });
+
+            noResults.classList.toggle('visible', visible === 0);
+            if (query) {
+                resultsLabel.textContent = visible + ' topic' + (visible !== 1 ? 's' : '') + ' match "' + searchInput.value + '"';
+            } else {
+                resultsLabel.textContent = '';
+            }
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        searchClear.addEventListener('click', () => { searchInput.value = ''; applyFilters(); searchInput.focus(); });
+
+        applyFilters();
+
+        // ── Copy ─────────────────────────────────────────────────────────
+        function copyText(btn) {
+            const body = btn.closest('.acc-body-inner');
+            const text = Array.from(body.querySelectorAll('p'))
+                .map(p => p.innerText).join('\n\n');
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '✓ Copied';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = '⎘ Copy'; btn.classList.remove('copied'); }, 1800);
+            });
+        }
+    </script>
+</body>
+</html>
