@@ -3,155 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heat Transfer — Master Portal — AP GenCo Exam Guide</title>
+  <title>Heat Transfer — Master Portal — APGENCO / SSC JE</title>
   <script>
     MathJax = {
-      tex: {
-        inlineMath:  [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
       svg: { fontCache: 'global' }
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    /* ---------- token system ---------- */
     :root {
-      --bg-page: #F0ECE1;
-      --bg-card: #FFFFFF;
-      --bg-card-hover: #FFFDF9;
-      --bg-header-gradient: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-
-      --font-heading: "Bookman Old Style", Georgia, serif;
-      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-
-      --text-primary: #2D2926;
-      --text-secondary: #5C544D;
-      --text-header: #FFFDF9;
-      --text-accent: #8C5A37;
-
-      --border-light: #E2D9CC;
-      --border-accent: #8C5A37;
-      --active-indicator: #2E7D32;
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --card-hover: #FDFBF7;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --card-hover: #2A251F;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
     }
 
-    * { box-sizing: border-box; }
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: var(--font-body);
-      font-size: 11pt;
-      line-height: 1.75;
-      color: var(--text-primary);
-      background-color: var(--bg-page);
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 35px 20px;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.8;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
     }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 960px; margin: 0 auto; }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
 
     /* Back Button Bar */
     .nav-back-bar {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .btn-back {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-      color: #FFFDF9;
-      padding: 10px 18px;
-      border-radius: 10px;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 10px 20px;
+      border-radius: 20px;
       text-decoration: none;
+      font-family: system-ui, -apple-system, sans-serif;
       font-weight: 600;
       font-size: 10pt;
-      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
-      transition: opacity 0.2s ease;
+      box-shadow: 0 4px 14px rgba(43, 26, 13, 0.15);
+      transition: opacity 0.2s ease, transform 0.15s ease;
     }
 
     .btn-back:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      transform: translateX(-2px);
+      text-decoration: none;
     }
 
     /* Master Portal Header */
     .portal-header {
       text-align: center;
-      background: var(--bg-header-gradient);
-      color: var(--text-header);
-      padding: 40px 28px;
-      border-radius: 16px;
-      margin-bottom: 35px;
-      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 36px 28px 30px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
     }
 
     .portal-header h1 {
-      font-family: var(--font-heading);
-      font-size: 26pt;
-      margin: 0 0 10px 0;
-      letter-spacing: 0.5px;
-      color: #FFFDF9;
+      font-family: "Georgia", serif;
+      font-size: 22pt;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--chapter-fg);
+      line-height: 1.3;
     }
 
     .portal-header p {
-      font-size: 12pt;
-      margin: 0;
-      color: #E2D9CC;
-      font-weight: 300;
+      font-family: system-ui, sans-serif;
+      font-size: 10.5pt;
+      color: var(--chapter-fg);
+      opacity: 0.85;
+      max-width: 660px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
     }
 
-    /* Stats Bar */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-bottom: 35px;
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .stat-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    .tag {
+      background: rgba(255,255,255,0.12);
+      color: var(--chapter-fg);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      font-family: system-ui, sans-serif;
+      font-size: 9pt;
+      font-weight: 500;
+      padding: 3px 12px;
     }
 
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 20pt;
+    /* Section Heading */
+    h2.section-heading {
+      font-family: "Georgia", serif;
+      font-size: 15pt;
       font-weight: 700;
-      color: var(--text-accent);
-      margin-bottom: 4px;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px;
+      margin-bottom: 24px;
     }
 
-    .stat-label {
-      font-size: 9.5pt;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 18pt;
-      color: var(--text-accent);
-      margin: 0 0 20px 0;
-      border-bottom: 2px solid var(--border-accent);
-      padding-bottom: 8px;
-    }
-
-    /* Card Grid */
+    /* Card Grid Layout */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 22px;
+      margin-bottom: 48px;
     }
 
     .topic-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
       padding: 24px;
       transition: all 0.25s ease;
       display: flex;
@@ -159,20 +198,21 @@
       justify-content: space-between;
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 12px rgba(60,40,20,.05);
     }
 
     .topic-card:hover {
+      background: var(--card-hover);
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(74, 46, 27, 0.12);
-      border-color: var(--border-accent);
-      background-color: var(--bg-card-hover);
+      box-shadow: 0 10px 24px rgba(43,26,13,.12);
+      border-color: var(--accent-lt);
     }
 
     .card-badge {
+      font-family: system-ui, sans-serif;
       display: inline-block;
-      background-color: #E8F5E9;
-      color: #2E7D32;
+      background: var(--kp-bg);
+      color: var(--kp-fg);
       font-size: 8.5pt;
       font-weight: 700;
       padding: 4px 10px;
@@ -180,187 +220,273 @@
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      border: 1px solid var(--kp-bd);
+      width: fit-content;
     }
 
     .card-title {
-      font-family: var(--font-heading);
-      font-size: 15pt;
-      color: var(--text-primary);
+      font-family: "Georgia", serif;
+      font-size: 14pt;
+      font-weight: 700;
+      color: var(--ink-mid);
       margin: 0 0 10px 0;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .card-description {
+      font-family: system-ui, sans-serif;
       font-size: 9.5pt;
-      color: var(--text-secondary);
+      color: var(--ink-soft);
       line-height: 1.6;
       margin-bottom: 16px;
       flex-grow: 1;
     }
 
     .formula-preview {
-      background-color: var(--bg-page);
+      background: var(--formula-bg);
+      border: 1px dashed var(--rule);
       border-radius: 8px;
       padding: 10px 14px;
+      font-family: system-ui, sans-serif;
       font-size: 9.5pt;
-      color: var(--text-accent);
+      color: var(--accent);
       margin-bottom: 18px;
       text-align: center;
-      border: 1px dashed var(--border-light);
     }
 
     .card-footer {
+      font-family: system-ui, sans-serif;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       font-size: 9.5pt;
       font-weight: 600;
-      color: var(--text-accent);
-      border-top: 1px solid var(--border-light);
+      color: var(--accent);
+      border-top: 1px solid var(--rule);
       padding-top: 14px;
-      margin-top: auto;
     }
 
-    .btn-open {
-      color: var(--active-indicator);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+    .topic-card:hover .card-footer {
+      color: var(--accent-lt);
     }
 
+    /* Formula Strip */
+    .formula-strip {
+      margin: 44px 0 48px;
+      border: 1px solid var(--rule);
+      background: var(--formula-bg);
+      border-radius: 10px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+
+    .formula-strip h2 {
+      font-family: "Georgia", serif;
+      font-size: 14pt;
+      color: var(--accent);
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .fs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px 20px;
+      font-family: system-ui, sans-serif;
+    }
+
+    .fs-item { font-size: 10pt; }
+    .fs-item .fs-label {
+      font-size: 8pt;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 3px;
+      font-weight: 700;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      font-size: 9pt;
-      color: var(--text-secondary);
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-light);
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt;
+      color: var(--ink-soft);
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media(max-width: 640px){
+      body { padding: 50px 14px 56px; }
+      .portal-header h1 { font-size: 17pt; }
+      .fs-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <div class="nav-back-bar">
-    <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
-  </div>
+  <div id="rbar"></div>
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
 
-  <!-- Master Portal Header -->
-  <div class="portal-header">
-    <h1>Heat Transfer</h1>
-    <p>Comprehensive AP GenCo AE / GATE / SSC JE Reorganized Study Modules</p>
-  </div>
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
 
-  <!-- Quick Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-value">5</div>
-      <div class="stat-label">Master Modules</div>
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+  })();
+  </script>
+
+  <div class="wrap">
+
+    <!-- Back to Main Portal Button -->
+    <div class="nav-back-bar">
+      <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
     </div>
-    <div class="stat-item">
-      <div class="stat-value">2,500+</div>
-      <div class="stat-label">Lines of Content</div>
+
+    <!-- Master Portal Header -->
+    <header class="portal-header">
+      <h1>Heat Transfer Master Portal</h1>
+      <p>Standalone revision guide covering the complete APGENCO AE / SSC JE / TSPSC AEE Heat Transfer syllabus across 5 chapters.</p>
+      <div class="tag-row">
+        <span class="tag">Conduction</span>
+        <span class="tag">Convection</span>
+        <span class="tag">Fins &amp; Heat Exchangers</span>
+        <span class="tag">Boiling &amp; Condensation</span>
+        <span class="tag">Radiation</span>
+      </div>
+    </header>
+
+    <h2 class="section-heading">Heat Transfer Chapters</h2>
+
+    <!-- Chapter Grid -->
+    <div class="card-grid">
+
+      <!-- Chapter 1 -->
+      <a href="conduction_reorganized.html" class="topic-card">
+        <div>
+          <span class="card-badge">Chapter 01</span>
+          <div class="card-title">Steady &amp; Unsteady Heat Conduction</div>
+          <p class="card-description">Fourier's law, thermal diffusivity, cylindrical &amp; spherical conduction, composite walls, critical radius of insulation, internal heat generation, and transient lumped analysis.</p>
+          <div class="formula-preview">$\alpha = \frac{k}{\rho C_p} \quad r_c = \frac{k}{h}$</div>
+        </div>
+        <div class="card-footer">Open Chapter 1 &rarr;</div>
+      </a>
+
+      <!-- Chapter 2 -->
+      <a href="convection_reorganized.html" class="topic-card">
+        <div>
+          <span class="card-badge">Chapter 02</span>
+          <div class="card-title">Convective Heat Transfer &amp; Boundary Layers</div>
+          <p class="card-description">Dimensionless groups ($Nu, Re, Pr, Gr, Ra$), forced &amp; free convection, thermal boundary layer theory, flat plate correlations, pipe flow (Dittus-Boelter), and lumped transient method.</p>
+          <div class="formula-preview">$Nu = \frac{hL}{k} \quad \frac{\delta_t}{\delta} = Pr^{-1/3}$</div>
+        </div>
+        <div class="card-footer">Open Chapter 2 &rarr;</div>
+      </a>
+
+      <!-- Chapter 3 -->
+      <a href="fins_LMTD_NTU_reorganized.html" class="topic-card">
+        <div>
+          <span class="card-badge">Chapter 03</span>
+          <div class="card-title">Fins, Heat Exchangers, LMTD &amp; NTU</div>
+          <p class="card-description">Fin parameter and efficiency, fin effectiveness, overall heat transfer coefficient, fouling factor, shell-and-tube design, LMTD method, NTU-effectiveness method, and special cases.</p>
+          <div class="formula-preview">$m = \sqrt{\frac{hP}{kA_c}} \quad \text{NTU} = \frac{UA}{C_{\min}}$</div>
+        </div>
+        <div class="card-footer">Open Chapter 3 &rarr;</div>
+      </a>
+
+      <!-- Chapter 4 -->
+      <a href="boiling_condesation_reorganized.html" class="topic-card">
+        <div>
+          <span class="card-badge">Chapter 04</span>
+          <div class="card-title">Boiling &amp; Condensation Heat Transfer</div>
+          <p class="card-description">Pool boiling regimes (Nukiyama curve), critical heat flux, Leidenfrost point, nucleate vs film boiling, filmwise vs dropwise condensation, and Nusselt film condensation theory.</p>
+          <div class="formula-preview">$\Delta T_e = T_w - T_{\text{sat}} \quad \bar{h}_L = 0.943[\dots]^{1/4}$</div>
+        </div>
+        <div class="card-footer">Open Chapter 4 &rarr;</div>
+      </a>
+
+      <!-- Chapter 5 -->
+      <a href="radiation_reorganized.html" class="topic-card">
+        <div>
+          <span class="card-badge">Chapter 05</span>
+          <div class="card-title">Radiation, Shape Factors &amp; Network Analysis</div>
+          <p class="card-description">Blackbody laws, surface properties, radiosity-irradiation framework, view factor algebra, heat exchange between gray surfaces, and radiation shields.</p>
+          <div class="formula-preview">$E_b = \sigma T^4 \quad Q_n = \frac{Q_0}{n+1}$</div>
+        </div>
+        <div class="card-footer">Open Chapter 5 &rarr;</div>
+      </a>
+
     </div>
-    <div class="stat-item">
-      <div class="stat-value">75</div>
-      <div class="stat-label">Core Q&As & Traps</div>
+
+    <!-- Quick Formula Strip -->
+    <div class="formula-strip">
+      <h2>At-a-Glance: The Most-Tested Formulas</h2>
+      <div class="fs-grid">
+        <div class="fs-item">
+          <div class="fs-label">Fourier's Law</div>
+          $Q = -kA\,\dfrac{dT}{dx}$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Critical Radius (Cylinder)</div>
+          $r_c = k/h$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Dittus-Boelter</div>
+          $Nu = 0.023\,Re^{0.8}\,Pr^n$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">LMTD</div>
+          $\text{LMTD} = \dfrac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1/\Delta T_2)}$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">NTU Definition</div>
+          $\text{NTU} = UA/C_{\min}$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Stefan-Boltzmann</div>
+          $E_b = \sigma T^4$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Radiation Shields</div>
+          $Q_n = Q_0/(n+1)$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Lumped Transient</div>
+          $\frac{T-T_\infty}{T_i-T_\infty} = e^{-Bi \cdot Fo}$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Wien's Law</div>
+          $\lambda_{\max} T = 2898\,\mu\text{m&middot;K}$
+        </div>
+        <div class="fs-item">
+          <div class="fs-label">Fin Efficiency</div>
+          $\eta_f = \tanh(mL)/mL$
+        </div>
+      </div>
     </div>
-    <div class="stat-item">
-      <div class="stat-value">100%</div>
-      <div class="stat-label">PYQ Covered</div>
-    </div>
-  </div>
 
-  <h2 class="section-title">Topic Modules & Revision Guides</h2>
+    <footer>
+      Heat Transfer Revision Guide — APGENCO AE / SSC JE / TSPSC AEE — Mechanical Engineering
+    </footer>
 
-  <!-- Card Grid Container -->
-  <div class="card-grid">
-
-    <!-- Card 1 -->
-    <a href="conduction_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 01</span>
-        <h3 class="card-title">Steady & Unsteady Heat Conduction</h3>
-        <p class="card-description">Thermal diffusivity ($\alpha = \frac{k}{\rho C_p}$), Fourier's law ($Q = -k A \frac{dT}{dx}$), 3D conduction equations (Laplace $\nabla^2 T = 0$, Poisson $\nabla^2 T + \frac{\dot{q}_g}{k} = 0$), critical radius of insulation ($r_c = \frac{k}{h}$ cylinder, $\frac{2k}{h}$ sphere), radial conduction ($Q_{\text{cyl}}, Q_{\text{sph}}$), composite walls ($k_{\text{eq}} = \frac{2k_1 k_2}{k_1 + k_2}$), internal heat generation ($T_{\text{max}} = T_w + \frac{\dot{q}_g R^2}{6k}$ sphere, $\frac{\dot{q}_g R^2}{4k}$ cylinder), and transient cooling with Newton's law ($\tau = \frac{\rho V C_p}{hA}$).</p>
-        <div class="formula-preview">
-          $$\alpha = \frac{k}{\rho C_p}, \quad r_c = \frac{k}{h}, \quad Q_{\text{cyl}} = \frac{2\pi k L \Delta T}{\ln(r_o/r_i)}, \quad k_{\text{eq}} = \frac{2k_1 k_2}{k_1 + k_2}, \quad T_{\text{max, sph}} = T_w + \frac{\dot{q}_g R^2}{6k}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 1 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 2 -->
-    <a href="fins_LMTD_NTU_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 02</span>
-        <h3 class="card-title">Fins, Heat Exchangers, LMTD & NTU Methods</h3>
-        <p class="card-description">Fin parameter ($m = \sqrt{\frac{hP}{kA_c}}$), fin efficiency ($\eta_f = \frac{\tanh(mL)}{mL}$), fin effectiveness ($\varepsilon_f > 2.0$), overall HTC ($U$), fouling factor ($R_f = \frac{1}{U_d} - \frac{1}{U_c}$), shell-and-tube baffles & floating head, LMTD method ($\text{LMTD}_{\text{counter}} > \text{LMTD}_{\text{parallel}}$), NTU method ($\text{NTU} = \frac{UA}{C_{\min}}$), capacity ratio ($C = \frac{C_{\min}}{C_{\max}}$), phase change ($C=0 \implies \varepsilon = 1 - e^{-\text{NTU}}$), balanced counter flow ($C=1 \implies \varepsilon = \frac{\text{NTU}}{1+\text{NTU}}$), and max parallel effectiveness ($50\%$).</p>
-        <div class="formula-preview">
-          $$m = \sqrt{\frac{hP}{kA_c}}, \quad R_f = \frac{1}{U_d} - \frac{1}{U_c}, \quad \text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1/\Delta T_2)}, \quad \text{NTU} = \frac{UA}{C_{\min}}, \quad \varepsilon_{C=0} = 1 - e^{-\text{NTU}}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 2 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="boiling_condesation_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 03</span>
-        <h3 class="card-title">Boiling & Condensation Heat Transfer</h3>
-        <p class="card-description">Nukiyama boiling curve, excess temperature ($\Delta T_e = T_w - T_{\text{sat}}$), pool boiling regimes (natural convection $\Delta T_e < 5^\circ\text{C}$, nucleate $5^\circ\text{C} \le \Delta T_e \le 50^\circ\text{C}$, transition, film boiling beyond Leidenfrost point), rough surfaces for nucleate promotion, film boiling as reverse of condensation, dropwise vs filmwise condensation ($h_{\text{dropwise}} \gg h_{\text{filmwise}}$, oily non-wetting surfaces), heat transfer magnitude ranking, and Nusselt theory for vertical plate laminar film condensation ($\bar{h}_L = 0.943 \left[ \frac{\rho_l (\rho_l - \rho_v) g h_{fg} k_l^3}{\mu_l L \Delta T} \right]^{1/4}$, local $h_x = 0.707 \left[ \dots \right]^{1/4}$, $\bar{h}_L = \frac{4}{3}h_{x=L}$, core assumptions).</p>
-        <div class="formula-preview">
-          $$\Delta T_e = T_w - T_{\text{sat}}, \quad \Delta T_{e, \text{nucleate}} \in [5, 50]^\circ\text{C}, \quad h_{\text{dropwise}} \gg h_{\text{filmwise}}, \quad \bar{h}_L = 0.943 \left[ \frac{\rho_l (\rho_l - \rho_v) g h_{fg} k_l^3}{\mu_l L \Delta T} \right]^{1/4}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 3 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 4 -->
-    <a href="convection_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 04</span>
-        <h3 class="card-title">Convective Heat Transfer & Boundary Layers</h3>
-        <p class="card-description">Dimensionless parameters ($Nu = \frac{hL}{k}$, $Pr = \frac{\mu C_p}{k}$, $Re = \frac{\rho VL}{\mu}$, $Gr = \frac{g\beta \Delta T L^3}{\nu^2}$, $Ra = Gr \cdot Pr$, $St = \frac{Nu}{Re \cdot Pr} = \frac{C_f}{2}$, $Bi = \frac{h L_c}{k_{\text{solid}}}$, $Fo = \frac{\alpha t}{L_c^2}$), natural convection velocity profile (zero at wall and outer edge), mixed flow criterion ($0.1 \le \frac{Gr}{Re^2} \le 10$), boundary layer ratio $\frac{\delta_t}{\delta} = Pr^{-1/3}$, local $h_x$ decay downstream, flat plate laminar $\bar{h}_L = 2 h_{x=L}$, Dittus-Boelter pipe equation $Nu = 0.023 Re^{0.8} Pr^n$, infinite fin temp profile $e^{-mx}$, and lumped analysis ($Bi < 0.1$, exponential decay $\exp(-Bi \cdot Fo)$).</p>
-        <div class="formula-preview">
-          $$Nu = \frac{hL}{k}, \quad Pr = \frac{\nu}{\alpha}, \quad Gr = \frac{g\beta \Delta T L^3}{\nu^2}, \quad \frac{\delta_t}{\delta} = Pr^{-1/3}, \quad Nu_D = 0.023 Re_D^{0.8} Pr^n, \quad Bi < 0.1$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 4 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 5 -->
-    <a href="radiation_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 05</span>
-        <h3 class="card-title">Radiative Heat Transfer, Shape Factors & Networks</h3>
-        <p class="card-description">Stefan-Boltzmann law ($E_b = \sigma T^4$), Wien's displacement law ($\lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}$), Kirchhoff's law ($\varepsilon = \alpha$), surface properties ($\alpha + \rho + \tau = 1$, black $\alpha=\varepsilon=1$, opaque $\tau=0$, gray $\varepsilon=\text{const}$, selective surfaces), radiosity ($J = \varepsilon E_b + \rho G$), intensity ($E = \pi I$), shape factors ($F_{ij}$, reciprocity $A_1 F_{12} = A_2 F_{21}$, summation $\sum F_{ij} = 1$, flat/convex $F_{11}=0$), gray parallel planes ($q_{12} = \frac{\sigma(T_1^4-T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}$), small body in large enclosure ($Q_{12} = \varepsilon_1 A_1 \sigma(T_1^4-T_2^4)$), and radiation shields ($Q_n = \frac{Q_0}{n+1}$, 1 shield $\implies 50\%$, 3 shields $\implies 75\%$ reduction).</p>
-        <div class="formula-preview">
-          $$E_b = \sigma T^4, \quad \lambda_{\text{max}} T = 2898 \mu\text{m}\cdot\text{K}, \quad A_1 F_{12} = A_2 F_{21}, \quad q_{12} = \frac{\sigma(T_1^4-T_2^4)}{1/\varepsilon_1 + 1/\varepsilon_2 - 1}, \quad Q_n = \frac{Q_0}{n+1}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 5 &rarr;</span>
-      </div>
-    </a>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Warm Reader Design System</p>
-  </footer>
-
+  </div><!-- /.wrap -->
 </body>
 </html>

@@ -3,572 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fins, Heat Exchangers, LMTD & NTU Methods — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Fins, Heat Exchangers, LMTD &amp; NTU Methods — Exam Revision Guide — APGENCO / SSC JE</title>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    /* ---------- token system ---------- */
+    :root {
+      --page:       #F5F1EA;
+      --card:       #FFFFFF;
+      --formula-bg: #FAF6F0;
+      --ink:        #1E1A16;
+      --ink-mid:    #4A3F35;
+      --ink-soft:   #7A6A5A;
+      --rule:       #D8CEBF;
+      --accent:     #7B3F1A;       /* warm brown — ink on old paper */
+      --accent-lt:  #C4885A;
+      --chapter-bg: #2B1A0D;
+      --chapter-fg: #F5EFE6;
+      --note-bg:    #EEF3FB;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #1A3D7A;
+      --kp-bg:      #FDF6E3;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #5A3E00;
+      --progress:   #7B3F1A;
+    }
+    [data-theme="dark"] {
+      --page:       #18150F;
+      --card:       #221E18;
+      --formula-bg: #1A1710;
+      --ink:        #E8DFD0;
+      --ink-mid:    #B8A898;
+      --ink-soft:   #8A7A6A;
+      --rule:       #3A3028;
+      --accent:     #C4885A;
+      --accent-lt:  #E0A870;
+      --chapter-bg: #120C05;
+      --chapter-fg: #E8DFD0;
+      --note-bg:    #162030;
+      --note-bd:    #4A7EC4;
+      --note-fg:    #90B8F0;
+      --kp-bg:      #201800;
+      --kp-bd:      #C8940A;
+      --kp-fg:      #E0C060;
+    }
+
+    /* ---------- base ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 11.5pt;
+      line-height: 1.9;
+      color: var(--ink);
+      background: var(--page);
+      padding: 56px 20px 72px;
+      transition: background .25s, color .25s;
+    }
+
+    /* ---------- layout ---------- */
+    .wrap { max-width: 800px; margin: 0 auto; }
+
+    /* ---------- submodule nav ---------- */
+    .submodule-nav {
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 11px 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 10pt;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(43,26,13,0.15);
+    }
+    .submodule-nav a {
+      color: var(--chapter-fg);
+      text-decoration: none;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    .submodule-nav a:hover {
+      text-decoration: underline;
+      opacity: 1;
+    }
+
+    /* ---------- reading progress bar ---------- */
+    #rbar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      width: 0%; background: var(--progress);
+      z-index: 9999; transition: width .1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ---------- floating nav ---------- */
+    #fnav {
+      position: fixed; top: 10px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; align-items: center; gap: 2px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50px; padding: 4px 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.13);
+      z-index: 9998; opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      font-family: system-ui, sans-serif; font-size: 8.5pt;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--ink-soft); text-decoration: none;
+      padding: 3px 9px; border-radius: 20px;
+      font-weight: 600; transition: background .15s, color .15s;
+    }
+    .fn-a:hover { background: var(--rule); color: var(--accent); }
+    .fn-a.active { background: var(--accent); color: var(--chapter-fg); }
+    .fn-sep { color: var(--rule); font-size: 7pt; }
+
+    /* ---------- theme toggle ---------- */
+    #ttog {
+      position: fixed; top: 10px; right: 18px;
+      background: var(--card); border: 1px solid var(--rule);
+      border-radius: 50%; width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      z-index: 9998; transition: transform .15s, border-color .2s;
+    }
+    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* ---------- chapter headers (h1 → chapter title) ---------- */
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 21pt; font-weight: 700;
+      background: var(--chapter-bg);
+      color: var(--chapter-fg);
+      padding: 28px 36px; border-radius: 10px;
+      margin-bottom: 32px; text-align: center;
+      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      line-height: 1.3;
+    }
+
+    /* ---------- section & subsection headings ---------- */
+    h2, h2.section-head {
+      font-family: "Georgia", serif;
+      font-size: 15pt; font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 5px;
+      margin-top: 52px; margin-bottom: 18px;
+      letter-spacing: .01em;
+    }
+    h3, h3.sub-head {
+      font-family: "Georgia", serif;
+      font-size: 12.5pt; font-weight: 700;
+      color: var(--ink-mid);
+      margin-top: 32px; margin-bottom: 10px;
+    }
+    h4, h4.sub2-head {
+      font-family: "Georgia", serif;
+      font-size: 11.5pt; font-weight: 700;
+      color: var(--ink);
+      margin-top: 22px; margin-bottom: 6px;
+    }
+
+    /* ---------- prose ---------- */
+    p { margin-bottom: 1em; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+    a { color: var(--accent-lt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- lists ---------- */
+    ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+    li { margin-bottom: .28em; }
+
+    /* ---------- formula cards & boxes ---------- */
+    .fc, .formula-card, .fbox {
+      background: var(--formula-bg);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0; padding: 13px 18px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.04em;
+      box-shadow: 0 2px 8px rgba(123,63,26,.07);
+    }
+    .fbox .flabel {
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 6px;
+      font-family: system-ui, sans-serif;
+      font-weight: 700;
+    }
+    .fbox .fsub {
+      font-size: 9.5pt;
+      color: var(--ink-soft);
+      margin-top: 8px;
+      line-height: 1.6;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* symbol legend below formula */
+    .sym {
+      font-family: system-ui, sans-serif;
+      font-size: 9.5pt; color: var(--ink-soft);
+      margin: -10px 0 18px 4px;
+      line-height: 1.7;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* ---------- note callout ---------- */
+    .note {
+      background: var(--note-bg);
+      border-left: 4px solid var(--note-bd);
+      color: var(--note-fg);
+      padding: 12px 16px; margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 10.5pt; line-height: 1.7;
+      font-family: system-ui, sans-serif;
+    }
+
+    /* ---------- key-point box ---------- */
+    .kp, .key-points, .keypoints {
+      background: var(--kp-bg);
+      border: 1px solid var(--kp-bd);
+      border-radius: 7px;
+      padding: 16px 20px; margin: 22px 0;
+      font-size: 10.5pt;
+      font-family: system-ui, sans-serif;
+      color: var(--kp-fg);
+    }
+    .kp-title, .key-points h3, .keypoints h3 {
+      font-weight: 700; letter-spacing: .02em;
+      margin-bottom: 8px; font-size: 10pt;
+      text-transform: uppercase;
+      color: var(--kp-fg);
+      border: none; padding: 0;
+    }
+    .kp ul, .key-points ul, .keypoints ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li, .key-points li, .keypoints li { margin-bottom: .28em; }
+
+    /* ---------- comparison / quick-facts table ---------- */
+    table {
+      border-collapse: collapse; width: 100%;
+      margin: 22px 0; background: var(--card);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(60,40,20,.07);
+      font-family: system-ui, sans-serif; font-size: 10pt;
+    }
+    th, td { border: 1px solid var(--rule); padding: 9px 13px; text-align: left; }
+    th { background: var(--chapter-bg); color: var(--chapter-fg); font-weight: 600; }
+    [data-theme="dark"] th { background: #1A0E05; }
+    tr:nth-child(even) { background: var(--formula-bg); }
+
+    /* ---------- MathJax overflow ---------- */
+    .MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      body { padding: 50px 14px 56px; }
+      h1 { font-size: 16pt; padding: 18px 20px; }
+      #fnav { display: none; }
+    }
+  </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
+<body>
+  <div id="rbar"></div>
+
+  <!-- floating nav -->
+  <nav id="fnav" aria-label="Section navigation">
+    <a class="fn-a" href="#sec-fins">Fins</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-overall">Overall HTC</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-hx-types">Shell &amp; Tube</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-lmtd">LMTD</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-ntu">NTU Method</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-special">Special Cases</a><span class="fn-sep">·</span>
+    <a class="fn-a" href="#sec-keypoints">Key Points</a>
+  </nav>
+
+  <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+  (function(){
+    var tog = document.getElementById('ttog');
+    var saved = localStorage.getItem('ag-theme') || 'light';
+    function apply(t){
+      document.documentElement.setAttribute('data-theme', t);
+      tog.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\uFE0F';
+      localStorage.setItem('ag-theme', t);
+    }
+    apply(saved);
+    tog.addEventListener('click', function(){
+      var c = document.documentElement.getAttribute('data-theme') || 'light';
+      apply(c === 'dark' ? 'light' : 'dark');
+    });
+
+    /* reading progress */
+    var bar = document.getElementById('rbar');
+    function upBar(){
+      var s = window.scrollY;
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(s/d*100, 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', upBar, {passive:true}); upBar();
+
+    /* floating nav */
+    var fn = document.getElementById('fnav');
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav(){
+      var s = window.scrollY;
+      if(s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && el.getBoundingClientRect().top <= 110) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, {passive:true}); upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  })();
+  </script>
+
+  <div class="wrap">
+
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Heat Transfer Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="fins-heat-exchangers-lmtd-ntu-methods-comprehensive-reorganized-study-guide">Fins, Heat Exchangers, LMTD &amp; NTU Methods — Comprehensive Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers Fins / Extended Surfaces (fin parameter $m = \sqrt{\frac{hP}{kA_c}}$, fin efficiency $\eta_f = \frac{\tanh(mL)}{mL}$, corrected length $L_c = L + t/2$, fin effectiveness $\varepsilon_f = \sqrt{\frac{kP}{hA_c}}\tanh(mL) &gt; 2$), Heat Exchangers Fundamentals (overall HTC $U$, fouling factor $R_f = \frac{1}{U_{\text{dirty}}} - \frac{1}{U_{\text{clean}}}$, TEMA shell-and-tube features, baffles, floating head, corrosive fluid on tube side), LMTD Method ($\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}$, parallel vs counter flow, LMTD comparison, phase-change condensers/evaporators, multipass correction factor $F$), and NTU-Effectiveness Method ($\text{NTU} = \frac{UA}{C_{\min}}$, capacity ratio $C = \frac{C_{\min}}{C_{\max}}$, effectiveness $\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}}$, parallel vs counter flow formulas, $C=0$ phase change $\varepsilon = 1 - e^{-\text{NTU}}$, balanced counter flow $C=1 \implies \varepsilon = \frac{\text{NTU}}{1+\text{NTU}}$, max parallel effectiveness limit $50\%$) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-quantitative-relations-with-symbols-units"><strong>2.1 — All Formulas &amp; Quantitative Relations (with symbols &amp; units)</strong></h3>
-<h4 id="1-fins-extended-surfaces"><strong>1. Fins &amp; Extended Surfaces</strong></h4>
-<ul>
-<li><strong>Fin Parameter $m$</strong>:
-  <div class="formula-card">$${\boxed{m = \sqrt{\frac{h \cdot P}{k \cdot A_c}} \quad (\text{m}^{-1})}}$$</div></li>
-<li>$h$: convective heat transfer coefficient $\text{W/m}^2\cdot\text{K}$</li>
-<li>$P$: fin cross-sectional perimeter $\text{m}$</li>
-<li>$k$: thermal conductivity of fin material $\text{W/m}\cdot\text{K}$</li>
-<li>
-<p>$A_c$: fin cross-sectional area $\text{m}^2$</p>
-</li>
-<li>
-<p><strong>Fin Efficiency ($\eta_f$, Insulated Tip)</strong>:
-  <div class="formula-card">$${\boxed{\eta_f = \frac{\text{Actual Heat Transfer from Fin}}{\text{Heat Transfer if Entire Fin were at Base Temp } T_b} = \frac{\tanh(m \cdot L)}{m \cdot L}}}$$</div></p>
-</li>
-<li>
-<p>$L$: length of fin $\text{m}$</p>
-</li>
-<li>
-<p><strong>Fin Efficiency ($\eta_f$, Convective Tip with Corrected Length $L_c$)</strong>:
-  <div class="formula-card">$${\boxed{\eta_f = \frac{\tanh(m \cdot L_c)}{m \cdot L_c}}}$$</div></p>
-</li>
-<li>Rectangular Fin: $L_c = L + \frac{t}{2}$ ($t$ = thickness)</li>
-<li>
-<p>Cylindrical Pin Fin: $L_c = L + \frac{D}{4}$ ($D$ = diameter)</p>
-</li>
-<li>
-<p><strong>Fin Effectiveness $\varepsilon_f$</strong>:
-  <div class="formula-card">$${\boxed{\varepsilon_f = \frac{Q_{\text{fin}}}{Q_{\text{without fin}}} = \frac{Q_{\text{fin}}}{h \cdot A_c \cdot (T_b - T_\infty)} = \sqrt{\frac{k \cdot P}{h \cdot A_c}} \cdot \tanh(m \cdot L)}}$$</div></p>
-</li>
-<li>Fin justification criterion: $\varepsilon_f &gt; 2.0$.</li>
-</ul>
-<hr />
-<h4 id="2-heat-exchangers-fouling-factor"><strong>2. Heat Exchangers &amp; Fouling Factor</strong></h4>
-<ul>
-<li>
-<p><strong>Clean Overall Heat Transfer Coefficient $U_c$</strong>:
-  <div class="formula-card">$${\boxed{\frac{1}{U_c} = \frac{1}{h_i} + \frac{A_i \cdot \ln(r_o/r_i)}{2\pi \cdot k \cdot L} + \frac{A_i}{A_o \cdot h_o}}}$$</div></p>
-</li>
-<li>
-<p><strong>Fouling Factor $R_f$</strong>:
-  <div class="formula-card">$${\boxed{R_f = \frac{1}{U_{\text{dirty}}} - \frac{1}{U_{\text{clean}}} \quad (\text{m}^2\cdot\text{K/W})}}$$</div></p>
-</li>
-<li>$U_{\text{dirty}}$: overall HTC after scale/deposit buildup $\text{W/m}^2\cdot\text{K}$</li>
-<li>
-<p>$U_{\text{clean}}$: overall HTC of fresh clean exchanger $\text{W/m}^2\cdot\text{K}$</p>
-</li>
-<li>
-<p><strong>Dirty Overall Heat Transfer Coefficient $U_d$</strong>:
-  <div class="formula-card">$${\boxed{\frac{1}{U_d} = \frac{1}{U_c} + R_f}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="3-lmtd-method"><strong>3. LMTD Method</strong></h4>
-<ul>
-<li><strong>Heat Transfer Rate Equation</strong>:
-  <div class="formula-card">$${\boxed{Q = U \cdot A \cdot \Delta T_{\text{lm}} = U \cdot A \cdot F \cdot \text{LMTD}_{\text{counter}} \quad (\text{W})}}$$</div></li>
-<li>
-<p>$F$: LMTD correction factor ($F \le 1.0$; $F = 1.0$ for single-pass parallel/counter flow)</p>
-</li>
-<li>
-<p><strong>Logarithmic Mean Temperature Difference $\text{LMTD}$</strong>:
-  <div class="formula-card">$${\boxed{\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln\left(\frac{\Delta T_1}{\Delta T_2}\right)}}}$$</div></p>
-</li>
-<li>
-<p><strong>Terminal Differences $\Delta T_1, \Delta T_2$</strong>:</p>
-</li>
-<li><strong>Parallel Flow</strong>: $\Delta T_1 = T_{h,i} - T_{c,i}$, $\Delta T_2 = T_{h,o} - T_{c,o}$</li>
-<li>
-<p><strong>Counter Flow</strong>: $\Delta T_1 = T_{h,i} - T_{c,o}$, $\Delta T_2 = T_{h,o} - T_{c,i}$</p>
-</li>
-<li>
-<p><strong>Equal End Differences Special Case $\Delta T_1 = \Delta T_2$</strong>:
-  <div class="formula-card">$${\boxed{\text{LMTD} = \text{AMTD} = \Delta T_1}}$$</div></p>
-</li>
-</ul>
-<hr />
-<h4 id="4-ntueffectiveness-method"><strong>4. NTU–Effectiveness Method</strong></h4>
-<ul>
-<li>
-<p><strong>Heat Capacity Rates &amp; Capacity Ratio $C$</strong>:
-  <div class="formula-card">$${\boxed{C_h = \dot{m}<em>h \cdot C</em>{p,h}, \quad C_c = \dot{m}<em>c \cdot C</em>{p,c}}}$$</div>
-  <div class="formula-card">$${\boxed{C_{\min} = \min(C_h, C_c), \quad C_{\max} = \max(C_h, C_c)}}$$</div>
-  <div class="formula-card">$${\boxed{C = \frac{C_{\min}}{C_{\max}} \quad (0 \le C \le 1.0)}}$$</div></p>
-</li>
-<li>
-<p><strong>Number of Transfer Units $\text{NTU}$</strong>:
-  <div class="formula-card">$${\boxed{\text{NTU} = \frac{U \cdot A}{C_{\min}}}}$$</div></p>
-</li>
-<li>
-<p><strong>Heat Exchanger Effectiveness $\varepsilon$</strong>:
-  <div class="formula-card">$${\boxed{\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}} = \frac{C_h \cdot (T_{h,i} - T_{h,o})}{C_{\min} \cdot (T_{h,i} - T_{c,i})} = \frac{C_c \cdot (T_{c,o} - T_{c,i})}{C_{\min} \cdot (T_{h,i} - T_{c,i})}}}$$</div>
-  <div class="formula-card">$${\boxed{Q_{\max} = C_{\min} \cdot (T_{h,i} - T_{c,i})}}$$</div></p>
-</li>
-<li>
-<p><strong>Effectiveness Formulas</strong>:</p>
-</li>
-<li><strong>Parallel Flow</strong>: $\boxed{\varepsilon = \frac{1 - \exp[-\text{NTU}(1+C)]}{1+C}}$</li>
-<li><strong>Counter Flow</strong>: $\boxed{\varepsilon = \frac{1 - \exp[-\text{NTU}(1-C)]}{1 - C \cdot \exp[-\text{NTU}(1-C)]}}$</li>
-<li><strong>Phase Change ($C = 0$, Boilers &amp; Condensers)</strong>: $\boxed{\varepsilon = 1 - \exp(-\text{NTU})}$</li>
-<li><strong>Balanced Counter Flow $C = 1.0$</strong>: $\boxed{\varepsilon = \frac{\text{NTU}}{1 + \text{NTU}}}$</li>
-</ul>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Fins (Extended Surfaces)</strong>: Protrusions extended from a primary heat transfer surface to increase convective area $A$, used primarily when convection coefficient $h$ is low (e.g. air/gas side).</li>
-<li><strong>Fin Parameter $m$</strong>: $\sqrt{hP / kA_c}$, representing the ratio of convective cooling rate to conductive heat supply along the fin length.</li>
-<li><strong>Fin Efficiency $\eta_f$</strong>: Ratio of actual heat transfer from the fin to the maximum heat transfer if the entire fin surface were maintained at base temperature $T_b$ $\eta_f \le 1.0$.</li>
-<li><strong>Fin Effectiveness $\varepsilon_f$</strong>: Ratio of heat transfer rate with the fin to the heat transfer rate through the same base area without the fin. A fin is physically justified if $\varepsilon_f &gt; 2.0$.</li>
-<li><strong>Fouling Factor $R_f$</strong>: Additional thermal resistance introduced by scale, rust, algae, or chemical deposits on heat exchanger tube surfaces $\text{m}^2\cdot\text{K/W}$.</li>
-<li><strong>LMTD</strong>: Logarithmic mean temperature difference between hot and cold fluid streams across a heat exchanger.</li>
-<li><strong>Capacity Ratio $C$</strong>: Ratio of minimum heat capacity rate to maximum heat capacity rate $C = C_{\min}/C_{\max} \le 1.0$.</li>
-<li><strong>NTU</strong>: Number of Transfer Units $\text{NTU} = U A / C_{\min}$, a non-dimensional measure of physical heat exchanger size.</li>
-<li><strong>Effectiveness $\varepsilon$</strong>: Ratio of actual heat transfer rate to the maximum thermodynamically possible heat transfer rate $Q_{\text{actual}} / Q_{\max}$.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
-<ul>
-<li><strong>Fin Justification Threshold</strong>: $\varepsilon_f &gt; 2.0$.</li>
-<li><strong>Parallel Flow Max Effectiveness Limit</strong>: For $C=1.0$ and $\text{NTU} \to \infty$, $\varepsilon_{\text{parallel}} \to 50\%$ $0.50$.</li>
-<li><strong>Phase Change Capacity Ratio</strong>: $C = 0$ for boilers, evaporators, and condensers.</li>
-<li><strong>LMTD Comparison</strong>: For identical inlet and outlet temperatures, $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$.</li>
-<li><strong>Phase Change LMTD</strong>: When $C=0$, $\text{LMTD}<em>{\text{counter}} = \text{LMTD}</em>{\text{parallel}}$.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Fins &amp; Extended Surface Formulations</strong>: Introduced in §3.1.</li>
-<li><strong>Heat Exchanger Basics &amp; Fouling Factor</strong>: §3.2.</li>
-<li><strong>LMTD Method &amp; Flow Configurations</strong>: §3.3.</li>
-<li><strong>NTU–Effectiveness Method</strong>: §3.4.</li>
-<li><strong>Special Cases ($C=0$, $C=1$, Phase Change)</strong>: §3.5.</li>
-<li><strong>Shell-and-Tube Exchanger Features</strong>: §3.6.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-fins-extended-surfaces"><strong>3.1 Fins &amp; Extended Surfaces</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Fin Purpose</strong>: Added to surfaces exposed to low convective heat transfer coefficients (e.g. gas side, air-cooled engines, motorcycle cylinders, electronic heat sinks).</li>
-<li><strong>Fin Parameter</strong>: $m = \sqrt{\frac{h P}{k A_c}}$ $\text{m}^{-1}$.</li>
-<li><strong>High Performance Fins</strong>: Require HIGH thermal conductivity $k$, LONG length $L$, THIN cross-section (large $P/A_c$), and LOW convection coefficient $h$.</li>
-<li><strong>Fin Efficiency $\eta_f$</strong>:</li>
-<li>Insulated tip: $\eta_f = \frac{\tanh(mL)}{mL}$.</li>
-<li>Convective tip: $\eta_f = \frac{\tanh(mL_c)}{mL_c}$, using corrected length $L_c = L + \frac{t}{2}$ (rectangular) or $L_c = L + \frac{D}{4}$ (pin fin).</li>
-<li><strong>Fin Effectiveness $\varepsilon_f$</strong>:
-  <div class="formula-card">$${\varepsilon_f = \sqrt{\frac{k P}{h A_c}} \cdot \tanh(mL)}$$</div></li>
-<li>Adding fins is justified ONLY if $\varepsilon_f &gt; 2.0$. If $\varepsilon_f &lt; 1.0$, adding fins actually acts as insulation and reduces heat transfer!</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fin Effectiveness Rule</strong>: Adding fins increases heat transfer ONLY if $\varepsilon_f &gt; 2.0$. High thermal conductivity $k$ and low convection coefficient $h$ give maximum effectiveness!</p>
-<p>[!TRAP]
-<strong>Efficiency vs Effectiveness Trap</strong>:
-- Fin Efficiency $\eta_f \le 1.0$ (always less than or equal to $100\%$).
-- Fin Effectiveness $\varepsilon_f$ CAN BE $&gt; 1.0$ (and MUST be $&gt; 2.0$ to justify adding fins)!</div>
-<h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
-<pre><code>Fin Performance Query Check?
-├─ Is it Fin Parameter m? → m = sqrt(h * P / (k * A_c))  [Unit: 1/m]
-├─ Is it Fin Efficiency eta_f (insulated tip)? → eta_f = tanh(m * L) / (m * L)
-├─ Is tip convective? → Use L_c = L + t/2 in tanh(m * L_c) / (m * L_c)
-└─ Is fin justified? → Fin Effectiveness epsilon_f = sqrt(k * P / (h * A_c)) * tanh(mL) &gt; 2.0
-</code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $m = \sqrt{hP / (k A_c)}$.</li>
-<li>[ ] Insulated tip $\eta_f = \frac{\tanh(mL)}{mL}$.</li>
-<li>[ ] Corrected length $L_c = L + t/2$.</li>
-<li>[ ] Fin justified if $\varepsilon_f &gt; 2.0$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A aluminum fin $k = 200 \text{ W/m}\cdot\text{K}$ of thickness $t = 2 \text{ mm}$ and length $L = 50 \text{ mm}$ is exposed to air with $h = 50 \text{ W/m}^2\cdot\text{K}$. Calculate the fin parameter $m$ and fin efficiency $\eta_f$ assuming an insulated tip.
-- <strong>Solution</strong>:
-  - Perimeter $P \approx 2w$, Area $A_c = w \cdot t \implies \frac{P}{A_c} = \frac{2}{t} = \frac{2}{0.002} = 1000 \text{ m}^{-1}$.
-  - $m = \sqrt{\frac{h P}{k A_c}} = \sqrt{\frac{50 \times 1000}{200}} = \sqrt{250} \approx 15.81 \text{ m}^{-1}$.
-  - $m L = 15.81 \times 0.05 = 0.7906$.
-  - $\eta_f = \frac{\tanh(0.7906)}{0.7906} = \frac{0.6588}{0.7906} = 0.833 = 83.3\%$.
-- <strong>Key Insight</strong>: $\eta_f = 83.3\%$. Use $\frac{P}{A_c} \approx \frac{2}{t}$ for wide rectangular fins.</p>
-<hr />
-<h3 id="32-heat-exchanger-fundamentals-fouling-factor"><strong>3.2 Heat Exchanger Fundamentals &amp; Fouling Factor</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Overall Heat Transfer Coefficient $U$</strong>:
-  <div class="formula-card">$${\frac{1}{U_c A} = \frac{1}{h_i A_i} + \frac{\ln(r_o/r_i)}{2\pi k L} + \frac{1}{h_o A_o}}$$</div></li>
-<li><strong>Fouling Factor $R_f$</strong>:</li>
-<li>Deposits of rust, algae, scale, or chemical sludge create an additional thermal resistance.</li>
-<li>Formula: $R_f = \frac{1}{U_{\text{dirty}}} - \frac{1}{U_{\text{clean}}}$ (Units: $\text{m}^2\cdot\text{K/W}$).</li>
-<li>Fouling INCREASES thermal resistance and DECREASES overall heat transfer coefficient $U$.</li>
-<li><strong>Fluid Allocation Rules</strong>:</li>
-<li><strong>Corrosive / Dirty Fluid</strong>: Placed inside TUBES (easier to clean mechanically, cheaper to use corrosion-resistant alloys for tubes than whole shell).</li>
-<li><strong>High-Pressure Fluid</strong>: Placed inside TUBES (cheaper small-diameter tubing).</li>
-<li><strong>Viscous / High-Velocity Fluid</strong>: Placed inside SHELL.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fouling Factor Units &amp; Effect</strong>:
-- Fouling Factor Units $\implies \text{m}^2\cdot\text{K/W}$ (Thermal Resistance per unit area!).
-- Fouling INCREASES resistance $\implies R_f = \frac{1}{U_d} - \frac{1}{U_c}$.</p>
-<p>[!TRAP]
-<strong>Corrosive Fluid Location</strong>: Corrosive or scaling fluids should ALWAYS be routed through the TUBE SIDE, never the shell side!</div>
-<h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
-<pre><code>Heat Exchanger Construction &amp; Fouling Check?
-├─ Fouling Factor Formula → R_f = (1 / U_dirty) - (1 / U_clean)  [Units: m^2*K/W]
-├─ Corrosive / Scaling Fluid Placement → TUBE SIDE (Easier mechanical cleaning)
-├─ High Pressure Fluid Placement → TUBE SIDE (Smaller diameter pipe handles pressure)
-└─ Purpose of Baffles → Support tubes AND increase shell-side velocity/turbulence (boosting h_o)
-</code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $R_f = \frac{1}{U_d} - \frac{1}{U_c}$ $\text{m}^2\cdot\text{K/W}$.</li>
-<li>[ ] Fouling decreases $U$.</li>
-<li>[ ] Corrosive fluid on tube side.</li>
-<li>[ ] Baffles boost shell-side $h_o$.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A clean heat exchanger has an overall heat transfer coefficient $U_c = 800 \text{ W/m}^2\cdot\text{K}$. After 1 year of operation, scale deposits reduce the overall heat transfer coefficient to $U_d = 500 \text{ W/m}^2\cdot\text{K}$. Calculate the fouling factor $R_f$.
-- <strong>Solution</strong>:
-  <div class="formula-card">$${R_f = \frac{1}{U_d} - \frac{1}{U_c} = \frac{1}{500} - \frac{1}{800} = 0.0020 - 0.00125 = 0.00075 \text{ m}^2\cdot\text{K/W}}$$</div>
-- <strong>Key Insight</strong>: $R_f = 0.00075 \text{ m}^2\cdot\text{K/W}$. Subtract clean reciprocal from dirty reciprocal.</p>
-<hr />
-<h3 id="33-logarithmic-mean-temperature-difference-lmtd-method"><strong>3.3 Logarithmic Mean Temperature Difference (LMTD) Method</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Used when all fluid inlet and outlet temperatures are known to calculate required surface area $A$.</li>
-<li><strong>LMTD Equation</strong>:
-  <div class="formula-card">$${\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln\left(\frac{\Delta T_1}{\Delta T_2}\right)}}$$</div></li>
-<li><strong>Flow Configurations</strong>:</li>
-<li><strong>Parallel Flow</strong>: $\Delta T_1 = T_{h,i} - T_{c,i}$, $\Delta T_2 = T_{h,o} - T_{c,o}$.</li>
-<li><strong>Counter Flow</strong>: $\Delta T_1 = T_{h,i} - T_{c,o}$, $\Delta T_2 = T_{h,o} - T_{c,i}$.</li>
-<li><strong>LMTD Comparison</strong>:</li>
-<li>For identical terminal temperatures: $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$.</li>
-<li>Consequently, a Counter-Flow heat exchanger requires the <strong>MINIMUM HEAT TRANSFER SURFACE AREA $A$</strong> for a given heat duty!</li>
-<li><strong>Equal End Differences Special Case</strong>:</li>
-<li>When $\Delta T_1 = \Delta T_2 \implies \text{LMTD} = \text{AMTD} = \Delta T_1$.</li>
-<li><strong>Multipass / Cross-Flow Exchangers</strong>:</li>
-<li>$Q = U \cdot A \cdot F \cdot \text{LMTD}_{\text{counter}}$, where $F \le 1.0$ is the LMTD correction factor (depends only on terminal temperatures).</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Counter-Flow LMTD Advantage</strong>: For the same inlet and outlet fluid temperatures, $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$. Thus, counter-flow requires the LEAST SURFACE AREA $A$ and smallest equipment size!</p>
-<p>[!TRAP]
-<strong>Equal End Difference LMTD Trap</strong>: If $\Delta T_1 = \Delta T_2$, $\ln(\Delta T_1 / \Delta T_2) = \ln(1) = 0$, giving an indeterminate $0/0$ form. By L'Hôpital's rule, $\text{LMTD} = \Delta T_1 = \Delta T_2$!</div>
-<h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
-<pre><code>LMTD Calculation &amp; Comparison Check?
-├─ Parallel Flow End Differences → Delta_T1 = Th,i - Tc,i ; Delta_T2 = Th,o - Tc,o
-├─ Counter Flow End Differences → Delta_T1 = Th,i - Tc,o ; Delta_T2 = Th,o - Tc,i
-├─ Are end differences equal (Delta_T1 = Delta_T2)? → LMTD = Delta_T1
-└─ Surface Area Comparison → Counter-flow requires MINIMUM area A (since LMTD_counter is max)
-</code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1/\Delta T_2)}$.</li>
-<li>[ ] $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$.</li>
-<li>[ ] Counter flow requires minimum area.</li>
-<li>[ ] If $\Delta T_1 = \Delta T_2 \implies \text{LMTD} = \Delta T_1$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: In a counter-flow heat exchanger, hot fluid cools from $150^\circ\text{C}$ to $100^\circ\text{C}$ while cold fluid warms from $30^\circ\text{C}$ to $80^\circ\text{C}$. Calculate the LMTD.
-- <strong>Solution</strong>:
-  - Counter-flow end differences:
-    <div class="formula-card">$${\Delta T_1 = T_{h,i} - T_{c,o} = 150 - 80 = 70^\circ\text{C}}$$</div>
-    <div class="formula-card">$${\Delta T_2 = T_{h,o} - T_{c,i} = 100 - 30 = 70^\circ\text{C}}$$</div>
-  - Since $\Delta T_1 = \Delta T_2 = 70^\circ\text{C}$, $\text{LMTD} = \text{AMTD} = 70^\circ\text{C}$.
-- <strong>Key Insight</strong>: $\text{LMTD} = 70^\circ\text{C}$. When end differences match, LMTD equals that difference.</p>
-<hr />
-<h3 id="34-ntueffectiveness-method"><strong>3.4 NTU–Effectiveness Method</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li>Used when outlet fluid temperatures are unknown to avoid tedious iterative LMTD calculations.</li>
-<li><strong>Heat Capacity Rates</strong>:
-  <div class="formula-card">$${C_h = \dot{m}<em>h C</em>{p,h}, \quad C_c = \dot{m}<em>c C</em>{p,c}}$$</div>
-  <div class="formula-card">$${C_{\min} = \min(C_h, C_c), \quad C_{\max} = \max(C_h, C_c)}$$</div>
-  <div class="formula-card">$${\text{Capacity Ratio } C = \frac{C_{\min}}{C_{\max}} \quad (0 \le C \le 1.0)}$$</div></li>
-<li><strong>Number of Transfer Units $\text{NTU}$</strong>:
-  <div class="formula-card">$${\text{NTU} = \frac{U A}{C_{\min}}}$$</div>
-  Non-dimensional measure of heat exchanger physical size. Larger $\text{NTU} \implies$ larger exchanger.</li>
-<li><strong>Effectiveness $\varepsilon$</strong>:
-  <div class="formula-card">$${\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}} = \frac{C_h (T_{h,i} - T_{h,o})}{C_{\min} (T_{h,i} - T_{c,i})} = \frac{C_c (T_{c,o} - T_{c,i})}{C_{\min} (T_{h,i} - T_{c,i})}}$$</div>
-  Where maximum possible heat transfer $Q_{\max} = C_{\min} (T_{h,i} - T_{c,i})$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Maximum Heat Transfer Constant</strong>: $Q_{\max} = C_{\min} (T_{h,i} - T_{c,i})$. ALWAYS use $C_{\min}$ (the smaller heat capacity rate) to multiply the maximum overall fluid temperature difference!</p>
-<p>[!TRAP]
-<strong>Effectiveness Formula Selection</strong>:
-- $Q_{\text{actual}}$ uses the actual fluid temperature change.
-- $Q_{\max}$ MUST use $C_{\min}$ and $(T_{h,i} - T_{c,i})$! Never use $C_{\max}$ in the denominator of effectiveness!</div>
-<h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
-<pre><code>NTU-Effectiveness Parameter Check?
-├─ Capacity Ratio C → C = C_min / C_max  (0 &lt;= C &lt;= 1)
-├─ NTU Formula → NTU = U * A / C_min
-├─ Maximum Possible Heat Transfer Q_max → Q_max = C_min * (Th,i - Tc,i)
-└─ Effectiveness Definition -&gt; epsilon = Q_actual / Q_max
-</code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $C = C_{\min} / C_{\max}$.</li>
-<li>[ ] $\text{NTU} = U A / C_{\min}$.</li>
-<li>[ ] $Q_{\max} = C_{\min} (T_{h,i} - T_{c,i})$.</li>
-<li>[ ] $\varepsilon = Q_{\text{actual}} / Q_{\max}$.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: Hot fluid $C_h = 2000 \text{ W/K}$ enters a heat exchanger at $100^\circ\text{C}$. Cold fluid $C_c = 1000 \text{ W/K}$ enters at $20^\circ\text{C}$. The actual heat transfer rate is $Q = 40 \text{ kW}$. Calculate the heat exchanger effectiveness $\varepsilon$.
-- <strong>Solution</strong>:
-  - $C_{\min} = \min(2000, 1000) = 1000 \text{ W/K} = 1.0 \text{ kW/K}$.
-  - $Q_{\max} = C_{\min} (T_{h,i} - T_{c,i}) = 1.0 \text{ kW/K} \times (100 - 20)^\circ\text{C} = 80 \text{ kW}$.
-  - $\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}} = \frac{40 \text{ kW}}{80 \text{ kW}} = 0.50 = 50\%$.
-- <strong>Key Insight</strong>: $\varepsilon = 50\%$. $Q_{\max}$ uses $C_{\min} = 1000 \text{ W/K}$.</p>
-<hr />
-<h3 id="35-special-cases-phase-change-c0-balanced-flow-c1"><strong>3.5 Special Cases: Phase Change $C=0$ &amp; Balanced Flow $C=1$</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Phase Change Fluids ($C = 0$, Boilers, Condensers, Evaporators)</strong>:</li>
-<li>During phase change, specific heat $C_p \to \infty \implies C_{\max} \to \infty \implies C = \frac{C_{\min}}{\infty} = 0$.</li>
-<li><strong>Effectiveness Formula</strong>:
-    <div class="formula-card">$${\varepsilon = 1 - \exp(-\text{NTU})}$$</div></li>
-<li><strong>Flow Arrangement Independence</strong>: For $C = 0$, parallel-flow and counter-flow heat exchangers have EXACTLY THE SAME EFFECTIVENESS AND LMTD!</li>
-<li><strong>Balanced Counter Flow ($C = 1.0$, Gas Turbine Regenerators)</strong>:</li>
-<li>When $C_h = C_c = C_{\min} \implies C = 1.0$.</li>
-<li><strong>Counter-Flow Effectiveness</strong>:
-    <div class="formula-card">$${\varepsilon = \frac{\text{NTU}}{1 + \text{NTU}}}$$</div></li>
-<li>Temperature profiles are parallel straight lines $\Delta T_1 = \Delta T_2 = \text{constant}$.</li>
-<li><strong>Parallel Flow Asymptotic Limit</strong>:</li>
-<li>For parallel flow with $C = 1.0$, even if $\text{NTU} \to \infty$, the maximum effectiveness CANNOT EXCEED $50\%$ $\varepsilon_{\text{parallel, max}} = \frac{1}{1+1} = 0.50$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Phase Change $C=0$ Rule</strong>: When one fluid undergoes phase change (condenser/evaporator), $C = 0$, and $\varepsilon = 1 - e^{-\text{NTU}}$ for BOTH parallel and counter flow! Flow direction does not matter.</p>
-<p>[!TRAP]
-<strong>Parallel Flow Asymptote Trap</strong>: A parallel-flow heat exchanger with $C=1.0$ CAN NEVER exceed $50\%$ effectiveness, no matter how large the area $A$ or $\text{NTU}$ becomes!</div>
-<h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
-<pre><code>Special NTU Effectiveness Formula Check?
-├─ Is one fluid condensing or boiling (Phase Change)? → C = 0 -&gt; epsilon = 1 - exp(-NTU)  [Identical for parallel &amp; counter]
-├─ Is it Balanced Counter Flow (C = 1.0)? → epsilon = NTU / (1 + NTU)
-└─ What is parallel flow max effectiveness for C=1 as NTU -&gt; infinity? → Exactly 50% (0.50)
-</code></pre>
-<h5 id="3-revision-checklist_4"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Phase change $C = 0$.</li>
-<li>[ ] Phase change $\varepsilon = 1 - e^{-\text{NTU}}$.</li>
-<li>[ ] $C=0 \implies$ Parallel and counter effectiveness are identical.</li>
-<li>[ ] Balanced counter flow $C=1$ $\implies \varepsilon = \frac{\text{NTU}}{1+\text{NTU}}$.</li>
-<li>[ ] Parallel flow $C=1$ max $\varepsilon = 50\%$.</li>
-</ul>
-<h5 id="4-worked-examples_4"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: A steam condenser has an overall heat transfer coefficient $U = 1000 \text{ W/m}^2\cdot\text{K}$, area $A = 2.0 \text{ m}^2$, and cold water capacity rate $C_c = 1000 \text{ W/K}$. Calculate the condenser effectiveness $\varepsilon$.
-- <strong>Solution</strong>:
-  - Condensing steam $\implies C_{\max} \to \infty \implies C = 0 \implies C_{\min} = C_c = 1000 \text{ W/K}$.
-  - $\text{NTU} = \frac{U A}{C_{\min}} = \frac{1000 \times 2.0}{1000} = 2.0$.
-  - $\varepsilon = 1 - \exp(-\text{NTU}) = 1 - e^{-2.0} = 1 - 0.1353 = 0.8647 = 86.47\%$.
-- <strong>Key Insight</strong>: $\varepsilon = 86.47\%$. Use $\varepsilon = 1 - e^{-\text{NTU}}$ for condensers $C=0$.</p>
-<hr />
-<h3 id="36-shell-and-tube-exchanger-features-construction"><strong>3.6 Shell-and-Tube Exchanger Features &amp; Construction</strong></h3>
-<h5 id="1-concept-pointers_5"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Baffles</strong>:</li>
-<li>Metal segment plates installed inside the shell.</li>
-<li><strong>Functions</strong>:<ol>
-<li>Support the tubes physically to prevent sagging and vibration.</li>
-<li>Force shell-side fluid to flow back and forth across tubes in turbulence, increasing shell-side convection coefficient $h_o$.</li>
-</ol>
-</li>
-<li><strong>Floating Head Construction</strong>:</li>
-<li>One tube sheet is fixed to the shell, while the other tube sheet "floats" freely inside the shell cover.</li>
-<li><strong>Primary Purpose</strong>: Accommodate DIFFERENTIAL THERMAL EXPANSION between shell and tubes during large temperature changes, preventing tube warping or joint failure.</li>
-<li><strong>Multipass Exchangers</strong>:</li>
-<li>Passing tube fluid multiple times (2-pass, 4-pass) increases fluid velocity and heat transfer rate.</li>
-<li>Requires LMTD Correction Factor $F &lt; 1.0$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Floating Head Purpose</strong>: Floating head construction is used EXCLUSIVELY to absorb DIFFERENTIAL THERMAL EXPANSION between tubes and shell under large temperature differences!</div>
-<h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
-<pre><code>Shell &amp; Tube Feature Check?
-├─ Why are baffles installed? → Support tubes AND increase shell-side turbulence/velocity (boosting h_o)
-├─ Why is floating head used? → Accommodate differential thermal expansion under high Delta_T
-└─ Where is corrosive fluid routed? → Tube side (Easier cleaning &amp; cheaper alloy tubing)
-</code></pre>
-<h5 id="3-revision-checklist_5"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Baffles support tubes &amp; increase $h_o$.</li>
-<li>[ ] Floating head handles thermal expansion.</li>
-<li>[ ] Corrosive fluid on tube side.</li>
-<li>[ ] Multipass uses LMTD correction factor $F &lt; 1.0$.</li>
-</ul>
-<h5 id="4-worked-examples_5"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1</strong>
-- <strong>Problem</strong>: State the main reason for selecting a floating-head shell-and-tube heat exchanger over a fixed tube-sheet exchanger.
-- <strong>Solution</strong>:
-  - To accommodate differential thermal expansion between the shell and the tubes when operating under large temperature differences.
-- <strong>Key Insight</strong>: Floating head handles thermal expansion.</p>
-<hr />
-<h2 id="section-4-theory-qa-core-conceptual"><strong>SECTION 4: THEORY Q&amp;A (Core Conceptual)</strong></h2>
-<p><strong>Q1: Write the formula for fin parameter $m$ and state its SI unit.</strong><br />
-A: $m = \sqrt{\frac{h P}{k A_c}}$, with SI unit $\text{m}^{-1}$.</p>
-<p><strong>Q2: What is the formula for fin efficiency $\eta_f$ of a straight rectangular fin with an insulated tip?</strong><br />
-A: $\eta_f = \frac{\tanh(mL)}{mL}$.</p>
-<p><strong>Q3: How is corrected fin length $L_c$ defined for a rectangular fin of thickness $t$?</strong><br />
-A: $L_c = L + \frac{t}{2}$.</p>
-<p><strong>Q4: When is adding fins to a surface physically justified?</strong><br />
-A: When fin effectiveness $\varepsilon_f &gt; 2.0$. If $\varepsilon_f &lt; 1.0$, adding fins reduces heat transfer.</p>
-<p><strong>Q5: Write the formula for Fouling Factor $R_f$ and state its SI unit.</strong><br />
-A: $R_f = \frac{1}{U_{\text{dirty}}} - \frac{1}{U_{\text{clean}}}$, with SI unit $\text{m}^2\cdot\text{K/W}$.</p>
-<p><strong>Q6: Why should corrosive or scaling fluids be routed through the tube side rather than the shell side?</strong><br />
-A: Because tubes are easier to clean mechanically and require less expensive corrosion-resistant alloy material than a large shell.</p>
-<p><strong>Q7: Write the LMTD formula for a heat exchanger.</strong><br />
-A: $\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}$.</p>
-<p><strong>Q8: Why does a counter-flow heat exchanger require less surface area than a parallel-flow exchanger for the same heat duty?</strong><br />
-A: Because for identical terminal temperatures, $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$, providing a higher mean driving temperature difference.</p>
-<p><strong>Q9: What is the value of LMTD when the terminal temperature differences are equal $\Delta T_1 = \Delta T_2$?</strong><br />
-A: $\text{LMTD} = \text{AMTD} = \Delta T_1$.</p>
-<p><strong>Q10: Define Capacity Ratio $C$ in the NTU-effectiveness method.</strong><br />
-A: $C = \frac{C_{\min}}{C_{\max}} = \frac{\min(C_h, C_c)}{\max(C_h, C_c)}$, where $0 \le C \le 1.0$.</p>
-<p><strong>Q11: Write the formula for Number of Transfer Units $\text{NTU}$.</strong><br />
-A: $\text{NTU} = \frac{U A}{C_{\min}}$.</p>
-<p><strong>Q12: Define Heat Exchanger Effectiveness $\varepsilon$.</strong><br />
-A: $\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}} = \frac{Q_{\text{actual}}}{C_{\min}(T_{h,i} - T_{c,i})}$.</p>
-<p><strong>Q13: What is the effectiveness formula for a condenser or boiler $C=0$?</strong><br />
-A: $\varepsilon = 1 - \exp(-\text{NTU})$ for both parallel and counter flow.</p>
-<p><strong>Q14: Write the effectiveness formula for a balanced counter-flow heat exchanger $C=1.0$.</strong><br />
-A: $\varepsilon = \frac{\text{NTU}}{1 + \text{NTU}}$.</p>
-<p><strong>Q15: What is the maximum theoretical effectiveness of a parallel-flow heat exchanger with $C=1.0$ as $\text{NTU} \to \infty$?</strong><br />
-A: $50\%$ $\varepsilon = 0.50$.</p>
-<hr />
-<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
-<ul>
-<li><strong>Fin Parameter</strong>: $m = \sqrt{\frac{hP}{kA_c}}$ $\text{m}^{-1}$.</li>
-<li><strong>Fin Efficiency</strong>: Insulated tip $\eta_f = \frac{\tanh(mL)}{mL} \le 1.0$. Convective tip uses $L_c = L + t/2$.</li>
-<li><strong>Fin Effectiveness</strong>: $\varepsilon_f = \sqrt{\frac{kP}{hA_c}}\tanh(mL)$. Fin justified if $\varepsilon_f &gt; 2.0$.</li>
-<li><strong>Fouling Factor</strong>: $R_f = \frac{1}{U_d} - \frac{1}{U_c}$ $\text{m}^2\cdot\text{K/W}$. Reduces overall HTC $U$.</li>
-<li><strong>Fluid Routing</strong>: Corrosive &amp; high-pressure fluids $\implies$ TUBE SIDE. Viscous fluids $\implies$ SHELL SIDE.</li>
-<li><strong>Baffles</strong>: Support tubes &amp; increase shell-side turbulence/velocity $\implies h_o \uparrow$.</li>
-<li><strong>Floating Head</strong>: Absorbs DIFFERENTIAL THERMAL EXPANSION under large $\Delta T$.</li>
-<li><strong>LMTD Comparison</strong>: $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}} \implies$ Counter flow requires MINIMUM surface area $A$.</li>
-<li><strong>LMTD Equal End Differences</strong>: $\Delta T_1 = \Delta T_2 \implies \text{LMTD} = \Delta T_1$.</li>
-<li><strong>NTU</strong>: $\text{NTU} = \frac{UA}{C_{\min}}$. Non-dimensional size metric.</li>
-<li><strong>Effectiveness</strong>: $\varepsilon = \frac{Q_{\text{actual}}}{C_{\min}(T_{h,i} - T_{c,i})}$.</li>
-<li><strong>Phase Change $C=0$</strong>: $\varepsilon = 1 - e^{-\text{NTU}}$ for parallel AND counter flow.</li>
-<li><strong>Balanced Counter Flow $C=1$</strong>: $\varepsilon = \frac{\text{NTU}}{1+\text{NTU}}$.</li>
-<li><strong>Parallel Flow Limit</strong>: Max $\varepsilon_{\text{parallel}} = 50\%$ when $C=1$.</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-checklist"><strong>SECTION 6: FINAL QUICK-FIRE CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize $m = \sqrt{\frac{hP}{kA_c}}$.</li>
-<li>[ ] Memorize Fin efficiency $\eta_f = \frac{\tanh(mL)}{mL}$.</li>
-<li>[ ] Memorize Rectangular $L_c = L + t/2$.</li>
-<li>[ ] Memorize Fin justification $\varepsilon_f &gt; 2.0$.</li>
-<li>[ ] Memorize Fouling factor $R_f = \frac{1}{U_d} - \frac{1}{U_c}$ $\text{m}^2\cdot\text{K/W}$.</li>
-<li>[ ] Memorize Corrosive fluid on TUBE side.</li>
-<li>[ ] Memorize Baffles support tubes and boost shell-side $h_o$.</li>
-<li>[ ] Memorize Floating head handles thermal expansion.</li>
-<li>[ ] Memorize $\text{LMTD}<em>{\text{counter}} &gt; \text{LMTD}</em>{\text{parallel}}$ (Counter flow needs min area $A$).</li>
-<li>[ ] Memorize Equal end differences $\implies \text{LMTD} = \Delta T_1$.</li>
-<li>[ ] Memorize $\text{NTU} = \frac{UA}{C_{\min}}$.</li>
-<li>[ ] Memorize $Q_{\max} = C_{\min} (T_{h,i} - T_{c,i})$.</li>
-<li>[ ] Memorize Phase change $C=0$ $\implies \varepsilon = 1 - e^{-\text{NTU}}$.</li>
-<li>[ ] Memorize Balanced counter flow $C=1$ $\implies \varepsilon = \frac{\text{NTU}}{1+\text{NTU}}$.</li>
-<li>[ ] Memorize Parallel flow max $\varepsilon = 50\%$ at $C=1$.</li>
-</ul>
-  </div>
+      <a href="index.html">&larr; Back to Heat Transfer Hub</a>
+      <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+    </div>
+
+    <h1>Fins, Heat Exchangers, LMTD &amp; NTU Methods<br>
+      <span style="font-size:.6em; font-weight:400; opacity:.85;">
+        Extended Surfaces &middot; Overall HTC &amp; Fouling &middot; LMTD Method &middot; NTU-Effectiveness Method<br>
+        APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical
+      </span>
+    </h1>
+
+    <!-- ═══════════════════════════ PART 1 ═══════════════════════════ -->
+    <div class="section-block" id="sec-fins">
+      <h2 class="section-head">1. Extended Surfaces — Fins</h2>
+
+      <p>Fins (extended surfaces) are attached to a primary surface to increase the effective heat transfer area. They are most useful when the convective resistance on one side is very high — typically the gas side of a gas-to-liquid exchanger.</p>
+
+      <div class="fbox">
+        <div class="flabel">Fin Parameter $m$</div>
+        $$m = \sqrt{\frac{hP}{kA_c}} \qquad \left[\text{m}^{-1}\right]$$
+        <div class="fsub">$P$ = fin perimeter [m] &nbsp;&middot;&nbsp; $A_c$ = fin cross-sectional area [m²] &nbsp;&middot;&nbsp; Higher $m$ &rarr; faster temperature decay along fin.</div>
+      </div>
+
+      <h3 class="sub-head">1.1 Fin Efficiency</h3>
+
+      <p>Fin efficiency $\eta_f$ is the ratio of actual heat transfer from the fin to the heat transfer that would occur if the entire fin were at the base temperature.</p>
+
+      <div class="fbox">
+        <div class="flabel">Fin Efficiency — Straight Rectangular Fin, Insulated Tip</div>
+        $$\eta_f = \frac{\tanh(mL)}{mL} \leq 1$$
+        <div class="fsub">For a rectangular fin with convective tip, use corrected length $L_c = L + t/2$ (where $t$ is fin thickness) in place of $L$.</div>
+      </div>
+
+      <h3 class="sub-head">1.2 Fin Effectiveness</h3>
+
+      <p>Fin effectiveness $\varepsilon_f$ is the ratio of heat transfer with the fin to heat transfer from the same base area without the fin. Adding a fin is justified only if $\varepsilon_f > 2$.</p>
+
+      <div class="fbox">
+        <div class="flabel">Fin Effectiveness</div>
+        $$\varepsilon_f = \sqrt{\frac{kP}{hA_c}}\,\tanh(mL)$$
+        <div class="fsub">
+          $\varepsilon_f > 2.0$ &rarr; fin is justified (more than doubles heat transfer).<br>
+          $\varepsilon_f < 1.0$ &rarr; fin reduces heat transfer (insulating effect — avoid).<br>
+          Fins work best with high $k$, low $h$, slender geometry (large $P/A_c$).
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ PART 2 ═══════════════════════════ -->
+    <div class="section-block" id="sec-overall">
+      <h2 class="section-head">2. Overall Heat Transfer Coefficient &amp; Fouling</h2>
+
+      <p>In a heat exchanger the total thermal resistance between two fluid streams includes the convective resistance on each side plus the wall conduction resistance. The overall heat transfer coefficient $U$ summarises all resistances:</p>
+
+      <div class="fbox">
+        <div class="flabel">Overall HTC (Plane Wall, No Fouling)</div>
+        $$\frac{1}{U} = \frac{1}{h_i} + R_{\text{wall}} + \frac{1}{h_o}$$
+      </div>
+
+      <p>Fouling — the deposition of scale, corrosion products, or biological matter on surfaces — increases thermal resistance over time and reduces $U$. The fouling factor $R_f$ quantifies this degradation:</p>
+
+      <div class="fbox">
+        <div class="flabel">Fouling Factor</div>
+        $$R_f = \frac{1}{U_{\text{dirty}}} - \frac{1}{U_{\text{clean}}} \qquad \left[\text{m}^2\cdot\text{K/W}\right]$$
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ PART 3 ═══════════════════════════ -->
+    <div class="section-block" id="sec-hx-types">
+      <h2 class="section-head">3. Shell-and-Tube Heat Exchanger Design</h2>
+
+      <p>The shell-and-tube is the most widely used heat exchanger in industry. Key design points tested in AP GenCo and SSC JE:</p>
+
+      <table>
+        <thead><tr><th>Feature</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Baffles</strong></td><td>Support the tube bundle mechanically and force the shell-side fluid to flow across (rather than along) the tubes, increasing shell-side velocity and $h_o$.</td></tr>
+          <tr><td><strong>Floating head</strong></td><td>Allows the tube bundle to expand and contract independently of the shell, accommodating differential thermal expansion under large temperature differences.</td></tr>
+          <tr><td><strong>Tube-side routing</strong></td><td>Corrosive, high-pressure, and scaling fluids are routed through the tubes — cheaper to use alloy tubes than an alloy shell, and tubes are easier to clean mechanically.</td></tr>
+          <tr><td><strong>Shell-side routing</strong></td><td>Viscous fluids go on the shell side to take advantage of the cross-flow geometry, which gives better heat transfer for high-viscosity liquids.</td></tr>
+          <tr><td><strong>Multi-pass LMTD</strong></td><td>Multiple tube passes increase tube-side velocity but require a correction factor $F < 1$ applied to the counterflow LMTD: $Q = UA \cdot F \cdot \text{LMTD}_{\text{CF}}$.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ PART 4 ═══════════════════════════ -->
+    <div class="section-block" id="sec-lmtd">
+      <h2 class="section-head">4. LMTD Method</h2>
+
+      <p>The Log Mean Temperature Difference method is used when the inlet and outlet temperatures of both streams are known. The heat duty is:</p>
+
+      <div class="fbox">
+        <div class="flabel">LMTD Definition</div>
+        $$\text{LMTD} = \frac{\Delta T_1 - \Delta T_2}{\ln\!\left(\Delta T_1 / \Delta T_2\right)}$$
+        <div class="fsub">
+          $\Delta T_1$, $\Delta T_2$ = temperature differences between hot and cold streams at each end of the exchanger.<br>
+          Special case: if $\Delta T_1 = \Delta T_2$ &rarr; $\text{LMTD} = \Delta T_1$ (simple arithmetic mean).
+        </div>
+      </div>
+
+      <div class="fbox">
+        <div class="flabel">Heat Duty</div>
+        $$Q = U A\, \text{LMTD}$$
+      </div>
+
+      <p><strong>Counter-flow vs parallel-flow:</strong> For the same terminal temperatures, the counterflow arrangement always gives a larger LMTD than parallel flow, meaning it requires less heat transfer area for the same duty. Counterflow is therefore the preferred arrangement wherever it is mechanically feasible.</p>
+
+      <div class="fbox">
+        <div class="flabel">LMTD Comparison</div>
+        $$\text{LMTD}_{\text{counter}} > \text{LMTD}_{\text{parallel}}$$
+        <div class="fsub">For the same $Q$ and $U$: counterflow needs minimum area $A$.</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ PART 5 ═══════════════════════════ -->
+    <div class="section-block" id="sec-ntu">
+      <h2 class="section-head">5. NTU-Effectiveness Method</h2>
+
+      <p>When outlet temperatures are unknown, the NTU-effectiveness method is preferred over iterating the LMTD. It works with inlet temperatures and the heat exchanger's physical size.</p>
+
+      <div class="fbox">
+        <div class="flabel">Heat Capacity Rates &amp; Capacity Ratio</div>
+        $$C_h = \dot{m}_h C_{p,h}, \quad C_c = \dot{m}_c C_{p,c}, \quad C = \frac{C_{\min}}{C_{\max}}$$
+        <div class="fsub">$C$ ranges from 0 (one stream is condensing/boiling) to 1 (balanced streams).</div>
+      </div>
+
+      <div class="fbox">
+        <div class="flabel">Number of Transfer Units</div>
+        $$\text{NTU} = \frac{UA}{C_{\min}}$$
+        <div class="fsub">NTU is a dimensionless size parameter — larger NTU means larger or more effective heat exchanger.</div>
+      </div>
+
+      <div class="fbox">
+        <div class="flabel">Effectiveness Definition</div>
+        $$\varepsilon = \frac{Q_{\text{actual}}}{Q_{\max}} = \frac{Q_{\text{actual}}}{C_{\min}\,(T_{h,i} - T_{c,i})}$$
+        <div class="fsub">$Q_{\max}$ is the thermodynamic maximum: achieved if the stream with $C_{\min}$ undergoes the full inlet-to-inlet temperature difference.</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ PART 6 ═══════════════════════════ -->
+    <div class="section-block" id="sec-special">
+      <h2 class="section-head">6. Special Cases of NTU-ε</h2>
+
+      <table>
+        <thead><tr><th>Condition</th><th>Effectiveness $\varepsilon$</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Phase change — boiler or condenser ($C = 0$)</td><td>$\varepsilon = 1 - e^{-\text{NTU}}$</td><td>Same formula for both parallel and counterflow. Phase-change stream has infinite capacity rate.</td></tr>
+          <tr><td>Balanced counterflow ($C = 1$)</td><td>$\varepsilon = \dfrac{\text{NTU}}{1 + \text{NTU}}$</td><td>Approaches 1 as NTU &rarr; &infin; but never reaches it.</td></tr>
+          <tr><td>Parallel flow, maximum ($C = 1$, NTU &rarr; &infin;)</td><td>$\varepsilon_{\max} = 0.5 = 50\%$</td><td>Fundamental upper limit for parallel flow — outlet temperatures equalise.</td></tr>
+          <tr><td>Counterflow general ($0 \le C < 1$)</td><td>$\varepsilon = \dfrac{1 - e^{-\text{NTU}(1-C)}}{1 - C\,e^{-\text{NTU}(1-C)}}$</td><td>Approaches 1 as NTU &rarr; &infin; for any $C < 1$.</td></tr>
+        </tbody>
+      </table>
+
+      <p>The $C = 0$ result ($\varepsilon = 1 - e^{-\text{NTU}}$) is the most frequently tested NTU equation — it applies to any flow arrangement when one stream is changing phase.</p>
+    </div>
+
+    <hr>
+
+    <!-- ═══════════════════════════ KEY POINTS ═══════════════════════════ -->
+    <div class="section-block" id="sec-keypoints">
+      <h2 class="section-head">Key Points to Remember</h2>
+
+      <div class="keypoints">
+        <h3>Fins &amp; Heat Exchangers Summary</h3>
+        <ul>
+          <li>Fin parameter $m = \sqrt{hP/kA_c}$ in m⁻¹. Larger $m$ &rarr; faster temperature decay along fin.</li>
+          <li>Fin efficiency: $\eta_f = \tanh(mL)/(mL)$. Insulated tip. For convective tip, use $L_c = L + t/2$.</li>
+          <li>Fin effectiveness $\varepsilon_f > 2.0$ to justify adding fins; $\varepsilon_f < 1.0$ means fins hurt.</li>
+          <li>Fouling factor $R_f = 1/U_{\text{dirty}} - 1/U_{\text{clean}}$ in m²&middot;K/W. Always reduces $U$.</li>
+          <li>Corrosive &amp; high-pressure fluids &rarr; tube side. Viscous fluids &rarr; shell side.</li>
+          <li>Baffles: support tubes AND increase shell-side $h_o$ by inducing cross-flow.</li>
+          <li>Floating head: accommodates differential thermal expansion — used for large $\Delta T$ applications.</li>
+          <li>$\text{LMTD}_{\text{counter}} > \text{LMTD}_{\text{parallel}}$ &rarr; counterflow requires less surface area for same duty.</li>
+          <li>$\Delta T_1 = \Delta T_2$ &rarr; $\text{LMTD} = \Delta T_1$ (becomes arithmetic mean).</li>
+          <li>$\text{NTU} = UA/C_{\min}$. Dimensionless size of heat exchanger.</li>
+          <li>$Q_{\max} = C_{\min}(T_{h,i} - T_{c,i})$ — thermodynamic ceiling.</li>
+          <li>Phase change ($C = 0$): $\varepsilon = 1 - e^{-\text{NTU}}$ for any flow arrangement.</li>
+          <li>Balanced counterflow ($C = 1$): $\varepsilon = \text{NTU}/(1 + \text{NTU})$.</li>
+          <li>Parallel flow absolute maximum effectiveness = 50% (at $C = 1$, NTU &rarr; &infin;).</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--ink-soft); font-family:system-ui,sans-serif;">
+      APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Heat Transfer Revision Guide
+    </p>
+
+  </div><!-- /.wrap -->
 </body>
 </html>
