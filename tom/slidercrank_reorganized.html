@@ -1,419 +1,858 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinematics & Dynamic Analysis of Slider-Crank Mechanisms, Inertia Forces, & Locomotive Balancing — Master Reorganized Study Guide — AP GenCo Exam Guide</title>
-  <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-  <style>
-  :root {
-    --bg-page: #F8FAFC;
-    --bg-card: #FFFFFF;
-    --bg-formula: #F1F5F9;
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #94A3B8;
-    --subject-current: #10B981;
-    --subject-current-light: rgba(16, 185, 129, 0.35);
-    --subject-bg-tint: rgba(16, 185, 129, 0.08);
-    --border-light: #E2E8F0;
-    --heading-color: #0F172A;
-    --heading-sub: #10B981;
-    --code-bg: #E2E8F0;
-    --code-text: #0F172A;
-    --pre-bg: #F8FAFC;
-    --table-th-bg: #0F172A;
-    --table-even-bg: #F8FAFC;
-    --callout-concept-bg: #EFF6FF;
-    --callout-concept-border: #3B82F6;
-    --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2;
-    --callout-trap-border: #EF4444;
-    --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8;
-    --callout-focus-border: #EAB308;
-    --callout-focus-text: #854D0E;
-    --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
-  }
-  [data-theme="dark"] {
-    --bg-page: #0E0F12;
-    --bg-card: #16181D;
-    --bg-formula: #111318;
-    --text-primary: #F1F5F9;
-    --text-secondary: #94A3B8;
-    --text-muted: #64748B;
-    --subject-current: #10B981;
-    --subject-current-light: rgba(16, 185, 129, 0.35);
-    --subject-bg-tint: rgba(16, 185, 129, 0.08);
-    --border-light: #262933;
-    --heading-color: #F1F5F9;
-    --heading-sub: #10B981;
-    --code-bg: #262933;
-    --code-text: #F1F5F9;
-    --pre-bg: #111318;
-    --table-th-bg: #111318;
-    --table-even-bg: #121419;
-    --callout-concept-bg: #131D31;
-    --callout-concept-border: #3B6FD4;
-    --callout-concept-text: #93C5FD;
-    --callout-trap-bg: #271415;
-    --callout-trap-border: #EF4444;
-    --callout-trap-text: #FCA5A5;
-    --callout-focus-bg: #2A2210;
-    --callout-focus-border: #C09820;
-    --callout-focus-text: #E0C060;
-    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 8.5pt; font-family: Inter, system-ui, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--bg-formula); color: var(--subject-current); }
-  .fnav-link.active-section { background: var(--subject-current); color: #0E0F12; }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
-  #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
-  body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 72px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
-  [data-theme="light"] h1 { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
-  h2 { font-size: 16pt; border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
-  h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
-  h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
-  h5 { font-size: 11pt; color: var(--text-secondary); margin-top: 16px; }
-  a { color: var(--subject-current); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "SFMono-Regular", Consolas, monospace; background: var(--code-bg); color: var(--subject-current); padding: 0.2em 0.5em; border-radius: 4px; font-size: 9.5pt; font-weight: 600; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 16px; border-radius: 8px; overflow-x: auto; color: var(--text-primary); margin: 18px 0; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--subject-current); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
-  th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
-  th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
-  tr:nth-child(even) { background-color: var(--table-even-bg); }
-  tr:hover { background-color: var(--subject-bg-tint); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Kinematics & Dynamic Analysis of Slider-Crank Mechanisms, Inertia Forces, & Locomotive Balancing — Master
+      Reorganized Study Guide — AP GenCo Exam Guide</title>
+   <script>
+      MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
+   </script>
+   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   <style>
+      :root {
+         --bg-page: #F8FAFC;
+         --bg-card: #FFFFFF;
+         --bg-formula: #F1F5F9;
+         --text-primary: #0F172A;
+         --text-secondary: #475569;
+         --text-muted: #94A3B8;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #E2E8F0;
+         --heading-color: #0F172A;
+         --heading-sub: #10B981;
+         --code-bg: #E2E8F0;
+         --code-text: #0F172A;
+         --pre-bg: #F8FAFC;
+         --table-th-bg: #0F172A;
+         --table-even-bg: #F8FAFC;
+         --callout-concept-bg: #EFF6FF;
+         --callout-concept-border: #3B82F6;
+         --callout-concept-text: #1E40AF;
+         --callout-trap-bg: #FEF2F2;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #991B1B;
+         --callout-focus-bg: #FEFCE8;
+         --callout-focus-border: #EAB308;
+         --callout-focus-text: #854D0E;
+         --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+      }
 
-  /* Formula Cards — Intense Breathing & Lit Box Effect */
-  @keyframes formulaBreathe {
-    0%, 100% {
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
-                  0 0 18px 2px var(--subject-current);
-      border-left-color: var(--subject-current);
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-formula) 75%);
-    }
-    50% {
-      box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
-                  0 0 32px 6px var(--subject-current-light);
-      border-left-color: #34D399;
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, var(--bg-formula) 60%);
-    }
-  }
+      [data-theme="dark"] {
+         --bg-page: #0E0F12;
+         --bg-card: #16181D;
+         --bg-formula: #111318;
+         --text-primary: #F1F5F9;
+         --text-secondary: #94A3B8;
+         --text-muted: #64748B;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #262933;
+         --heading-color: #F1F5F9;
+         --heading-sub: #10B981;
+         --code-bg: #262933;
+         --code-text: #F1F5F9;
+         --pre-bg: #111318;
+         --table-th-bg: #111318;
+         --table-even-bg: #121419;
+         --callout-concept-bg: #131D31;
+         --callout-concept-border: #3B6FD4;
+         --callout-concept-text: #93C5FD;
+         --callout-trap-bg: #271415;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #FCA5A5;
+         --callout-focus-bg: #2A2210;
+         --callout-focus-border: #C09820;
+         --callout-focus-text: #E0C060;
+         --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      }
 
-  .formula-card, .fc, .concept-block {
-    border: 1px solid var(--border-light);
-    border-left: 5px solid var(--subject-current);
-    border-radius: 10px;
-    padding: 16px 20px; margin: 22px 0;
-    text-align: center; overflow-x: auto;
-    animation: formulaBreathe 3.5s ease-in-out infinite;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+      *,
+      *::before,
+      *::after {
+         box-sizing: border-box;
+      }
 
-  .formula-card:hover, .fc:hover, .concept-block:hover {
-    transform: translateY(-3px) scale(1.01);
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0.10) 100%) !important;
-    box-shadow: 0 0 45px 8px var(--subject-current),
-                0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
-    border-color: var(--subject-current);
-  }
+      #reading-progress {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 0%;
+         height: 3px;
+         background: var(--subject-current);
+         z-index: 9999;
+         transition: width 0.1s linear;
+         border-radius: 0 2px 2px 0;
+      }
 
-  .callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+      #floating-nav {
+         position: fixed;
+         top: 12px;
+         left: 50%;
+         transform: translateX(-50%);
+         display: flex;
+         align-items: center;
+         gap: 4px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-radius: 50px;
+         padding: 5px 14px;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+         z-index: 9998;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.3s ease;
+         white-space: nowrap;
+         font-size: 8.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
 
-  .submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; }
-  .submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
-  .submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
-  .submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-  </style>
+      #floating-nav.visible {
+         opacity: 1;
+         pointer-events: auto;
+      }
+
+      .fnav-link {
+         color: var(--text-secondary);
+         text-decoration: none;
+         padding: 3px 10px;
+         border-radius: 20px;
+         font-weight: 600;
+         transition: background 0.15s, color 0.15s;
+      }
+
+      .fnav-link:hover {
+         background: var(--bg-formula);
+         color: var(--subject-current);
+      }
+
+      .fnav-link.active-section {
+         background: var(--subject-current);
+         color: #0E0F12;
+      }
+
+      .fnav-sep {
+         color: var(--border-light);
+         user-select: none;
+         font-size: 8pt;
+      }
+
+      #theme-toggle {
+         position: fixed;
+         top: 18px;
+         right: 24px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         color: var(--text-secondary);
+         border-radius: 50%;
+         width: 40px;
+         height: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         font-size: 13pt;
+         z-index: 9998;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+         transition: all 0.2s ease;
+      }
+
+      #theme-toggle:hover {
+         border-color: var(--subject-current);
+         color: var(--subject-current);
+         transform: scale(1.08);
+      }
+
+      body {
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-size: 11.5pt;
+         line-height: 1.9;
+         color: var(--text-primary);
+         background-color: var(--bg-page);
+         margin: 0;
+         padding: 60px 20px 72px;
+         transition: background-color 0.25s, color 0.25s;
+      }
+
+      .reading-content {
+         max-width: 820px;
+         margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-family: "Bookman Old Style", Georgia, serif;
+         color: var(--heading-color);
+         font-weight: 700;
+         margin-top: 1.6em;
+         margin-bottom: 0.5em;
+      }
+
+      h1 {
+         font-size: 22pt;
+         text-align: center;
+         background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+         color: #F8FAFC;
+         border-left: 5px solid var(--subject-current);
+         padding: 28px 24px;
+         border-radius: 12px;
+         margin-bottom: 28px;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+         line-height: 1.35;
+      }
+
+      [data-theme="light"] h1 {
+         background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      }
+
+      h2 {
+         font-size: 16pt;
+         border-bottom: 3px solid var(--subject-current);
+         padding-bottom: 8px;
+         margin-top: 42px;
+      }
+
+      h3 {
+         font-size: 13.5pt;
+         color: var(--subject-current);
+         margin-top: 28px;
+      }
+
+      h4 {
+         font-size: 12pt;
+         color: var(--text-primary);
+         margin-top: 20px;
+      }
+
+      h5 {
+         font-size: 11pt;
+         color: var(--text-secondary);
+         margin-top: 16px;
+      }
+
+      a {
+         color: var(--subject-current);
+         text-decoration: none;
+      }
+
+      a:hover {
+         text-decoration: underline;
+      }
+
+      p {
+         margin-bottom: 0.9em;
+      }
+
+      code {
+         font-family: "SFMono-Regular", Consolas, monospace;
+         background: var(--code-bg);
+         color: var(--subject-current);
+         padding: 0.2em 0.5em;
+         border-radius: 4px;
+         font-size: 9.5pt;
+         font-weight: 600;
+      }
+
+      pre {
+         background: var(--pre-bg);
+         border: 1px solid var(--border-light);
+         padding: 16px;
+         border-radius: 8px;
+         overflow-x: auto;
+         color: var(--text-primary);
+         margin: 18px 0;
+      }
+
+      pre code {
+         background: none;
+         padding: 0;
+         font-size: inherit;
+         color: var(--text-primary);
+      }
+
+      blockquote {
+         border-left: 4px solid var(--subject-current);
+         background-color: var(--pre-bg);
+         padding: 12px 18px;
+         margin: 18px 0;
+         color: var(--text-secondary);
+         border-radius: 0 6px 6px 0;
+      }
+
+      table {
+         border-collapse: collapse;
+         width: 100%;
+         margin: 24px 0;
+         background: var(--bg-card);
+         border-radius: 10px;
+         overflow: hidden;
+         border: 1px solid var(--border-light);
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+         font-size: 10pt;
+      }
+
+      th,
+      td {
+         border: 1px solid var(--border-light);
+         padding: 12px 16px;
+         text-align: left;
+      }
+
+      th {
+         background: var(--table-th-bg);
+         color: var(--subject-current);
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-weight: 600;
+         font-size: 9.5pt;
+         letter-spacing: 0.5px;
+         border-bottom: 2px solid var(--subject-current);
+      }
+
+      tr:nth-child(even) {
+         background-color: var(--table-even-bg);
+      }
+
+      tr:hover {
+         background-color: var(--subject-bg-tint);
+      }
+
+      img {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         border: 1px solid var(--border-light);
+      }
+
+      ul,
+      ol {
+         padding-left: 1.5em;
+         margin-bottom: 0.8em;
+      }
+
+      li {
+         margin-bottom: 0.25em;
+      }
+
+      /* Formula Cards — Intense Breathing & Lit Box Effect */
+      @keyframes formulaBreathe {
+
+         0%,
+         100% {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+               0 0 18px 2px var(--subject-current);
+            border-left-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-formula) 75%);
+         }
+
+         50% {
+            box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+               0 0 32px 6px var(--subject-current-light);
+            border-left-color: #34D399;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, var(--bg-formula) 60%);
+         }
+      }
+
+      .formula-card,
+      .fc,
+      .concept-block {
+         border: 1px solid var(--border-light);
+         border-left: 5px solid var(--subject-current);
+         border-radius: 10px;
+         padding: 16px 20px;
+         margin: 22px 0;
+         text-align: center;
+         overflow-x: auto;
+         animation: formulaBreathe 3.5s ease-in-out infinite;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .formula-card:hover,
+      .fc:hover,
+      .concept-block:hover {
+         transform: translateY(-3px) scale(1.01);
+         background: linear-gradient(135deg, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0.10) 100%) !important;
+         box-shadow: 0 0 45px 8px var(--subject-current),
+            0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+         border-color: var(--subject-current);
+      }
+
+      .callout {
+         padding: 16px 20px;
+         margin: 20px 0;
+         border-radius: 8px;
+         font-size: 10.5pt;
+         line-height: 1.6;
+         border-left: 5px solid;
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .callout-concept {
+         background-color: var(--callout-concept-bg);
+         border-color: var(--callout-concept-border);
+         color: var(--callout-concept-text);
+      }
+
+      .callout-trap {
+         background-color: var(--callout-trap-bg);
+         border-color: var(--callout-trap-border);
+         color: var(--callout-trap-text);
+      }
+
+      .callout-focus {
+         background-color: var(--callout-focus-bg);
+         border-color: var(--callout-focus-border);
+         color: var(--callout-focus-text);
+      }
+
+      .katex-display,
+      .MathJax_Display {
+         overflow-x: auto;
+         overflow-y: hidden;
+      }
+
+      .submodule-nav {
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-left: 4px solid var(--subject-current);
+         padding: 14px 20px;
+         border-radius: 10px;
+         margin-bottom: 28px;
+         text-align: center;
+         box-shadow: var(--shadow-card);
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         font-size: 9.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .submodule-nav a {
+         color: var(--text-secondary);
+         font-weight: 600;
+         text-decoration: none;
+         padding: 5px 12px;
+         border-radius: 6px;
+         transition: all 0.2s ease;
+      }
+
+      .submodule-nav a:hover {
+         color: var(--subject-current);
+         background: var(--bg-formula);
+      }
+
+      .submodule-nav a.active {
+         color: var(--subject-current);
+         font-weight: 700;
+         background: var(--bg-formula);
+         border: 1px solid var(--subject-current);
+      }
+
+      @media (max-width: 700px) {
+         #floating-nav {
+            display: none;
+         }
+
+         body {
+            padding: 50px 14px 40px;
+         }
+
+         h1 {
+            font-size: 17pt;
+            padding: 18px;
+         }
+      }
+   </style>
 </head>
-<body id="preview" data-subject="operations">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "dark";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
-    <nav class="submodule-nav">
-      <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">⚙️ Theory of Machines:</span>
-      <a href="index.html">[Hub Home]</a>
-      <a href="balancing_reorganized.html">1. Balancing</a>
-      <a href="flywheel_reorganized.html">2. Flywheels</a>
-      <a href="governor_reorganized.html">3. Governors</a>
-      <a href="gyroscope_reorganized.html">4. Gyroscopes</a>
-      <a href="slidercrank_reorganized.html" class="active">5. Slider-Crank</a>
-    </nav>
 
-    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version.</span>
-      <a href="slidercrank_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise Revision Guide</a>
-    </div>
-  <h1 id="kinematics-dynamic-analysis-of-slider-crank-mechanisms-inertia-forces-locomotive-balancing-master-reorganized-study-guide">Kinematics &amp; Dynamic Analysis of Slider-Crank Mechanisms, Inertia Forces, &amp; Locomotive Balancing — Master Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers the comprehensive Kinematic and Dynamic Analysis of the Slider-Crank Mechanism for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core concepts addressed include Slider-Crank Kinematics (Piston Displacement $x = r \left[(1-\cos\theta) + \frac{\sin^2\theta}{2n}\right]$, Piston Velocity $v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$, Piston Acceleration $a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$, Connecting Rod Obliquity Ratio $n = l/r$), Dynamic Force Analysis (Inertia Force $F_i = m r \omega^2 \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$, Piston Effort $F_p$, Side Thrust on Cylinder Wall $N_s = F_p \tan\phi$, Connecting Rod Thrust $F_q = \frac{F_p}{\cos\phi}$, Turning Moment / Crank Effort $T = F_p r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$, Thrust on Main Bearings $F_b$), Dynamically Equivalent Two-Mass System $m_1 + m_2 = m, m_1 l_1 = m_2 l_2, m_1 l_1^2 + m_2 l_2^2 = I$, Graphical Force Analysis (Klein's Construction, Ritterhaus Construction, Bennett's Construction), Primary vs Secondary Unbalanced Forces ($F_P = m r \omega^2 \cos\theta$ at frequency $\omega$; $F_S = \frac{m r \omega^2 \cos 2\theta}{n}$ at frequency $2\omega$), Partial Balancing of Reciprocating Masses (Fraction $c$ balanced), Locomotive Unbalanced Effects (Variation of Tractive Effort $\Delta F_T = \pm \sqrt{2} (1-c) m r \omega^2$, Swaying Couple $C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m r \omega^2$ at $\theta = 45^\circ, 225^\circ$, and Hammer Blow $= B b \omega^2$ causing rail lift risk). All raw syllabus concepts, derivations, ASCII decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Parameter / Concept</th>
-<th style="text-align: left;">Formula / Governing Relation</th>
-<th style="text-align: left;">Primary Units</th>
-<th style="text-align: left;">Key Conditions &amp; Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Connecting Rod Obliquity Ratio $n$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{n = \frac{l}{r}}}$$</div></td>
-<td style="text-align: left;">Dimensionless</td>
-<td style="text-align: left;">$l$ = conrod length $\text{m}$, $r$ = crank radius $\text{m}$. Typically $n = 3.5 \text{ to } 5$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Obliquity Angle $\phi$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\sin\phi = \frac{\sin\theta}{n}}}$$</div></td>
-<td style="text-align: left;">Radians / Degrees</td>
-<td style="text-align: left;">Angle made by connecting rod with line of stroke.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Piston Displacement $x$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">Displacement measured from Inner Dead Center (IDC / TDC).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Piston Velocity $v_p$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{m/s}$</td>
-<td style="text-align: left;">Maximum near $\theta = 90^\circ$; zero at dead centers.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Piston Acceleration $a_p$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{m/s}^2$</td>
-<td style="text-align: left;">Max at IDC $\theta = 0^\circ \implies a_p = \omega^2 r (1 + 1/n)$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Conrod Angular Velocity $\omega_{cr}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_{cr} = \frac{\omega \cos\theta}{n}}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}$</td>
-<td style="text-align: left;">Angular velocity of connecting rod about gudgeon pin.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Conrod Angular Acceleration $\alpha_{cr}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\alpha_{cr} = -\frac{\omega^2 \sin\theta}{n}}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}^2$</td>
-<td style="text-align: left;">Maximum at $\theta = 90^\circ, 270^\circ$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Inertia Force of Reciprocating Mass $F_i$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Opposes acceleration of reciprocating mass (D'Alembert).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Piston Effort $F_p$ (Horizontal Engine)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_p = F_{\text{gas}} - F_i \mp R_f}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Net effective driving force along line of stroke.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Piston Effort $F_p$ (Vertical Engine)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_p = F_{\text{gas}} - F_i \mp R_f \pm m_{\text{rec}} \cdot g}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">$+m g$ when moving downwards, $-m g$ when moving upwards.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Side Thrust on Cylinder Wall $N_s$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{N_s = F_p \tan\phi}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Normal force exerted by piston skirt on cylinder liner.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Connecting Rod Force $F_q$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_q = \frac{F_p}{\cos\phi}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Axial compressive force along connecting rod axis.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Crank Pin Effort / Tangential Force $F_t$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_t = F_q \sin(\theta + \phi) = F_p \cdot \frac{\sin(\theta + \phi)}{\cos\phi}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Force perpendicular to crank radius causing shaft rotation.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Turning Moment / Crank Effort $T$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{T = F_t \cdot r \approx F_p \cdot r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Instantaneous torque delivered to crankshaft.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Crankshaft Bearing Radial Load $F_b$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_b = F_q \cos(\theta + \phi)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Radial compressive force along crank arm towards main bearings.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Primary Unbalanced Force $F_P$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_P = m_{\text{rec}} r \omega^2 \cos\theta}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Primary shaking force along line of stroke at frequency $\omega$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Secondary Unbalanced Force $F_S$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_S = m_{\text{rec}} r \omega^2 \cdot \frac{\cos 2\theta}{n}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Secondary shaking force at double frequency $2\omega$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Total Unbalanced Inertia Force $F$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F = F_P + F_S = m_{\text{rec}} r \omega^2 \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Total unbalanced force along cylinder axis.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Variation of Tractive Effort $\Delta F_T$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} (1-c) m_{\text{rec}} r \omega^2}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Net unbalanced force along rails in 2-cylinder locomotive.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Swaying Couple $C_{\text{sway}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m_{\text{rec}} r \omega^2}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Max couple about vertical axis at $\theta = 45^\circ, 225^\circ$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Hammer Blow $H_{\text{blow}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{H_{\text{blow}} = B \cdot b \cdot \omega^2}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Max vertical unbalanced force on rails from revolving balance mass $B$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Wheel Lift Condition</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{B \cdot b \cdot \omega^2 &gt; P_{\text{static}}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Locomotive wheel lifts off rail if hammer blow exceeds static wheel load!</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Slider-Crank Mechanism</strong>: A 4-bar kinematic chain comprising one sliding pair (piston-cylinder) and three turning pairs (crank-frame, crank-conrod, conrod-piston pin).</li>
-<li><strong>Connecting Rod Obliquity Ratio $n$</strong>: The ratio of connecting rod center-to-center length $l$ to crank radius $r$ $n = l/r$. As $n \to \infty$, piston motion approaches pure Simple Harmonic Motion (SHM).</li>
-<li><strong>Piston Effort $F_p$</strong>: The net effective axial force acting along the line of stroke that propels the piston forward.</li>
-<li><strong>Crank Effort / Turning Moment $T$</strong>: The net torque exerted about the crankshaft rotation axis by the tangential component of connecting rod force.</li>
-<li><strong>Primary Unbalanced Force $F_P$</strong>: The unbalanced reciprocating force acting along the stroke line at engine rotation frequency $\omega$.</li>
-<li><strong>Secondary Unbalanced Force $F_S$</strong>: The unbalanced reciprocating force caused by connecting rod angular obliquity, acting at twice engine rotation frequency $2\omega$ with magnitude $1/n$ times primary force.</li>
-<li><strong>Partial Balancing $c$</strong>: The practice of balancing only a fraction $c$ (typically $50\% \text{ to } 75\%$) of reciprocating mass using revolving counterweights to prevent excessive vertical forces (Hammer Blow).</li>
-<li><strong>Tractive Effort Variation $\Delta F_T$</strong>: The net variation in forward pulling force along the rails in a locomotive due to unbalanced primary reciprocating forces.</li>
-<li><strong>Swaying Couple $C_{\text{sway}}$</strong>: An unbalanced horizontal couple acting about a vertical axis through the center of a locomotive, tending to sway the engine sideways against rail flanges.</li>
-<li><strong>Hammer Blow</strong>: The maximum vertical unbalanced force exerted by revolving overbalance masses on locomotive rails. It increases with speed squared $\omega^2$ and reduces effective wheel-rail contact pressure.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
-<ul>
-<li><strong>Typical Obliquity Ratio $n = l/r$</strong>: $3.5 \text{ to } 5.0$ in internal combustion engines.</li>
-<li><strong>Standard Reciprocating Balance Fraction $c$</strong>: $50\% \text{ to } 66.7\%$ $c = 0.5 \text{ to } 0.67$.</li>
-<li><strong>Swaying Couple Max Angles</strong>: $\theta = 45^\circ \text{ and } 225^\circ$.</li>
-<li><strong>Tractive Effort Max Angles</strong>: $\theta = 135^\circ \text{ and } 315^\circ$.</li>
-<li><strong>Secondary Force Frequency</strong>: $2 \times \text{ Engine Speed}$ $2\omega$.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Kinematics of Slider-Crank (Displacement, Velocity, Acceleration)</strong>: §3.1.</li>
-<li><strong>Dynamic Force Analysis (Piston Effort, Conrod Thrust, Turning Moment)</strong>: §3.2.</li>
-<li><strong>Dynamically Equivalent Systems &amp; Graphical Constructions</strong>: §3.3.</li>
-<li><strong>Primary &amp; Secondary Unbalanced Reciprocating Forces</strong>: §3.4.</li>
-<li><strong>Locomotive Balancing, Tractive Force, Swaying Couple &amp; Hammer Blow</strong>: §3.5.</li>
-<li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
-<li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
-<li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-kinematics-of-slider-crank-displacement-velocity-acceleration"><strong>3.1 Kinematics of Slider-Crank (Displacement, Velocity, Acceleration)</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Piston Displacement $x$</strong>:</li>
-<li>Distance moved by piston from Inner Dead Center (IDC / TDC):
-    <div class="formula-card">$${x = r (1 - \cos\theta) + l (1 - \cos\phi)}$$</div>
-    Since $\sin\phi = \frac{\sin\theta}{n}$ and $\cos\phi = \sqrt{1 - \frac{\sin^2\theta}{n^2}} \approx 1 - \frac{\sin^2\theta}{2 n^2}$:
-    <div class="formula-card">$${\boxed{x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]}}$$</div></li>
-<li><strong>Piston Velocity $v_p$</strong>:</li>
-<li>Differentiating displacement with respect to time $v_p = \frac{dx}{dt} = \frac{dx}{d\theta} \cdot \frac{d\theta}{dt}$:
-    <div class="formula-card">$${\boxed{v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)}}$$</div></li>
-<li>At IDC $\theta = 0^\circ$ and ODC $\theta = 180^\circ$: $v_p = 0$.</li>
-<li>Maximum velocity occurs slightly before $\theta = 90^\circ$ (at $\theta \approx 90^\circ - \frac{1}{2n} \text{ rad}$).</li>
-<li><strong>Piston Acceleration $a_p$</strong>:</li>
-<li>Differentiating velocity with respect to time $a_p = \frac{dv_p}{dt}$:
-    <div class="formula-card">$${\boxed{a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div></li>
-<li>At IDC $\theta = 0^\circ$: $a_p = \omega^2 r \left(1 + \frac{1}{n}\right)$ (Maximum acceleration).</li>
-<li>At ODC $\theta = 180^\circ$: $a_p = -\omega^2 r \left(1 - \frac{1}{n}\right)$ (Maximum deceleration).</li>
-<li>When $n \to \infty$ (infinite conrod length), $a_p = \omega^2 r \cos\theta$ (pure SHM!).</li>
-<li><strong>Connecting Rod Motion</strong>:</li>
-<li>Angular velocity: $\omega_{cr} = \frac{d\phi}{dt} = \frac{\omega \cos\theta}{n}$.</li>
-<li>Angular acceleration: $\alpha_{cr} = \frac{d\omega_{cr}}{dt} = -\frac{\omega^2 \sin\theta}{n}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Obliquity Correction Effect</strong>:
-Connecting rod obliquity $n = l/r$ creates a secondary acceleration component $\frac{\cos 2\theta}{n}$. This increases IDC acceleration by $\frac{\omega^2 r}{n}$ and decreases ODC acceleration by $\frac{\omega^2 r}{n}$.</p>
-<p>[!TRAP]
-<strong>Zero Acceleration Crank Angle</strong>:
-Piston acceleration $a_p = 0$ when $\cos\theta + \frac{\cos 2\theta}{n} = 0$. For $n = 4$, this occurs at $\theta \approx 76^\circ$ (NOT at $\theta = 90^\circ$!).</div>
-<h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Slider-Crank Kinematic Equations
+<body id="preview" data-subject="operations">
+   <div id="reading-progress"></div>
+   <div id="floating-nav">
+      <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
+   </div>
+   <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+   <script>
+      (function () {
+         var toggle = document.getElementById("theme-toggle");
+         var saved = localStorage.getItem("ag-theme") || "dark";
+         function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+         applyTheme(saved);
+         if (toggle) { toggle.addEventListener("click", function () { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+         var bar = document.getElementById("reading-progress");
+         function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s / d) * 100, 100) : 0) + "%"; }
+         window.addEventListener("scroll", upBar, { passive: true }); upBar();
+         var fn = document.getElementById("floating-nav");
+         var links = fn.querySelectorAll(".fnav-link");
+         var ids = ["section-1-topic-overview", "section-2-quick-reference-sheet", "section-3-main-body", "section-4-theory-qa", "section-5-consolidation-notes", "section-6-final-quick-fire-pre-exam-checklist"];
+         function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function (id) { var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function (lk) { lk.classList.toggle("active-section", lk.getAttribute("href").replace("#", "") === act); }); }
+         window.addEventListener("scroll", upNav, { passive: true }); upNav();
+         links.forEach(function (lk) { lk.addEventListener("click", function (e) { e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#", "")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+      })();
+   </script>
+   <div class="reading-content">
+      <nav class="submodule-nav">
+         <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">⚙️ Theory of Machines:</span>
+         <a href="index.html">[Hub Home]</a>
+         <a href="balancing_reorganized.html">1. Balancing</a>
+         <a href="flywheel_reorganized.html">2. Flywheels</a>
+         <a href="governor_reorganized.html">3. Governors</a>
+         <a href="gyroscope_reorganized.html">4. Gyroscopes</a>
+         <a href="slidercrank_reorganized.html" class="active">5. Slider-Crank</a>
+      </nav>
+
+      <div class="callout callout-concept"
+         style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+         <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version.</span>
+         <a href="slidercrank_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to
+            Concise Revision Guide</a>
+      </div>
+      <h1
+         id="kinematics-dynamic-analysis-of-slider-crank-mechanisms-inertia-forces-locomotive-balancing-master-reorganized-study-guide">
+         Kinematics &amp; Dynamic Analysis of Slider-Crank Mechanisms, Inertia Forces, &amp; Locomotive Balancing —
+         Master Reorganized Study Guide</h1>
+      <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+      <p>This master guide covers the comprehensive Kinematic and Dynamic Analysis of the Slider-Crank Mechanism for AP
+         GenCo AE, GATE, ESE, and SSC JE examinations. Core concepts addressed include Slider-Crank Kinematics (Piston
+         Displacement $x = r \left[(1-\cos\theta) + \frac{\sin^2\theta}{2n}\right]$, Piston Velocity $v_p = \omega r
+         \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$, Piston Acceleration $a_p = \omega^2 r \left(\cos\theta +
+         \frac{\cos 2\theta}{n}\right)$, Connecting Rod Obliquity Ratio $n = l/r$), Dynamic Force Analysis (Inertia
+         Force $F_i = m r \omega^2 \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$, Piston Effort $F_p$, Side Thrust
+         on Cylinder Wall $N_s = F_p \tan\phi$, Connecting Rod Thrust $F_q = \frac{F_p}{\cos\phi}$, Turning Moment /
+         Crank Effort $T = F_p r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$, Thrust on Main Bearings $F_b$),
+         Dynamically Equivalent Two-Mass System $m_1 + m_2 = m, m_1 l_1 = m_2 l_2, m_1 l_1^2 + m_2 l_2^2 = I$, Graphical
+         Force Analysis (Klein's Construction, Ritterhaus Construction, Bennett's Construction), Primary vs Secondary
+         Unbalanced Forces ($F_P = m r \omega^2 \cos\theta$ at frequency $\omega$; $F_S = \frac{m r \omega^2 \cos
+         2\theta}{n}$ at frequency $2\omega$), Partial Balancing of Reciprocating Masses (Fraction $c$ balanced),
+         Locomotive Unbalanced Effects (Variation of Tractive Effort $\Delta F_T = \pm \sqrt{2} (1-c) m r \omega^2$,
+         Swaying Couple $C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m r \omega^2$ at $\theta = 45^\circ, 225^\circ$,
+         and Hammer Blow $= B b \omega^2$ causing rail lift risk). All raw syllabus concepts, derivations, ASCII
+         decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with
+         zero content loss.</p>
+      <hr />
+      <h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+      <h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong>
+      </h3>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Parameter / Concept</th>
+               <th style="text-align: left;">Formula / Governing Relation</th>
+               <th style="text-align: left;">Primary Units</th>
+               <th style="text-align: left;">Key Conditions &amp; Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Connecting Rod Obliquity Ratio $n$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{n = \frac{l}{r}}}$$</div>
+               </td>
+               <td style="text-align: left;">Dimensionless</td>
+               <td style="text-align: left;">$l$ = conrod length $\text{m}$, $r$ = crank radius $\text{m}$. Typically $n
+                  = 3.5 \text{ to } 5$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Obliquity Angle $\phi$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\sin\phi = \frac{\sin\theta}{n}}}$$</div>
+               </td>
+               <td style="text-align: left;">Radians / Degrees</td>
+               <td style="text-align: left;">Angle made by connecting rod with line of stroke.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Piston Displacement $x$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">Displacement measured from Inner Dead Center (IDC / TDC).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Piston Velocity $v_p$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{v_p = \omega r \left(\sin\theta + \frac{\sin
+                     2\theta}{2n}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m/s}$</td>
+               <td style="text-align: left;">Maximum near $\theta = 90^\circ$; zero at dead centers.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Piston Acceleration $a_p$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{a_p = \omega^2 r \left(\cos\theta + \frac{\cos
+                     2\theta}{n}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m/s}^2$</td>
+               <td style="text-align: left;">Max at IDC $\theta = 0^\circ \implies a_p = \omega^2 r (1 + 1/n)$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Conrod Angular Velocity $\omega_{cr}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\omega_{cr} = \frac{\omega \cos\theta}{n}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}$</td>
+               <td style="text-align: left;">Angular velocity of connecting rod about gudgeon pin.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Conrod Angular Acceleration $\alpha_{cr}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\alpha_{cr} = -\frac{\omega^2 \sin\theta}{n}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}^2$</td>
+               <td style="text-align: left;">Maximum at $\theta = 90^\circ, 270^\circ$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Inertia Force of Reciprocating Mass $F_i$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r
+                     \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Opposes acceleration of reciprocating mass (D'Alembert).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Piston Effort $F_p$ (Horizontal Engine)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_p = F_{\text{gas}} - F_i \mp R_f}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Net effective driving force along line of stroke.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Piston Effort $F_p$ (Vertical Engine)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_p = F_{\text{gas}} - F_i \mp R_f \pm m_{\text{rec}} \cdot g}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">$+m g$ when moving downwards, $-m g$ when moving upwards.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Side Thrust on Cylinder Wall $N_s$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{N_s = F_p \tan\phi}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Normal force exerted by piston skirt on cylinder liner.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Connecting Rod Force $F_q$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_q = \frac{F_p}{\cos\phi}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Axial compressive force along connecting rod axis.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Crank Pin Effort / Tangential Force $F_t$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_t = F_q \sin(\theta + \phi) = F_p \cdot \frac{\sin(\theta +
+                     \phi)}{\cos\phi}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Force perpendicular to crank radius causing shaft rotation.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Turning Moment / Crank Effort $T$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{T = F_t \cdot r \approx F_p \cdot r \left(\sin\theta + \frac{\sin
+                     2\theta}{2n}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Instantaneous torque delivered to crankshaft.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Crankshaft Bearing Radial Load $F_b$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_b = F_q \cos(\theta + \phi)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Radial compressive force along crank arm towards main bearings.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Primary Unbalanced Force $F_P$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_P = m_{\text{rec}} r \omega^2 \cos\theta}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Primary shaking force along line of stroke at frequency $\omega$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Secondary Unbalanced Force $F_S$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_S = m_{\text{rec}} r \omega^2 \cdot \frac{\cos 2\theta}{n}}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Secondary shaking force at double frequency $2\omega$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Total Unbalanced Inertia Force $F$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F = F_P + F_S = m_{\text{rec}} r \omega^2 \left(\cos\theta +
+                     \frac{\cos 2\theta}{n}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Total unbalanced force along cylinder axis.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Variation of Tractive Effort $\Delta F_T$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} (1-c) m_{\text{rec}} r \omega^2}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Net unbalanced force along rails in 2-cylinder locomotive.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Swaying Couple $C_{\text{sway}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m_{\text{rec}} r
+                     \omega^2}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Max couple about vertical axis at $\theta = 45^\circ, 225^\circ$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Hammer Blow $H_{\text{blow}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{H_{\text{blow}} = B \cdot b \cdot \omega^2}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Max vertical unbalanced force on rails from revolving balance mass $B$.
+               </td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Wheel Lift Condition</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{B \cdot b \cdot \omega^2 &gt; P_{\text{static}}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Locomotive wheel lifts off rail if hammer blow exceeds static wheel load!
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <hr />
+      <h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+      <ul>
+         <li><strong>Slider-Crank Mechanism</strong>: A 4-bar kinematic chain comprising one sliding pair
+            (piston-cylinder) and three turning pairs (crank-frame, crank-conrod, conrod-piston pin).</li>
+         <li><strong>Connecting Rod Obliquity Ratio $n$</strong>: The ratio of connecting rod center-to-center length
+            $l$ to crank radius $r$ $n = l/r$. As $n \to \infty$, piston motion approaches pure Simple Harmonic Motion
+            (SHM).</li>
+         <li><strong>Piston Effort $F_p$</strong>: The net effective axial force acting along the line of stroke that
+            propels the piston forward.</li>
+         <li><strong>Crank Effort / Turning Moment $T$</strong>: The net torque exerted about the crankshaft rotation
+            axis by the tangential component of connecting rod force.</li>
+         <li><strong>Primary Unbalanced Force $F_P$</strong>: The unbalanced reciprocating force acting along the stroke
+            line at engine rotation frequency $\omega$.</li>
+         <li><strong>Secondary Unbalanced Force $F_S$</strong>: The unbalanced reciprocating force caused by connecting
+            rod angular obliquity, acting at twice engine rotation frequency $2\omega$ with magnitude $1/n$ times
+            primary force.</li>
+         <li><strong>Partial Balancing $c$</strong>: The practice of balancing only a fraction $c$ (typically $50\%
+            \text{ to } 75\%$) of reciprocating mass using revolving counterweights to prevent excessive vertical forces
+            (Hammer Blow).</li>
+         <li><strong>Tractive Effort Variation $\Delta F_T$</strong>: The net variation in forward pulling force along
+            the rails in a locomotive due to unbalanced primary reciprocating forces.</li>
+         <li><strong>Swaying Couple $C_{\text{sway}}$</strong>: An unbalanced horizontal couple acting about a vertical
+            axis through the center of a locomotive, tending to sway the engine sideways against rail flanges.</li>
+         <li><strong>Hammer Blow</strong>: The maximum vertical unbalanced force exerted by revolving overbalance masses
+            on locomotive rails. It increases with speed squared $\omega^2$ and reduces effective wheel-rail contact
+            pressure.</li>
+      </ul>
+      <hr />
+      <h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong>
+      </h3>
+      <ul>
+         <li><strong>Typical Obliquity Ratio $n = l/r$</strong>: $3.5 \text{ to } 5.0$ in internal combustion engines.
+         </li>
+         <li><strong>Standard Reciprocating Balance Fraction $c$</strong>: $50\% \text{ to } 66.7\%$ $c = 0.5 \text{ to
+            } 0.67$.</li>
+         <li><strong>Swaying Couple Max Angles</strong>: $\theta = 45^\circ \text{ and } 225^\circ$.</li>
+         <li><strong>Tractive Effort Max Angles</strong>: $\theta = 135^\circ \text{ and } 315^\circ$.</li>
+         <li><strong>Secondary Force Frequency</strong>: $2 \times \text{ Engine Speed}$ $2\omega$.</li>
+      </ul>
+      <hr />
+      <h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+      <ul>
+         <li><strong>Kinematics of Slider-Crank (Displacement, Velocity, Acceleration)</strong>: §3.1.</li>
+         <li><strong>Dynamic Force Analysis (Piston Effort, Conrod Thrust, Turning Moment)</strong>: §3.2.</li>
+         <li><strong>Dynamically Equivalent Systems &amp; Graphical Constructions</strong>: §3.3.</li>
+         <li><strong>Primary &amp; Secondary Unbalanced Reciprocating Forces</strong>: §3.4.</li>
+         <li><strong>Locomotive Balancing, Tractive Force, Swaying Couple &amp; Hammer Blow</strong>: §3.5.</li>
+         <li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
+         <li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
+         <li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
+      </ul>
+      <hr />
+      <h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+      <h3 id="31-kinematics-of-slider-crank-displacement-velocity-acceleration"><strong>3.1 Kinematics of Slider-Crank
+            (Displacement, Velocity, Acceleration)</strong></h3>
+      <h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Piston Displacement $x$</strong>:</li>
+         <li>Distance moved by piston from Inner Dead Center (IDC / TDC):
+            <div class="formula-card">$${x = r (1 - \cos\theta) + l (1 - \cos\phi)}$$</div>
+            Since $\sin\phi = \frac{\sin\theta}{n}$ and $\cos\phi = \sqrt{1 - \frac{\sin^2\theta}{n^2}} \approx 1 -
+            \frac{\sin^2\theta}{2 n^2}$:
+            <div class="formula-card">$${\boxed{x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]}}$$</div>
+         </li>
+         <li><strong>Piston Velocity $v_p$</strong>:</li>
+         <li>Differentiating displacement with respect to time $v_p = \frac{dx}{dt} = \frac{dx}{d\theta} \cdot
+            \frac{d\theta}{dt}$:
+            <div class="formula-card">$${\boxed{v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)}}$$
+            </div>
+         </li>
+         <li>At IDC $\theta = 0^\circ$ and ODC $\theta = 180^\circ$: $v_p = 0$.</li>
+         <li>Maximum velocity occurs slightly before $\theta = 90^\circ$ (at $\theta \approx 90^\circ - \frac{1}{2n}
+            \text{ rad}$).</li>
+         <li><strong>Piston Acceleration $a_p$</strong>:</li>
+         <li>Differentiating velocity with respect to time $a_p = \frac{dv_p}{dt}$:
+            <div class="formula-card">$${\boxed{a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$
+            </div>
+         </li>
+         <li>At IDC $\theta = 0^\circ$: $a_p = \omega^2 r \left(1 + \frac{1}{n}\right)$ (Maximum acceleration).</li>
+         <li>At ODC $\theta = 180^\circ$: $a_p = -\omega^2 r \left(1 - \frac{1}{n}\right)$ (Maximum deceleration).</li>
+         <li>When $n \to \infty$ (infinite conrod length), $a_p = \omega^2 r \cos\theta$ (pure SHM!).</li>
+         <li><strong>Connecting Rod Motion</strong>:</li>
+         <li>Angular velocity: $\omega_{cr} = \frac{d\phi}{dt} = \frac{\omega \cos\theta}{n}$.</li>
+         <li>Angular acceleration: $\alpha_{cr} = \frac{d\omega_{cr}}{dt} = -\frac{\omega^2 \sin\theta}{n}$.</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Obliquity Correction
+            Effect</strong>:
+         Connecting rod obliquity $n = l/r$ creates a secondary acceleration component $\frac{\cos 2\theta}{n}$. This
+         increases IDC acceleration by $\frac{\omega^2 r}{n}$ and decreases ODC acceleration by $\frac{\omega^2 r}{n}$.
+         </p>
+         <p>[!TRAP]
+            <strong>Zero Acceleration Crank Angle</strong>:
+            Piston acceleration $a_p = 0$ when $\cos\theta + \frac{\cos 2\theta}{n} = 0$. For $n = 4$, this occurs at
+            $\theta \approx 76^\circ$ (NOT at $\theta = 90^\circ$!).
+      </div>
+      <h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Slider-Crank Kinematic Equations
 │
 ├── What variable is requested?
 │   ├── DISPLACEMENT (x) ──► x = r * [ (1 - cos(theta)) + sin^2(theta)/(2n) ]
@@ -426,79 +865,107 @@ Piston acceleration $a_p = 0$ when $\cos\theta + \frac{\cos 2\theta}{n} = 0$. Fo
 │                              ├── At IDC (theta = 0 deg)   ──► a_p = w^2 * r * (1 + 1/n)
 │                              └── At ODC (theta = 180 deg) ──► a_p = -w^2 * r * (1 - 1/n)
 </code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Obliquity ratio $n = l/r$.</li>
-<li>[ ] Piston displacement $x = r [(1-\cos\theta) + \frac{\sin^2\theta}{2n}]$.</li>
-<li>[ ] Piston velocity $v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-<li>[ ] Piston acceleration $a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
-<li>[ ] IDC acceleration $= \omega^2 r (1 + 1/n)$.</li>
-<li>[ ] Conrod angular velocity $\omega_{cr} = \frac{\omega \cos\theta}{n}$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Piston Velocity &amp; Acceleration at Given Crank Angle</strong>
-- <strong>Problem</strong>: A slider-crank mechanism has crank radius $r = 150 \text{ mm} = 0.15 \text{ m}$ and connecting rod length $l = 600 \text{ mm} = 0.6 \text{ m}$ $n = 4$. The crank rotates at $20 \text{ rad/s}$ constant angular velocity. When crank angle $\theta = 60^\circ$ from IDC, calculate: (a) Piston velocity $v_p$, (b) Piston acceleration $a_p$.
-- <strong>Solution</strong>:
-  1. Calculate trigonometric values for $\theta = 60^\circ$:
-     <div class="formula-card">$${\sin 60^\circ = 0.8660, \quad \cos 60^\circ = 0.5000}$$</div>
-     <div class="formula-card">$${\sin 120^\circ = 0.8660, \quad \cos 120^\circ = -0.5000}$$</div>
-  2. Calculate Piston Velocity $v_p$:
-     <div class="formula-card">$${v_p = \omega r \left(\sin 60^\circ + \frac{\sin 120^\circ}{2n}\right) = (20 \times 0.15) \left(0.8660 + \frac{0.8660}{8}\right)}$$</div>
-     <div class="formula-card">$${v_p = 3.0 \times (0.8660 + 0.10825) = 3.0 \times 0.97425 \approx 2.923 \text{ m/s}}$$</div>
-  3. Calculate Piston Acceleration $a_p$:
-     <div class="formula-card">$${a_p = \omega^2 r \left(\cos 60^\circ + \frac{\cos 120^\circ}{n}\right) = (20^2 \times 0.15) \left(0.5000 + \frac{-0.5000}{4}\right)}$$</div>
-     <div class="formula-card">$${a_p = (400 \times 0.15) \times (0.5000 - 0.1250) = 60 \times 0.375 = 22.50 \text{ m/s}^2}$$</div>
-- <strong>Key Insight</strong>: $v_p = 2.92 \text{ m/s}$, $a_p = 22.5 \text{ m/s}^2$. Neglecting the secondary term $\frac{\cos 120^\circ}{4}$ would yield an erroneous $a_p = 30 \text{ m/s}^2$ ($33\%$ error!).</p>
-<p><strong>Worked Example 2: Dead Center Acceleration &amp; Zero Acceleration Angle</strong>
-- <strong>Problem</strong>: For the mechanism in Example 1 $r = 0.15 \text{ m}, n = 4, \omega = 20 \text{ rad/s}$, calculate: (a) Acceleration at IDC $\theta = 0^\circ$, (b) Acceleration at ODC $\theta = 180^\circ$, (c) The crank angle $\theta$ where acceleration $a_p = 0$.
-- <strong>Solution</strong>:
-  1. Base term $\omega^2 r = (20)^2 \times 0.15 = 400 \times 0.15 = 60 \text{ m/s}^2$.
-  2. Acceleration at IDC $\theta = 0^\circ$:
-     <div class="formula-card">$${a_{p,\text{IDC}} = \omega^2 r \left(1 + \frac{1}{n}\right) = 60 \times \left(1 + \frac{1}{4}\right) = 60 \times 1.25 = 75.0 \text{ m/s}^2}$$</div>
-  3. Acceleration at ODC $\theta = 180^\circ$:
-     <div class="formula-card">$${a_{p,\text{ODC}} = -\omega^2 r \left(1 - \frac{1}{n}\right) = -60 \times \left(1 - \frac{1}{4}\right) = -60 \times 0.75 = -45.0 \text{ m/s}^2}$$</div>
-  4. Find zero acceleration angle $\theta$ $\cos\theta + \frac{\cos 2\theta}{4} = 0$:
-     Using identity $\cos 2\theta = 2\cos^2\theta - 1$:
-     <div class="formula-card">$${\cos\theta + \frac{2\cos^2\theta - 1}{4} = 0 \implies 2\cos^2\theta + 4\cos\theta - 1 = 0}$$</div>
-     Solving quadratic equation for $\cos\theta$:
-     <div class="formula-card">$${\cos\theta = \frac{-4 \pm \sqrt{16 - 4(2)(-1)}}{4} = \frac{-4 \pm \sqrt{24}}{4} = \frac{-4 + 4.899}{4} = 0.22475}$$</div>
-     <div class="formula-card">$${\theta = \cos^{-1}(0.22475) \approx 77.01^\circ}$$</div>
-- <strong>Key Insight</strong>: $a_{p,\text{IDC}} = 75 \text{ m/s}^2$, $a_{p,\text{ODC}} = -45 \text{ m/s}^2$, $a_p = 0$ at $\theta = 77.01^\circ$.</p>
-<hr />
-<h3 id="32-dynamic-force-analysis-piston-effort-conrod-thrust-turning-moment"><strong>3.2 Dynamic Force Analysis (Piston Effort, Conrod Thrust, Turning Moment)</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Inertia Force of Reciprocating Masses $F_i$</strong>:</li>
-<li>D'Alembert's principle inertia force opposes acceleration:
-    <div class="formula-card">$${\boxed{F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div></li>
-<li>During initial half stroke (acceleration phase), $F_i$ REDUCES net driving force on piston.</li>
-<li>During secondary half stroke (deceleration phase), $F_i$ INCREASES net driving force on piston.</li>
-<li><strong>Piston Effort $F_p$</strong>:</li>
-<li>Net force acting along line of stroke:<ul>
-<li>Horizontal engine: $F_p = F_{\text{gas}} - F_i \mp R_f$.</li>
-<li>Vertical engine (downward stroke): $F_p = F_{\text{gas}} - F_i \mp R_f + m_{\text{rec}} g$.</li>
-<li>Vertical engine (upward stroke): $F_p = F_{\text{gas}} - F_i \mp R_f - m_{\text{rec}} g$.</li>
-</ul>
-</li>
-<li><strong>Force Resolution in Mechanism</strong>:</li>
-<li><strong>Connecting Rod Thrust $F_q$</strong>: Force transmitted along conrod centerline:
-    <div class="formula-card">$${\boxed{F_q = \frac{F_p}{\cos\phi}}}$$</div></li>
-<li><strong>Side Thrust on Cylinder Wall $N_s$</strong>: Reaction force normal to cylinder bore:
-    <div class="formula-card">$${\boxed{N_s = F_p \tan\phi}}$$</div></li>
-<li><strong>Tangential Force / Crank Pin Effort $F_t$</strong>: Force perpendicular to crank arm:
-    <div class="formula-card">$${\boxed{F_t = F_q \sin(\theta + \phi) = F_p \frac{\sin(\theta + \phi)}{\cos\phi}}}$$</div></li>
-<li><strong>Radial Force on Crank Bearing $F_b$</strong>: Force along crank arm towards main bearings:
-    <div class="formula-card">$${\boxed{F_b = F_q \cos(\theta + \phi)}}$$</div></li>
-<li><strong>Turning Moment / Crank Effort $T$</strong>:</li>
-<li>Instantaneous torque applied to crankshaft:
-    <div class="formula-card">$${T = F_t \cdot r = F_p \cdot r \left[\sin\theta + \frac{\sin 2\theta}{2\sqrt{n^2 - \sin^2\theta}}\right]}$$</div>
-    <div class="formula-card">$${\boxed{T \approx F_p \cdot r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)}}$$</div></li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Piston Effort Sign Rule</strong>:
-- Acceleration phase $0^\circ &lt; \theta &lt; 76^\circ$: Inertia force $F_i$ works AGAINST gas force $F_p = F_{\text{gas}} - F_i$.
-- Deceleration phase $76^\circ &lt; \theta &lt; 180^\circ$: Inertia force $F_i$ AIDS gas force $F_p = F_{\text{gas}} + |F_i|$.</div>
-<h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Dynamic Force Resolution in Slider-Crank
+      <h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Obliquity ratio $n = l/r$.</li>
+         <li>[ ] Piston displacement $x = r [(1-\cos\theta) + \frac{\sin^2\theta}{2n}]$.</li>
+         <li>[ ] Piston velocity $v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+         <li>[ ] Piston acceleration $a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
+         <li>[ ] IDC acceleration $= \omega^2 r (1 + 1/n)$.</li>
+         <li>[ ] Conrod angular velocity $\omega_{cr} = \frac{\omega \cos\theta}{n}$.</li>
+      </ul>
+      <h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Piston Velocity &amp; Acceleration at Given Crank Angle</strong>
+         - <strong>Problem</strong>: A slider-crank mechanism has crank radius $r = 150 \text{ mm} = 0.15 \text{ m}$ and
+         connecting rod length $l = 600 \text{ mm} = 0.6 \text{ m}$ $n = 4$. The crank rotates at $20 \text{ rad/s}$
+         constant angular velocity. When crank angle $\theta = 60^\circ$ from IDC, calculate: (a) Piston velocity $v_p$,
+         (b) Piston acceleration $a_p$.
+         - <strong>Solution</strong>:
+         1. Calculate trigonometric values for $\theta = 60^\circ$:
+      <div class="formula-card">$${\sin 60^\circ = 0.8660, \quad \cos 60^\circ = 0.5000}$$</div>
+      <div class="formula-card">$${\sin 120^\circ = 0.8660, \quad \cos 120^\circ = -0.5000}$$</div>
+      2. Calculate Piston Velocity $v_p$:
+      <div class="formula-card">$${v_p = \omega r \left(\sin 60^\circ + \frac{\sin 120^\circ}{2n}\right) = (20 \times
+         0.15) \left(0.8660 + \frac{0.8660}{8}\right)}$$</div>
+      <div class="formula-card">$${v_p = 3.0 \times (0.8660 + 0.10825) = 3.0 \times 0.97425 \approx 2.923 \text{ m/s}}$$
+      </div>
+      3. Calculate Piston Acceleration $a_p$:
+      <div class="formula-card">$${a_p = \omega^2 r \left(\cos 60^\circ + \frac{\cos 120^\circ}{n}\right) = (20^2 \times
+         0.15) \left(0.5000 + \frac{-0.5000}{4}\right)}$$</div>
+      <div class="formula-card">$${a_p = (400 \times 0.15) \times (0.5000 - 0.1250) = 60 \times 0.375 = 22.50 \text{
+         m/s}^2}$$</div>
+      - <strong>Key Insight</strong>: $v_p = 2.92 \text{ m/s}$, $a_p = 22.5 \text{ m/s}^2$. Neglecting the secondary
+      term $\frac{\cos 120^\circ}{4}$ would yield an erroneous $a_p = 30 \text{ m/s}^2$ ($33\%$ error!).</p>
+      <p><strong>Worked Example 2: Dead Center Acceleration &amp; Zero Acceleration Angle</strong>
+         - <strong>Problem</strong>: For the mechanism in Example 1 $r = 0.15 \text{ m}, n = 4, \omega = 20 \text{
+         rad/s}$, calculate: (a) Acceleration at IDC $\theta = 0^\circ$, (b) Acceleration at ODC $\theta = 180^\circ$,
+         (c) The crank angle $\theta$ where acceleration $a_p = 0$.
+         - <strong>Solution</strong>:
+         1. Base term $\omega^2 r = (20)^2 \times 0.15 = 400 \times 0.15 = 60 \text{ m/s}^2$.
+         2. Acceleration at IDC $\theta = 0^\circ$:
+      <div class="formula-card">$${a_{p,\text{IDC}} = \omega^2 r \left(1 + \frac{1}{n}\right) = 60 \times \left(1 +
+         \frac{1}{4}\right) = 60 \times 1.25 = 75.0 \text{ m/s}^2}$$</div>
+      3. Acceleration at ODC $\theta = 180^\circ$:
+      <div class="formula-card">$${a_{p,\text{ODC}} = -\omega^2 r \left(1 - \frac{1}{n}\right) = -60 \times \left(1 -
+         \frac{1}{4}\right) = -60 \times 0.75 = -45.0 \text{ m/s}^2}$$</div>
+      4. Find zero acceleration angle $\theta$ $\cos\theta + \frac{\cos 2\theta}{4} = 0$:
+      Using identity $\cos 2\theta = 2\cos^2\theta - 1$:
+      <div class="formula-card">$${\cos\theta + \frac{2\cos^2\theta - 1}{4} = 0 \implies 2\cos^2\theta + 4\cos\theta - 1
+         = 0}$$</div>
+      Solving quadratic equation for $\cos\theta$:
+      <div class="formula-card">$${\cos\theta = \frac{-4 \pm \sqrt{16 - 4(2)(-1)}}{4} = \frac{-4 \pm \sqrt{24}}{4} =
+         \frac{-4 + 4.899}{4} = 0.22475}$$</div>
+      <div class="formula-card">$${\theta = \cos^{-1}(0.22475) \approx 77.01^\circ}$$</div>
+      - <strong>Key Insight</strong>: $a_{p,\text{IDC}} = 75 \text{ m/s}^2$, $a_{p,\text{ODC}} = -45 \text{ m/s}^2$,
+      $a_p = 0$ at $\theta = 77.01^\circ$.</p>
+      <hr />
+      <h3 id="32-dynamic-force-analysis-piston-effort-conrod-thrust-turning-moment"><strong>3.2 Dynamic Force Analysis
+            (Piston Effort, Conrod Thrust, Turning Moment)</strong></h3>
+      <h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Inertia Force of Reciprocating Masses $F_i$</strong>:</li>
+         <li>D'Alembert's principle inertia force opposes acceleration:
+            <div class="formula-card">$${\boxed{F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r
+               \left(\cos\theta + \frac{\cos 2\theta}{n}\right)}}$$</div>
+         </li>
+         <li>During initial half stroke (acceleration phase), $F_i$ REDUCES net driving force on piston.</li>
+         <li>During secondary half stroke (deceleration phase), $F_i$ INCREASES net driving force on piston.</li>
+         <li><strong>Piston Effort $F_p$</strong>:</li>
+         <li>Net force acting along line of stroke:<ul>
+               <li>Horizontal engine: $F_p = F_{\text{gas}} - F_i \mp R_f$.</li>
+               <li>Vertical engine (downward stroke): $F_p = F_{\text{gas}} - F_i \mp R_f + m_{\text{rec}} g$.</li>
+               <li>Vertical engine (upward stroke): $F_p = F_{\text{gas}} - F_i \mp R_f - m_{\text{rec}} g$.</li>
+            </ul>
+         </li>
+         <li><strong>Force Resolution in Mechanism</strong>:</li>
+         <li><strong>Connecting Rod Thrust $F_q$</strong>: Force transmitted along conrod centerline:
+            <div class="formula-card">$${\boxed{F_q = \frac{F_p}{\cos\phi}}}$$</div>
+         </li>
+         <li><strong>Side Thrust on Cylinder Wall $N_s$</strong>: Reaction force normal to cylinder bore:
+            <div class="formula-card">$${\boxed{N_s = F_p \tan\phi}}$$</div>
+         </li>
+         <li><strong>Tangential Force / Crank Pin Effort $F_t$</strong>: Force perpendicular to crank arm:
+            <div class="formula-card">$${\boxed{F_t = F_q \sin(\theta + \phi) = F_p \frac{\sin(\theta +
+               \phi)}{\cos\phi}}}$$</div>
+         </li>
+         <li><strong>Radial Force on Crank Bearing $F_b$</strong>: Force along crank arm towards main bearings:
+            <div class="formula-card">$${\boxed{F_b = F_q \cos(\theta + \phi)}}$$</div>
+         </li>
+         <li><strong>Turning Moment / Crank Effort $T$</strong>:</li>
+         <li>Instantaneous torque applied to crankshaft:
+            <div class="formula-card">$${T = F_t \cdot r = F_p \cdot r \left[\sin\theta + \frac{\sin 2\theta}{2\sqrt{n^2
+               - \sin^2\theta}}\right]}$$</div>
+            <div class="formula-card">$${\boxed{T \approx F_p \cdot r \left(\sin\theta + \frac{\sin
+               2\theta}{2n}\right)}}$$</div>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Piston Effort Sign Rule</strong>:
+         - Acceleration phase $0^\circ &lt; \theta &lt; 76^\circ$: Inertia force $F_i$ works AGAINST gas force $F_p =
+         F_{\text{gas}} - F_i$.
+         - Deceleration phase $76^\circ &lt; \theta &lt; 180^\circ$: Inertia force $F_i$ AIDS gas force $F_p =
+         F_{\text{gas}} + |F_i|$.</div>
+      <h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Dynamic Force Resolution in Slider-Crank
 │
 ├── Step 1: Calculate Net Piston Effort (F_p)
 │   └── F_p = F_gas - F_inertia - F_friction +/- (m_rec * g for vertical engine)
@@ -514,156 +981,200 @@ Piston acceleration $a_p = 0$ when $\cos\theta + \frac{\cos 2\theta}{n} = 0$. Fo
 └── Step 4: Calculate Instantaneous Turning Moment (T)
     └── T = F_t * r = F_p * r * [ sin(theta) + sin(2*theta)/(2n) ]
 </code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Inertia force $F_i = m_{\text{rec}} a_p$.</li>
-<li>[ ] Piston effort $F_p = F_{\text{gas}} - F_i \mp R_f$.</li>
-<li>[ ] Conrod thrust $F_q = F_p / \cos\phi$.</li>
-<li>[ ] Cylinder side thrust $N_s = F_p \tan\phi$.</li>
-<li>[ ] Crank effort $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Crank Effort &amp; Side Thrust Calculation</strong>
-- <strong>Problem</strong>: A horizontal steam engine has stroke $2 r = 400 \text{ mm}$ $r = 0.2 \text{ m}$ and conrod length $l = 1.0 \text{ m}$ $n = 5$. Reciprocating mass $m = 60 \text{ kg}$. Engine speed $N = 300 \text{ rpm}$ $\omega = 10\pi \approx 31.416 \text{ rad/s}$. At crank angle $\theta = 45^\circ$, gas pressure force $F_{\text{gas}} = 25 \text{ kN} = 25000 \text{ N}$. Calculate: (a) Inertia force $F_i$, (b) Piston effort $F_p$, (c) Side thrust $N_s$, (d) Turning moment $T$.
-- <strong>Solution</strong>:
-  1. Calculate $a_p$ at $\theta = 45^\circ$:
-     <div class="formula-card">$${\cos 45^\circ = 0.7071, \quad \cos 90^\circ = 0}$$</div>
-     <div class="formula-card">$${a_p = \omega^2 r \left(\cos 45^\circ + \frac{\cos 90^\circ}{5}\right) = (31.416^2 \times 0.2) \times (0.7071 + 0) = 197.39 \times 0.7071 \approx 139.57 \text{ m/s}^2}$$</div>
-  2. Calculate Inertia Force $F_i$:
-     <div class="formula-card">$${F_i = m \cdot a_p = 60 \times 139.57 \approx 8374 \text{ N} = 8.374 \text{ kN}}$$</div>
-  3. Calculate Piston Effort $F_p$ (neglecting friction):
-     <div class="formula-card">$${F_p = F_{\text{gas}} - F_i = 25000 - 8374 = 16626 \text{ N} = 16.626 \text{ kN}}$$</div>
-  4. Calculate obliquity angle $\phi$:
-     <div class="formula-card">$${\sin\phi = \frac{\sin 45^\circ}{5} = \frac{0.7071}{5} = 0.1414 \implies \phi = \sin^{-1}(0.1414) \approx 8.13^\circ}$$</div>
-     <div class="formula-card">$${\cos\phi = \cos 8.13^\circ \approx 0.9900, \quad \tan\phi = \tan 8.13^\circ \approx 0.1428}$$</div>
-  5. Calculate Side Thrust $N_s$:
-     <div class="formula-card">$${N_s = F_p \tan\phi = 16626 \times 0.1428 \approx 2374 \text{ N}}$$</div>
-  6. Calculate Turning Moment $T$:
-     <div class="formula-card">$${T \approx F_p r \left(\sin 45^\circ + \frac{\sin 90^\circ}{2(5)}\right) = (16626 \times 0.2) \times \left(0.7071 + \frac{1}{10}\right)}$$</div>
-     <div class="formula-card">$${T = 3325.2 \times 0.8071 \approx 2683.8 \text{ N}\cdot\text{m}}$$</div>
-- <strong>Key Insight</strong>: $F_p = 16.63 \text{ kN}$, $N_s = 2.37 \text{ kN}$, $T = 2684 \text{ N}\cdot\text{m}$.</p>
-<p><strong>Worked Example 2: Vertical Engine Piston Effort Calculation</strong>
-- <strong>Problem</strong>: A vertical IC engine has reciprocating mass $m = 80 \text{ kg}$, $r = 0.1 \text{ m}, n = 4, \omega = 30 \text{ rad/s}$. At crank angle $\theta = 30^\circ$ during downward expansion stroke, gas force $F_{\text{gas}} = 30 \text{ kN} = 30000 \text{ N}$. Calculate piston effort $F_p$.
-- <strong>Solution</strong>:
-  1. Gravity weight force $W_r = m g = 80 \times 9.81 = 784.8 \text{ N}$ (acts DOWNWARDS, aiding downward stroke).
-  2. Calculate $a_p$ at $\theta = 30^\circ$:
-     <div class="formula-card">$${\cos 30^\circ = 0.8660, \quad \cos 60^\circ = 0.5000}$$</div>
-     <div class="formula-card">$${a_p = (30^2 \times 0.1) \times \left(0.8660 + \frac{0.5000}{4}\right) = 90 \times (0.8660 + 0.1250) = 90 \times 0.9910 = 89.19 \text{ m/s}^2}$$</div>
-  3. Calculate Inertia Force $F_i$:
-     <div class="formula-card">$${F_i = m \cdot a_p = 80 \times 89.19 = 7135.2 \text{ N}}$$</div>
-  4. Calculate Piston Effort $F_p$ (downward stroke $\implies +m g$):
-     <div class="formula-card">$${F_p = F_{\text{gas}} - F_i + m g = 30000 - 7135.2 + 784.8 = 23649.6 \text{ N} \approx 23.65 \text{ kN}}$$</div>
-- <strong>Key Insight</strong>: $F_p = 23.65 \text{ kN}$. Including weight $m g$ adds $785 \text{ N}$ to piston effort.</p>
-<hr />
-<h3 id="33-dynamically-equivalent-systems-graphical-constructions"><strong>3.3 Dynamically Equivalent Systems &amp; Graphical Constructions</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Dynamically Equivalent Two-Mass System</strong>:</li>
-<li>To replace a rigid body of mass $m$, center of gravity $G$, and mass moment of inertia $I$ by two point masses $m_1$ and $m_2$ at distances $l_1$ and $l_2$ from $G$:<ol>
-<li>Total mass condition: $\boxed{m_1 + m_2 = m}$</li>
-<li>Center of gravity condition: $\boxed{m_1 l_1 = m_2 l_2}$</li>
-<li>Moment of inertia condition: $\boxed{m_1 l_1^2 + m_2 l_2^2 = I = m k^2}$</li>
-</ol>
-</li>
-<li>Multiplying (1) by $l_1 l_2$ and subtracting (3) yields the fundamental relationship:
-    <div class="formula-card">$${\boxed{l_1 \cdot l_2 = k^2}}$$</div>
-    where $k$ is the radius of gyration of the body about $G$.</li>
-<li><strong>Correction Couple $T_c$ for Non-Equivalent Systems</strong>:</li>
-<li>If mass $m_2$ is placed at arbitrary distance $l_2' \neq l_2$ (e.g., at the big-end pin axis), the system is kinetically incorrect.</li>
-<li>Correction couple $T_c = m (k^2 - l_1 l_2') \alpha_{cr}$, where $\alpha_{cr}$ is the angular acceleration of the connecting rod.</li>
-<li><strong>Graphical Velocity &amp; Acceleration Constructions</strong>:</li>
-<li><strong>Klein's Construction</strong>: Uses a circle of diameter equal to crank $OM$ and another circle centered at $M$ with radius equal to conrod length $MN$ to quickly draw the acceleration quadrilateral $O-N-K-L$.</li>
-<li><strong>Ritterhaus Construction</strong>: Used when crank angle is near dead centers.</li>
-<li><strong>Bennett's Construction</strong>: Alternative construction for fast determination of piston acceleration.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Dynamically Equivalent Condition</strong>:
-A 2-mass system is dynamically equivalent to a connecting rod ONLY IF $l_1 \cdot l_2 = k^2$. If $l_1$ is located at the small-end gudgeon pin, $l_2$ MUST be located at distance $l_2 = k^2/l_1$ from CG!</div>
-<h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Mass sum: $m_1 + m_2 = m$.</li>
-<li>[ ] CG balance: $m_1 l_1 = m_2 l_2$.</li>
-<li>[ ] Dynamic equivalence condition: $l_1 \cdot l_2 = k^2$.</li>
-<li>[ ] Mass formula $m_1 = m \frac{l_2}{l_1+l_2}$, $m_2 = m \frac{l_1}{l_1+l_2}$.</li>
-<li>[ ] Correction couple $T_c = m (k^2 - l_1 l_2') \alpha$.</li>
-</ul>
-<h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Equivalent Two-Mass System for Connecting Rod</strong>
-- <strong>Problem</strong>: A connecting rod has mass $m = 40 \text{ kg}$, length between centers $L = 800 \text{ mm} = 0.8 \text{ m}$, and radius of gyration about CG $k = 300 \text{ mm} = 0.3 \text{ m}$. The CG is located at distance $l_1 = 320 \text{ mm} = 0.32 \text{ m}$ from the small-end center. Calculate: (a) Mass $m_1$ at small end, (b) Distance $l_2$ for dynamically equivalent mass $m_2$, (c) Mass $m_2$.
-- <strong>Solution</strong>:
-  1. Calculate required distance $l_2$ from CG for dynamic equivalence:
-     <div class="formula-card">$${l_1 \cdot l_2 = k^2 \implies 0.32 \cdot l_2 = (0.3)^2 = 0.09}$$</div>
-     <div class="formula-card">$${l_2 = \frac{0.09}{0.32} = 0.28125 \text{ m} = 281.25 \text{ mm}}$$</div>
-  2. Calculate total distance between equivalent masses $L_{\text{eq}} = l_1 + l_2$:
-     <div class="formula-card">$${L_{\text{eq}} = 0.32 + 0.28125 = 0.60125 \text{ m}}$$</div>
-  3. Calculate equivalent mass $m_1$ at small end:
-     <div class="formula-card">$${m_1 = m \cdot \frac{l_2}{l_1 + l_2} = 40 \times \frac{0.28125}{0.60125} = 40 \times 0.4678 \approx 18.71 \text{ kg}}$$</div>
-  4. Calculate equivalent mass $m_2$:
-     <div class="formula-card">$${m_2 = m - m_1 = 40 - 18.71 = 21.29 \text{ kg}}$$</div>
-- <strong>Key Insight</strong>: $l_2 = 281.25 \text{ mm}$, $m_1 = 18.71 \text{ kg}$, $m_2 = 21.29 \text{ kg}$. Note $l_1 + l_2 = 601.25 \text{ mm} \neq 800 \text{ mm}$, so mass $m_2$ does NOT fall on the big-end pin axis!</p>
-<p><strong>Worked Example 2: Correction Couple for Non-Equivalent Mass Placement</strong>
-- <strong>Problem</strong>: For the connecting rod in Example 1, if mass $m_2'$ is placed at the big-end pin center $l_2' = L - l_1 = 0.8 - 0.32 = 0.48 \text{ m}$, calculate the correction couple $T_c$ when angular acceleration of connecting rod $\alpha_{cr} = 50 \text{ rad/s}^2$.
-- <strong>Solution</strong>:
-  1. Calculate term $(k^2 - l_1 l_2')$:
-     <div class="formula-card">$${k^2 - l_1 l_2' = (0.3)^2 - (0.32 \times 0.48) = 0.09 - 0.1536 = -0.0636 \text{ m}^2}$$</div>
-  2. Calculate Correction Couple $T_c$:
-     <div class="formula-card">$${T_c = m (k^2 - l_1 l_2') \alpha_{cr} = 40 \times (-0.0636) \times 50 = -127.2 \text{ N}\cdot\text{m}}$$</div>
-- <strong>Key Insight</strong>: $T_c = -127.2 \text{ N}\cdot\text{m}$. Placed at the big-end pin, the 2-mass system creates an artificial inertia torque that must be corrected by applying $T_c$.</p>
-<hr />
-<h3 id="34-primary-secondary-unbalanced-reciprocating-forces"><strong>3.4 Primary &amp; Secondary Unbalanced Reciprocating Forces</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Primary Unbalanced Force $F_P$</strong>:</li>
-<li>Caused by reciprocating mass acceleration at fundamental engine speed $\omega$:
-    <div class="formula-card">$${\boxed{F_P = m_{\text{rec}} r \omega^2 \cos\theta}}$$</div></li>
-<li>Operates along the line of stroke.</li>
-<li>Reaches maximum value twice per revolution $\theta = 0^\circ \text{ and } 180^\circ$.</li>
-<li><strong>Secondary Unbalanced Force $F_S$</strong>:</li>
-<li>Caused by obliquity of the connecting rod $n = l/r$:
-    <div class="formula-card">$${\boxed{F_S = m_{\text{rec}} r \omega^2 \frac{\cos 2\theta}{n}}}$$</div></li>
-<li>Operates along the line of stroke at TWICE engine rotational frequency $2\omega$.</li>
-<li>Reaches maximum value four times per revolution $\theta = 0^\circ, 90^\circ, 180^\circ, 270^\circ$.</li>
-<li>Magnitude is $\frac{1}{n}$ times the maximum primary force.</li>
-<li><strong>Comparison of Primary vs Secondary Forces</strong>:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Feature / Aspect</th>
-<th style="text-align: left;">Primary Unbalanced Force $F_P$</th>
-<th style="text-align: left;">Secondary Unbalanced Force $F_S$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Frequency of Action</strong></td>
-<td style="text-align: left;">Engine Speed $\omega$ $1\times$.</td>
-<td style="text-align: left;">Double Engine Speed $2\omega$ $2\times$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Maximum Magnitude</strong></td>
-<td style="text-align: left;">$m_{\text{rec}} r \omega^2$.</td>
-<td style="text-align: left;">$\frac{m_{\text{rec}} r \omega^2}{n}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cause</strong></td>
-<td style="text-align: left;">Reciprocating crank motion.</td>
-<td style="text-align: left;">Connecting rod obliquity $n = l/r$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Ease of Balancing</strong></td>
-<td style="text-align: left;">Can be partially/fully balanced by rotating counterweights.</td>
-<td style="text-align: left;">Difficult to balance; requires twin counter-rotating shafts at $2\omega$ (Lanchester balancer).</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Secondary Force Ratio</strong>:
-Max Secondary Force $= \frac{1}{n} \times \text{Max Primary Force}$. Since $n = 4 \text{ to } 5$, secondary force is $20\% \text{ to } 25\%$ of primary force magnitude, but acts at DOUBLE frequency $2\omega$.</p>
-<p>[!TRAP]
-<strong>Secondary Max Angle Trap</strong>:
-- Primary force is MAX at $\theta = 0^\circ, 180^\circ$ and ZERO at $\theta = 90^\circ, 270^\circ$.
-- Secondary force is MAX at $\theta = 0^\circ, 90^\circ, 180^\circ, 270^\circ$ and ZERO at $\theta = 45^\circ, 135^\circ, 225^\circ, 315^\circ$!</div>
-<h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Reciprocating Unbalanced Force Analysis
+      <h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Inertia force $F_i = m_{\text{rec}} a_p$.</li>
+         <li>[ ] Piston effort $F_p = F_{\text{gas}} - F_i \mp R_f$.</li>
+         <li>[ ] Conrod thrust $F_q = F_p / \cos\phi$.</li>
+         <li>[ ] Cylinder side thrust $N_s = F_p \tan\phi$.</li>
+         <li>[ ] Crank effort $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+      </ul>
+      <h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Crank Effort &amp; Side Thrust Calculation</strong>
+         - <strong>Problem</strong>: A horizontal steam engine has stroke $2 r = 400 \text{ mm}$ $r = 0.2 \text{ m}$ and
+         conrod length $l = 1.0 \text{ m}$ $n = 5$. Reciprocating mass $m = 60 \text{ kg}$. Engine speed $N = 300 \text{
+         rpm}$ $\omega = 10\pi \approx 31.416 \text{ rad/s}$. At crank angle $\theta = 45^\circ$, gas pressure force
+         $F_{\text{gas}} = 25 \text{ kN} = 25000 \text{ N}$. Calculate: (a) Inertia force $F_i$, (b) Piston effort
+         $F_p$, (c) Side thrust $N_s$, (d) Turning moment $T$.
+         - <strong>Solution</strong>:
+         1. Calculate $a_p$ at $\theta = 45^\circ$:
+      <div class="formula-card">$${\cos 45^\circ = 0.7071, \quad \cos 90^\circ = 0}$$</div>
+      <div class="formula-card">$${a_p = \omega^2 r \left(\cos 45^\circ + \frac{\cos 90^\circ}{5}\right) = (31.416^2
+         \times 0.2) \times (0.7071 + 0) = 197.39 \times 0.7071 \approx 139.57 \text{ m/s}^2}$$</div>
+      2. Calculate Inertia Force $F_i$:
+      <div class="formula-card">$${F_i = m \cdot a_p = 60 \times 139.57 \approx 8374 \text{ N} = 8.374 \text{ kN}}$$
+      </div>
+      3. Calculate Piston Effort $F_p$ (neglecting friction):
+      <div class="formula-card">$${F_p = F_{\text{gas}} - F_i = 25000 - 8374 = 16626 \text{ N} = 16.626 \text{ kN}}$$
+      </div>
+      4. Calculate obliquity angle $\phi$:
+      <div class="formula-card">$${\sin\phi = \frac{\sin 45^\circ}{5} = \frac{0.7071}{5} = 0.1414 \implies \phi =
+         \sin^{-1}(0.1414) \approx 8.13^\circ}$$</div>
+      <div class="formula-card">$${\cos\phi = \cos 8.13^\circ \approx 0.9900, \quad \tan\phi = \tan 8.13^\circ \approx
+         0.1428}$$</div>
+      5. Calculate Side Thrust $N_s$:
+      <div class="formula-card">$${N_s = F_p \tan\phi = 16626 \times 0.1428 \approx 2374 \text{ N}}$$</div>
+      6. Calculate Turning Moment $T$:
+      <div class="formula-card">$${T \approx F_p r \left(\sin 45^\circ + \frac{\sin 90^\circ}{2(5)}\right) = (16626
+         \times 0.2) \times \left(0.7071 + \frac{1}{10}\right)}$$</div>
+      <div class="formula-card">$${T = 3325.2 \times 0.8071 \approx 2683.8 \text{ N}\cdot\text{m}}$$</div>
+      - <strong>Key Insight</strong>: $F_p = 16.63 \text{ kN}$, $N_s = 2.37 \text{ kN}$, $T = 2684 \text{
+      N}\cdot\text{m}$.</p>
+      <p><strong>Worked Example 2: Vertical Engine Piston Effort Calculation</strong>
+         - <strong>Problem</strong>: A vertical IC engine has reciprocating mass $m = 80 \text{ kg}$, $r = 0.1 \text{
+         m}, n = 4, \omega = 30 \text{ rad/s}$. At crank angle $\theta = 30^\circ$ during downward expansion stroke, gas
+         force $F_{\text{gas}} = 30 \text{ kN} = 30000 \text{ N}$. Calculate piston effort $F_p$.
+         - <strong>Solution</strong>:
+         1. Gravity weight force $W_r = m g = 80 \times 9.81 = 784.8 \text{ N}$ (acts DOWNWARDS, aiding downward
+         stroke).
+         2. Calculate $a_p$ at $\theta = 30^\circ$:
+      <div class="formula-card">$${\cos 30^\circ = 0.8660, \quad \cos 60^\circ = 0.5000}$$</div>
+      <div class="formula-card">$${a_p = (30^2 \times 0.1) \times \left(0.8660 + \frac{0.5000}{4}\right) = 90 \times
+         (0.8660 + 0.1250) = 90 \times 0.9910 = 89.19 \text{ m/s}^2}$$</div>
+      3. Calculate Inertia Force $F_i$:
+      <div class="formula-card">$${F_i = m \cdot a_p = 80 \times 89.19 = 7135.2 \text{ N}}$$</div>
+      4. Calculate Piston Effort $F_p$ (downward stroke $\implies +m g$):
+      <div class="formula-card">$${F_p = F_{\text{gas}} - F_i + m g = 30000 - 7135.2 + 784.8 = 23649.6 \text{ N} \approx
+         23.65 \text{ kN}}$$</div>
+      - <strong>Key Insight</strong>: $F_p = 23.65 \text{ kN}$. Including weight $m g$ adds $785 \text{ N}$ to piston
+      effort.</p>
+      <hr />
+      <h3 id="33-dynamically-equivalent-systems-graphical-constructions"><strong>3.3 Dynamically Equivalent Systems
+            &amp; Graphical Constructions</strong></h3>
+      <h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Dynamically Equivalent Two-Mass System</strong>:</li>
+         <li>To replace a rigid body of mass $m$, center of gravity $G$, and mass moment of inertia $I$ by two point
+            masses $m_1$ and $m_2$ at distances $l_1$ and $l_2$ from $G$:<ol>
+               <li>Total mass condition: $\boxed{m_1 + m_2 = m}$</li>
+               <li>Center of gravity condition: $\boxed{m_1 l_1 = m_2 l_2}$</li>
+               <li>Moment of inertia condition: $\boxed{m_1 l_1^2 + m_2 l_2^2 = I = m k^2}$</li>
+            </ol>
+         </li>
+         <li>Multiplying (1) by $l_1 l_2$ and subtracting (3) yields the fundamental relationship:
+            <div class="formula-card">$${\boxed{l_1 \cdot l_2 = k^2}}$$</div>
+            where $k$ is the radius of gyration of the body about $G$.
+         </li>
+         <li><strong>Correction Couple $T_c$ for Non-Equivalent Systems</strong>:</li>
+         <li>If mass $m_2$ is placed at arbitrary distance $l_2' \neq l_2$ (e.g., at the big-end pin axis), the system
+            is kinetically incorrect.</li>
+         <li>Correction couple $T_c = m (k^2 - l_1 l_2') \alpha_{cr}$, where $\alpha_{cr}$ is the angular acceleration
+            of the connecting rod.</li>
+         <li><strong>Graphical Velocity &amp; Acceleration Constructions</strong>:</li>
+         <li><strong>Klein's Construction</strong>: Uses a circle of diameter equal to crank $OM$ and another circle
+            centered at $M$ with radius equal to conrod length $MN$ to quickly draw the acceleration quadrilateral
+            $O-N-K-L$.</li>
+         <li><strong>Ritterhaus Construction</strong>: Used when crank angle is near dead centers.</li>
+         <li><strong>Bennett's Construction</strong>: Alternative construction for fast determination of piston
+            acceleration.</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Dynamically Equivalent
+            Condition</strong>:
+         A 2-mass system is dynamically equivalent to a connecting rod ONLY IF $l_1 \cdot l_2 = k^2$. If $l_1$ is
+         located at the small-end gudgeon pin, $l_2$ MUST be located at distance $l_2 = k^2/l_1$ from CG!</div>
+      <h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Mass sum: $m_1 + m_2 = m$.</li>
+         <li>[ ] CG balance: $m_1 l_1 = m_2 l_2$.</li>
+         <li>[ ] Dynamic equivalence condition: $l_1 \cdot l_2 = k^2$.</li>
+         <li>[ ] Mass formula $m_1 = m \frac{l_2}{l_1+l_2}$, $m_2 = m \frac{l_1}{l_1+l_2}$.</li>
+         <li>[ ] Correction couple $T_c = m (k^2 - l_1 l_2') \alpha$.</li>
+      </ul>
+      <h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Equivalent Two-Mass System for Connecting Rod</strong>
+         - <strong>Problem</strong>: A connecting rod has mass $m = 40 \text{ kg}$, length between centers $L = 800
+         \text{ mm} = 0.8 \text{ m}$, and radius of gyration about CG $k = 300 \text{ mm} = 0.3 \text{ m}$. The CG is
+         located at distance $l_1 = 320 \text{ mm} = 0.32 \text{ m}$ from the small-end center. Calculate: (a) Mass
+         $m_1$ at small end, (b) Distance $l_2$ for dynamically equivalent mass $m_2$, (c) Mass $m_2$.
+         - <strong>Solution</strong>:
+         1. Calculate required distance $l_2$ from CG for dynamic equivalence:
+      <div class="formula-card">$${l_1 \cdot l_2 = k^2 \implies 0.32 \cdot l_2 = (0.3)^2 = 0.09}$$</div>
+      <div class="formula-card">$${l_2 = \frac{0.09}{0.32} = 0.28125 \text{ m} = 281.25 \text{ mm}}$$</div>
+      2. Calculate total distance between equivalent masses $L_{\text{eq}} = l_1 + l_2$:
+      <div class="formula-card">$${L_{\text{eq}} = 0.32 + 0.28125 = 0.60125 \text{ m}}$$</div>
+      3. Calculate equivalent mass $m_1$ at small end:
+      <div class="formula-card">$${m_1 = m \cdot \frac{l_2}{l_1 + l_2} = 40 \times \frac{0.28125}{0.60125} = 40 \times
+         0.4678 \approx 18.71 \text{ kg}}$$</div>
+      4. Calculate equivalent mass $m_2$:
+      <div class="formula-card">$${m_2 = m - m_1 = 40 - 18.71 = 21.29 \text{ kg}}$$</div>
+      - <strong>Key Insight</strong>: $l_2 = 281.25 \text{ mm}$, $m_1 = 18.71 \text{ kg}$, $m_2 = 21.29 \text{ kg}$.
+      Note $l_1 + l_2 = 601.25 \text{ mm} \neq 800 \text{ mm}$, so mass $m_2$ does NOT fall on the big-end pin axis!</p>
+      <p><strong>Worked Example 2: Correction Couple for Non-Equivalent Mass Placement</strong>
+         - <strong>Problem</strong>: For the connecting rod in Example 1, if mass $m_2'$ is placed at the big-end pin
+         center $l_2' = L - l_1 = 0.8 - 0.32 = 0.48 \text{ m}$, calculate the correction couple $T_c$ when angular
+         acceleration of connecting rod $\alpha_{cr} = 50 \text{ rad/s}^2$.
+         - <strong>Solution</strong>:
+         1. Calculate term $(k^2 - l_1 l_2')$:
+      <div class="formula-card">$${k^2 - l_1 l_2' = (0.3)^2 - (0.32 \times 0.48) = 0.09 - 0.1536 = -0.0636 \text{
+         m}^2}$$</div>
+      2. Calculate Correction Couple $T_c$:
+      <div class="formula-card">$${T_c = m (k^2 - l_1 l_2') \alpha_{cr} = 40 \times (-0.0636) \times 50 = -127.2 \text{
+         N}\cdot\text{m}}$$</div>
+      - <strong>Key Insight</strong>: $T_c = -127.2 \text{ N}\cdot\text{m}$. Placed at the big-end pin, the 2-mass
+      system creates an artificial inertia torque that must be corrected by applying $T_c$.</p>
+      <hr />
+      <h3 id="34-primary-secondary-unbalanced-reciprocating-forces"><strong>3.4 Primary &amp; Secondary Unbalanced
+            Reciprocating Forces</strong></h3>
+      <h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Primary Unbalanced Force $F_P$</strong>:</li>
+         <li>Caused by reciprocating mass acceleration at fundamental engine speed $\omega$:
+            <div class="formula-card">$${\boxed{F_P = m_{\text{rec}} r \omega^2 \cos\theta}}$$</div>
+         </li>
+         <li>Operates along the line of stroke.</li>
+         <li>Reaches maximum value twice per revolution $\theta = 0^\circ \text{ and } 180^\circ$.</li>
+         <li><strong>Secondary Unbalanced Force $F_S$</strong>:</li>
+         <li>Caused by obliquity of the connecting rod $n = l/r$:
+            <div class="formula-card">$${\boxed{F_S = m_{\text{rec}} r \omega^2 \frac{\cos 2\theta}{n}}}$$</div>
+         </li>
+         <li>Operates along the line of stroke at TWICE engine rotational frequency $2\omega$.</li>
+         <li>Reaches maximum value four times per revolution $\theta = 0^\circ, 90^\circ, 180^\circ, 270^\circ$.</li>
+         <li>Magnitude is $\frac{1}{n}$ times the maximum primary force.</li>
+         <li><strong>Comparison of Primary vs Secondary Forces</strong>:</li>
+      </ul>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Feature / Aspect</th>
+               <th style="text-align: left;">Primary Unbalanced Force $F_P$</th>
+               <th style="text-align: left;">Secondary Unbalanced Force $F_S$</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Frequency of Action</strong></td>
+               <td style="text-align: left;">Engine Speed $\omega$ $1\times$.</td>
+               <td style="text-align: left;">Double Engine Speed $2\omega$ $2\times$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Maximum Magnitude</strong></td>
+               <td style="text-align: left;">$m_{\text{rec}} r \omega^2$.</td>
+               <td style="text-align: left;">$\frac{m_{\text{rec}} r \omega^2}{n}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Cause</strong></td>
+               <td style="text-align: left;">Reciprocating crank motion.</td>
+               <td style="text-align: left;">Connecting rod obliquity $n = l/r$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Ease of Balancing</strong></td>
+               <td style="text-align: left;">Can be partially/fully balanced by rotating counterweights.</td>
+               <td style="text-align: left;">Difficult to balance; requires twin counter-rotating shafts at $2\omega$
+                  (Lanchester balancer).</td>
+            </tr>
+         </tbody>
+      </table>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Secondary Force Ratio</strong>:
+         Max Secondary Force $= \frac{1}{n} \times \text{Max Primary Force}$. Since $n = 4 \text{ to } 5$, secondary
+         force is $20\% \text{ to } 25\%$ of primary force magnitude, but acts at DOUBLE frequency $2\omega$.</p>
+         <p>[!TRAP]
+            <strong>Secondary Max Angle Trap</strong>:
+            - Primary force is MAX at $\theta = 0^\circ, 180^\circ$ and ZERO at $\theta = 90^\circ, 270^\circ$.
+            - Secondary force is MAX at $\theta = 0^\circ, 90^\circ, 180^\circ, 270^\circ$ and ZERO at $\theta =
+            45^\circ, 135^\circ, 225^\circ, 315^\circ$!
+      </div>
+      <h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Reciprocating Unbalanced Force Analysis
 │
 ├── What force component is requested?
 │   ├── PRIMARY FORCE (F_P) ──► F_P = m_rec * r * w^2 * cos(theta)
@@ -676,77 +1187,103 @@ Max Secondary Force $= \frac{1}{n} \times \text{Max Primary Force}$. Since $n = 
 │   │
 │   └── TOTAL FORCE (F) ──► F = m_rec * r * w^2 * [ cos(theta) + cos(2*theta)/n ]
 </code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $F_P = m r \omega^2 \cos\theta$.</li>
-<li>[ ] $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$.</li>
-<li>[ ] Secondary frequency $= 2\omega$.</li>
-<li>[ ] Max secondary force $= \frac{1}{n} F_{P,\text{max}}$.</li>
-<li>[ ] Secondary force increases as conrod length $l$ decreases $n \downarrow$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Primary and Secondary Unbalanced Force Calculation</strong>
-- <strong>Problem</strong>: A single-cylinder engine has reciprocating mass $m = 12 \text{ kg}$, crank radius $r = 100 \text{ mm} = 0.1 \text{ m}$, connecting rod length $l = 400 \text{ mm} = 0.4 \text{ m}$ $n = 4$. The engine rotates at $1200 \text{ rpm}$ $\omega = 40\pi \approx 125.66 \text{ rad/s}$. Calculate: (a) Maximum primary unbalanced force, (b) Maximum secondary unbalanced force, (c) Total unbalanced force at $\theta = 0^\circ$ (TDC).
-- <strong>Solution</strong>:
-  1. Calculate inertia constant $m r \omega^2$:
-     <div class="formula-card">$${m r \omega^2 = 12 \times 0.1 \times (125.66)^2 = 1.2 \times 15791.4 \approx 18950 \text{ N} = 18.95 \text{ kN}}$$</div>
-  2. Calculate Maximum Primary Unbalanced Force $F_{P,\text{max}}$:
-     <div class="formula-card">$${F_{P,\text{max}} = m r \omega^2 = 18.95 \text{ kN}}$$</div>
-  3. Calculate Maximum Secondary Unbalanced Force $F_{S,\text{max}}$:
-     <div class="formula-card">$${F_{S,\text{max}} = \frac{m r \omega^2}{n} = \frac{18.95}{4} = 4.738 \text{ kN}}$$</div>
-  4. Calculate Total Unbalanced Force at $\theta = 0^\circ$:
-     <div class="formula-card">$${F_{\text{total}} = F_{P,\text{max}} + F_{S,\text{max}} = 18.95 + 4.738 = 23.688 \text{ kN}}$$</div>
-- <strong>Key Insight</strong>: $F_{P,\text{max}} = 18.95 \text{ kN}$, $F_{S,\text{max}} = 4.74 \text{ kN}$, $F_{\text{total}} = 23.69 \text{ kN}$.</p>
-<p><strong>Worked Example 2: Secondary Force at 90 Degree Crank Angle</strong>
-- <strong>Problem</strong>: For the engine in Example 1, calculate the primary, secondary, and net unbalanced forces at crank angle $\theta = 90^\circ$.
-- <strong>Solution</strong>:
-  1. Primary force at $\theta = 90^\circ$:
-     <div class="formula-card">$${F_P = m r \omega^2 \cos 90^\circ = 18.95 \times 0 = 0 \text{ N}}$$</div>
-  2. Secondary force at $\theta = 90^\circ$ $\cos 180^\circ = -1$:
-     <div class="formula-card">$${F_S = \frac{m r \omega^2 \cos 180^\circ}{n} = \frac{18.95 \times (-1)}{4} = -4.738 \text{ kN}}$$</div>
-  3. Total unbalanced force $F = F_P + F_S = 0 - 4.738 = -4.738 \text{ kN}$.
-- <strong>Key Insight</strong>: At $\theta = 90^\circ$, primary force is ZERO, but secondary force is at its maximum magnitude $-4.74 \text{ kN}$ acting towards ODC!</p>
-<hr />
-<h3 id="35-locomotive-balancing-tractive-force-swaying-couple-hammer-blow"><strong>3.5 Locomotive Balancing, Tractive Force, Swaying Couple &amp; Hammer Blow</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Partial Balancing of Reciprocating Masses</strong>:</li>
-<li>In locomotives, balancing $100\%$ of reciprocating mass requires large revolving counterweights $B$.</li>
-<li>These counterweights create an unbalanced vertical force (Hammer Blow) equal to $B b \omega^2$, which causes severe rail damage and potential wheel lift!</li>
-<li>Therefore, only a fraction $c$ ($50\% \text{ to } 75\%$, typically $c = 2/3$) of reciprocating mass is balanced.</li>
-<li>Unbalanced reciprocating fraction $= (1 - c)$.</li>
-<li><strong>Unbalanced Effects in 2-Cylinder Locomotives</strong>:</li>
-<li>For a 2-cylinder uncoupled locomotive with cranks at right angles $\theta_2 = \theta_1 + 90^\circ$:</li>
-<li><strong>1. Variation of Tractive Effort $\Delta F_T$</strong>:<ul>
-<li>Net unbalanced primary force along rails:
-  <div class="formula-card">$${\Delta F_T = (1-c) m r \omega^2 (\cos\theta - \sin\theta)}$$</div></li>
-<li>Maximum Variation of Tractive Effort:
-  <div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} (1-c) m r \omega^2}}$$</div></li>
-<li>Occurs at crank angles $\theta = 135^\circ \text{ and } 315^\circ$.</li>
-</ul>
-</li>
-<li><strong>2. Swaying Couple $C_{\text{sway}}$</strong>:<ul>
-<li>Couple about vertical axis through center of locomotive (cylinder centerlines separated by distance $a$):
-  <div class="formula-card">$${C_{\text{sway}} = (1-c) m r \omega^2 \frac{a}{2} (\cos\theta + \sin\theta)}$$</div></li>
-<li>Maximum Swaying Couple:
-  <div class="formula-card">$${\boxed{C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m r \omega^2}}$$</div></li>
-<li>Occurs at crank angles $\theta = 45^\circ \text{ and } 225^\circ$.</li>
-</ul>
-</li>
-<li><strong>3. Hammer Blow $H_{\text{blow}}$</strong>:<ul>
-<li>Maximum vertical unbalanced force exerted by the revolving balancing mass $B$ at radius $b$:
-  <div class="formula-card">$${\boxed{H_{\text{blow}} = B \cdot b \cdot \omega^2}}$$</div></li>
-<li>Varies as speed squared $\omega^2$.</li>
-<li>Net pressure on rail varies between $(P_{\text{static}} - H_{\text{blow}})$ and $(P_{\text{static}} + H_{\text{blow}})$.</li>
-<li><strong>Wheel Lifting Condition</strong>: If $H_{\text{blow}} &gt; P_{\text{static}}$, wheel lifts off the rail!</li>
-</ul>
-</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Locomotive Trade-Off</strong>:
-- Increasing balance fraction $c$ REDUCES Tractive Effort Variation and Swaying Couple, but INCREASES Hammer Blow!
-- Decreasing balance fraction $c$ REDUCES Hammer Blow, but INCREASES Tractive Effort Variation and Swaying Couple!</div>
-<h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Locomotive Balancing Effect Analysis
+      <h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] $F_P = m r \omega^2 \cos\theta$.</li>
+         <li>[ ] $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$.</li>
+         <li>[ ] Secondary frequency $= 2\omega$.</li>
+         <li>[ ] Max secondary force $= \frac{1}{n} F_{P,\text{max}}$.</li>
+         <li>[ ] Secondary force increases as conrod length $l$ decreases $n \downarrow$.</li>
+      </ul>
+      <h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Primary and Secondary Unbalanced Force Calculation</strong>
+         - <strong>Problem</strong>: A single-cylinder engine has reciprocating mass $m = 12 \text{ kg}$, crank radius
+         $r = 100 \text{ mm} = 0.1 \text{ m}$, connecting rod length $l = 400 \text{ mm} = 0.4 \text{ m}$ $n = 4$. The
+         engine rotates at $1200 \text{ rpm}$ $\omega = 40\pi \approx 125.66 \text{ rad/s}$. Calculate: (a) Maximum
+         primary unbalanced force, (b) Maximum secondary unbalanced force, (c) Total unbalanced force at $\theta =
+         0^\circ$ (TDC).
+         - <strong>Solution</strong>:
+         1. Calculate inertia constant $m r \omega^2$:
+      <div class="formula-card">$${m r \omega^2 = 12 \times 0.1 \times (125.66)^2 = 1.2 \times 15791.4 \approx 18950
+         \text{ N} = 18.95 \text{ kN}}$$</div>
+      2. Calculate Maximum Primary Unbalanced Force $F_{P,\text{max}}$:
+      <div class="formula-card">$${F_{P,\text{max}} = m r \omega^2 = 18.95 \text{ kN}}$$</div>
+      3. Calculate Maximum Secondary Unbalanced Force $F_{S,\text{max}}$:
+      <div class="formula-card">$${F_{S,\text{max}} = \frac{m r \omega^2}{n} = \frac{18.95}{4} = 4.738 \text{ kN}}$$
+      </div>
+      4. Calculate Total Unbalanced Force at $\theta = 0^\circ$:
+      <div class="formula-card">$${F_{\text{total}} = F_{P,\text{max}} + F_{S,\text{max}} = 18.95 + 4.738 = 23.688
+         \text{ kN}}$$</div>
+      - <strong>Key Insight</strong>: $F_{P,\text{max}} = 18.95 \text{ kN}$, $F_{S,\text{max}} = 4.74 \text{ kN}$,
+      $F_{\text{total}} = 23.69 \text{ kN}$.</p>
+      <p><strong>Worked Example 2: Secondary Force at 90 Degree Crank Angle</strong>
+         - <strong>Problem</strong>: For the engine in Example 1, calculate the primary, secondary, and net unbalanced
+         forces at crank angle $\theta = 90^\circ$.
+         - <strong>Solution</strong>:
+         1. Primary force at $\theta = 90^\circ$:
+      <div class="formula-card">$${F_P = m r \omega^2 \cos 90^\circ = 18.95 \times 0 = 0 \text{ N}}$$</div>
+      2. Secondary force at $\theta = 90^\circ$ $\cos 180^\circ = -1$:
+      <div class="formula-card">$${F_S = \frac{m r \omega^2 \cos 180^\circ}{n} = \frac{18.95 \times (-1)}{4} = -4.738
+         \text{ kN}}$$</div>
+      3. Total unbalanced force $F = F_P + F_S = 0 - 4.738 = -4.738 \text{ kN}$.
+      - <strong>Key Insight</strong>: At $\theta = 90^\circ$, primary force is ZERO, but secondary force is at its
+      maximum magnitude $-4.74 \text{ kN}$ acting towards ODC!</p>
+      <hr />
+      <h3 id="35-locomotive-balancing-tractive-force-swaying-couple-hammer-blow"><strong>3.5 Locomotive Balancing,
+            Tractive Force, Swaying Couple &amp; Hammer Blow</strong></h3>
+      <h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Partial Balancing of Reciprocating Masses</strong>:</li>
+         <li>In locomotives, balancing $100\%$ of reciprocating mass requires large revolving counterweights $B$.</li>
+         <li>These counterweights create an unbalanced vertical force (Hammer Blow) equal to $B b \omega^2$, which
+            causes severe rail damage and potential wheel lift!</li>
+         <li>Therefore, only a fraction $c$ ($50\% \text{ to } 75\%$, typically $c = 2/3$) of reciprocating mass is
+            balanced.</li>
+         <li>Unbalanced reciprocating fraction $= (1 - c)$.</li>
+         <li><strong>Unbalanced Effects in 2-Cylinder Locomotives</strong>:</li>
+         <li>For a 2-cylinder uncoupled locomotive with cranks at right angles $\theta_2 = \theta_1 + 90^\circ$:</li>
+         <li><strong>1. Variation of Tractive Effort $\Delta F_T$</strong>:<ul>
+               <li>Net unbalanced primary force along rails:
+                  <div class="formula-card">$${\Delta F_T = (1-c) m r \omega^2 (\cos\theta - \sin\theta)}$$</div>
+               </li>
+               <li>Maximum Variation of Tractive Effort:
+                  <div class="formula-card">$${\boxed{\Delta F_T = \pm \sqrt{2} (1-c) m r \omega^2}}$$</div>
+               </li>
+               <li>Occurs at crank angles $\theta = 135^\circ \text{ and } 315^\circ$.</li>
+            </ul>
+         </li>
+         <li><strong>2. Swaying Couple $C_{\text{sway}}$</strong>:<ul>
+               <li>Couple about vertical axis through center of locomotive (cylinder centerlines separated by distance
+                  $a$):
+                  <div class="formula-card">$${C_{\text{sway}} = (1-c) m r \omega^2 \frac{a}{2} (\cos\theta +
+                     \sin\theta)}$$</div>
+               </li>
+               <li>Maximum Swaying Couple:
+                  <div class="formula-card">$${\boxed{C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m r \omega^2}}$$
+                  </div>
+               </li>
+               <li>Occurs at crank angles $\theta = 45^\circ \text{ and } 225^\circ$.</li>
+            </ul>
+         </li>
+         <li><strong>3. Hammer Blow $H_{\text{blow}}$</strong>:<ul>
+               <li>Maximum vertical unbalanced force exerted by the revolving balancing mass $B$ at radius $b$:
+                  <div class="formula-card">$${\boxed{H_{\text{blow}} = B \cdot b \cdot \omega^2}}$$</div>
+               </li>
+               <li>Varies as speed squared $\omega^2$.</li>
+               <li>Net pressure on rail varies between $(P_{\text{static}} - H_{\text{blow}})$ and $(P_{\text{static}} +
+                  H_{\text{blow}})$.</li>
+               <li><strong>Wheel Lifting Condition</strong>: If $H_{\text{blow}} &gt; P_{\text{static}}$, wheel lifts
+                  off the rail!</li>
+            </ul>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Locomotive Trade-Off</strong>:
+         - Increasing balance fraction $c$ REDUCES Tractive Effort Variation and Swaying Couple, but INCREASES Hammer
+         Blow!
+         - Decreasing balance fraction $c$ REDUCES Hammer Blow, but INCREASES Tractive Effort Variation and Swaying
+         Couple!</div>
+      <h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Locomotive Balancing Effect Analysis
 │
 ├── What locomotive phenomenon is requested?
 │   ├── HAMMER BLOW ──► H_blow = B * b * w^2
@@ -762,125 +1299,154 @@ Max Secondary Force $= \frac{1}{n} \times \text{Max Primary Force}$. Since $n = 
 │                                    ├── Direction: Along line of stroke (rails)
 │                                    └── Max Angles: theta = 135 deg and 315 deg
 </code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Reciprocating balance fraction $c \approx 50\% - 66.7\%$.</li>
-<li>[ ] Hammer Blow $H_{\text{blow}} = B b \omega^2$.</li>
-<li>[ ] Hammer blow varies as speed squared $\omega^2$.</li>
-<li>[ ] Max Swaying Couple $= \frac{a}{\sqrt{2}} (1-c) m r \omega^2$ at $\theta = 45^\circ, 225^\circ$.</li>
-<li>[ ] Max Tractive Variation $= \sqrt{2} (1-c) m r \omega^2$ at $\theta = 135^\circ, 315^\circ$.</li>
-<li>[ ] Wheel lift occurs if $H_{\text{blow}} &gt; P_{\text{static}}$.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Locomotive Hammer Blow, Swaying Couple &amp; Tractive Variation</strong>
-- <strong>Problem</strong>: An inside two-cylinder uncoupled locomotive has cylinder centerlines $a = 0.7 \text{ m}$ apart. Stroke $2 r = 600 \text{ mm}$ $r = 0.3 \text{ m}$. Reciprocating mass per cylinder $m = 300 \text{ kg}$. Revolving masses are fully balanced. Two-thirds $c = 2/3$ of reciprocating masses are balanced by counterweights placed at radius $b = 0.6 \text{ m}$ in wheel planes separated by $1.5 \text{ m}$. Driving wheel diameter $= 1.8 \text{ m}$. Locomotive speed $v = 90 \text{ km/h} = 25 \text{ m/s}$. Calculate: (a) Angular velocity $\omega$, (b) Maximum Hammer Blow, (c) Maximum Swaying Couple, (d) Maximum Variation of Tractive Effort.
-- <strong>Solution</strong>:
-  1. Calculate wheel angular velocity $\omega$:
-     <div class="formula-card">$${\text{Wheel radius } R_w = \frac{1.8}{2} = 0.9 \text{ m} \implies \omega = \frac{v}{R_w} = \frac{25}{0.9} \approx 27.78 \text{ rad/s}}$$</div>
-     <div class="formula-card">$${\omega^2 = (27.78)^2 \approx 771.6 \text{ (rad/s)}^2}$$</div>
-  2. Calculate unbalanced reciprocating mass per cylinder $(1-c)m$:
-     <div class="formula-card">$${(1 - c) m = \left(1 - \frac{2}{3}\right) \times 300 = 100 \text{ kg}}$$</div>
-  3. Calculate balancing mass $B$ per wheel for reciprocating parts $c m r = B b$:
-     <div class="formula-card">$${B \cdot b = c \cdot m \cdot r = \frac{2}{3} \times 300 \times 0.3 = 60 \text{ kg}\cdot\text{m}}$$</div>
-     <div class="formula-card">$${B = \frac{60}{b} = \frac{60}{0.6} = 100 \text{ kg}}$$</div>
-  4. Calculate Maximum Hammer Blow $H_{\text{blow}}$:
-     <div class="formula-card">$${H_{\text{blow}} = B \cdot b \cdot \omega^2 = 60 \times 771.6 \approx 46296 \text{ N} = 46.30 \text{ kN}}$$</div>
-  5. Calculate Maximum Swaying Couple $C_{\text{sway}}$:
-     <div class="formula-card">$${C_{\text{sway}} = \frac{a}{\sqrt{2}} (1-c) m r \omega^2 = \frac{0.7}{\sqrt{2}} \times 100 \times 0.3 \times 771.6}$$</div>
-     <div class="formula-card">$${C_{\text{sway}} = 0.4950 \times 30 \times 771.6 \approx 11458 \text{ N}\cdot\text{m} = 11.46 \text{ kN}\cdot\text{m}}$$</div>
-  6. Calculate Maximum Variation of Tractive Effort $\Delta F_T$:
-     <div class="formula-card">$${\Delta F_T = \sqrt{2} (1-c) m r \omega^2 = \sqrt{2} \times 100 \times 0.3 \times 771.6}$$</div>
-     <div class="formula-card">$${\Delta F_T = 1.4142 \times 23148 \approx 32736 \text{ N} = 32.74 \text{ kN}}$$</div>
-- <strong>Key Insight</strong>: Hammer Blow $= 46.30 \text{ kN}$, Swaying Couple $= 11.46 \text{ kN}\cdot\text{m}$, Tractive Variation $= 32.74 \text{ kN}$.</p>
-<p><strong>Worked Example 2: Maximum Speed to Prevent Wheel Lifting</strong>
-- <strong>Problem</strong>: For the locomotive in Example 1, each driving wheel carries a static dead weight $P_{\text{static}} = 50 \text{ kN} = 50000 \text{ N}$. Determine the maximum permissible linear speed $v_{\text{limit}}$ $\text{km/h}$ above which the wheels will lift off the rails.
-- <strong>Solution</strong>:
-  1. Wheel lift occurs when Hammer Blow $H_{\text{blow}} = P_{\text{static}}$:
-     <div class="formula-card">$${B \cdot b \cdot \omega_{\text{limit}}^2 = 50000 \implies 60 \cdot \omega_{\text{limit}}^2 = 50000}$$</div>
-  2. Solve for $\omega_{\text{limit}}^2$ and $\omega_{\text{limit}}$:
-     <div class="formula-card">$${\omega_{\text{limit}}^2 = \frac{50000}{60} = 833.33 \implies \omega_{\text{limit}} = \sqrt{833.33} \approx 28.868 \text{ rad/s}}$$</div>
-  3. Calculate linear speed $v_{\text{limit}}$:
-     <div class="formula-card">$${v_{\text{limit}} = \omega_{\text{limit}} \times R_w = 28.868 \times 0.9 = 25.98 \text{ m/s}}$$</div>
-  4. Convert to $\text{km/h}$:
-     <div class="formula-card">$${v_{\text{limit}} = 25.98 \times 3.6 \approx 93.53 \text{ km/h}}$$</div>
-- <strong>Key Insight</strong>: Maximum speed without wheel lifting is $93.53 \text{ km/h}$.</p>
-<hr />
-<h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual Pairs)</strong></h2>
-<p><strong>Q1: What is the relation for piston displacement in a slider-crank mechanism?</strong><br />
-A: $x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]$.</p>
-<p><strong>Q2: Write the exact formula for piston velocity $v_p$.</strong><br />
-A: $v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$.</p>
-<p><strong>Q3: Write the exact formula for piston acceleration $a_p$.</strong><br />
-A: $a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$.</p>
-<p><strong>Q4: What is the piston acceleration at Inner Dead Center $\theta = 0^\circ$?</strong><br />
-A: $a_p = \omega^2 r \left(1 + \frac{1}{n}\right)$.</p>
-<p><strong>Q5: What is the piston acceleration at Outer Dead Center $\theta = 180^\circ$?</strong><br />
-A: $a_p = -\omega^2 r \left(1 - \frac{1}{n}\right)$.</p>
-<p><strong>Q6: What happens to piston acceleration as connecting rod length $l \to \infty$?</strong><br />
-A: Obliquity ratio $n \to \infty$, and piston acceleration reduces to $a_p = \omega^2 r \cos\theta$ (pure Simple Harmonic Motion).</p>
-<p><strong>Q7: Write the expression for inertia force of reciprocating parts.</strong><br />
-A: $F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$.</p>
-<p><strong>Q8: Define Piston Effort $F_p$.</strong><br />
-A: The net effective driving force acting along the line of stroke $F_p = F_{\text{gas}} - F_i \mp R_f$.</p>
-<p><strong>Q9: Write the formula for cylinder side thrust $N_s$.</strong><br />
-A: $N_s = F_p \tan\phi$ (where $\sin\phi = \frac{\sin\theta}{n}$).</p>
-<p><strong>Q10: Write the formula for connecting rod axial force $F_q$.</strong><br />
-A: $F_q = \frac{F_p}{\cos\phi}$.</p>
-<p><strong>Q11: Write the formula for turning moment (crank effort) $T$.</strong><br />
-A: $T \approx F_p r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$.</p>
-<p><strong>Q12: What is the condition for a two-mass system to be dynamically equivalent to a connecting rod?</strong><br />
-A: (1) $m_1 + m_2 = m$, (2) $m_1 l_1 = m_2 l_2$, (3) $l_1 \cdot l_2 = k^2$.</p>
-<p><strong>Q13: Name the graphical construction used to determine piston acceleration.</strong><br />
-A: Klein's Construction (also Ritterhaus Construction and Bennett's Construction).</p>
-<p><strong>Q14: What is the primary unbalanced force formula?</strong><br />
-A: $F_P = m_{\text{rec}} r \omega^2 \cos\theta$ (acting at engine frequency $\omega$).</p>
-<p><strong>Q15: What is the secondary unbalanced force formula?</strong><br />
-A: $F_S = m_{\text{rec}} r \omega^2 \frac{\cos 2\theta}{n}$ (acting at double frequency $2\omega$).</p>
-<p><strong>Q16: Why are reciprocating masses in locomotives only partially balanced?</strong><br />
-A: Balancing $100\%$ of reciprocating mass produces a large vertical unbalanced force (Hammer Blow) that damages rails and risks lifting wheels.</p>
-<p><strong>Q17: Define Hammer Blow in locomotives.</strong><br />
-A: The maximum vertical unbalanced force exerted on rails by revolving counterweights, equal to $H_{\text{blow}} = B b \omega^2$.</p>
-<p><strong>Q18: How does Hammer Blow vary with locomotive speed?</strong><br />
-A: Hammer Blow varies directly as the square of rotational speed $\omega^2$.</p>
-<p><strong>Q19: Write the maximum Swaying Couple formula for a 2-cylinder locomotive.</strong><br />
-A: $C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m_{\text{rec}} r \omega^2$ (occurring at $\theta = 45^\circ \text{ and } 225^\circ$).</p>
-<p><strong>Q20: Write the maximum Variation of Tractive Effort formula.</strong><br />
-A: $\Delta F_T = \pm \sqrt{2} (1-c) m_{\text{rec}} r \omega^2$ (occurring at $\theta = 135^\circ \text{ and } 315^\circ$).</p>
-<hr />
-<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
-<ul>
-<li><strong>Kinematic Formulas</strong>:</li>
-<li>$v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-<li>$a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
-<li>IDC $a_p = \omega^2 r (1 + 1/n)$.</li>
-<li><strong>Dynamic Forces</strong>:</li>
-<li>Inertia Force $F_i = m a_p$. Opposes acceleration.</li>
-<li>Side Thrust $N_s = F_p \tan\phi$.</li>
-<li>Crank Effort $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-<li><strong>2-Mass Dynamic Equivalence</strong>:</li>
-<li>Requires $l_1 \cdot l_2 = k^2$.</li>
-<li><strong>Balancing &amp; Locomotives</strong>:</li>
-<li>Primary Force $F_P = m r \omega^2 \cos\theta$ (frequency $\omega$).</li>
-<li>Secondary Force $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$ (frequency $2\omega$).</li>
-<li>Hammer Blow $= B b \omega^2$ $\propto \omega^2$.</li>
-<li>Swaying Couple Max $= \frac{a}{\sqrt{2}}(1-c)m r \omega^2$ (at $\theta = 45^\circ, 225^\circ$).</li>
-<li>Tractive Variation Max $= \sqrt{2}(1-c)m r \omega^2$ (at $\theta = 135^\circ, 315^\circ$).</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize $v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-<li>[ ] Memorize $a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
-<li>[ ] Memorize IDC acceleration $a_p = \omega^2 r (1 + 1/n)$.</li>
-<li>[ ] Memorize $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
-<li>[ ] Memorize 2-mass equivalent condition $l_1 \cdot l_2 = k^2$.</li>
-<li>[ ] Memorize Primary force $F_P = m r \omega^2 \cos\theta$ ($1\times$ speed).</li>
-<li>[ ] Memorize Secondary force $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$ ($2\times$ speed).</li>
-<li>[ ] Memorize Hammer Blow $= B b \omega^2$ (varies as speed$^2$).</li>
-<li>[ ] Memorize Swaying Couple Max $= \frac{a}{\sqrt{2}}(1-c)m r \omega^2$ at $45^\circ/225^\circ$.</li>
-<li>[ ] Memorize Tractive Variation Max $= \sqrt{2}(1-c)m r \omega^2$ at $135^\circ/315^\circ$.</li>
-<li>[ ] Memorize partial balance $c \approx 50\% - 67\%$ to limit hammer blow.</li>
-</ul>
-  </div>
+      <h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Reciprocating balance fraction $c \approx 50\% - 66.7\%$.</li>
+         <li>[ ] Hammer Blow $H_{\text{blow}} = B b \omega^2$.</li>
+         <li>[ ] Hammer blow varies as speed squared $\omega^2$.</li>
+         <li>[ ] Max Swaying Couple $= \frac{a}{\sqrt{2}} (1-c) m r \omega^2$ at $\theta = 45^\circ, 225^\circ$.</li>
+         <li>[ ] Max Tractive Variation $= \sqrt{2} (1-c) m r \omega^2$ at $\theta = 135^\circ, 315^\circ$.</li>
+         <li>[ ] Wheel lift occurs if $H_{\text{blow}} &gt; P_{\text{static}}$.</li>
+      </ul>
+      <h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Locomotive Hammer Blow, Swaying Couple &amp; Tractive Variation</strong>
+         - <strong>Problem</strong>: An inside two-cylinder uncoupled locomotive has cylinder centerlines $a = 0.7
+         \text{ m}$ apart. Stroke $2 r = 600 \text{ mm}$ $r = 0.3 \text{ m}$. Reciprocating mass per cylinder $m = 300
+         \text{ kg}$. Revolving masses are fully balanced. Two-thirds $c = 2/3$ of reciprocating masses are balanced by
+         counterweights placed at radius $b = 0.6 \text{ m}$ in wheel planes separated by $1.5 \text{ m}$. Driving wheel
+         diameter $= 1.8 \text{ m}$. Locomotive speed $v = 90 \text{ km/h} = 25 \text{ m/s}$. Calculate: (a) Angular
+         velocity $\omega$, (b) Maximum Hammer Blow, (c) Maximum Swaying Couple, (d) Maximum Variation of Tractive
+         Effort.
+         - <strong>Solution</strong>:
+         1. Calculate wheel angular velocity $\omega$:
+      <div class="formula-card">$${\text{Wheel radius } R_w = \frac{1.8}{2} = 0.9 \text{ m} \implies \omega =
+         \frac{v}{R_w} = \frac{25}{0.9} \approx 27.78 \text{ rad/s}}$$</div>
+      <div class="formula-card">$${\omega^2 = (27.78)^2 \approx 771.6 \text{ (rad/s)}^2}$$</div>
+      2. Calculate unbalanced reciprocating mass per cylinder $(1-c)m$:
+      <div class="formula-card">$${(1 - c) m = \left(1 - \frac{2}{3}\right) \times 300 = 100 \text{ kg}}$$</div>
+      3. Calculate balancing mass $B$ per wheel for reciprocating parts $c m r = B b$:
+      <div class="formula-card">$${B \cdot b = c \cdot m \cdot r = \frac{2}{3} \times 300 \times 0.3 = 60 \text{
+         kg}\cdot\text{m}}$$</div>
+      <div class="formula-card">$${B = \frac{60}{b} = \frac{60}{0.6} = 100 \text{ kg}}$$</div>
+      4. Calculate Maximum Hammer Blow $H_{\text{blow}}$:
+      <div class="formula-card">$${H_{\text{blow}} = B \cdot b \cdot \omega^2 = 60 \times 771.6 \approx 46296 \text{ N}
+         = 46.30 \text{ kN}}$$</div>
+      5. Calculate Maximum Swaying Couple $C_{\text{sway}}$:
+      <div class="formula-card">$${C_{\text{sway}} = \frac{a}{\sqrt{2}} (1-c) m r \omega^2 = \frac{0.7}{\sqrt{2}} \times
+         100 \times 0.3 \times 771.6}$$</div>
+      <div class="formula-card">$${C_{\text{sway}} = 0.4950 \times 30 \times 771.6 \approx 11458 \text{ N}\cdot\text{m}
+         = 11.46 \text{ kN}\cdot\text{m}}$$</div>
+      6. Calculate Maximum Variation of Tractive Effort $\Delta F_T$:
+      <div class="formula-card">$${\Delta F_T = \sqrt{2} (1-c) m r \omega^2 = \sqrt{2} \times 100 \times 0.3 \times
+         771.6}$$</div>
+      <div class="formula-card">$${\Delta F_T = 1.4142 \times 23148 \approx 32736 \text{ N} = 32.74 \text{ kN}}$$</div>
+      - <strong>Key Insight</strong>: Hammer Blow $= 46.30 \text{ kN}$, Swaying Couple $= 11.46 \text{
+      kN}\cdot\text{m}$, Tractive Variation $= 32.74 \text{ kN}$.</p>
+      <p><strong>Worked Example 2: Maximum Speed to Prevent Wheel Lifting</strong>
+         - <strong>Problem</strong>: For the locomotive in Example 1, each driving wheel carries a static dead weight
+         $P_{\text{static}} = 50 \text{ kN} = 50000 \text{ N}$. Determine the maximum permissible linear speed
+         $v_{\text{limit}}$ $\text{km/h}$ above which the wheels will lift off the rails.
+         - <strong>Solution</strong>:
+         1. Wheel lift occurs when Hammer Blow $H_{\text{blow}} = P_{\text{static}}$:
+      <div class="formula-card">$${B \cdot b \cdot \omega_{\text{limit}}^2 = 50000 \implies 60 \cdot
+         \omega_{\text{limit}}^2 = 50000}$$</div>
+      2. Solve for $\omega_{\text{limit}}^2$ and $\omega_{\text{limit}}$:
+      <div class="formula-card">$${\omega_{\text{limit}}^2 = \frac{50000}{60} = 833.33 \implies \omega_{\text{limit}} =
+         \sqrt{833.33} \approx 28.868 \text{ rad/s}}$$</div>
+      3. Calculate linear speed $v_{\text{limit}}$:
+      <div class="formula-card">$${v_{\text{limit}} = \omega_{\text{limit}} \times R_w = 28.868 \times 0.9 = 25.98
+         \text{ m/s}}$$</div>
+      4. Convert to $\text{km/h}$:
+      <div class="formula-card">$${v_{\text{limit}} = 25.98 \times 3.6 \approx 93.53 \text{ km/h}}$$</div>
+      - <strong>Key Insight</strong>: Maximum speed without wheel lifting is $93.53 \text{ km/h}$.</p>
+      <hr />
+      <h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual
+            Pairs)</strong></h2>
+      <p><strong>Q1: What is the relation for piston displacement in a slider-crank mechanism?</strong><br />
+         A: $x = r \left[(1 - \cos\theta) + \frac{\sin^2\theta}{2n}\right]$.</p>
+      <p><strong>Q2: Write the exact formula for piston velocity $v_p$.</strong><br />
+         A: $v_p = \omega r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$.</p>
+      <p><strong>Q3: Write the exact formula for piston acceleration $a_p$.</strong><br />
+         A: $a_p = \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$.</p>
+      <p><strong>Q4: What is the piston acceleration at Inner Dead Center $\theta = 0^\circ$?</strong><br />
+         A: $a_p = \omega^2 r \left(1 + \frac{1}{n}\right)$.</p>
+      <p><strong>Q5: What is the piston acceleration at Outer Dead Center $\theta = 180^\circ$?</strong><br />
+         A: $a_p = -\omega^2 r \left(1 - \frac{1}{n}\right)$.</p>
+      <p><strong>Q6: What happens to piston acceleration as connecting rod length $l \to \infty$?</strong><br />
+         A: Obliquity ratio $n \to \infty$, and piston acceleration reduces to $a_p = \omega^2 r \cos\theta$ (pure
+         Simple Harmonic Motion).</p>
+      <p><strong>Q7: Write the expression for inertia force of reciprocating parts.</strong><br />
+         A: $F_i = m_{\text{rec}} \cdot a_p = m_{\text{rec}} \omega^2 r \left(\cos\theta + \frac{\cos
+         2\theta}{n}\right)$.</p>
+      <p><strong>Q8: Define Piston Effort $F_p$.</strong><br />
+         A: The net effective driving force acting along the line of stroke $F_p = F_{\text{gas}} - F_i \mp R_f$.</p>
+      <p><strong>Q9: Write the formula for cylinder side thrust $N_s$.</strong><br />
+         A: $N_s = F_p \tan\phi$ (where $\sin\phi = \frac{\sin\theta}{n}$).</p>
+      <p><strong>Q10: Write the formula for connecting rod axial force $F_q$.</strong><br />
+         A: $F_q = \frac{F_p}{\cos\phi}$.</p>
+      <p><strong>Q11: Write the formula for turning moment (crank effort) $T$.</strong><br />
+         A: $T \approx F_p r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$.</p>
+      <p><strong>Q12: What is the condition for a two-mass system to be dynamically equivalent to a connecting
+            rod?</strong><br />
+         A: (1) $m_1 + m_2 = m$, (2) $m_1 l_1 = m_2 l_2$, (3) $l_1 \cdot l_2 = k^2$.</p>
+      <p><strong>Q13: Name the graphical construction used to determine piston acceleration.</strong><br />
+         A: Klein's Construction (also Ritterhaus Construction and Bennett's Construction).</p>
+      <p><strong>Q14: What is the primary unbalanced force formula?</strong><br />
+         A: $F_P = m_{\text{rec}} r \omega^2 \cos\theta$ (acting at engine frequency $\omega$).</p>
+      <p><strong>Q15: What is the secondary unbalanced force formula?</strong><br />
+         A: $F_S = m_{\text{rec}} r \omega^2 \frac{\cos 2\theta}{n}$ (acting at double frequency $2\omega$).</p>
+      <p><strong>Q16: Why are reciprocating masses in locomotives only partially balanced?</strong><br />
+         A: Balancing $100\%$ of reciprocating mass produces a large vertical unbalanced force (Hammer Blow) that
+         damages rails and risks lifting wheels.</p>
+      <p><strong>Q17: Define Hammer Blow in locomotives.</strong><br />
+         A: The maximum vertical unbalanced force exerted on rails by revolving counterweights, equal to
+         $H_{\text{blow}} = B b \omega^2$.</p>
+      <p><strong>Q18: How does Hammer Blow vary with locomotive speed?</strong><br />
+         A: Hammer Blow varies directly as the square of rotational speed $\omega^2$.</p>
+      <p><strong>Q19: Write the maximum Swaying Couple formula for a 2-cylinder locomotive.</strong><br />
+         A: $C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1-c) m_{\text{rec}} r \omega^2$ (occurring at $\theta = 45^\circ
+         \text{ and } 225^\circ$).</p>
+      <p><strong>Q20: Write the maximum Variation of Tractive Effort formula.</strong><br />
+         A: $\Delta F_T = \pm \sqrt{2} (1-c) m_{\text{rec}} r \omega^2$ (occurring at $\theta = 135^\circ \text{ and }
+         315^\circ$).</p>
+      <hr />
+      <h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp;
+            HIGH-YIELD EXAM TRAPS</strong></h2>
+      <ul>
+         <li><strong>Kinematic Formulas</strong>:</li>
+         <li>$v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+         <li>$a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
+         <li>IDC $a_p = \omega^2 r (1 + 1/n)$.</li>
+         <li><strong>Dynamic Forces</strong>:</li>
+         <li>Inertia Force $F_i = m a_p$. Opposes acceleration.</li>
+         <li>Side Thrust $N_s = F_p \tan\phi$.</li>
+         <li>Crank Effort $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+         <li><strong>2-Mass Dynamic Equivalence</strong>:</li>
+         <li>Requires $l_1 \cdot l_2 = k^2$.</li>
+         <li><strong>Balancing &amp; Locomotives</strong>:</li>
+         <li>Primary Force $F_P = m r \omega^2 \cos\theta$ (frequency $\omega$).</li>
+         <li>Secondary Force $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$ (frequency $2\omega$).</li>
+         <li>Hammer Blow $= B b \omega^2$ $\propto \omega^2$.</li>
+         <li>Swaying Couple Max $= \frac{a}{\sqrt{2}}(1-c)m r \omega^2$ (at $\theta = 45^\circ, 225^\circ$).</li>
+         <li>Tractive Variation Max $= \sqrt{2}(1-c)m r \omega^2$ (at $\theta = 135^\circ, 315^\circ$).</li>
+      </ul>
+      <hr />
+      <h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM
+            CHECKLIST</strong></h2>
+      <ul>
+         <li>[ ] Memorize $v_p = \omega r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+         <li>[ ] Memorize $a_p = \omega^2 r (\cos\theta + \frac{\cos 2\theta}{n})$.</li>
+         <li>[ ] Memorize IDC acceleration $a_p = \omega^2 r (1 + 1/n)$.</li>
+         <li>[ ] Memorize $T \approx F_p r (\sin\theta + \frac{\sin 2\theta}{2n})$.</li>
+         <li>[ ] Memorize 2-mass equivalent condition $l_1 \cdot l_2 = k^2$.</li>
+         <li>[ ] Memorize Primary force $F_P = m r \omega^2 \cos\theta$ ($1\times$ speed).</li>
+         <li>[ ] Memorize Secondary force $F_S = m r \omega^2 \frac{\cos 2\theta}{n}$ ($2\times$ speed).</li>
+         <li>[ ] Memorize Hammer Blow $= B b \omega^2$ (varies as speed$^2$).</li>
+         <li>[ ] Memorize Swaying Couple Max $= \frac{a}{\sqrt{2}}(1-c)m r \omega^2$ at $45^\circ/225^\circ$.</li>
+         <li>[ ] Memorize Tractive Variation Max $= \sqrt{2}(1-c)m r \omega^2$ at $135^\circ/315^\circ$.</li>
+         <li>[ ] Memorize partial balance $c \approx 50\% - 67\%$ to limit hammer blow.</li>
+      </ul>
+   </div>
 </body>
+
 </html>
