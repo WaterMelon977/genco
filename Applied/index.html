@@ -3,378 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applied Thermodynamics — AP GenCo AE & Mechanical Exam Revision Hub</title>
-  <script>
-    MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>Applied Thermodynamics — Exam Hub</title>
   <style>
     :root {
-      --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-      --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-      --border-light: #E2D9CC; --border-accent: #8C5A37;
-      --heading-color: #4A2E1B; --heading-sub: #664229;
-      --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-      --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-      --badge-bg: #EAE1D3; --badge-text: #4A2E1B;
-      --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-      --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
+      --bg-page:#F0ECE1;--bg-card:#FFFFFF;--bg-formula:#FAF7F2;
+      --text-primary:#2D2926;--text-secondary:#5C544D;--text-accent:#8C5A37;
+      --border-light:#E2D9CC;--border-accent:#8C5A37;
+      --heading-color:#4A2E1B;--heading-sub:#664229;
+      --nav-bg:linear-gradient(135deg,#4A2E1B 0%,#664229 100%);--nav-text:#FFFDF9;
+      --progress-color:#8C5A37;
     }
-    [data-theme="dark"] {
-      --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-      --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-      --border-light: #3D3732; --border-accent: #C8895A;
-      --heading-color: #E2D9CC; --heading-sub: #C8895A;
-      --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-      --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-      --badge-bg: #2D251E; --badge-text: #E2D9CC;
-      --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-      --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
+    [data-theme="dark"]{
+      --bg-page:#1C1A17;--bg-card:#262320;--bg-formula:#1F1D1A;
+      --text-primary:#E2D9CC;--text-secondary:#A89A8E;--text-accent:#C8895A;
+      --border-light:#3D3732;--border-accent:#C8895A;
+      --heading-color:#E2D9CC;--heading-sub:#C8895A;
+      --nav-bg:linear-gradient(135deg,#2A1A0E 0%,#3D2510 100%);--nav-text:#E2D9CC;
+      --progress-color:#C8895A;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.75; color: var(--text-primary); background-color: var(--bg-page); padding: 40px 20px 60px; transition: background-color 0.25s, color 0.25s; }
-    .container { max-width: 1040px; margin: 0 auto; }
-    h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); }
-    
-    .portal-header { text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 44px 32px 36px; border-radius: 16px; margin-bottom: 32px; box-shadow: 0 10px 30px rgba(74,46,27,0.20); position: relative; overflow: hidden; }
-    .portal-header::after { content: ""; position: absolute; bottom: 0; right: 0; width: 220px; height: 220px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); pointer-events: none; }
-    .back-btn { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); color: #FFFDF9; border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 6px 18px; text-decoration: none; font-size: 9.5pt; font-weight: 600; margin-bottom: 20px; transition: all 0.2s ease; }
-    .back-btn:hover { background: rgba(255,255,255,0.22); color: #FFF; transform: translateX(-3px); }
-    .portal-header h1 { font-size: 26pt; margin-bottom: 12px; color: var(--nav-text); line-height: 1.25; }
-    .portal-header p { font-size: 11.5pt; color: #E8DACF; max-width: 720px; margin: 0 auto 22px; opacity: 0.95; }
-    .tag-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-    .tag { background: rgba(255,255,255,0.14); color: #FFFDF9; border: 1px solid rgba(255,255,255,0.22); border-radius: 20px; font-size: 9pt; font-weight: 500; padding: 4px 14px; backdrop-filter: blur(4px); }
-    
-    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; }
-    .stat-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 20px; text-align: center; box-shadow: 0 2px 8px rgba(60,40,20,0.05); }
-    .stat-num { font-size: 18pt; font-weight: 800; color: var(--border-accent); font-family: "Bookman Old Style", Georgia, serif; }
-    .stat-label { font-size: 9.5pt; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:11pt;line-height:1.7;color:var(--text-primary);background:var(--bg-page);padding:36px 20px 56px;transition:background .25s,color .25s;}
+    .container{max-width:900px;margin:0 auto;}
+    h1,h2,h3{font-family:"Bookman Old Style",Georgia,serif;color:var(--heading-color);}
 
-    .info-bar { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 5px solid var(--border-accent); border-radius: 10px; padding: 16px 22px; font-size: 10.5pt; color: var(--text-secondary); margin-bottom: 36px; box-shadow: 0 2px 8px rgba(60,40,20,0.04); }
-    .info-bar strong { color: var(--heading-color); }
-    
-    .section-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-accent); padding-bottom: 8px; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
-    .section-title { font-size: 16pt; color: var(--heading-color); margin: 0; }
-    .arch-badge { font-size: 9pt; font-weight: 700; color: var(--text-accent); background: var(--bg-formula); border: 1px solid var(--border-light); padding: 4px 12px; border-radius: 20px; }
+    #reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--progress-color);z-index:9999;transition:width .1s linear;border-radius:0 2px 2px 0;}
+    #theme-toggle{position:fixed;top:14px;right:18px;background:var(--bg-card);border:1px solid var(--border-light);color:var(--text-secondary);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15pt;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:9998;transition:transform .15s,border-color .2s;}
+    #theme-toggle:hover{transform:scale(1.1);border-color:var(--border-accent);}
 
-    .search-box { margin-bottom: 28px; }
-    .search-input { width: 100%; padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border-light); background: var(--bg-card); color: var(--text-primary); font-size: 10.5pt; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-    .search-input:focus { border-color: var(--border-accent); box-shadow: 0 0 0 3px rgba(140,90,55,0.15); }
+    .hub-header{margin-bottom:32px;}
+    .back-btn{display:inline-flex;align-items:center;gap:5px;color:var(--text-accent);text-decoration:none;font-size:9.5pt;font-weight:600;margin-bottom:16px;transition:gap .15s;}
+    .back-btn:hover{gap:8px;}
+    .hub-header h1{font-size:22pt;line-height:1.2;margin-bottom:4px;}
+    .hub-subtitle{font-size:10pt;color:var(--text-secondary);font-style:italic;}
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px; }
-    .card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 16px rgba(60,40,20,0.06); transition: all 0.25s ease; position: relative; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(74,46,27,0.14); border-color: var(--border-accent); }
-    .card::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 4px; border-radius: 0 4px 4px 0; background: var(--border-light); transition: background 0.25s; }
-    .card:hover::before { background: var(--border-accent); }
+    .divider{border:none;border-top:1px solid var(--border-light);margin:24px 0;}
 
-    .card-top { margin-bottom: 16px; }
-    .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .card-num { font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--border-accent); background: var(--bg-formula); padding: 3px 10px; border-radius: 6px; border: 1px solid var(--border-light); }
-    .card-type { font-size: 8pt; font-weight: 600; color: var(--text-secondary); opacity: 0.85; }
-    .card-title { font-family: "Bookman Old Style", Georgia, serif; font-size: 14pt; font-weight: 700; color: var(--heading-color); margin-bottom: 10px; line-height: 1.35; }
-    .card-desc { font-size: 10pt; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
-    
-    .card-topics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .pill { background: var(--bg-page); color: var(--heading-sub); border: 1px solid var(--border-light); border-radius: 20px; font-size: 8.5pt; font-weight: 600; padding: 2px 10px; transition: background 0.15s; }
-    .card:hover .pill { background: var(--bg-formula); border-color: var(--border-accent); }
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:40px;}
+    .card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:12px;padding:20px 20px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 10px rgba(60,40,20,.05);transition:all .22s ease;position:relative;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(74,46,27,.11);border-color:var(--border-accent);}
+    .card::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:0 3px 3px 0;background:var(--border-light);transition:background .22s;}
+    .card:hover::before{background:var(--border-accent);}
 
-    .formula-preview { background: var(--bg-formula); border: 1px solid var(--border-light); border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; font-size: 9.5pt; text-align: center; overflow-x: auto; color: var(--text-primary); }
+    .card-num{font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-accent);background:var(--bg-formula);padding:2px 9px;border-radius:5px;border:1px solid var(--border-light);display:inline-block;margin-bottom:10px;}
+    .card-title{font-family:"Bookman Old Style",Georgia,serif;font-size:12.5pt;font-weight:700;color:var(--heading-color);margin-bottom:8px;line-height:1.35;}
+    .card-topics{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+    .pill{background:var(--bg-page);color:var(--heading-sub);border:1px solid var(--border-light);border-radius:20px;font-size:8pt;font-weight:600;padding:2px 9px;}
 
-    .card-cta-group { border-top: 1px solid var(--border-light); padding-top: 16px; display: flex; flex-direction: column; gap: 8px; }
-    .btn-primary { display: flex; justify-content: space-between; align-items: center; background: var(--nav-bg); color: var(--nav-text); border-radius: 8px; padding: 10px 16px; text-decoration: none; font-size: 9.5pt; font-weight: 700; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 2px 6px rgba(74,46,27,0.12); }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(74,46,27,0.22); text-decoration: none; color: #FFF; }
-    .btn-secondary { display: flex; justify-content: space-between; align-items: center; background: var(--bg-formula); color: var(--text-accent); border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; text-decoration: none; font-size: 9pt; font-weight: 600; transition: background 0.15s, border-color 0.15s; }
-    .btn-secondary:hover { background: var(--bg-card); border-color: var(--border-accent); text-decoration: none; color: var(--heading-color); }
+    .card-cta-group{border-top:1px solid var(--border-light);padding-top:12px;display:flex;flex-direction:column;gap:6px;}
+    .btn-primary{display:flex;justify-content:space-between;align-items:center;background:var(--nav-bg);color:var(--nav-text);border-radius:7px;padding:9px 14px;text-decoration:none;font-size:9pt;font-weight:700;transition:opacity .15s;}
+    .btn-primary:hover{opacity:.9;color:#FFF;text-decoration:none;}
+    .btn-secondary{display:flex;justify-content:space-between;align-items:center;background:transparent;color:var(--text-accent);border:1px solid var(--border-light);border-radius:7px;padding:7px 12px;text-decoration:none;font-size:8.5pt;font-weight:600;transition:border-color .15s;}
+    .btn-secondary:hover{border-color:var(--border-accent);color:var(--heading-color);text-decoration:none;}
 
-    .exam-notes { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px; margin-bottom: 40px; box-shadow: 0 3px 12px rgba(60,40,20,0.05); }
-    .exam-notes h3 { font-size: 14pt; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; margin-bottom: 16px; color: var(--heading-color); }
-    .exam-notes ul { padding-left: 1.5em; font-size: 10.5pt; line-height: 1.8; color: var(--text-primary); }
-    .exam-notes li { margin-bottom: 6px; }
-
-    #theme-toggle { position: fixed; top: 14px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16pt; box-shadow: 0 3px 12px rgba(0,0,0,0.12); z-index: 9998; transition: transform 0.15s, border-color 0.2s; line-height: 1; }
-    #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-
-    footer { text-align: center; font-size: 9.5pt; color: var(--text-secondary); padding-top: 24px; border-top: 1px solid var(--border-light); }
-    @media(max-width:680px) { .portal-header h1 { font-size: 20pt; } .grid { grid-template-columns: 1fr; } }
+    footer{text-align:center;font-size:9pt;color:var(--text-secondary);padding-top:20px;border-top:1px solid var(--border-light);}
+    @media(max-width:640px){.hub-header h1{font-size:18pt;}.grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
-
-  <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+  <div id="reading-progress"></div>
+  <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
   <script>
-    (function() {
-      var toggle = document.getElementById("theme-toggle");
-      var saved = localStorage.getItem("ag-theme") || "light";
-      function applyTheme(t) {
-        document.documentElement.setAttribute("data-theme", t);
-        toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
-        localStorage.setItem("ag-theme", t);
-      }
-      applyTheme(saved);
-      toggle.addEventListener("click", function() {
-        var curr = document.documentElement.getAttribute("data-theme") || "light";
-        applyTheme(curr === "dark" ? "light" : "dark");
-      });
+    (function(){
+      var t=document.getElementById("theme-toggle");
+      var s=localStorage.getItem("ag-theme")||"light";
+      function a(v){document.documentElement.setAttribute("data-theme",v);t.textContent=v==="dark"?"\u{1F319}":"\u2600\uFE0F";localStorage.setItem("ag-theme",v);}
+      a(s);
+      t.addEventListener("click",function(){a(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");});
+      var bar=document.getElementById("reading-progress");
+      window.addEventListener("scroll",function(){var d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d>0?Math.min(window.scrollY/d*100,100):0)+"%";},{passive:true});
     })();
   </script>
 
   <div class="container">
 
-    <!-- Header Portal Banner -->
-    <div class="portal-header">
-      <a href="../index.html" class="back-btn">&larr; Back to Main Mechanical Exam Portal</a>
-      <h1>Applied Thermodynamics Exam Hub</h1>
-      <p>Master study portal for AP GenCo AE, SSC JE, TSPSC AEE, and GATE Mechanical Engineering examinations. Dual-tier architecture featuring concise revision guides and comprehensive master deep-dives.</p>
-      <div class="tag-row">
-        <span class="tag">AP GenCo AE</span>
-        <span class="tag">SSC JE</span>
-        <span class="tag">TSPSC AEE</span>
-        <span class="tag">GATE Mechanical</span>
-        <span class="tag">5 Core Modules</span>
-        <span class="tag">Dual-Tier Guides</span>
-      </div>
+    <div class="hub-header">
+      <a href="../index.html" class="back-btn">&larr; Main Portal</a>
+      <h1>Applied Thermodynamics</h1>
+      <div class="hub-subtitle">IC Engines, Compressors &amp; Auxiliary Systems — 5 modules</div>
     </div>
 
-    <!-- Quick Stats Bar -->
-    <div class="stats-bar">
-      <div class="stat-card">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Complete Syllabus Modules</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">10</div>
-        <div class="stat-label">Dual Revision &amp; Deep-Dive Guides</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Formula &amp; Exam Trap Coverage</div>
-      </div>
-    </div>
+    <hr class="divider">
 
-    <!-- Info Bar -->
-    <div class="info-bar">
-      <strong>Syllabus Scope:</strong> Reciprocating &amp; Rotary Compressors (PD vs Dynamic, Intercooling, Surging/Stalling) · Air-Standard Cycles &amp; IC Engine Geometry · Engine Performance Testing (Morse test, Rope-brake, Willan's line, BSFC) · Knocking &amp; Detonation (SI Octane vs CI Cetane ratings) · Lubrication, Cooling &amp; Ignition Systems.
-    </div>
-
-    <!-- Search / Filter Box -->
-    <div class="search-box">
-      <input type="text" id="module-search" class="search-input" placeholder="🔍 Search modules by topic, formula, or keyword (e.g. Morse test, Octane, Intercooling, Thermostat)..." onkeyup="filterModules()">
-    </div>
-
-    <!-- Section Heading -->
-    <div class="section-header">
-      <h2 class="section-title">Applied Thermodynamics Modules</h2>
-      <span class="arch-badge">Dual-Tier Linked Architecture</span>
-    </div>
-
-    <!-- Modules Grid -->
     <div class="grid" id="modules-grid">
 
       <!-- Module 01 -->
-      <div class="card" data-keywords="compressors reciprocating centrifugal axial volumetric efficiency intercooling surging stalling slip factor degree reaction pd dynamic">
-        <div class="card-top">
-          <div class="card-meta">
-            <span class="card-num">Module 01</span>
-            <span class="card-type">Compressors &amp; Air Systems</span>
-          </div>
-          <h3 class="card-title">Classification &amp; Working Principles of Compressors</h3>
-          <p class="card-desc">Positive displacement vs dynamic compressors, reciprocating work equations, clearance ratio &amp; volumetric efficiency ($\eta_v$), multi-stage intercooling condition ($P_i = \sqrt{P_1 P_2}$), centrifugal slip factor, axial degree of reaction ($R \approx 0.5$), and surging vs stalling.</p>
+      <div class="card">
+        <div>
+          <span class="card-num">Module 01</span>
+          <h3 class="card-title">Compressors</h3>
           <div class="card-topics">
             <span class="pill">PD vs Dynamic</span>
-            <span class="pill">$\eta_v = 1 + C - C(P_2/P_1)^{1/n}$</span>
-            <span class="pill">Intercooling $P_i=\sqrt{P_1P_2}$</span>
-            <span class="pill">Centrifugal Slip Factor</span>
-            <span class="pill">Axial $R=0.5$</span>
+            <span class="pill">Reciprocating &amp; Volumetric Efficiency</span>
+            <span class="pill">Multi-Stage Intercooling</span>
             <span class="pill">Surging vs Stalling</span>
-          </div>
-          <div class="formula-preview">
-            $$W = \frac{n}{n-1} P_1 V_1 \left[\left(\frac{P_2}{P_1}\right)^{\frac{n-1}{n}}-1\right], \quad \eta_v = 1 + C - C\left(\frac{P_2}{P_1}\right)^{\frac{1}{n}}, \quad P_i = \sqrt{P_1 P_2}$$
           </div>
         </div>
         <div class="card-cta-group">
-          <a href="compressors_revised.html" class="btn-primary">
-            <span>⚡ Concise Revision Guide</span>
-            <span>&rarr;</span>
-          </a>
-          <a href="compressors_reorganized.html" class="btn-secondary">
-            <span>📖 Comprehensive Master Guide</span>
-            <span>&rarr;</span>
-          </a>
+          <a href="compressors_revised.html" class="btn-primary"><span>Quick Revision</span><span>&rarr;</span></a>
+          <a href="compressors_reorganized.html" class="btn-secondary"><span>Deep Dive</span><span>&rarr;</span></a>
         </div>
       </div>
 
       <!-- Module 02 -->
-      <div class="card" data-keywords="ic engine otto diesel dual air standard cycles compression ratio kinematics stroke bore 4 stroke 2 stroke si ci governing quantity quality">
-        <div class="card-top">
-          <div class="card-meta">
-            <span class="card-num">Module 02</span>
-            <span class="card-type">I.C. Engine Fundamentals</span>
-          </div>
-          <h3 class="card-title">IC Engine Classification &amp; Working Principles</h3>
-          <p class="card-desc">Otto, Diesel &amp; Dual cycle efficiencies, cycle efficiency comparisons (Same $r$ vs Same $P_{\text{max}}$), compression ratio ($r = 1 + V_s/V_c$), 4-stroke kinematics ($N_{\text{cam}} = N/2$), SI vs CI governing (Quantity vs Quality), and power definitions ($P_m = W_{\text{net}}/V_s$).</p>
+      <div class="card">
+        <div>
+          <span class="card-num">Module 02</span>
+          <h3 class="card-title">IC Engine Classification &amp; Principles</h3>
           <div class="card-topics">
-            <span class="pill">Otto/Diesel/Dual Cycles</span>
-            <span class="pill">Same $r$ vs $P_{\max}$</span>
-            <span class="pill">$r = 1 + V_s/V_c$</span>
-            <span class="pill">$N_{\text{cam}} = N/2$</span>
-            <span class="pill">Quantity vs Quality</span>
-            <span class="pill">$P_m = W_{\text{net}}/V_s$</span>
-          </div>
-          <div class="formula-preview">
-            $$\eta_{\text{Otto}} = 1 - \frac{1}{r^{\gamma-1}}, \quad r = 1 + \frac{V_s}{V_c}, \quad N_{\text{cam}} = \frac{N_{\text{crank}}}{2}, \quad P_m = \frac{W_{\text{net}}}{V_s}, \quad \eta_m = \frac{BP}{IP}$$
+            <span class="pill">Otto / Diesel / Dual Cycles</span>
+            <span class="pill">Compression Ratio &amp; Geometry</span>
+            <span class="pill">4-Stroke Kinematics</span>
+            <span class="pill">SI vs CI Governing</span>
           </div>
         </div>
         <div class="card-cta-group">
-          <a href="ICE_revised.html" class="btn-primary">
-            <span>⚡ Concise Revision Guide</span>
-            <span>&rarr;</span>
-          </a>
-          <a href="ICE_reorganized.html" class="btn-secondary">
-            <span>📖 Comprehensive Master Guide</span>
-            <span>&rarr;</span>
-          </a>
+          <a href="ICE_revised.html" class="btn-primary"><span>Quick Revision</span><span>&rarr;</span></a>
+          <a href="ICE_reorganized.html" class="btn-secondary"><span>Deep Dive</span><span>&rarr;</span></a>
         </div>
       </div>
 
       <!-- Module 03 -->
-      <div class="card" data-keywords="engine performance testing supercharger turbocharger rope brake dynamometer morse test willan line bsfc sfc indicated brake power mechanical efficiency volumetric">
-        <div class="card-top">
-          <div class="card-meta">
-            <span class="card-num">Module 03</span>
-            <span class="card-type">Testing &amp; Performance</span>
-          </div>
-          <h3 class="card-title">Engine Performance Testing &amp; Design</h3>
-          <p class="card-desc">Supercharger vs Turbocharger density ratios ($\rho_2/\rho_1$), Rope-Brake Dynamometer ($BP$), Morse Test for multi-cylinder friction power ($IP_i$), Willan's line extrapolation for CI engines, BSFC ($sfc = \dot{m}_f / BP$), and Volumetric Efficiency ($\eta_v$).</p>
+      <div class="card">
+        <div>
+          <span class="card-num">Module 03</span>
+          <h3 class="card-title">Engine Performance Testing</h3>
           <div class="card-topics">
-            <span class="pill">Supercharging $\rho_2/\rho_1$</span>
-            <span class="pill">Rope-Brake $BP$</span>
-            <span class="pill">Morse Test ($IP_i$)</span>
+            <span class="pill">Supercharging &amp; Turbocharging</span>
+            <span class="pill">Rope-Brake &amp; Morse Test</span>
             <span class="pill">Willan's Line</span>
-            <span class="pill">BSFC ($\dot{m}_f / BP$)</span>
-            <span class="pill">Firing Order</span>
-          </div>
-          <div class="formula-preview">
-            $$BP = \frac{(W-S) \pi D N}{60000}, \quad IP_i = BP_{\text{all}} - BP_{\text{cut } i}, \quad sfc = \frac{\dot{m}_f}{BP}, \quad \frac{\rho_2}{\rho_1} = \frac{P_2 T_1}{P_1 T_2}$$
+            <span class="pill">BSFC &amp; Efficiencies</span>
           </div>
         </div>
         <div class="card-cta-group">
-          <a href="engineperformance_revised.html" class="btn-primary">
-            <span>⚡ Concise Revision Guide</span>
-            <span>&rarr;</span>
-          </a>
-          <a href="Engineperformance_reorganized.html" class="btn-secondary">
-            <span>📖 Comprehensive Master Guide</span>
-            <span>&rarr;</span>
-          </a>
+          <a href="engineperformance_revised.html" class="btn-primary"><span>Quick Revision</span><span>&rarr;</span></a>
+          <a href="Engineperformance_reorganized.html" class="btn-secondary"><span>Deep Dive</span><span>&rarr;</span></a>
         </div>
       </div>
 
       <!-- Module 04 -->
-      <div class="card" data-keywords="lubrication cooling ignition mist splash pressure wet sump dry sump stribeck curve hersey parameter sae viscosity thermostat fan belt choke battery magneto">
-        <div class="card-top">
-          <div class="card-meta">
-            <span class="card-num">Module 04</span>
-            <span class="card-type">Auxiliary Engine Systems</span>
-          </div>
-          <h3 class="card-title">Lubrication, Cooling &amp; Ignition Systems</h3>
-          <p class="card-desc">Mist (2-stroke petrol), Splash, Pressure ($0.4-4 \text{ kg/cm}^2$), Dry-Sump (scavenge + pressure pumps), Stribeck Curve ($\Lambda = \frac{\eta N}{P}$), SAE Viscosity ranking ($\text{SAE } 80 > 30$), Thermostat ($80^\circ\text{C}-85^\circ\text{C}$), Coolant knock effect, Choke valve, and Magneto vs Battery ignition.</p>
+      <div class="card">
+        <div>
+          <span class="card-num">Module 04</span>
+          <h3 class="card-title">Lubrication, Cooling &amp; Ignition</h3>
           <div class="card-topics">
-            <span class="pill">Mist / Splash / Pressure</span>
-            <span class="pill">Dry-Sump (2 Pumps)</span>
-            <span class="pill">Stribeck $\Lambda = \frac{\eta N}{P}$</span>
-            <span class="pill">SAE $80 > 70 > 40 > 30$</span>
-            <span class="pill">Thermostat $80-85^\circ\text{C}$</span>
-            <span class="pill">Magneto (No Battery)</span>
-          </div>
-          <div class="formula-preview">
-            $$\Lambda = \frac{\eta \cdot N}{P}, \quad \text{SAE } 80 > \text{SAE } 70 > \text{SAE } 30, \quad T_{\text{thermostat}} = 80^\circ\text{C} - 85^\circ\text{C}, \quad T_{\text{coolant}} \uparrow \implies \text{SI Knock } \uparrow$$
+            <span class="pill">Mist, Splash &amp; Pressure Systems</span>
+            <span class="pill">Stribeck Curve &amp; Viscosity</span>
+            <span class="pill">Cooling &amp; Thermostats</span>
+            <span class="pill">Battery vs Magneto Ignition</span>
           </div>
         </div>
         <div class="card-cta-group">
-          <a href="lube_ignition_revised.html" class="btn-primary">
-            <span>⚡ Concise Revision Guide</span>
-            <span>&rarr;</span>
-          </a>
-          <a href="lube_ignition_reorganized.html" class="btn-secondary">
-            <span>📖 Comprehensive Master Guide</span>
-            <span>&rarr;</span>
-          </a>
+          <a href="lube_ignition_revised.html" class="btn-primary"><span>Quick Revision</span><span>&rarr;</span></a>
+          <a href="lube_ignition_reorganized.html" class="btn-secondary"><span>Deep Dive</span><span>&rarr;</span></a>
         </div>
       </div>
 
       <!-- Module 05 -->
-      <div class="card" data-keywords="knocking detonation pre ignition ci diesel knock octane cetane reference fuels aki ron mon air fuel ratio stoichiometric methanol supercharging chambers pent roof di idi glow plug">
-        <div class="card-top">
-          <div class="card-meta">
-            <span class="card-num">Module 05</span>
-            <span class="card-type">Combustion &amp; Fuels</span>
-          </div>
-          <h3 class="card-title">Knocking, Fuel Rating &amp; Combustion Chamber Design</h3>
-          <p class="card-desc">SI Detonation (end-gas auto-ignition after spark, HUCR) vs Pre-ignition, CI Diesel Knock ($\tau_{id} = \tau_{\text{phys}} + \tau_{\text{chem}}$), Octane Number (Iso-octane $100$, n-Heptane $0$, $\text{AKI} = \frac{\text{RON}+\text{MON}}{2}$), Cetane Number (n-Cetane $100$), Stoichiometric AFR (Gasoline $14.7:1$, Methanol $6.5:1$), SI Pent-Roof, and CI DI vs IDI (Swirl + Glow plug).</p>
+      <div class="card">
+        <div>
+          <span class="card-num">Module 05</span>
+          <h3 class="card-title">Knocking, Fuel Rating &amp; Combustion Chambers</h3>
           <div class="card-topics">
-            <span class="pill">SI Detonation (After Spark)</span>
-            <span class="pill">CI Delay $\tau_{id} = \tau_{\text{phys}} + \tau_{\text{chem}}$</span>
-            <span class="pill">Iso-octane 100 / n-Heptane 0</span>
-            <span class="pill">n-Cetane 100</span>
-            <span class="pill">Methanol AFR 6.5:1</span>
-            <span class="pill">CI IDI Swirl + Glow Plug</span>
-          </div>
-          <div class="formula-preview">
-            $$\tau_{id} \propto \frac{1}{P^n e^{-E/RT}}, \quad \text{AKI} = \frac{\text{RON} + \text{MON}}{2}, \quad \text{AFR}_{\text{stoich}} = 14.7:1, \quad \text{Aromatics} < \text{Naphthenes} < \text{Olefins} < \text{Paraffins}$$
+            <span class="pill">SI Detonation &amp; Pre-Ignition</span>
+            <span class="pill">CI Diesel Knock &amp; Delay</span>
+            <span class="pill">Octane &amp; Cetane Rating</span>
+            <span class="pill">Chamber Designs &amp; AFR</span>
           </div>
         </div>
         <div class="card-cta-group">
-          <a href="knocking_revised.html" class="btn-primary">
-            <span>⚡ Concise Revision Guide</span>
-            <span>&rarr;</span>
-          </a>
-          <a href="knocking_reorganized.html" class="btn-secondary">
-            <span>📖 Comprehensive Master Guide</span>
-            <span>&rarr;</span>
-          </a>
+          <a href="knocking_revised.html" class="btn-primary"><span>Quick Revision</span><span>&rarr;</span></a>
+          <a href="knocking_reorganized.html" class="btn-secondary"><span>Deep Dive</span><span>&rarr;</span></a>
         </div>
       </div>
 
     </div>
 
-    <!-- High-Yield Core Exam Traps Summary -->
-    <div class="exam-notes">
-      <h3>💡 Golden Revision Rules &amp; High-Yield Exam Traps</h3>
-      <ul>
-        <li><strong>Compression Intercooling</strong>: Perfect intercooling pressure ratio $P_i = \sqrt{P_1 P_2}$. Work per stage is equal.</li>
-        <li><strong>Cycle Efficiency Rules</strong>: At same compression ratio $r \implies \eta_{\text{Otto}} > \eta_{\text{Dual}} > \eta_{\text{Diesel}}$. At same peak pressure $P_{\text{max}} \implies \eta_{\text{Diesel}} > \eta_{\text{Dual}} > \eta_{\text{Otto}}$.</li>
-        <li><strong>Camshaft Kinematics</strong>: In a 4-stroke engine, camshaft speed $N_{\text{cam}} = N_{\text{crank}}/2$. In a 2-stroke engine, $N_{\text{cam}} = N_{\text{crank}}$.</li>
-        <li><strong>Engine Governing</strong>: SI (Petrol) engines use <strong>Quantity Governing</strong> (throttle controls mixture volume). CI (Diesel) engines use <strong>Quality Governing</strong> (controls fuel injected into excess air).</li>
-        <li><strong>Opposite Knock Trends</strong>: Higher compression ratio $r \uparrow$ or Supercharging INCREASES knock in SI engines, but DECREASES knock in CI engines!</li>
-        <li><strong>Reference Fuels</strong>: Octane rating (Iso-octane = 100, n-Heptane = 0). Cetane rating (n-Cetane = 100, $\alpha$-methyl-naphthalene = 0). High Octane fuels have LOW Cetane rating!</li>
-        <li><strong>Stoichiometric AFR</strong>: Gasoline = 14.7:1, Methanol = 6.5:1. CI engines always operate lean (18:1–70:1).</li>
-        <li><strong>Lubrication Regimes</strong>: Hydrostatic lubrication gives the LOWEST starting friction at zero speed ($N=0$). Mist lubrication is used exclusively in 2-stroke petrol engines. Dry-sump systems require at least 2 pumps (scavenge + pressure).</li>
-        <li><strong>Ignition Systems</strong>: Magneto ignition requires NO BATTERY and produces stronger spark at high engine speeds.</li>
-      </ul>
-    </div>
-
-    <footer>
-      <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Thermo Revised Design System (Dual-Tier Linked Architecture)</p>
-    </footer>
+    <footer>Applied Thermodynamics — AP GenCo AE / SSC JE Study Portal</footer>
 
   </div>
-
-  <script>
-    function filterModules() {
-      var query = document.getElementById("module-search").value.toLowerCase();
-      var cards = document.querySelectorAll("#modules-grid .card");
-      cards.forEach(function(card) {
-        var text = card.textContent.toLowerCase() + " " + (card.getAttribute("data-keywords") || "");
-        if (text.indexOf(query) !== -1) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-  </script>
 </body>
 </html>
