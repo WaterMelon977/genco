@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shafts, Keys &amp; Couplings — Revision Guide — APGENCO / SSC JE</title>
+  <meta name="description" content="Concise high-yield revision guide for Shaft Design, Combined Loading, Keys, Cotter Joints, and Shaft Couplings.">
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --subject-production-primary: #8B5CF6;
+      --subject-production-light: #A78BFA;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --subject-bg-tint: rgba(139, 92, 246, 0.08);
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      --border-light: #262933;
+      --border-hover: var(--subject-current);
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 28px -6px var(--subject-current);
+
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --border-light: #E2E8F0;
+      --shadow-card: 0 4px 15px rgba(0,0,0,0.05);
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-text: #854D0E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      z-index: 9998;
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover {
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.1);
+    }
+
+    /* Floating Section Nav */
+    #fnav {
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      padding: 4px 14px;
+      box-shadow: var(--shadow-card);
+      z-index: 9997;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 8.5pt; font-weight: 600;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 3px 10px; border-radius: 20px;
+      transition: all 0.15s;
+    }
+    .fn-a:hover { color: var(--subject-current); background: var(--subject-bg-tint); }
+    .fn-a.active { background: var(--subject-current); color: #0E0F12; }
+    .fn-sep { color: var(--border-light); }
+
+    /* Submodule Nav */
+    .submodule-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .submodule-nav a:hover { color: var(--subject-current); }
+
+    /* Header */
+    .guide-header {
+      text-align: center;
+      background: linear-gradient(135deg, #150D2A 0%, #0E0F12 70%);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 14px;
+      padding: 32px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .guide-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 22pt; color: #F8FAFC;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .guide-header .subtitle {
+      font-size: 10.5pt; color: var(--text-secondary); font-weight: 300;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 6px; margin-top: 42px; margin-bottom: 20px;
+    }
+    h3 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 12.5pt; color: var(--subject-current);
+      margin-top: 28px; margin-bottom: 12px;
+    }
+
+    p { margin-bottom: 1em; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+    li { margin-bottom: 0.3em; }
+
+    /* Callouts */
+    .callout {
+      padding: 14px 18px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.65; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept { background: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .fc, .formula-card {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fc:hover, .formula-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    .sym {
+      font-size: 9pt; color: var(--text-muted);
+      margin: -10px 0 18px 4px; line-height: 1.6;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* Key Points Card */
+    .kp {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 20px; margin: 28px 0;
+      box-shadow: var(--shadow-card);
+    }
+    .kp-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 11pt; font-weight: 700;
+      color: var(--subject-current);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .kp ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li { margin-bottom: 0.4em; font-size: 9.5pt; color: var(--text-secondary); }
+
+    /* Tables */
+    table {
+      width: 100%; border-collapse: collapse; margin: 22px 0;
+      background: var(--bg-card); border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border-light); font-size: 9.5pt;
+      box-shadow: var(--shadow-card);
+    }
+    th, td { padding: 10px 14px; border: 1px solid var(--border-light); text-align: left; }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 700;
+      border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) { background: var(--subject-bg-tint); }
+
+    footer {
+      text-align: center; font-size: 8.5pt; color: var(--text-muted);
+      margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light);
+    }
+
+    @media (max-width: 660px) {
+      body { padding: 20px 14px 50px; }
+      #fnav { display: none; }
+      .guide-header h1 { font-size: 17pt; }
+    }
+  </style>
+</head>
+<body data-subject="production">
+
+<div id="reading-progress"></div>
+
+<nav id="fnav">
+  <a class="fn-a" href="#shafts">Shaft Design</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#combined">Combined Loading</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#keys">Keys</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#cotter">Cotter Joints</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#couplings">Couplings</a>
+</nav>
+
+<button id="theme-toggle" title="Toggle dark mode">🌙</button>
+
+<div class="submodule-nav">
+  <a href="index.html">← Back to Machine Design Hub</a>
+  <a href="../index.html" style="font-size: 9pt; opacity: 0.85;">Main Exam Portal →</a>
+</div>
+
+<!-- Dual-Tier Cross-Link Banner -->
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="shafts-Keys-Cotterjoints-Couplings_reorganized.html" style="font-weight: 700; text-decoration: underline; color: var(--subject-current);">Switch to Comprehensive Deep Dive Guide →</a>
+</div>
+
+<div class="guide-header">
+  <h1>Design of Shafts, Keys, Cotter Joints &amp; Couplings</h1>
+  <div class="subtitle">Torsion · Combined Loading · Key Types · Misalignment &nbsp;·&nbsp; APGENCO AE | SSC JE Mechanical</div>
+</div>
+
+<!-- ═══ 1. SHAFT DESIGN ═══ -->
+<h2 id="shafts">1. Shaft Design — Torsional Stress</h2>
+
+<p>A shaft is a rotating member that transmits power. Primary design loading is torsion, but shafts also experience bending moments from transverse loads (pulleys, gears, belts).</p>
+
+<h3>Torsional Shear Stress — Solid Shaft</h3>
+<div class="fc">$$\boxed{\tau = \frac{16\,T}{\pi\,d^3}}$$</div>
+<div class="sym">
+  <span>$T$ — applied torque, N·mm</span>
+  <span>$d$ — shaft diameter, mm</span>
+  <span>$\tau$ — maximum shear stress (outer surface), MPa</span>
+</div>
+
+<h3>Torsional Shear Stress — Hollow Shaft</h3>
+<div class="fc">$$\boxed{\tau = \frac{16\,T\,d_o}{\pi(d_o^4 - d_i^4)} = \frac{16\,T}{\pi\,d_o^3(1-k^4)}}$$</div>
+<div class="sym">
+  <span>$d_o$ — outer diameter, mm; $d_i$ — inner diameter, mm; $k = d_i/d_o$</span>
+</div>
+
+<div class="callout callout-focus">
+  <strong>💡 Hollow Shaft Advantage:</strong> A hollow shaft has a higher polar section modulus per unit mass than a solid shaft of equal mass and material — making it both stronger and lighter!
+</div>
+
+<h3>Angle of Twist</h3>
+<div class="fc">$$\boxed{\theta = \frac{T\,L}{G\,J} = \frac{32\,T\,L}{G\,\pi\,d^4} \quad \text{radians}}$$</div>
+<div class="sym"><span>$J = \pi d^4/32$ — polar second moment of area, mm⁴</span></div>
+
+<!-- ═══ 2. COMBINED LOADING ═══ -->
+<h2 id="combined">2. Combined Bending and Torsion</h2>
+
+<p>When a shaft carries both bending moment $M$ and torque $T$ simultaneously:</p>
+
+<h3>Equivalent Twisting Moment $T_e$ — Maximum Shear Stress Theory</h3>
+<div class="fc">$$\boxed{T_e = \sqrt{M^2 + T^2}} \qquad \boxed{\tau_\text{max} = \frac{16\,T_e}{\pi\,d^3}}$$</div>
+
+<h3>Equivalent Bending Moment $M_e$ — Maximum Normal Stress Theory</h3>
+<div class="fc">$$\boxed{M_e = \frac{1}{2}\!\left[M + \sqrt{M^2+T^2}\right]} \qquad \boxed{\sigma_\text{max} = \frac{32\,M_e}{\pi\,d^3}}$$</div>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> Use $T_e$ for Maximum Shear Stress Theory (Tresca — standard for ductile shafts). Use $M_e$ for Maximum Normal Stress Theory (Rankine).
+</div>
+
+<!-- ═══ 3. KEYS ═══ -->
+<h2 id="keys">3. Key Design</h2>
+
+<p>A key transmits torque from shaft to hub. It acts as an intentional <strong>mechanical fuse</strong> to protect expensive shafts and hubs from overload.</p>
+
+<h3>Square Key — Shear and Crushing</h3>
+<div class="fc">$$\text{Shear:} \quad \boxed{T = \frac{d}{2}\,(l\,w\,\tau)} \qquad \text{Crushing:} \quad \boxed{T = \frac{d}{2}\!\left(l\,\frac{t}{2}\,\sigma_c\right)}$$</div>
+<div class="sym"><span>Standard proportions: $w = t = d/4$, $l \ge 1.5d$</span></div>
+
+<p>For a square key ($w = t$), crushing stress is exactly twice the shear stress:</p>
+<div class="fc">$$\boxed{\sigma_c = 2\,\tau}$$</div>
+
+<h3>Key Types &amp; Applications</h3>
+<table>
+  <thead><tr><th>Key Type</th><th>Location</th><th>Application</th><th>Special feature</th></tr></thead>
+  <tbody>
+    <tr><td>Square / Flat (Sunk) key</td><td>Keyway in shaft and hub</td><td>General purpose torque transmission</td><td>Most common; positive drive</td></tr>
+    <tr><td>Woodruff key</td><td>Semi-circular slot in shaft</td><td>Tapered shafts (machine tool spindles)</td><td>Self-aligning; fits shaft taper</td></tr>
+    <tr><td>Feather key</td><td>Fixed fit in one; sliding in other</td><td>Gearbox sliding gears, clutch hubs</td><td>Permits axial sliding while transmitting torque</td></tr>
+    <tr><td>Kennedy key</td><td>Two square keys at 90°</td><td>Heavy duty; large torques</td><td>High torque capacity</td></tr>
+    <tr><td>Saddle key</td><td>Hub keyway only; sits on shaft</td><td>Light duty; easy assembly</td><td>Friction drive only; slips under overload</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 4. COTTER JOINTS ═══ -->
+<h2 id="cotter">4. Cotter Joints</h2>
+
+<p>A cotter joint is a <em>temporary</em> rigid fastening connecting two co-axial rods (socket and spigot) under <strong>axial tension or compression only</strong> (cannot transmit torque). Loaded in double shear.</p>
+
+<table>
+  <thead><tr><th>Parameter</th><th>Standard proportion</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Cotter thickness $t$</td><td>$0.31d$ ($\approx 0.3d$ to $0.4d$)</td><td>$d$ = rod diameter</td></tr>
+    <tr><td>Cotter width $b$</td><td>$1.3d$ to $1.5d$</td><td>Width governs bending</td></tr>
+    <tr><td>Taper (one side only)</td><td>$1:24$ to $1:48$</td><td>Self-locking taper</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 5. COUPLINGS ═══ -->
+<h2 id="couplings">5. Shaft Couplings</h2>
+
+<table>
+  <thead><tr><th>Coupling</th><th>Type</th><th>Misalignment tolerated</th><th>Key feature</th></tr></thead>
+  <tbody>
+    <tr><td>Muff / Sleeve</td><td>Rigid</td><td>None</td><td>Hollow shaft design; simple</td></tr>
+    <tr><td>Flange coupling</td><td>Rigid</td><td>None</td><td>Flanges bolted in reamed holes</td></tr>
+    <tr><td>Bushed-pin flexible</td><td>Flexible</td><td>Small angular + slight parallel</td><td>Rubber bushes absorb shock and vibration</td></tr>
+    <tr><td>Oldham's coupling</td><td>Flexible</td><td>Parallel offset (lateral)</td><td>Floating disc with tongue-and-groove</td></tr>
+    <tr><td>Hooke's / Universal joint</td><td>Flexible</td><td>Large angular (up to $\approx30^\circ$)</td><td>Propeller shafts; speed varies sinusoidally</td></tr>
+  </tbody>
+</table>
+
+<div class="kp">
+  <div class="kp-title">📌 Quick-Fire Exam Checklist</div>
+  <ul>
+    <li>Solid shaft: $\tau = 16T/(\pi d^3)$; max stress at outer surface.</li>
+    <li>Hollow shaft: $\tau = 16T/[\pi d_o^3(1-k^4)]$; $k = d_i/d_o$.</li>
+    <li>Hollow shaft: higher polar section modulus per unit mass — stronger AND lighter.</li>
+    <li>Angle of twist: $\theta = TL/(GJ)$; $J = \pi d^4/32$.</li>
+    <li>$T_e = \sqrt{M^2+T^2}$ — for max shear stress design (Tresca).</li>
+    <li>$M_e = \frac{1}{2}[M + \sqrt{M^2+T^2}]$ — for max normal stress design (Rankine).</li>
+    <li>Square key: $\sigma_c = 2\tau$ always; crushing governs.</li>
+    <li>Standard square key: $w = t = d/4$; $l \ge 1.5d$.</li>
+    <li>Key = mechanical fuse; weakest link by design.</li>
+    <li>Woodruff key: semi-circular, self-aligning, for tapered shafts.</li>
+    <li>Feather key: axial sliding permitted while transmitting torque.</li>
+    <li>Saddle key: friction drive only; light duty.</li>
+    <li>Cotter joint: temporary, axial loads only (no torque); double shear; taper 1:24 to 1:48, one side.</li>
+    <li>$t_\text{cotter} \approx 0.31d$; $b_\text{cotter} \approx 1.3d$–$1.5d$.</li>
+    <li>Oldham's coupling: parallel offset. Hooke's joint: angular misalignment (propeller shafts).</li>
+    <li>Bushed-pin coupling: rubber bushes for shock absorption; slight angular misalignment.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>APGENCO AE &nbsp;·&nbsp; SSC JE Mechanical &nbsp;·&nbsp; Shafts, Keys &amp; Couplings Revision Guide</p>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('theme-toggle');
+  var saved  = localStorage.getItem('ag-theme') || 'dark';
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (toggle) toggle.textContent = (t === 'dark') ? '\u{1F319}' : '\u2600\uFE0F';
+    localStorage.setItem('ag-theme', t);
+  }
+
+  applyTheme(saved);
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* Reading progress bar */
+  var bar = document.getElementById('reading-progress');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* Floating section nav */
+  var fn = document.getElementById('fnav');
+  if (fn) {
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav() {
+      var s = window.scrollY;
+      if (s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, { passive: true });
+    upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

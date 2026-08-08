@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joints &amp; Screws — Revision Guide — APGENCO / SSC JE</title>
+  <meta name="description" content="Concise high-yield revision guide for Thread Profiles, Power Screws, Screw Jacks, Bolted Joints, Welded Joints, and Riveted Joints.">
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --subject-production-primary: #8B5CF6;
+      --subject-production-light: #A78BFA;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --subject-bg-tint: rgba(139, 92, 246, 0.08);
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      --border-light: #262933;
+      --border-hover: var(--subject-current);
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 28px -6px var(--subject-current);
+
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --border-light: #E2E8F0;
+      --shadow-card: 0 4px 15px rgba(0,0,0,0.05);
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-text: #854D0E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      z-index: 9998;
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover {
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.1);
+    }
+
+    /* Floating Section Nav */
+    #fnav {
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      padding: 4px 14px;
+      box-shadow: var(--shadow-card);
+      z-index: 9997;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 8.5pt; font-weight: 600;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 3px 10px; border-radius: 20px;
+      transition: all 0.15s;
+    }
+    .fn-a:hover { color: var(--subject-current); background: var(--subject-bg-tint); }
+    .fn-a.active { background: var(--subject-current); color: #0E0F12; }
+    .fn-sep { color: var(--border-light); }
+
+    /* Submodule Nav */
+    .submodule-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .submodule-nav a:hover { color: var(--subject-current); }
+
+    /* Header */
+    .guide-header {
+      text-align: center;
+      background: linear-gradient(135deg, #150D2A 0%, #0E0F12 70%);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 14px;
+      padding: 32px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .guide-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 22pt; color: #F8FAFC;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .guide-header .subtitle {
+      font-size: 10.5pt; color: var(--text-secondary); font-weight: 300;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 6px; margin-top: 42px; margin-bottom: 20px;
+    }
+    h3 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 12.5pt; color: var(--subject-current);
+      margin-top: 28px; margin-bottom: 12px;
+    }
+
+    p { margin-bottom: 1em; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+    li { margin-bottom: 0.3em; }
+
+    /* Callouts */
+    .callout {
+      padding: 14px 18px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.65; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept { background: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .fc, .formula-card {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fc:hover, .formula-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    .sym {
+      font-size: 9pt; color: var(--text-muted);
+      margin: -10px 0 18px 4px; line-height: 1.6;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* Key Points Card */
+    .kp {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 20px; margin: 28px 0;
+      box-shadow: var(--shadow-card);
+    }
+    .kp-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 11pt; font-weight: 700;
+      color: var(--subject-current);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .kp ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li { margin-bottom: 0.4em; font-size: 9.5pt; color: var(--text-secondary); }
+
+    /* Tables */
+    table {
+      width: 100%; border-collapse: collapse; margin: 22px 0;
+      background: var(--bg-card); border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border-light); font-size: 9.5pt;
+      box-shadow: var(--shadow-card);
+    }
+    th, td { padding: 10px 14px; border: 1px solid var(--border-light); text-align: left; }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 700;
+      border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) { background: var(--subject-bg-tint); }
+
+    footer {
+      text-align: center; font-size: 8.5pt; color: var(--text-muted);
+      margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light);
+    }
+
+    @media (max-width: 660px) {
+      body { padding: 20px 14px 50px; }
+      #fnav { display: none; }
+      .guide-header h1 { font-size: 17pt; }
+    }
+  </style>
+</head>
+<body data-subject="production">
+
+<div id="reading-progress"></div>
+
+<nav id="fnav">
+  <a class="fn-a" href="#threads">Thread Profiles</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#power-screw">Power Screw</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#bolts">Bolted Joints</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#welded">Welded Joints</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#riveted">Riveted Joints</a>
+</nav>
+
+<button id="theme-toggle" title="Toggle dark mode">🌙</button>
+
+<div class="submodule-nav">
+  <a href="index.html">← Back to Machine Design Hub</a>
+  <a href="../index.html" style="font-size: 9pt; opacity: 0.85;">Main Exam Portal →</a>
+</div>
+
+<!-- Dual-Tier Cross-Link Banner -->
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="joints-screws_reorganized.html" style="font-weight: 700; text-decoration: underline; color: var(--subject-current);">Switch to Comprehensive Deep Dive Guide →</a>
+</div>
+
+<div class="guide-header">
+  <h1>Design of Joints &amp; Screws</h1>
+  <div class="subtitle">Power Screws · Bolted Joints · Welded &amp; Riveted Joints &nbsp;·&nbsp; APGENCO AE | SSC JE Mechanical</div>
+</div>
+
+<!-- ═══ 1. THREAD PROFILES ═══ -->
+<h2 id="threads">1. Thread Profiles &amp; Designations</h2>
+
+<p>Thread profile determines the thread's suitability for power transmission, fastening, or sealing. The four standard profiles tested in APGENCO/SSC JE are characterised by their flank angle.</p>
+
+<table>
+  <thead><tr><th>Thread Type</th><th>Flank angle (half)</th><th>Primary use</th><th>Key property</th></tr></thead>
+  <tbody>
+    <tr><td>Square</td><td>$0^\circ$</td><td>Power transmission (screw jacks, lead screws)</td><td>Highest efficiency; no radial thrust on nut</td></tr>
+    <tr><td>Acme</td><td>$14.5^\circ$ (total $29^\circ$)</td><td>Lead screws, lathe feed screws</td><td>Stronger than square; permits split nut disengagement</td></tr>
+    <tr><td>Buttress</td><td>Asymmetric ($3^\circ/45^\circ$)</td><td>One-direction power (breech mechanisms, jacks)</td><td>High efficiency in one direction only</td></tr>
+    <tr><td>V-thread (metric)</td><td>$30^\circ$ (total $60^\circ$)</td><td>Fastening</td><td>Self-locking; high friction; equivalent $\mu' = \mu/\cos 30^\circ$</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Metric designation:</strong> M$d \times p$ where $d$ is nominal (major) diameter in mm and $p$ is pitch in mm. Example: M20 × 2.5 means 20 mm major diameter, 2.5 mm pitch.</p>
+
+<p><strong>Multi-start threads:</strong> Lead $L = n \times p$, where $n$ is the number of starts.</p>
+<div class="fc">$$\boxed{L = n \cdot p}$$</div>
+
+<!-- ═══ 2. POWER SCREW ═══ -->
+<h2 id="power-screw">2. Power Screws &amp; Screw Jacks</h2>
+
+<p>A power screw converts rotary motion into linear axial force. Helix angle $\alpha$ relates lead to mean diameter:</p>
+<div class="fc">$$\tan\alpha = \frac{L}{\pi d_m}$$</div>
+<div class="sym"><span>$d_m$ — mean thread diameter $= d - 0.5p$, mm</span></div>
+
+<h3>Raising and Lowering Loads — Square Thread</h3>
+<div class="fc">$$\boxed{P_\text{raise} = W\tan(\alpha + \phi)} \qquad \boxed{T_\text{raise} = \frac{W\,d_m}{2}\tan(\alpha+\phi)}$$</div>
+<div class="fc">$$\boxed{P_\text{lower} = W\tan(\phi - \alpha)} \qquad \boxed{T_\text{lower} = \frac{W\,d_m}{2}\tan(\phi-\alpha)}$$</div>
+<div class="sym">
+  <span>$W$ — axial load, N</span>
+  <span>$\phi$ — friction angle, $\mu = \tan\phi$</span>
+  <span>$\alpha$ — helix angle</span>
+</div>
+
+<h3>Self-Locking Condition</h3>
+<p>A screw is self-locking when the load cannot lower itself without applied torque ($\phi \ge \alpha$):</p>
+<div class="fc">$$\boxed{\phi \ge \alpha \quad \Longleftrightarrow \quad \mu \ge \tan\alpha \quad \Longleftrightarrow \quad \eta \le 50\%}$$</div>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> If $\eta > 50\%$, the screw is <strong>overhauling</strong> — the load will lower itself without applied torque.
+</div>
+
+<h3>Screw Jack Efficiency</h3>
+<div class="fc">$$\boxed{\eta = \frac{\tan\alpha}{\tan(\alpha+\phi)}}$$</div>
+
+<h4>Maximum Efficiency of a Screw Jack</h4>
+<div class="fc">$$\boxed{\eta_\text{max} = \frac{1-\sin\phi}{1+\sin\phi}} \qquad \text{at} \quad \alpha = 45^\circ - \frac{\phi}{2}$$</div>
+
+<h3>V-Thread Equivalent Friction</h3>
+<div class="fc">$$\boxed{\mu' = \frac{\mu}{\cos(\beta/2)} = \frac{\mu}{\cos 30^\circ} = \frac{\mu}{0.866}}$$</div>
+
+<!-- ═══ 3. BOLTED JOINTS ═══ -->
+<h2 id="bolts">3. Bolted Joints</h2>
+
+<p>Bolts loaded in direct tension are designed based on the core (root, minor) diameter $d_c$:</p>
+
+<div class="fc">$$\boxed{d_c = \sqrt{\frac{4P}{\pi\,\sigma_t}}}$$</div>
+
+<h3>Bolt of Uniform Strength</h3>
+<p>A standard bolt has shank diameter $d > d_c$. Under impact loads, stress concentrations at thread roots cause failure. A <strong>bolt of uniform strength</strong> has its shank diameter reduced to core diameter $d_c$ along the unthreaded grip length, maximising resilience:</p>
+<div class="fc">$$\boxed{U = \frac{\sigma^2 V}{2E}}$$</div>
+
+<!-- ═══ 4. WELDED JOINTS ═══ -->
+<h2 id="welded">4. Welded Joints</h2>
+
+<p>Two fundamental weld types: fillet welds and butt welds.</p>
+
+<h3>Fillet Weld — Throat Thickness</h3>
+<div class="fc">$$\boxed{t = 0.707\,h = h\sin 45^\circ}$$</div>
+<div class="sym"><span>$h$ — leg size of fillet weld, mm; throat $t$ is always the weakest section</span></div>
+
+<h3>Double Parallel Fillet Weld — Shear Strength</h3>
+<div class="fc">$$\boxed{P = 2\,(0.707\,h\,\ell)\,\tau}$$</div>
+
+<div class="callout callout-focus">
+  <strong>💡 Transverse Fillet Weld:</strong> A transverse fillet weld is $1.17\times$ stronger in shear than a parallel fillet weld of the same size and length.
+</div>
+
+<h3>Butt Weld — Tensile Strength</h3>
+<div class="fc">$$\boxed{P = \sigma_t \cdot t \cdot L \cdot \eta_w}$$</div>
+<div class="sym"><span>$t$ — plate thickness = weld throat (full penetration), mm</span></div>
+
+<!-- ═══ 5. RIVETED JOINTS ═══ -->
+<h2 id="riveted">5. Riveted Joints</h2>
+
+<h3>Unwin's Formula &amp; Margin</h3>
+<div class="fc">$$\boxed{d = 6\sqrt{t} \quad \text{mm}} \qquad \boxed{m = 1.5\,d}$$</div>
+
+<h3>Failure Modes &amp; Strengths per Pitch</h3>
+<table>
+  <thead><tr><th>Failure mode</th><th>Formula (per pitch length)</th><th>Variables</th></tr></thead>
+  <tbody>
+    <tr><td>Plate tearing (tension)</td><td>$P_t = (p-d)\,t\,\sigma_t$</td><td>$p$ = pitch; $\sigma_t$ = tensile strength</td></tr>
+    <tr><td>Rivet shearing (single shear)</td><td>$P_s = \frac{\pi}{4}d^2\,\tau$</td><td>$\tau$ = shear strength</td></tr>
+    <tr><td>Rivet crushing (bearing)</td><td>$P_c = d\,t\,\sigma_c$</td><td>$\sigma_c$ = crushing strength</td></tr>
+  </tbody>
+</table>
+
+<h3>Tearing Efficiency of Plate</h3>
+<div class="fc">$$\boxed{\eta_t = \frac{p-d}{p}}$$</div>
+<p>If $\eta_t = 75\% \Rightarrow d/p = 0.25$, meaning rivet hole diameter is $25\%$ of pitch.</p>
+
+<p><strong>Leak-proofing in boilers:</strong> <strong>Caulking</strong> and <strong>fullering</strong> are cold working hammering operations used to make riveted boiler joints pressure-tight.</p>
+
+<div class="kp">
+  <div class="kp-title">📌 Quick-Fire Exam Checklist</div>
+  <ul>
+    <li>Square thread: $0^\circ$ flank, highest efficiency. Acme: $29^\circ$ total, lead screws. V-thread (metric): $60^\circ$ total, fastening.</li>
+    <li>$L = n \times p$ (multi-start thread).</li>
+    <li>$\tan\alpha = L/(\pi d_m)$; $d_m = d - 0.5p$.</li>
+    <li>Raise: $P = W\tan(\alpha+\phi)$; Lower: $P = W\tan(\phi-\alpha)$.</li>
+    <li>Self-locking: $\phi \ge \alpha$, equivalently $\eta \le 50\%$.</li>
+    <li>Screw jack $\eta = \tan\alpha/\tan(\alpha+\phi)$; $\eta_\text{max} = (1-\sin\phi)/(1+\sin\phi)$.</li>
+    <li>V-thread: $\mu' = \mu/\cos 30^\circ$; higher effective friction than square thread.</li>
+    <li>Bolt core: $d_c = \sqrt{4P/(\pi\sigma_t)}$.</li>
+    <li>Bolt of uniform strength: shank reduced to $d_c$; maximises resilience $U = \sigma^2 V/(2E)$.</li>
+    <li>Fillet weld throat: $t = 0.707h$; throat is the weakest section.</li>
+    <li>Transverse fillet $1.17\times$ stronger in shear than parallel fillet (same size).</li>
+    <li>Butt weld: throat = plate thickness (full penetration).</li>
+    <li>Unwin's formula: $d = 6\sqrt{t}$; margin: $m = 1.5d$.</li>
+    <li>Tearing efficiency: $\eta_t = (p-d)/p$; $\eta_t = 75\% \Rightarrow d/p = 0.25$.</li>
+    <li>Caulking and fullering: leak-proofing for boiler/pressure vessel riveted joints.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>APGENCO AE &nbsp;·&nbsp; SSC JE Mechanical &nbsp;·&nbsp; Joints &amp; Screws Revision Guide</p>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('theme-toggle');
+  var saved  = localStorage.getItem('ag-theme') || 'dark';
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (toggle) toggle.textContent = (t === 'dark') ? '\u{1F319}' : '\u2600\uFE0F';
+    localStorage.setItem('ag-theme', t);
+  }
+
+  applyTheme(saved);
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* Reading progress bar */
+  var bar = document.getElementById('reading-progress');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* Floating section nav */
+  var fn = document.getElementById('fnav');
+  if (fn) {
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav() {
+      var s = window.scrollY;
+      if (s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, { passive: true });
+    upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

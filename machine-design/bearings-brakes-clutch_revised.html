@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design of Bearings, Brakes & Clutches — Revision Guide — APGENCO / SSC JE</title>
+  <meta name="description" content="Concise high-yield revision guide for Design of Bearings, Brakes & Clutches. Rolling contact bearings, journal bearings, shoe brakes, friction clutches, formulas and exam traps.">
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --subject-production-primary: #8B5CF6;
+      --subject-production-light: #A78BFA;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --subject-bg-tint: rgba(139, 92, 246, 0.08);
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      --border-light: #262933;
+      --border-hover: var(--subject-current);
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 28px -6px var(--subject-current);
+
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --border-light: #E2E8F0;
+      --shadow-card: 0 4px 15px rgba(0,0,0,0.05);
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-text: #854D0E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      z-index: 9998;
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover {
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.1);
+    }
+
+    /* Floating Section Nav */
+    #fnav {
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      padding: 4px 14px;
+      box-shadow: var(--shadow-card);
+      z-index: 9997;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 8.5pt; font-weight: 600;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 3px 10px; border-radius: 20px;
+      transition: all 0.15s;
+    }
+    .fn-a:hover { color: var(--subject-current); background: var(--subject-bg-tint); }
+    .fn-a.active { background: var(--subject-current); color: #0E0F12; }
+    .fn-sep { color: var(--border-light); }
+
+    /* Submodule Nav */
+    .submodule-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .submodule-nav a:hover { color: var(--subject-current); }
+
+    /* Header */
+    .guide-header {
+      text-align: center;
+      background: linear-gradient(135deg, #150D2A 0%, #0E0F12 70%);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 14px;
+      padding: 32px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .guide-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 22pt; color: #F8FAFC;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .guide-header .subtitle {
+      font-size: 10.5pt; color: var(--text-secondary); font-weight: 300;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 6px; margin-top: 42px; margin-bottom: 20px;
+    }
+    h3 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 12.5pt; color: var(--subject-current);
+      margin-top: 28px; margin-bottom: 12px;
+    }
+
+    p { margin-bottom: 1em; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+    li { margin-bottom: 0.3em; }
+
+    /* Callouts */
+    .callout {
+      padding: 14px 18px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.65; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept { background: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .fc, .formula-card {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fc:hover, .formula-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    .sym {
+      font-size: 9pt; color: var(--text-muted);
+      margin: -10px 0 18px 4px; line-height: 1.6;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* Key Points Card */
+    .kp {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 20px; margin: 28px 0;
+      box-shadow: var(--shadow-card);
+    }
+    .kp-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 11pt; font-weight: 700;
+      color: var(--subject-current);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .kp ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li { margin-bottom: 0.4em; font-size: 9.5pt; color: var(--text-secondary); }
+
+    /* Tables */
+    table {
+      width: 100%; border-collapse: collapse; margin: 22px 0;
+      background: var(--bg-card); border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border-light); font-size: 9.5pt;
+      box-shadow: var(--shadow-card);
+    }
+    th, td { padding: 10px 14px; border: 1px solid var(--border-light); text-align: left; }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 700;
+      border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) { background: var(--subject-bg-tint); }
+
+    footer {
+      text-align: center; font-size: 8.5pt; color: var(--text-muted);
+      margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light);
+    }
+
+    @media (max-width: 660px) {
+      body { padding: 20px 14px 50px; }
+      #fnav { display: none; }
+      .guide-header h1 { font-size: 17pt; }
+    }
+  </style>
+</head>
+<body data-subject="production">
+
+<div id="reading-progress"></div>
+
+<nav id="fnav">
+  <a class="fn-a" href="#rolling">Rolling Bearings</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#journal">Journal Bearings</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#brakes">Brakes</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#clutches">Clutches</a>
+</nav>
+
+<button id="theme-toggle" title="Toggle dark mode">🌙</button>
+
+<div class="submodule-nav">
+  <a href="index.html">← Back to Machine Design Hub</a>
+  <a href="../index.html" style="font-size: 9pt; opacity: 0.85;">Main Exam Portal →</a>
+</div>
+
+<!-- Dual-Tier Cross-Link Banner -->
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="bearings-brakes-clutch_reorganized.html" style="font-weight: 700; text-decoration: underline; color: var(--subject-current);">Switch to Comprehensive Deep Dive Guide →</a>
+</div>
+
+<div class="guide-header">
+  <h1>Design of Bearings, Brakes &amp; Clutches</h1>
+  <div class="subtitle">Rolling Contact · Journal Bearings · Friction Brakes · Friction Clutches &nbsp;·&nbsp; APGENCO AE | SSC JE Mechanical</div>
+</div>
+
+<!-- ═══ 1. ROLLING CONTACT BEARINGS ═══ -->
+<h2 id="rolling">1. Rolling Contact Bearings</h2>
+
+<p>Rolling contact bearings (ball and roller bearings) support rotating shafts with much lower friction than sliding bearings by interposing rolling elements between the inner and outer races. They are rated by their <strong>basic dynamic load rating</strong> $C$ — the constant radial load that $90\%$ of a group of identical bearings can withstand for $10^6$ revolutions without fatigue flaking.</p>
+
+<h3>Basic Rating Life $L_{10}$</h3>
+<div class="fc">$$\boxed{L_{10} = \left(\frac{C}{P_e}\right)^k \times 10^6 \quad \text{revolutions}}$$</div>
+<div class="sym">
+  <span>$C$ — basic dynamic load rating, N</span>
+  <span>$P_e$ — equivalent radial dynamic load, N</span>
+  <span>$k = 3.0$ — ball bearings</span>
+  <span>$k = 10/3 = 3.33$ — roller bearings</span>
+</div>
+
+<h3>Load–Life Proportionality (Ball Bearings, $k = 3$)</h3>
+<div class="fc">$$\boxed{L_1 P_1^3 = L_2 P_2^3 \implies L \propto \frac{1}{P^3}}$$</div>
+<p>Doubling the load ($P \to 2P$): $L \to L/8$ (life drops to one-eighth). Halving the load ($P \to P/2$): $L \to 8L$ (life increases eight-fold).</p>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> Ball bearing life scales with the <strong>cube</strong> of load ($k=3$), whereas roller bearing life uses $k = 10/3 \approx 3.33$. If a question asks for life change under doubled load for a <em>ball bearing</em>, the new life is $L/8$.
+</div>
+
+<h3>Life in Hours</h3>
+<div class="fc">$$L_{10h} = \frac{L_{10}}{60\,N} \quad \text{hours}$$</div>
+<div class="sym"><span>$N$ — shaft speed, rpm</span></div>
+
+<h3>Equivalent Radial Load</h3>
+<div class="fc">$$\boxed{P_e = X\,F_r + Y\,F_a}$$</div>
+<div class="sym">
+  <span>$F_r$ — radial load, N</span>
+  <span>$F_a$ — axial (thrust) load, N</span>
+  <span>$X, Y$ — radial and axial load factors (from bearing catalogue, depend on $F_a/F_r$)</span>
+</div>
+
+<h3>Bearing Designation System</h3>
+<p>Standard rolling bearing designation: a four-digit number. The first one or two digits denote the series (light, medium, heavy); the last two digits give the bore diameter code.</p>
+<div class="fc">$$\text{Bore diameter} = \text{last two digits} \times 5 \quad \text{mm}$$</div>
+<p>Example: Bearing 6308 — series 63 (medium), bore $= 08 \times 5 = 40$ mm.</p>
+
+<!-- ═══ 2. JOURNAL / SLIDING BEARINGS ═══ -->
+<h2 id="journal">2. Journal (Sliding Contact) Bearings</h2>
+
+<p>A journal bearing supports a rotating shaft (the journal) on a film of lubricant. In hydrodynamic lubrication, the rotation of the shaft drags lubricant into a converging wedge-shaped film, generating pressure that lifts the shaft away from the bearing surface entirely — there is no metal-to-metal contact under steady operation.</p>
+
+<h3>Petroff's Equation for Coefficient of Friction</h3>
+<div class="fc">$$\boxed{f = 2\pi^2\,\frac{\mu\,N}{P}\cdot\frac{r}{c}}$$</div>
+<div class="sym">
+  <span>$\mu$ — dynamic viscosity, Pa·s</span>
+  <span>$N$ — shaft speed, rev/s</span>
+  <span>$P = W/(d\,\ell)$ — bearing pressure on projected area, Pa</span>
+  <span>$r$ — shaft radius, m</span>
+  <span>$c$ — radial clearance, m</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> Bearing pressure $P$ is calculated on the <strong>projected area</strong> $d \cdot \ell$, NOT the circular cross-sectional area $\frac{\pi}{4}d^2$!
+</div>
+
+<h3>Bearing Characteristic Number (Sommerfeld parameter)</h3>
+<div class="fc">$$\boxed{\text{Bearing Characteristic Number} = \frac{Z\,N}{P}}$$</div>
+<div class="sym">
+  <span>$Z$ — viscosity in centipoise (cP)</span>
+  <span>$N$ — speed in rpm</span>
+  <span>$P$ — bearing pressure in MPa</span>
+  <span>Above critical $(ZN/P)_\text{crit}$: hydrodynamic lubrication (full film, low friction)</span>
+  <span>Below critical: boundary lubrication (metal contact, high friction, wear)</span>
+</div>
+
+<h3>Standard Design Parameters</h3>
+<table>
+  <thead><tr><th>Parameter</th><th>Standard value / range</th></tr></thead>
+  <tbody>
+    <tr><td>Radial clearance ratio $c/r$</td><td>$0.001$ ($1\,\mu$m per mm of shaft radius)</td></tr>
+    <tr><td>$L/D$ ratio</td><td>$1.0$ to $2.0$</td></tr>
+    <tr><td>Lubrication type</td><td>Hydrodynamic (self-acting wedge) or Hydrostatic (pump-fed for zero speed)</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 3. BRAKES ═══ -->
+<h2 id="brakes">3. Brakes</h2>
+
+<p>A brake converts kinetic energy of a rotating member into heat by applying a friction force between a stationary shoe (or band) and a rotating drum. The braking torque is the product of the normal (clamping) force, the coefficient of friction, and the drum radius.</p>
+
+<h3>Short Shoe Brake ($2\theta < 60^\circ$)</h3>
+<p>When the total contact angle is small ($2\theta < 60^\circ$), pressure is assumed uniform across the shoe, and the actual coefficient of friction $\mu$ is used directly.</p>
+<div class="fc">$$T = \mu\,R_n\,R$$</div>
+<div class="sym"><span>$R_n$ — normal force between shoe and drum, N; $R$ — drum radius, m</span></div>
+
+<h3>Long Shoe Brake ($2\theta > 60^\circ$)</h3>
+<p>For large contact angles ($2\theta > 60^\circ$), the normal pressure distribution is non-uniform (sinusoidal). An equivalent friction coefficient $\mu_\text{eq}$ replaces actual $\mu$ to account for the varying moment arm:</p>
+<div class="fc">$$\boxed{\mu_\text{eq} = \frac{4\,\mu\,\sin\theta}{2\theta + \sin 2\theta}}$$</div>
+<div class="sym">
+  <span>$\theta$ — half angle of contact, radians (in the denominator!)</span>
+  <span>$2\theta > 60^\circ$ for long shoe</span>
+</div>
+<div class="fc">$$\boxed{T = F_r \times R = \mu_\text{eq}\,R_n\,R}$$</div>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> In the formula for $\mu_\text{eq}$, the denominator term $2\theta$ must be in <strong>radians</strong>, not degrees!
+</div>
+
+<h3>Shoe Proportions &amp; Types</h3>
+<div class="fc">$$\text{Shoe width } b = (0.25\text{ to }0.50)\,D$$</div>
+
+<p>Internal expanding shoe brakes (used in motor car drum brakes) have shoes that press outward against the inner surface of the drum. The friction force on the leading shoe tends to increase the normal force (self-energising), while on the trailing shoe it decreases it. Parking brakes operate <strong>mechanically</strong> for failsafe reliability.</p>
+
+<!-- ═══ 4. CLUTCHES ═══ -->
+<h2 id="clutches">4. Friction Clutches</h2>
+
+<p>A friction clutch engages and disengages the drive train by applying a clamping force between friction disc surfaces. Two theories predict torque capacity depending on the state of the friction lining.</p>
+
+<h3>Uniform Pressure Theory — New Clutch</h3>
+<p>When a clutch is new, the axial clamping pressure is uniform across the disc face. This gives a higher predicted torque capacity but applies only to a brand-new, unworn clutch.</p>
+<div class="fc">$$\boxed{T = \frac{2}{3}\,\mu\,W\,\frac{r_1^3 - r_2^3}{r_1^2 - r_2^2} \cdot n}$$</div>
+<div class="sym">
+  <span>$r_1$ — outer radius of friction disc, m</span>
+  <span>$r_2$ — inner radius of friction disc, m</span>
+  <span>$W$ — total axial clamping force, N</span>
+  <span>$n$ — number of active contact pairs</span>
+</div>
+
+<h3>Uniform Wear Theory — Service (Worn) Clutch [Safe Design]</h3>
+<p>After running in, the condition $p \cdot r = \text{const}$ (pressure inversely proportional to radius) produces uniform wear across the disc. This is the condition used for safe design of clutches in service:</p>
+<div class="fc">$$\boxed{T = \mu\,W\,R_m \cdot n} \qquad \boxed{R_m = \frac{r_1 + r_2}{2}}$$</div>
+<div class="sym">
+  <span>$R_m$ — mean radius (arithmetic mean for uniform wear), m</span>
+  <span>Uniform wear gives LOWER torque than uniform pressure — conservative, used for design</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>⚠️ Exam Trap:</strong> Unless explicitly stated as a "new clutch", <strong>always use Uniform Wear Theory</strong> ($R_m = \frac{r_1+r_2}{2}$) for clutch design questions. Uniform wear gives a lower, safer torque capacity ($T_{\text{wear}} < T_{\text{pressure}}$).
+</div>
+
+<h3>Multi-Plate Clutch — Active Contact Pairs</h3>
+<div class="fc">$$\boxed{n = n_1 + n_2 - 1}$$</div>
+<div class="sym">
+  <span>$n_1$ — number of discs on driving shaft</span>
+  <span>$n_2$ — number of discs on driven shaft</span>
+</div>
+
+<h3>Centrifugal Clutch</h3>
+<p>Centrifugal clutch shoes are flung outward by centrifugal force as speed increases. Engagement begins when centrifugal force equals spring force ($F_{\text{cf}} = F_{\text{spring}}$). At running speed, the net engaging force is the difference:</p>
+<div class="fc">$$\text{Engagement begins: } F_\text{cf} = F_\text{spring} \quad (N_1)$$
+$$\text{Running net force: } F_\text{net} = F_\text{cf} - F_\text{spring} \quad (N_2 > N_1)$$</div>
+
+<h3>Clutch Applications Matching</h3>
+<table>
+  <thead><tr><th>Clutch Type</th><th>Application</th><th>Key property</th></tr></thead>
+  <tbody>
+    <tr><td>Single-plate dry</td><td>Trucks, heavy vehicles</td><td>Simple; high torque capacity per plate; robust heat dissipation</td></tr>
+    <tr><td>Multi-plate wet</td><td>Scooters, motorcycles, automatic gearboxes</td><td>Compact radial size; oil-cooled; smooth engagement</td></tr>
+    <tr><td>Cone clutch</td><td>Machine tools (largely obsolete)</td><td>High normal force for given axial force; strict coaxiality requirement</td></tr>
+    <tr><td>Jaw / Dog clutch</td><td>Positive drive (lathe back-gear)</td><td>No slip; positive mechanical engagement; must engage at low/zero speed</td></tr>
+    <tr><td>Centrifugal</td><td>Mopeds, lawn mowers, chainsaws</td><td>Automatic engagement at preset engine speed</td></tr>
+  </tbody>
+</table>
+
+<div class="kp">
+  <div class="kp-title">📌 Quick-Fire Exam Checklist</div>
+  <ul>
+    <li>$L_{10} = (C/P_e)^k \times 10^6$ rev; $k=3$ (ball), $k=10/3$ (roller).</li>
+    <li>Ball bearing: $L \propto 1/P^3$; double load $\Rightarrow$ life = $L/8$.</li>
+    <li>Bearing bore code: last two digits $\times 5$ mm (e.g., 08 $\rightarrow$ 40 mm).</li>
+    <li>$P_e = XF_r + YF_a$; $X$, $Y$ from catalogue.</li>
+    <li>Petroff: $f = 2\pi^2(\mu N/P)(r/c)$; valid for lightly loaded journal bearings.</li>
+    <li>$ZN/P$ above critical $\Rightarrow$ hydrodynamic; below $\Rightarrow$ boundary lubrication.</li>
+    <li>$c/r \approx 0.001$ ($1\,\mu$m per mm radius); $L/D = 1$–$2$.</li>
+    <li>Short shoe ($2\theta < 60^\circ$): use actual $\mu$. Long shoe ($2\theta > 60^\circ$): use $\mu_\text{eq} = \frac{4\mu\sin\theta}{2\theta+\sin 2\theta}$.</li>
+    <li>Braking torque: $T = F_r \times R = \mu_\text{eq} R_n R$.</li>
+    <li>Shoe width: $b = 0.25$–$0.50\,D$.</li>
+    <li>Uniform pressure (new clutch): $T = \frac{2}{3}\mu W \frac{r_1^3-r_2^3}{r_1^2-r_2^2}\,n$.</li>
+    <li>Uniform wear (safe design): $T = \mu W R_m n$; $R_m = \frac{r_1+r_2}{2}$.</li>
+    <li>Multi-plate: $n = n_1 + n_2 - 1$ active contact pairs.</li>
+    <li>Uniform wear torque $<$ uniform pressure torque — safe design always uses uniform wear.</li>
+    <li>Single-plate dry: trucks. Multi-plate wet: scooters. Jaw: positive drive, zero-speed engagement.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>APGENCO AE &nbsp;·&nbsp; SSC JE Mechanical &nbsp;·&nbsp; Design of Bearings, Brakes &amp; Clutches Revision Guide</p>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('theme-toggle');
+  var saved  = localStorage.getItem('ag-theme') || 'dark';
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (toggle) toggle.textContent = (t === 'dark') ? '\u{1F319}' : '\u2600\uFE0F';
+    localStorage.setItem('ag-theme', t);
+  }
+
+  applyTheme(saved);
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* Reading progress bar */
+  var bar = document.getElementById('reading-progress');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* Floating section nav */
+  var fn = document.getElementById('fnav');
+  if (fn) {
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav() {
+      var s = window.scrollY;
+      if (s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, { passive: true });
+    upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

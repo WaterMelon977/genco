@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design of Mechanical Springs — Revision Guide — APGENCO / SSC JE</title>
+  <meta name="description" content="Concise high-yield revision guide for Helical Springs, Wahl Factor, Torsion Springs, Leaf Springs, Nipping, Concentric Springs &amp; Surge.">
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --subject-production-primary: #8B5CF6;
+      --subject-production-light: #A78BFA;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --subject-bg-tint: rgba(139, 92, 246, 0.08);
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      --border-light: #262933;
+      --border-hover: var(--subject-current);
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 28px -6px var(--subject-current);
+
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --border-light: #E2E8F0;
+      --shadow-card: 0 4px 15px rgba(0,0,0,0.05);
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-text: #854D0E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      z-index: 9998;
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover {
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.1);
+    }
+
+    /* Floating Section Nav */
+    #fnav {
+      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      padding: 4px 14px;
+      box-shadow: var(--shadow-card);
+      z-index: 9997;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-size: 8.5pt; font-weight: 600;
+      white-space: nowrap;
+    }
+    #fnav.show { opacity: 1; pointer-events: auto; }
+    .fn-a {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 3px 10px; border-radius: 20px;
+      transition: all 0.15s;
+    }
+    .fn-a:hover { color: var(--subject-current); background: var(--subject-bg-tint); }
+    .fn-a.active { background: var(--subject-current); color: #0E0F12; }
+    .fn-sep { color: var(--border-light); }
+
+    /* Submodule Nav */
+    .submodule-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .submodule-nav a:hover { color: var(--subject-current); }
+
+    /* Header */
+    .guide-header {
+      text-align: center;
+      background: linear-gradient(135deg, #150D2A 0%, #0E0F12 70%);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 14px;
+      padding: 32px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .guide-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 22pt; color: #F8FAFC;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .guide-header .subtitle {
+      font-size: 10.5pt; color: var(--text-secondary); font-weight: 300;
+    }
+
+    /* Headings */
+    h2 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 6px; margin-top: 42px; margin-bottom: 20px;
+    }
+    h3 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 12.5pt; color: var(--subject-current);
+      margin-top: 28px; margin-bottom: 12px;
+    }
+
+    p { margin-bottom: 1em; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+    li { margin-bottom: 0.3em; }
+
+    /* Callouts */
+    .callout {
+      padding: 14px 18px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.65; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept { background: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .fc, .formula-card {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fc:hover, .formula-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    .sym {
+      font-size: 9pt; color: var(--text-muted);
+      margin: -10px 0 18px 4px; line-height: 1.6;
+    }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    /* Key Points Card */
+    .kp {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 20px; margin: 28px 0;
+      box-shadow: var(--shadow-card);
+    }
+    .kp-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 11pt; font-weight: 700;
+      color: var(--subject-current);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .kp ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li { margin-bottom: 0.4em; font-size: 9.5pt; color: var(--text-secondary); }
+
+    /* Tables */
+    table {
+      width: 100%; border-collapse: collapse; margin: 22px 0;
+      background: var(--bg-card); border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border-light); font-size: 9.5pt;
+      box-shadow: var(--shadow-card);
+    }
+    th, td { padding: 10px 14px; border: 1px solid var(--border-light); text-align: left; }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 700;
+      border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) { background: var(--subject-bg-tint); }
+
+    footer {
+      text-align: center; font-size: 8.5pt; color: var(--text-muted);
+      margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-light);
+    }
+
+    @media (max-width: 660px) {
+      body { padding: 20px 14px 50px; }
+      #fnav { display: none; }
+      .guide-header h1 { font-size: 17pt; }
+    }
+  </style>
+</head>
+<body data-subject="production">
+
+<div id="reading-progress"></div>
+
+<nav id="fnav">
+  <a class="fn-a" href="#helical">Helical Springs</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#geometry">Geometry</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#combinations">Combinations</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#torsion-spring">Torsion Spring</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#leaf">Leaf Springs</a><span class="fn-sep">·</span>
+  <a class="fn-a" href="#surge">Surge &amp; Fatigue</a>
+</nav>
+
+<button id="theme-toggle" title="Toggle dark mode">🌙</button>
+
+<div class="submodule-nav">
+  <a href="index.html">← Back to Machine Design Hub</a>
+  <a href="../index.html" style="font-size: 9pt; opacity: 0.85;">Main Exam Portal →</a>
+</div>
+
+<!-- Dual-Tier Cross-Link Banner -->
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="springs_reorganized.html" style="font-weight: 700; text-decoration: underline; color: var(--subject-current);">Switch to Comprehensive Deep Dive Guide →</a>
+</div>
+
+<div class="guide-header">
+  <h1>Design of Mechanical Springs</h1>
+  <div class="subtitle">Helical · Torsion · Leaf · Surge &amp; Fatigue &nbsp;·&nbsp; APGENCO AE | SSC JE Mechanical</div>
+</div>
+
+<!-- ═══ 1. HELICAL SPRING STRESS & DEFLECTION ═══ -->
+<h2 id="helical">1. Helical Compression &amp; Tension Springs — Stress &amp; Deflection</h2>
+
+<p>A helical compression spring stores elastic strain energy when compressed. The wire of the spring is subjected primarily to <strong>torsion</strong> when an axial load is applied — the axial force creates a twisting moment about the wire axis. Two secondary effects are superimposed: a direct shear stress from the transverse shear of the axial load, and a stress concentration on the inner surface of the coil due to the curvature of the wire.</p>
+
+<h3>Spring Index</h3>
+<div class="fc">$$\boxed{C = \frac{D}{d}}$$</div>
+<div class="sym">
+  <span>$D$ — mean coil diameter, mm</span>
+  <span>$d$ — wire diameter, mm</span>
+  <span>Preferred manufacturing range: $4 \leq C \leq 12$; typical $C \approx 6$–$8$</span>
+  <span>Low $C$ (tightly wound): high stress concentration; difficult to coil</span>
+  <span>High $C$ (loosely wound): prone to buckling; tangling in service</span>
+</div>
+
+<h3>Direct Shear Factor $K_s$</h3>
+<p>$K_s$ accounts for the direct shear stress from the axial load, which adds to the torsional shear stress:</p>
+<div class="fc">$$\boxed{K_s = 1 + \frac{1}{2C} = \frac{2C+1}{2C}}$$</div>
+
+<h3>Wahl Stress Factor $K_w$</h3>
+<p>$K_w$ accounts for both direct shear and curvature stress concentration. It is the complete correction factor used in detailed stress calculations:</p>
+<div class="fc">$$\boxed{K_w = \frac{4C-1}{4C-4} + \frac{0.615}{C}}$$</div>
+<div class="sym"><span>$K_w > K_s$ always; the additional term accounts for coil curvature effect on inner surface</span></div>
+
+<h3>Maximum Torsional Shear Stress</h3>
+<p>Maximum stress occurs on the <strong>inner surface</strong> of the coil wire where torsion and curvature concentration add together:</p>
+<div class="fc">$$\boxed{\tau_\text{max} = K_w \cdot \frac{8PD}{\pi d^3} = K_w \cdot \frac{8PC}{\pi d^2}}$$</div>
+<div class="sym">
+  <span>$P$ — axial load on spring, N</span>
+  <span>$\tau_\text{max}$ at inner surface of coil (smallest radius of curvature)</span>
+</div>
+
+<h3>Axial Deflection</h3>
+<div class="fc">$$\boxed{\delta = \frac{8PD^3n}{Gd^4} = \frac{8PC^3n}{Gd}}$$</div>
+<div class="sym">
+  <span>$n$ — number of active coils</span>
+  <span>$G$ — modulus of rigidity (shear modulus), MPa</span>
+  <span>For steel: $G \approx 80{,}000$ MPa; for bronze: $G \approx 40{,}000$ MPa</span>
+</div>
+
+<h3>Spring Stiffness (Spring Rate)</h3>
+<div class="fc">$$\boxed{k = \frac{P}{\delta} = \frac{Gd^4}{8D^3n} = \frac{Gd}{8C^3n} \quad \text{N/mm}}$$</div>
+
+<!-- ═══ 2. GEOMETRY & END CONDITIONS ═══ -->
+<h2 id="geometry">2. Spring Geometry &amp; End Conditions</h2>
+
+<p>The total number of coils $n_t$ differs from the active coils $n$ depending on how the spring ends are formed. Inactive (dead) coils at each end do not contribute to deflection but do contribute to solid length.</p>
+
+<table>
+  <thead><tr><th>End type</th><th>Active coils $n$</th><th>Solid length $L_s$</th></tr></thead>
+  <tbody>
+    <tr><td>Plain ends</td><td>$n = n_t$</td><td>$n_t \cdot d$</td></tr>
+    <tr><td>Plain &amp; ground ends</td><td>$n = n_t - 1$</td><td>$n_t \cdot d$</td></tr>
+    <tr><td>Squared (closed) ends</td><td>$n = n_t - 2$</td><td>$(n_t + 1)\cdot d$</td></tr>
+    <tr><td>Squared &amp; ground ends</td><td>$n = n_t - 2$</td><td>$n_t \cdot d$</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Squared and ground ends</strong> are the standard for precision springs — they seat flat on their support surfaces, ensuring the load is applied coaxially with the spring axis. This prevents eccentric loading and buckling.</p>
+
+<h3>Free Length, Solid Length &amp; Pitch</h3>
+<div class="fc">$$L_s = n_t \cdot d \qquad (\text{squared \& ground ends})$$</div>
+<div class="fc">$$\boxed{L_f = L_s + \delta_\text{max} + \delta_\text{clash}}$$</div>
+<div class="sym">
+  <span>$\delta_\text{clash}$ — clash allowance $\approx 0.15\,\delta_\text{max}$ (prevents coils closing under overload)</span>
+</div>
+<div class="fc">$$\boxed{p = \frac{L_f - L_s}{n} + d \quad \text{mm}}$$</div>
+<div class="sym"><span>$p$ — coil pitch at free length</span></div>
+
+<!-- ═══ 3. COMBINATIONS & CUTTING ═══ -->
+<h2 id="combinations">3. Spring Combinations, Cutting &amp; Strain Energy</h2>
+
+<h3>Series and Parallel</h3>
+<div class="fc">$$\text{Series: } \frac{1}{k_\text{eq}} = \frac{1}{k_1} + \frac{1}{k_2} \qquad \text{Parallel: } k_\text{eq} = k_1 + k_2$$</div>
+<div class="sym">
+  <span>Series: same load, deflections add — softer combined spring</span>
+  <span>Parallel: same deflection, loads add — stiffer combined spring</span>
+  <span>Concentric (nested) springs are always in parallel</span>
+</div>
+
+<h3>Cutting a Spring</h3>
+<p>If a spring of stiffness $k$ and $n$ active coils is cut into two equal halves, each half has $n/2$ coils. Since $k \propto 1/n$, each half has stiffness $2k$. If both halves are then placed in parallel, the equivalent stiffness is $4k$.</p>
+<div class="fc">$$\text{Original: } k \quad\longrightarrow\quad \text{Cut into 2 halves: } 2k \text{ each} \quad\longrightarrow\quad \text{Both halves in parallel: } 4k$$</div>
+
+<h3>Strain Energy &amp; Resilience</h3>
+<div class="fc">$$\boxed{U = \frac{1}{2}P\delta = \frac{P^2}{2k} = \frac{\tau^2}{4G}\cdot V}$$</div>
+<div class="sym">
+  <span>$V = \frac{\pi^2}{4}d^2 D n$ — volume of wire in spring, mm³</span>
+</div>
+<div class="fc">$$\text{Modulus of Resilience} = \frac{U}{V} = \frac{\tau^2}{4G}$$</div>
+
+<h3>Concentric / Co-axial Springs</h3>
+<p>Two helical springs nested together are always in parallel and share the load. For the springs to be independent (neither one locks the other when deflected), adjacent coils must be wound in <strong>opposite hands</strong> — one right-hand helix and one left-hand helix. Without this, the coils of one spring would hook into the other's coils under heavy loading.</p>
+
+<p>For equal stress design of co-axial springs (to fully utilise material in both springs simultaneously):</p>
+<div class="fc">$$\frac{P_1}{D_1 d_1^2} = \frac{P_2}{D_2 d_2^2}$$</div>
+
+<!-- ═══ 4. HELICAL TORSION SPRING ═══ -->
+<h2 id="torsion-spring">4. Helical Torsion Spring</h2>
+
+<p>A torsion spring is loaded by a torque or bending moment applied to its ends, causing it to wind or unwind. Unlike a compression or tension spring where the wire is in torsion, in a torsion spring the wire is subjected to <strong>bending</strong>. The wire bends in its plane as the coil winds up.</p>
+
+<h3>Wahl Factor for Torsion Spring</h3>
+<div class="fc">$$\boxed{K_b = \frac{4C-1}{4C-4}}$$</div>
+<div class="sym"><span>Only the first term of the Wahl factor (no direct shear term, since the loading is bending)</span></div>
+
+<h3>Bending Stress in Wire</h3>
+<div class="fc">$$\boxed{\sigma = K_b \cdot \frac{32\,M}{\pi\,d^3}}$$</div>
+<div class="sym">
+  <span>$M$ — applied bending moment, N·mm</span>
+  <span>$\sigma$ — bending stress in wire, MPa</span>
+</div>
+
+<h3>Angular Deflection</h3>
+<div class="fc">$$\boxed{\theta = \frac{64\,M\,D\,n}{E\,d^4} \quad \text{radians}}$$</div>
+<div class="sym">
+  <span>$E$ — Young's modulus (bending uses $E$, not $G$), MPa</span>
+  <span>For steel: $E \approx 200{,}000$ MPa</span>
+</div>
+
+<h3>Angular Stiffness</h3>
+<div class="fc">$$k_\theta = \frac{M}{\theta} = \frac{E\,d^4}{64\,D\,n} \quad \text{N·mm/rad}$$</div>
+
+<!-- ═══ 5. LEAF SPRINGS ═══ -->
+<h2 id="leaf">5. Leaf Springs (Semi-Elliptic Laminated Springs)</h2>
+
+<p>A semi-elliptic leaf spring consists of a master leaf (full-length) and a stack of progressively shorter graduated leaves, all clamped at the centre by a U-bolt and pin and supported at the ends. The graduated leaves form an equivalent beam of <strong>uniform strength</strong> — constant bending stress throughout the length — achieved by the triangular taper in width.</p>
+
+<h3>Bending Stress</h3>
+<div class="fc">$$\boxed{\sigma = \frac{3\,P\,L}{2\,n\,b\,t^2}}$$</div>
+<div class="sym">
+  <span>$P$ — total central load, N</span>
+  <span>$L$ — half-span (centre to eye), mm</span>
+  <span>$n$ — total number of leaves</span>
+  <span>$b$ — width of each leaf, mm</span>
+  <span>$t$ — thickness of each leaf, mm</span>
+</div>
+
+<h3>Central Deflection</h3>
+<div class="fc">$$\boxed{\delta = \frac{3\,P\,L^3}{8\,E\,n\,b\,t^3}}$$</div>
+
+<h3>Load Sharing Between Full-Length and Graduated Leaves</h3>
+<p>When a semi-elliptic spring has both full-length master leaves and shorter graduated leaves acting together without pre-stressing (nipping), the load is shared unequally. The graduated leaves deflect less (being shorter), so the full-length leaves carry a disproportionately higher share:</p>
+<div class="fc">$$P_g = \frac{2}{3}P \qquad P_f = \frac{1}{3}P$$</div>
+<div class="sym">
+  <span>$P_g$ — load carried by graduated leaves (2/3 of total)</span>
+  <span>$P_f$ — load carried by full-length (master) leaves (1/3 of total)</span>
+</div>
+
+<p>This unequal sharing means the full-length leaves reach a bending stress $1.5\times$ higher than the graduated leaves for the same number of leaves:</p>
+<div class="fc">$$\sigma_f = 1.5\,\sigma_g \quad \text{(without nipping)}$$</div>
+
+<h3>Nipping</h3>
+<p><strong>Nipping</strong> is the practice of pre-stressing the leaves by inserting a spacer (a pre-formed initial curvature difference) between the master and graduated leaves before assembly. The pre-stress introduces compressive stress in the full-length leaves and tensile stress in the graduated leaves. Under service load, the tensile service stress in the master leaves subtracts from the initial compressive pre-stress, effectively reducing the net stress. The goal of nipping is to equalise the stress in all leaves:</p>
+<div class="fc">$$\sigma_f = \sigma_g \quad \text{(with nipping — equal stress condition)}$$</div>
+
+<!-- ═══ 6. SURGE, BUCKLING & FATIGUE ═══ -->
+<h2 id="surge">6. Surge, Buckling &amp; Fatigue of Helical Springs</h2>
+
+<h3>Spring Surge</h3>
+<p>A helical compression spring has a natural frequency of longitudinal vibration, called the <strong>surge frequency</strong>. If the frequency of the applied load approaches the spring's natural frequency, resonance occurs — standing waves travel through the spring coil-by-coil. This causes coil-to-coil impacts (surge), severe stress amplification, and rapid fatigue failure. The surge frequency is:</p>
+<div class="fc">$$\boxed{f_n = \frac{d}{2\pi D^2 n}\sqrt{\frac{G\,g}{2\rho}} \quad \text{Hz}}$$</div>
+<div class="sym">
+  <span>$\rho$ — density of wire material, kg/mm³ (steel: $\approx 7.86 \times 10^{-6}$ kg/mm³)</span>
+  <span>$g$ — gravitational acceleration, mm/s²</span>
+</div>
+<p>To avoid resonance, the operating frequency must remain below $0.5\,f_n$ or above $2\,f_n$. Variable-pitch springs are used in high-speed valve springs to eliminate a single dominant natural frequency — the varying pitch means different coils have different natural frequencies, preventing standing wave formation.</p>
+
+<h3>Buckling of Compression Springs</h3>
+<p>A long helical compression spring can buckle like a column if its free length is too large relative to its coil diameter. The tendency to buckle is characterised by the slenderness ratio $L_f/D$. Springs with $L_f/D > 4$ (for fixed ends) or $L_f/D > 2.6$ (for pivoted ends) are prone to buckling. Prevention methods: guide posts or guide sleeves, or design the spring with lower slenderness ratio.</p>
+
+<h3>Fatigue Loading of Springs</h3>
+<p>Springs subjected to fluctuating loads (valve springs, suspension springs) experience fully reversed or partially reversed shear stresses. The stress parameters for the Goodman or Soderberg criterion are:</p>
+<div class="fc">$$\tau_m = K_w\,\frac{8P_m D}{\pi d^3} \qquad \tau_a = K_w\,\frac{8P_a D}{\pi d^3}$$</div>
+<div class="sym">
+  <span>$P_m = (P_\text{max}+P_\text{min})/2$ — mean load</span>
+  <span>$P_a = (P_\text{max}-P_\text{min})/2$ — amplitude load</span>
+</div>
+
+<div class="fc">$$\text{Soderberg: } \frac{\tau_a}{\tau_e} + \frac{\tau_m}{\tau_y} = \frac{1}{N} \qquad \text{Goodman: } \frac{\tau_a}{\tau_e} + \frac{\tau_m}{\tau_u} = \frac{1}{N}$$</div>
+<div class="sym">
+  <span>$\tau_e$ — endurance limit in shear</span>
+  <span>$\tau_y$ — yield strength in shear</span>
+  <span>$\tau_u$ — ultimate strength in shear</span>
+</div>
+
+<div class="kp">
+  <div class="kp-title">📌 Quick-Fire Exam Checklist</div>
+  <ul>
+    <li>$C = D/d$; preferred range $4 \leq C \leq 12$.</li>
+    <li>$K_s = 1 + 1/(2C)$ — direct shear only. $K_w = (4C-1)/(4C-4) + 0.615/C$ — shear + curvature.</li>
+    <li>$\tau_\text{max} = K_w \cdot 8PD/(\pi d^3)$; occurs on <em>inner</em> surface of coil.</li>
+    <li>$\delta = 8PD^3n/(Gd^4)$; $k = Gd^4/(8D^3n)$.</li>
+    <li>$J = \pi d^4/32$ — polar moment of wire cross-section.</li>
+    <li>Squared &amp; ground ends: $n = n_t - 2$; $L_s = n_t \cdot d$.</li>
+    <li>$L_f = L_s + \delta_\text{max} + 0.15\,\delta_\text{max}$; pitch $p = (L_f - L_s)/n + d$.</li>
+    <li>Series: $1/k_\text{eq} = 1/k_1 + 1/k_2$. Parallel: $k_\text{eq} = k_1 + k_2$. Nested springs: parallel.</li>
+    <li>Cut spring into 2 halves: each half has stiffness $2k$. Both in parallel: $4k$.</li>
+    <li>$U = \tau^2 V/(4G)$; $V = \pi^2 d^2 D n/4$.</li>
+    <li>Co-axial springs: wound in opposite hands to prevent coil locking.</li>
+    <li>Torsion spring wire: in bending (uses $E$, not $G$). $\sigma = K_b \cdot 32M/(\pi d^3)$.</li>
+    <li>$K_b = (4C-1)/(4C-4)$ — Wahl factor for torsion spring.</li>
+    <li>$\theta = 64MDn/(Ed^4)$; uses $E$ not $G$.</li>
+    <li>Leaf spring: $\sigma = 3PL/(2nbt^2)$; $\delta = 3PL^3/(8Enbt^3)$.</li>
+    <li>Without nipping: $P_g = 2P/3$, $P_f = P/3$; $\sigma_f = 1.5\,\sigma_g$.</li>
+    <li>Nipping: equalises stresses so $\sigma_f = \sigma_g$.</li>
+    <li>Surge: resonance between spring $f_n$ and load frequency; use variable pitch to avoid.</li>
+    <li>Operating frequency: keep below $0.5\,f_n$ or above $2\,f_n$.</li>
+    <li>Buckling: $L_f/D > 4$ (fixed ends) — use guide post or reduce slenderness ratio.</li>
+  </ul>
+</div>
+
+<footer>
+  <p>APGENCO AE &nbsp;·&nbsp; SSC JE Mechanical &nbsp;·&nbsp; Mechanical Springs Revision Guide</p>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('theme-toggle');
+  var saved  = localStorage.getItem('ag-theme') || 'dark';
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (toggle) toggle.textContent = (t === 'dark') ? '\u{1F319}' : '\u2600\uFE0F';
+    localStorage.setItem('ag-theme', t);
+  }
+
+  applyTheme(saved);
+
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* Reading progress bar */
+  var bar = document.getElementById('reading-progress');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var d = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* Floating section nav */
+  var fn = document.getElementById('fnav');
+  if (fn) {
+    var links = fn.querySelectorAll('.fn-a');
+    var ids = Array.from(links).map(function(l){ return l.getAttribute('href').replace('#',''); });
+    function upNav() {
+      var s = window.scrollY;
+      if (s > 220) fn.classList.add('show'); else fn.classList.remove('show');
+      var act = ids[0];
+      ids.forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) act = id;
+      });
+      links.forEach(function(lk){
+        lk.classList.toggle('active', lk.getAttribute('href').replace('#','') === act);
+      });
+    }
+    window.addEventListener('scroll', upNav, { passive: true });
+    upNav();
+    links.forEach(function(lk){
+      lk.addEventListener('click', function(e){
+        e.preventDefault();
+        var el = document.getElementById(lk.getAttribute('href').replace('#',''));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

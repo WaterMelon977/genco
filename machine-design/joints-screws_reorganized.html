@@ -1,78 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design of Threaded Joints, Power Screws, Welded & Riveted Joints — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <title>Design of Threaded Joints, Power Screws, Welded &amp; Riveted Joints — Comprehensive Reorganized Study Guide — AP GenCo Exam Guide</title>
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
   <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+    :root {
+      --subject-production-primary: #8B5CF6;
+      --subject-production-light: #A78BFA;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --subject-bg-tint: rgba(139, 92, 246, 0.08);
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-accent: #8B5CF6;
+
+      --border-light: #262933;
+      --border-hover: var(--subject-current);
+
+      --heading-color: #F1F5F9;
+      --heading-sub: #8B5CF6;
+
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 0 28px -6px var(--subject-current);
+
+      --code-bg: #1E1C24;
+      --code-text: #E2D9F3;
+      --pre-bg: #111318;
+
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --text-accent: #7C3AED;
+      --heading-color: #0F172A;
+      --heading-sub: #7C3AED;
+      --border-light: #E2E8F0;
+      --shadow-card: 0 4px 15px rgba(0,0,0,0.05);
+      --code-bg: #F1F5F9;
+      --code-text: #4C1D95;
+      --pre-bg: #F8FAFC;
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-text: #854D0E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      margin: 0;
+      padding: 40px 20px 60px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .reading-content { max-width: 860px; margin: 0 auto; }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Floating Navigation */
+    #floating-nav {
+      position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 50px;
+      padding: 5px 12px;
+      box-shadow: var(--shadow-card);
+      z-index: 9998;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+      white-space: nowrap;
+      font-size: 8.5pt; font-family: system-ui, -apple-system, sans-serif;
+    }
+    #floating-nav.visible { opacity: 1; pointer-events: auto; }
+    .fnav-link {
+      color: var(--text-secondary); text-decoration: none;
+      padding: 3px 10px; border-radius: 20px; font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .fnav-link:hover { color: var(--subject-current); background: var(--subject-bg-tint); text-decoration: none; }
+    .fnav-link.active-section { background: var(--subject-current); color: #0E0F12; }
+    .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 12px; right: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text-secondary);
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 14pt;
+      box-shadow: var(--shadow-card);
+      z-index: 9998;
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1);
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+    }
+
+    /* Submodule Nav */
+    .submodule-nav {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); text-decoration: none; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .submodule-nav a:hover { color: var(--subject-current); }
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      color: var(--heading-color); font-weight: 700;
+      margin-top: 1.6em; margin-bottom: 0.5em;
+    }
+    h1 {
+      font-size: 22pt; text-align: center;
+      background: linear-gradient(135deg, #150D2A 0%, #0E0F12 70%);
+      color: #F8FAFC;
+      border-left: 5px solid var(--subject-current);
+      padding: 26px 32px; border-radius: 12px; margin-bottom: 28px;
+      box-shadow: var(--shadow-card); line-height: 1.3;
+    }
+    h2 {
+      font-size: 16pt;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 6px; margin-top: 40px;
+    }
+    h3 { font-size: 13pt; color: var(--subject-current); }
+    h4 { font-size: 11.5pt; color: var(--text-primary); }
+    h5 { font-size: 10.5pt; color: var(--subject-current); }
+
+    a { color: var(--subject-current); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p { margin-bottom: 0.9em; }
+
+    code {
+      font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
+      background: var(--code-bg); color: var(--code-text);
+      padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em;
+    }
+    pre {
+      background: var(--pre-bg); border: 1px solid var(--border-light);
+      padding: 1em 1.2em; border-radius: 8px; overflow-x: auto;
+      font-size: 9.5pt; line-height: 1.6; color: var(--text-primary);
+    }
+    pre code { background: none; padding: 0; font-size: inherit; color: inherit; }
+
+    blockquote {
+      border-left: 4px solid var(--subject-current);
+      background-color: var(--pre-bg);
+      padding: 12px 18px; margin: 18px 0;
+      color: var(--text-secondary); border-radius: 0 6px 6px 0;
+    }
+
+    /* Tables */
+    table {
+      border-collapse: collapse; width: 100%; margin: 20px 0;
+      background: var(--bg-card); border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border-light); font-size: 9.5pt;
+      box-shadow: var(--shadow-card);
+    }
+    th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 700;
+      border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) { background-color: var(--subject-bg-tint); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .formula-card, .fc {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 0 10px 10px 0;
+      margin: 22px 0; padding: 16px 20px;
+      text-align: center; overflow-x: auto; font-size: 1.05em;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .formula-card:hover, .fc:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    /* Callouts */
+    .callout {
+      padding: 14px 18px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.65; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+
+    @media (max-width: 700px) {
+      #floating-nav { display: none; }
+      body { padding: 40px 14px 40px; }
+      h1 { font-size: 17pt; padding: 18px; }
+    }
+  </style>
 </head>
-<body id="preview">
+<body id="preview" data-subject="production">
   <div id="reading-progress"></div>
 <div id="floating-nav">
   <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
@@ -87,29 +296,63 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
   <span class="fnav-sep">·</span>
   <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
 </div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
 <script>
 (function() {
   var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+    localStorage.setItem("ag-theme", t);
+  }
   applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
+  if (toggle) {
+    toggle.addEventListener("click", function() {
+      var c = document.documentElement.getAttribute("data-theme") || "dark";
+      applyTheme(c === "dark" ? "light" : "dark");
+    });
+  }
   var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
+  function upBar() {
+    var s = window.scrollY || document.documentElement.scrollTop;
+    var d = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%";
+  }
   window.addEventListener("scroll", upBar, {passive: true}); upBar();
   var fn = document.getElementById("floating-nav");
   var links = fn.querySelectorAll(".fnav-link");
   var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
+  function upNav() {
+    var s = window.scrollY || document.documentElement.scrollTop;
+    if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible");
+    var act = ids[0];
+    ids.forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 100) act = id;
+    });
+    links.forEach(function(lk){
+      lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act);
+    });
+  }
   window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
+  links.forEach(function(lk){
+    lk.addEventListener("click", function(e){
+      e.preventDefault();
+      var el = document.getElementById(lk.getAttribute("href").replace("#",""));
+      if(el) el.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
 })();
 </script>
   <div class="reading-content">
     <div class="submodule-nav">
     <a href="index.html">&larr; Back to Machine Design Hub</a>
     <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
+  </div>
+  <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version.</span>
+    <a href="joints-screws_revised.html" style="font-weight: 700; text-decoration: underline; color: var(--subject-current);">&larr; Switch to Concise Revision Guide</a>
   </div>
   <h1 id="design-of-threaded-joints-power-screws-welded-riveted-joints-comprehensive-reorganized-study-guide">Design of Threaded Joints, Power Screws, Welded &amp; Riveted Joints — Comprehensive Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
@@ -297,9 +540,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thread Application Rule</strong>:
 - Square/Acme $\implies$ Power transmission in both directions.
 - Buttress $\implies$ Power transmission in ONE direction only.
-- V-threads $\implies$ Fastening/locking (never power transmission).</p>
-<p>[!TRAP]
-<strong>Acme vs Metric Thread Angles</strong>: Acme thread included angle is $29^\circ$ (flank angle $14.5^\circ$). Metric V-thread included angle is $60^\circ$ (flank angle $30^\circ$). Do not confuse thread angles in MCQs!</div>
+- V-threads $\implies$ Fastening/locking (never power transmission).</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Acme vs Metric Thread Angles</strong>: Acme thread included angle is $29^\circ$ (flank angle $14.5^\circ$). Metric V-thread included angle is $60^\circ$ (flank angle $30^\circ$). Do not confuse thread angles in MCQs!</div>
 <h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
 <pre><code>Thread Profile Selection Check?
 ├─ Power transmission in BOTH directions with maximum efficiency? → SQUARE THREAD
@@ -345,9 +587,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>Screw Jack Cup Function</strong>:</li>
 <li>The cup fitted at the top of a screw jack supports the load and <strong>prevents the load from rotating</strong> along with the screw.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Self-Locking Efficiency Limit</strong>: The efficiency of a self-locking power screw can NEVER exceed $50\%$ $\eta \le 50\%$. If efficiency exceeds $50\%$, the screw is overhauling!</p>
-<p>[!TRAP]
-<strong>Maximum Efficiency Formula</strong>: $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$. Do not confuse with $\frac{1-\cos\phi}{1+\cos\phi}$ or $\frac{1-\tan\phi}{1+\tan\phi}$!</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Self-Locking Efficiency Limit</strong>: The efficiency of a self-locking power screw can NEVER exceed $50\%$ ($\eta \le 50\%$). If efficiency exceeds $50\%$, the screw is overhauling!</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Maximum Efficiency Formula</strong>: $\eta_{\text{max}} = \frac{1-\sin\phi}{1+\sin\phi}$. Do not confuse with $\frac{1-\cos\phi}{1+\cos\phi}$ or $\frac{1-\tan\phi}{1+\tan\phi}$!</div>
 <h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
 <pre><code>Power Screw / Screw Jack Check?
 ├─ Is friction angle phi &gt;= helix angle alpha? → SELF-LOCKING (Efficiency &lt;= 50%)
@@ -402,9 +643,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>Tightening Torque Components</strong>:</li>
 <li>Total tightening torque $T = T_{\text{thread friction}} + T_{\text{collar friction}} + T_{\text{preload}}$.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Bolt of Uniform Strength</strong>: Reducing the unthreaded shank diameter to equal thread core diameter $d_c$ makes stress uniform throughout the length, maximizing shock energy absorption (resilience).</p>
-<p>[!TRAP]
-<strong>Bolt Core Diameter Area</strong>: Core diameter $d_c \approx 0.84 d$ (major diameter). Always use core area $A_c = \frac{\pi}{4} d_c^2$ for tensile strength calculations, NOT major diameter area!</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Bolt of Uniform Strength</strong>: Reducing the unthreaded shank diameter to equal thread core diameter $d_c$ makes stress uniform throughout the length, maximizing shock energy absorption (resilience).</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Bolt Core Diameter Area</strong>: Core diameter $d_c \approx 0.84 d$ (major diameter). Always use core area $A_c = \frac{\pi}{4} d_c^2$ for tensile strength calculations, NOT major diameter area!</div>
 <h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
 <pre><code>Bolted Joint Design Check?
 ├─ Is design for tensile load P? → Core diameter dc = sqrt(4 * P / (pi * sigma_t))
@@ -438,9 +678,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>Eye Bolt</strong>: A bolt with a circular loop/eye head used for lifting and transporting heavy machinery.</li>
 <li><strong>Thread Stripping Failure</strong>: Prevented by ensuring adequate engaged thread length $L_e \ge 0.8 d - 1.0 d$ in the nut to withstand direct shear.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Turnbuckle Thread Orientation</strong>: A turnbuckle coupler MUST have a left-hand thread on one end and a right-hand thread on the other end so that turning the sleeve pulls both connected rods together or pushes them apart.</p>
-<p>[!TRAP]
-<strong>Stud vs Bolt</strong>: A stud has NO head! It is threaded on both ends.</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Turnbuckle Thread Orientation</strong>: A turnbuckle coupler MUST have a left-hand thread on one end and a right-hand thread on the other end so that turning the sleeve pulls both connected rods together or pushes them apart.</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Stud vs Bolt</strong>: A stud has NO head! It is threaded on both ends.</div>
 <h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
 <pre><code>Special Threaded Fastener Check?
 ├─ Fastener threaded at both ends with NO head? → STUD
@@ -477,9 +716,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Full penetration butt welds have no throat reduction factor $t = \text{plate thickness}$.</li>
 <li><strong>Backing rings</strong> are inserted inside pipes during butt welding to ensure proper root penetration and alignment.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fillet Weld Throat Rule</strong>: Fillet weld throat thickness is $t = 0.707 h$. All fillet welds (parallel or transverse) are designed based on SHEAR FAILURE across this minimum throat area!</p>
-<p>[!TRAP]
-<strong>Butt Weld vs Fillet Weld Size</strong>:
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Fillet Weld Throat Rule</strong>: Fillet weld throat thickness is $t = 0.707 h$. All fillet welds (parallel or transverse) are designed based on SHEAR FAILURE across this minimum throat area!</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Butt Weld vs Fillet Weld Size</strong>:
 - Fillet weld size $= h$; Throat $= 0.707 h$.
 - Butt weld size $= \text{Throat} = \text{Plate thickness } t$ (no $0.707$ multiplier!).</div>
 <h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
@@ -530,9 +768,8 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </ul>
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Unwin's Formula &amp; Leak-Proofing</strong>:
 - Rivet diameter $d = 6\sqrt{t}$ (mm).
-- Caulking and Fullering are performed ONLY to make riveted boiler joints LEAK-PROOF.</p>
-<p>[!TRAP]
-<strong>Tearing Efficiency Ratio</strong>: $\eta_t = \frac{p-d}{p}$. If efficiency is $75\%$, then $d/p = 0.25$, NOT $0.75$!</div>
+- Caulking and Fullering are performed ONLY to make riveted boiler joints LEAK-PROOF.</div>
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Tearing Efficiency Ratio</strong>: $\eta_t = \frac{p-d}{p}$. If efficiency is $75\%$, then $d/p = 0.25$, NOT $0.75$!</div>
 <h5 id="2-decision-tree_5"><strong>2. Decision Tree</strong></h5>
 <pre><code>Riveted Joint Design &amp; Failure Check?
 ├─ Is riveting permanent or temporary? → PERMANENT FASTENING
