@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Turbines — Concise Revision Guide — APGENCO AE / SSC JE Mechanical</title>
+<meta name="description" content="High-yield concise revision guide for Steam Turbines: Impulse vs Reaction, Degree of Reaction, Euler equation, Parson's 50% reaction turbine, Curtis & Rateau compounding, Reheat Factor, governing, and critical speed. APGENCO AE and SSC JE.">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --subject-thermo-primary: #F97316;
+  --subject-thermo-light:   #FB923C;
+  --subject-thermo-dark:    #9A3412;
+  --bg-page:    #0E0F12;
+  --bg-card:    #16181D;
+  --bg-formula: #111318;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-light:   #262933;
+  --heading-color:  #F1F5F9;
+  --code-bg:  #262933;
+  --code-text: #F1F5F9;
+  --pre-bg:   #111318;
+  --table-th-bg:   #111318;
+  --table-even-bg: #121419;
+  --callout-concept-bg:     #131D31;
+  --callout-concept-border: #3B6FD4;
+  --callout-concept-text:   #93C5FD;
+  --callout-trap-bg:     #271415;
+  --callout-trap-border: #EF4444;
+  --callout-trap-text:   #FCA5A5;
+  --callout-focus-bg:     #2A2210;
+  --callout-focus-border: #C09820;
+  --callout-focus-text:   #E0C060;
+  --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.40);
+  --subject-current:       #F59E0B;
+  --subject-current-light: rgba(245,158,11,0.3);
+  --subject-bg-tint:       rgba(245,158,11,0.08);
+}
+body[data-subject="thermo"] {
+  --subject-current:       #F97316;
+  --subject-current-light: #FB923C;
+  --subject-bg-tint:       rgba(249,115,22,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background: var(--bg-page); padding: 60px 20px 72px; transition: background .25s, color .25s; }
+.wrap { max-width: 820px; margin: 0 auto; }
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+#theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
+#theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+#floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-family: Inter, system-ui, sans-serif; font-size: 8.5pt; }
+#floating-nav.visible { opacity: 1; pointer-events: auto; }
+.fn-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.fn-link:hover { background: var(--bg-formula); color: var(--subject-current); }
+.fn-link.active { background: var(--subject-current); color: #0E0F12; }
+.fn-sep { color: var(--border-light); font-size: 7pt; user-select: none; }
+.submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; transition: border-color 0.3s ease; }
+.submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+.submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+.submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; transition: border-color 0.3s ease, color 0.3s ease; }
+h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
+.subject-badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 12px; text-transform: uppercase; letter-spacing: 0.8px; background: var(--subject-current); color: #0E0F12; transition: background 0.3s ease; vertical-align: middle; }
+h2 { font-size: 16pt; color: var(--heading-color); border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
+p { margin-bottom: 1em; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+a { color: var(--subject-current); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+li { margin-bottom: .28em; }
+.formula-card { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 16px 20px; margin: 20px 0; border-radius: 8px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: var(--shadow-card); transition: transform 0.2s ease, box-shadow 0.3s ease; }
+.formula-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -4px var(--subject-current); }
+.sym { font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.sym span { display: inline-block; }
+.callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
+.callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+.callout-trap    { background-color: var(--callout-trap-bg);    border-color: var(--callout-trap-border);    color: var(--callout-trap-text); }
+.callout-focus   { background: var(--subject-bg-tint); border-color: var(--subject-current); color: var(--text-primary); }
+.kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-family: Inter, system-ui, sans-serif; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+.kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+.kp ul { margin-bottom: 0; padding-left: 1.3em; }
+.kp li { margin-bottom: .28em; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
+th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
+tr:nth-child(even) { background-color: var(--table-even-bg); }
+tr:hover { background-color: var(--subject-bg-tint); }
+.MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #floating-nav { display: none; } }
+</style>
+</head>
+<body data-subject="thermo">
+<div id="reading-progress"></div>
+<nav id="floating-nav">
+  <a class="fn-link active" href="#impulse-reaction">Impulse vs Reaction</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#euler">Euler &amp; Efficiency</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#parsons">Parson's</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#compounding">Compounding</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#reheat-factor">Reheat Factor</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#special">Special Turbines</a>
+</nav>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  function updateFavicon(subject) {
+    var colors = { "fluid":"#06B6D4","thermo":"#F97316","production":"#8B5CF6","operations":"#10B981","materials":"#EC4899" };
+    var color = colors[subject] || "#F59E0B";
+    var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+  }
+  function applySubject(s) { document.documentElement.setAttribute("data-subject", s); document.body.setAttribute("data-subject", s); localStorage.setItem("ag-subject", s); updateFavicon(s); }
+  applyTheme(saved);
+  applySubject("thermo");
+  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+  var bar = document.getElementById("reading-progress");
+  if (bar) { window.addEventListener("scroll", function() { var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%"; }, { passive: true }); }
+  var fn = document.getElementById("floating-nav");
+  var links = fn ? fn.querySelectorAll(".fn-link") : [];
+  var ids = ["impulse-reaction","euler","parsons","compounding","reheat-factor","special"];
+  function upNav() { var s = window.scrollY; if (s > 220) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, { passive: true }); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+  window.applySubject = applySubject;
+})();
+</script>
+
+<div class="wrap">
+
+<nav class="submodule-nav">
+  <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">&#128218; Turbo Machines:</span>
+  <a href="index.html">[Hub Home]</a>
+  <a href="gasturbines_revised.html">Gas Turbines</a>
+  <a href="steamturbines_revised.html" class="active">Steam Turbines</a>
+  <a href="rankine_revised.html">Rankine Cycle</a>
+  <a href="nozzles_reorganized.html">Nozzles</a>
+  <a href="jet_propulsion_reorganized.html">Jet Propulsion</a>
+</nav>
+
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>&#9889; Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="steamturbines_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+</div>
+
+<h1>Working Principles of Steam Turbines<span class="subject-badge">Applied Thermodynamics</span><br>
+<span style="font-size:.6em; font-weight:400; opacity:.85;">Impulse &middot; Reaction &middot; Compounding &middot; Governing<br>APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical</span></h1>
+
+<!-- ═══ 1. IMPULSE vs REACTION ═══ -->
+<h2 id="impulse-reaction">1. Impulse vs Reaction — Classification &amp; Degree of Reaction</h2>
+
+<p>All steam turbines convert the enthalpy of high-pressure steam into shaft work, but they differ fundamentally in <em>where</em> the pressure drop (and hence enthalpy conversion) takes place within a stage.</p>
+
+<p>In a pure <strong>impulse turbine</strong>, steam pressure drops entirely in the fixed nozzles. By the time steam enters the moving rotor blades, it is already at the stage exit pressure. The rotor blades simply deflect the high-velocity jet &mdash; they act as buckets, not as nozzles. There is no pressure drop across the rotor, and consequently no tendency for steam to leak across blade tips due to a pressure differential.</p>
+
+<p>In a <strong>reaction turbine</strong>, steam pressure drops continuously across both the fixed guide blades (stator) and the moving rotor blades. The rotor blades are shaped like nozzles &mdash; steam accelerates as it passes through them, and the reaction to this acceleration drives the rotor. Because a pressure differential exists across the rotor, tip leakage is significant, and reaction turbines require close clearances and are not suitable for very high-pressure stages without careful sealing.</p>
+
+<h3>Degree of Reaction</h3>
+<div class="formula-card">$$\boxed{R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}}$$</div>
+<div class="sym">
+  <span>$\Delta h_m$ &mdash; isentropic enthalpy drop in moving (rotor) blades (kJ/kg)</span>
+  <span>$\Delta h_f$ &mdash; isentropic enthalpy drop in fixed (stator/nozzle) blades (kJ/kg)</span>
+  <span>$\Delta h_f + \Delta h_m$ &mdash; total stage isentropic enthalpy drop</span>
+</div>
+
+<table>
+  <thead><tr><th>Turbine Type</th><th>$R$</th><th>Pressure Drop Location</th></tr></thead>
+  <tbody>
+    <tr><td>Pure impulse</td><td>0</td><td>Fixed nozzles only; $\Delta h_m = 0$</td></tr>
+    <tr><td>Parson's reaction</td><td>0.50</td><td>Equal split: $\Delta h_m = \Delta h_f$</td></tr>
+    <tr><td>Pure reaction (Hero's)</td><td>1.0</td><td>Moving blades only; $\Delta h_f = 0$</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 2. EULER WORK & EFFICIENCY ═══ -->
+<h2 id="euler">2. Euler Work Equation &amp; Stage Efficiency</h2>
+
+<p>The fundamental work output per kilogram of steam in any turbine stage is given by the Euler turbomachinery equation, derived from the angular momentum theorem.</p>
+
+<div class="formula-card">$$\boxed{W = u\,(V_{w1} \pm V_{w2}) \quad \text{J/kg}}$$</div>
+<div class="sym">
+  <span>$u$ &mdash; mean blade peripheral velocity (m/s) $= \pi D N / 60$</span>
+  <span>$V_{w1}$ &mdash; inlet whirl (tangential) component of absolute steam velocity (m/s)</span>
+  <span>$V_{w2}$ &mdash; exit whirl component; use $+$ when $V_{w2}$ opposes $u$ (most cases)</span>
+</div>
+
+<div class="formula-card">$$P = \dot{m}\,u\,(V_{w1} + V_{w2}) \quad \text{W}$$</div>
+<div class="sym"><span>$\dot{m}$ &mdash; steam mass flow rate (kg/s)</span></div>
+
+<h3>Diagram (Blade) Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_b = \frac{2u(V_{w1}+V_{w2})}{V_1^2}}$$</div>
+<div class="sym">
+  <span>$V_1$ &mdash; absolute steam velocity at blade inlet (m/s)</span>
+  <span>$V_1^2/2$ &mdash; kinetic energy supplied per kg from nozzle</span>
+</div>
+
+<h3>Stage Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_s = \eta_b \times \eta_N}$$</div>
+<div class="sym">
+  <span>$\eta_N = V_1^2/(2\,\Delta h_\text{nozzle,isentropic})$ &mdash; nozzle efficiency</span>
+  <span>Stage efficiency is the product, not the quotient, of blade and nozzle efficiencies</span>
+</div>
+
+<h3>Steam Rate (Specific Steam Consumption)</h3>
+<div class="formula-card">$$\boxed{\text{Steam Rate} = \frac{3600}{W_\text{net}} \quad \text{kg/kWh}}$$</div>
+<div class="sym"><span>$W_\text{net}$ &mdash; net specific work output (kJ/kg)</span></div>
+
+<!-- ═══ 3. PARSON'S REACTION TURBINE ═══ -->
+<h2 id="parsons">3. Parson's 50% Reaction Turbine</h2>
+
+<p>Parson's turbine has $R = 0.50$, meaning the stage enthalpy drop is shared equally between fixed and moving blades. A defining geometric consequence is that the fixed and moving blade profiles are <em>identical</em> &mdash; the velocity triangles at inlet and exit are symmetrical about the blade mid-plane.</p>
+
+<h3>Optimum Blade Speed Ratio</h3>
+<div class="formula-card">$$\boxed{\rho_\text{opt} = \frac{u}{V_1} = \cos\alpha}$$</div>
+<div class="sym">
+  <span>$\rho$ &mdash; blade speed ratio</span>
+  <span>$\alpha$ &mdash; nozzle/fixed-blade discharge angle from the plane of rotation</span>
+</div>
+
+<h3>Maximum Diagram Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_\text{max} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}}$$</div>
+
+<h3>Minimum Exit Kinetic Energy Condition</h3>
+<p>Exit kinetic energy is minimised when absolute exit velocity $V_2$ is purely axial ($V_{w2} = 0$):</p>
+<div class="formula-card">$$V_{w2} = 0 \implies V_2 = \frac{u}{\cos\phi}$$</div>
+<div class="sym"><span>$\phi$ &mdash; moving blade exit angle</span></div>
+
+<!-- ═══ 4. COMPOUNDING ═══ -->
+<h2 id="compounding">4. Compounding of Steam Turbines</h2>
+
+<p>Compounding distributes the total enthalpy drop across multiple stages to lower rotor speeds to safe mechanical limits ($1500$&ndash;$3000$ rpm).</p>
+
+<h3>Simple Single-Stage Impulse Turbine</h3>
+<div class="formula-card">$$\rho_\text{opt} = \frac{u}{V_1} = \frac{1}{2}\cos\alpha \qquad \eta_\text{max} = \cos^2\alpha$$</div>
+
+<h3>Velocity Compounding — Curtis Turbine</h3>
+<p>One set of nozzles feeds steam into multiple rows of moving blades separated by fixed guide blades. Pressure drops only in the nozzle ring.</p>
+<div class="formula-card">$$\boxed{\rho_\text{opt} = \frac{u}{V_1} = \frac{\cos\alpha}{2n}}$$</div>
+<div class="sym">
+  <span>$n$ &mdash; number of moving blade rows</span>
+  <span>$n=1$: $\rho_\text{opt} = \frac{1}{2}\cos\alpha$ &nbsp;|&nbsp; $n=2$: $\rho_\text{opt} = \frac{1}{4}\cos\alpha$</span>
+</div>
+
+<h3>Pressure Compounding — Rateau Turbine</h3>
+<p>Multiple independent impulse stages are placed in series, each with its own set of nozzles. Pressure drops in steps across each nozzle ring.</p>
+
+<table>
+  <thead><tr><th>Type</th><th>Compounding Basis</th><th>Optimum $\rho$</th><th>Characteristic</th></tr></thead>
+  <tbody>
+    <tr><td>Simple impulse</td><td>—</td><td>$\frac{1}{2}\cos\alpha$</td><td>Single nozzle, single rotor row</td></tr>
+    <tr><td>Curtis</td><td>Velocity</td><td>$\frac{\cos\alpha}{2n}$</td><td>One nozzle set, $n$ moving rows</td></tr>
+    <tr><td>Rateau</td><td>Pressure</td><td>$\frac{1}{2}\cos\alpha$ per stage</td><td>Multiple independent impulse stages</td></tr>
+    <tr><td>Parson's</td><td>Reaction (50%)</td><td>$\cos\alpha$</td><td>Equal drop in fixed and moving blades</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 5. REHEAT FACTOR ═══ -->
+<h2 id="reheat-factor">5. Reheat Factor &amp; Exhaust Moisture Limit</h2>
+
+<div class="formula-card">$$\boxed{RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Direct Isentropic Enthalpy Drop}} \approx 1.02 \text{ to } 1.08}$$</div>
+
+<h3>Exhaust Moisture Limit</h3>
+<p>The maximum allowable moisture content at the last stage exit is:</p>
+<div class="formula-card">$$\boxed{x_\text{exhaust} \ge 0.88 \quad \text{(maximum 12\% moisture)}}$$</div>
+
+<!-- ═══ 6. SPECIAL TURBINES & GOVERNING ═══ -->
+<h2 id="special">6. Special Turbines, Governing &amp; Critical Speed</h2>
+
+<h3>Back-Pressure &amp; Pass-Out Turbines</h3>
+<p><strong>Back-pressure turbines</strong> exhaust all steam at high pressure for process heat (no condenser). <strong>Pass-out turbines</strong> extract partial steam for process heating while the rest continues expanding to a condenser.</p>
+
+<h3>Governing Methods</h3>
+<table>
+  <thead><tr><th>Method</th><th>Mechanism</th><th>Part-Load Behaviour</th></tr></thead>
+  <tbody>
+    <tr><td>Throttle governing</td><td>Governor valve throttles inlet steam pressure</td><td>Simple; throttling loss at part load</td></tr>
+    <tr><td>Nozzle control governing</td><td>Nozzle groups in first stage cut in/out</td><td>Better part-load efficiency than throttle</td></tr>
+    <tr><td>Bypass governing</td><td>Fresh HP steam bypasses early stages</td><td>Used at overload conditions</td></tr>
+  </tbody>
+</table>
+
+<h3>Critical Speed</h3>
+<p>The rotational speed (rpm) at which shaft angular velocity equals its natural frequency of transverse vibration, producing resonance.</p>
+
+<hr>
+
+<div class="kp">
+  <div class="kp-title">&#128293; Quick-Fire Checklist &mdash; Steam Turbines</div>
+  <ul>
+    <li>Impulse: $\Delta p$ in nozzles only, $R = 0$. Reaction: $\Delta p$ in both fixed and moving blades, $R > 0$.</li>
+    <li>$R = \Delta h_m / (\Delta h_f + \Delta h_m)$ &mdash; always moving drop in numerator.</li>
+    <li>$W = u(V_{w1} + V_{w2})$ J/kg; $P = \dot{m} \cdot u(V_{w1} + V_{w2})$ W.</li>
+    <li>$\eta_b = 2u(V_{w1}+V_{w2})/V_1^2$; $\eta_s = \eta_b \times \eta_N$ (product, not quotient).</li>
+    <li>Steam Rate $= 3600/W_\text{net}$ kg/kWh.</li>
+    <li>Parson's ($R = 0.50$): $\rho_\text{opt} = \cos\alpha$; $\eta_\text{max} = 2\cos^2\alpha/(1+\cos^2\alpha)$; identical fixed and moving blades.</li>
+    <li>Simple impulse: $\rho_\text{opt} = \frac{1}{2}\cos\alpha$; $\eta_\text{max} = \cos^2\alpha$.</li>
+    <li>Curtis (velocity compounding): $\rho_\text{opt} = \cos\alpha/(2n)$; one nozzle set, $n$ moving rows.</li>
+    <li>Rateau (pressure compounding): multiple independent impulse stages in series.</li>
+    <li>Reheat Factor $= \sum$stage isentropic drops / overall isentropic drop $\approx 1.02$&ndash;$1.08$; always $>1$.</li>
+    <li>Exhaust moisture limit: max 12% ($x \ge 0.88$); exceeded $\Rightarrow$ LP blade erosion.</li>
+    <li>Back-pressure turbine: all exhaust to process; no condenser.</li>
+    <li>Pass-out turbine: partial extraction for process; remainder to condenser.</li>
+    <li>Critical speed: shaft rpm = natural frequency of transverse vibration &mdash; resonance condition.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--text-muted); font-family:Inter,system-ui,sans-serif;">
+  APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Steam Turbines Revision Guide
+</p>
+
+</div>
+</body>
+</html>

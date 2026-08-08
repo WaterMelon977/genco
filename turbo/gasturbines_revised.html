@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gas Turbines — Concise Revision Guide — APGENCO AE / SSC JE Mechanical</title>
+<meta name="description" content="High-yield concise revision guide for Gas Turbines: Brayton cycle, work ratio, cycle modifications, optimum pressure ratio, components and materials. APGENCO AE and SSC JE Mechanical.">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --subject-thermo-primary: #F97316;
+  --subject-thermo-light:   #FB923C;
+  --subject-thermo-dark:    #9A3412;
+  --bg-page:    #0E0F12;
+  --bg-card:    #16181D;
+  --bg-formula: #111318;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-light:   #262933;
+  --heading-color:  #F1F5F9;
+  --code-bg:  #262933;
+  --code-text: #F1F5F9;
+  --pre-bg:   #111318;
+  --table-th-bg:   #111318;
+  --table-even-bg: #121419;
+  --callout-concept-bg:     #131D31;
+  --callout-concept-border: #3B6FD4;
+  --callout-concept-text:   #93C5FD;
+  --callout-trap-bg:     #271415;
+  --callout-trap-border: #EF4444;
+  --callout-trap-text:   #FCA5A5;
+  --callout-focus-bg:     #2A2210;
+  --callout-focus-border: #C09820;
+  --callout-focus-text:   #E0C060;
+  --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.40);
+  --subject-current:       #F59E0B;
+  --subject-current-light: rgba(245,158,11,0.3);
+  --subject-bg-tint:       rgba(245,158,11,0.08);
+}
+body[data-subject="thermo"] {
+  --subject-current:       #F97316;
+  --subject-current-light: #FB923C;
+  --subject-bg-tint:       rgba(249,115,22,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background: var(--bg-page); padding: 60px 20px 72px; transition: background .25s, color .25s; }
+.wrap { max-width: 820px; margin: 0 auto; }
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+#theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
+#theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+#floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-family: Inter, system-ui, sans-serif; font-size: 8.5pt; }
+#floating-nav.visible { opacity: 1; pointer-events: auto; }
+.fn-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.fn-link:hover { background: var(--bg-formula); color: var(--subject-current); }
+.fn-link.active { background: var(--subject-current); color: #0E0F12; }
+.fn-sep { color: var(--border-light); font-size: 7pt; user-select: none; }
+.submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; transition: border-color 0.3s ease; }
+.submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+.submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+.submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; transition: border-color 0.3s ease, color 0.3s ease; }
+h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
+.subject-badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 12px; text-transform: uppercase; letter-spacing: 0.8px; background: var(--subject-current); color: #0E0F12; transition: background 0.3s ease; vertical-align: middle; }
+h2 { font-size: 16pt; color: var(--heading-color); border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
+p { margin-bottom: 1em; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+a { color: var(--subject-current); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+li { margin-bottom: .28em; }
+.formula-card { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 16px 20px; margin: 20px 0; border-radius: 8px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: var(--shadow-card); transition: transform 0.2s ease, box-shadow 0.3s ease; }
+.formula-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -4px var(--subject-current); }
+.sym { font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.sym span { display: inline-block; }
+.callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
+.callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+.callout-trap    { background-color: var(--callout-trap-bg);    border-color: var(--callout-trap-border);    color: var(--callout-trap-text); }
+.callout-focus   { background: var(--subject-bg-tint); border-color: var(--subject-current); color: var(--text-primary); }
+.kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-family: Inter, system-ui, sans-serif; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+.kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+.kp ul { margin-bottom: 0; padding-left: 1.3em; }
+.kp li { margin-bottom: .28em; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
+th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
+tr:nth-child(even) { background-color: var(--table-even-bg); }
+tr:hover { background-color: var(--subject-bg-tint); }
+.MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #floating-nav { display: none; } }
+</style>
+</head>
+<body data-subject="thermo">
+<div id="reading-progress"></div>
+<nav id="floating-nav">
+  <a class="fn-link active" href="#brayton">Brayton</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#work-ratio">Work Ratio</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#modifications">Modifications</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#optimum">Optimum rp</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#components">Components</a>
+</nav>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  function updateFavicon(subject) {
+    var colors = { "fluid":"#06B6D4","thermo":"#F97316","production":"#8B5CF6","operations":"#10B981","materials":"#EC4899" };
+    var color = colors[subject] || "#F59E0B";
+    var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+  }
+  function applySubject(s) { document.documentElement.setAttribute("data-subject", s); document.body.setAttribute("data-subject", s); localStorage.setItem("ag-subject", s); updateFavicon(s); }
+  applyTheme(saved);
+  applySubject("thermo");
+  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+  var bar = document.getElementById("reading-progress");
+  if (bar) { window.addEventListener("scroll", function() { var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%"; }, { passive: true }); }
+  var fn = document.getElementById("floating-nav");
+  var links = fn ? fn.querySelectorAll(".fn-link") : [];
+  var ids = ["brayton","work-ratio","modifications","optimum","components"];
+  function upNav() { var s = window.scrollY; if (s > 220) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, { passive: true }); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+  window.applySubject = applySubject;
+})();
+</script>
+
+<div class="wrap">
+
+<nav class="submodule-nav">
+  <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">&#128218; Turbo Machines:</span>
+  <a href="index.html">[Hub Home]</a>
+  <a href="gasturbines_revised.html" class="active">Gas Turbines</a>
+  <a href="steamturbines_reorganized.html">Steam Turbines</a>
+  <a href="rankine_reorganized.html">Rankine Cycle</a>
+  <a href="nozzles_reorganized.html">Nozzles</a>
+  <a href="jet_propulsion_reorganized.html">Jet Propulsion</a>
+</nav>
+
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>&#9889; Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="gasturbines_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+</div>
+
+<h1>Working Principles of Gas Turbines<span class="subject-badge">Applied Thermodynamics</span><br>
+<span style="font-size:.6em; font-weight:400; opacity:.85;">Brayton Cycle &middot; Cycle Modifications &middot; Materials<br>APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical</span></h1>
+
+<h2 id="brayton">1. Brayton (Joule) Cycle &mdash; Fundamentals &amp; Efficiency</h2>
+
+<p>The ideal gas turbine operates on the <strong>Brayton cycle</strong>: isentropic compression (1&rarr;2), constant-pressure heat addition (2&rarr;3), isentropic expansion (3&rarr;4), and constant-pressure heat rejection (4&rarr;1). All heat interactions occur at <em>constant pressure</em> &mdash; this distinguishes the Brayton cycle from Otto and Diesel cycles.</p>
+
+<h3>Air-Standard Thermal Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_\text{Brayton} = 1 - \frac{1}{r_p^{(\gamma-1)/\gamma}} = 1 - \frac{T_1}{T_2} = 1 - \frac{T_4}{T_3}}$$</div>
+<div class="sym">
+  <span>$r_p = P_2/P_1$ &mdash; cycle pressure ratio</span>
+  <span>$\gamma = C_p/C_v$ (air: 1.40; $(\gamma-1)/\gamma = 2/7 \approx 0.2857$)</span>
+  <span>$T_1$ &mdash; compressor inlet (K); &nbsp; $T_3$ &mdash; turbine inlet (K, max temp)</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Otto vs Brayton Exponent:</strong> $\eta_\text{Otto}$ uses <em>volumetric</em> compression ratio $r$ with exponent $(\gamma-1)$. $\eta_\text{Brayton}$ uses <em>pressure</em> ratio $r_p$ with exponent $(\gamma-1)/\gamma$. Do not swap the exponents!
+</div>
+
+<p>Ideal efficiency depends <em>only</em> on $r_p$ and $\gamma$ &mdash; completely <strong>independent of $T_3$</strong>. Increasing $T_3$ at fixed $r_p$ increases net work but does not change ideal efficiency.</p>
+
+<h3>Net Specific Work</h3>
+<div class="formula-card">$$\boxed{w_\text{net} = C_p(T_3 - T_4) - C_p(T_2 - T_1) \quad \text{kJ/kg}}$$</div>
+<div class="sym">
+  <span>$w_T = C_p(T_3-T_4)$ &mdash; turbine work (kJ/kg)</span>
+  <span>$w_C = C_p(T_2-T_1)$ &mdash; compressor work (kJ/kg)</span>
+  <span>$C_p \approx 1.005$ kJ/kg&middot;K for air</span>
+</div>
+
+<h3>Isentropic Temperature&ndash;Pressure Relation</h3>
+<div class="formula-card">$$\frac{T_2}{T_1} = \frac{T_3}{T_4} = r_p^{(\gamma-1)/\gamma}$$</div>
+
+<div class="callout callout-concept">
+  <strong>&#128161; Key Concept:</strong> When $r = r_p^{1/\gamma}$ is substituted, $\eta_\text{Brayton}$ reduces to the same form as $\eta_\text{Otto}$. This equivalence holds <em>only</em> for the ideal air-standard case.
+</div>
+
+<h2 id="work-ratio">2. Work Ratio &amp; Back-Work Ratio</h2>
+
+<p>A gas turbine compressor handles <em>gas</em> throughout &mdash; unlike a steam plant pump. This makes the fraction of turbine output consumed internally very large.</p>
+
+<div class="formula-card">$$\boxed{r_w = \frac{w_\text{net}}{w_T} = 1 - \frac{w_C}{w_T} = 1 - \frac{T_2-T_1}{T_3-T_4}}$$</div>
+<div class="formula-card">$$\boxed{r_{bw} = \frac{w_C}{w_T} = 1 - r_w}$$</div>
+<div class="sym">
+  <span>Gas turbine: $r_{bw} \approx 0.40$&ndash;$0.60$ (40&ndash;60%)</span>
+  <span>Steam power plant: $r_{bw} \approx 0.01$&ndash;$0.02$ (1&ndash;2%)</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap:</strong> $r_w + r_{bw} = 1.0$ always. They are complementary quantities.
+</div>
+
+<h3>Jet Propulsion Special Case</h3>
+<p>In a pure jet engine, turbine work is entirely consumed by the compressor &mdash; no shaft work exits. Remaining enthalpy becomes nozzle thrust.</p>
+<div class="formula-card">$$w_C = w_T \implies w_\text{net,shaft} = 0, \quad r_{bw} = 1.0, \quad r_w = 0$$</div>
+
+<h2 id="modifications">3. Cycle Modifications</h2>
+
+<p>The simple Brayton cycle can be modified in three independent ways, targeting different weaknesses.</p>
+
+<h3>Reheating</h3>
+<p>Turbine expansion split into two stages with constant-pressure heat addition between them. Optimum intermediate pressure:</p>
+<div class="formula-card">$$P_r = \sqrt{P_3 \cdot P_4}$$</div>
+<p>Reheating alone: $w_T \uparrow$, $w_\text{net} \uparrow$, $r_w \uparrow$, but $\eta \downarrow$. Infinite reheat stages &rarr; isothermal expansion &rarr; Ericsson cycle.</p>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Reheat Efficiency Fallacy:</strong> Reheating alone does <em>NOT</em> increase thermal efficiency. To boost $\eta$, reheat must be <strong>combined with regeneration</strong>.
+</div>
+
+<h3>Intercooling</h3>
+<p>Compression split into two stages with constant-pressure cooling between them. Optimum intermediate pressure:</p>
+<div class="formula-card">$$\boxed{P_i = \sqrt{P_1 \cdot P_2} \implies \frac{P_i}{P_1} = \frac{P_2}{P_i} = \sqrt{r_p}}$$</div>
+<p>Intercooling alone: $w_C \downarrow$, $w_\text{net} \uparrow$, $r_w \uparrow$, but $\eta \downarrow$ (cooler air requires more fuel).</p>
+
+<h3>Regeneration</h3>
+<p>Hot turbine exhaust ($T_4$) preheats compressed air ($T_2$) before combustion chamber. Reduces external heat input.</p>
+<div class="formula-card">$$\boxed{\eta_\text{reg} = 1 - \left(\frac{T_1}{T_3}\right) r_p^{(\gamma-1)/\gamma}}$$</div>
+<div class="formula-card">$$\varepsilon = \frac{T_x - T_2}{T_4 - T_2} \quad (\text{ideal: } \varepsilon = 1, \; T_x = T_4)$$</div>
+<p>Regeneration alone: $q_\text{in} \downarrow$, $\eta \uparrow$, but $w_\text{net}$ is completely <em>unchanged</em>. Most effective at low $r_p$.</p>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; High $r_p$ Regeneration:</strong> At high pressure ratios, $T_2 > T_4$ &mdash; a regenerator would <em>cool</em> the compressed air, <strong>reducing</strong> efficiency. Requires $T_4 > T_2$.
+</div>
+
+<table>
+  <thead><tr><th>Modification</th><th>$w_\text{net}$</th><th>$\eta$</th><th>Optimum Condition</th></tr></thead>
+  <tbody>
+    <tr><td>Reheat alone</td><td>Increases &#8593;</td><td>Decreases &#8595;</td><td>$P_r = \sqrt{P_3 P_4}$</td></tr>
+    <tr><td>Intercooling alone</td><td>Increases &#8593;</td><td>Decreases &#8595;</td><td>$P_i = \sqrt{P_1 P_2}$</td></tr>
+    <tr><td>Regeneration alone</td><td><strong>Unchanged</strong></td><td>Increases &#8593;</td><td>Requires $T_4 > T_2$</td></tr>
+    <tr><td>All three combined</td><td>Increases &#8593;</td><td>Increases &#8593;</td><td>Approaches Ericsson cycle</td></tr>
+  </tbody>
+</table>
+
+<h2 id="optimum">4. Optimum Pressure Ratio for Maximum Net Work</h2>
+
+<p>For fixed $T_1$ (ambient) and $T_3$ (metallurgical limit), net specific work peaks at an intermediate optimum pressure ratio.</p>
+
+<div class="formula-card">$$\boxed{r_{p,\text{opt}} = \left(\frac{T_3}{T_1}\right)^{\!\frac{\gamma}{2(\gamma-1)}}}$$</div>
+<div class="sym"><span>For $\gamma = 1.4$: exponent $= 1.4/0.8 = 1.75$</span></div>
+
+<p>At this optimum, compressor exit equals turbine exit temperature:</p>
+<div class="formula-card">$$\boxed{T_2 = T_4 = \sqrt{T_1 \cdot T_3}}$$</div>
+
+<p>Maximum net specific work:</p>
+<div class="formula-card">$$w_{\text{net,max}} = C_p\!\left(\sqrt{T_3} - \sqrt{T_1}\right)^2$$</div>
+
+<div class="callout callout-concept">
+  <strong>&#128161; Key Concept:</strong> Optimum $r_p$ for <em>maximum net work</em> is generally <strong>lower</strong> than the $r_p$ that maximises thermal efficiency. Practical designs pick a value between the two.
+</div>
+
+<h2 id="components">5. Components, Materials &amp; Operating Limits</h2>
+
+<p>Three core components: <strong>compressor</strong> (axial-flow for power plants, centrifugal for small engines), <strong>combustion chamber</strong>, <strong>gas turbine expander</strong>. There is <strong>no condenser</strong> &mdash; exhaust discharges to atmosphere (open cycle).</p>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; No Condenser:</strong> Gas turbine plants do NOT have a condenser. Steam plants do. Do not confuse component lists.
+</div>
+
+<p>Maximum turbine inlet temperature $\approx 1000$&ndash;$1200\,^\circ\text{C}$ (blade metallurgy limit). Air-to-fuel ratio $\approx 60{:}1$ (range $50{:}1$ to $120{:}1$) &mdash; excess air dilutes hot gases to protect blades, not for combustion completeness.</p>
+
+<p>Blade material: nickel-based superalloys (Inconel, Nimonic) with <strong>low creep rate</strong> and high oxidation resistance. Mechanical efficiency $\approx 95\%$ (pure rotational motion). Preferred for <strong>peak-load power generation</strong> (fast startup: minutes).</p>
+
+<table>
+  <thead><tr><th>Parameter</th><th>Gas Turbine</th><th>Steam Power Plant</th></tr></thead>
+  <tbody>
+    <tr><td>Back-work ratio</td><td>40%&ndash;60%</td><td>1%&ndash;2%</td></tr>
+    <tr><td>Condenser</td><td><strong>Absent</strong></td><td>Present</td></tr>
+    <tr><td>Working fluid</td><td>Air + combustion gas</td><td>Water / steam</td></tr>
+    <tr><td>Start-up time</td><td>Minutes</td><td>Hours</td></tr>
+    <tr><td>Preferred duty</td><td>Peak load</td><td>Base load</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<div class="kp">
+  <div class="kp-title">&#128293; Quick-Fire Checklist &mdash; Gas Turbines</div>
+  <ul>
+    <li>$\eta_\text{Brayton} = 1 - r_p^{-(\gamma-1)/\gamma}$; depends <strong>only</strong> on $r_p$, not on $T_\text{max}$.</li>
+    <li>$r_w = w_\text{net}/w_T$; $r_{bw} = w_C/w_T = 1 - r_w$; gas turbine $r_{bw} \approx 0.4$&ndash;$0.6$.</li>
+    <li>Jet engine shaft work $= 0$; entire turbine output drives compressor.</li>
+    <li>Intercooling: $P_i = \sqrt{P_1 P_2}$; Reheating: $P_r = \sqrt{P_3 P_4}$.</li>
+    <li>Reheat alone: $w_\text{net}\uparrow$, $\eta\downarrow$. &nbsp; Intercool alone: $w_\text{net}\uparrow$, $\eta\downarrow$.</li>
+    <li>Regen alone: $\eta\uparrow$, $w_\text{net}$ <strong>unchanged</strong>. Best at low $r_p$.</li>
+    <li>All three combined: $w_\text{net}\uparrow$ AND $\eta\uparrow$ &mdash; approaches Ericsson cycle.</li>
+    <li>$r_{p,\text{opt}} = (T_3/T_1)^{\gamma/[2(\gamma-1)]}$; at this $r_p$: $T_2 = T_4 = \sqrt{T_1 T_3}$.</li>
+    <li>Air-fuel ratio $\approx 60{:}1$ &mdash; temperature control, not combustion completeness.</li>
+    <li>Blade material: nickel superalloys, <em>low creep rate</em>. No condenser in gas turbine plant.</li>
+    <li>Mechanical efficiency $\approx 95\%$; preferred for peak-load duty.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--text-muted); font-family:Inter,system-ui,sans-serif;">
+  APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Gas Turbines Revision Guide
+</p>
+
+</div>
+</body>
+</html>

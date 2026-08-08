@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steam Nozzles &amp; Compressible Flow — Concise Revision Guide — APGENCO AE / SSC JE Mechanical</title>
+<meta name="description" content="High-yield concise revision guide for Steam Nozzles & Compressible Flow: energy conversion, exit velocity, critical pressure ratio, choking, C-D nozzle, shock waves, nozzle efficiency. APGENCO AE and SSC JE.">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --subject-thermo-primary: #F97316;
+  --subject-thermo-light:   #FB923C;
+  --subject-thermo-dark:    #9A3412;
+  --bg-page:    #0E0F12;
+  --bg-card:    #16181D;
+  --bg-formula: #111318;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-light:   #262933;
+  --heading-color:  #F1F5F9;
+  --code-bg:  #262933;
+  --code-text: #F1F5F9;
+  --pre-bg:   #111318;
+  --table-th-bg:   #111318;
+  --table-even-bg: #121419;
+  --callout-concept-bg:     #131D31;
+  --callout-concept-border: #3B6FD4;
+  --callout-concept-text:   #93C5FD;
+  --callout-trap-bg:     #271415;
+  --callout-trap-border: #EF4444;
+  --callout-trap-text:   #FCA5A5;
+  --callout-focus-bg:     #2A2210;
+  --callout-focus-border: #C09820;
+  --callout-focus-text:   #E0C060;
+  --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.40);
+  --subject-current:       #F59E0B;
+  --subject-current-light: rgba(245,158,11,0.3);
+  --subject-bg-tint:       rgba(245,158,11,0.08);
+}
+body[data-subject="thermo"] {
+  --subject-current:       #F97316;
+  --subject-current-light: #FB923C;
+  --subject-bg-tint:       rgba(249,115,22,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background: var(--bg-page); padding: 60px 20px 72px; transition: background .25s, color .25s; }
+.wrap { max-width: 820px; margin: 0 auto; }
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+#theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
+#theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+#floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-family: Inter, system-ui, sans-serif; font-size: 8.5pt; }
+#floating-nav.visible { opacity: 1; pointer-events: auto; }
+.fn-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.fn-link:hover { background: var(--bg-formula); color: var(--subject-current); }
+.fn-link.active { background: var(--subject-current); color: #0E0F12; }
+.fn-sep { color: var(--border-light); font-size: 7pt; user-select: none; }
+.submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; transition: border-color 0.3s ease; }
+.submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+.submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+.submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; transition: border-color 0.3s ease, color 0.3s ease; }
+h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
+.subject-badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 12px; text-transform: uppercase; letter-spacing: 0.8px; background: var(--subject-current); color: #0E0F12; transition: background 0.3s ease; vertical-align: middle; }
+h2 { font-size: 16pt; color: var(--heading-color); border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
+p { margin-bottom: 1em; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+a { color: var(--subject-current); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+li { margin-bottom: .28em; }
+.formula-card { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 16px 20px; margin: 20px 0; border-radius: 8px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: var(--shadow-card); transition: transform 0.2s ease, box-shadow 0.3s ease; }
+.formula-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -4px var(--subject-current); }
+.sym { font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.sym span { display: inline-block; }
+.callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
+.callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+.callout-trap    { background-color: var(--callout-trap-bg);    border-color: var(--callout-trap-border);    color: var(--callout-trap-text); }
+.callout-focus   { background: var(--subject-bg-tint); border-color: var(--subject-current); color: var(--text-primary); }
+.kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-family: Inter, system-ui, sans-serif; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+.kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+.kp ul { margin-bottom: 0; padding-left: 1.3em; }
+.kp li { margin-bottom: .28em; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
+th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
+tr:nth-child(even) { background-color: var(--table-even-bg); }
+tr:hover { background-color: var(--subject-bg-tint); }
+.MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #floating-nav { display: none; } }
+</style>
+</head>
+<body data-subject="thermo">
+<div id="reading-progress"></div>
+<nav id="floating-nav">
+  <a class="fn-link active" href="#energy">Energy &amp; Velocity</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#critical">Critical Pressure</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#area-mach">Area–Mach</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#cd-regimes">C-D Regimes</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#shocks">Shock Waves</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#efficiency">Nozzle Efficiency</a>
+</nav>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  function updateFavicon(subject) {
+    var colors = { "fluid":"#06B6D4","thermo":"#F97316","production":"#8B5CF6","operations":"#10B981","materials":"#EC4899" };
+    var color = colors[subject] || "#F59E0B";
+    var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+  }
+  function applySubject(s) { document.documentElement.setAttribute("data-subject", s); document.body.setAttribute("data-subject", s); localStorage.setItem("ag-subject", s); updateFavicon(s); }
+  applyTheme(saved);
+  applySubject("thermo");
+  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+  var bar = document.getElementById("reading-progress");
+  if (bar) { window.addEventListener("scroll", function() { var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%"; }, { passive: true }); }
+  var fn = document.getElementById("floating-nav");
+  var links = fn ? fn.querySelectorAll(".fn-link") : [];
+  var ids = ["energy","critical","area-mach","cd-regimes","shocks","efficiency"];
+  function upNav() { var s = window.scrollY; if (s > 220) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, { passive: true }); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+  window.applySubject = applySubject;
+})();
+</script>
+
+<div class="wrap">
+
+<nav class="submodule-nav">
+  <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">&#128218; Turbo Machines:</span>
+  <a href="index.html">[Hub Home]</a>
+  <a href="gasturbines_revised.html">Gas Turbines</a>
+  <a href="steamturbines_reorganized.html">Steam Turbines</a>
+  <a href="rankine_reorganized.html">Rankine Cycle</a>
+  <a href="nozzles_revised.html" class="active">Nozzles</a>
+  <a href="jet_propulsion_reorganized.html">Jet Propulsion</a>
+</nav>
+
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>&#9889; Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="nozzles_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+</div>
+
+<h1>Steam Nozzles &amp; Compressible Flow Regimes<span class="subject-badge">Applied Thermodynamics</span><br>
+<span style="font-size:.6em; font-weight:400; opacity:.85;">Critical Pressure &middot; Choking &middot; C-D Nozzle &middot; Shock Waves<br>APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical</span></h1>
+
+<!-- ═══ 1. ENERGY CONVERSION ═══ -->
+<h2 id="energy">1. Nozzle Energy Conversion &amp; Exit Velocity</h2>
+
+<p>A nozzle converts the enthalpy of high-pressure steam (or gas) into kinetic energy. The steam enters with relatively low velocity and exits at high velocity &mdash; the enthalpy drop appears entirely as an increase in kinetic energy, assuming no heat loss to surroundings and no work crossing the nozzle boundary.</p>
+
+<div class="formula-card">$$\boxed{\frac{V_2^2 - V_1^2}{2000} = h_1 - h_2 \quad \text{kJ/kg}}$$</div>
+<div class="sym">
+  <span>$h_1, h_2$ &mdash; inlet and exit specific enthalpy (kJ/kg)</span>
+  <span>$V_1, V_2$ &mdash; inlet and exit velocity (m/s)</span>
+  <span>Factor 2000 converts m&sup2;/s&sup2; to kJ/kg (since 1 kJ/kg = 1000 m&sup2;/s&sup2;)</span>
+</div>
+
+<p>When inlet velocity $V_1$ is negligible compared to $V_2$ (standard assumption for steam nozzle calculations):</p>
+<div class="formula-card">$$\boxed{V_2 = \sqrt{2000\,(h_1 - h_2)} \approx 44.72\sqrt{\Delta h} \quad \text{m/s}}$$</div>
+<div class="sym"><span>$\Delta h = h_1 - h_2$ &mdash; isentropic enthalpy drop (kJ/kg)</span></div>
+
+<!-- ═══ 2. CRITICAL PRESSURE RATIO ═══ -->
+<h2 id="critical">2. Critical Pressure Ratio &amp; Choked Flow</h2>
+
+<p>As the back-pressure downstream of a nozzle is progressively reduced, the mass flow rate through the nozzle increases until the throat velocity reaches the local speed of sound ($M_\text{throat} = 1$). At this point, the flow is <strong>choked</strong> &mdash; the nozzle has reached its maximum possible mass flow rate for given inlet conditions. Further reduction in back-pressure produces no additional increase in mass flow.</p>
+
+<p>The pressure ratio at which choking occurs is the <strong>critical pressure ratio</strong>:</p>
+<div class="formula-card">$$\boxed{\frac{p_c}{p_1} = \left(\frac{2}{n+1}\right)^{\!n/(n-1)}}$$</div>
+<div class="sym">
+  <span>$p_c$ &mdash; critical (throat) static pressure at choked condition</span>
+  <span>$p_1$ &mdash; inlet stagnation pressure</span>
+  <span>$n$ &mdash; isentropic index of expansion</span>
+</div>
+
+<table>
+  <thead><tr><th>Working Fluid</th><th>$n$</th><th>Critical Ratio $p_c/p_1$</th></tr></thead>
+  <tbody>
+    <tr><td>Wet steam</td><td>1.130</td><td>0.582</td></tr>
+    <tr><td>Dry saturated steam</td><td>1.135</td><td>0.577</td></tr>
+    <tr><td>Superheated steam</td><td>1.300</td><td>0.546</td></tr>
+    <tr><td>Air / diatomic gas</td><td>1.400</td><td>0.528</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Critical Ratios:</strong> Dry saturated steam ratio is <strong>0.577</strong>. Superheated steam ratio is <strong>0.546</strong>. Air ($\gamma=1.4$) ratio is <strong>0.528</strong>. Do not confuse these three benchmark numbers!
+</div>
+
+<!-- ═══ 3. AREA-MACH RELATION ═══ -->
+<h2 id="area-mach">3. Area&ndash;Mach Number Relation</h2>
+
+<p>The behavior of compressible flow in a duct of varying cross-section is governed by the area&ndash;velocity relation derived from conservation of mass and momentum:</p>
+
+<div class="formula-card">$$\boxed{\frac{dA}{A} = (M^2 - 1)\,\frac{dV}{V}}$$</div>
+
+<p>Three regimes emerge from this single equation:</p>
+
+<table>
+  <thead><tr><th>Flow Regime</th><th>Mach Number</th><th>$(M^2-1)$ Sign</th><th>Area&ndash;Velocity Relation</th><th>Device</th></tr></thead>
+  <tbody>
+    <tr><td>Subsonic</td><td>$M < 1$</td><td>Negative</td><td>$dA < 0 \Rightarrow dV > 0$ (area decrease accelerates flow)</td><td>Convergent nozzle</td></tr>
+    <tr><td>Sonic</td><td>$M = 1$</td><td>Zero</td><td>$dA = 0$ (sonic flow ONLY at throat &mdash; minimum area)</td><td>Throat of C-D nozzle</td></tr>
+    <tr><td>Supersonic</td><td>$M > 1$</td><td>Positive</td><td>$dA > 0 \Rightarrow dV > 0$ (area increase accelerates flow)</td><td>Divergent C-D section</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 4. C-D NOZZLE REGIMES ═══ -->
+<h2 id="cd-regimes">4. Convergent-Divergent (de Laval) Nozzle Flow Regimes</h2>
+
+<p>A convergent-divergent nozzle operates in several distinct modes depending on the ratio of inlet stagnation pressure to exit back-pressure.</p>
+
+<table>
+  <thead><tr><th>Mode</th><th>Convergent Section</th><th>Throat</th><th>Divergent Section</th></tr></thead>
+  <tbody>
+    <tr><td>Unchoked ($p_\text{back}$ high)</td><td>$M < 1$, accelerating</td><td>$M < 1$</td><td>$M < 1$, decelerating (diffuser)</td></tr>
+    <tr><td>Choked, subsonic divergent</td><td>$M < 1$, accelerating</td><td>$M = 1$</td><td>$M < 1$, decelerating (diffusing)</td></tr>
+    <tr><td>Normal shock in divergent</td><td>$M < 1$, accelerating</td><td>$M = 1$</td><td>Supersonic then shock: $M_1>1 \to M_2<1$</td></tr>
+    <tr><td>Design (fully supersonic)</td><td>$M < 1$, accelerating</td><td>$M = 1$</td><td>$M > 1$ throughout, accelerating</td></tr>
+  </tbody>
+</table>
+
+<h3>Divergent Section Geometry</h3>
+<p>The divergent section semi-cone angle must be kept small to prevent boundary layer separation and turbulence losses:</p>
+<div class="formula-card">$$\theta_\text{semi} = 3^\circ \text{ to } 10^\circ$$</div>
+
+<!-- ═══ 5. SHOCK WAVES ═══ -->
+<h2 id="shocks">5. Normal Shock Waves</h2>
+
+<p>A normal shock wave is an extremely thin region of high pressure gradient perpendicular to the flow direction in supersonic flow. It is irreversible &mdash; entropy increases and total pressure decreases across it. Normal shocks form ONLY in supersonic flow ($M_1 > 1$) and always produce subsonic flow downstream ($M_2 < 1$).</p>
+
+<h3>Normal Shock Relations</h3>
+<div class="formula-card">$$\text{Shock Strength} = \frac{p_2 - p_1}{p_1} = \frac{2\gamma}{\gamma+1}(M_1^2 - 1)$$</div>
+<div class="sym">
+  <span>$p_1, M_1$ &mdash; static pressure and Mach number upstream ($M_1 > 1$)</span>
+  <span>$p_2$ &mdash; static pressure downstream of shock</span>
+</div>
+
+<div class="formula-card">$$V_1 \cdot V_2 = a^{*2}$$</div>
+<div class="sym"><span>Prandtl-Meyer relation; $a^*$ &mdash; critical speed of sound at $M = 1$</span></div>
+
+<div class="callout callout-concept">
+  <strong>&#128161; Key Concept &mdash; Property Jumps Across Normal Shock:</strong> Static pressure $p$, static temperature $T$, and density $\rho$ jump UP. Mach number drops from $>1$ to $<1$. Stagnation pressure drops, and entropy INCREASES.
+</div>
+
+<!-- ═══ 6. NOZZLE EFFICIENCY ═══ -->
+<h2 id="efficiency">6. Nozzle Efficiency &amp; Discharge Coefficient</h2>
+
+<p>Real nozzles experience friction between steam and nozzle walls, converting part of the enthalpy drop into heat rather than kinetic energy.</p>
+
+<h3>Nozzle Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_n = \frac{h_1 - h_2}{h_1 - h_{2s}} = \frac{V_2^2}{V_{2s}^2}}$$</div>
+<div class="sym">
+  <span>$h_1 - h_2$ &mdash; actual enthalpy drop (with friction), kJ/kg</span>
+  <span>$h_1 - h_{2s}$ &mdash; isentropic enthalpy drop (ideal), kJ/kg</span>
+  <span>$V_{2s}$ &mdash; isentropic (ideal) exit velocity, m/s</span>
+  <span>Typical range: $\eta_n \approx 0.90$&ndash;$0.95$</span>
+</div>
+
+<h3>Coefficient of Discharge</h3>
+<div class="formula-card">$$\boxed{C_d = \frac{\dot{m}_\text{actual}}{\dot{m}_\text{theoretical}}}$$</div>
+<div class="sym"><span>Typical range: $C_d \approx 0.95$&ndash;$0.98$</span></div>
+
+<hr>
+
+<div class="kp">
+  <div class="kp-title">&#128293; Quick-Fire Checklist &mdash; Nozzles &amp; Compressible Flow</div>
+  <ul>
+    <li>$V_2 = \sqrt{2000\,\Delta h} \approx 44.72\sqrt{\Delta h}$ m/s (when $V_1 \approx 0$).</li>
+    <li>Critical pressure ratio: $p_c/p_1 = [2/(n+1)]^{n/(n-1)}$.</li>
+    <li>Dry saturated steam ($n=1.135$): $p_c/p_1 = 0.577$.</li>
+    <li>Superheated steam ($n=1.3$): $p_c/p_1 = 0.546$.</li>
+    <li>Wet steam ($n=1.13$): $p_c/p_1 = 0.582$.</li>
+    <li>Air ($n=1.4$): $p_c/p_1 = 0.528$.</li>
+    <li>Choked flow: $M_\text{throat} = 1$; further reducing back-pressure does NOT increase $\dot{m}$.</li>
+    <li>Area-Mach: $dA/A = (M^2-1)\,dV/V$.</li>
+    <li>Subsonic: decreasing area accelerates; Supersonic: increasing area accelerates.</li>
+    <li>C-D nozzle: Convergent ($M<1$) &rarr; Throat ($M=1$) &rarr; Divergent ($M>1$ at design).</li>
+    <li>Divergent semi-cone angle: $3^\circ$&ndash;$10^\circ$.</li>
+    <li>Normal shock: divergent section only; $M_1>1 \to M_2<1$; $p$, $T$, $\rho$ jump up; entropy increases.</li>
+    <li>Shock strength $= 2\gamma(M_1^2-1)/(\gamma+1)$.</li>
+    <li>Prandtl-Meyer: $V_1 \cdot V_2 = a^{*2}$ across normal shock.</li>
+    <li>$\eta_n = \Delta h_\text{actual}/\Delta h_\text{isentropic} = V_2^2/V_{2s}^2$; actual in numerator.</li>
+    <li>$C_d = \dot{m}_\text{actual}/\dot{m}_\text{theoretical}$; typically 0.95&ndash;0.98.</li>
+    <li>$a = \sqrt{\gamma RT}$; $a_\text{water} \approx 4\,a_\text{air}$; Solid &gt; Liquid &gt; Gas.</li>
+    <li>Zone of Silence: outside Mach cone. $\sin\mu = 1/M$.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--text-muted); font-family:Inter,system-ui,sans-serif;">
+  APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Nozzles &amp; Compressible Flow Revision Guide
+</p>
+
+</div>
+</body>
+</html>

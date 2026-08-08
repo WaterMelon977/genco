@@ -1,368 +1,377 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turbo Machines — Master Portal — AP GenCo Exam Guide</title>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath:  [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true
-      },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>Turbo Machines — Master Exam Hub</title>
+  <script>(function(){var t=localStorage.getItem('ag-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
   <style>
     :root {
-      --bg-page: #F0ECE1;
+      /* Thermo subject orange accents + Cyber Obsidian base */
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-accent: #F97316;
+      --accent-warm: #FB923C;
+      --border-light: #262933;
+      --border-hover: #F97316;
+      --progress-color: #F97316;
+      --cta-bg: #F97316;
+      --cta-text: #0E0F12;
+      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+      --card-hover-shadow: 0 12px 32px -4px rgba(249, 115, 22, 0.22);
+    }
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
       --bg-card: #FFFFFF;
-      --bg-card-hover: #FFFDF9;
-      --bg-header-gradient: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-
-      --font-heading: "Bookman Old Style", Georgia, serif;
-      --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-
-      --text-primary: #2D2926;
-      --text-secondary: #5C544D;
-      --text-header: #FFFDF9;
-      --text-accent: #8C5A37;
-
-      --border-light: #E2D9CC;
-      --border-accent: #8C5A37;
-      --active-indicator: #2E7D32;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --text-accent: #EA580C;
+      --accent-warm: #C2410C;
+      --border-light: #E2E8F0;
+      --border-hover: #EA580C;
+      --progress-color: #EA580C;
+      --cta-bg: #0F172A;
+      --cta-text: #FFFFFF;
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      --card-hover-shadow: 0 12px 30px -4px rgba(234, 88, 12, 0.18);
     }
 
-    * { box-sizing: border-box; }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: var(--font-body);
-      font-size: 11pt;
-      line-height: 1.75;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
       color: var(--text-primary);
-      background-color: var(--bg-page);
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 35px 20px;
+      background: var(--bg-page);
+      padding: 48px 24px 72px;
+      transition: background 0.25s, color 0.25s;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--text-accent); z-index: 9999;
+      transition: width 0.1s linear;
     }
 
-    /* Back Button Bar */
-    .nav-back-bar {
-      margin-bottom: 20px;
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
+    /* Swiss Header */
+    .hub-header { margin-bottom: 36px; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-accent); text-decoration: none;
+      font-size: 9pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 20px;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .back-btn:hover { color: var(--text-primary); transform: translateX(-3px); }
+    
+    .header-title-row {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .hub-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 32pt; font-weight: 700; letter-spacing: -0.5px;
+      line-height: 1.1; color: var(--text-primary);
+    }
+    .hub-meta {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 8.5pt; text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--text-accent); font-weight: 700;
     }
 
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-      color: #FFFDF9;
-      padding: 10px 18px;
+    /* Hairline Divider */
+    .divider { border: none; border-top: 1px solid var(--border-light); margin: 28px 0 40px; }
+
+    /* Editorial Grid Layout */
+    .grid { display: flex; flex-direction: column; gap: 20px; margin-bottom: 56px; }
+
+    /* Cyber Obsidian & Subject Accent Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--text-accent);
       border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 10pt;
-      box-shadow: 0 4px 12px rgba(74, 46, 27, 0.15);
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-back:hover {
-      opacity: 0.9;
-    }
-
-    /* Master Portal Header */
-    .portal-header {
-      text-align: center;
-      background: var(--bg-header-gradient);
-      color: var(--text-header);
-      padding: 40px 28px;
-      border-radius: 16px;
-      margin-bottom: 35px;
-      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
-    }
-
-    .portal-header h1 {
-      font-family: var(--font-heading);
-      font-size: 26pt;
-      margin: 0 0 10px 0;
-      letter-spacing: 0.5px;
-      color: #FFFDF9;
-    }
-
-    .portal-header p {
-      font-size: 12pt;
-      margin: 0;
-      color: #E2D9CC;
-      font-weight: 300;
-    }
-
-    /* Quick Stats Bar */
-    .stats-bar {
-      display: flex;
-      justify-content: space-around;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 35px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 20pt;
-      font-weight: bold;
-      color: var(--text-accent);
-      line-height: 1.2;
-    }
-
-    .stat-label {
-      font-size: 9.5pt;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 4px;
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 18pt;
-      color: var(--text-accent);
-      border-bottom: 2px solid var(--border-accent);
-      padding-bottom: 8px;
-      margin-bottom: 25px;
-    }
-
-    /* Grid Layout for Cards */
-    .card-grid {
+      padding: 26px 32px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-
-    /* Topic Cards */
-    .topic-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-left: 5px solid var(--border-accent);
-      border-radius: 12px;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      grid-template-columns: 70px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--card-shadow);
       transition: all 0.25s ease;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--border-hover);
+      border-left-color: var(--text-accent);
+      box-shadow: var(--card-hover-shadow);
+      transform: translateY(-3px);
     }
 
-    .topic-card:hover {
-      background-color: var(--bg-card-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(140, 90, 55, 0.15);
-      border-left-color: var(--active-indicator);
+    /* Large Editorial Index Number */
+    .card-num-large {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 34pt; font-weight: 700; line-height: 1;
+      color: var(--text-accent); opacity: 0.55;
+      transition: all 0.2s ease;
     }
-
-    .card-badge {
-      display: inline-block;
-      background-color: var(--bg-page);
+    .card:hover .card-num-large {
       color: var(--text-accent);
-      font-size: 8.5pt;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
+      opacity: 1;
+      transform: scale(1.08);
     }
 
+    /* Card Content */
+    .card-body { display: flex; flex-direction: column; gap: 6px; }
     .card-title {
-      font-family: var(--font-heading);
-      font-size: 15pt;
-      color: var(--text-primary);
-      margin: 0 0 10px 0;
-      line-height: 1.35;
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 15pt; font-weight: 700; color: var(--text-primary);
+      line-height: 1.3;
     }
-
-    .card-description {
-      font-size: 10pt;
-      color: var(--text-secondary);
-      margin-bottom: 18px;
-      flex-grow: 1;
+    .card-topics-list {
+      font-size: 9.5pt; color: var(--text-secondary); font-weight: 500;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
     }
+    .topic-dot { color: var(--text-accent); font-size: 8pt; opacity: 0.8; }
 
-    .formula-preview {
-      background-color: var(--bg-page);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 9.5pt;
+    /* CTA Group */
+    .card-action { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+    .link-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--cta-text); background: var(--cta-bg);
+      text-decoration: none;
+      font-size: 8.5pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; padding: 8px 14px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    .link-cta:hover {
+      background: var(--accent-warm);
+      color: #0E0F12;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+    }
+    .link-cta-sec {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-secondary); background: transparent;
+      border: 1px solid var(--border-light);
+      text-decoration: none;
+      font-size: 8.5pt; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.8px; padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .link-cta-sec:hover {
+      border-color: var(--text-accent);
       color: var(--text-accent);
-      margin-bottom: 18px;
-      text-align: center;
-      border: 1px dashed var(--border-light);
     }
 
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 9.5pt;
-      font-weight: 600;
-      color: var(--text-accent);
-      border-top: 1px solid var(--border-light);
-      padding-top: 14px;
-      margin-top: auto;
-    }
-
-    .btn-open {
-      color: var(--active-indicator);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
+    /* Minimalist Editorial Footer */
     footer {
-      text-align: center;
-      font-size: 9pt;
-      color: var(--text-secondary);
-      margin-top: 50px;
-      padding-top: 20px;
       border-top: 1px solid var(--border-light);
+      padding-top: 24px; display: flex; justify-content: space-between;
+      align-items: center; font-size: 8.5pt; color: var(--text-muted);
+      font-family: "SFMono-Regular", Consolas, monospace; text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 32px 16px 48px; }
+      .card { grid-template-columns: 1fr; gap: 16px; padding: 22px; }
+      .card-num-large { font-size: 24pt; }
+      .card-action { justify-content: flex-start; margin-top: 6px; flex-wrap: wrap; }
+      .hub-header h1 { font-size: 24pt; }
     }
   </style>
 </head>
-<body>
+<body data-subject="thermo">
 
-  <!-- Top Navigation Bar -->
-  <div class="nav-back-bar">
-    <a href="../index.html" class="btn-back">&larr; Back to Main Exam Portal</a>
+  <div id="reading-progress"></div>
+  <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+    (function(){
+      var t = document.getElementById("theme-toggle");
+      var s = localStorage.getItem("ag-theme") || "dark";
+      function apply(v) {
+        document.documentElement.setAttribute("data-theme", v);
+        t.textContent = v === "dark" ? "\u{1F319}" : "\u2600\uFE0F";
+        localStorage.setItem("ag-theme", v);
+      }
+      apply(s);
+      t.addEventListener("click", function() {
+        apply(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+      var bar = document.getElementById("reading-progress");
+      window.addEventListener("scroll", function() {
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+      }, { passive: true });
+
+      /* Dynamic colored favicon for thermo orange */
+      (function(){
+        var canvas = document.createElement('canvas');
+        canvas.width = 32; canvas.height = 32;
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#F97316';
+        ctx.fillRect(0, 0, 32, 32);
+        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.rel = 'icon';
+        link.href = canvas.toDataURL();
+        document.head.appendChild(link);
+      })();
+    })();
+  </script>
+
+  <div class="container">
+
+    <!-- Swiss Header -->
+    <header class="hub-header">
+      <a href="../index.html" class="back-btn">&larr; Main Portal</a>
+      <div class="header-title-row">
+        <h1>Turbo Machines</h1>
+        <span class="hub-meta">5 Modules &bull; Core Syllabus</span>
+      </div>
+    </header>
+
+    <hr class="divider">
+
+    <!-- Editorial List Grid -->
+    <main class="grid">
+
+      <!-- Module 01 -->
+      <article class="card">
+        <div class="card-num-large">01</div>
+        <div class="card-body">
+          <h2 class="card-title">Gas Turbines</h2>
+          <div class="card-topics-list">
+            <span>Brayton Cycle</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Pressure &amp; Work Ratio</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Reheat, Intercooling &amp; Regeneration</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Optimum $r_p$</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="gasturbines_revised.html" class="link-cta">Quick Revision <span>&rarr;</span></a>
+          <a href="gasturbines_reorganized.html" class="link-cta-sec">Deep Dive <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <!-- Module 02 -->
+      <article class="card">
+        <div class="card-num-large">02</div>
+        <div class="card-body">
+          <h2 class="card-title">Steam Turbines</h2>
+          <div class="card-topics-list">
+            <span>Impulse vs Reaction</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Parson's 50% Reaction</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Curtis &amp; Rateau Compounding</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Governing &amp; Reheat Factor</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="steamturbines_revised.html" class="link-cta">Quick Revision <span>&rarr;</span></a>
+          <a href="steamturbines_reorganized.html" class="link-cta-sec">Deep Dive <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <!-- Module 03 -->
+      <article class="card">
+        <div class="card-num-large">03</div>
+        <div class="card-body">
+          <h2 class="card-title">Rankine Cycle &amp; Steam Power</h2>
+          <div class="card-topics-list">
+            <span>Rankine Efficiency &amp; Pump Work</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Bleed Steam &amp; Regeneration</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Modified Rankine</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Boiler Mountings &amp; Draught</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="rankine_revised.html" class="link-cta">Quick Revision <span>&rarr;</span></a>
+          <a href="rankine_reorganized.html" class="link-cta-sec">Deep Dive <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <!-- Module 04 -->
+      <article class="card">
+        <div class="card-num-large">04</div>
+        <div class="card-body">
+          <h2 class="card-title">Jet Propulsion &amp; Rockets</h2>
+          <div class="card-topics-list">
+            <span>Turbojet, Turboprop, Ramjet</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Propulsive &amp; Overall Efficiency</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Rocket Thrust &amp; Propellants</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Mach Angle</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="jet_propulsion_revised.html" class="link-cta">Quick Revision <span>&rarr;</span></a>
+          <a href="jet_propulsion_reorganized.html" class="link-cta-sec">Deep Dive <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <!-- Module 05 -->
+      <article class="card">
+        <div class="card-num-large">05</div>
+        <div class="card-body">
+          <h2 class="card-title">Steam Nozzles &amp; Compressible Flow</h2>
+          <div class="card-topics-list">
+            <span>Critical Pressure Ratio</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Choked Flow</span>
+            <span class="topic-dot">&bull;</span>
+            <span>C-D Nozzle Regimes</span>
+            <span class="topic-dot">&bull;</span>
+            <span>Normal Shock Waves &amp; Efficiency</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="nozzles_revised.html" class="link-cta">Quick Revision <span>&rarr;</span></a>
+          <a href="nozzles_reorganized.html" class="link-cta-sec">Deep Dive <span>&rarr;</span></a>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Swiss Minimal Footer -->
+    <footer>
+      <span>Turbo Machines Hub</span>
+      <span>AP GenCo AE / SSC JE</span>
+    </footer>
+
   </div>
-
-  <!-- Master Portal Header -->
-  <div class="portal-header">
-    <h1>Turbo Machines</h1>
-    <p>Comprehensive AP GenCo AE / GATE / SSC JE Reorganized Study Modules</p>
-  </div>
-
-  <!-- Quick Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-value">5</div>
-      <div class="stat-label">Master Modules</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">2,500+</div>
-      <div class="stat-label">Lines of Content</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">75</div>
-      <div class="stat-label">Core Q&As & Traps</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-value">100%</div>
-      <div class="stat-label">PYQ Covered</div>
-    </div>
-  </div>
-
-  <h2 class="section-title">Topic Modules & Revision Guides</h2>
-
-  <!-- Card Grid Container -->
-  <div class="card-grid">
-
-    <!-- Card 1 -->
-    <a href="gasturbines_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 01</span>
-        <h3 class="card-title">Working Principles of Gas Turbines</h3>
-        <p class="card-description">Ideal Brayton (Joule) cycle, air-standard efficiency ($\eta = 1 - 1/r_p^{(\gamma-1)/\gamma}$), work ratio ($r_w = w_{\text{net}}/w_T$), back-work ratio ($r_{bw} = w_C/w_T \approx 0.4-0.6$), reheating ($w_{\text{net}}\uparrow, \eta\downarrow$), intercooling ($P_i = \sqrt{P_1 P_2}$), regeneration ($q_{\text{in}}\downarrow, \eta\uparrow$), optimum pressure ratio ($r_{p,\text{opt}} = (T_3/T_1)^{\frac{\gamma}{2(\gamma-1)}}$), $T_2 = T_4 = \sqrt{T_1 T_3}$, air-fuel ratio $60:1$, and nickel superalloys.</p>
-        <div class="formula-preview">
-          $$\eta = 1 - \frac{1}{r_p^{(\gamma-1)/\gamma}}, \quad r_w = 1 - \frac{w_C}{w_T}, \quad P_i = \sqrt{P_1 P_2}, \quad r_{p,\text{opt}} = \left(\frac{T_3}{T_1}\right)^{\frac{\gamma}{2(\gamma-1)}}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 1 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 2 -->
-    <a href="steamturbines_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 02</span>
-        <h3 class="card-title">Working Principles of Steam Turbines</h3>
-        <p class="card-description">Impulse vs Reaction ($R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}$), Parson's 50% reaction turbine ($\rho_{\text{opt}} = \cos\alpha, \eta_{\text{max}} = \frac{2\cos^2\alpha}{1+\cos^2\alpha}$), Curtis velocity compounding ($\rho_{\text{opt}} = \frac{\cos\alpha}{2n}$), Rateau pressure compounding, simple impulse optimums ($\rho_{\text{opt}} = \frac{1}{2}\cos\alpha, \eta_{\text{max}} = \cos^2\alpha$), stage efficiency ($\eta_s = \eta_b \times \eta_N$), steam rate ($3600 / W_{\text{net}}$), back-pressure & pass-out turbines, and critical speed.</p>
-        <div class="formula-preview">
-          $$R = \frac{\Delta h_m}{\Delta h_f + \Delta h_m}, \quad \rho_{\text{opt, Parson}} = \cos\alpha, \quad \rho_{\text{opt, Curtis}} = \frac{\cos\alpha}{2n}, \quad \eta_s = \eta_b \cdot \eta_N, \quad \text{Steam Rate} = \frac{3600}{W_{\text{net}}}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 2 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a href="rankine_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 03</span>
-        <h3 class="card-title">Rankine Cycle, Modified Rankine & Steam Power Systems</h3>
-        <p class="card-description">Ideal Rankine efficiency ($\eta_R = \frac{W_T - W_P}{Q_{\text{in}}} = 1 - \frac{T_{\text{cond}}}{T_m}$), pump work ($W_P \approx v_3(P_4-P_3)$), superheating ($\Delta T_{\text{sup}} = T_{\text{sup}}-T_{\text{sat}}$), reheating ($x>0.88$, $RF = 1.02-1.08$), regeneration (bled fraction $y$, deaeration), Modified Rankine (early release, stroke reduction), combustion stoichiometry ($1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}$), coal ranks, mountings vs accessories, draught systems ($\eta_{\text{natural}} \approx 0.25\%$), and equivalent evaporation ($m_e = \frac{m_s(h-h_{f1})}{2257}$).</p>
-        <div class="formula-preview">
-          $$\eta_R = 1 - \frac{T_{\text{cond}}}{T_m}, \quad y = \frac{h_f - h_{\text{cond}}}{h_{\text{bleed}} - h_{\text{cond}}}, \quad 1 \text{ kg C} \implies \frac{7}{3} \text{ kg CO}, \quad m_e = \frac{m_s (h - h_{f1})}{2257}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 3 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 4 -->
-    <a href="jet_propulsion_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 04</span>
-        <h3 class="card-title">Jet Propulsion & Rocket Systems</h3>
-        <p class="card-description">Air-breathing propulsive efficiency ($\eta_p = \frac{2u}{u+v}$), rocket efficiency ($\eta_p = \frac{2V_f V_e}{V_e^2 + V_f^2}$, peak $100\%$ at $V_f=V_e$), ship right-angle inlet ($\frac{2Vu}{V^2+u^2}$, max $50\%$), turbojet thrust ($F=\dot{m}(V_{\text{exit}}-V_{\text{inlet}})$), rocket thrust ($V_{\text{inlet}}=0$), thrust coefficient ($C_F = \frac{F}{P_c A_t}$), turboprop sequence (Propeller $\to$ Compressor $\to$ Burner $\to$ Turbine), ramjet zero static thrust, pulsejet 2-stroke analogue, hybrid rockets ($\text{LiH}+\text{ClF}_3$), specific impulse ($I_{sp} = 1/\text{SPC}$), Mach angle ($\mu = \sin^{-1}(1/M)$), and turbojet combustor requirements.</p>
-        <div class="formula-preview">
-          $$\eta_{\text{jet}} = \frac{2u}{u+v}, \quad \eta_{\text{rocket}} = \frac{2 V_f V_e}{V_e^2 + V_f^2}, \quad F = \dot{m}(V_e - V_i), \quad C_F = \frac{F}{P_c A_t}, \quad \mu = \sin^{-1}\left(\frac{1}{M}\right)$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 4 &rarr;</span>
-      </div>
-    </a>
-
-    <!-- Card 5 -->
-    <a href="nozzles_reorganized.html" class="topic-card">
-      <div>
-        <span class="card-badge">Module 05</span>
-        <h3 class="card-title">Steam Nozzles & Compressible Flow Regimes</h3>
-        <p class="card-description">Nozzle energy conversion ($\Delta KE = h_1 - h_2, V_2 \approx \sqrt{2000 \Delta h}$), critical pressure ratio ($\frac{p_c}{p_1} = (\frac{2}{n+1})^{n/(n-1)}$; dry sat $0.577$, superheated $0.546$, air $0.528$), choked flow ($M_{\text{throat}}=1$), C-D nozzle regimes (convergent $M<1$, throat $M=1$, divergent $M>1$), divergent semi-cone angle ($3^\circ-10^\circ$), normal shock wave in divergent section ($M_1>1 \to M_2<1$), sound speed ($a=\sqrt{\gamma RT}$, $a_{\text{water}} \approx 4 a_{\text{air}}$), Mach angle ($\mu=\sin^{-1}(1/M)$), Zone of Silence, nozzle efficiency ($\eta_n$), and discharge coefficient ($C_d$).</p>
-        <div class="formula-preview">
-          $$V_2 = \sqrt{2000 \Delta h}, \quad \frac{p_c}{p_1} = \left(\frac{2}{n+1}\right)^{\frac{n}{n-1}}, \quad \frac{dA}{A} = (M^2 - 1)\frac{dV}{V}, \quad \eta_n = \frac{h_1 - h_2}{h_1 - h_{2s}}, \quad \sin\mu = \frac{1}{M}$$
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>500+ Lines • 15 Q&As</span>
-        <span class="btn-open">Open Module 5 &rarr;</span>
-      </div>
-    </a>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2026 AP GenCo Mechanical Engineering Study Portal — Warm Reader Design System</p>
-  </footer>
 
 </body>
 </html>

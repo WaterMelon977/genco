@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jet &amp; Rocket Propulsion — Concise Revision Guide — APGENCO AE / SSC JE Mechanical</title>
+<meta name="description" content="High-yield concise revision guide for Jet & Rocket Propulsion: propulsive efficiency, thrust equations, engine classifications, rockets, specific impulse, Mach angle. APGENCO AE and SSC JE.">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --subject-thermo-primary: #F97316;
+  --subject-thermo-light:   #FB923C;
+  --subject-thermo-dark:    #9A3412;
+  --bg-page:    #0E0F12;
+  --bg-card:    #16181D;
+  --bg-formula: #111318;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-light:   #262933;
+  --heading-color:  #F1F5F9;
+  --code-bg:  #262933;
+  --code-text: #F1F5F9;
+  --pre-bg:   #111318;
+  --table-th-bg:   #111318;
+  --table-even-bg: #121419;
+  --callout-concept-bg:     #131D31;
+  --callout-concept-border: #3B6FD4;
+  --callout-concept-text:   #93C5FD;
+  --callout-trap-bg:     #271415;
+  --callout-trap-border: #EF4444;
+  --callout-trap-text:   #FCA5A5;
+  --callout-focus-bg:     #2A2210;
+  --callout-focus-border: #C09820;
+  --callout-focus-text:   #E0C060;
+  --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.40);
+  --subject-current:       #F59E0B;
+  --subject-current-light: rgba(245,158,11,0.3);
+  --subject-bg-tint:       rgba(245,158,11,0.08);
+}
+body[data-subject="thermo"] {
+  --subject-current:       #F97316;
+  --subject-current-light: #FB923C;
+  --subject-bg-tint:       rgba(249,115,22,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background: var(--bg-page); padding: 60px 20px 72px; transition: background .25s, color .25s; }
+.wrap { max-width: 820px; margin: 0 auto; }
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+#theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
+#theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+#floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-family: Inter, system-ui, sans-serif; font-size: 8.5pt; }
+#floating-nav.visible { opacity: 1; pointer-events: auto; }
+.fn-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.fn-link:hover { background: var(--bg-formula); color: var(--subject-current); }
+.fn-link.active { background: var(--subject-current); color: #0E0F12; }
+.fn-sep { color: var(--border-light); font-size: 7pt; user-select: none; }
+.submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; transition: border-color 0.3s ease; }
+.submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+.submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+.submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; transition: border-color 0.3s ease, color 0.3s ease; }
+h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
+.subject-badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 12px; text-transform: uppercase; letter-spacing: 0.8px; background: var(--subject-current); color: #0E0F12; transition: background 0.3s ease; vertical-align: middle; }
+h2 { font-size: 16pt; color: var(--heading-color); border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
+p { margin-bottom: 1em; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+a { color: var(--subject-current); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+li { margin-bottom: .28em; }
+.formula-card { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 16px 20px; margin: 20px 0; border-radius: 8px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: var(--shadow-card); transition: transform 0.2s ease, box-shadow 0.3s ease; }
+.formula-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -4px var(--subject-current); }
+.sym { font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.sym span { display: inline-block; }
+.callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
+.callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+.callout-trap    { background-color: var(--callout-trap-bg);    border-color: var(--callout-trap-border);    color: var(--callout-trap-text); }
+.callout-focus   { background: var(--subject-bg-tint); border-color: var(--subject-current); color: var(--text-primary); }
+.kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-family: Inter, system-ui, sans-serif; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+.kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+.kp ul { margin-bottom: 0; padding-left: 1.3em; }
+.kp li { margin-bottom: .28em; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
+th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
+tr:nth-child(even) { background-color: var(--table-even-bg); }
+tr:hover { background-color: var(--subject-bg-tint); }
+.MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #floating-nav { display: none; } }
+</style>
+</head>
+<body data-subject="thermo">
+<div id="reading-progress"></div>
+<nav id="floating-nav">
+  <a class="fn-link active" href="#prop-efficiency">Propulsive Efficiency</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#thrust">Thrust</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#engine-types">Engine Types</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#rockets">Rockets</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#mach">Mach &amp; Sound</a>
+</nav>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  function updateFavicon(subject) {
+    var colors = { "fluid":"#06B6D4","thermo":"#F97316","production":"#8B5CF6","operations":"#10B981","materials":"#EC4899" };
+    var color = colors[subject] || "#F59E0B";
+    var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+  }
+  function applySubject(s) { document.documentElement.setAttribute("data-subject", s); document.body.setAttribute("data-subject", s); localStorage.setItem("ag-subject", s); updateFavicon(s); }
+  applyTheme(saved);
+  applySubject("thermo");
+  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+  var bar = document.getElementById("reading-progress");
+  if (bar) { window.addEventListener("scroll", function() { var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%"; }, { passive: true }); }
+  var fn = document.getElementById("floating-nav");
+  var links = fn ? fn.querySelectorAll(".fn-link") : [];
+  var ids = ["prop-efficiency","thrust","engine-types","rockets","mach"];
+  function upNav() { var s = window.scrollY; if (s > 220) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, { passive: true }); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+  window.applySubject = applySubject;
+})();
+</script>
+
+<div class="wrap">
+
+<nav class="submodule-nav">
+  <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">&#128218; Turbo Machines:</span>
+  <a href="index.html">[Hub Home]</a>
+  <a href="gasturbines_revised.html">Gas Turbines</a>
+  <a href="steamturbines_reorganized.html">Steam Turbines</a>
+  <a href="rankine_reorganized.html">Rankine Cycle</a>
+  <a href="nozzles_reorganized.html">Nozzles</a>
+  <a href="jet_propulsion_revised.html" class="active">Jet Propulsion</a>
+</nav>
+
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>&#9889; Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="jet_propulsion_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+</div>
+
+<h1>Jet &amp; Rocket Propulsion<span class="subject-badge">Applied Thermodynamics</span><br>
+<span style="font-size:.6em; font-weight:400; opacity:.85;">Propulsive Efficiency &middot; Thrust &middot; Engine Classification &middot; Mach Angle<br>APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical</span></h1>
+
+<!-- ═══ 1. PROPULSIVE EFFICIENCY ═══ -->
+<h2 id="prop-efficiency">1. Propulsive Efficiency</h2>
+
+<p>Propulsive efficiency measures how much of the kinetic energy imparted to the jet by the engine is actually converted into useful propulsive work on the vehicle. When jet velocity equals flight velocity, all jet energy would be used productively &mdash; but this corresponds to zero thrust, which is why the maximum is approached but never achieved in practice.</p>
+
+<h3>Air-Breathing Jet Engine</h3>
+<p>For a turbojet or ramjet ingesting ambient air and ejecting a higher-velocity exhaust:</p>
+<div class="formula-card">$$\boxed{\eta_p = \frac{2u}{u + v}}$$</div>
+<div class="sym">
+  <span>$u$ &mdash; aircraft forward flight velocity (m/s)</span>
+  <span>$v$ &mdash; jet exhaust velocity relative to the aircraft ($v > u$ for thrust)</span>
+  <span>As $u \to v$: $\eta_p \to 1$ but thrust $F \to 0$</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Jet Velocity Symbol:</strong> In $\eta_p = \frac{2u}{u+v}$, $v$ is the jet velocity <em>relative</em> to the aircraft, NOT absolute velocity.
+</div>
+
+<h3>Rocket Engine</h3>
+<p>A rocket carries its own oxidiser and does not ingest atmospheric air. The inlet air velocity is zero. Propulsive efficiency peaks to exactly $100\%$ when the rocket forward velocity equals the jet exhaust velocity:</p>
+<div class="formula-card">$$\boxed{\eta_p = \frac{2V_f V_e}{V_e^2 + V_f^2} = \frac{2r}{1+r^2}}$$</div>
+<div class="sym">
+  <span>$V_f$ &mdash; rocket forward flight velocity (m/s)</span>
+  <span>$V_e$ &mdash; effective jet exhaust velocity relative to rocket (m/s)</span>
+  <span>$r = V_f/V_e$ &mdash; velocity ratio; maximum $\eta_p = 100\%$ at $r = 1$ ($V_f = V_e$)</span>
+</div>
+
+<h3>Water-Jet Ship (Right-Angle Inlet)</h3>
+<p>Water is drawn in perpendicular to the ship's motion (at right angles) and ejected astern. The geometry of the right-angle inlet limits the theoretical maximum efficiency:</p>
+<div class="formula-card">$$\boxed{\eta_p = \frac{2Vu}{V^2 + u^2} \qquad \eta_{p,\text{max}} = 50\% \text{ (at } V = u\text{)}}$$</div>
+<div class="sym">
+  <span>$V$ &mdash; absolute velocity of issuing water jet (m/s)</span>
+  <span>$u$ &mdash; ship forward velocity (m/s)</span>
+</div>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Right-Angle Inlet Efficiency Limit:</strong> For a water-jet ship with right-angle inlet, maximum theoretical propulsive efficiency is <strong>50%</strong> (at $V = u$).
+</div>
+
+<!-- ═══ 2. THRUST ═══ -->
+<h2 id="thrust">2. Thrust Equations</h2>
+
+<p>Thrust is the net reaction force produced by the momentum change of the working fluid passing through the propulsion system, following Newton's second law.</p>
+
+<h3>Turbojet Thrust</h3>
+<div class="formula-card">$$\boxed{F = \dot{m}(V_\text{exit} - V_\text{inlet}) \quad \text{N}}$$</div>
+<div class="sym">
+  <span>$\dot{m}$ &mdash; air mass flow rate (kg/s)</span>
+  <span>$V_\text{exit}$ &mdash; exhaust jet velocity relative to engine (m/s)</span>
+  <span>$V_\text{inlet}$ &mdash; inlet air velocity relative to engine $= u$ (m/s)</span>
+</div>
+
+<h3>Rocket Thrust</h3>
+<p>The rocket has no inlet air ($V_\text{inlet} = 0$), and nozzle exit pressure contributes if not perfectly expanded:</p>
+<div class="formula-card">$$\boxed{F = \dot{m}V_e + (P_e - P_0)A_e \quad \text{N}}$$</div>
+<div class="sym">
+  <span>$V_e$ &mdash; exhaust velocity at nozzle exit (m/s)</span>
+  <span>$P_e$ &mdash; exit static pressure (Pa); &nbsp; $P_0$ &mdash; ambient pressure (Pa)</span>
+  <span>$A_e$ &mdash; nozzle exit area (m&sup2;)</span>
+  <span>Perfectly expanded nozzle ($P_e = P_0$): $F = \dot{m}V_e$</span>
+</div>
+
+<h3>Thrust Coefficient</h3>
+<div class="formula-card">$$\boxed{C_F = \frac{F}{P_c \cdot A_t}}$$</div>
+<div class="sym">
+  <span>$P_c$ &mdash; combustion chamber pressure (Pa)</span>
+  <span>$A_t$ &mdash; nozzle throat area (m&sup2;)</span>
+  <span>$C_F$ is a dimensionless measure of pressure conversion efficiency</span>
+</div>
+
+<!-- ═══ 3. ENGINE TYPES ═══ -->
+<h2 id="engine-types">3. Classification of Propulsion Engines</h2>
+
+<table>
+  <thead><tr><th>Engine</th><th>Air-breathing?</th><th>Moving parts</th><th>Key Characteristic</th></tr></thead>
+  <tbody>
+    <tr><td>Turbojet</td><td>Yes</td><td>Compressor + turbine</td><td>Diffuser &rarr; Compressor &rarr; Combustor &rarr; Turbine &rarr; Nozzle; AFR $\approx 60{:}1$</td></tr>
+    <tr><td>Turboprop</td><td>Yes</td><td>Compressor + turbine + propeller</td><td>Sequence: Propeller &rarr; Compressor &rarr; Burner &rarr; Turbine; most power to propeller</td></tr>
+    <tr><td>Ramjet</td><td>Yes</td><td>None</td><td>No compressor/turbine; ram compression only; zero static thrust at $M = 0$</td></tr>
+    <tr><td>Pulsejet</td><td>Yes</td><td>Reed valves (mechanical)</td><td>Intermittent combustion; 2-stroke engine analogue at 2400&ndash;2700 rpm</td></tr>
+    <tr><td>Rocket</td><td>No</td><td>Pump (liquid) or none (solid)</td><td>Carries fuel + oxidiser; $V_\text{inlet} = 0$; vacuum operation</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept">
+  <strong>&#128161; Key Concept &mdash; Turboprop Sequence:</strong> The turboprop component sequence is <strong>Propeller &rarr; Compressor &rarr; Burner &rarr; Turbine</strong>. Most turbine expansion work drives the propeller via a reduction gearbox.
+</div>
+
+<div class="callout callout-trap">
+  <strong>&#9888;&#65039; Exam Trap &mdash; Ramjet Zero Static Thrust:</strong> A Ramjet has NO COMPRESSOR. It cannot produce static thrust at rest ($M = 0$) and requires an auxiliary booster to reach operating speeds.
+</div>
+
+<h3>Turbojet Combustion Chamber Requirements</h3>
+<p>Must achieve complete combustion, maintain flame stability across operating altitudes, and minimize pressure drop. A <em>high rate of combustion</em> is NOT an essential requirement.</p>
+
+<!-- ═══ 4. ROCKETS ═══ -->
+<h2 id="rockets">4. Rocket Propulsion &amp; Specific Impulse</h2>
+
+<p>Rockets carry both fuel and oxidiser onboard, enabling operation in space vacuum.</p>
+
+<h3>Propellant Classification</h3>
+<table>
+  <thead><tr><th>Type</th><th>Fuel</th><th>Oxidiser</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Liquid propellant</td><td>Liquid fuel (kerosene, LH₂)</td><td>Liquid oxidiser (LOX)</td><td>High performance; throttleable</td></tr>
+    <tr><td>Solid propellant</td><td>Solid fuel (powdered Al)</td><td>Solid oxidiser (AP)</td><td>Simple; storable; non-throttleable</td></tr>
+    <tr><td>Hybrid</td><td>Solid fuel (LiH)</td><td>Liquid oxidiser (ClF₃)</td><td>Lithium Hydride + Chlorine Trifluoride</td></tr>
+  </tbody>
+</table>
+
+<h3>Specific Impulse</h3>
+<div class="formula-card">$$\boxed{I_{sp} = \frac{F}{\dot{m} \cdot g_0} = \frac{1}{\text{SPC}} \quad \text{seconds}}$$</div>
+<div class="sym">
+  <span>$g_0 = 9.81$ m/s&sup2; &mdash; gravitational acceleration</span>
+  <span>SPC &mdash; Specific Propellant Consumption [kg/(N&middot;s)]</span>
+  <span>Higher $I_{sp}$ = superior propellant efficiency</span>
+</div>
+
+<!-- ═══ 5. MACH & SOUND ═══ -->
+<h2 id="mach">5. Mach Number, Speed of Sound &amp; Mach Angle</h2>
+
+<p>When an object moves through a fluid at supersonic speed ($M > 1$), pressure disturbances form a conical envelope called the <strong>Mach cone</strong>.</p>
+
+<div class="formula-card">$$\boxed{\sin\mu = \frac{1}{M} = \frac{a}{v} \implies \mu = \sin^{-1}\!\left(\frac{1}{M}\right)}$$</div>
+<div class="sym">
+  <span>$\mu$ &mdash; Mach angle (half-angle of cone)</span>
+  <span>$M = v/a$ &mdash; Mach number ($M > 1$)</span>
+  <span>$a$ &mdash; local speed of sound (m/s); &nbsp; $v$ &mdash; object velocity (m/s)</span>
+</div>
+
+<h3>Speed of Sound</h3>
+<div class="formula-card">$$\boxed{a = \sqrt{\gamma R T} \quad \text{m/s}}$$</div>
+<div class="sym">
+  <span>$\gamma = 1.40$ (air); &nbsp; $R = 287$ J/kg&middot;K; &nbsp; $T$ &mdash; absolute temperature (K)</span>
+  <span>Speed of sound order: <strong>Solid &gt; Liquid &gt; Gas</strong> ($a_\text{water} \approx 4\,a_\text{air}$)</span>
+</div>
+
+<div class="callout callout-concept">
+  <strong>&#128161; Key Concept &mdash; Mach Cone Zones:</strong> Inside the Mach cone is the <strong>Zone of Action</strong> (disturbances felt). Outside is the <strong>Zone of Silence</strong> (no disturbance reached yet).
+</div>
+
+<hr>
+
+<div class="kp">
+  <div class="kp-title">&#128293; Quick-Fire Checklist &mdash; Jet &amp; Rocket Propulsion</div>
+  <ul>
+    <li>Air-breathing jet: $\eta_p = 2u/(u+v)$; $v$ is jet velocity relative to aircraft.</li>
+    <li>Rocket: $\eta_p = 2V_fV_e/(V_e^2+V_f^2)$; max $\eta_p = 100\%$ at $V_f = V_e$.</li>
+    <li>Ship right-angle inlet: $\eta_p = 2Vu/(V^2+u^2)$; theoretical max $= 50\%$.</li>
+    <li>Turbojet thrust: $F = \dot{m}(V_\text{exit} - V_\text{inlet})$.</li>
+    <li>Rocket: $V_\text{inlet} = 0$; $F = \dot{m}V_e + (P_e - P_0)A_e$.</li>
+    <li>Thrust coefficient: $C_F = F/(P_c A_t)$.</li>
+    <li>Turbojet AFR $\approx 60{:}1$; turboprop sequence: Propeller &rarr; Compressor &rarr; Burner &rarr; Turbine.</li>
+    <li>Ramjet: no moving parts; zero static thrust at $M = 0$ (no compressor).</li>
+    <li>Pulsejet: intermittent combustion; 2-stroke engine analogue ($2400\text{--}2700$ rpm).</li>
+    <li>Hybrid rocket: solid LiH fuel + liquid ClF₃ oxidiser.</li>
+    <li>$I_{sp} = 1/\text{SPC}$ (seconds); higher $I_{sp}$ = better propellant efficiency.</li>
+    <li>Turbojet combustor: high rate of combustion is <strong>NOT</strong> required.</li>
+    <li>Mach angle: $\sin\mu = 1/M = a/v$; forms only when $M > 1$.</li>
+    <li>Zone of Silence: outside Mach cone. Zone of Action: inside Mach cone.</li>
+    <li>$a = \sqrt{\gamma RT}$; $a_\text{water} \approx 4\,a_\text{air}$; Speed order: Solid &gt; Liquid &gt; Gas.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--text-muted); font-family:Inter,system-ui,sans-serif;">
+  APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Jet &amp; Rocket Propulsion Revision Guide
+</p>
+
+</div>
+</body>
+</html>

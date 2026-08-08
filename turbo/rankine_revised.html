@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rankine Cycle &amp; Steam Power Systems — Concise Revision Guide — APGENCO AE / SSC JE Mechanical</title>
+<meta name="description" content="High-yield concise revision guide for Rankine Cycle & Steam Power Systems: thermal efficiency, superheating, reheating, regeneration, Modified Rankine, fuels, boiler mountings, draught, power plant factors. APGENCO AE and SSC JE.">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --subject-thermo-primary: #F97316;
+  --subject-thermo-light:   #FB923C;
+  --subject-thermo-dark:    #9A3412;
+  --bg-page:    #0E0F12;
+  --bg-card:    #16181D;
+  --bg-formula: #111318;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #64748B;
+  --border-light:   #262933;
+  --heading-color:  #F1F5F9;
+  --code-bg:  #262933;
+  --code-text: #F1F5F9;
+  --pre-bg:   #111318;
+  --table-th-bg:   #111318;
+  --table-even-bg: #121419;
+  --callout-concept-bg:     #131D31;
+  --callout-concept-border: #3B6FD4;
+  --callout-concept-text:   #93C5FD;
+  --callout-trap-bg:     #271415;
+  --callout-trap-border: #EF4444;
+  --callout-trap-text:   #FCA5A5;
+  --callout-focus-bg:     #2A2210;
+  --callout-focus-border: #C09820;
+  --callout-focus-text:   #E0C060;
+  --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.40);
+  --subject-current:       #F59E0B;
+  --subject-current-light: rgba(245,158,11,0.3);
+  --subject-bg-tint:       rgba(245,158,11,0.08);
+}
+body[data-subject="thermo"] {
+  --subject-current:       #F97316;
+  --subject-current-light: #FB923C;
+  --subject-bg-tint:       rgba(249,115,22,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: "Bookman Old Style", Georgia, serif; font-size: 11.5pt; line-height: 1.9; color: var(--text-primary); background: var(--bg-page); padding: 60px 20px 72px; transition: background .25s, color .25s; }
+.wrap { max-width: 820px; margin: 0 auto; }
+#reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--subject-current); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+#theme-toggle { position: fixed; top: 18px; right: 24px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13pt; z-index: 9998; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: all 0.2s ease; }
+#theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+#floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-family: Inter, system-ui, sans-serif; font-size: 8.5pt; }
+#floating-nav.visible { opacity: 1; pointer-events: auto; }
+.fn-link { color: var(--text-secondary); text-decoration: none; padding: 3px 10px; border-radius: 20px; font-weight: 600; transition: background 0.15s, color 0.15s; }
+.fn-link:hover { background: var(--bg-formula); color: var(--subject-current); }
+.fn-link.active { background: var(--subject-current); color: #0E0F12; }
+.fn-sep { color: var(--border-light); font-size: 7pt; user-select: none; }
+.submodule-nav { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 14px 20px; border-radius: 10px; margin-bottom: 28px; text-align: center; box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt; font-family: Inter, system-ui, sans-serif; transition: border-color 0.3s ease; }
+.submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+.submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+.submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; transition: border-color 0.3s ease, color 0.3s ease; }
+h1 { font-size: 22pt; text-align: center; background: linear-gradient(135deg, #07080A 0%, #16181D 100%); color: #F8FAFC; border-left: 5px solid var(--subject-current); padding: 28px 24px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); line-height: 1.35; }
+.subject-badge { display: inline-block; font-size: 7pt; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-left: 12px; text-transform: uppercase; letter-spacing: 0.8px; background: var(--subject-current); color: #0E0F12; transition: background 0.3s ease; vertical-align: middle; }
+h2 { font-size: 16pt; color: var(--heading-color); border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+h4 { font-size: 12pt; color: var(--text-primary); margin-top: 20px; }
+p { margin-bottom: 1em; }
+hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+a { color: var(--subject-current); text-decoration: none; }
+a:hover { text-decoration: underline; }
+ul, ol { padding-left: 1.6em; margin-bottom: .9em; }
+li { margin-bottom: .28em; }
+.formula-card { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--subject-current); padding: 16px 20px; margin: 20px 0; border-radius: 8px; text-align: center; overflow-x: auto; font-size: 1.04em; box-shadow: var(--shadow-card); transition: transform 0.2s ease, box-shadow 0.3s ease; }
+.formula-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -4px var(--subject-current); }
+.sym { font-family: Inter, system-ui, sans-serif; font-size: 9.5pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.7; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.sym span { display: inline-block; }
+.callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; }
+.callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+.callout-trap    { background-color: var(--callout-trap-bg);    border-color: var(--callout-trap-border);    color: var(--callout-trap-text); }
+.callout-focus   { background: var(--subject-bg-tint); border-color: var(--subject-current); color: var(--text-primary); }
+.kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-family: Inter, system-ui, sans-serif; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+.kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+.kp ul { margin-bottom: 0; padding-left: 1.3em; }
+.kp li { margin-bottom: .28em; }
+table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); font-family: Inter, system-ui, sans-serif; font-size: 10pt; }
+th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.5px; border-bottom: 2px solid var(--subject-current); }
+tr:nth-child(even) { background-color: var(--table-even-bg); }
+tr:hover { background-color: var(--subject-bg-tint); }
+.MathJax_Display, mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+@media (max-width: 680px) { body { padding: 50px 14px 56px; } h1 { font-size: 16pt; padding: 18px 20px; } #floating-nav { display: none; } }
+</style>
+</head>
+<body data-subject="thermo">
+<div id="reading-progress"></div>
+<nav id="floating-nav">
+  <a class="fn-link active" href="#ideal-rankine">Ideal Rankine</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#modifications">Modifications</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#modified-rankine">Modified Rankine</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#fuels">Fuels</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#boiler">Boiler</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#draught">Draught</a><span class="fn-sep">·</span>
+  <a class="fn-link" href="#performance">Performance</a>
+</nav>
+<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+<script>
+(function() {
+  var toggle = document.getElementById("theme-toggle");
+  var saved = localStorage.getItem("ag-theme") || "dark";
+  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+  function updateFavicon(subject) {
+    var colors = { "fluid":"#06B6D4","thermo":"#F97316","production":"#8B5CF6","operations":"#10B981","materials":"#EC4899" };
+    var color = colors[subject] || "#F59E0B";
+    var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+    var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+    link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+  }
+  function applySubject(s) { document.documentElement.setAttribute("data-subject", s); document.body.setAttribute("data-subject", s); localStorage.setItem("ag-subject", s); updateFavicon(s); }
+  applyTheme(saved);
+  applySubject("thermo");
+  if (toggle) { toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+  var bar = document.getElementById("reading-progress");
+  if (bar) { window.addEventListener("scroll", function() { var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%"; }, { passive: true }); }
+  var fn = document.getElementById("floating-nav");
+  var links = fn ? fn.querySelectorAll(".fn-link") : [];
+  var ids = ["ideal-rankine","modifications","modified-rankine","fuels","boiler","draught","performance"];
+  function upNav() { var s = window.scrollY; if (s > 220) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 110) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active", lk.getAttribute("href").replace("#","") === act); }); }
+  window.addEventListener("scroll", upNav, { passive: true }); upNav();
+  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+  window.applySubject = applySubject;
+})();
+</script>
+
+<div class="wrap">
+
+<nav class="submodule-nav">
+  <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">&#128218; Turbo Machines:</span>
+  <a href="index.html">[Hub Home]</a>
+  <a href="gasturbines_revised.html">Gas Turbines</a>
+  <a href="steamturbines_reorganized.html">Steam Turbines</a>
+  <a href="rankine_revised.html" class="active">Rankine Cycle</a>
+  <a href="nozzles_reorganized.html">Nozzles</a>
+  <a href="jet_propulsion_reorganized.html">Jet Propulsion</a>
+</nav>
+
+<div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+  <span><strong>&#9889; Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+  <a href="rankine_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+</div>
+
+<h1>Rankine Cycle &amp; Steam Power Systems<span class="subject-badge">Applied Thermodynamics</span><br>
+<span style="font-size:.6em; font-weight:400; opacity:.85;">Boiler &middot; Fuels &middot; Draught &middot; Power Plant Factors<br>APGENCO AE &nbsp;|&nbsp; SSC JE Mechanical</span></h1>
+
+<!-- ═══ 1. IDEAL RANKINE ═══ -->
+<h2 id="ideal-rankine">1. Ideal Rankine Cycle</h2>
+
+<p>The Rankine cycle is the standard thermodynamic cycle for steam power plants. It consists of four processes: isentropic pumping of the saturated liquid from condenser pressure to boiler pressure (1&rarr;2), isobaric heat addition in the boiler (2&rarr;3), isentropic expansion in the turbine (3&rarr;4), and isobaric heat rejection in the condenser (4&rarr;1). Heat is rejected in the condenser, not in the open atmosphere.</p>
+
+<h3>Thermal Efficiency</h3>
+<div class="formula-card">$$\boxed{\eta_R = \frac{W_T - W_P}{Q_\text{in}} = \frac{(h_1-h_2)-(h_4-h_3)}{h_1-h_4}}$$</div>
+<div class="sym">
+  <span>$h_1$ &mdash; turbine inlet enthalpy (kJ/kg)</span>
+  <span>$h_2$ &mdash; turbine exit / condenser inlet enthalpy (kJ/kg)</span>
+  <span>$h_3$ &mdash; condenser exit (saturated liquid) (kJ/kg)</span>
+  <span>$h_4$ &mdash; pump exit / boiler inlet enthalpy (kJ/kg)</span>
+</div>
+
+<p>An equivalent form using the mean temperature of heat addition $T_m$ brings the expression closer to Carnot form:</p>
+<div class="formula-card">$$\eta_R = 1 - \frac{T_\text{condenser}}{T_m} \qquad T_m = \frac{h_1 - h_4}{s_1 - s_4} \quad \text{K}$$</div>
+<div class="sym"><span>Increasing $T_m$ (by superheating or raising boiler pressure) increases $\eta_R$</span></div>
+
+<h3>Pump Work</h3>
+<p>Since the pump handles liquid water (nearly incompressible), pump work is very small compared to turbine output &mdash; typically $1$&ndash;$2\%$ of $W_T$:</p>
+<div class="formula-card">$$\boxed{W_P = h_4 - h_3 \approx v_3(P_\text{boiler} - P_\text{condenser}) \times 10^2 \quad \text{kJ/kg}}$$</div>
+<div class="sym">
+  <span>$v_3$ &mdash; specific volume of saturated liquid at condenser pressure (m&sup3;/kg)</span>
+  <span>Pressures in bar; factor $10^2$ converts bar&middot;m&sup3;/kg to kJ/kg</span>
+</div>
+
+<!-- ═══ 2. EFFICIENCY IMPROVEMENTS ═══ -->
+<h2 id="modifications">2. Rankine Cycle Efficiency Improvements</h2>
+
+<h3>Superheating</h3>
+<p>Superheating raises steam temperature above saturation at constant pressure before it enters the turbine. It increases the mean temperature of heat addition $T_m$, raising cycle efficiency; and increases turbine exhaust dryness fraction $x$, reducing LP blade erosion.</p>
+<div class="formula-card">$$\Delta T_\text{sup} = T_\text{superheated} - T_\text{sat}$$</div>
+
+<h3>Reheating</h3>
+<p>Steam is expanded through the HP turbine, reheated at constant pressure in the boiler, and expanded through the LP turbine. The primary objective is to increase the dryness fraction at the LP turbine exit beyond the erosion limit ($x \ge 0.88$).</p>
+<div class="formula-card">$$\boxed{RF = \frac{\sum \text{Stage Isentropic Enthalpy Drops}}{\text{Overall Direct Isentropic Drop}} \approx 1.02 \text{ to } 1.08}$$</div>
+
+<h3>Regenerative Feedwater Heating</h3>
+<p>Steam is bled (extracted) from intermediate turbine stages to preheat boiler feedwater. Regeneration yields the highest thermal efficiency between fixed pressure limits. An open feedwater heater also acts as a <strong>deaerator</strong>, removing dissolved $\text{O}_2$ and $\text{CO}_2$ to prevent boiler corrosion.</p>
+
+<h4>Bled Steam Fraction</h4>
+<div class="formula-card">$$\boxed{y = \frac{h_f - h_\text{cond}}{h_\text{bleed} - h_\text{cond}}}$$</div>
+<div class="sym">
+  <span>$y$ &mdash; mass fraction of steam bled per kg of total working fluid</span>
+  <span>$h_f$ &mdash; enthalpy of saturated liquid leaving heater (kJ/kg)</span>
+  <span>$h_\text{cond}$ &mdash; enthalpy of condensate entering heater (kJ/kg)</span>
+  <span>$h_\text{bleed}$ &mdash; enthalpy of bled steam extracted from turbine (kJ/kg)</span>
+</div>
+
+<table>
+  <thead><tr><th>Modification</th><th>Primary Purpose</th><th>Effect on $\eta_R$</th><th>Effect on Exhaust $x$</th></tr></thead>
+  <tbody>
+    <tr><td>Superheating</td><td>Raise $T_m$, protect LP blades</td><td>Increases</td><td>Increases (drier)</td></tr>
+    <tr><td>Increasing boiler pressure</td><td>Raise $T_m$</td><td>Increases</td><td>Decreases (wetter)</td></tr>
+    <tr><td>Lowering condenser pressure</td><td>Increase work output</td><td>Increases</td><td>Decreases (wetter)</td></tr>
+    <tr><td>Reheating</td><td>Moisture control at LP exit</td><td>Modest increase</td><td>Increases significantly</td></tr>
+    <tr><td>Regeneration</td><td>Highest $\eta_R$ between fixed limits</td><td>Largest increase</td><td>Decreases slightly</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 3. MODIFIED RANKINE ═══ -->
+<h2 id="modified-rankine">3. Modified Rankine Cycle (Reciprocating Steam Engines)</h2>
+
+<p>Applied to reciprocating steam engines, full expansion requires an impractically long piston stroke. The Modified Rankine cycle terminates expansion early by opening the exhaust valve prematurely, removing the "toe" of the indicator diagram. This sacrifices a small work area to achieve a <strong>huge reduction in cylinder stroke and volume</strong>.</p>
+
+<!-- ═══ 4. FUELS & COMBUSTION ═══ -->
+<h2 id="fuels">4. Fuels &amp; Combustion Stoichiometry</h2>
+
+<h3>Incomplete Combustion of Carbon</h3>
+<div class="formula-card">$$\boxed{1\,\text{kg C} \implies \frac{7}{3}\,\text{kg CO} = 2.333\,\text{kg CO}}$$</div>
+
+<h3>Coal Ranks</h3>
+<table>
+  <thead><tr><th>Rank</th><th>Carbon Content</th><th>Calorific Value</th><th>Moisture</th></tr></thead>
+  <tbody>
+    <tr><td>Peat</td><td>Lowest (~55%)</td><td>~10,000 kJ/kg</td><td>Very high</td></tr>
+    <tr><td>Lignite (Brown coal)</td><td>~60–70%</td><td>~15,000 kJ/kg</td><td>High</td></tr>
+    <tr><td>Bituminous</td><td>~75–90%</td><td>~28,000–32,000 kJ/kg</td><td>Moderate &mdash; standard power plant fuel</td></tr>
+    <tr><td>Anthracite</td><td>Highest (~90–95%)</td><td>~36,000 kJ/kg</td><td>Very low</td></tr>
+  </tbody>
+</table>
+
+<h3>Calorimetry</h3>
+<p>A <strong>Bomb calorimeter</strong> measures the Higher Calorific Value (HCV) of solid and liquid fuels at constant volume. Junker's calorimeter is used for gaseous fuels.</p>
+
+<!-- ═══ 5. BOILER MOUNTINGS vs ACCESSORIES ═══ -->
+<h2 id="boiler">5. Boiler Mountings vs Accessories</h2>
+
+<p><strong>Mountings</strong> are mandatory safety and control devices fitted directly on the boiler drum (e.g., safety valves, water level gauge, <strong>fusible plug</strong>). The fusible plug is a mounting that melts if the water level drops dangerously, dousing the fire.</p>
+
+<p><strong>Accessories</strong> are optional efficiency boosters located in the flue gas path. Flue gas sequence:</p>
+<div class="formula-card">$$\text{Furnace} \to \text{Superheater} \to \text{Economiser} \to \text{Air Preheater} \to \text{ID Fan} \to \text{Chimney}$$</div>
+
+<!-- ═══ 6. DRAUGHT SYSTEMS ═══ -->
+<h2 id="draught">6. Draught Systems</h2>
+
+<table>
+  <thead><tr><th>Type</th><th>Mechanism</th><th>Efficiency</th></tr></thead>
+  <tbody>
+    <tr><td>Natural draught</td><td>Chimney stack effect (hot gas density difference)</td><td>$\approx 0.25\%$ (extremely low)</td></tr>
+    <tr><td>Forced draught (FD fan)</td><td>Fan pushes air into furnace under positive pressure</td><td>Higher; furnace positive</td></tr>
+    <tr><td>Induced draught (ID fan)</td><td>Fan pulls flue gases out under partial vacuum</td><td>Higher; furnace negative</td></tr>
+    <tr><td>Balanced draught</td><td>FD + ID fans combined</td><td>Highest; standard for large boilers</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ 7. BOILER PERFORMANCE ═══ -->
+<h2 id="performance">7. Boiler Performance Parameters &amp; Power Plant Factors</h2>
+
+<h3>Equivalent Evaporation</h3>
+<div class="formula-card">$$\boxed{m_e = \frac{m_s\,(h - h_{f1})}{2257} \quad \text{kg/h}}$$</div>
+<div class="sym">
+  <span>$m_s$ &mdash; actual steam generated (kg/h)</span>
+  <span>$h$ &mdash; enthalpy of steam (kJ/kg); &nbsp; $h_{f1}$ &mdash; enthalpy of feedwater (kJ/kg)</span>
+  <span>$2257$ kJ/kg &mdash; latent heat of vaporisation at $100\,^\circ\text{C}$</span>
+</div>
+
+<h3>Power Plant Load Factors</h3>
+<div class="formula-card">$$\text{Load Factor} = \frac{\text{Average Load}}{\text{Maximum Demand}} < 1.0$$</div>
+<div class="formula-card">$$\text{Diversity Factor} = \frac{\sum \text{Individual Maximum Demands}}{\text{Maximum Demand on Station}} > 1.0$$</div>
+
+<hr>
+
+<div class="kp">
+  <div class="kp-title">&#128293; Quick-Fire Checklist &mdash; Rankine Cycle &amp; Steam Systems</div>
+  <ul>
+    <li>$\eta_R = (W_T - W_P)/Q_\text{in} = 1 - T_\text{condenser}/T_m$; heat rejection in condenser.</li>
+    <li>$W_P \approx v_3(P_\text{boiler} - P_\text{condenser}) \times 10^2$ kJ/kg; typically 1&ndash;2% of $W_T$.</li>
+    <li>$T_m = Q_\text{in}/(s_1 - s_4)$ K &mdash; mean temperature of heat addition.</li>
+    <li>Superheating: raises $T_m \Rightarrow \eta_R \uparrow$; raises exhaust $x \Rightarrow$ LP blade erosion $\downarrow$.</li>
+    <li>Reheating primary goal: maintain exhaust $x \ge 0.88$ (max 12% moisture).</li>
+    <li>Reheat Factor $\approx 1.02$&ndash;$1.08$; always $> 1$.</li>
+    <li>Regeneration: highest $\eta_R$ among Rankine modifications; open FWH = deaerator (removes $\text{O}_2/\text{CO}_2$).</li>
+    <li>Bled fraction: $y = (h_f - h_\text{cond})/(h_\text{bleed} - h_\text{cond})$.</li>
+    <li>Modified Rankine (reciprocating engines): early exhaust release $\Rightarrow$ reduction of piston stroke.</li>
+    <li>$1\,\text{kg C} \Rightarrow 7/3\,\text{kg CO}$ (incomplete combustion).</li>
+    <li>Coal rank ascending CV: Peat &lt; Lignite &lt; Bituminous &lt; Anthracite ($\approx 36{,}000$ kJ/kg).</li>
+    <li>Bomb calorimeter: solid/liquid fuels, constant volume, measures HCV.</li>
+    <li>Fusible plug: boiler mounting (safety device), not an accessory.</li>
+    <li>Flue gas path: Superheater &rarr; Economiser &rarr; Air Preheater &rarr; Chimney.</li>
+    <li>Natural draught efficiency $\approx 0.25\%$.</li>
+    <li>Equivalent evaporation: $m_e = m_s(h - h_{f1})/2257$ kg/h; latent heat at $100\,^\circ\text{C} = 2257$ kJ/kg.</li>
+    <li>Load Factor $< 1.0$; Diversity Factor $> 1.0$.</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:52px; font-size:9.5pt; color:var(--text-muted); font-family:Inter,system-ui,sans-serif;">
+  APGENCO AE &nbsp;&middot;&nbsp; SSC JE Mechanical &nbsp;&middot;&nbsp; Rankine Cycle Revision Guide
+</p>
+
+</div>
+</body>
+</html>
