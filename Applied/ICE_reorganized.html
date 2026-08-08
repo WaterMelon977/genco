@@ -108,10 +108,16 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </script>
   <div class="reading-content">
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="classification-working-principles-of-internal-combustion-ic-engines-comprehensive-reorganized-study-guide">Classification &amp; Working Principles of Internal Combustion (I.C.) Engines — Comprehensive Reorganized Study Guide</h1>
+      <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+      <a href="ICE_revised.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">⚡ Concise Revision Guide &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version of IC Engine Classification &amp; Working Principles.</span>
+      <a href="ICE_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise Revision Guide</a>
+    </div>
+
+    <h1 id="classification-working-principles-of-internal-combustion-ic-engines-comprehensive-reorganized-study-guide">Classification &amp; Working Principles of Internal Combustion (I.C.) Engines — Comprehensive Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
 <p>This master guide covers Air-Standard Cycles (Otto $\eta = 1 - 1/r^{\gamma-1}$, Diesel $\eta = 1 - \frac{1}{r^{\gamma-1}} \left[\frac{\rho^\gamma - 1}{\gamma(\rho - 1)}\right]$, Dual $\eta$), Cycle Thermal Efficiency Comparisons under equal $r$ vs equal $P_{\text{max}}$, Engine Geometry ($V_s = \frac{\pi}{4}D^2L$, $r = 1 + V_s/V_c$), 4-Stroke vs 2-Stroke engines ($N_{\text{cam}} = N_{\text{crank}}/2$, Scavenging modes), SI vs CI Fundamentals (Quantity vs Quality governing, Air-Fuel ratios), Combustion &amp; Knocking (Octane rating, Cetane rating, Ignition delay, Spark retard), Injection Timing $t = \frac{\theta}{6N}$, and Key Engine Performance Parameters (Mean Effective Pressure $P_m = W_{\text{net}}/V_s$, Mechanical Efficiency $\eta_m = BP/IP$, Volumetric Efficiency $\eta_v$) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
 <hr />
@@ -263,11 +269,20 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
      <div class="formula-card">$${\boxed{\eta_{\text{Diesel}} &gt; \eta_{\text{Dual}} &gt; \eta_{\text{Otto}}}}$$</div>
      (Diesel can operate at much higher compression ratio for the same peak pressure).</li>
 </ul>
+
+<table>
+  <thead><tr><th>Constraint</th><th>Efficiency ranking</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td>Same compression ratio $r$ AND same heat input $Q$</td><td>$\eta_{\text{Otto}} > \eta_{\text{Dual}} > \eta_{\text{Diesel}}$</td><td>Otto adds all heat at highest possible temperature (constant volume → maximum $T$ rise), so mean temperature of heat addition is highest</td></tr>
+    <tr><td>Same maximum pressure $P_{\max}$ AND same heat input $Q$</td><td>$\eta_{\text{Diesel}} > \eta_{\text{Dual}} > \eta_{\text{Otto}}$</td><td>Diesel (CI) can use a much higher compression ratio for the same $P_{\max}$; higher $r$ raises efficiency</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Comparison Rule</strong>:
 - Same compression ratio $r \implies \eta_{\text{Otto}}$ is MAXIMUM.
-- Same peak pressure $P_{\text{max}} \implies \eta_{\text{Diesel}}$ is MAXIMUM.</p>
-<p>[!TRAP]
-<strong>Cut-Off Ratio Trend</strong>: Increasing cut-off ratio $\rho$ INCREASES load/power, but DECREASES thermal efficiency of a Diesel cycle!</div>
+- Same peak pressure $P_{\max} \implies \eta_{\text{Diesel}}$ is MAXIMUM.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Cut-Off Ratio Trend</strong>: Increasing cut-off ratio $\rho$ INCREASES load/power, but DECREASES thermal efficiency of a Diesel cycle!</div>
 <h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
 <pre><code>Cycle Efficiency Comparison Check?
 ├─ Is Compression Ratio r SAME for all cycles?
@@ -299,9 +314,19 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>SI Engines: $r = 6 \text{ to } 12$ (limited by knocking/detonation).</li>
 <li>CI Engines: $r = 16 \text{ to } 22$ (required for auto-ignition).</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Compression Ratio Definition</strong>: $r = 1 + \frac{V_s}{V_c}$. ALWAYS add 1! $r = \frac{V_s}{V_c}$ is a frequent formula trap.</p>
-<p>[!TRAP]
-<strong>Swept Volume vs Displacement</strong>: Engine capacity in cc (e.g. $1500 \text{ cc}$) represents the TOTAL SWEPT VOLUME of all cylinders combined $V_s \times k$, NOT the clearance volume!</div>
+
+<table>
+  <thead><tr><th>Stroke/Bore ratio</th><th>Engine type</th><th>Characteristics</th></tr></thead>
+  <tbody>
+    <tr><td>$L/D > 1$</td><td>Under-square / long-stroke</td><td>Better torque at low speed; higher piston speed; older designs</td></tr>
+    <tr><td>$L/D = 1$</td><td>Square engine</td><td>Balanced design</td></tr>
+    <tr><td>$L/D < 1$</td><td>Over-square / short-stroke</td><td>Higher revving; better volumetric efficiency; modern performance engines</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Compression Ratio Definition</strong>: $r = 1 + \frac{V_s}{V_c}$. ALWAYS add 1! $r = \frac{V_s}{V_c}$ is a frequent formula trap.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Swept Volume vs Displacement</strong>: Engine capacity in cc (e.g. $1500 \text{ cc}$) represents the TOTAL SWEPT VOLUME of all cylinders combined ($V_s \times k$), NOT the clearance volume!</div>
 <h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
 <pre><code>Compression Ratio Calculation?
 ├─ Identify Volumes → Swept Volume Vs, Clearance Volume Vc
@@ -338,9 +363,24 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Expulsion of exhaust gases by incoming fresh charge.</li>
 <li>Types: Cross-flow (uses piston deflector), Loop scavenging, Uniflow scavenging (most efficient).</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Camshaft Speed Rule</strong>: In a 4-stroke engine, the camshaft rotates at HALF the speed of the crankshaft $N_{\text{cam}} = N_{\text{crank}}/2$.</p>
-<p>[!TRAP]
-<strong>Power Strokes Comparison</strong>: At the same speed, a 2-stroke engine has TWICE as many power strokes per minute as a 4-stroke engine! However, theoretical power output is NOT double due to poor scavenging and charge loss.</div>
+
+<table>
+  <thead><tr><th>Feature</th><th>4-stroke</th><th>2-stroke</th></tr></thead>
+  <tbody>
+    <tr><td>Power strokes</td><td>1 per 2 crank revolutions</td><td>1 per 1 crank revolution</td></tr>
+    <tr><td>Camshaft speed</td><td>$N_{\text{cam}} = N_{\text{crank}}/2$</td><td>No camshaft (ports in cylinder wall)</td></tr>
+    <tr><td>Valves</td><td>Inlet and exhaust valves</td><td>Inlet and exhaust ports (uncovered by piston)</td></tr>
+    <tr><td>Lubrication</td><td>Separate oil sump (pressure system)</td><td>Mist lubrication (oil mixed in fuel)</td></tr>
+    <tr><td>Scavenging</td><td>Positive scavenging by valves</td><td>Loop or cross scavenging; some charge lost</td></tr>
+    <tr><td>Thermal efficiency</td><td>Higher (better scavenging)</td><td>Lower (charge mixing with exhaust)</td></tr>
+    <tr><td>Power-to-weight</td><td>Lower</td><td>Higher (more power strokes)</td></tr>
+    <tr><td>Typical use</td><td>Cars, trucks, stationary engines</td><td>Small engines: scooters, chainsaws, marine 2-stroke</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Camshaft Speed Rule</strong>: In a 4-stroke engine, the camshaft rotates at HALF the speed of the crankshaft ($N_{\text{cam}} = N_{\text{crank}}/2$).</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Power Strokes Comparison</strong>: At the same speed, a 2-stroke engine has TWICE as many power strokes per minute as a 4-stroke engine! However, theoretical power output is NOT double due to poor scavenging and charge loss.</div>
 <h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
 <pre><code>Engine Stroke &amp; Kinematics Check?
 ├─ Is cycle completed in 2 revolutions (720°)? → 4-Stroke Engine (N_cam = N_crank / 2)
@@ -382,6 +422,20 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Battery Coil Ignition: Requires battery power; used in cars.</li>
 <li>Magneto Ignition: Self-generating (no battery needed); used in motorcycles/aircraft.</li>
 </ul>
+
+<table>
+  <thead><tr><th>Feature</th><th>SI (Petrol/Gasoline)</th><th>CI (Diesel)</th></tr></thead>
+  <tbody>
+    <tr><td>Ignition</td><td>Spark plug (external ignition)</td><td>Compression heat (auto-ignition)</td></tr>
+    <tr><td>Fuel supply</td><td>Carburettor or port/direct injection</td><td>High-pressure direct injection</td></tr>
+    <tr><td>Compression ratio</td><td>6–12 (limited by knocking)</td><td>16–22 (needs high $T$ for auto-ignition)</td></tr>
+    <tr><td>Air-fuel mixture</td><td>Homogeneous premixed</td><td>Heterogeneous; fuel injected into hot air</td></tr>
+    <tr><td>Governing (load control)</td><td>Quantity governing — throttle controls mixture volume</td><td>Quality governing — throttle controls fuel quantity; air is always excess</td></tr>
+    <tr><td>Fuel rating</td><td>Octane Number (resistance to knock)</td><td>Cetane Number (ease of ignition)</td></tr>
+    <tr><td>Thermal efficiency</td><td>25–35%</td><td>30–45%</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Governing Mechanism Distinction</strong>:
 - SI Engines $\implies$ <strong>Quantity Governing</strong> (Throttle valve controls mixture volume).
 - CI Engines $\implies$ <strong>Quality Governing</strong> (Fuel pump controls fuel quantity per stroke).</div>
@@ -437,9 +491,9 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Opposite Knocking Characteristics</strong>:
 - Compression Ratio $r \uparrow \implies$ SI Knocking INCREASES, but CI Knocking DECREASES!
 - Ignition Delay $\uparrow \implies$ CI Knocking INCREASES.
-- High Octane fuel resists SI knock; High Cetane fuel resists CI knock.</p>
-<p>[!TRAP]
-<strong>Spark Timing Adjustment for SI Knock</strong>: To eliminate knocking in an SI engine, SPARK MUST BE RETARDED (delayed), NOT ADVANCED! Advancing spark increases end-gas pressure and worsens knocking.</div>
+- High Octane fuel resists SI knock; High Cetane fuel resists CI knock.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Spark Timing Adjustment for SI Knock</strong>: To eliminate knocking in an SI engine, SPARK MUST BE RETARDED (delayed), NOT ADVANCED! Advancing spark increases end-gas pressure and worsens knocking.</div>
 <h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
 <pre><code>Knocking &amp; Fuel Rating Analysis?
 ├─ SI Engine Knocking (End-gas auto-ignition)

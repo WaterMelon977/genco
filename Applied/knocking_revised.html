@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knocking, Fuel Rating & Combustion Chamber Design — Applied Thermodynamics Revision Guide</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
+      --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
+      --border-light: #E2D9CC; --border-accent: #8C5A37;
+      --heading-color: #4A2E1B; --heading-sub: #664229;
+      --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
+      --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
+      --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
+    }
+    [data-theme="dark"] {
+      --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
+      --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
+      --border-light: #3D3732; --border-accent: #C8895A;
+      --heading-color: #E2D9CC; --heading-sub: #C8895A;
+      --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
+      --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
+      --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
+      --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
+      --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
+    }
+    * { box-sizing: border-box; }
+    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+    #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
+    #floating-nav.visible { opacity: 1; pointer-events: auto; }
+    .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
+    .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
+    .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
+    .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
+    #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
+    #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
+    .reading-content { max-width: 820px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
+    h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
+    h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
+    h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 11.5pt; color: var(--heading-color); }
+    a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
+    p { margin-bottom: 0.9em; }
+    code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
+    th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
+    th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
+    [data-theme="dark"] th { background: #2A1A0E; }
+    tr:nth-child(even) { background-color: var(--pre-bg); }
+    ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.35em; }
+    .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 18px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
+    .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
+    .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+    .key-points { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px 24px; margin: 28px 0; box-shadow: 0 2px 8px rgba(60,40,20,0.05); }
+    .key-points h3 { margin-top: 0; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--heading-color); }
+    .key-points li { margin-bottom: 0.55em; line-height: 1.65; }
+    .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
+    .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+    @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
+  </style>
+</head>
+<body id="preview">
+  <div id="reading-progress"></div>
+  <div id="floating-nav">
+    <a class="fnav-link" href="#si-knocking">§1 SI Knocking</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#ci-knocking">§2 CI Knocking</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#fuel-rating">§3 Fuel Rating</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#combustion-chambers">§4 Chambers</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#key-points">§5 Key Points</a>
+  </div>
+  <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "light";
+      function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+      applyTheme(saved);
+      toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
+      var bar = document.getElementById("reading-progress");
+      function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
+      window.addEventListener("scroll", upBar, {passive: true}); upBar();
+      var fn = document.getElementById("floating-nav");
+      var links = fn.querySelectorAll(".fnav-link");
+      var ids = ["si-knocking", "ci-knocking", "fuel-rating", "combustion-chambers", "key-points"];
+      function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
+      window.addEventListener("scroll", upNav, {passive: true}); upNav();
+      links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
+    })();
+  </script>
+
+  <div class="reading-content">
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Applied Thermodynamics Hub</a>
+      <span style="color:var(--nav-text);font-size:9.5pt;opacity:0.85;">Main Revision Guide</span>
+      <a href="knocking_reorganized.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">📖 Long Version &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide for Knocking &amp; Fuel Rating.</span>
+      <a href="knocking_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+    </div>
+
+    <h1>Knocking, Fuel Rating &amp; Combustion Chamber Design</h1>
+
+    <h2 id="si-knocking">1. SI Engine Knocking (Detonation)</h2>
+
+    <p>Normal combustion in a petrol engine begins at the spark plug and the flame front propagates across the cylinder at 20–30 m/s. As the flame advances, it compresses and heats the remaining unburned charge — the <em>end-gas</em>. If the end-gas temperature exceeds its auto-ignition temperature before the flame arrives, it ignites spontaneously and explosively. This generates a pressure wave (shock wave) travelling at 1000–2000 m/s — producing the characteristic metallic ping of detonation.</p>
+
+    <h3>1.1 Detonation vs Pre-Ignition</h3>
+    <table>
+      <thead><tr><th>Feature</th><th>Detonation (SI Knock)</th><th>Pre-Ignition</th></tr></thead>
+      <tbody>
+        <tr><td>Timing relative to spark</td><td>Occurs <em>after</em> spark plug fires</td><td>Occurs <em>before</em> spark plug fires</td></tr>
+        <tr><td>Cause</td><td>End-gas auto-ignition due to high temperature/pressure</td><td>Hot spot (carbon deposit, overheated valve/plug electrode) ignites mixture early</td></tr>
+        <tr><td>Location</td><td>Farthest end-gas from spark plug</td><td>At the hot-spot surface; can be anywhere</td></tr>
+        <tr><td>Wave speed</td><td>Detonation wave: 1000–2000 m/s</td><td>Normal flame propagation: 20–30 m/s</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.2 Factors Affecting SI Knocking</h3>
+    <table>
+      <thead><tr><th>Factor change</th><th>Effect on SI knock</th></tr></thead>
+      <tbody>
+        <tr><td>Compression ratio $r$ ↑</td><td>Knock increases (higher end-gas T and P)</td></tr>
+        <tr><td>Spark timing advanced</td><td>Knock increases (end-gas exposed to high T longer)</td></tr>
+        <tr><td>Intake temperature ↑</td><td>Knock increases</td></tr>
+        <tr><td>Cooling water temperature ↑</td><td>Knock increases (higher cylinder wall temp)</td></tr>
+        <tr><td>Intake pressure ↑ (supercharging)</td><td>Knock increases</td></tr>
+        <tr><td>AFR — lean mixture</td><td>Knock increases (higher combustion T)</td></tr>
+        <tr><td>Flame travel distance ↑</td><td>Knock increases (end-gas exposed longer)</td></tr>
+        <tr><td>Octane number of fuel ↑</td><td>Knock decreases (fuel resists auto-ignition)</td></tr>
+        <tr><td>Engine speed ↑</td><td>Knock decreases (less time for pre-ignition reactions)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula-card">$$\tau_{id} \propto \frac{1}{P^n \cdot e^{-E/(RT)}} \qquad \text{(ignition delay of end-gas)}$$</div>
+    <ul>
+      <li>Shorter $\tau_{id}$ → more likely to knock. Increased $P$ or $T$ shortens $\tau_{id}$.</li>
+      <li>HUCR (Highest Useful Compression Ratio) = maximum $r$ at which the engine runs without knock on a given fuel</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="ci-knocking">2. CI Engine Knocking (Diesel Knock)</h2>
+
+    <p>Diesel knock occurs at the <em>start</em> of combustion — opposite to SI knock (which occurs near the end). Fuel is injected into hot compressed air near TDC. There is a delay between injection and ignition called the <strong>ignition delay period</strong>:</p>
+
+    <div class="formula-card">$$\tau_{id} = \tau_{\text{physical}} + \tau_{\text{chemical}}$$</div>
+    <ul>
+      <li>$\tau_{\text{physical}}$: time for atomisation, heating, vaporisation, and mixing</li>
+      <li>$\tau_{\text{chemical}}$: time for pre-flame oxidation reactions</li>
+    </ul>
+
+    <p>If $\tau_{id}$ is long, a large quantity of fuel accumulates before ignition. When ignition finally occurs, all accumulated fuel burns simultaneously — causing a very rapid pressure rise ($dP/d\theta > 4$–5 bar/°CA) and severe diesel knock.</p>
+
+    <table>
+      <thead><tr><th>Factor change</th><th>Effect on CI knock</th></tr></thead>
+      <tbody>
+        <tr><td>Cetane number ↑</td><td>Knock decreases (shorter $\tau_{id}$, less fuel accumulation)</td></tr>
+        <tr><td>Compression ratio ↑</td><td>Knock decreases (higher air temp shortens $\tau_{id}$)</td></tr>
+        <tr><td>Intake air temperature ↑</td><td>Knock decreases</td></tr>
+        <tr><td>Injection timing advanced</td><td>Knock increases (longer exposure before ignition at lower pressure)</td></tr>
+        <tr><td>Injection pressure ↑</td><td>Knock decreases (finer atomisation → shorter physical delay)</td></tr>
+        <tr><td>Supercharging ↑</td><td>Knock decreases (higher compression temperature)</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="fuel-rating">3. Fuel Rating Systems</h2>
+
+    <h3>3.1 Octane Number (SI Fuel Rating)</h3>
+    <p>The octane number measures a fuel's resistance to detonation (knocking). It is defined as the percentage by volume of iso-octane (2,2,4-trimethylpentane) in a blend with n-heptane that produces the same knock intensity as the test fuel in a CFR engine.</p>
+
+    <div class="formula-card">$$\text{ON} = \%\text{ iso-octane by volume in iso-octane/n-heptane blend matching test knock}$$</div>
+    <div class="formula-card">$$\text{AKI} = \frac{\text{RON} + \text{MON}}{2} \qquad \text{(pump octane number, US)}$$</div>
+    <ul>
+      <li>iso-octane (2,2,4-trimethylpentane): ON = 100 (highest knock resistance)</li>
+      <li>n-heptane: ON = 0 (worst knock resistance)</li>
+      <li>RON (Research Octane Number): mild test conditions (lower engine speed)</li>
+      <li>MON (Motor Octane Number): severe test conditions (higher speed, higher temperature)</li>
+      <li>Sensitivity = RON − MON; positive for most fuels</li>
+    </ul>
+
+    <h4>Hydrocarbon Detonation Tendency (Increasing SI knock tendency)</h4>
+    <div class="formula-card">$$\text{Aromatics} < \text{Naphthenes} < \text{Olefins} < \text{Paraffins (n-alkanes)}$$</div>
+    <ul>
+      <li>Straight-chain paraffins (n-alkanes) knock most easily; branched chains and aromatics resist knock</li>
+      <li>Adding lead tetraethyl (TEL), MTBE, or ethanol increases octane number</li>
+    </ul>
+
+    <h3>3.2 Cetane Number (CI Fuel Rating)</h3>
+    <p>The cetane number measures a fuel's ease of ignition (readiness to auto-ignite). It is defined as the percentage of n-cetane (n-hexadecane) in a blend with α-methylnaphthalene (or heptamethylnonane, CN = 15) that matches the test fuel's ignition delay.</p>
+    <ul>
+      <li>n-cetane (n-hexadecane): CN = 100 (shortest ignition delay; best CI fuel)</li>
+      <li>α-methylnaphthalene: CN = 0; heptamethylnonane: CN = 15</li>
+      <li>Typical diesel fuel: CN = 45–55</li>
+      <li>Higher CN → shorter ignition delay → less diesel knock</li>
+    </ul>
+
+    <h3>3.3 Stoichiometric Air-Fuel Ratios</h3>
+    <table>
+      <thead><tr><th>Fuel</th><th>Stoichiometric AFR (mass basis)</th><th>Equivalence ratio $\phi$ for stoich</th></tr></thead>
+      <tbody>
+        <tr><td>Gasoline / Petrol</td><td>14.7 : 1</td><td>$\phi = 1$</td></tr>
+        <tr><td>Diesel</td><td>~14.5 : 1 (stoich); operates at 18:1–70:1 (lean)</td><td>$\phi < 1$ in service</td></tr>
+        <tr><td>Methanol (CH₃OH)</td><td>6.5 : 1</td><td>$\phi = 1$</td></tr>
+        <tr><td>LPG (propane)</td><td>~15.7 : 1</td><td>$\phi = 1$</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula-card">$$\phi = \frac{\text{AFR}_{\text{stoich}}}{\text{AFR}_{\text{actual}}} \qquad \phi > 1 \text{ rich}; \quad \phi < 1 \text{ lean}; \quad \phi = 1 \text{ stoichiometric}$$</div>
+
+    <hr>
+
+    <h2 id="combustion-chambers">4. Combustion Chamber Design</h2>
+
+    <h3>4.1 SI Engine Combustion Chambers</h3>
+    <p>Design objectives: compact chamber for minimum surface-area-to-volume ratio (reduces heat loss and knock), short flame travel distance from spark plug to end-gas, high turbulence, and adequate cooling of hot spots.</p>
+
+    <table>
+      <thead><tr><th>Chamber type</th><th>Features</th><th>Knock tendency</th></tr></thead>
+      <tbody>
+        <tr><td>T-head (side-valve)</td><td>Inlet and exhaust valves on opposite sides; long flame travel</td><td>Very high — largely obsolete</td></tr>
+        <tr><td>L-head (side-valve)</td><td>Both valves on one side; less flame travel than T-head</td><td>High — improved over T-head</td></tr>
+        <tr><td>F-head (Ricardo)</td><td>One overhead valve, one side valve; better turbulence</td><td>Medium</td></tr>
+        <tr><td>Hemispherical (Hemi)</td><td>Spark plug centrally located; short flame travel</td><td>Low; good performance</td></tr>
+        <tr><td>Pent-roof (4-valve)</td><td>Centrally located spark plug; 4 valves maximize flow area; compact squish area</td><td>Very low; modern engines</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4.2 CI Engine Combustion Chambers</h3>
+    <table>
+      <thead><tr><th>Type</th><th>Sub-type</th><th>Features</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2">Direct Injection (DI)</td><td>Open chamber (flat piston/bowl)</td><td>Fuel injected directly into main cylinder; high injection pressure needed; more efficient</td></tr>
+        <tr><td>Toroidal cavity (re-entrant bowl)</td><td>Piston crown bowl creates strong swirl; modern common-rail diesel</td></tr>
+        <tr><td rowspan="2">Indirect Injection (IDI)</td><td>Pre-combustion chamber</td><td>15–30% of clearance volume in pre-chamber; partial combustion there; glow plug for cold start</td></tr>
+        <tr><td>Swirl/Turbulence chamber (Ricardo Comet)</td><td>Spherical pre-chamber; strong swirl promotes mixing; lower injection pressure</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>DI: higher thermal efficiency, lower BSFC; requires high injection pressure (1000–2500 bar for common-rail)</li>
+      <li>IDI: smoother combustion (less knock), lower noise; lower efficiency; requires glow plug for cold start</li>
+      <li>Glow plug: pre-heats IDI chamber for cold starting; not needed in DI (high compression ratio sufficient)</li>
+    </ul>
+
+    <hr>
+
+    <div class="key-points" id="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>SI detonation occurs <em>after</em> spark; pre-ignition occurs <em>before</em> spark (hot-spot initiated).</li>
+        <li>Normal flame speed 20–30 m/s; detonation shock wave 1000–2000 m/s.</li>
+        <li>SI knock increases with: higher $r$, advanced spark, higher intake $T$, higher coolant $T$, supercharging, lean mixture, longer flame path, lower octane fuel.</li>
+        <li>To eliminate SI knock: retard spark timing; reduce $r$; use higher octane fuel.</li>
+        <li>HUCR = highest compression ratio without knocking on a given fuel.</li>
+        <li>CI knock = rapid pressure rise from accumulated fuel burning all at once after long ignition delay.</li>
+        <li>CI knock decreases with: higher CN fuel, higher $r$, higher intake air $T$, higher injection pressure, supercharging, retarded injection (slightly).</li>
+        <li>$\tau_{id} = \tau_{\text{physical}} + \tau_{\text{chemical}}$. Longer delay = more fuel accumulation = harder knock.</li>
+        <li>Octane number: iso-octane = 100, n-heptane = 0. AKI = (RON + MON)/2. Higher ON = more knock-resistant fuel for SI.</li>
+        <li>Cetane number: n-cetane = 100. Higher CN = shorter ignition delay = less diesel knock = better CI fuel.</li>
+        <li>SI knock tendency order (increasing): Aromatics < Naphthenes < Olefins < Paraffins (straight-chain worst).</li>
+        <li>Stoichiometric AFR: petrol 14.7:1; methanol 6.5:1; diesel operates lean (18:1–70:1).</li>
+        <li>Pent-roof/hemispherical chambers: central spark plug = short flame travel = least SI knock.</li>
+        <li>CI DI: higher efficiency, needs high injection pressure. IDI: quieter, lower efficiency, needs glow plug for cold start.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

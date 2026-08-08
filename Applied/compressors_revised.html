@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compressors — Classification, Thermodynamics & Working Principles — Applied Thermodynamics Revision Guide</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
+      --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
+      --border-light: #E2D9CC; --border-accent: #8C5A37;
+      --heading-color: #4A2E1B; --heading-sub: #664229;
+      --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
+      --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
+      --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
+    }
+    [data-theme="dark"] {
+      --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
+      --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
+      --border-light: #3D3732; --border-accent: #C8895A;
+      --heading-color: #E2D9CC; --heading-sub: #C8895A;
+      --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
+      --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
+      --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
+      --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
+      --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
+    }
+    * { box-sizing: border-box; }
+    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+    #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
+    #floating-nav.visible { opacity: 1; pointer-events: auto; }
+    .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
+    .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
+    .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
+    .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
+    #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
+    #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
+    .reading-content { max-width: 820px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
+    h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
+    h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
+    h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
+    a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
+    p { margin-bottom: 0.9em; }
+    code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
+    th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
+    th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
+    [data-theme="dark"] th { background: #2A1A0E; }
+    tr:nth-child(even) { background-color: var(--pre-bg); }
+    ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.35em; }
+    .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 18px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
+    .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
+    .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+    .key-points { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px 24px; margin: 28px 0; box-shadow: 0 2px 8px rgba(60,40,20,0.05); }
+    .key-points h3 { margin-top: 0; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--heading-color); }
+    .key-points li { margin-bottom: 0.55em; line-height: 1.65; }
+    .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
+    .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+    @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
+  </style>
+</head>
+<body id="preview">
+  <div id="reading-progress"></div>
+  <div id="floating-nav">
+    <a class="fnav-link" href="#classification">§1 Classification</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#reciprocating">§2 Reciprocating</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#multistage">§3 Multi-Stage</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#centrifugal">§4 Centrifugal</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#axial">§5 Axial-Flow</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#key-points">§6 Key Points</a>
+  </div>
+  <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "light";
+      function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+      applyTheme(saved);
+      toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
+      var bar = document.getElementById("reading-progress");
+      function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
+      window.addEventListener("scroll", upBar, {passive: true}); upBar();
+      var fn = document.getElementById("floating-nav");
+      var links = fn.querySelectorAll(".fnav-link");
+      var ids = ["classification", "reciprocating", "multistage", "centrifugal", "axial", "key-points"];
+      function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
+      window.addEventListener("scroll", upNav, {passive: true}); upNav();
+      links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
+    })();
+  </script>
+
+  <div class="reading-content">
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Applied Thermodynamics Hub</a>
+      <span style="color:var(--nav-text);font-size:9.5pt;opacity:0.85;">Main Revision Guide</span>
+      <a href="compressors_reorganized.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">📖 Long Version &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide for Compressors.</span>
+      <a href="compressors_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+    </div>
+
+    <h1>Classification &amp; Working Principles of Compressors</h1>
+
+    <h2 id="classification">1. Classification of Compressors</h2>
+    <p>Compressors are machines that raise the pressure of a gas by doing work on it. They divide into two fundamental categories based on the mechanism of compression.</p>
+
+    <table>
+      <thead><tr><th>Category</th><th>Sub-type</th><th>Mechanism</th><th>Typical application</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><strong>Positive Displacement</strong></td><td>Reciprocating (piston-cylinder)</td><td>Piston traps discrete gas volume; spring-loaded automatic valves control flow</td><td>High-pressure industrial gas, refrigeration up to 100 TR</td></tr>
+        <tr><td>Rotary (Roots, vane, screw, scroll)</td><td>Rotating elements trap and push gas; no internal compression in Roots blower</td><td>Low-pressure blowing, pneumatic conveying</td></tr>
+        <tr><td rowspan="2"><strong>Dynamic (Roto-dynamic)</strong></td><td>Centrifugal</td><td>Radial-flow impeller imparts kinetic energy; diffuser/volute converts to pressure. $P_2/P_1$ per stage: 4–5</td><td>Large refrigeration, petrochemical, process industry</td></tr>
+        <tr><td>Axial-flow</td><td>Axial blading; low pressure ratio per stage (1.15–1.30) but very high mass flow per unit frontal area</td><td>Aircraft jet engines, large gas turbines</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Roots blower</strong>: rotary positive-displacement machine. Compression occurs by backflow from the high-pressure receiver when the delivery port opens — there is no internal compression during rotation.</li>
+      <li><strong>Axial preferred for aircraft</strong>: reason is low frontal aerodynamic drag and high mass flow rate per unit area — not because pressure ratio per stage is higher (centrifugal is $4\times$ higher per stage).</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="reciprocating">2. Reciprocating Compressor — Work &amp; Efficiencies</h2>
+
+    <h3>2.1 Work of Compression</h3>
+    <p>Three ideal compression processes are compared for the same pressure ratio $P_2/P_1$:</p>
+
+    <div class="formula-card">$$W_{\text{iso}} = mRT_1\ln\!\left(\frac{P_2}{P_1}\right) \qquad (n=1,\text{ minimum work})$$</div>
+    <div class="formula-card">$$W_{\text{poly}} = \frac{n}{n-1}mRT_1\!\left[\left(\frac{P_2}{P_1}\right)^{\!\frac{n-1}{n}}\!-1\right] \qquad (1 < n < \gamma)$$</div>
+    <div class="formula-card">$$W_{\text{isen}} = \frac{\gamma}{\gamma-1}mRT_1\!\left[\left(\frac{P_2}{P_1}\right)^{\!\frac{\gamma-1}{\gamma}}\!-1\right] \qquad (n=\gamma,\text{ adiabatic})$$</div>
+
+    <ul>
+      <li>Work order for same pressure ratio: $W_{\text{iso}} < W_{\text{poly}} < W_{\text{isen}}$</li>
+      <li>Isothermal work is minimum; achieved only with perfect cooling during compression</li>
+      <li>$m$ — mass of gas (kg); $R$ — specific gas constant (J/kg·K); $T_1$ — initial temperature (K)</li>
+    </ul>
+
+    <h3>2.2 Isothermal Efficiency</h3>
+    <div class="formula-card">$$\eta_{\text{iso}} = \frac{W_{\text{iso}}}{W_{\text{actual}}} = \frac{mRT_1\ln(P_2/P_1)}{W_{\text{indicated}}}$$</div>
+    <ul>
+      <li>Measures how close actual work is to the ideal isothermal minimum</li>
+      <li>Improved by intercooling, water jackets, and fin cooling</li>
+    </ul>
+
+    <h3>2.3 Clearance Volume &amp; Volumetric Efficiency</h3>
+    <p>At end of delivery stroke, a small clearance volume $V_c$ remains filled with high-pressure gas. This gas re-expands on the next suction stroke before new gas can enter, reducing the effective intake volume.</p>
+
+    <div class="formula-card">$$\eta_v = 1 + C - C\!\left(\frac{P_2}{P_1}\right)^{\!\frac{1}{n}}$$</div>
+    <ul>
+      <li>$C = V_c/V_s$ — clearance ratio (volumetric clearance as fraction of swept volume)</li>
+      <li>$\eta_v$ decreases as either clearance ratio $C$ or pressure ratio $P_2/P_1$ increases</li>
+      <li>At a sufficiently high pressure ratio, $\eta_v = 0$ — compressor delivers no gas despite running</li>
+      <li>Valid range: $n$ = polytropic index of re-expansion ($\approx 1.3\text{--}1.4$ for air)</li>
+      <li><strong>Clearance volume independence</strong>: Clearance volume $V_c$ reduces free air delivery and $\eta_v$, but does NOT alter the indicated work done per kg of air delivered.</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="multistage">3. Multi-Stage Compression &amp; Intercooling</h2>
+
+    <p>Staging compression with intercooling between stages reduces total work and keeps delivery temperature manageable. For minimum total work with perfect intercooling (gas cooled back to $T_1$ between stages), each stage must have the same pressure ratio.</p>
+
+    <h3>3.1 Optimum Intermediate Pressure (Two Stages)</h3>
+    <div class="formula-card">$$P_i = \sqrt{P_1 P_2} \qquad \text{(geometric mean; gives equal stage ratios)}$$</div>
+
+    <h3>3.2 N-Stage Equal Pressure Ratio</h3>
+    <div class="formula-card">$$r_{\text{stage}} = \left(\frac{P_{\text{discharge}}}{P_{\text{suction}}}\right)^{\!1/N}$$</div>
+    <div class="formula-card">$$P_k = P_1 \cdot r_{\text{stage}}^k \qquad \text{(pressure after stage } k\text{)}$$</div>
+
+    <h3>3.3 Minimum Total Work (Two Stages, Perfect Intercooling)</h3>
+    <div class="formula-card">$$W_{\min} = 2\cdot\frac{n}{n-1}mRT_1\!\left[\left(\frac{P_2}{P_1}\right)^{\!\frac{n-1}{2n}}\!-1\right]$$</div>
+    <ul>
+      <li>Conditions for minimum work: equal stage pressure ratios AND perfect intercooling ($T$ after intercooler = $T_1$)</li>
+      <li>Adding stages and intercoolers approaches isothermal compression in the limit</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="centrifugal">4. Centrifugal Compressor</h2>
+
+    <p>Air enters axially at the impeller eye, is turned 90° radially, and leaves at the tip with high kinetic energy. The diffuser and volute casing convert kinetic energy to pressure. Energy is transferred by Euler's turbomachinery equation.</p>
+
+    <h3>4.1 Euler Work &amp; Slip Factor</h3>
+    <div class="formula-card">$$W_{\text{Euler}} = u_2 V_{w2} - u_1 V_{w1}$$</div>
+    <p>For radial entry ($V_{w1} = 0$) with backward-swept or radial blades:</p>
+    <div class="formula-card">$$W_{\text{Euler}} = u_2 V_{w2} = \sigma u_2^2$$</div>
+    <div class="formula-card">$$\sigma = \frac{V_{w2}'}{u_2} \qquad \text{(slip factor; always } \sigma < 1\text{)}$$</div>
+    <ul>
+      <li>$u_2$ — impeller tip speed (m/s); $V_{w2}$ — actual whirl component of absolute exit velocity (m/s)</li>
+      <li>Slip factor $\sigma$ accounts for the fact that actual whirl velocity is less than the blade tip speed due to inter-blade flow recirculation</li>
+      <li>Typical $\sigma \approx 0.85\text{--}0.92$ for centrifugal compressors</li>
+      <li><strong>Pressure rise distribution</strong>: Static pressure rise occurs in ALL THREE stages (Impeller $\approx 50\%$, Diffuser $\approx 40\%$, Volute Casing $\approx 10\%$).</li>
+    </ul>
+
+    <h3>4.2 Pressure Ratio</h3>
+    <div class="formula-card">$$\frac{P_{02}}{P_{01}} = \left(1 + \frac{\sigma u_2^2}{C_p T_{01}}\right)^{\!\gamma/(\gamma-1)}$$</div>
+    <ul>
+      <li>$T_{01}$ — stagnation inlet temperature (K); $C_p$ — specific heat at constant pressure (J/kg·K)</li>
+      <li>Pressure ratio increases strongly with tip speed $u_2^2$ — doubling tip speed quadruples the driving term</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="axial">5. Axial-Flow Compressor</h2>
+
+    <p>Alternate rows of rotating blades (rotor) and stationary blades (stator) make up each stage. The rotor imparts kinetic energy; the stator decelerates and converts it to pressure. Many stages (8–20) are needed for high overall pressure ratios.</p>
+
+    <h3>5.1 Degree of Reaction</h3>
+    <div class="formula-card">$$R = \frac{\Delta h_{\text{rotor}}}{\Delta h_{\text{stage}}} = \frac{h_2 - h_1}{h_3 - h_1}$$</div>
+    <ul>
+      <li>$R = 0.5$ (50% reaction): most common design; static enthalpy rise split equally between rotor and stator — symmetric velocity triangles</li>
+      <li>$R = 0$: all energy added in rotor as kinetic energy; stator does all pressure conversion (impulse stage)</li>
+      <li>$R = 1$: all enthalpy rise in rotor; stator merely redirects flow</li>
+    </ul>
+
+    <h3>5.2 Blade Loading &amp; Work-Done Factor</h3>
+    <div class="formula-card">$$\psi = \frac{\Delta h_{\text{stage}}}{u^2} \qquad \text{(blade loading coefficient)}$$</div>
+    <div class="formula-card">$$\Omega = \frac{W_{\text{actual}}}{W_{\text{theoretical}}} < 1 \qquad \text{(work-done factor; accounts for annulus blockage)}$$</div>
+
+    <h3>5.3 Stalling vs Surging</h3>
+    <table>
+      <thead><tr><th>Phenomenon</th><th>Cause</th><th>Effect</th><th>Remedy</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stalling</strong></td><td>High angle of attack on blade; boundary layer separates on suction surface</td><td>Localised flow breakdown on one or more blade passages; reduced stage efficiency</td><td>Variable inlet guide vanes; blade-profile redesign</td></tr>
+        <tr><td><strong>Surging</strong></td><td>System back-pressure exceeds compressor delivery pressure capability; mass flow drops below minimum stable flow</td><td>Complete flow reversal through compressor; violent oscillation; structural damage</td><td>Anti-surge valve (blow-off valve); maintain flow above surge line</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>Stalling is a local blade phenomenon; surging is a system-level instability</li>
+      <li>Surging occurs at low mass flow / high pressure ratio operating point on the compressor map (left of surge line)</li>
+    </ul>
+
+    <hr>
+
+    <div class="key-points" id="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Positive-displacement vs dynamic: PD traps volume mechanically; dynamic imparts velocity continuously.</li>
+        <li>Roots blower is a <em>rotary positive-displacement</em> machine — compression is by backflow from receiver, not internal compression.</li>
+        <li>Axial chosen for aircraft: low frontal area + high mass flow rate per unit area. Centrifugal has higher pressure ratio per stage (4–5 vs 1.15–1.3).</li>
+        <li>Work order for same $P_2/P_1$: $W_{\text{iso}} < W_{\text{poly}} < W_{\text{isen}}$. Isothermal is ideal minimum.</li>
+        <li>Volumetric efficiency: $\eta_v = 1 + C - C(P_2/P_1)^{1/n}$. Decreases with higher clearance $C$ or higher pressure ratio.</li>
+        <li>Optimum intermediate pressure for two-stage: $P_i = \sqrt{P_1 P_2}$. Conditions: equal stage ratios + perfect intercooling.</li>
+        <li>For $N$ stages with perfect intercooling, stage pressure ratio = $(P_{\text{out}}/P_{\text{in}})^{1/N}$.</li>
+        <li>Centrifugal slip factor $\sigma = V_{w2}'/u_2 < 1$. Specific work $= \sigma u_2^2$. Higher tip speed $u_2$ → higher pressure ratio ($\propto u_2^2$).</li>
+        <li>Axial degree of reaction $R = 0.5$ (50% reaction): most practical design; symmetric velocity triangles.</li>
+        <li>Stalling = local blade-level flow breakdown (high incidence angle). Surging = system-level oscillating flow reversal (most dangerous; can destroy machine).</li>
+        <li>Anti-surge protection: blow-off (recirculation) valve to maintain flow above the surge line on compressor map.</li>
+        <li>Intercooling reduces compression work and delivery temperature; moves the compression process toward isothermal.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

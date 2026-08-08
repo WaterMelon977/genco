@@ -108,10 +108,16 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </script>
   <div class="reading-content">
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="engine-performance-testing-design-considerations-comprehensive-reorganized-study-guide">Engine Performance Testing &amp; Design Considerations — Comprehensive Reorganized Study Guide</h1>
+      <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+      <a href="engineperformance_revised.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">⚡ Concise Revision Guide &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version of Engine Performance Testing &amp; Design.</span>
+      <a href="engineperformance_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise Revision Guide</a>
+    </div>
+
+    <h1 id="engine-performance-testing-design-considerations-comprehensive-reorganized-study-guide">Engine Performance Testing &amp; Design Considerations — Comprehensive Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
 <p>This master guide covers Supercharging &amp; Turbocharging principles ($\rho_{\text{boost}}/\rho_{\text{atm}} = \frac{P_{\text{boost}}}{P_{\text{atm}}} \times \frac{T_{\text{atm}}}{T_{\text{boost}}}$, CI vs SI suitability), Engine Powers &amp; Efficiencies ($IP$, $BP$, $FP = IP - BP$, $\eta_m = BP/IP$), Power Calculations ($IP = \frac{P_m L A N K}{120000}$, $BP = \frac{2\pi NT}{60000}$, Rope-brake $BP = \frac{(W-S)\pi D_m N}{60000}$ where $D_m = D+d$), Morse Test for Multi-Cylinder $IP$ $IP_i = BP_{\text{all}} - BP_{i \text{ cut}}$, Willan's Line Method for CI Engine $FP$ (negative $BP$ intercept at zero fuel rate), Specific Fuel Consumption $BSFC = \dot{m}<em>f / BP$, Thermal Efficiencies $\eta</em>{\text{ith}}, \eta_{\text{bth}}$, Volumetric Efficiency $\eta_{\text{vol}} \approx 71\%-90\%$, Firing Order $1-3-4-2$, and Injection Crank Angle Kinematics $\theta = 6Nt$ for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
 <hr />
@@ -271,11 +277,21 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>SI (Petrol) Engines</strong>: Supercharging is SEVERELY LIMITED by knocking/detonation! Increasing intake temperature and pressure increases end-gas auto-ignition tendency.</li>
 <li>Compression raises air temperature, which lowers density; therefore, an <strong>Intercooler</strong> is added after the supercharger to maximize density gain.</li>
 </ul>
+
+<table>
+  <thead><tr><th>Feature</th><th>Mechanical Supercharger</th><th>Turbocharger</th></tr></thead>
+  <tbody>
+    <tr><td>Drive</td><td>Crankshaft belt/gear drive — parasitic power loss</td><td>Exhaust turbine — uses waste exhaust energy; no direct crankshaft load</td></tr>
+    <tr><td>Response</td><td>Immediate (no lag)</td><td>Turbo lag at low RPM</td></tr>
+    <tr><td>Typical use</td><td>Racing engines, roots-type on large SI engines</td><td>Most modern diesel and petrol production engines</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Supercharging Knock Tendency</strong>:
 - CI (Diesel) Engine $\implies$ Supercharging REDUCES knocking!
-- SI (Petrol) Engine $\implies$ Supercharging INCREASES knocking!</p>
-<p>[!TRAP]
-<strong>Turbocharger Drive Source</strong>: A turbocharger compressor is driven by an EXHAUST TURBINE, NOT by the engine crankshaft! A mechanical supercharger is driven by the crankshaft.</div>
+- SI (Petrol) Engine $\implies$ Supercharging INCREASES knocking!</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Turbocharger Drive Source</strong>: A turbocharger compressor is driven by an EXHAUST TURBINE, NOT by the engine crankshaft! A mechanical supercharger is driven by the crankshaft.</div>
 <h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
 <pre><code>Supercharging Engine Application Check?
 ├─ Is engine a Compression-Ignition (Diesel) engine?
@@ -307,9 +323,19 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Friction power $FP$ depends primarily on engine speed $N$ and remains virtually CONSTANT across different engine loads at a fixed speed!</li>
 <li>$IP &gt; BP$ ALWAYS; Mechanical efficiency $\eta_m$ is ALWAYS less than $100\%$.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Constant FP Assumption</strong>: At a constant engine speed $N$, Friction Power $FP$ remains essentially CONSTANT regardless of load variation. This key principle forms the basis of both the Morse Test and Willan's Line Method.</p>
-<p>[!TRAP]
-<strong>Efficiency Ratio Ordering</strong>: Mechanical efficiency $\eta_m = \frac{BP}{IP}$. NEVER invert this ratio as $\frac{IP}{BP}$! Since $IP &gt; BP$, $\eta_m$ is always $&lt; 1.0$.</div>
+
+<table>
+  <thead><tr><th>Power</th><th>Definition</th><th>Measured by</th></tr></thead>
+  <tbody>
+    <tr><td>Indicated Power (IP)</td><td>Power developed inside combustion chamber by gas pressure on piston</td><td>P-V indicator diagram; indicator card</td></tr>
+    <tr><td>Brake Power (BP)</td><td>Net useful power available at crankshaft after friction losses</td><td>Dynamometer (rope brake, eddy current, hydraulic)</td></tr>
+    <tr><td>Friction Power (FP)</td><td>Power lost to piston friction, bearing friction, pumping, and accessories</td><td>Motoring method; FP = IP − BP</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Constant FP Assumption</strong>: At a constant engine speed $N$, Friction Power $FP$ remains essentially CONSTANT regardless of load variation. This key principle forms the basis of both the Morse Test and Willan's Line Method.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Efficiency Ratio Ordering</strong>: Mechanical efficiency $\eta_m = \frac{BP}{IP}$. NEVER invert this ratio as $\frac{IP}{BP}$! Since $IP &gt; BP$, $\eta_m$ is always $&lt; 1.0$.</div>
 <h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
 <pre><code>Engine Power Balance Check?
 ├─ Power Balance Formula → IP = BP + FP
@@ -343,9 +369,9 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
   <div class="formula-card">$${BP = \frac{(W - S) \cdot \pi \cdot D_m \cdot N}{60000} \quad (\text{kW})}$$</div>
   Where effective brake diameter $D_m = D + d$ $D = \text{drum diameter}, d = \text{rope diameter}$.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>4-Stroke Denominator Rule</strong>: For 4-stroke engines, power strokes occur at $\frac{N}{2}$ strokes per minute. Thus, the denominator includes $60 \times 2 = 120$!</p>
-<p>[!TRAP]
-<strong>Rope Diameter Addition</strong>: In rope-brake calculations, ALWAYS add rope diameter $d$ to drum diameter $D$ $D_m = D + d$. Forgetting $d$ causes a calculation error in effective torque radius.</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>4-Stroke Denominator Rule</strong>: For 4-stroke engines, power strokes occur at $\frac{N}{2}$ strokes per minute. Thus, the denominator includes $60 \times 2 = 120$!</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Rope Diameter Addition</strong>: In rope-brake calculations, ALWAYS add rope diameter $d$ to drum diameter $D$ ($D_m = D + d$). Forgetting $d$ causes a calculation error in effective torque radius.</div>
 <h5 id="2-decision-tree_2"><strong>2. Decision Tree</strong></h5>
 <pre><code>Engine Power Calculation?
 ├─ Is engine 4-stroke or 2-stroke?
@@ -389,9 +415,9 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </ul>
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Testing Method Selection</strong>:
 - Multi-Cylinder Engine $IP$ Determination $\implies$ <strong>Morse Test</strong>
-- Single-Cylinder CI Engine $FP$ Determination $\implies$ <strong>Willan's Line Method</strong></p>
-<p>[!TRAP]
-<strong>Morse Test Assumption Trap</strong>: Morse test assumes Friction Power $FP$ of individual cylinders stays CONSTANT when a cylinder is cut out. This assumption holds ONLY IF engine speed $N$ is brought back to original value by reducing load on the dynamometer!</div>
+- Single-Cylinder CI Engine $FP$ Determination $\implies$ <strong>Willan's Line Method</strong></div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Morse Test Assumption Trap</strong>: Morse test assumes Friction Power $FP$ of individual cylinders stays CONSTANT when a cylinder is cut out. This assumption holds ONLY IF engine speed $N$ is brought back to original value by reducing load on the dynamometer!</div>
 <h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
 <pre><code>Testing Method Identification?
 ├─ Multi-Cylinder Engine IP Test → MORSE TEST (Cut one cylinder at a time at const RPM)

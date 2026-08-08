@@ -108,10 +108,16 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </script>
   <div class="reading-content">
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="lubrication-cooling-ignition-systems-of-ic-engines-comprehensive-reorganized-study-guide">Lubrication, Cooling &amp; Ignition Systems of I.C. Engines — Comprehensive Reorganized Study Guide</h1>
+      <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+      <a href="lube_ignition_revised.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">⚡ Concise Revision Guide &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version of Lubrication, Cooling &amp; Ignition Systems.</span>
+      <a href="lube_ignition_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise Revision Guide</a>
+    </div>
+
+    <h1 id="lubrication-cooling-ignition-systems-of-ic-engines-comprehensive-reorganized-study-guide">Lubrication, Cooling &amp; Ignition Systems of I.C. Engines — Comprehensive Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
 <p>This master guide covers Types of Lubrication Systems (Mist for 2-stroke petrol, Splash, Pressure Wet-Sump $0.4-4 \text{ kg cm}^{-2}$, Dry-Sump with external tank &amp; scavenge pumps), Lubrication Regimes (Boundary, Mixed, Hydrodynamic, Hydrostatic lowest starting friction, Stribeck Curve / Hersey parameter $\frac{\eta N}{P}$), SAE Oil Viscosity Grades $\text{SAE } 80 &gt; 70 &gt; 40 &gt; 30$, Engine Cooling System &amp; Thermostat ($80^\circ\text{C}-85^\circ\text{C}$ opening, broken fan belt overheating), Effect of Cooling-Water Temperature on Knocking $T_{\text{coolant}} \uparrow \implies \text{SI Knocking } \uparrow$, Cold-Starting Aids (Choke valve rich mixture), and Ignition Systems (Battery-coil, Magneto self-generating, Electronic CDI/TCI) for AP GenCo AE, GATE, and SSC JE examinations. All raw syllabus concepts, derivations, formulas, decision trees, checklists, worked examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
 <hr />
@@ -218,12 +224,23 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </ul>
 </li>
 </ul>
+
+<table>
+  <thead><tr><th>System</th><th>Engine type</th><th>Oil storage</th><th>Key component</th></tr></thead>
+  <tbody>
+    <tr><td>Mist</td><td>2-stroke petrol</td><td>Premixed in fuel</td><td>None (total loss)</td></tr>
+    <tr><td>Splash</td><td>Small, low-speed 4-stroke</td><td>Crankcase sump</td><td>Dippers on con-rod</td></tr>
+    <tr><td>Pressure (wet-sump)</td><td>Standard automobiles</td><td>Crankcase sump</td><td>Oil pump + galleries</td></tr>
+    <tr><td>Dry-sump</td><td>Aircraft, racing, heavy off-road</td><td>External tank</td><td>Scavenge + pressure pumps</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Lubrication System Matching</strong>:
 - 2-Stroke Petrol Engine $\implies$ <strong>Mist Lubrication</strong> (2-3% oil in petrol).
 - Heavy Vehicles / Standard Cars $\implies$ <strong>Pressure Wet-Sump System</strong>.
-- High-Capacity / Aircraft / Racing $\implies$ <strong>Dry-Sump System</strong> (External tank + Scavenge pump).</p>
-<p>[!TRAP]
-<strong>Dry-Sump Component Trap</strong>: A dry-sump system ALWAYS requires AT LEAST TWO pumps (a Scavenge Pump to empty the crankcase and a Pressure Pump to feed bearings)!</div>
+- High-Capacity / Aircraft / Racing $\implies$ <strong>Dry-Sump System</strong> (External tank + Scavenge pump).</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Dry-Sump Component Trap</strong>: A dry-sump system ALWAYS requires AT LEAST TWO pumps (a Scavenge Pump to empty the crankcase and a Pressure Pump to feed bearings)!</div>
 <h5 id="2-decision-tree"><strong>2. Decision Tree</strong></h5>
 <pre><code>Lubrication System Selection?
 ├─ Is it a 2-stroke petrol engine without an oil sump? → MIST LUBRICATION (Oil in fuel)
@@ -257,9 +274,20 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Low $\frac{\eta N}{P} \implies$ Boundary regime.</li>
 <li>High $\frac{\eta N}{P} \implies$ Hydrodynamic regime.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Lowest Starting Friction</strong>: <strong>HYDROSTATIC Lubrication</strong> has the lowest starting friction because pressurised oil is supplied by an external pump BEFORE shaft rotation starts!</p>
-<p>[!TRAP]
-<strong>Hydrodynamic vs Hydrostatic at Zero Speed</strong>: Hydrodynamic film collapses to ZERO at rest because film pressure depends on shaft rotation speed $N$. Hydrostatic film remains 100% intact at rest!</div>
+
+<table>
+  <thead><tr><th>Regime</th><th>$\Lambda$ value</th><th>Film condition</th><th>Friction level</th></tr></thead>
+  <tbody>
+    <tr><td>Boundary</td><td>Low (low speed, high load)</td><td>No continuous film; metal-to-metal contact at asperities</td><td>Highest friction; wear occurs</td></tr>
+    <tr><td>Mixed</td><td>Intermediate</td><td>Partial fluid film; some asperity contact</td><td>Intermediate; transition region</td></tr>
+    <tr><td>Hydrodynamic (full film)</td><td>High (high speed, low load)</td><td>Full separating fluid wedge; no metal contact</td><td>Low; viscous shear only</td></tr>
+    <tr><td>Hydrostatic</td><td>Any (externally pressurised)</td><td>Full film maintained by external pump regardless of shaft speed</td><td>Lowest at starting; no speed needed to generate film</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Lowest Starting Friction</strong>: <strong>HYDROSTATIC Lubrication</strong> has the lowest starting friction because pressurised oil is supplied by an external pump BEFORE shaft rotation starts!</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Hydrodynamic vs Hydrostatic at Zero Speed</strong>: Hydrodynamic film collapses to ZERO at rest because film pressure depends on shaft rotation speed $N$. Hydrostatic film remains 100% intact at rest!</div>
 <h5 id="2-decision-tree_1"><strong>2. Decision Tree</strong></h5>
 <pre><code>Lubrication Regime Identification?
 ├─ Is starting friction minimum at ZERO speed? → HYDROSTATIC LUBRICATION (External pump)
@@ -325,9 +353,9 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>Broken Fan Belt</strong>: Stops forced air flow through radiator core $\implies$ Instant Engine Overheating!</li>
 <li>Low coolant level, stuck-closed thermostat, or clogged radiator channels.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thermostat Operating Range</strong>: Opens at $80^\circ\text{C} - 85^\circ\text{C}$. Purpose is to enable FAST WARM-UP to reach operating temperature quickly.</p>
-<p>[!TRAP]
-<strong>Thermostat vs Fan Belt Failure</strong>: A stuck-OPEN thermostat causes the engine to run TOO COLD (delayed warm-up). A BROKEN FAN BELT causes engine OVERHEATING!</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Thermostat Operating Range</strong>: Opens at $80^\circ\text{C} - 85^\circ\text{C}$. Purpose is to enable FAST WARM-UP to reach operating temperature quickly.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Thermostat vs Fan Belt Failure</strong>: A stuck-OPEN thermostat causes the engine to run TOO COLD (delayed warm-up). A BROKEN FAN BELT causes engine OVERHEATING!</div>
 <h5 id="2-decision-tree_3"><strong>2. Decision Tree</strong></h5>
 <pre><code>Cooling System Component Check?
 ├─ Is engine cold (&lt; 80°C)? → Thermostat CLOSED (Coolant bypasses radiator)
@@ -356,9 +384,9 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>Cooling-Water Temperature Effect</strong>:</li>
 <li>Higher cooling-water temperature $T_{\text{coolant}} \uparrow$ $\implies$ Combustion chamber walls stay hotter $\implies$ Heat transfer from end-gas to walls decreases $\implies$ End-gas temperature rises $\implies$ Auto-ignition delay SHORTENS $\implies$ <strong>KNOCKING TENDENCY INCREASES!</strong></li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SI Engine Coolant Temperature Rule</strong>: Raising cooling-water temperature INCREASES knocking tendency in petrol (SI) engines!</p>
-<p>[!TRAP]
-<strong>SI vs CI Coolant Effect</strong>: In Petrol (SI) engines, higher coolant temp INCREASES knock. In Diesel (CI) engines, higher coolant temp REDUCES knock (by shortening ignition delay)! Do not confuse the two!</div>
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>SI Engine Coolant Temperature Rule</strong>: Raising cooling-water temperature INCREASES knocking tendency in petrol (SI) engines!</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>SI vs CI Coolant Effect</strong>: In Petrol (SI) engines, higher coolant temp INCREASES knock. In Diesel (CI) engines, higher coolant temp REDUCES knock (by shortening ignition delay)! Do not confuse the two!</div>
 <h5 id="2-decision-tree_4"><strong>2. Decision Tree</strong></h5>
 <pre><code>Coolant Temperature Effect on Petrol Knocking?
 ├─ Cooling-Water Temperature Increases (T_coolant up)
@@ -423,6 +451,18 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li>Spark intensity is LOW at starting/low speeds, but INCREASES as engine speed increases!</li>
 <li>Preferred in motorcycles, racing cars, and aircraft engines (lightweight, self-powered).</li>
 </ul>
+
+<table>
+  <thead><tr><th>Feature</th><th>Battery-Coil Ignition</th><th>Magneto Ignition</th></tr></thead>
+  <tbody>
+    <tr><td>Energy source</td><td>Vehicle battery (12V)</td><td>Self-generated (rotating magnets)</td></tr>
+    <tr><td>Battery dependence</td><td>Yes — fails without battery</td><td>No — completely independent</td></tr>
+    <tr><td>Spark at low speed</td><td>Good (battery provides consistent energy)</td><td>Weaker (low magnetic flux at low rpm)</td></tr>
+    <tr><td>Spark at high speed</td><td>Good</td><td>Very good (flux increases with speed)</td></tr>
+    <tr><td>Applications</td><td>Automobiles, trucks</td><td>Aircraft, racing engines, motorcycles</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ignition System Comparison</strong>:
 - Battery Ignition $\implies$ Needs battery; spark best at LOW speed.
 - Magneto Ignition $\implies$ NO BATTERY needed; spark best at HIGH speed.</div>

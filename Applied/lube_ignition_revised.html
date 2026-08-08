@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lubrication, Cooling & Ignition Systems — Applied Thermodynamics Revision Guide</title>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
+      --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
+      --border-light: #E2D9CC; --border-accent: #8C5A37;
+      --heading-color: #4A2E1B; --heading-sub: #664229;
+      --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
+      --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
+      --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
+    }
+    [data-theme="dark"] {
+      --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
+      --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
+      --border-light: #3D3732; --border-accent: #C8895A;
+      --heading-color: #E2D9CC; --heading-sub: #C8895A;
+      --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
+      --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
+      --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
+      --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
+      --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
+    }
+    * { box-sizing: border-box; }
+    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+    #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
+    #floating-nav.visible { opacity: 1; pointer-events: auto; }
+    .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
+    .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
+    .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
+    .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
+    #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
+    #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
+    .reading-content { max-width: 820px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
+    h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
+    h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
+    h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 11.5pt; color: var(--heading-color); }
+    a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
+    p { margin-bottom: 0.9em; }
+    code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
+    th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
+    th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
+    [data-theme="dark"] th { background: #2A1A0E; }
+    tr:nth-child(even) { background-color: var(--pre-bg); }
+    ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.35em; }
+    .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 18px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
+    .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
+    .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+    .key-points { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 10px; padding: 20px 24px; margin: 28px 0; box-shadow: 0 2px 8px rgba(60,40,20,0.05); }
+    .key-points h3 { margin-top: 0; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--heading-color); }
+    .key-points li { margin-bottom: 0.55em; line-height: 1.65; }
+    .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
+    .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
+    .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
+    hr { border: none; border-top: 1px solid var(--border-light); margin: 36px 0; }
+    @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
+  </style>
+</head>
+<body id="preview">
+  <div id="reading-progress"></div>
+  <div id="floating-nav">
+    <a class="fnav-link" href="#lubrication-systems">§1 Lubrication</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#lubrication-regimes">§2 Regimes</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#oil-viscosity">§3 Viscosity</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#cooling-system">§4 Cooling</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#ignition-systems">§5 Ignition</a>
+    <span class="fnav-sep">·</span>
+    <a class="fnav-link" href="#key-points">§6 Key Points</a>
+  </div>
+  <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "light";
+      function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+      applyTheme(saved);
+      toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
+      var bar = document.getElementById("reading-progress");
+      function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
+      window.addEventListener("scroll", upBar, {passive: true}); upBar();
+      var fn = document.getElementById("floating-nav");
+      var links = fn.querySelectorAll(".fnav-link");
+      var ids = ["lubrication-systems", "lubrication-regimes", "oil-viscosity", "cooling-system", "ignition-systems", "key-points"];
+      function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
+      window.addEventListener("scroll", upNav, {passive: true}); upNav();
+      links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
+    })();
+  </script>
+
+  <div class="reading-content">
+    <div class="submodule-nav">
+      <a href="index.html">&larr; Applied Thermodynamics Hub</a>
+      <span style="color:var(--nav-text);font-size:9.5pt;opacity:0.85;">Main Revision Guide</span>
+      <a href="lube_ignition_reorganized.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">📖 Long Version &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide for Lubrication, Cooling &amp; Ignition.</span>
+      <a href="lube_ignition_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+    </div>
+
+    <h1>Lubrication, Cooling &amp; Ignition Systems</h1>
+
+    <h2 id="lubrication-systems">1. Lubrication Systems in IC Engines</h2>
+
+    <p>The lubricating oil in an engine reduces friction between moving parts, removes heat from bearing surfaces, seals piston rings against blow-by, and carries away wear debris. The type of lubrication system used depends on engine type, speed, power, and operating attitude.</p>
+
+    <h3>1.1 Mist Lubrication</h3>
+    <ul>
+      <li>Oil (2–3% by volume) is premixed directly with petrol in the fuel tank</li>
+      <li>As petrol vaporises in the crankcase, oil droplets form a mist that coats cylinder walls and bearings</li>
+      <li>Used <em>exclusively</em> in 2-stroke petrol engines — the crankcase is used for intake charge scavenging and cannot hold an oil sump</li>
+      <li>Total-loss system: oil burns in the combustion chamber along with fuel</li>
+    </ul>
+
+    <h3>1.2 Splash Lubrication</h3>
+    <ul>
+      <li>Dippers (scoops) attached to connecting rod big-ends dip into an oil trough in the sump on each revolution, splashing oil onto cylinder walls and wrist pins</li>
+      <li>Suitable for low-speed, low-load engines (lawnmowers, stationary generators)</li>
+      <li>Inadequate for high-speed or heavily loaded engines (insufficient and uncontrolled delivery)</li>
+    </ul>
+
+    <h3>1.3 Pressure (Wet-Sump) Lubrication</h3>
+    <div class="formula-card">$$P_{\text{oil}} = 0.4 \text{ to } 4.0\ \text{kg/cm}^2 \quad (40\text{ to }400\ \text{kPa})$$</div>
+    <ul>
+      <li>An oil pump (gear or rotor type) draws oil from the crankcase sump and delivers it under pressure through drilled oil galleries to main bearings, big-end bearings, and camshaft bearings</li>
+      <li>Standard system for most automotive engines (cars, trucks, buses)</li>
+      <li>Oil pressure warning light activates if pressure drops below ~0.5 kg/cm²</li>
+    </ul>
+
+    <h3>1.4 Dry-Sump Lubrication</h3>
+    <ul>
+      <li>The crankcase is kept dry — one or more <strong>scavenge pumps</strong> continuously remove oil from the crankcase and return it to an <strong>external oil tank</strong></li>
+      <li>A separate <strong>pressure pump</strong> draws from the external tank and feeds engine bearings</li>
+      <li>Requires at least two pumps: scavenge pump + pressure pump</li>
+      <li>Used in: aircraft engines, racing cars, sports cars, heavy-duty off-road vehicles — anywhere severe tilting, cornering, or acceleration could starve oil from a conventional sump</li>
+    </ul>
+
+    <table>
+      <thead><tr><th>System</th><th>Engine type</th><th>Oil storage</th><th>Key component</th></tr></thead>
+      <tbody>
+        <tr><td>Mist</td><td>2-stroke petrol</td><td>Premixed in fuel</td><td>None (total loss)</td></tr>
+        <tr><td>Splash</td><td>Small, low-speed 4-stroke</td><td>Crankcase sump</td><td>Dippers on con-rod</td></tr>
+        <tr><td>Pressure (wet-sump)</td><td>Standard automobiles</td><td>Crankcase sump</td><td>Oil pump + galleries</td></tr>
+        <tr><td>Dry-sump</td><td>Aircraft, racing, heavy off-road</td><td>External tank</td><td>Scavenge + pressure pumps</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2 id="lubrication-regimes">2. Lubrication Regimes &amp; Stribeck Curve</h2>
+
+    <p>The Stribeck curve plots the coefficient of friction $\mu$ against the Hersey number $\Lambda = \eta N/P$, and identifies four distinct lubrication regimes.</p>
+
+    <div class="formula-card">$$\Lambda = \frac{\eta \cdot N}{P}$$</div>
+    <ul>
+      <li>$\eta$ — dynamic viscosity of oil (Pa·s); $N$ — rotational speed (rpm or rad/s); $P$ — load per unit bearing area (N/m²)</li>
+    </ul>
+
+    <table>
+      <thead><tr><th>Regime</th><th>$\Lambda$ value</th><th>Film condition</th><th>Friction level</th></tr></thead>
+      <tbody>
+        <tr><td>Boundary</td><td>Low (low speed, high load)</td><td>No continuous film; metal-to-metal contact at asperities</td><td>Highest friction; wear occurs</td></tr>
+        <tr><td>Mixed</td><td>Intermediate</td><td>Partial fluid film; some asperity contact</td><td>Intermediate; transition region</td></tr>
+        <tr><td>Hydrodynamic (full film)</td><td>High (high speed, low load)</td><td>Full separating fluid wedge; no metal contact</td><td>Low; viscous shear only</td></tr>
+        <tr><td>Hydrostatic</td><td>Any (externally pressurised)</td><td>Full film maintained by external pump regardless of shaft speed</td><td>Lowest at starting; no speed needed to generate film</td></tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li><strong>Hydrostatic lubrication</strong> has the lowest starting friction — full film exists even at zero speed because pressure is supplied externally</li>
+      <li><strong>Hydrodynamic lubrication</strong>: film builds up naturally from shaft rotation (wedge effect); minimum friction at optimum $\Lambda$; friction increases at very high speed due to viscous shear</li>
+      <li>Engine bearings operate mostly in hydrodynamic regime; boundary at start/stop</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="oil-viscosity">3. Lubricating Oil Viscosity &amp; SAE Grades</h2>
+
+    <p>Viscosity is the most important property of a lubricating oil. A thicker film carries higher loads but increases viscous drag. The SAE (Society of Automotive Engineers) viscosity classification assigns grades based on kinematic viscosity measured at 100°C.</p>
+
+    <div class="formula-card">$$\text{SAE } 80 > \text{SAE } 70 > \text{SAE } 40 > \text{SAE } 30 \quad \text{(viscosity ranking at }100°\text{C)}$$</div>
+    <ul>
+      <li>Higher SAE number = thicker oil = higher viscosity = thicker protective film</li>
+      <li>Monograde oils (SAE 30, SAE 40): single-grade; viscosity changes greatly with temperature</li>
+      <li>Multigrade oils (SAE 10W-40, 15W-50): viscosity modifiers keep oil from thinning too much at high $T$ or thickening too much at low $T$; 'W' denotes winter/cold-start grade</li>
+      <li>Viscosity decreases with temperature (for oils); higher operating temperature → thinner oil → risk of film breakdown</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="cooling-system">4. Cooling System</h2>
+
+    <p>Engine cooling removes excess heat from combustion to prevent overheating of components while keeping the engine warm enough for efficient combustion and low friction.</p>
+
+    <h3>4.1 Thermostat</h3>
+    <div class="formula-card">$$T_{\text{thermostat}} = 80°\text{C to }85°\text{C} \quad \text{(standard automotive opening range)}$$</div>
+    <ul>
+      <li>Below thermostat opening temperature: coolant circulates only within the engine block (short circuit); no flow to radiator — engine warms up quickly</li>
+      <li>Above opening temperature: thermostat opens; hot coolant flows to radiator for heat rejection</li>
+      <li>Operating too cold (thermostat stuck open): condensation, corrosion, higher fuel consumption, rough running</li>
+      <li>Operating too hot (thermostat stuck closed): overheating, detonation, seizure risk</li>
+    </ul>
+
+    <h3>4.2 Effect of Cooling-Water Temperature on SI Knocking</h3>
+    <p>Higher coolant temperature → hotter cylinder walls → hotter charge → higher end-gas temperature → <strong>SI knocking increases</strong>. This is why an overheated engine is more prone to detonation.</p>
+
+    <ul>
+      <li>Note: in CI engines, higher coolant (wall) temperature shortens ignition delay → reduces diesel knock</li>
+      <li>SI and CI effects are <em>opposite</em> for coolant temperature on knocking</li>
+    </ul>
+
+    <h3>4.3 Choke Valve (Cold Starting Aid — SI Engines)</h3>
+    <ul>
+      <li>Choke valve restricts air flow at the carburettor inlet to create a rich (low AFR) mixture for cold starting</li>
+      <li>Rich mixture needed because fuel vaporisation is poor at low temperatures — excess fuel compensates for poor atomisation</li>
+      <li>Manual choke: driver-operated cable; automatic choke: bimetallic spring opens progressively as engine warms</li>
+      <li>Modern fuel-injected engines: ECU enriches fuel delivery directly — no physical choke valve</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="ignition-systems">5. Ignition Systems</h2>
+
+    <h3>5.1 Battery-Coil (Conventional / Electronic) Ignition</h3>
+    <ul>
+      <li>Energy source: 12V vehicle battery; coil steps voltage up to 15,000–30,000 V</li>
+      <li>Primary circuit (low voltage) is interrupted by contact breaker points (older) or electronic trigger (modern)</li>
+      <li>Magnetic field collapse in coil primary induces high-voltage pulse in secondary winding → spark at plug</li>
+      <li>Distributor routes high-voltage pulse to correct cylinder in firing order</li>
+      <li>Modern versions: distributorless ignition (DIS), direct ignition (coil-on-plug)</li>
+      <li><strong>Advantage:</strong> consistent spark energy at all speeds; adjustable timing</li>
+      <li><strong>Disadvantage:</strong> depends on battery; fails if battery discharged</li>
+    </ul>
+
+    <h3>5.2 Magneto Ignition</h3>
+    <ul>
+      <li>Self-contained unit: permanent magnets rotate to generate high-voltage ignition pulse — completely independent of battery</li>
+      <li>Generates its own electricity; no external power source required</li>
+      <li><strong>Advantage:</strong> independent of vehicle electrical system; reliable at high speeds; essential for aircraft and racing engines</li>
+      <li><strong>Disadvantage:</strong> weaker spark at low speed/start; heavier; more expensive</li>
+    </ul>
+
+    <table>
+      <thead><tr><th>Feature</th><th>Battery-Coil Ignition</th><th>Magneto Ignition</th></tr></thead>
+      <tbody>
+        <tr><td>Energy source</td><td>Vehicle battery (12V)</td><td>Self-generated (rotating magnets)</td></tr>
+        <tr><td>Battery dependence</td><td>Yes — fails without battery</td><td>No — completely independent</td></tr>
+        <tr><td>Spark at low speed</td><td>Good (battery provides consistent energy)</td><td>Weaker (low magnetic flux at low rpm)</td></tr>
+        <tr><td>Spark at high speed</td><td>Good</td><td>Very good (flux increases with speed)</td></tr>
+        <tr><td>Applications</td><td>Automobiles, trucks</td><td>Aircraft, racing engines, motorcycles</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <div class="key-points" id="key-points">
+      <h3>Key Points to Remember</h3>
+      <ul>
+        <li>Mist lubrication: 2–3% oil in petrol; <em>only</em> for 2-stroke petrol engines; total-loss (oil burns with fuel).</li>
+        <li>Dry-sump: always requires two pumps — scavenge pump (empties crankcase) + pressure pump (feeds bearings from external tank).</li>
+        <li>Pressure wet-sump oil pressure: 0.4–4.0 kg/cm² (40–400 kPa). Standard for most automobiles.</li>
+        <li>Stribeck parameter: $\Lambda = \eta N/P$. Increasing $\Lambda$ progresses from boundary → mixed → hydrodynamic regime.</li>
+        <li>Hydrostatic lubrication: lowest starting friction; full film at zero speed (externally pressurised). Hydrodynamic: full film only when shaft rotates (wedge effect).</li>
+        <li>SAE viscosity: SAE 80 > SAE 70 > SAE 40 > SAE 30 (higher number = thicker oil at 100°C).</li>
+        <li>Oil viscosity decreases with temperature. Multigrade oils (e.g. 10W-40) maintain performance across a wide temperature range.</li>
+        <li>Thermostat opens at 80°C–85°C. Below: short-circuit loop (fast warm-up). Above: full radiator loop (cooling).</li>
+        <li>Higher cooling-water temperature → SI knock <em>increases</em>. Higher coolant temperature → CI knock <em>decreases</em>. Opposite effects.</li>
+        <li>Choke valve richens the SI mixture for cold starting by restricting inlet air flow.</li>
+        <li>Battery ignition: uses 12V battery + induction coil → 15,000–30,000 V at plug. Distributor routes to cylinders.</li>
+        <li>Magneto ignition: self-contained; no battery needed; better at high speed; used in aircraft, racing engines.</li>
+        <li>Magneto preferred where independence from vehicle electrical system is essential (aircraft, racing, small engines).</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

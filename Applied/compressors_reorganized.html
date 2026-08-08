@@ -108,10 +108,16 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 </script>
   <div class="reading-content">
     <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="classification-thermodynamics-working-principles-of-compressors-master-reorganized-study-guide">Classification, Thermodynamics &amp; Working Principles of Compressors — Master Reorganized Study Guide</h1>
+      <a href="index.html">&larr; Back to Applied Thermodynamics Hub</a>
+      <a href="compressors_revised.html" style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 14px; font-weight: 700;">⚡ Concise Revision Guide &rarr;</a>
+    </div>
+
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version of Compressors.</span>
+      <a href="compressors_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise Revision Guide</a>
+    </div>
+
+    <h1 id="classification-thermodynamics-working-principles-of-compressors-master-reorganized-study-guide">Classification, Thermodynamics &amp; Working Principles of Compressors — Master Reorganized Study Guide</h1>
 <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
 <p>This master guide covers the complete principles of Compressors for AP GenCo AE, GATE, ESE, and SSC JE examinations under Applied Thermodynamics and Turbo Machines. Core topics addressed include Compressor Classification (Positive Displacement: Reciprocating, Roots blower, Vane, Screw, Scroll; Dynamic: Centrifugal, Axial-flow), Reciprocating Compressor Performance (Isothermal Compression minimum work $W_{\text{iso}} = m R T_1 \ln(P_2/P_1)$, Polytropic Work $W = \frac{n}{n-1} m R T_1 \left[(P_2/P_1)^{\frac{n-1}{n}} - 1\right]$, Isothermal Efficiency $\eta_{\text{iso}} = W_{\text{iso}}/W_{\text{actual}}$, Volumetric Efficiency $\eta_v = 1 + C - C(P_2/P_1)^{1/n}$, Clearance Volume independence of work per kg), Multi-Stage Compression with Intercooling (Optimum Intermediate Pressure $P_i = \sqrt{P_1 P_2}$, Stage pressure ratio $r = (P_N/P_1)^{1/N}$, Minimum Work conditions, Flywheel size reduction), Centrifugal Compressors (Impeller, Diffuser, Volute static pressure rise, Slip Factor $\sigma = V_{w2}'/u_2$, Forward vs Backward vs Radial blades, Pre-whirl, Incidence losses), and Axial-Flow Compressors (Aircraft application rationale, Degree of Reaction $R = \frac{\Delta h_{\text{rotor}}}{\Delta h_{\text{stage}}}$, Blade Loading Coefficient $\psi = \frac{\Delta h}{u^2}$, Work-Done Factor $0.98 \to 0.85$, Stalling vs Surging). All raw syllabus concepts, derivations, ASCII decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
 <hr />
@@ -277,10 +283,21 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 <li><strong>High Pressure Industrial / Refrigeration (up to 100 TR)</strong>: Reciprocating compressor preferred.</li>
 <li><strong>Large Refrigeration Plants</strong>: Centrifugal compressor preferred.</li>
 </ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Roots Blower Classification Trap</strong>:
-A Roots blower is a ROTARY POSITIVE-DISPLACEMENT machine, NOT a dynamic machine! Compression occurs by backflow of high-pressure air from receiver when delivery port opens.</p>
-<p>[!TRAP]
-<strong>Aircraft Compressor Selection Trap</strong>:
+
+<table>
+  <thead><tr><th>Category</th><th>Sub-type</th><th>Mechanism</th><th>Typical application</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><strong>Positive Displacement</strong></td><td>Reciprocating (piston-cylinder)</td><td>Piston traps discrete gas volume; spring-loaded automatic valves control flow</td><td>High-pressure industrial gas, refrigeration up to 100 TR</td></tr>
+    <tr><td>Rotary (Roots, vane, screw, scroll)</td><td>Rotating elements trap and push gas; no internal compression in Roots blower</td><td>Low-pressure blowing, pneumatic conveying</td></tr>
+    <tr><td rowspan="2"><strong>Dynamic (Roto-dynamic)</strong></td><td>Centrifugal</td><td>Radial-flow impeller imparts kinetic energy; diffuser/volute converts to pressure. $P_2/P_1$ per stage: 4–5</td><td>Large refrigeration, petrochemical, process industry</td></tr>
+    <tr><td>Axial-flow</td><td>Axial blading; low pressure ratio per stage (1.15–1.30) but very high mass flow per unit frontal area</td><td>Aircraft jet engines, large gas turbines</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Roots Blower Classification</strong>:
+A Roots blower is a ROTARY POSITIVE-DISPLACEMENT machine, NOT a dynamic machine! Compression occurs by backflow of high-pressure air from receiver when delivery port opens.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Aircraft Compressor Selection Trap</strong>:
 Axial-flow compressors are selected for aircraft jet engines because of low frontal area and high mass flow rate per unit area, NOT because they have a higher pressure ratio per stage (Centrifugal has $4 \times$ higher pressure ratio per stage!).</div>
 <h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
 <pre><code>Compressor Type Selection &amp; Classification
@@ -339,9 +356,9 @@ Axial-flow compressors are selected for aircraft jet engines because of low fron
 <li><strong>Effect of Clearance on Work per kg</strong>: Clearance volume REDUCES volumetric efficiency and mass delivered per stroke, but DOES NOT affect indicated work done per kg of air delivered!</li>
 </ul>
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Clearance Volume Independence</strong>:
-Clearance volume $V_c$ reduces free air delivery and volumetric efficiency $\eta_v$, but does NOT alter the indicated work done per kg of air delivered! The energy stored in clearance gas during compression is recovered during its expansion stroke.</p>
-<p>[!TRAP]
-<strong>Volumetric Efficiency Trend</strong>:
+Clearance volume $V_c$ reduces free air delivery and volumetric efficiency $\eta_v$, but does NOT alter the indicated work done per kg of air delivered! The energy stored in clearance gas during compression is recovered during its expansion stroke.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Volumetric Efficiency Trend</strong>:
 Volumetric efficiency $\eta_v$ DECREASES when clearance ratio $C$ INCREASES or pressure ratio $P_2/P_1$ INCREASES. If $P_2/P_1$ becomes too high, $\eta_v \to 0$ and no fresh air is drawn!</div>
 <h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
 <pre><code>Reciprocating Compressor Thermodynamic Analysis
@@ -420,9 +437,9 @@ Volumetric efficiency $\eta_v$ DECREASES when clearance ratio $C$ INCREASES or p
     <div class="formula-card">$${P_{i1} = P_1^{2/3} P_4^{1/3}, \quad P_{i2} = P_1^{1/3} P_4^{2/3}}$$</div></li>
 </ul>
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Geometric Progression of Pressures</strong>:
-For minimum work with perfect intercooling in multi-stage compressors, intermediate pressures form a GEOMETRIC PROGRESSION $P_1, P_{i1}, P_{i2}, \dots, P_N$. $P_i = \sqrt{P_1 P_2}$ for 2 stages.</p>
-<p>[!TRAP]
-<strong>Arithmetic vs Geometric Mean Trap</strong>:
+For minimum work with perfect intercooling in multi-stage compressors, intermediate pressures form a GEOMETRIC PROGRESSION $P_1, P_{i1}, P_{i2}, \dots, P_N$. $P_i = \sqrt{P_1 P_2}$ for 2 stages.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Arithmetic vs Geometric Mean Trap</strong>:
 Examiner options often list intermediate pressure as arithmetic mean $P_i = \frac{P_1 + P_2}{2}$. This is WRONG! Correct formula is ALWAYS geometric mean $P_i = \sqrt{P_1 P_2}$.</div>
 <h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
 <pre><code>Multi-Stage Intercooled Compressor Optimization
@@ -499,9 +516,9 @@ Examiner options often list intermediate pressure as arithmetic mean $P_i = \fra
 <li>Aerodynamic shock loss occurring at impeller entry when relative velocity vector angle does not match inlet blade angle.</li>
 </ul>
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Pressure Rise Distribution</strong>:
-In a centrifugal compressor, static pressure rise occurs in ALL THREE stages: Impeller $\approx 50\%$, Diffuser $\approx 40\%$, and Volute Casing $\approx 10\%$. It is NEVER confined to the diffuser alone!</p>
-<p>[!TRAP]
-<strong>Forward vs Backward Blade Trap</strong>:
+In a centrifugal compressor, static pressure rise occurs in ALL THREE stages: Impeller $\approx 50\%$, Diffuser $\approx 40\%$, and Volute Casing $\approx 10\%$. It is NEVER confined to the diffuser alone!</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Forward vs Backward Blade Trap</strong>:
 Forward-curved blades $\beta_2 &gt; 90^\circ$ produce HIGHER pressure ratio per stage, but Backward-curved blades $\beta_2 &lt; 90^\circ$ produce HIGHER efficiency!</div>
 <h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
 <pre><code>Centrifugal Compressor Aerodynamic Analysis
@@ -573,11 +590,19 @@ Forward-curved blades $\beta_2 &gt; 90^\circ$ produce HIGHER pressure ratio per 
 <li><strong>Stalling</strong>: Local boundary layer flow separation from the suction surface of a blade aerofoil when incidence angle exceeds critical limit. Flow local and transient.</li>
 <li><strong>Surging</strong>: Global, large-amplitude pulsation of entire compressor flow characterized by complete flow reversal, severe vibration, and potential mechanical destruction.</li>
 </ul>
+<table>
+  <thead><tr><th>Phenomenon</th><th>Cause</th><th>Effect</th><th>Remedy</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Stalling</strong></td><td>High angle of attack on blade; boundary layer separates on suction surface</td><td>Localised flow breakdown on one or more blade passages; reduced stage efficiency</td><td>Variable inlet guide vanes; blade-profile redesign</td></tr>
+    <tr><td><strong>Surging</strong></td><td>System back-pressure exceeds compressor delivery pressure capability; mass flow drops below minimum stable flow</td><td>Complete flow reversal through compressor; violent oscillation; structural damage</td><td>Anti-surge valve (blow-off valve); maintain flow above surge line</td></tr>
+  </tbody>
+</table>
+
 <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Stalling vs Surging Distinction</strong>:
 - <strong>Stalling</strong>: LOCAL flow separation from individual blade contour due to high positive incidence.
-- <strong>Surging</strong>: GLOBAL periodic flow reversal across entire compressor system when mass flow falls below stable limit.</p>
-<p>[!TRAP]
-<strong>Loading Coefficient Trend</strong>:
+- <strong>Surging</strong>: GLOBAL periodic flow reversal across entire compressor system when mass flow falls below stable limit.</div>
+
+<div class="callout callout-trap"><strong>⚠️ Exam Trap:</strong> <strong>Loading Coefficient Trend</strong>:
 Blade loading coefficient $\psi = \frac{\Delta h}{u^2}$ is INVERSELY proportional to $u^2$. Doubling blade speed $u$ at constant stage work reduces loading coefficient $\psi$ to ONE-FOURTH $1/4$!</div>
 <h5 id="2-ascii-decision-tree_4"><strong>2. ASCII Decision Tree</strong></h5>
 <pre><code>Axial Compressor Aerodynamic Diagnosis
