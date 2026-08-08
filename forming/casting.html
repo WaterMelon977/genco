@@ -17,127 +17,432 @@ MathJax = {
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-  <style>
-  * { box-sizing: border-box; }
+    <style>
+        :root {
+            /* Base: Cyber Obsidian (dark default) */
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --text-accent: #F59E0B;          /* Fallback copper gold */
+            --accent-warm: #D97706;
+            --border-light: #262933;
+            --heading-color: #F1F5F9;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-even-bg: #121419;
+            --callout-concept-bg: #131D31;
+            --callout-concept-border: #3B6FD4;
+            --callout-concept-text: #93C5FD;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            /* Subject color palette */
+            --subject-fluid-primary: #06B6D4;
+            --subject-thermo-primary: #F97316;
+            --subject-production-primary: #8B5CF6;
+            --subject-operations-primary: #10B981;
+            --subject-materials-primary: #EC4899;
+            /* Active subject accent (defaults to copper gold, overridden by data-subject) */
+            --subject-current: #F59E0B;
+            --subject-current-light: rgba(245, 158, 11, 0.3);
+            --subject-bg-tint: rgba(245, 158, 11, 0.06);
+        }
+        /* Subject overrides — set data-subject on <body> */
+        body[data-subject="fluid"]      { --subject-current: #06B6D4; --subject-bg-tint: rgba(6,182,212,0.08); }
+        body[data-subject="thermo"]     { --subject-current: #F97316; --subject-bg-tint: rgba(249,115,22,0.08); }
+        body[data-subject="production"] { --subject-current: #8B5CF6; --subject-bg-tint: rgba(139,92,246,0.08); }
+        body[data-subject="operations"] { --subject-current: #10B981; --subject-bg-tint: rgba(16,185,129,0.08); }
+        body[data-subject="materials"]  { --subject-current: #EC4899; --subject-bg-tint: rgba(236,72,153,0.08); }
 
-  body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 11pt;
-    line-height: 1.85;
-    color: #2D2926;
-    background-color: #F0ECE1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 35px 20px;
-  }
+        [data-theme="light"] {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --border-light: #E2E8F0;
+            --heading-color: #0F172A;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-even-bg: #F8FAFC;
+            --callout-concept-bg: #EFF6FF;
+            --callout-concept-border: #3B82F6;
+            --callout-concept-text: #1E40AF;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+        }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Bookman Old Style", Georgia, serif;
-    color: #4A2E1B;
-    font-weight: 700;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  h1 {
-    font-size: 24pt;
-    text-align: center;
-    background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-    color: #FFFDF9;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-  }
+        /* Reading Progress Bar — subject-aware */
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--subject-current);
+            z-index: 9999;
+            transition: width 0.1s linear, background 0.3s ease;
+        }
 
-  h2 {
-    font-size: 18pt;
-    border-bottom: 2px solid #8C5A37;
-    padding-bottom: 6px;
-    margin-top: 36px;
-  }
+        /* Theme Toggle */
+        #theme-toggle {
+            position: fixed; top: 18px; right: 24px;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            color: var(--text-secondary); border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13pt; z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
 
-  h3 { font-size: 14pt; color: #664229; }
-  h4 { font-size: 12pt; color: #4A2E1B; }
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
 
-  a { color: #8C5A37; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+        h1 {
+            font-size: 22pt;
+            text-align: center;
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--subject-current);
+            padding: 28px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.35;
+            transition: border-color 0.3s ease;
+        }
+        [data-theme="light"] h1 {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
 
-  code {
-    font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-    background: #EAE1D3;
-    color: #4A2E1B;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-  }
+        h2 {
+            font-size: 16pt;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--subject-current);
+            padding-bottom: 8px;
+            margin-top: 42px;
+            transition: border-color 0.3s ease;
+        }
 
-  pre {
-    background: #F7F3EC;
-    border: 1px solid #E2D9CC;
-    padding: 1em;
-    border-radius: 6px;
-    overflow-x: auto;
-  }
+        h3 {
+            font-size: 13.5pt;
+            color: var(--subject-current);
+            margin-top: 28px;
+            transition: color 0.3s ease;
+        }
 
-  blockquote {
-    border-left: 4px solid #8C5A37;
-    background-color: #F7F3EC;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #5C544D;
-  }
+        h4 {
+            font-size: 11.5pt;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-  }
+        a {
+            color: var(--subject-current);
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        a:hover { text-decoration: underline; }
 
-  th, td {
-    border: 1px solid #E2D9CC;
-    padding: 10px 14px;
-    text-align: left;
-  }
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            color: var(--subject-current);
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
 
-  th {
-    background: #4A2E1B;
-    color: #FFFDF9;
-    font-family: "Bookman Old Style", Georgia, serif;
-    font-weight: 600;
-  }
+        pre {
+            background: var(--pre-bg);
+            border: 1px solid var(--border-light);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            color: var(--text-primary);
+            margin: 18px 0;
+        }
 
-  tr:nth-child(even) { background-color: #FDFBF7; }
+        blockquote {
+            border-left: 4px solid var(--subject-current);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left-width: 4px;
+            padding: 14px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-card);
+            transition: border-color 0.3s ease;
+        }
 
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #E2D9CC;
-  }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+        }
 
-  /* MathJax overflow guard */
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
+        th, td {
+            border: 1px solid var(--border-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
 
-  /* ── formula-card ─────────────────────────────────────────────────────────
-     PLAIN display only.  NO background-color, NO border, NO border-radius.
-     User mandate: "drop the green background for all the formulas"  */
-  .formula-card {
-    margin: 20px 0;
-    text-align: center;
-    overflow-x: auto;
-    font-size: 1.05em;
-  }
-</style>
+        th {
+            background: var(--table-th-bg);
+            color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+            font-size: 9.5pt;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--subject-current);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        tr:hover { background-color: var(--subject-bg-tint); }
+
+        tr:nth-child(even) {
+            background-color: var(--table-even-bg);
+        }
+
+        .formula-card {
+            margin: 20px 0;
+            padding: 18px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--text-accent);
+            border-radius: 10px;
+            text-align: center;
+            overflow-x: auto;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-card);
+        }
+
+        .concept-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--text-accent);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .concept-block:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        ul { margin: 14px 0; padding-left: 24px; }
+        li { margin: 8px 0; line-height: 1.7; }
+        strong { color: var(--text-primary); }
+
+        .exam-focus {
+            background: var(--callout-focus-bg);
+            border: 1px solid var(--callout-focus-border);
+            border-left: 5px solid var(--callout-focus-border);
+            color: var(--callout-focus-text);
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+            font-size: 10pt;
+            box-shadow: var(--shadow-card);
+        }
+        .exam-focus::before {
+            content: "🔴 EXAM FOCUS: ";
+            font-weight: 800;
+            color: var(--callout-focus-border);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            background: #FFFFFF;
+        }
+
+        .img-container { text-align: center; margin: 24px 0; }
+        .img-caption {
+            font-size: 9.5pt;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .img-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin: 22px 0;
+        }
+
+        .img-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .img-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--border-hover);
+        }
+        .img-card img {
+            width: 100%;
+            max-height: 240px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        /* Navigation Bar */
+        .submodule-nav {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--text-accent);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 9.5pt;
+        }
+        .submodule-nav a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .submodule-nav a:hover {
+            color: var(--text-accent);
+            background: var(--bg-formula);
+        }
+        .submodule-nav a.active {
+            color: var(--text-accent);
+            font-weight: 700;
+            background: var(--bg-formula);
+            border: 1px solid var(--text-accent);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px; margin-top: 48px;
+            text-align: center; font-size: 9pt;
+            color: var(--text-muted);
+        }
+
+        .katex-display, .MathJax_Display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
 </head>
-<body id="preview">
-  <div style="background:linear-gradient(135deg,#4A2E1B 0%,#664229 100%); padding:14px 20px; font-family:system-ui,sans-serif; font-size:10.5pt; border-radius:12px; margin-bottom:24px; text-align:center; box-shadow:0 6px 16px rgba(74,46,27,0.18);">
-  <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-  <a href="../forming_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> | <a href="casting.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">1. Casting</a> | <a href="forming.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Forming & Forging</a> | <a href="powder_metallurgy.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Powder Metallurgy</a> | <a href="welding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. Welding & Joining</a>
-</div>
+
+<body id="preview" data-subject="production">
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+            var savedSubject = localStorage.getItem("ag-subject") || "production";
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                localStorage.setItem("ag-theme", t);
+            }
+            function applySubject(s) {
+                document.body.setAttribute("data-subject", s);
+                localStorage.setItem("ag-subject", s);
+                updateFavicon(s);
+            }
+            function updateFavicon(subject) {
+                var colors = { fluid:"#06B6D4", thermo:"#F97316", production:"#8B5CF6", operations:"#10B981", materials:"#EC4899" };
+                var color = colors[subject] || "#F59E0B";
+                var canvas = document.createElement("canvas"); canvas.width = 32; canvas.height = 32;
+                var ctx = canvas.getContext("2d"); ctx.fillStyle = color; ctx.fillRect(0,0,32,32);
+                var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+                link.rel = "icon"; link.href = canvas.toDataURL(); document.head.appendChild(link);
+            }
+
+            applyTheme(saved);
+            applySubject(savedSubject);
+
+            toggle.addEventListener("click", function() {
+                var current = document.documentElement.getAttribute("data-theme") || "dark";
+                applyTheme(current === "dark" ? "light" : "dark");
+            });
+            var bar = document.getElementById("reading-progress");
+            window.addEventListener("scroll", function() {
+                var d = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+            }, { passive: true });
+            window.applySubject = applySubject;
+        })();
+    </script>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="forming_hub.html">[Hub Home]</a>
+        <a href="casting.html" class="active">1. Casting</a>
+        <a href="forming.html">2. Forming &amp; Forging</a>
+        <a href="powder_metallurgy.html">3. Powder Metallurgy</a>
+        <a href="welding.html">4. Welding &amp; Joining</a>
+    </nav>
   <h1 id="casting">Casting</h1>
 <h2 id="1-topic-overview">1. Topic Overview</h2>
 <p>This guide covers metal casting for AP Genco AE-style preparation, focusing on pattern allowances, moulding sand properties, cores and chaplets, gating and risering, Chvorinov solidification, shrinkage compensation, and special casting processes. The most frequent PYQ themes are allowance identification, sand-property recall, gating-riser-cast flow, and solidification/shrinkage numericals. The content below consolidates repeated facts, keeps the worked examples, and presents the topic in a single exam-friendly structure.</p>
