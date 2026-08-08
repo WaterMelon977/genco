@@ -1,324 +1,866 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centrifugal & Spring-Loaded Governors: Principles, Height, Sensitiveness, Effort & Power — Master Reorganized Study Guide — AP GenCo Exam Guide</title>
-  <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Centrifugal & Spring-Loaded Governors: Principles, Height, Sensitiveness, Effort & Power — Master Reorganized
+      Study Guide — AP GenCo Exam Guide</title>
+   <script>
+      MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
+   </script>
+   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   <style>
+      :root {
+         --bg-page: #F8FAFC;
+         --bg-card: #FFFFFF;
+         --bg-formula: #F1F5F9;
+         --text-primary: #0F172A;
+         --text-secondary: #475569;
+         --text-muted: #94A3B8;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #E2E8F0;
+         --heading-color: #0F172A;
+         --heading-sub: #10B981;
+         --code-bg: #E2E8F0;
+         --code-text: #0F172A;
+         --pre-bg: #F8FAFC;
+         --table-th-bg: #0F172A;
+         --table-even-bg: #F8FAFC;
+         --callout-concept-bg: #EFF6FF;
+         --callout-concept-border: #3B82F6;
+         --callout-concept-text: #1E40AF;
+         --callout-trap-bg: #FEF2F2;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #991B1B;
+         --callout-focus-bg: #FEFCE8;
+         --callout-focus-border: #EAB308;
+         --callout-focus-text: #854D0E;
+         --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+      }
+
+      [data-theme="dark"] {
+         --bg-page: #0E0F12;
+         --bg-card: #16181D;
+         --bg-formula: #111318;
+         --text-primary: #F1F5F9;
+         --text-secondary: #94A3B8;
+         --text-muted: #64748B;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #262933;
+         --heading-color: #F1F5F9;
+         --heading-sub: #10B981;
+         --code-bg: #262933;
+         --code-text: #F1F5F9;
+         --pre-bg: #111318;
+         --table-th-bg: #111318;
+         --table-even-bg: #121419;
+         --callout-concept-bg: #131D31;
+         --callout-concept-border: #3B6FD4;
+         --callout-concept-text: #93C5FD;
+         --callout-trap-bg: #271415;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #FCA5A5;
+         --callout-focus-bg: #2A2210;
+         --callout-focus-border: #C09820;
+         --callout-focus-text: #E0C060;
+         --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      }
+
+      *,
+      *::before,
+      *::after {
+         box-sizing: border-box;
+      }
+
+      #reading-progress {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 0%;
+         height: 3px;
+         background: var(--subject-current);
+         z-index: 9999;
+         transition: width 0.1s linear;
+         border-radius: 0 2px 2px 0;
+      }
+
+      #floating-nav {
+         position: fixed;
+         top: 12px;
+         left: 50%;
+         transform: translateX(-50%);
+         display: flex;
+         align-items: center;
+         gap: 4px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-radius: 50px;
+         padding: 5px 14px;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+         z-index: 9998;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.3s ease;
+         white-space: nowrap;
+         font-size: 8.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      #floating-nav.visible {
+         opacity: 1;
+         pointer-events: auto;
+      }
+
+      .fnav-link {
+         color: var(--text-secondary);
+         text-decoration: none;
+         padding: 3px 10px;
+         border-radius: 20px;
+         font-weight: 600;
+         transition: background 0.15s, color 0.15s;
+      }
+
+      .fnav-link:hover {
+         background: var(--bg-formula);
+         color: var(--subject-current);
+      }
+
+      .fnav-link.active-section {
+         background: var(--subject-current);
+         color: #0E0F12;
+      }
+
+      .fnav-sep {
+         color: var(--border-light);
+         user-select: none;
+         font-size: 8pt;
+      }
+
+      #theme-toggle {
+         position: fixed;
+         top: 18px;
+         right: 24px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         color: var(--text-secondary);
+         border-radius: 50%;
+         width: 40px;
+         height: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         font-size: 13pt;
+         z-index: 9998;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+         transition: all 0.2s ease;
+      }
+
+      #theme-toggle:hover {
+         border-color: var(--subject-current);
+         color: var(--subject-current);
+         transform: scale(1.08);
+      }
+
+      body {
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-size: 11.5pt;
+         line-height: 1.9;
+         color: var(--text-primary);
+         background-color: var(--bg-page);
+         margin: 0;
+         padding: 60px 20px 72px;
+         transition: background-color 0.25s, color 0.25s;
+      }
+
+      .reading-content {
+         max-width: 820px;
+         margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-family: "Bookman Old Style", Georgia, serif;
+         color: var(--heading-color);
+         font-weight: 700;
+         margin-top: 1.6em;
+         margin-bottom: 0.5em;
+      }
+
+      h1 {
+         font-size: 22pt;
+         text-align: center;
+         background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+         color: #F8FAFC;
+         border-left: 5px solid var(--subject-current);
+         padding: 28px 24px;
+         border-radius: 12px;
+         margin-bottom: 28px;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+         line-height: 1.35;
+      }
+
+      [data-theme="light"] h1 {
+         background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      }
+
+      h2 {
+         font-size: 16pt;
+         border-bottom: 3px solid var(--subject-current);
+         padding-bottom: 8px;
+         margin-top: 42px;
+      }
+
+      h3 {
+         font-size: 13.5pt;
+         color: var(--subject-current);
+         margin-top: 28px;
+      }
+
+      h4 {
+         font-size: 12pt;
+         color: var(--text-primary);
+         margin-top: 20px;
+      }
+
+      h5 {
+         font-size: 11pt;
+         color: var(--text-secondary);
+         margin-top: 16px;
+      }
+
+      a {
+         color: var(--subject-current);
+         text-decoration: none;
+      }
+
+      a:hover {
+         text-decoration: underline;
+      }
+
+      p {
+         margin-bottom: 0.9em;
+      }
+
+      code {
+         font-family: "SFMono-Regular", Consolas, monospace;
+         background: var(--code-bg);
+         color: var(--subject-current);
+         padding: 0.2em 0.5em;
+         border-radius: 4px;
+         font-size: 9.5pt;
+         font-weight: 600;
+      }
+
+      pre {
+         background: var(--pre-bg);
+         border: 1px solid var(--border-light);
+         padding: 16px;
+         border-radius: 8px;
+         overflow-x: auto;
+         color: var(--text-primary);
+         margin: 18px 0;
+      }
+
+      pre code {
+         background: none;
+         padding: 0;
+         font-size: inherit;
+         color: var(--text-primary);
+      }
+
+      blockquote {
+         border-left: 4px solid var(--subject-current);
+         background-color: var(--pre-bg);
+         padding: 12px 18px;
+         margin: 18px 0;
+         color: var(--text-secondary);
+         border-radius: 0 6px 6px 0;
+      }
+
+      table {
+         border-collapse: collapse;
+         width: 100%;
+         margin: 24px 0;
+         background: var(--bg-card);
+         border-radius: 10px;
+         overflow: hidden;
+         border: 1px solid var(--border-light);
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+         font-size: 10pt;
+      }
+
+      th,
+      td {
+         border: 1px solid var(--border-light);
+         padding: 12px 16px;
+         text-align: left;
+      }
+
+      th {
+         background: var(--table-th-bg);
+         color: var(--subject-current);
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-weight: 600;
+         font-size: 9.5pt;
+         letter-spacing: 0.5px;
+         border-bottom: 2px solid var(--subject-current);
+      }
+
+      tr:nth-child(even) {
+         background-color: var(--table-even-bg);
+      }
+
+      tr:hover {
+         background-color: var(--subject-bg-tint);
+      }
+
+      img {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         border: 1px solid var(--border-light);
+      }
+
+      ul,
+      ol {
+         padding-left: 1.5em;
+         margin-bottom: 0.8em;
+      }
+
+      li {
+         margin-bottom: 0.25em;
+      }
+
+      /* Formula Cards — Intense Breathing & Lit Box Effect */
+      @keyframes formulaBreathe {
+
+         0%,
+         100% {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+               0 0 18px 2px var(--subject-current);
+            border-left-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-formula) 75%);
+         }
+
+         50% {
+            box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+               0 0 32px 6px var(--subject-current-light);
+            border-left-color: #34D399;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, var(--bg-formula) 60%);
+         }
+      }
+
+      .formula-card,
+      .fc,
+      .concept-block {
+         border: 1px solid var(--border-light);
+         border-left: 5px solid var(--subject-current);
+         border-radius: 10px;
+         padding: 16px 20px;
+         margin: 22px 0;
+         text-align: center;
+         overflow-x: auto;
+         animation: formulaBreathe 3.5s ease-in-out infinite;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .formula-card:hover,
+      .fc:hover,
+      .concept-block:hover {
+         transform: translateY(-3px) scale(1.01);
+         background: linear-gradient(135deg, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0.10) 100%) !important;
+         box-shadow: 0 0 45px 8px var(--subject-current),
+            0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+         border-color: var(--subject-current);
+      }
+
+      .callout {
+         padding: 16px 20px;
+         margin: 20px 0;
+         border-radius: 8px;
+         font-size: 10.5pt;
+         line-height: 1.6;
+         border-left: 5px solid;
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .callout-concept {
+         background-color: var(--callout-concept-bg);
+         border-color: var(--callout-concept-border);
+         color: var(--callout-concept-text);
+      }
+
+      .callout-trap {
+         background-color: var(--callout-trap-bg);
+         border-color: var(--callout-trap-border);
+         color: var(--callout-trap-text);
+      }
+
+      .callout-focus {
+         background-color: var(--callout-focus-bg);
+         border-color: var(--callout-focus-border);
+         color: var(--callout-focus-text);
+      }
+
+      .katex-display,
+      .MathJax_Display {
+         overflow-x: auto;
+         overflow-y: hidden;
+      }
+
+      .submodule-nav {
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-left: 4px solid var(--subject-current);
+         padding: 14px 20px;
+         border-radius: 10px;
+         margin-bottom: 28px;
+         text-align: center;
+         box-shadow: var(--shadow-card);
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         font-size: 9.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .submodule-nav a {
+         color: var(--text-secondary);
+         font-weight: 600;
+         text-decoration: none;
+         padding: 5px 12px;
+         border-radius: 6px;
+         transition: all 0.2s ease;
+      }
+
+      .submodule-nav a:hover {
+         color: var(--subject-current);
+         background: var(--bg-formula);
+      }
+
+      .submodule-nav a.active {
+         color: var(--subject-current);
+         font-weight: 700;
+         background: var(--bg-formula);
+         border: 1px solid var(--subject-current);
+      }
+
+      @media (max-width: 700px) {
+         #floating-nav {
+            display: none;
+         }
+
+         body {
+            padding: 50px 14px 40px;
+         }
+
+         h1 {
+            font-size: 17pt;
+            padding: 18px;
+         }
+      }
+   </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
-    <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Tom Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="centrifugal-spring-loaded-governors-principles-height-sensitiveness-effort-power-master-reorganized-study-guide">Centrifugal &amp; Spring-Loaded Governors: Principles, Height, Sensitiveness, Effort &amp; Power — Master Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers the comprehensive mechanics, design equations, and behavioral characteristics of Governors in Mechanical Engineering systems for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core concepts addressed include Classification of Governors (Centrifugal Governors vs Inertia Governors, Pendulum Type vs Dead-Weight Loaded Type vs Spring-Loaded Type), Watt Governor (governing conical pendulum equilibrium, height derivation $h = \frac{g}{\omega^2} = \frac{895}{N^2}$, speed limitation 60–80 rpm), Porter Governor (dead-weight central sleeve load $M$, height formula $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$, effect of link obliquity $q = \frac{\tan\beta}{\tan\alpha}$, effect of sleeve friction $f$, proof why Porter governor cannot be isochronous), Proell Governor (flyballs mounted on extension of lower links, reduced mass requirement, height relation $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$), Hartnell Governor (spring-loaded bell-crank lever governor, spring stiffness equation $k = 2 \left(\frac{a}{b}\right)^2 \frac{F_2 - F_1}{r_2 - r_1}$, sleeve lift relation $x = (r_2 - r_1) \frac{b}{a}$), Hartung, Wilson-Hartnell &amp; Pickering Governors (flat leaf spring governor for gramophones), Controlling Force Diagrams ($F_c$ vs $r$ curves for stable, isochronous, and unstable spring governors), Governor Performance Characteristics (Sensitiveness $S = \frac{N_1 - N_2}{N_m}$, Stability $\frac{dN}{dr} &gt; 0$, Isochronism $N_1 = N_2 \implies S \to \infty$, Hunting due to over-sensitiveness, Insensitiveness due to sleeve friction $f$), Governor Effort &amp; Power (mean sleeve force for $1\%$ speed change $E = \frac{c}{1+c} (mg + Mg)$, Governor Power $= \text{Effort} \times \text{Sleeve Lift} = E \cdot x$), and Governor vs Flywheel Functional Comparison. All raw syllabus concepts, derivations, formulas, decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Parameter / Concept</th>
-<th style="text-align: left;">Formula / Governing Relation</th>
-<th style="text-align: left;">Primary Units</th>
-<th style="text-align: left;">Key Conditions &amp; Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Watt Governor Height $h$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{g}{\omega^2} = \frac{895}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">$N$ in rpm, $g \approx 9.81 \text{ m/s}^2$. Valid for low speeds $60-80 \text{ rpm}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Watt Height in Millimeters</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{895000}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{mm}$</td>
-<td style="text-align: left;">Direct formula for height in millimeters.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Porter Governor Height (No Friction)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{m + M}{m} \cdot \frac{g}{\omega^2} = \frac{m + M}{m} \cdot \frac{895}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">$m$ = ball mass $\text{kg}$, $M$ = central sleeve load $\text{kg}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Porter Height with Link Obliquity $q$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{m + M\left(\frac{1+q}{2}\right)}{m} \cdot \frac{895}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">$q = \frac{\tan\beta}{\tan\alpha}$ where $\alpha, \beta$ are upper &amp; lower link angles.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Porter Height with Sleeve Friction $f$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{m \cdot g + (M \cdot g \pm f)\left(\frac{1+q}{2}\right)}{m \cdot g} \cdot \frac{895}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">$+f$ when sleeve moves UP (speed increasing), $-f$ when sleeve moves DOWN.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Proell Governor Height Formula</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{h = \frac{a}{e} \cdot \frac{m + M}{m} \cdot \frac{895}{N^2}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$</td>
-<td style="text-align: left;">Flyballs on link extension; $a$ = lower link length, $e$ = ball extension offset.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Hartnell Spring Stiffness $k$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div></td>
-<td style="text-align: left;">$\text{N/m}$ or $\text{N/cm}$</td>
-<td style="text-align: left;">$a$ = vertical arm, $b$ = horizontal arm, $F$ = centrifugal force, $r$ = radius.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Hartnell Stiffness (Equal Arms $a=b$)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div></td>
-<td style="text-align: left;">$\text{N/m}$ or $\text{N/cm}$</td>
-<td style="text-align: left;">Factor of 2 accounts for two flyballs acting on sleeve!</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Hartnell Sleeve Lift $x$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{x = (r_2 - r_1) \cdot \frac{b}{a}}}$$</div></td>
-<td style="text-align: left;">$\text{m}$ or $\text{cm}$</td>
-<td style="text-align: left;">Linear vertical displacement of governor sleeve.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Governor Sensitiveness $S$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{S = \frac{N_1 - N_2}{N_m} = \frac{\omega_1 - \omega_2}{\omega_m}}}$$</div></td>
-<td style="text-align: left;">Dimensionless</td>
-<td style="text-align: left;">Ratio of speed range to mean speed $N_m = \frac{N_1+N_2}{2}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Inverse Sensitiveness (Water Turbines)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{S_{\text{inv}} = \frac{N_m}{N_1 - N_2} = \frac{1}{S}}}$$</div></td>
-<td style="text-align: left;">Dimensionless</td>
-<td style="text-align: left;">Used in hydroelectric turbine governor specifications.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Isochronous Governor Condition</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{N_1 = N_2 \implies S \to \infty, \quad \text{Range } = 0}}$$</div></td>
-<td style="text-align: left;">Dimensionless</td>
-<td style="text-align: left;">Constant equilibrium speed for all radii of rotation.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Controlling Force Line (Stable)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_c = A \cdot r - B \quad (B &gt; 0)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Positive $r$-intercept (intercepts negative $F_c$ axis).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Controlling Force Line (Isochronous)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_c = A \cdot r \quad (B = 0)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Passes directly through origin $(0,0)$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Controlling Force Line (Unstable)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{F_c = A \cdot r + B \quad (B &gt; 0)}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Positive $F_c$-intercept (intercepts positive $F_c$ axis).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Frictional Speed Range $\Delta N_{\text{frict}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\Delta N_{\text{frict}} = N_1' - N_2' = \frac{f}{m \cdot g + M \cdot g} \cdot N_m}}$$</div></td>
-<td style="text-align: left;">$\text{rpm}$</td>
-<td style="text-align: left;">Speed deadband caused by sleeve friction force $f$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Porter Governor Effort $P_{\text{effort}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{P_{\text{effort}} = \frac{c}{1+c} \cdot (m + M) \cdot g}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Mean sleeve force for speed change fraction $c = \frac{\Delta N}{N_m}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Porter Effort for $1\%$ Speed Change</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{P_{1\%} = \frac{0.01}{1.01} \cdot (m + M) \cdot g \approx 0.01 (m + M) \cdot g}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Standard benchmark effort definition $c = 0.01$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Governor Power $P_{\text{power}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{P_{\text{power}} = P_{\text{effort}} \cdot x = \text{Effort} \times \text{Sleeve Lift}}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$ or $\text{J}$</td>
-<td style="text-align: left;">Total work done on sleeve during full speed range.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Watt Governor Height Sensitivity $\frac{dh}{dN}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\frac{dh}{dN} = -\frac{2 \cdot 895}{N^3} = -\frac{1790}{N^3}}}$$</div></td>
-<td style="text-align: left;">$\text{m/rpm}$</td>
-<td style="text-align: left;">Height change per rpm; drops rapidly as $N$ increases!</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Governor</strong>: An automatic speed-control device that regulates the supply of working fluid (fuel, steam, or water) to a prime mover to maintain its MEAN rotational speed nearly constant across changing external loads.</li>
-<li><strong>Centrifugal Governor</strong>: A governor operating on the principle of balancing centrifugal forces generated by rotating flyballs against an opposing force (gravity dead-weight or spring load). As speed increases, flyballs move outward, lifting the sleeve to close the throttle valve.</li>
-<li><strong>Inertia Governor</strong>: A governor where control action depends on both centrifugal force (proportional to speed $\omega$) and angular inertia force (proportional to angular acceleration $\alpha = \frac{d\omega}{dt}$). Offers faster response than centrifugal governors but is harder to balance dynamically.</li>
-<li><strong>Height of Governor $h$</strong>: The vertical distance measured along the governor spindle axis from the plane of rotation of the flyballs to the point of intersection of the upper arms (or their extensions) with the spindle axis.</li>
-<li><strong>Sensitiveness</strong>: The responsiveness of a governor to small speed changes. Quantified as the ratio of speed range $N_1 - N_2$ to mean speed $N_m$. A higher sensitiveness means a larger sleeve lift for a given percentage change in speed.</li>
-<li><strong>Stability</strong>: A governor is STABLE if for every speed within its working range, there is ONE AND ONLY ONE unique equilibrium position for the sleeve and flyballs. For a stable governor, the radius of rotation $r$ INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</li>
-<li><strong>Isochronism</strong>: A governor is ISOCHRONOUS if its equilibrium speed is CONSTANT for all radii of rotation within its working range $N_1 = N_2 = N_m$. Range of speed is zero, rendering sensitiveness INFINITE $S \to \infty$. An ideal Watt governor (neglecting friction) can be isochronous, but a Porter governor CANNOT be isochronous.</li>
-<li><strong>Hunting</strong>: A phenomenon of violent, continuous speed oscillation above and below mean speed caused by an OVER-SENSITIVE or laggy governor. The sleeve overreacts, over-closing and over-opening the throttle in a continuous cycle.</li>
-<li><strong>Governor Effort</strong>: The mean force exerted BY the governor ON the sleeve during a specified percentage change in speed (commonly defined for a $1\%$ speed variation).</li>
-<li><strong>Governor Power</strong>: The total work done by the governor on the sleeve during a specified speed change, equal to the product of Governor Effort and Sleeve Lift $\text{Power} = \text{Effort} \times \text{Sleeve Lift}$.</li>
-<li><strong>Pickering Governor</strong>: A spring-governor consisting of three flat leaf springs each carrying a central mass. Used primarily in gramophones and precision speed drives to control speed smoothly without links or pivots.</li>
-</ul>
-<hr />
-<h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong></h3>
-<ul>
-<li><strong>Watt Governor Speed Limit</strong>: $60 \text{ to } 80 \text{ rpm}$ (at $N &gt; 100 \text{ rpm}$, height $h &lt; 89.5 \text{ mm}$ and drops too small to detect!).</li>
-<li><strong>Watt Height at $N = 60 \text{ rpm}$</strong>: $h = \frac{895}{3600} \approx 0.2486 \text{ m} = 248.6 \text{ mm}$.</li>
-<li><strong>Watt Height at $N = 100 \text{ rpm}$</strong>: $h = \frac{895}{10000} = 0.0895 \text{ m} = 89.5 \text{ mm}$.</li>
-<li><strong>Watt Height Change for $100 \to 101 \text{ rpm}$</strong>: $\Delta h \approx 1.77 \text{ mm}$ (imperceptible sleeve movement).</li>
-<li><strong>Isochronous Governor Sensitiveness</strong>: $S = \infty$ (Range $= 0$).</li>
-<li><strong>Standard Effort Benchmark Speed Change</strong>: $1\%$ variation $c = 0.01$.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Centrifugal vs Inertia &amp; Watt Governor Mechanics</strong>: §3.1.</li>
-<li><strong>Porter &amp; Proell Dead-Weight Governors &amp; Isochronism Proof</strong>: §3.2.</li>
-<li><strong>Hartnell, Hartung, Wilson-Hartnell &amp; Pickering Governors &amp; Controlling Force Diagrams</strong>: §3.3.</li>
-<li><strong>Governor Performance Characteristics (Sensitiveness, Stability, Isochronism, Hunting, Friction)</strong>: §3.4.</li>
-<li><strong>Governor Effort &amp; Power Equations</strong>: §3.5.</li>
-<li><strong>Governor vs Flywheel Comprehensive Comparison</strong>: §3.6.</li>
-<li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
-<li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
-<li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-centrifugal-vs-inertia-watt-governor-mechanics"><strong>3.1 Centrifugal vs Inertia &amp; Watt Governor Mechanics</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Classification Overview</strong>:</li>
-<li><strong>Centrifugal Governors</strong>: Rely on centrifugal force of revolving flyballs acting against gravity or spring force. Types: Watt (pendulum), Porter &amp; Proell (dead-weight loaded), Hartnell, Hartung, Wilson-Hartnell &amp; Pickering (spring-loaded).</li>
-<li><strong>Inertia Governors</strong>: Rely on angular inertia torque $\alpha = d\omega/dt$ plus centrifugal force. Response is faster because it reacts directly to acceleration rather than waiting for speed to change.</li>
-<li><strong>Pickering Governor</strong>: Features flat leaf springs supporting central flyballs. As speed increases, centrifugal force bends leaf springs outward, pulling the sleeve down to regulate fluid flow. Used extensively in phonographs and gramophones.</li>
-<li><strong>Watt Governor (Pendulum Type)</strong>:</li>
-<li>Simplest form of centrifugal governor. Consists of two flyballs attached to arms pivoted to a rotating spindle.</li>
-<li><strong>Derivation of Height $h$</strong>:
-    For ball of mass $m$ at radius $r$, rotating at angular velocity $\omega$:
-    Centrifugal force $F_c = m \omega^2 r$. Ball weight $= m g$.
-    Taking moments about upper arm pivot $O$:
-    <div class="formula-card">$${F_c \cdot h = m g \cdot r \implies (m \omega^2 r) \cdot h = m g r}$$</div>
-    Canceling $m \cdot r$ from both sides gives:
-    <div class="formula-card">$${\boxed{h = \frac{g}{\omega^2}}}$$</div>
-    Substituting $\omega = \frac{2\pi N}{60}$ and $g = 9.81 \text{ m/s}^2$:
-    <div class="formula-card">$${\boxed{h = \frac{9.81}{\left(\frac{2\pi N}{60}\right)^2} = \frac{895}{N^2} \quad (\text{metres})}}$$</div></li>
-<li><strong>Speed Limitation of Watt Governor</strong>:</li>
-<li>Height $h \propto \frac{1}{N^2}$. As speed $N$ increases, $h$ decreases rapidly.</li>
-<li>At $N = 60 \text{ rpm}$, $h = 248.6 \text{ mm}$.</li>
-<li>At $N = 100 \text{ rpm}$, $h = 89.5 \text{ mm}$.</li>
-<li>At $N = 200 \text{ rpm}$, $h = 22.4 \text{ mm}$.</li>
-<li>Rate of change $\frac{dh}{dN} = -\frac{1790}{N^3}$. At high speeds $N &gt; 100 \text{ rpm}$, a change in speed of $1 \text{ rpm}$ produces an imperceptible sleeve lift $\Delta h &lt; 1.7 \text{ mm}$, rendering the Watt governor insensitive and useless!</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Watt Speed Limit $N &lt; 80 \text{ rpm}$</strong>: The height of a Watt governor is inversely proportional to speed squared $h = 895/N^2$. At high speeds $N &gt; 100 \text{ rpm}$, $h$ becomes extremely small and sleeve movement per rpm drops to fraction of a millimeter, making it completely insensitive.</p>
-<p>[!TRAP]
-<strong>Mass Independence of Watt Height</strong>: The height $h = 895/N^2$ of a Watt governor is completely INDEPENDENT of ball mass $m$! Adding heavier flyballs does NOT increase governor height or sensitivity in a Watt governor.</div>
-<h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Centrifugal Governor Selection &amp; Height Analysis
+
+<body id="preview" data-subject="operations">
+   <div id="reading-progress"></div>
+   <div id="floating-nav">
+      <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
+   </div>
+   <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+   <script>
+      (function () {
+         var toggle = document.getElementById("theme-toggle");
+         var saved = localStorage.getItem("ag-theme") || "dark";
+         function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+         applyTheme(saved);
+         if (toggle) { toggle.addEventListener("click", function () { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+         var bar = document.getElementById("reading-progress");
+         function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s / d) * 100, 100) : 0) + "%"; }
+         window.addEventListener("scroll", upBar, { passive: true }); upBar();
+         var fn = document.getElementById("floating-nav");
+         var links = fn.querySelectorAll(".fnav-link");
+         var ids = ["section-1-topic-overview", "section-2-quick-reference-sheet", "section-3-main-body", "section-4-theory-qa", "section-5-consolidation-notes", "section-6-final-quick-fire-pre-exam-checklist"];
+         function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function (id) { var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function (lk) { lk.classList.toggle("active-section", lk.getAttribute("href").replace("#", "") === act); }); }
+         window.addEventListener("scroll", upNav, { passive: true }); upNav();
+         links.forEach(function (lk) { lk.addEventListener("click", function (e) { e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#", "")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+      })();
+   </script>
+   <div class="reading-content">
+      <nav class="submodule-nav">
+         <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">⚙️ Theory of Machines:</span>
+         <a href="index.html">[Hub Home]</a>
+         <a href="balancing_reorganized.html">1. Balancing</a>
+         <a href="flywheel_reorganized.html">2. Flywheels</a>
+         <a href="governor_reorganized.html" class="active">3. Governors</a>
+         <a href="gyroscope_reorganized.html">4. Gyroscopes</a>
+         <a href="slidercrank_reorganized.html">5. Slider-Crank</a>
+      </nav>
+
+      <div class="callout callout-concept"
+         style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+         <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version.</span>
+         <a href="governor_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise
+            Revision Guide</a>
+      </div>
+      <h1
+         id="centrifugal-spring-loaded-governors-principles-height-sensitiveness-effort-power-master-reorganized-study-guide">
+         Centrifugal &amp; Spring-Loaded Governors: Principles, Height, Sensitiveness, Effort &amp; Power — Master
+         Reorganized Study Guide</h1>
+      <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+      <p>This master guide covers the comprehensive mechanics, design equations, and behavioral characteristics of
+         Governors in Mechanical Engineering systems for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core concepts
+         addressed include Classification of Governors (Centrifugal Governors vs Inertia Governors, Pendulum Type vs
+         Dead-Weight Loaded Type vs Spring-Loaded Type), Watt Governor (governing conical pendulum equilibrium, height
+         derivation $h = \frac{g}{\omega^2} = \frac{895}{N^2}$, speed limitation 60–80 rpm), Porter Governor
+         (dead-weight central sleeve load $M$, height formula $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$, effect of
+         link obliquity $q = \frac{\tan\beta}{\tan\alpha}$, effect of sleeve friction $f$, proof why Porter governor
+         cannot be isochronous), Proell Governor (flyballs mounted on extension of lower links, reduced mass
+         requirement, height relation $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$), Hartnell Governor
+         (spring-loaded bell-crank lever governor, spring stiffness equation $k = 2 \left(\frac{a}{b}\right)^2 \frac{F_2
+         - F_1}{r_2 - r_1}$, sleeve lift relation $x = (r_2 - r_1) \frac{b}{a}$), Hartung, Wilson-Hartnell &amp;
+         Pickering Governors (flat leaf spring governor for gramophones), Controlling Force Diagrams ($F_c$ vs $r$
+         curves for stable, isochronous, and unstable spring governors), Governor Performance Characteristics
+         (Sensitiveness $S = \frac{N_1 - N_2}{N_m}$, Stability $\frac{dN}{dr} &gt; 0$, Isochronism $N_1 = N_2 \implies S
+         \to \infty$, Hunting due to over-sensitiveness, Insensitiveness due to sleeve friction $f$), Governor Effort
+         &amp; Power (mean sleeve force for $1\%$ speed change $E = \frac{c}{1+c} (mg + Mg)$, Governor Power $=
+         \text{Effort} \times \text{Sleeve Lift} = E \cdot x$), and Governor vs Flywheel Functional Comparison. All raw
+         syllabus concepts, derivations, formulas, decision trees, revision checklists, worked numerical examples, and
+         theory Q&amp;As have been consolidated with zero content loss.</p>
+      <hr />
+      <h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+      <h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong>
+      </h3>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Parameter / Concept</th>
+               <th style="text-align: left;">Formula / Governing Relation</th>
+               <th style="text-align: left;">Primary Units</th>
+               <th style="text-align: left;">Key Conditions &amp; Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Watt Governor Height $h$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{g}{\omega^2} = \frac{895}{N^2}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">$N$ in rpm, $g \approx 9.81 \text{ m/s}^2$. Valid for low speeds $60-80
+                  \text{ rpm}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Watt Height in Millimeters</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{895000}{N^2}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{mm}$</td>
+               <td style="text-align: left;">Direct formula for height in millimeters.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Porter Governor Height (No Friction)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{m + M}{m} \cdot \frac{g}{\omega^2} = \frac{m + M}{m}
+                     \cdot \frac{895}{N^2}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">$m$ = ball mass $\text{kg}$, $M$ = central sleeve load $\text{kg}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Porter Height with Link Obliquity $q$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{m + M\left(\frac{1+q}{2}\right)}{m} \cdot
+                     \frac{895}{N^2}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">$q = \frac{\tan\beta}{\tan\alpha}$ where $\alpha, \beta$ are upper &amp;
+                  lower link angles.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Porter Height with Sleeve Friction $f$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{m \cdot g + (M \cdot g \pm
+                     f)\left(\frac{1+q}{2}\right)}{m \cdot g} \cdot \frac{895}{N^2}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">$+f$ when sleeve moves UP (speed increasing), $-f$ when sleeve moves DOWN.
+               </td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Proell Governor Height Formula</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{h = \frac{a}{e} \cdot \frac{m + M}{m} \cdot \frac{895}{N^2}}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{m}$</td>
+               <td style="text-align: left;">Flyballs on link extension; $a$ = lower link length, $e$ = ball extension
+                  offset.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Hartnell Spring Stiffness $k$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 - F_1}{r_2
+                     - r_1}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N/m}$ or $\text{N/cm}$</td>
+               <td style="text-align: left;">$a$ = vertical arm, $b$ = horizontal arm, $F$ = centrifugal force, $r$ =
+                  radius.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Hartnell Stiffness (Equal Arms $a=b$)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N/m}$ or $\text{N/cm}$</td>
+               <td style="text-align: left;">Factor of 2 accounts for two flyballs acting on sleeve!</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Hartnell Sleeve Lift $x$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{x = (r_2 - r_1) \cdot \frac{b}{a}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{m}$ or $\text{cm}$</td>
+               <td style="text-align: left;">Linear vertical displacement of governor sleeve.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Governor Sensitiveness $S$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{S = \frac{N_1 - N_2}{N_m} = \frac{\omega_1 -
+                     \omega_2}{\omega_m}}}$$</div>
+               </td>
+               <td style="text-align: left;">Dimensionless</td>
+               <td style="text-align: left;">Ratio of speed range to mean speed $N_m = \frac{N_1+N_2}{2}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Inverse Sensitiveness (Water Turbines)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{S_{\text{inv}} = \frac{N_m}{N_1 - N_2} = \frac{1}{S}}}$$</div>
+               </td>
+               <td style="text-align: left;">Dimensionless</td>
+               <td style="text-align: left;">Used in hydroelectric turbine governor specifications.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Isochronous Governor Condition</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{N_1 = N_2 \implies S \to \infty, \quad \text{Range } = 0}}$$</div>
+               </td>
+               <td style="text-align: left;">Dimensionless</td>
+               <td style="text-align: left;">Constant equilibrium speed for all radii of rotation.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Controlling Force Line (Stable)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_c = A \cdot r - B \quad (B &gt; 0)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Positive $r$-intercept (intercepts negative $F_c$ axis).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Controlling Force Line (Isochronous)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_c = A \cdot r \quad (B = 0)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Passes directly through origin $(0,0)$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Controlling Force Line (Unstable)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{F_c = A \cdot r + B \quad (B &gt; 0)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Positive $F_c$-intercept (intercepts positive $F_c$ axis).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Frictional Speed Range $\Delta N_{\text{frict}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\Delta N_{\text{frict}} = N_1' - N_2' = \frac{f}{m \cdot g + M
+                     \cdot g} \cdot N_m}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rpm}$</td>
+               <td style="text-align: left;">Speed deadband caused by sleeve friction force $f$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Porter Governor Effort $P_{\text{effort}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{P_{\text{effort}} = \frac{c}{1+c} \cdot (m + M) \cdot g}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Mean sleeve force for speed change fraction $c = \frac{\Delta N}{N_m}$.
+               </td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Porter Effort for $1\%$ Speed Change</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{P_{1\%} = \frac{0.01}{1.01} \cdot (m + M) \cdot g \approx 0.01 (m
+                     + M) \cdot g}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Standard benchmark effort definition $c = 0.01$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Governor Power $P_{\text{power}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{P_{\text{power}} = P_{\text{effort}} \cdot x = \text{Effort}
+                     \times \text{Sleeve Lift}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$ or $\text{J}$</td>
+               <td style="text-align: left;">Total work done on sleeve during full speed range.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Watt Governor Height Sensitivity $\frac{dh}{dN}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\frac{dh}{dN} = -\frac{2 \cdot 895}{N^3} = -\frac{1790}{N^3}}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{m/rpm}$</td>
+               <td style="text-align: left;">Height change per rpm; drops rapidly as $N$ increases!</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr />
+      <h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+      <ul>
+         <li><strong>Governor</strong>: An automatic speed-control device that regulates the supply of working fluid
+            (fuel, steam, or water) to a prime mover to maintain its MEAN rotational speed nearly constant across
+            changing external loads.</li>
+         <li><strong>Centrifugal Governor</strong>: A governor operating on the principle of balancing centrifugal
+            forces generated by rotating flyballs against an opposing force (gravity dead-weight or spring load). As
+            speed increases, flyballs move outward, lifting the sleeve to close the throttle valve.</li>
+         <li><strong>Inertia Governor</strong>: A governor where control action depends on both centrifugal force
+            (proportional to speed $\omega$) and angular inertia force (proportional to angular acceleration $\alpha =
+            \frac{d\omega}{dt}$). Offers faster response than centrifugal governors but is harder to balance
+            dynamically.</li>
+         <li><strong>Height of Governor $h$</strong>: The vertical distance measured along the governor spindle axis
+            from the plane of rotation of the flyballs to the point of intersection of the upper arms (or their
+            extensions) with the spindle axis.</li>
+         <li><strong>Sensitiveness</strong>: The responsiveness of a governor to small speed changes. Quantified as the
+            ratio of speed range $N_1 - N_2$ to mean speed $N_m$. A higher sensitiveness means a larger sleeve lift for
+            a given percentage change in speed.</li>
+         <li><strong>Stability</strong>: A governor is STABLE if for every speed within its working range, there is ONE
+            AND ONLY ONE unique equilibrium position for the sleeve and flyballs. For a stable governor, the radius of
+            rotation $r$ INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</li>
+         <li><strong>Isochronism</strong>: A governor is ISOCHRONOUS if its equilibrium speed is CONSTANT for all radii
+            of rotation within its working range $N_1 = N_2 = N_m$. Range of speed is zero, rendering sensitiveness
+            INFINITE $S \to \infty$. An ideal Watt governor (neglecting friction) can be isochronous, but a Porter
+            governor CANNOT be isochronous.</li>
+         <li><strong>Hunting</strong>: A phenomenon of violent, continuous speed oscillation above and below mean speed
+            caused by an OVER-SENSITIVE or laggy governor. The sleeve overreacts, over-closing and over-opening the
+            throttle in a continuous cycle.</li>
+         <li><strong>Governor Effort</strong>: The mean force exerted BY the governor ON the sleeve during a specified
+            percentage change in speed (commonly defined for a $1\%$ speed variation).</li>
+         <li><strong>Governor Power</strong>: The total work done by the governor on the sleeve during a specified speed
+            change, equal to the product of Governor Effort and Sleeve Lift $\text{Power} = \text{Effort} \times
+            \text{Sleeve Lift}$.</li>
+         <li><strong>Pickering Governor</strong>: A spring-governor consisting of three flat leaf springs each carrying
+            a central mass. Used primarily in gramophones and precision speed drives to control speed smoothly without
+            links or pivots.</li>
+      </ul>
+      <hr />
+      <h3 id="23-standard-values-physical-constants"><strong>2.3 — Standard Values &amp; Physical Constants</strong>
+      </h3>
+      <ul>
+         <li><strong>Watt Governor Speed Limit</strong>: $60 \text{ to } 80 \text{ rpm}$ (at $N &gt; 100 \text{ rpm}$,
+            height $h &lt; 89.5 \text{ mm}$ and drops too small to detect!).</li>
+         <li><strong>Watt Height at $N = 60 \text{ rpm}$</strong>: $h = \frac{895}{3600} \approx 0.2486 \text{ m} =
+            248.6 \text{ mm}$.</li>
+         <li><strong>Watt Height at $N = 100 \text{ rpm}$</strong>: $h = \frac{895}{10000} = 0.0895 \text{ m} = 89.5
+            \text{ mm}$.</li>
+         <li><strong>Watt Height Change for $100 \to 101 \text{ rpm}$</strong>: $\Delta h \approx 1.77 \text{ mm}$
+            (imperceptible sleeve movement).</li>
+         <li><strong>Isochronous Governor Sensitiveness</strong>: $S = \infty$ (Range $= 0$).</li>
+         <li><strong>Standard Effort Benchmark Speed Change</strong>: $1\%$ variation $c = 0.01$.</li>
+      </ul>
+      <hr />
+      <h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+      <ul>
+         <li><strong>Centrifugal vs Inertia &amp; Watt Governor Mechanics</strong>: §3.1.</li>
+         <li><strong>Porter &amp; Proell Dead-Weight Governors &amp; Isochronism Proof</strong>: §3.2.</li>
+         <li><strong>Hartnell, Hartung, Wilson-Hartnell &amp; Pickering Governors &amp; Controlling Force
+               Diagrams</strong>: §3.3.</li>
+         <li><strong>Governor Performance Characteristics (Sensitiveness, Stability, Isochronism, Hunting,
+               Friction)</strong>: §3.4.</li>
+         <li><strong>Governor Effort &amp; Power Equations</strong>: §3.5.</li>
+         <li><strong>Governor vs Flywheel Comprehensive Comparison</strong>: §3.6.</li>
+         <li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
+         <li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
+         <li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
+      </ul>
+      <hr />
+      <h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+      <h3 id="31-centrifugal-vs-inertia-watt-governor-mechanics"><strong>3.1 Centrifugal vs Inertia &amp; Watt Governor
+            Mechanics</strong></h3>
+      <h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Classification Overview</strong>:</li>
+         <li><strong>Centrifugal Governors</strong>: Rely on centrifugal force of revolving flyballs acting against
+            gravity or spring force. Types: Watt (pendulum), Porter &amp; Proell (dead-weight loaded), Hartnell,
+            Hartung, Wilson-Hartnell &amp; Pickering (spring-loaded).</li>
+         <li><strong>Inertia Governors</strong>: Rely on angular inertia torque $\alpha = d\omega/dt$ plus centrifugal
+            force. Response is faster because it reacts directly to acceleration rather than waiting for speed to
+            change.</li>
+         <li><strong>Pickering Governor</strong>: Features flat leaf springs supporting central flyballs. As speed
+            increases, centrifugal force bends leaf springs outward, pulling the sleeve down to regulate fluid flow.
+            Used extensively in phonographs and gramophones.</li>
+         <li><strong>Watt Governor (Pendulum Type)</strong>:</li>
+         <li>Simplest form of centrifugal governor. Consists of two flyballs attached to arms pivoted to a rotating
+            spindle.</li>
+         <li><strong>Derivation of Height $h$</strong>:
+            For ball of mass $m$ at radius $r$, rotating at angular velocity $\omega$:
+            Centrifugal force $F_c = m \omega^2 r$. Ball weight $= m g$.
+            Taking moments about upper arm pivot $O$:
+            <div class="formula-card">$${F_c \cdot h = m g \cdot r \implies (m \omega^2 r) \cdot h = m g r}$$</div>
+            Canceling $m \cdot r$ from both sides gives:
+            <div class="formula-card">$${\boxed{h = \frac{g}{\omega^2}}}$$</div>
+            Substituting $\omega = \frac{2\pi N}{60}$ and $g = 9.81 \text{ m/s}^2$:
+            <div class="formula-card">$${\boxed{h = \frac{9.81}{\left(\frac{2\pi N}{60}\right)^2} = \frac{895}{N^2}
+               \quad (\text{metres})}}$$</div>
+         </li>
+         <li><strong>Speed Limitation of Watt Governor</strong>:</li>
+         <li>Height $h \propto \frac{1}{N^2}$. As speed $N$ increases, $h$ decreases rapidly.</li>
+         <li>At $N = 60 \text{ rpm}$, $h = 248.6 \text{ mm}$.</li>
+         <li>At $N = 100 \text{ rpm}$, $h = 89.5 \text{ mm}$.</li>
+         <li>At $N = 200 \text{ rpm}$, $h = 22.4 \text{ mm}$.</li>
+         <li>Rate of change $\frac{dh}{dN} = -\frac{1790}{N^3}$. At high speeds $N &gt; 100 \text{ rpm}$, a change in
+            speed of $1 \text{ rpm}$ produces an imperceptible sleeve lift $\Delta h &lt; 1.7 \text{ mm}$, rendering the
+            Watt governor insensitive and useless!</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Watt Speed Limit $N &lt; 80 \text{
+            rpm}$</strong>: The height of a Watt governor is inversely proportional to speed squared $h = 895/N^2$. At
+         high speeds $N &gt; 100 \text{ rpm}$, $h$ becomes extremely small and sleeve movement per rpm drops to fraction
+         of a millimeter, making it completely insensitive.</p>
+         <p>[!TRAP]
+            <strong>Mass Independence of Watt Height</strong>: The height $h = 895/N^2$ of a Watt governor is completely
+            INDEPENDENT of ball mass $m$! Adding heavier flyballs does NOT increase governor height or sensitivity in a
+            Watt governor.
+      </div>
+      <h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Centrifugal Governor Selection &amp; Height Analysis
 │
 ├── Is there a central load or spring on the sleeve?
 │   ├── NO ──► WATT GOVERNOR (Pendulum Type)
@@ -330,72 +872,94 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 │       ├── Dead-Weight Sleeve Load M ──► PORTER / PROELL GOVERNOR
 │       └── Spring Load on Sleeve ──► HARTNELL / HARTUNG / PICKERING GOVERNOR
 </code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Watt height $h = g/\omega^2 = 895/N^2$ (meters).</li>
-<li>[ ] Watt height in mm: $h = 895000/N^2$.</li>
-<li>[ ] Watt height is independent of mass $m$.</li>
-<li>[ ] Suitable speed range: $60 - 80 \text{ rpm}$.</li>
-<li>[ ] Ineffective for $N &gt; 100 \text{ rpm}$.</li>
-<li>[ ] Pickering governor uses flat leaf springs (gramophones).</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Watt Governor Height Calculation</strong>
-- <strong>Problem</strong>: A Watt governor rotates at $60 \text{ rpm}$. Calculate: (a) Height $h$ in meters and millimeters, (b) New height $h'$ if speed increases to $61 \text{ rpm}$, (c) Sleeve lift $\Delta h$.
-- <strong>Solution</strong>:
-  1. Calculate initial height at $N = 60 \text{ rpm}$:
-     <div class="formula-card">$${h = \frac{895}{N^2} = \frac{895}{60^2} = \frac{895}{3600} \approx 0.24861 \text{ m} = 248.61 \text{ mm}}$$</div>
-  2. Calculate new height at $N' = 61 \text{ rpm}$:
-     <div class="formula-card">$${h' = \frac{895}{61^2} = \frac{895}{3721} \approx 0.24053 \text{ m} = 240.53 \text{ mm}}$$</div>
-  3. Calculate height change $\Delta h$:
-     <div class="formula-card">$${\Delta h = h - h' = 248.61 - 240.53 = 8.08 \text{ mm}}$$</div>
-- <strong>Key Insight</strong>: At $60 \text{ rpm}$, a $1 \text{ rpm}$ change causes $8.08 \text{ mm}$ height drop, providing good sensitivity.</p>
-<p><strong>Worked Example 2: Ineffectiveness of Watt Governor at High Speed</strong>
-- <strong>Problem</strong>: Repeat Example 1 for a Watt governor operating at $150 \text{ rpm}$ when speed increases by $1 \text{ rpm}$ to $151 \text{ rpm}$.
-- <strong>Solution</strong>:
-  1. Height at $N = 150 \text{ rpm}$:
-     <div class="formula-card">$${h = \frac{895}{150^2} = \frac{895}{22500} \approx 0.03978 \text{ m} = 39.78 \text{ mm}}$$</div>
-  2. Height at $N' = 151 \text{ rpm}$:
-     <div class="formula-card">$${h' = \frac{895}{151^2} = \frac{895}{22801} \approx 0.03925 \text{ m} = 39.25 \text{ mm}}$$</div>
-  3. Calculate height change $\Delta h$:
-     <div class="formula-card">$${\Delta h = 39.78 - 39.25 = 0.53 \text{ mm}}$$</div>
-- <strong>Key Insight</strong>: At $150 \text{ rpm}$, a $1 \text{ rpm}$ change produces only $0.53 \text{ mm}$ height change—imperceptible for practical throttle linkage.</p>
-<hr />
-<h3 id="32-porter-proell-dead-weight-governors-isochronism-proof"><strong>3.2 Porter &amp; Proell Dead-Weight Governors &amp; Isochronism Proof</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Porter Governor Mechanics</strong>:</li>
-<li>Added central dead-weight of mass $M$ attached to the sleeve.</li>
-<li>Central load $M$ increases the downward force on sleeve, requiring higher rotational speed $\omega$ for equilibrium.</li>
-<li><strong>Height Formula (No Friction, Equal Link Angles $\alpha = \beta \implies q = 1$)</strong>:
-    <div class="formula-card">$${\boxed{h = \frac{m + M}{m} \cdot \frac{895}{N^2}}}$$</div>
-    where $m$ is ball mass $\text{kg}$, $M$ is central sleeve load $\text{kg}$.</li>
-<li><strong>Link Obliquity Factor $q = \frac{\tan\beta}{\tan\alpha}$</strong>:
-    If upper arms make angle $\alpha$ and lower arms make angle $\beta$ with spindle:
-    <div class="formula-card">$${\boxed{h = \frac{m + M\left(\frac{1+q}{2}\right)}{m} \cdot \frac{895}{N^2}}}$$</div></li>
-<li><strong>Sleeve Friction $f$</strong>:
-    Friction $f$ at sleeve opposes motion. When sleeve moves UP (speed increasing), friction acts DOWN $M g + f$. When sleeve moves DOWN (speed decreasing), friction acts UP $M g - f$:
-    <div class="formula-card">$${\boxed{h = \frac{m \cdot g + (M \cdot g \pm f)\left(\frac{1+q}{2}\right)}{m \cdot g} \cdot \frac{895}{N^2}}}$$</div></li>
-<li><strong>Proell Governor Mechanics</strong>:</li>
-<li>Flyballs are mounted on extensions of the lower links (beyond sleeve pivot pins).</li>
-<li>Provides a larger change in governor height for a given speed variation compared to Porter governor.</li>
-<li>Requires smaller flyball mass $m$ for the same operating speed and sensitivity.</li>
-<li><strong>Height Relation</strong>: $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$, where $a$ is lower link length and $e$ is ball extension arm offset.</li>
-<li><strong>Proof Why Porter Governor CANNOT Be Isochronous</strong>:</li>
-<li>For isochronism, speed must be constant for all sleeve positions $N_1 = N_2 = N$.</li>
-<li>From Porter equation: $h = \frac{m + M}{m} \frac{895}{N^2}$.</li>
-<li>If $N_1 = N_2$, then $h_1 = h_2$.</li>
-<li>However, as the sleeve moves up/down, link geometry MANDATES that height $h$ MUST CHANGE $h_1 \neq h_2$.</li>
-<li>A constant $h$ across different radii of rotation is geometrically impossible in a Porter linkage!</li>
-<li>Therefore, a Porter governor <strong>CANNOT BE ISOCHRONOUS</strong>.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Porter Isochronism Impossibility</strong>: An isochronous governor requires constant equilibrium speed $N$ across all sleeve positions, which implies constant height $h$. However, Porter link geometry requires $h$ to change as radius $r$ changes. Thus $N_1 = N_2$ is geometrically impossible!</p>
-<p>[!TRAP]
-<strong>Friction Sign Rule for Sleeve</strong>:
-- Speed Increasing (Sleeve moving UP) $\implies$ Use $+f$ in numerator: $(M g + f)$.
-- Speed Decreasing (Sleeve moving DOWN) $\implies$ Use $-f$ in numerator: $(M g - f)$.</div>
-<h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Porter &amp; Proell Governor Calculation
+      <h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Watt height $h = g/\omega^2 = 895/N^2$ (meters).</li>
+         <li>[ ] Watt height in mm: $h = 895000/N^2$.</li>
+         <li>[ ] Watt height is independent of mass $m$.</li>
+         <li>[ ] Suitable speed range: $60 - 80 \text{ rpm}$.</li>
+         <li>[ ] Ineffective for $N &gt; 100 \text{ rpm}$.</li>
+         <li>[ ] Pickering governor uses flat leaf springs (gramophones).</li>
+      </ul>
+      <h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Watt Governor Height Calculation</strong>
+         - <strong>Problem</strong>: A Watt governor rotates at $60 \text{ rpm}$. Calculate: (a) Height $h$ in meters
+         and millimeters, (b) New height $h'$ if speed increases to $61 \text{ rpm}$, (c) Sleeve lift $\Delta h$.
+         - <strong>Solution</strong>:
+         1. Calculate initial height at $N = 60 \text{ rpm}$:
+      <div class="formula-card">$${h = \frac{895}{N^2} = \frac{895}{60^2} = \frac{895}{3600} \approx 0.24861 \text{ m} =
+         248.61 \text{ mm}}$$</div>
+      2. Calculate new height at $N' = 61 \text{ rpm}$:
+      <div class="formula-card">$${h' = \frac{895}{61^2} = \frac{895}{3721} \approx 0.24053 \text{ m} = 240.53 \text{
+         mm}}$$</div>
+      3. Calculate height change $\Delta h$:
+      <div class="formula-card">$${\Delta h = h - h' = 248.61 - 240.53 = 8.08 \text{ mm}}$$</div>
+      - <strong>Key Insight</strong>: At $60 \text{ rpm}$, a $1 \text{ rpm}$ change causes $8.08 \text{ mm}$ height
+      drop, providing good sensitivity.</p>
+      <p><strong>Worked Example 2: Ineffectiveness of Watt Governor at High Speed</strong>
+         - <strong>Problem</strong>: Repeat Example 1 for a Watt governor operating at $150 \text{ rpm}$ when speed
+         increases by $1 \text{ rpm}$ to $151 \text{ rpm}$.
+         - <strong>Solution</strong>:
+         1. Height at $N = 150 \text{ rpm}$:
+      <div class="formula-card">$${h = \frac{895}{150^2} = \frac{895}{22500} \approx 0.03978 \text{ m} = 39.78 \text{
+         mm}}$$</div>
+      2. Height at $N' = 151 \text{ rpm}$:
+      <div class="formula-card">$${h' = \frac{895}{151^2} = \frac{895}{22801} \approx 0.03925 \text{ m} = 39.25 \text{
+         mm}}$$</div>
+      3. Calculate height change $\Delta h$:
+      <div class="formula-card">$${\Delta h = 39.78 - 39.25 = 0.53 \text{ mm}}$$</div>
+      - <strong>Key Insight</strong>: At $150 \text{ rpm}$, a $1 \text{ rpm}$ change produces only $0.53 \text{ mm}$
+      height change—imperceptible for practical throttle linkage.</p>
+      <hr />
+      <h3 id="32-porter-proell-dead-weight-governors-isochronism-proof"><strong>3.2 Porter &amp; Proell Dead-Weight
+            Governors &amp; Isochronism Proof</strong></h3>
+      <h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Porter Governor Mechanics</strong>:</li>
+         <li>Added central dead-weight of mass $M$ attached to the sleeve.</li>
+         <li>Central load $M$ increases the downward force on sleeve, requiring higher rotational speed $\omega$ for
+            equilibrium.</li>
+         <li><strong>Height Formula (No Friction, Equal Link Angles $\alpha = \beta \implies q = 1$)</strong>:
+            <div class="formula-card">$${\boxed{h = \frac{m + M}{m} \cdot \frac{895}{N^2}}}$$</div>
+            where $m$ is ball mass $\text{kg}$, $M$ is central sleeve load $\text{kg}$.
+         </li>
+         <li><strong>Link Obliquity Factor $q = \frac{\tan\beta}{\tan\alpha}$</strong>:
+            If upper arms make angle $\alpha$ and lower arms make angle $\beta$ with spindle:
+            <div class="formula-card">$${\boxed{h = \frac{m + M\left(\frac{1+q}{2}\right)}{m} \cdot \frac{895}{N^2}}}$$
+            </div>
+         </li>
+         <li><strong>Sleeve Friction $f$</strong>:
+            Friction $f$ at sleeve opposes motion. When sleeve moves UP (speed increasing), friction acts DOWN $M g +
+            f$. When sleeve moves DOWN (speed decreasing), friction acts UP $M g - f$:
+            <div class="formula-card">$${\boxed{h = \frac{m \cdot g + (M \cdot g \pm f)\left(\frac{1+q}{2}\right)}{m
+               \cdot g} \cdot \frac{895}{N^2}}}$$</div>
+         </li>
+         <li><strong>Proell Governor Mechanics</strong>:</li>
+         <li>Flyballs are mounted on extensions of the lower links (beyond sleeve pivot pins).</li>
+         <li>Provides a larger change in governor height for a given speed variation compared to Porter governor.</li>
+         <li>Requires smaller flyball mass $m$ for the same operating speed and sensitivity.</li>
+         <li><strong>Height Relation</strong>: $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$, where $a$ is
+            lower link length and $e$ is ball extension arm offset.</li>
+         <li><strong>Proof Why Porter Governor CANNOT Be Isochronous</strong>:</li>
+         <li>For isochronism, speed must be constant for all sleeve positions $N_1 = N_2 = N$.</li>
+         <li>From Porter equation: $h = \frac{m + M}{m} \frac{895}{N^2}$.</li>
+         <li>If $N_1 = N_2$, then $h_1 = h_2$.</li>
+         <li>However, as the sleeve moves up/down, link geometry MANDATES that height $h$ MUST CHANGE $h_1 \neq h_2$.
+         </li>
+         <li>A constant $h$ across different radii of rotation is geometrically impossible in a Porter linkage!</li>
+         <li>Therefore, a Porter governor <strong>CANNOT BE ISOCHRONOUS</strong>.</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Porter Isochronism
+            Impossibility</strong>: An isochronous governor requires constant equilibrium speed $N$ across all sleeve
+         positions, which implies constant height $h$. However, Porter link geometry requires $h$ to change as radius
+         $r$ changes. Thus $N_1 = N_2$ is geometrically impossible!</p>
+         <p>[!TRAP]
+            <strong>Friction Sign Rule for Sleeve</strong>:
+            - Speed Increasing (Sleeve moving UP) $\implies$ Use $+f$ in numerator: $(M g + f)$.
+            - Speed Decreasing (Sleeve moving DOWN) $\implies$ Use $-f$ in numerator: $(M g - f)$.
+      </div>
+      <h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Porter &amp; Proell Governor Calculation
 │
 ├── Check Link Angles (alpha and beta)
 │   ├── Equal Angles (alpha = beta) ──► q = 1  ──► Factor (1+q)/2 = 1.0
@@ -408,96 +972,142 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 │
 └── Apply Height Formula: h = [ (m*g + (M*g +/- f)*(1+q)/2) / (m*g) ] * (895 / N^2)
 </code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Porter height $h = \frac{m+M}{m} \frac{895}{N^2}$ (equal arms, no friction).</li>
-<li>[ ] Obliquity factor $q = \frac{\tan\beta}{\tan\alpha}$.</li>
-<li>[ ] Friction $+f$ for speed increase, $-f$ for speed decrease.</li>
-<li>[ ] Proell flyballs mounted on lower link extensions.</li>
-<li>[ ] Porter CANNOT be isochronous.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Porter Governor Speed Calculation</strong>
-- <strong>Problem</strong>: A Porter governor has flyball mass $m = 5 \text{ kg}$ and central sleeve load $M = 30 \text{ kg}$. All arms are $250 \text{ mm}$ long and pivoted on the spindle axis. When radius of rotation is $r = 150 \text{ mm}$, calculate the equilibrium speed $N$ $\text{rpm}$.
-- <strong>Solution</strong>:
-  1. Calculate governor height $h$:
-     In right triangle formed by arm $250 \text{ mm}$, radius $150 \text{ mm}$, and height $h$:
-     <div class="formula-card">$${h = \sqrt{250^2 - 150^2} = \sqrt{62500 - 22500} = \sqrt{40000} = 200 \text{ mm} = 0.20 \text{ m}}$$</div>
-  2. Since arms are pivoted on spindle axis and equal length, $q = 1$.
-  3. Apply Porter height formula $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$:
-     <div class="formula-card">$${0.20 = \frac{5 + 30}{5} \cdot \frac{895}{N^2} = 7 \cdot \frac{895}{N^2} = \frac{6265}{N^2}}$$</div>
-  4. Solve for $N^2$ and $N$:
-     <div class="formula-card">$${N^2 = \frac{6265}{0.20} = 31325 \implies N = \sqrt{31325} \approx 177.0 \text{ rpm}}$$</div>
-- <strong>Key Insight</strong>: $N \approx 177 \text{ rpm}$. Without central load $M=0$, a Watt governor at $h=0.20 \text{ m}$ would run at $N = \sqrt{895/0.20} \approx 66.9 \text{ rpm}$. Central load increased operating speed by $2.64\times$!</p>
-<p><strong>Worked Example 2: Effect of Sleeve Friction on Speed Limits</strong>
-- <strong>Problem</strong>: For the Porter governor in Example 1 $m=5\text{ kg}, M=30\text{ kg}, h=0.20\text{ m}$, a friction force $f = 20 \text{ N}$ acts at the sleeve. Calculate the maximum and minimum equilibrium speeds for $h = 0.20 \text{ m}$.
-- <strong>Solution</strong>:
-  1. Calculate gravity loads: $m g = 5 \times 9.81 = 49.05 \text{ N}$, $M g = 30 \times 9.81 = 294.3 \text{ N}$.
-  2. Maximum speed $N_1$ (sleeve about to move UP, $+f$):
-     <div class="formula-card">$${h = \frac{m g + (M g + f)}{m g} \cdot \frac{895}{N_1^2} \implies 0.20 = \frac{49.05 + (294.3 + 20)}{49.05} \cdot \frac{895}{N_1^2}}$$</div>
-     <div class="formula-card">$${0.20 = \frac{363.35}{49.05} \cdot \frac{895}{N_1^2} = 7.4077 \cdot \frac{895}{N_1^2} = \frac{6629.9}{N_1^2}}$$</div>
-     <div class="formula-card">$${N_1^2 = \frac{6629.9}{0.20} = 33149.6 \implies N_1 \approx 182.07 \text{ rpm}}$$</div>
-  3. Minimum speed $N_2$ (sleeve about to move DOWN, $-f$):
-     <div class="formula-card">$${0.20 = \frac{49.05 + (294.3 - 20)}{49.05} \cdot \frac{895}{N_2^2} = \frac{323.35}{49.05} \cdot \frac{895}{N_2^2} = 6.5922 \cdot \frac{895}{N_2^2} = \frac{5900.0}{N_2^2}}$$</div>
-     <div class="formula-card">$${N_2^2 = \frac{5900.0}{0.20} = 29500 \implies N_2 \approx 171.76 \text{ rpm}}$$</div>
-  4. Frictional speed range $\Delta N = N_1 - N_2 = 182.07 - 171.76 = 10.31 \text{ rpm}$.
-- <strong>Key Insight</strong>: Sleeve friction creates a speed deadband of $10.31 \text{ rpm}$ $171.8 - 182.1 \text{ rpm}$ wherein the sleeve does not move at all!</p>
-<p><strong>Worked Example 3: Porter Governor with Unequal Link Angles $q \neq 1$</strong>
-- <strong>Problem</strong>: A Porter governor has $m = 4 \text{ kg}$, $M = 24 \text{ kg}$. Upper arms make angle $\alpha = 30^\circ$ with spindle, lower arms make angle $\beta = 45^\circ$. If height $h = 0.18 \text{ m}$, calculate equilibrium speed $N$.
-- <strong>Solution</strong>:
-  1. Calculate link obliquity ratio $q$:
-     <div class="formula-card">$${q = \frac{\tan\beta}{\tan\alpha} = \frac{\tan 45^\circ}{\tan 30^\circ} = \frac{1.0}{0.57735} \approx 1.732}$$</div>
-  2. Calculate obliquity factor $\frac{1+q}{2}$:
-     <div class="formula-card">$${\frac{1 + q}{2} = \frac{1 + 1.732}{2} = \frac{2.732}{2} = 1.366}$$</div>
-  3. Apply modified Porter height formula:
-     <div class="formula-card">$${h = \frac{m + M \left(\frac{1+q}{2}\right)}{m} \cdot \frac{895}{N^2} \implies 0.18 = \frac{4 + 24(1.366)}{4} \cdot \frac{895}{N^2}}$$</div>
-     <div class="formula-card">$${0.18 = \frac{4 + 32.784}{4} \cdot \frac{895}{N^2} = \frac{36.784}{4} \cdot \frac{895}{N^2} = 9.196 \cdot \frac{895}{N^2} = \frac{8230.4}{N^2}}$$</div>
-  4. Solve for $N^2$ and $N$:
-     <div class="formula-card">$${N^2 = \frac{8230.4}{0.18} \approx 45724.5 \implies N = \sqrt{45724.5} \approx 213.83 \text{ rpm}}$$</div>
-- <strong>Key Insight</strong>: $N \approx 213.8 \text{ rpm}$. Unequal link angles $\beta &gt; \alpha$ increase effective sleeve load and raise operating speed.</p>
-<p><strong>Worked Example 4: Proell Governor Height &amp; Speed Calculation</strong>
-- <strong>Problem</strong>: In a Proell governor, lower arms of length $a = 200 \text{ mm} = 0.2 \text{ m}$ carry flyballs mounted on extension arms of vertical offset $e = 160 \text{ mm} = 0.16 \text{ m}$. Ball mass $m = 3 \text{ kg}$, sleeve mass $M = 20 \text{ kg}$. If height $h = 0.15 \text{ m}$, calculate equilibrium speed $N$.
-- <strong>Solution</strong>:
-  1. Calculate extension ratio $a/e = 0.2 / 0.16 = 1.25$.
-  2. Apply Proell height relation $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$:
-     <div class="formula-card">$${0.15 = 1.25 \cdot \frac{3 + 20}{3} \cdot \frac{895}{N^2} = 1.25 \cdot 7.667 \cdot \frac{895}{N^2} = 9.583 \cdot \frac{895}{N^2} = \frac{8577.0}{N^2}}$$</div>
-  3. Solve for $N^2$ and $N$:
-     <div class="formula-card">$${N^2 = \frac{8577.0}{0.15} = 57180 \implies N = \sqrt{57180} \approx 239.1 \text{ rpm}}$$</div>
-- <strong>Key Insight</strong>: $N \approx 239.1 \text{ rpm}$. Extension factor $a/e = 1.25$ increases equilibrium speed for the same height.</p>
-<hr />
-<h3 id="33-hartnell-spring-loaded-governors-controlling-force-diagrams"><strong>3.3 Hartnell &amp; Spring-Loaded Governors &amp; Controlling Force Diagrams</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Hartnell Governor Mechanics</strong>:</li>
-<li>Spring-loaded centrifugal governor operating at high speeds $200 - 600+ \text{ rpm}$.</li>
-<li>Flyballs are mounted on vertical arms of two bell-crank levers pivoted to a rotating frame.</li>
-<li>Horizontal arms carry rollers that engage a sleeve loaded by a helical compression spring.</li>
-<li><strong>Derivation of Spring Stiffness $k$</strong>:</li>
-<li>Let $a$ = length of vertical arm (carrying ball of mass $m$), $b$ = length of horizontal arm (engaging sleeve).</li>
-<li>At minimum radius $r_1$: centrifugal force $F_1 = m \omega_1^2 r_1$. Spring force $= S_1$.</li>
-<li>Taking moments about bell-crank pivot:
-    <div class="formula-card">$${F_1 \cdot a = \left(\frac{S_1 + M g}{2}\right) \cdot b \implies S_1 = 2 \left(\frac{a}{b}\right) F_1 - M g}$$</div></li>
-<li>At maximum radius $r_2$: centrifugal force $F_2 = m \omega_2^2 r_2$. Spring force $= S_2$.
-    <div class="formula-card">$${S_2 = 2 \left(\frac{a}{b}\right) F_2 - M g}$$</div></li>
-<li>Net change in spring force $\Delta S = S_2 - S_1 = 2 \left(\frac{a}{b}\right) (F_2 - F_1)$.</li>
-<li>Sleeve lift $x = (r_2 - r_1) \left(\frac{b}{a}\right)$.</li>
-<li>Spring stiffness $k = \frac{\Delta S}{x}$:
-    <div class="formula-card">$${k = \frac{2 \left(\frac{a}{b}\right) (F_2 - F_1)}{(r_2 - r_1) \left(\frac{b}{a}\right)} \implies \boxed{k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div></li>
-<li><strong>Equal Arm Case $a = b$</strong>:
-    <div class="formula-card">$${\boxed{k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div></li>
-<li><strong>Controlling Force Line Equations ($F_c$ vs $r$)</strong>:</li>
-<li>A plot of inward controlling force $F_c$ against radius of rotation $r$ characterizes spring governor behavior:<ol>
-<li><strong>Stable Governor</strong>: Line equation $F_c = A \cdot r - B$ $B &gt; 0$. Intercepts negative $F_c$ axis. Ratio $F_c / r$ increases as $r$ increases $\implies$ Speed $N$ increases with $r$.</li>
-<li><strong>Isochronous Governor</strong>: Line equation $F_c = A \cdot r$ $B = 0$. Passes through origin $(0,0)$. Ratio $F_c / r = A = \text{constant} \implies$ Speed $N$ is constant for all $r$.</li>
-<li><strong>Unstable Governor</strong>: Line equation $F_c = A \cdot r + B$ $B &gt; 0$. Intercepts positive $F_c$ axis. Ratio $F_c / r$ decreases as $r$ increases $\implies$ Speed $N$ decreases as $r$ increases!</li>
-</ol>
-</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Factor of 2 in Hartnell Stiffness</strong>: The factor of <strong>2</strong> in $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$ arises because TWO flyballs (two bell-crank levers) simultaneously compress the single central spring on the sleeve!</p>
-<p>[!TRAP]
-<strong>Stiffness vs Sensitivity</strong>: Increasing spring stiffness $k$ in a Hartnell governor DECREASES its sensitiveness! A stiffer spring requires a larger speed change to produce the same sleeve lift.</div>
-<h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Hartnell Spring-Loaded Governor Analysis
+      <h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Porter height $h = \frac{m+M}{m} \frac{895}{N^2}$ (equal arms, no friction).</li>
+         <li>[ ] Obliquity factor $q = \frac{\tan\beta}{\tan\alpha}$.</li>
+         <li>[ ] Friction $+f$ for speed increase, $-f$ for speed decrease.</li>
+         <li>[ ] Proell flyballs mounted on lower link extensions.</li>
+         <li>[ ] Porter CANNOT be isochronous.</li>
+      </ul>
+      <h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Porter Governor Speed Calculation</strong>
+         - <strong>Problem</strong>: A Porter governor has flyball mass $m = 5 \text{ kg}$ and central sleeve load $M =
+         30 \text{ kg}$. All arms are $250 \text{ mm}$ long and pivoted on the spindle axis. When radius of rotation is
+         $r = 150 \text{ mm}$, calculate the equilibrium speed $N$ $\text{rpm}$.
+         - <strong>Solution</strong>:
+         1. Calculate governor height $h$:
+         In right triangle formed by arm $250 \text{ mm}$, radius $150 \text{ mm}$, and height $h$:
+      <div class="formula-card">$${h = \sqrt{250^2 - 150^2} = \sqrt{62500 - 22500} = \sqrt{40000} = 200 \text{ mm} =
+         0.20 \text{ m}}$$</div>
+      2. Since arms are pivoted on spindle axis and equal length, $q = 1$.
+      3. Apply Porter height formula $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$:
+      <div class="formula-card">$${0.20 = \frac{5 + 30}{5} \cdot \frac{895}{N^2} = 7 \cdot \frac{895}{N^2} =
+         \frac{6265}{N^2}}$$</div>
+      4. Solve for $N^2$ and $N$:
+      <div class="formula-card">$${N^2 = \frac{6265}{0.20} = 31325 \implies N = \sqrt{31325} \approx 177.0 \text{
+         rpm}}$$</div>
+      - <strong>Key Insight</strong>: $N \approx 177 \text{ rpm}$. Without central load $M=0$, a Watt governor at
+      $h=0.20 \text{ m}$ would run at $N = \sqrt{895/0.20} \approx 66.9 \text{ rpm}$. Central load increased operating
+      speed by $2.64\times$!</p>
+      <p><strong>Worked Example 2: Effect of Sleeve Friction on Speed Limits</strong>
+         - <strong>Problem</strong>: For the Porter governor in Example 1 $m=5\text{ kg}, M=30\text{ kg}, h=0.20\text{
+         m}$, a friction force $f = 20 \text{ N}$ acts at the sleeve. Calculate the maximum and minimum equilibrium
+         speeds for $h = 0.20 \text{ m}$.
+         - <strong>Solution</strong>:
+         1. Calculate gravity loads: $m g = 5 \times 9.81 = 49.05 \text{ N}$, $M g = 30 \times 9.81 = 294.3 \text{ N}$.
+         2. Maximum speed $N_1$ (sleeve about to move UP, $+f$):
+      <div class="formula-card">$${h = \frac{m g + (M g + f)}{m g} \cdot \frac{895}{N_1^2} \implies 0.20 = \frac{49.05 +
+         (294.3 + 20)}{49.05} \cdot \frac{895}{N_1^2}}$$</div>
+      <div class="formula-card">$${0.20 = \frac{363.35}{49.05} \cdot \frac{895}{N_1^2} = 7.4077 \cdot \frac{895}{N_1^2}
+         = \frac{6629.9}{N_1^2}}$$</div>
+      <div class="formula-card">$${N_1^2 = \frac{6629.9}{0.20} = 33149.6 \implies N_1 \approx 182.07 \text{ rpm}}$$
+      </div>
+      3. Minimum speed $N_2$ (sleeve about to move DOWN, $-f$):
+      <div class="formula-card">$${0.20 = \frac{49.05 + (294.3 - 20)}{49.05} \cdot \frac{895}{N_2^2} =
+         \frac{323.35}{49.05} \cdot \frac{895}{N_2^2} = 6.5922 \cdot \frac{895}{N_2^2} = \frac{5900.0}{N_2^2}}$$</div>
+      <div class="formula-card">$${N_2^2 = \frac{5900.0}{0.20} = 29500 \implies N_2 \approx 171.76 \text{ rpm}}$$</div>
+      4. Frictional speed range $\Delta N = N_1 - N_2 = 182.07 - 171.76 = 10.31 \text{ rpm}$.
+      - <strong>Key Insight</strong>: Sleeve friction creates a speed deadband of $10.31 \text{ rpm}$ $171.8 - 182.1
+      \text{ rpm}$ wherein the sleeve does not move at all!</p>
+      <p><strong>Worked Example 3: Porter Governor with Unequal Link Angles $q \neq 1$</strong>
+         - <strong>Problem</strong>: A Porter governor has $m = 4 \text{ kg}$, $M = 24 \text{ kg}$. Upper arms make
+         angle $\alpha = 30^\circ$ with spindle, lower arms make angle $\beta = 45^\circ$. If height $h = 0.18 \text{
+         m}$, calculate equilibrium speed $N$.
+         - <strong>Solution</strong>:
+         1. Calculate link obliquity ratio $q$:
+      <div class="formula-card">$${q = \frac{\tan\beta}{\tan\alpha} = \frac{\tan 45^\circ}{\tan 30^\circ} =
+         \frac{1.0}{0.57735} \approx 1.732}$$</div>
+      2. Calculate obliquity factor $\frac{1+q}{2}$:
+      <div class="formula-card">$${\frac{1 + q}{2} = \frac{1 + 1.732}{2} = \frac{2.732}{2} = 1.366}$$</div>
+      3. Apply modified Porter height formula:
+      <div class="formula-card">$${h = \frac{m + M \left(\frac{1+q}{2}\right)}{m} \cdot \frac{895}{N^2} \implies 0.18 =
+         \frac{4 + 24(1.366)}{4} \cdot \frac{895}{N^2}}$$</div>
+      <div class="formula-card">$${0.18 = \frac{4 + 32.784}{4} \cdot \frac{895}{N^2} = \frac{36.784}{4} \cdot
+         \frac{895}{N^2} = 9.196 \cdot \frac{895}{N^2} = \frac{8230.4}{N^2}}$$</div>
+      4. Solve for $N^2$ and $N$:
+      <div class="formula-card">$${N^2 = \frac{8230.4}{0.18} \approx 45724.5 \implies N = \sqrt{45724.5} \approx 213.83
+         \text{ rpm}}$$</div>
+      - <strong>Key Insight</strong>: $N \approx 213.8 \text{ rpm}$. Unequal link angles $\beta &gt; \alpha$ increase
+      effective sleeve load and raise operating speed.</p>
+      <p><strong>Worked Example 4: Proell Governor Height &amp; Speed Calculation</strong>
+         - <strong>Problem</strong>: In a Proell governor, lower arms of length $a = 200 \text{ mm} = 0.2 \text{ m}$
+         carry flyballs mounted on extension arms of vertical offset $e = 160 \text{ mm} = 0.16 \text{ m}$. Ball mass $m
+         = 3 \text{ kg}$, sleeve mass $M = 20 \text{ kg}$. If height $h = 0.15 \text{ m}$, calculate equilibrium speed
+         $N$.
+         - <strong>Solution</strong>:
+         1. Calculate extension ratio $a/e = 0.2 / 0.16 = 1.25$.
+         2. Apply Proell height relation $h = \frac{a}{e} \cdot \frac{m+M}{m} \cdot \frac{895}{N^2}$:
+      <div class="formula-card">$${0.15 = 1.25 \cdot \frac{3 + 20}{3} \cdot \frac{895}{N^2} = 1.25 \cdot 7.667 \cdot
+         \frac{895}{N^2} = 9.583 \cdot \frac{895}{N^2} = \frac{8577.0}{N^2}}$$</div>
+      3. Solve for $N^2$ and $N$:
+      <div class="formula-card">$${N^2 = \frac{8577.0}{0.15} = 57180 \implies N = \sqrt{57180} \approx 239.1 \text{
+         rpm}}$$</div>
+      - <strong>Key Insight</strong>: $N \approx 239.1 \text{ rpm}$. Extension factor $a/e = 1.25$ increases equilibrium
+      speed for the same height.</p>
+      <hr />
+      <h3 id="33-hartnell-spring-loaded-governors-controlling-force-diagrams"><strong>3.3 Hartnell &amp; Spring-Loaded
+            Governors &amp; Controlling Force Diagrams</strong></h3>
+      <h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Hartnell Governor Mechanics</strong>:</li>
+         <li>Spring-loaded centrifugal governor operating at high speeds $200 - 600+ \text{ rpm}$.</li>
+         <li>Flyballs are mounted on vertical arms of two bell-crank levers pivoted to a rotating frame.</li>
+         <li>Horizontal arms carry rollers that engage a sleeve loaded by a helical compression spring.</li>
+         <li><strong>Derivation of Spring Stiffness $k$</strong>:</li>
+         <li>Let $a$ = length of vertical arm (carrying ball of mass $m$), $b$ = length of horizontal arm (engaging
+            sleeve).</li>
+         <li>At minimum radius $r_1$: centrifugal force $F_1 = m \omega_1^2 r_1$. Spring force $= S_1$.</li>
+         <li>Taking moments about bell-crank pivot:
+            <div class="formula-card">$${F_1 \cdot a = \left(\frac{S_1 + M g}{2}\right) \cdot b \implies S_1 = 2
+               \left(\frac{a}{b}\right) F_1 - M g}$$</div>
+         </li>
+         <li>At maximum radius $r_2$: centrifugal force $F_2 = m \omega_2^2 r_2$. Spring force $= S_2$.
+            <div class="formula-card">$${S_2 = 2 \left(\frac{a}{b}\right) F_2 - M g}$$</div>
+         </li>
+         <li>Net change in spring force $\Delta S = S_2 - S_1 = 2 \left(\frac{a}{b}\right) (F_2 - F_1)$.</li>
+         <li>Sleeve lift $x = (r_2 - r_1) \left(\frac{b}{a}\right)$.</li>
+         <li>Spring stiffness $k = \frac{\Delta S}{x}$:
+            <div class="formula-card">$${k = \frac{2 \left(\frac{a}{b}\right) (F_2 - F_1)}{(r_2 - r_1)
+               \left(\frac{b}{a}\right)} \implies \boxed{k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 -
+               F_1}{r_2 - r_1}}}$$</div>
+         </li>
+         <li><strong>Equal Arm Case $a = b$</strong>:
+            <div class="formula-card">$${\boxed{k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}}}$$</div>
+         </li>
+         <li><strong>Controlling Force Line Equations ($F_c$ vs $r$)</strong>:</li>
+         <li>A plot of inward controlling force $F_c$ against radius of rotation $r$ characterizes spring governor
+            behavior:<ol>
+               <li><strong>Stable Governor</strong>: Line equation $F_c = A \cdot r - B$ $B &gt; 0$. Intercepts negative
+                  $F_c$ axis. Ratio $F_c / r$ increases as $r$ increases $\implies$ Speed $N$ increases with $r$.</li>
+               <li><strong>Isochronous Governor</strong>: Line equation $F_c = A \cdot r$ $B = 0$. Passes through origin
+                  $(0,0)$. Ratio $F_c / r = A = \text{constant} \implies$ Speed $N$ is constant for all $r$.</li>
+               <li><strong>Unstable Governor</strong>: Line equation $F_c = A \cdot r + B$ $B &gt; 0$. Intercepts
+                  positive $F_c$ axis. Ratio $F_c / r$ decreases as $r$ increases $\implies$ Speed $N$ decreases as $r$
+                  increases!</li>
+            </ol>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Factor of 2 in Hartnell
+            Stiffness</strong>: The factor of <strong>2</strong> in $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$ arises
+         because TWO flyballs (two bell-crank levers) simultaneously compress the single central spring on the sleeve!
+         </p>
+         <p>[!TRAP]
+            <strong>Stiffness vs Sensitivity</strong>: Increasing spring stiffness $k$ in a Hartnell governor DECREASES
+            its sensitiveness! A stiffer spring requires a larger speed change to produce the same sleeve lift.
+      </div>
+      <h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Hartnell Spring-Loaded Governor Analysis
 │
 ├── Step 1: Calculate Centrifugal Forces at Extreme Radii
 │   ├── F1 = m * (omega_1)^2 * r1  (at min radius r1)
@@ -509,74 +1119,98 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 └── Step 3: Calculate Required Spring Stiffness (k)
     └── k = 2 * (a / b)^2 * [ (F2 - F1) / (r2 - r1) ]
 </code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Centrifugal force $F = m \omega^2 r$.</li>
-<li>[ ] Sleeve lift $x = (r_2 - r_1)(b/a)$.</li>
-<li>[ ] Stiffness $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$.</li>
-<li>[ ] Equal arms $a=b$ $\implies k = 2 \frac{F_2 - F_1}{r_2 - r_1}$.</li>
-<li>[ ] Higher stiffness $k \implies$ Lower sensitiveness.</li>
-<li>[ ] Isochronous controlling force line passes through origin $F_c = A r$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Hartnell Governor Spring Stiffness Calculation</strong>
-- <strong>Problem</strong>: A Hartnell governor has flyball mass $m = 4 \text{ kg}$ per ball. The vertical and horizontal arms of the bell-crank levers are equal $a = b$. At minimum radius $r_1 = 0.20 \text{ m}$, centrifugal force $F_1 = 900 \text{ N}$. At maximum radius $r_2 = 0.25 \text{ m}$, centrifugal force $F_2 = 1600 \text{ N}$. Calculate: (a) Sleeve lift $x$, (b) Spring stiffness $k$ in $\text{N/cm}$ and $\text{N/m}$.
-- <strong>Solution</strong>:
-  1. Since $a = b$, sleeve lift $x$:
-     <div class="formula-card">$${x = r_2 - r_1 = 0.25 - 0.20 = 0.05 \text{ m} = 5 \text{ cm}}$$</div>
-  2. Calculate spring stiffness $k$ (using factor 2 for two balls):
-     <div class="formula-card">$${k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1} = 2 \cdot \frac{1600 - 900}{0.25 - 0.20} = 2 \cdot \frac{700}{0.05} = 2 \times 14000 = 28000 \text{ N/m}}$$</div>
-  3. Convert $k$ to $\text{N/cm}$:
-     <div class="formula-card">$${k = \frac{28000 \text{ N/m}}{100 \text{ cm/m}} = 280 \text{ N/cm}}$$</div>
-- <strong>Key Insight</strong>: $x = 5 \text{ cm}$, $k = 280 \text{ N/cm}$ $28 \text{ kN/m}$. Forgetting factor 2 would give incorrect $140 \text{ N/cm}$.</p>
-<p><strong>Worked Example 2: Hartnell Governor with Unequal Arms $a \neq b$</strong>
-- <strong>Problem</strong>: A Hartnell governor has vertical arm $a = 120 \text{ mm} = 0.12 \text{ m}$ and horizontal arm $b = 80 \text{ mm} = 0.08 \text{ m}$. Ball mass $m = 3 \text{ kg}$. $r_1 = 0.15 \text{ m}, N_1 = 300 \text{ rpm}$; $r_2 = 0.20 \text{ m}, N_2 = 330 \text{ rpm}$. Calculate: (a) Sleeve lift $x$, (b) Spring stiffness $k$.
-- <strong>Solution</strong>:
-  1. Calculate $\omega_1$ and $\omega_2$:
-     <div class="formula-card">$${\omega_1 = \frac{2\pi \times 300}{60} = 10\pi \approx 31.416 \text{ rad/s} \implies \omega_1^2 = 986.96}$$</div>
-     <div class="formula-card">$${\omega_2 = \frac{2\pi \times 330}{60} = 11\pi \approx 34.558 \text{ rad/s} \implies \omega_2^2 = 1194.22}$$</div>
-  2. Calculate centrifugal forces $F_1$ and $F_2$:
-     <div class="formula-card">$${F_1 = m \omega_1^2 r_1 = 3 \times 986.96 \times 0.15 = 444.13 \text{ N}}$$</div>
-     <div class="formula-card">$${F_2 = m \omega_2^2 r_2 = 3 \times 1194.22 \times 0.20 = 716.53 \text{ N}}$$</div>
-  3. Calculate sleeve lift $x$:
-     <div class="formula-card">$${x = (r_2 - r_1) \cdot \left(\frac{b}{a}\right) = (0.20 - 0.15) \times \left(\frac{0.08}{0.12}\right) = 0.05 \times \frac{2}{3} \approx 0.0333 \text{ m} = 3.33 \text{ cm}}$$</div>
-  4. Calculate arm ratio term $(a/b)^2$:
-     <div class="formula-card">$${\left(\frac{a}{b}\right)^2 = \left(\frac{0.12}{0.08}\right)^2 = (1.5)^2 = 2.25}$$</div>
-  5. Calculate spring stiffness $k$:
-     <div class="formula-card">$${k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 - F_1}{r_2 - r_1} = 2 \times 2.25 \times \frac{716.53 - 444.13}{0.05} = 4.5 \times \frac{272.40}{0.05} = 4.5 \times 5448 = 24516 \text{ N/m}}$$</div>
-     <div class="formula-card">$${k = 245.16 \text{ N/cm}}$$</div>
-- <strong>Key Insight</strong>: $x = 3.33 \text{ cm}$, $k \approx 245.2 \text{ N/cm}$.</p>
-<hr />
-<h3 id="34-governor-performance-characteristics-sensitiveness-stability-isochronism-hunting-friction"><strong>3.4 Governor Performance Characteristics (Sensitiveness, Stability, Isochronism, Hunting, Friction)</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Sensitiveness $S$</strong>:</li>
-<li>Ratio of speed range to mean speed: $\boxed{S = \frac{N_1 - N_2}{N_m} = \frac{\omega_1 - \omega_2}{\omega_m}}$.</li>
-<li>High sensitiveness $\implies$ Small speed change produces large sleeve movement.</li>
-<li><strong>Stability</strong>:</li>
-<li>A governor is stable if for every speed there is ONE unique equilibrium position.</li>
-<li>Stability Condition: Radius of rotation $r$ INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</li>
-<li><strong>Isochronism</strong>:</li>
-<li>Equilibrium speed is constant for ALL radii of rotation $N_1 = N_2 = N_m$.</li>
-<li>Range of speed $= 0 \implies$ Sensitiveness $S = \frac{N_1 - N_2}{N_m} = \frac{0}{N_m} = 0$ in numerator $\implies S \to \infty$ (INFINITE sensitiveness).</li>
-<li>In a controlling force diagram ($F_c$ vs $r$), an isochronous spring-controlled governor has a straight controlling force line passing through the origin $F_c = A \cdot r$.</li>
-<li><strong>Hunting</strong>:</li>
-<li>Unstable, violent speed oscillations caused by an OVER-SENSITIVE or laggy governor.</li>
-<li>When engine load increases, speed drops; over-sensitive governor opens throttle too wide, causing engine to overspeed; governor then cuts fuel drastically, causing underspeed. Cycle repeats continuously!</li>
-<li><strong>Sleeve Friction Deadband</strong>:</li>
-<li>Sleeve friction $f$ opposes movement, creating an insensitive speed range $\Delta N_{\text{frict}}$ where speed changes but sleeve stays frozen:
-    <div class="formula-card">$${\Delta N_{\text{frict}} \approx \frac{f}{m g + M g} \cdot N_m}$$</div></li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Controlling Force Line Characteristics</strong>:
-- Stable Spring Governor: $F_c = A \cdot r - B$ ($B &gt; 0$, positive intercept on negative $F_c$ axis).
-- Isochronous Spring Governor: $F_c = A \cdot r$ ($B = 0$, passes through origin).
-- Unstable Spring Governor: $F_c = A \cdot r + B$ ($B &gt; 0$, positive intercept on positive $F_c$ axis).</p>
-<p>[!TRAP]
-<strong>Isochronism vs Hunting</strong>:
-- Isochronism is an IDEAL theoretical property ($S = \infty$, zero speed range).
-- Hunting is a BAD practical defect resulting from excessive sensitiveness or friction lag!</div>
-<h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Governor Performance Classification
+      <h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Centrifugal force $F = m \omega^2 r$.</li>
+         <li>[ ] Sleeve lift $x = (r_2 - r_1)(b/a)$.</li>
+         <li>[ ] Stiffness $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$.</li>
+         <li>[ ] Equal arms $a=b$ $\implies k = 2 \frac{F_2 - F_1}{r_2 - r_1}$.</li>
+         <li>[ ] Higher stiffness $k \implies$ Lower sensitiveness.</li>
+         <li>[ ] Isochronous controlling force line passes through origin $F_c = A r$.</li>
+      </ul>
+      <h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Hartnell Governor Spring Stiffness Calculation</strong>
+         - <strong>Problem</strong>: A Hartnell governor has flyball mass $m = 4 \text{ kg}$ per ball. The vertical and
+         horizontal arms of the bell-crank levers are equal $a = b$. At minimum radius $r_1 = 0.20 \text{ m}$,
+         centrifugal force $F_1 = 900 \text{ N}$. At maximum radius $r_2 = 0.25 \text{ m}$, centrifugal force $F_2 =
+         1600 \text{ N}$. Calculate: (a) Sleeve lift $x$, (b) Spring stiffness $k$ in $\text{N/cm}$ and $\text{N/m}$.
+         - <strong>Solution</strong>:
+         1. Since $a = b$, sleeve lift $x$:
+      <div class="formula-card">$${x = r_2 - r_1 = 0.25 - 0.20 = 0.05 \text{ m} = 5 \text{ cm}}$$</div>
+      2. Calculate spring stiffness $k$ (using factor 2 for two balls):
+      <div class="formula-card">$${k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1} = 2 \cdot \frac{1600 - 900}{0.25 - 0.20} = 2
+         \cdot \frac{700}{0.05} = 2 \times 14000 = 28000 \text{ N/m}}$$</div>
+      3. Convert $k$ to $\text{N/cm}$:
+      <div class="formula-card">$${k = \frac{28000 \text{ N/m}}{100 \text{ cm/m}} = 280 \text{ N/cm}}$$</div>
+      - <strong>Key Insight</strong>: $x = 5 \text{ cm}$, $k = 280 \text{ N/cm}$ $28 \text{ kN/m}$. Forgetting factor 2
+      would give incorrect $140 \text{ N/cm}$.</p>
+      <p><strong>Worked Example 2: Hartnell Governor with Unequal Arms $a \neq b$</strong>
+         - <strong>Problem</strong>: A Hartnell governor has vertical arm $a = 120 \text{ mm} = 0.12 \text{ m}$ and
+         horizontal arm $b = 80 \text{ mm} = 0.08 \text{ m}$. Ball mass $m = 3 \text{ kg}$. $r_1 = 0.15 \text{ m}, N_1 =
+         300 \text{ rpm}$; $r_2 = 0.20 \text{ m}, N_2 = 330 \text{ rpm}$. Calculate: (a) Sleeve lift $x$, (b) Spring
+         stiffness $k$.
+         - <strong>Solution</strong>:
+         1. Calculate $\omega_1$ and $\omega_2$:
+      <div class="formula-card">$${\omega_1 = \frac{2\pi \times 300}{60} = 10\pi \approx 31.416 \text{ rad/s} \implies
+         \omega_1^2 = 986.96}$$</div>
+      <div class="formula-card">$${\omega_2 = \frac{2\pi \times 330}{60} = 11\pi \approx 34.558 \text{ rad/s} \implies
+         \omega_2^2 = 1194.22}$$</div>
+      2. Calculate centrifugal forces $F_1$ and $F_2$:
+      <div class="formula-card">$${F_1 = m \omega_1^2 r_1 = 3 \times 986.96 \times 0.15 = 444.13 \text{ N}}$$</div>
+      <div class="formula-card">$${F_2 = m \omega_2^2 r_2 = 3 \times 1194.22 \times 0.20 = 716.53 \text{ N}}$$</div>
+      3. Calculate sleeve lift $x$:
+      <div class="formula-card">$${x = (r_2 - r_1) \cdot \left(\frac{b}{a}\right) = (0.20 - 0.15) \times
+         \left(\frac{0.08}{0.12}\right) = 0.05 \times \frac{2}{3} \approx 0.0333 \text{ m} = 3.33 \text{ cm}}$$</div>
+      4. Calculate arm ratio term $(a/b)^2$:
+      <div class="formula-card">$${\left(\frac{a}{b}\right)^2 = \left(\frac{0.12}{0.08}\right)^2 = (1.5)^2 = 2.25}$$
+      </div>
+      5. Calculate spring stiffness $k$:
+      <div class="formula-card">$${k = 2 \cdot \left(\frac{a}{b}\right)^2 \cdot \frac{F_2 - F_1}{r_2 - r_1} = 2 \times
+         2.25 \times \frac{716.53 - 444.13}{0.05} = 4.5 \times \frac{272.40}{0.05} = 4.5 \times 5448 = 24516 \text{
+         N/m}}$$</div>
+      <div class="formula-card">$${k = 245.16 \text{ N/cm}}$$</div>
+      - <strong>Key Insight</strong>: $x = 3.33 \text{ cm}$, $k \approx 245.2 \text{ N/cm}$.</p>
+      <hr />
+      <h3 id="34-governor-performance-characteristics-sensitiveness-stability-isochronism-hunting-friction"><strong>3.4
+            Governor Performance Characteristics (Sensitiveness, Stability, Isochronism, Hunting, Friction)</strong>
+      </h3>
+      <h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Sensitiveness $S$</strong>:</li>
+         <li>Ratio of speed range to mean speed: $\boxed{S = \frac{N_1 - N_2}{N_m} = \frac{\omega_1 -
+            \omega_2}{\omega_m}}$.</li>
+         <li>High sensitiveness $\implies$ Small speed change produces large sleeve movement.</li>
+         <li><strong>Stability</strong>:</li>
+         <li>A governor is stable if for every speed there is ONE unique equilibrium position.</li>
+         <li>Stability Condition: Radius of rotation $r$ INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</li>
+         <li><strong>Isochronism</strong>:</li>
+         <li>Equilibrium speed is constant for ALL radii of rotation $N_1 = N_2 = N_m$.</li>
+         <li>Range of speed $= 0 \implies$ Sensitiveness $S = \frac{N_1 - N_2}{N_m} = \frac{0}{N_m} = 0$ in numerator
+            $\implies S \to \infty$ (INFINITE sensitiveness).</li>
+         <li>In a controlling force diagram ($F_c$ vs $r$), an isochronous spring-controlled governor has a straight
+            controlling force line passing through the origin $F_c = A \cdot r$.</li>
+         <li><strong>Hunting</strong>:</li>
+         <li>Unstable, violent speed oscillations caused by an OVER-SENSITIVE or laggy governor.</li>
+         <li>When engine load increases, speed drops; over-sensitive governor opens throttle too wide, causing engine to
+            overspeed; governor then cuts fuel drastically, causing underspeed. Cycle repeats continuously!</li>
+         <li><strong>Sleeve Friction Deadband</strong>:</li>
+         <li>Sleeve friction $f$ opposes movement, creating an insensitive speed range $\Delta N_{\text{frict}}$ where
+            speed changes but sleeve stays frozen:
+            <div class="formula-card">$${\Delta N_{\text{frict}} \approx \frac{f}{m g + M g} \cdot N_m}$$</div>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Controlling Force Line
+            Characteristics</strong>:
+         - Stable Spring Governor: $F_c = A \cdot r - B$ ($B &gt; 0$, positive intercept on negative $F_c$ axis).
+         - Isochronous Spring Governor: $F_c = A \cdot r$ ($B = 0$, passes through origin).
+         - Unstable Spring Governor: $F_c = A \cdot r + B$ ($B &gt; 0$, positive intercept on positive $F_c$ axis).</p>
+         <p>[!TRAP]
+            <strong>Isochronism vs Hunting</strong>:
+            - Isochronism is an IDEAL theoretical property ($S = \infty$, zero speed range).
+            - Hunting is a BAD practical defect resulting from excessive sensitiveness or friction lag!
+      </div>
+      <h5 id="2-ascii-decision-tree_3"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Governor Performance Classification
 │
 ├── Does radius r increase as speed N increases? (dN/dr &gt; 0)
 │   ├── YES ──► STABLE GOVERNOR (Desirable working state)
@@ -589,207 +1223,252 @@ MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$
 └── Does the governor violently oscillate around mean speed?
     └── YES ──► HUNTING (Caused by over-sensitiveness or sleeve friction lag)
 </code></pre>
-<h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
-<li>[ ] Stable: $r$ increases as $N$ increases.</li>
-<li>[ ] Isochronous: $N_1 = N_2 \implies S = \infty$.</li>
-<li>[ ] Isochronous controlling force line: $F_c = a r$ (passes through origin).</li>
-<li>[ ] Hunting: Violent speed oscillations from over-sensitiveness.</li>
-</ul>
-<h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Governor Sensitiveness Calculation</strong>
-- <strong>Problem</strong>: A governor runs at $N_1 = 255 \text{ rpm}$ at no load and $N_2 = 245 \text{ rpm}$ at full load. Calculate: (a) Mean speed $N_m$, (b) Speed range, (c) Sensitiveness $S$ as a percentage.
-- <strong>Solution</strong>:
-  1. Calculate mean speed $N_m$:
-     <div class="formula-card">$${N_m = \frac{N_1 + N_2}{2} = \frac{255 + 245}{2} = 250 \text{ rpm}}$$</div>
-  2. Calculate speed range:
-     <div class="formula-card">$${\text{Range} = N_1 - N_2 = 255 - 245 = 10 \text{ rpm}}$$</div>
-  3. Calculate sensitiveness $S$:
-     <div class="formula-card">$${S = \frac{N_1 - N_2}{N_m} = \frac{10}{250} = 0.04 = 4\%}$$</div>
-- <strong>Key Insight</strong>: Sensitiveness $S = 4\%$.</p>
-<p><strong>Worked Example 2: Controlling Force Line Intercept &amp; Stability Analysis</strong>
-- <strong>Problem</strong>: The controlling force of a spring governor is given by $F_c = 1500 \cdot r - 120$ $\text{N}$, where $r$ is in meters. Determine whether the governor is stable, isochronous, or unstable. Also calculate the speeds $N_1$ and $N_2$ at $r_1 = 0.15 \text{ m}$ and $r_2 = 0.25 \text{ m}$ for ball mass $m = 2 \text{ kg}$.
-- <strong>Solution</strong>:
-  1. Inspect line equation $F_c = A \cdot r - B$:
-     Here $A = 1500, B = 120 &gt; 0$. Since $B &gt; 0$ with a negative sign, it intercepts the negative $F_c$ axis $\implies$ The governor is <strong>STABLE</strong>!
-  2. Calculate controlling force at $r_1 = 0.15 \text{ m}$:
-     <div class="formula-card">$${F_1 = 1500(0.15) - 120 = 225 - 120 = 105 \text{ N}}$$</div>
-     Since $F_1 = m \omega_1^2 r_1 \implies 105 = 2 \times \omega_1^2 \times 0.15 = 0.30 \omega_1^2$:
-     <div class="formula-card">$${\omega_1^2 = \frac{105}{0.30} = 350 \implies \omega_1 \approx 18.708 \text{ rad/s}}$$</div>
-     <div class="formula-card">$${N_1 = \frac{60 \times 18.708}{2\pi} \approx 178.6 \text{ rpm}}$$</div>
-  3. Calculate controlling force at $r_2 = 0.25 \text{ m}$:
-     <div class="formula-card">$${F_2 = 1500(0.25) - 120 = 375 - 120 = 255 \text{ N}}$$</div>
-     $255 = 2 \times \omega_2^2 \times 0.25 = 0.50 \omega_2^2 \implies \omega_2^2 = \frac{255}{0.50} = 510 \implies \omega_2 \approx 22.583 \text{ rad/s}$:
-     <div class="formula-card">$${N_2 = \frac{60 \times 22.583}{2\pi} \approx 215.7 \text{ rpm}}$$</div>
-  4. Verify stability: As radius increases from $0.15 \text{ m}$ to $0.25 \text{ m}$, speed increases from $178.6 \text{ rpm}$ to $215.7 \text{ rpm}$ $\frac{dN}{dr} &gt; 0$, confirming stability!
-- <strong>Key Insight</strong>: $F_c = 1500 r - 120$ is a STABLE governor with $N_1 = 178.6 \text{ rpm}$ and $N_2 = 215.7 \text{ rpm}$.</p>
-<hr />
-<h3 id="35-governor-effort-power-equations"><strong>3.5 Governor Effort &amp; Power Equations</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Governor Effort $P_{\text{effort}}$</strong>:</li>
-<li>The mean force exerted BY the governor ON the sleeve during a given percentage change in speed $c = \frac{\Delta N}{N_m}$.</li>
-<li>For a Porter Governor with ball mass $m$ and central load $M$, for a speed increase fraction $c$:
-    <div class="formula-card">$${\boxed{P_{\text{effort}} = \frac{c}{1+c} \cdot (m + M) \cdot g}}$$</div></li>
-<li><strong>Standard $1\%$ Effort $c = 0.01$</strong>:
-    <div class="formula-card">$${P_{1\%} = \frac{0.01}{1.01} \cdot (m + M) \cdot g \approx 0.01 \cdot (m + M) \cdot g}$$</div></li>
-<li><strong>Governor Power $P_{\text{power}}$</strong>:</li>
-<li>Work done by governor on sleeve over full lift $x$:
-    <div class="formula-card">$${\boxed{P_{\text{power}} = \text{Governor Effort} \times \text{Sleeve Lift} = P_{\text{effort}} \cdot x}}$$</div></li>
-<li>Units: Joules $\text{J}$ or $\text{N}\cdot\text{m}$.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Governor Power Definition</strong>: Governor Power is NOT mechanical rate of work in Watts $\text{W}$! In governor terminology, Power is defined as TOTAL WORK DONE ON THE SLEEVE in Joules $\text{J}$ over its full lift range $\text{Power} = \text{Effort} \times \text{Sleeve Lift}$.</div>
-<h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Effort $P = \frac{c}{1+c}(m+M)g$.</li>
-<li>[ ] $1\%$ Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
-<li>[ ] Power $= \text{Effort} \times \text{Sleeve Lift}$ $\text{Joules}$.</li>
-</ul>
-<h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Porter Governor Effort &amp; Power Calculation</strong>
-- <strong>Problem</strong>: A Porter governor has $m = 5 \text{ kg}$, $M = 35 \text{ kg}$, and full sleeve lift $x = 40 \text{ mm} = 0.04 \text{ m}$. Calculate: (a) Governor Effort for a $1\%$ speed increase $c = 0.01$, (b) Governor Power.
-- <strong>Solution</strong>:
-  1. Calculate total gravity weight $(m+M)g$:
-     <div class="formula-card">$${(m+M)g = (5 + 35) \times 9.81 = 40 \times 9.81 = 392.4 \text{ N}}$$</div>
-  2. Calculate $1\%$ Governor Effort $P_{1\%}$:
-     <div class="formula-card">$${P_{1\%} = \frac{0.01}{1.01} \times 392.4 = \frac{3.924}{1.01} \approx 3.885 \text{ N}}$$</div>
-  3. Calculate Governor Power:
-     <div class="formula-card">$${\text{Power} = P_{1\%} \times x = 3.885 \text{ N} \times 0.04 \text{ m} = 0.1554 \text{ J} = 0.1554 \text{ N}\cdot\text{m}}$$</div>
-- <strong>Key Insight</strong>: Effort $= 3.885 \text{ N}$, Power $= 0.1554 \text{ J}$.</p>
-<p><strong>Worked Example 2: Hartnell Governor Effort &amp; Power Calculation</strong>
-- <strong>Problem</strong>: A Hartnell governor has $a = b$, $m = 4 \text{ kg}$, $r_1 = 0.18 \text{ m}, N_1 = 290 \text{ rpm}, F_1 = 800 \text{ N}$; $r_2 = 0.22 \text{ m}, N_2 = 310 \text{ rpm}, F_2 = 1400 \text{ N}$. Calculate: (a) Sleeve lift $x$, (b) Governor Effort $P$, (c) Governor Power.
-- <strong>Solution</strong>:
-  1. Calculate sleeve lift $x$:
-     <div class="formula-card">$${x = r_2 - r_1 = 0.22 - 0.18 = 0.04 \text{ m}}$$</div>
-  2. Mean centrifugal force $F_m = \frac{F_1 + F_2}{2} = \frac{800 + 1400}{2} = 1100 \text{ N}$.
-  3. Change in force $\Delta F = F_2 - F_1 = 1400 - 800 = 600 \text{ N}$.
-  4. Governor Effort at sleeve level $P_{\text{effort}} = \Delta F = 600 \text{ N}$.
-  5. Governor Power $= P_{\text{effort}} \times x = 600 \text{ N} \times 0.04 \text{ m} = 24.0 \text{ J}$.
-- <strong>Key Insight</strong>: Power $= 24.0 \text{ J}$.</p>
-<hr />
-<h3 id="36-governor-vs-flywheel-comprehensive-comparison"><strong>3.6 Governor vs Flywheel Comprehensive Comparison</strong></h3>
-<h5 id="1-comparative-analysis-table"><strong>1. Comparative Analysis Table</strong></h5>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Feature / Aspect</th>
-<th style="text-align: left;">Governor</th>
-<th style="text-align: left;">Flywheel</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Primary Function</strong></td>
-<td style="text-align: left;">Regulates mean rotational speed OVER MULTIPLE CYCLES.</td>
-<td style="text-align: left;">Smooths out cyclic speed variations WITHIN A SINGLE CYCLE.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cause of Variation</strong></td>
-<td style="text-align: left;">External load changes on engine / prime mover.</td>
-<td style="text-align: left;">Internal cyclic torque fluctuations (surplus/deficit energy).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Control Action</strong></td>
-<td style="text-align: left;">Active control regulating fuel / working fluid throttle valve.</td>
-<td style="text-align: left;">Passive kinetic energy storage $E = \frac{1}{2} I \omega^2$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Operation Mode</strong></td>
-<td style="text-align: left;">Intermittent (activates only when mean speed strays).</td>
-<td style="text-align: left;">Continuous and automatic during every single stroke.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Effect on Mean Speed</strong></td>
-<td style="text-align: left;">Controls mean speed across varying load demand.</td>
-<td style="text-align: left;">Has NO CONTROL over mean speed if external load changes!</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Effect on Cyclic Torque</strong></td>
-<td style="text-align: left;">Has NO EFFECT on cyclic torque variations within a stroke.</td>
-<td style="text-align: left;">Directly smooths out cyclic torque variations.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual Pairs)</strong></h2>
-<p><strong>Q1: What is the primary function of a Governor?</strong><br />
-A: To regulate the mean rotational speed of a prime mover across changing external loads by adjusting working fluid/fuel supply.</p>
-<p><strong>Q2: Write the formula for height $h$ of a Watt governor.</strong><br />
-A: $h = \frac{g}{\omega^2} = \frac{895}{N^2}$ (in meters).</p>
-<p><strong>Q3: Why is a Watt governor insensitive at high speeds $N &gt; 100 \text{ rpm}$?</strong><br />
-A: Because height $h \propto 1/N^2$. At high speeds, $h$ becomes very small and height change per rpm $\frac{dh}{dN} = -\frac{1790}{N^3}$ drops to fractions of a millimeter.</p>
-<p><strong>Q4: Does adding heavier flyballs to a Watt governor increase its height or sensitivity?</strong><br />
-A: No. Height $h = 895/N^2$ is completely independent of flyball mass $m$.</p>
-<p><strong>Q5: Write the height formula for a Porter governor without friction.</strong><br />
-A: $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$ (for equal link angles $q=1$).</p>
-<p><strong>Q6: How does sleeve friction $f$ affect Porter governor height during speed increase?</strong><br />
-A: Sleeve friction opposes upward motion, increasing effective sleeve load to $(M g + f)$, giving $h = \frac{m g + (M g + f)}{m g} \frac{895}{N^2}$.</p>
-<p><strong>Q7: Prove why a Porter governor CANNOT be Isochronous.</strong><br />
-A: Isochronism requires constant speed $N$ for all radii, which implies constant height $h$. However, Porter link geometry mandates that height $h$ MUST change as radius changes $h = \sqrt{L^2 - r^2}$, making $N_1 = N_2$ geometrically impossible.</p>
-<p><strong>Q8: What is the structural difference between a Proell governor and a Porter governor?</strong><br />
-A: In a Proell governor, flyballs are mounted on extensions of the lower links beyond the sleeve pins, providing higher sensitivity with smaller ball mass.</p>
-<p><strong>Q9: Write the spring stiffness formula $k$ for a Hartnell governor with equal arms $a=b$.</strong><br />
-A: $k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}$ (factor 2 accounts for two flyballs).</p>
-<p><strong>Q10: How does increasing spring stiffness affect Hartnell governor sensitiveness?</strong><br />
-A: Increasing spring stiffness DECREASES sensitiveness, requiring a larger speed change for a given sleeve lift.</p>
-<p><strong>Q11: Define Governor Sensitiveness $S$.</strong><br />
-A: The ratio of speed range to mean speed: $S = \frac{N_1 - N_2}{N_m}$.</p>
-<p><strong>Q12: Define a Stable Governor.</strong><br />
-A: A governor where for every speed there is ONE unique equilibrium position, and radius of rotation $r$ INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</p>
-<p><strong>Q13: Define an Isochronous Governor.</strong><br />
-A: A governor whose equilibrium speed is constant for all radii of rotation $N_1 = N_2$. Speed range is zero, making sensitiveness infinite $S = \infty$.</p>
-<p><strong>Q14: What is the Controlling Force line equation for an Isochronous spring governor?</strong><br />
-A: $F_c = A \cdot r$ (a straight line passing through the origin).</p>
-<p><strong>Q15: Define Hunting in governors.</strong><br />
-A: Violent, continuous speed oscillations above and below mean speed caused by an over-sensitive or friction-laggy governor over-correcting fuel supply.</p>
-<p><strong>Q16: Define Governor Effort.</strong><br />
-A: The mean force exerted BY the governor ON the sleeve during a specified percentage change in speed (commonly defined for $1\%$ speed variation).</p>
-<p><strong>Q17: Define Governor Power.</strong><br />
-A: The total work done by the governor on the sleeve over its full lift, equal to $\text{Power} = \text{Effort} \times \text{Sleeve Lift}$ (in Joules).</p>
-<p><strong>Q18: What is the main difference between a Flywheel and a Governor?</strong><br />
-A: A flywheel controls cyclic speed variations WITHIN one cycle using passive KE storage, while a governor regulates mean speed OVER MULTIPLE CYCLES across external load changes by actively controlling fuel supply.</p>
-<p><strong>Q19: What type of governor responds faster: Centrifugal or Inertia?</strong><br />
-A: Inertia governor, because it responds directly to angular acceleration $\alpha = d\omega/dt$ in addition to centrifugal force.</p>
-<p><strong>Q20: What is the frictional speed deadband of a governor?</strong><br />
-A: The speed range $\Delta N_{\text{frict}} \approx \frac{f}{m g + M g} N_m$ within which speed varies due to sleeve friction $f$ without causing any sleeve movement.</p>
-<hr />
-<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
-<ul>
-<li><strong>Watt Governor</strong>:</li>
-<li>$h = 895/N^2$ (m). Mass independent! Insensitive at $N &gt; 100 \text{ rpm}$.</li>
-<li><strong>Porter Governor</strong>:</li>
-<li>$h = \frac{m+M}{m} \frac{895}{N^2}$. Friction $+f$ for speed UP, $-f$ for speed DOWN.</li>
-<li>CANNOT be isochronous!</li>
-<li><strong>Hartnell Governor</strong>:</li>
-<li>$k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$. Factor 2 mandatory!</li>
-<li>Higher stiffness $k \implies$ Lower sensitiveness.</li>
-<li><strong>Governor Characteristics</strong>:</li>
-<li>Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
-<li>Stable: $r \uparrow$ as $N \uparrow$.</li>
-<li>Isochronous: $N_1 = N_2 \implies S = \infty$. Controlling line $F_c = a r$ through origin.</li>
-<li>Hunting: Violent speed oscillations from over-sensitiveness.</li>
-<li><strong>Effort &amp; Power</strong>:</li>
-<li>$1\%$ Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
-<li>Power $= \text{Effort} \times \text{Sleeve Lift}$ ($\text{Joules}$, NOT Watts!).</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize Watt $h = 895/N^2$ (mass independent).</li>
-<li>[ ] Memorize Porter $h = \frac{m+M}{m} \frac{895}{N^2}$.</li>
-<li>[ ] Memorize Friction $+f$ (speed UP) and $-f$ (speed DOWN).</li>
-<li>[ ] Memorize Porter cannot be isochronous.</li>
-<li>[ ] Memorize Hartnell stiffness $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$ (Factor 2!).</li>
-<li>[ ] Memorize Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
-<li>[ ] Memorize Stable $\implies dN/dr &gt; 0$.</li>
-<li>[ ] Memorize Isochronous $\implies N_1 = N_2, S = \infty, F_c = a r$.</li>
-<li>[ ] Memorize Hunting $\implies$ Violent speed oscillations from over-sensitiveness.</li>
-<li>[ ] Memorize Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
-<li>[ ] Memorize Power $= \text{Effort} \times \text{Sleeve Lift}$ $\text{Joules}$.</li>
-<li>[ ] Memorize Governor (mean speed across cycles) vs Flywheel (cyclic within stroke).</li>
-<li>[ ] Memorize Pickering governor uses flat leaf springs for gramophone speed control.</li>
-</ul>
-  </div>
+      <h5 id="3-revision-checklist_3"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
+         <li>[ ] Stable: $r$ increases as $N$ increases.</li>
+         <li>[ ] Isochronous: $N_1 = N_2 \implies S = \infty$.</li>
+         <li>[ ] Isochronous controlling force line: $F_c = a r$ (passes through origin).</li>
+         <li>[ ] Hunting: Violent speed oscillations from over-sensitiveness.</li>
+      </ul>
+      <h5 id="4-worked-examples_3"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Governor Sensitiveness Calculation</strong>
+         - <strong>Problem</strong>: A governor runs at $N_1 = 255 \text{ rpm}$ at no load and $N_2 = 245 \text{ rpm}$
+         at full load. Calculate: (a) Mean speed $N_m$, (b) Speed range, (c) Sensitiveness $S$ as a percentage.
+         - <strong>Solution</strong>:
+         1. Calculate mean speed $N_m$:
+      <div class="formula-card">$${N_m = \frac{N_1 + N_2}{2} = \frac{255 + 245}{2} = 250 \text{ rpm}}$$</div>
+      2. Calculate speed range:
+      <div class="formula-card">$${\text{Range} = N_1 - N_2 = 255 - 245 = 10 \text{ rpm}}$$</div>
+      3. Calculate sensitiveness $S$:
+      <div class="formula-card">$${S = \frac{N_1 - N_2}{N_m} = \frac{10}{250} = 0.04 = 4\%}$$</div>
+      - <strong>Key Insight</strong>: Sensitiveness $S = 4\%$.</p>
+      <p><strong>Worked Example 2: Controlling Force Line Intercept &amp; Stability Analysis</strong>
+         - <strong>Problem</strong>: The controlling force of a spring governor is given by $F_c = 1500 \cdot r - 120$
+         $\text{N}$, where $r$ is in meters. Determine whether the governor is stable, isochronous, or unstable. Also
+         calculate the speeds $N_1$ and $N_2$ at $r_1 = 0.15 \text{ m}$ and $r_2 = 0.25 \text{ m}$ for ball mass $m = 2
+         \text{ kg}$.
+         - <strong>Solution</strong>:
+         1. Inspect line equation $F_c = A \cdot r - B$:
+         Here $A = 1500, B = 120 &gt; 0$. Since $B &gt; 0$ with a negative sign, it intercepts the negative $F_c$ axis
+         $\implies$ The governor is <strong>STABLE</strong>!
+         2. Calculate controlling force at $r_1 = 0.15 \text{ m}$:
+      <div class="formula-card">$${F_1 = 1500(0.15) - 120 = 225 - 120 = 105 \text{ N}}$$</div>
+      Since $F_1 = m \omega_1^2 r_1 \implies 105 = 2 \times \omega_1^2 \times 0.15 = 0.30 \omega_1^2$:
+      <div class="formula-card">$${\omega_1^2 = \frac{105}{0.30} = 350 \implies \omega_1 \approx 18.708 \text{ rad/s}}$$
+      </div>
+      <div class="formula-card">$${N_1 = \frac{60 \times 18.708}{2\pi} \approx 178.6 \text{ rpm}}$$</div>
+      3. Calculate controlling force at $r_2 = 0.25 \text{ m}$:
+      <div class="formula-card">$${F_2 = 1500(0.25) - 120 = 375 - 120 = 255 \text{ N}}$$</div>
+      $255 = 2 \times \omega_2^2 \times 0.25 = 0.50 \omega_2^2 \implies \omega_2^2 = \frac{255}{0.50} = 510 \implies
+      \omega_2 \approx 22.583 \text{ rad/s}$:
+      <div class="formula-card">$${N_2 = \frac{60 \times 22.583}{2\pi} \approx 215.7 \text{ rpm}}$$</div>
+      4. Verify stability: As radius increases from $0.15 \text{ m}$ to $0.25 \text{ m}$, speed increases from $178.6
+      \text{ rpm}$ to $215.7 \text{ rpm}$ $\frac{dN}{dr} &gt; 0$, confirming stability!
+      - <strong>Key Insight</strong>: $F_c = 1500 r - 120$ is a STABLE governor with $N_1 = 178.6 \text{ rpm}$ and $N_2
+      = 215.7 \text{ rpm}$.</p>
+      <hr />
+      <h3 id="35-governor-effort-power-equations"><strong>3.5 Governor Effort &amp; Power Equations</strong></h3>
+      <h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Governor Effort $P_{\text{effort}}$</strong>:</li>
+         <li>The mean force exerted BY the governor ON the sleeve during a given percentage change in speed $c =
+            \frac{\Delta N}{N_m}$.</li>
+         <li>For a Porter Governor with ball mass $m$ and central load $M$, for a speed increase fraction $c$:
+            <div class="formula-card">$${\boxed{P_{\text{effort}} = \frac{c}{1+c} \cdot (m + M) \cdot g}}$$</div>
+         </li>
+         <li><strong>Standard $1\%$ Effort $c = 0.01$</strong>:
+            <div class="formula-card">$${P_{1\%} = \frac{0.01}{1.01} \cdot (m + M) \cdot g \approx 0.01 \cdot (m + M)
+               \cdot g}$$</div>
+         </li>
+         <li><strong>Governor Power $P_{\text{power}}$</strong>:</li>
+         <li>Work done by governor on sleeve over full lift $x$:
+            <div class="formula-card">$${\boxed{P_{\text{power}} = \text{Governor Effort} \times \text{Sleeve Lift} =
+               P_{\text{effort}} \cdot x}}$$</div>
+         </li>
+         <li>Units: Joules $\text{J}$ or $\text{N}\cdot\text{m}$.</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Governor Power Definition</strong>:
+         Governor Power is NOT mechanical rate of work in Watts $\text{W}$! In governor terminology, Power is defined as
+         TOTAL WORK DONE ON THE SLEEVE in Joules $\text{J}$ over its full lift range $\text{Power} = \text{Effort}
+         \times \text{Sleeve Lift}$.</div>
+      <h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Effort $P = \frac{c}{1+c}(m+M)g$.</li>
+         <li>[ ] $1\%$ Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
+         <li>[ ] Power $= \text{Effort} \times \text{Sleeve Lift}$ $\text{Joules}$.</li>
+      </ul>
+      <h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Porter Governor Effort &amp; Power Calculation</strong>
+         - <strong>Problem</strong>: A Porter governor has $m = 5 \text{ kg}$, $M = 35 \text{ kg}$, and full sleeve lift
+         $x = 40 \text{ mm} = 0.04 \text{ m}$. Calculate: (a) Governor Effort for a $1\%$ speed increase $c = 0.01$, (b)
+         Governor Power.
+         - <strong>Solution</strong>:
+         1. Calculate total gravity weight $(m+M)g$:
+      <div class="formula-card">$${(m+M)g = (5 + 35) \times 9.81 = 40 \times 9.81 = 392.4 \text{ N}}$$</div>
+      2. Calculate $1\%$ Governor Effort $P_{1\%}$:
+      <div class="formula-card">$${P_{1\%} = \frac{0.01}{1.01} \times 392.4 = \frac{3.924}{1.01} \approx 3.885 \text{
+         N}}$$</div>
+      3. Calculate Governor Power:
+      <div class="formula-card">$${\text{Power} = P_{1\%} \times x = 3.885 \text{ N} \times 0.04 \text{ m} = 0.1554
+         \text{ J} = 0.1554 \text{ N}\cdot\text{m}}$$</div>
+      - <strong>Key Insight</strong>: Effort $= 3.885 \text{ N}$, Power $= 0.1554 \text{ J}$.</p>
+      <p><strong>Worked Example 2: Hartnell Governor Effort &amp; Power Calculation</strong>
+         - <strong>Problem</strong>: A Hartnell governor has $a = b$, $m = 4 \text{ kg}$, $r_1 = 0.18 \text{ m}, N_1 =
+         290 \text{ rpm}, F_1 = 800 \text{ N}$; $r_2 = 0.22 \text{ m}, N_2 = 310 \text{ rpm}, F_2 = 1400 \text{ N}$.
+         Calculate: (a) Sleeve lift $x$, (b) Governor Effort $P$, (c) Governor Power.
+         - <strong>Solution</strong>:
+         1. Calculate sleeve lift $x$:
+      <div class="formula-card">$${x = r_2 - r_1 = 0.22 - 0.18 = 0.04 \text{ m}}$$</div>
+      2. Mean centrifugal force $F_m = \frac{F_1 + F_2}{2} = \frac{800 + 1400}{2} = 1100 \text{ N}$.
+      3. Change in force $\Delta F = F_2 - F_1 = 1400 - 800 = 600 \text{ N}$.
+      4. Governor Effort at sleeve level $P_{\text{effort}} = \Delta F = 600 \text{ N}$.
+      5. Governor Power $= P_{\text{effort}} \times x = 600 \text{ N} \times 0.04 \text{ m} = 24.0 \text{ J}$.
+      - <strong>Key Insight</strong>: Power $= 24.0 \text{ J}$.</p>
+      <hr />
+      <h3 id="36-governor-vs-flywheel-comprehensive-comparison"><strong>3.6 Governor vs Flywheel Comprehensive
+            Comparison</strong></h3>
+      <h5 id="1-comparative-analysis-table"><strong>1. Comparative Analysis Table</strong></h5>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Feature / Aspect</th>
+               <th style="text-align: left;">Governor</th>
+               <th style="text-align: left;">Flywheel</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Primary Function</strong></td>
+               <td style="text-align: left;">Regulates mean rotational speed OVER MULTIPLE CYCLES.</td>
+               <td style="text-align: left;">Smooths out cyclic speed variations WITHIN A SINGLE CYCLE.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Cause of Variation</strong></td>
+               <td style="text-align: left;">External load changes on engine / prime mover.</td>
+               <td style="text-align: left;">Internal cyclic torque fluctuations (surplus/deficit energy).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Control Action</strong></td>
+               <td style="text-align: left;">Active control regulating fuel / working fluid throttle valve.</td>
+               <td style="text-align: left;">Passive kinetic energy storage $E = \frac{1}{2} I \omega^2$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Operation Mode</strong></td>
+               <td style="text-align: left;">Intermittent (activates only when mean speed strays).</td>
+               <td style="text-align: left;">Continuous and automatic during every single stroke.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Effect on Mean Speed</strong></td>
+               <td style="text-align: left;">Controls mean speed across varying load demand.</td>
+               <td style="text-align: left;">Has NO CONTROL over mean speed if external load changes!</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Effect on Cyclic Torque</strong></td>
+               <td style="text-align: left;">Has NO EFFECT on cyclic torque variations within a stroke.</td>
+               <td style="text-align: left;">Directly smooths out cyclic torque variations.</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr />
+      <h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual
+            Pairs)</strong></h2>
+      <p><strong>Q1: What is the primary function of a Governor?</strong><br />
+         A: To regulate the mean rotational speed of a prime mover across changing external loads by adjusting working
+         fluid/fuel supply.</p>
+      <p><strong>Q2: Write the formula for height $h$ of a Watt governor.</strong><br />
+         A: $h = \frac{g}{\omega^2} = \frac{895}{N^2}$ (in meters).</p>
+      <p><strong>Q3: Why is a Watt governor insensitive at high speeds $N &gt; 100 \text{ rpm}$?</strong><br />
+         A: Because height $h \propto 1/N^2$. At high speeds, $h$ becomes very small and height change per rpm
+         $\frac{dh}{dN} = -\frac{1790}{N^3}$ drops to fractions of a millimeter.</p>
+      <p><strong>Q4: Does adding heavier flyballs to a Watt governor increase its height or sensitivity?</strong><br />
+         A: No. Height $h = 895/N^2$ is completely independent of flyball mass $m$.</p>
+      <p><strong>Q5: Write the height formula for a Porter governor without friction.</strong><br />
+         A: $h = \frac{m + M}{m} \cdot \frac{895}{N^2}$ (for equal link angles $q=1$).</p>
+      <p><strong>Q6: How does sleeve friction $f$ affect Porter governor height during speed increase?</strong><br />
+         A: Sleeve friction opposes upward motion, increasing effective sleeve load to $(M g + f)$, giving $h = \frac{m
+         g + (M g + f)}{m g} \frac{895}{N^2}$.</p>
+      <p><strong>Q7: Prove why a Porter governor CANNOT be Isochronous.</strong><br />
+         A: Isochronism requires constant speed $N$ for all radii, which implies constant height $h$. However, Porter
+         link geometry mandates that height $h$ MUST change as radius changes $h = \sqrt{L^2 - r^2}$, making $N_1 = N_2$
+         geometrically impossible.</p>
+      <p><strong>Q8: What is the structural difference between a Proell governor and a Porter governor?</strong><br />
+         A: In a Proell governor, flyballs are mounted on extensions of the lower links beyond the sleeve pins,
+         providing higher sensitivity with smaller ball mass.</p>
+      <p><strong>Q9: Write the spring stiffness formula $k$ for a Hartnell governor with equal arms
+            $a=b$.</strong><br />
+         A: $k = 2 \cdot \frac{F_2 - F_1}{r_2 - r_1}$ (factor 2 accounts for two flyballs).</p>
+      <p><strong>Q10: How does increasing spring stiffness affect Hartnell governor sensitiveness?</strong><br />
+         A: Increasing spring stiffness DECREASES sensitiveness, requiring a larger speed change for a given sleeve
+         lift.</p>
+      <p><strong>Q11: Define Governor Sensitiveness $S$.</strong><br />
+         A: The ratio of speed range to mean speed: $S = \frac{N_1 - N_2}{N_m}$.</p>
+      <p><strong>Q12: Define a Stable Governor.</strong><br />
+         A: A governor where for every speed there is ONE unique equilibrium position, and radius of rotation $r$
+         INCREASES as speed $N$ INCREASES $\frac{dN}{dr} &gt; 0$.</p>
+      <p><strong>Q13: Define an Isochronous Governor.</strong><br />
+         A: A governor whose equilibrium speed is constant for all radii of rotation $N_1 = N_2$. Speed range is zero,
+         making sensitiveness infinite $S = \infty$.</p>
+      <p><strong>Q14: What is the Controlling Force line equation for an Isochronous spring governor?</strong><br />
+         A: $F_c = A \cdot r$ (a straight line passing through the origin).</p>
+      <p><strong>Q15: Define Hunting in governors.</strong><br />
+         A: Violent, continuous speed oscillations above and below mean speed caused by an over-sensitive or
+         friction-laggy governor over-correcting fuel supply.</p>
+      <p><strong>Q16: Define Governor Effort.</strong><br />
+         A: The mean force exerted BY the governor ON the sleeve during a specified percentage change in speed (commonly
+         defined for $1\%$ speed variation).</p>
+      <p><strong>Q17: Define Governor Power.</strong><br />
+         A: The total work done by the governor on the sleeve over its full lift, equal to $\text{Power} = \text{Effort}
+         \times \text{Sleeve Lift}$ (in Joules).</p>
+      <p><strong>Q18: What is the main difference between a Flywheel and a Governor?</strong><br />
+         A: A flywheel controls cyclic speed variations WITHIN one cycle using passive KE storage, while a governor
+         regulates mean speed OVER MULTIPLE CYCLES across external load changes by actively controlling fuel supply.</p>
+      <p><strong>Q19: What type of governor responds faster: Centrifugal or Inertia?</strong><br />
+         A: Inertia governor, because it responds directly to angular acceleration $\alpha = d\omega/dt$ in addition to
+         centrifugal force.</p>
+      <p><strong>Q20: What is the frictional speed deadband of a governor?</strong><br />
+         A: The speed range $\Delta N_{\text{frict}} \approx \frac{f}{m g + M g} N_m$ within which speed varies due to
+         sleeve friction $f$ without causing any sleeve movement.</p>
+      <hr />
+      <h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp;
+            HIGH-YIELD EXAM TRAPS</strong></h2>
+      <ul>
+         <li><strong>Watt Governor</strong>:</li>
+         <li>$h = 895/N^2$ (m). Mass independent! Insensitive at $N &gt; 100 \text{ rpm}$.</li>
+         <li><strong>Porter Governor</strong>:</li>
+         <li>$h = \frac{m+M}{m} \frac{895}{N^2}$. Friction $+f$ for speed UP, $-f$ for speed DOWN.</li>
+         <li>CANNOT be isochronous!</li>
+         <li><strong>Hartnell Governor</strong>:</li>
+         <li>$k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$. Factor 2 mandatory!</li>
+         <li>Higher stiffness $k \implies$ Lower sensitiveness.</li>
+         <li><strong>Governor Characteristics</strong>:</li>
+         <li>Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
+         <li>Stable: $r \uparrow$ as $N \uparrow$.</li>
+         <li>Isochronous: $N_1 = N_2 \implies S = \infty$. Controlling line $F_c = a r$ through origin.</li>
+         <li>Hunting: Violent speed oscillations from over-sensitiveness.</li>
+         <li><strong>Effort &amp; Power</strong>:</li>
+         <li>$1\%$ Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
+         <li>Power $= \text{Effort} \times \text{Sleeve Lift}$ ($\text{Joules}$, NOT Watts!).</li>
+      </ul>
+      <hr />
+      <h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM
+            CHECKLIST</strong></h2>
+      <ul>
+         <li>[ ] Memorize Watt $h = 895/N^2$ (mass independent).</li>
+         <li>[ ] Memorize Porter $h = \frac{m+M}{m} \frac{895}{N^2}$.</li>
+         <li>[ ] Memorize Friction $+f$ (speed UP) and $-f$ (speed DOWN).</li>
+         <li>[ ] Memorize Porter cannot be isochronous.</li>
+         <li>[ ] Memorize Hartnell stiffness $k = 2 (a/b)^2 \frac{F_2 - F_1}{r_2 - r_1}$ (Factor 2!).</li>
+         <li>[ ] Memorize Sensitiveness $S = (N_1 - N_2)/N_m$.</li>
+         <li>[ ] Memorize Stable $\implies dN/dr &gt; 0$.</li>
+         <li>[ ] Memorize Isochronous $\implies N_1 = N_2, S = \infty, F_c = a r$.</li>
+         <li>[ ] Memorize Hunting $\implies$ Violent speed oscillations from over-sensitiveness.</li>
+         <li>[ ] Memorize Effort $P_{1\%} \approx 0.01 (m+M)g$.</li>
+         <li>[ ] Memorize Power $= \text{Effort} \times \text{Sleeve Lift}$ $\text{Joules}$.</li>
+         <li>[ ] Memorize Governor (mean speed across cycles) vs Flywheel (cyclic within stroke).</li>
+         <li>[ ] Memorize Pickering governor uses flat leaf springs for gramophone speed control.</li>
+      </ul>
+   </div>
 </body>
+
 </html>

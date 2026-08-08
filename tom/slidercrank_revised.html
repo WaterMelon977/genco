@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider-Crank Mechanism Dynamics — Concise Exam Revision Guide</title>
+  <meta name="description" content="High-yield exam revision guide for Slider-Crank Mechanism: Piston kinematics (x, v_p, a_p), dynamic force analysis, turning moment, dynamically equivalent 2-mass system, primary & secondary unbalanced forces, locomotive balancing (hammer blow, tractive effort variation, swaying couple). APGENCO AE, GATE, SSC JE.">
+  <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'global'}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --subject-current: #10B981;
+      --subject-current-light: rgba(16, 185, 129, 0.35);
+      --subject-bg-tint: rgba(16, 185, 129, 0.08);
+      --border-light: #E2E8F0;
+      --heading-color: #0F172A;
+      --code-bg: #E2E8F0;
+      --code-text: #0F172A;
+      --pre-bg: #F8FAFC;
+      --table-th-bg: #0F172A;
+      --table-even-bg: #F8FAFC;
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-border: #3B82F6;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #991B1B;
+      --callout-focus-bg: #FEFCE8;
+      --callout-focus-border: #EAB308;
+      --callout-focus-text: #854D0E;
+      --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --subject-current: #10B981;
+      --subject-current-light: rgba(16, 185, 129, 0.35);
+      --subject-bg-tint: rgba(16, 185, 129, 0.08);
+      --border-light: #262933;
+      --heading-color: #F1F5F9;
+      --code-bg: #262933;
+      --code-text: #F1F5F9;
+      --pre-bg: #111318;
+      --table-th-bg: #111318;
+      --table-even-bg: #121419;
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      --callout-focus-bg: #2A2210;
+      --callout-focus-border: #C09820;
+      --callout-focus-text: #E0C060;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 10.5pt; line-height: 1.75;
+      color: var(--text-primary); background: var(--bg-page);
+      max-width: 920px; margin: 0 auto; padding: 40px 24px 80px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current); z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+
+    .submodule-nav {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current); padding: 14px 20px;
+      border-radius: 10px; margin-bottom: 28px; text-align: center;
+      box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt;
+    }
+    .submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+    .submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+    .submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+
+    h1, h2, h3, h4 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.6em; }
+    h1 {
+      font-size: 22pt; text-align: center;
+      background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+      color: #F8FAFC; border-left: 5px solid var(--subject-current);
+      padding: 28px 24px; border-radius: 12px; margin-bottom: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); line-height: 1.35;
+    }
+    [data-theme="light"] h1 { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
+
+    h2 { font-size: 16pt; border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+    h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+
+    p { margin-bottom: 1em; }
+    a { color: var(--subject-current); text-decoration: none; } a:hover { text-decoration: underline; }
+    code { font-family: "SFMono-Regular", Consolas, monospace; background: var(--code-bg); color: var(--subject-current); padding: 0.2em 0.5em; border-radius: 4px; font-size: 9.5pt; font-weight: 600; }
+    pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 16px; border-radius: 8px; overflow-x: auto; color: var(--text-primary); margin: 18px 0; }
+
+    table { border-collapse: collapse; width: 100%; margin: 24px 0; background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-card); }
+    th, td { border: 1px solid var(--border-light); padding: 12px 16px; text-align: left; }
+    th { background: var(--table-th-bg); color: var(--subject-current); font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; font-size: 9.5pt; border-bottom: 2px solid var(--subject-current); }
+    tr:nth-child(even) { background-color: var(--table-even-bg); }
+    tr:hover { background-color: var(--subject-bg-tint); }
+
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: #34D399;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
+
+    .fc, .formula-card {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fc:hover, .formula-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
+
+    .sym { font-size: 9pt; color: var(--text-muted); margin: -10px 0 18px 4px; line-height: 1.6; }
+    .sym span { display: inline-block; margin-right: 16px; }
+
+    .callout { padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card); }
+    .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
+    .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
+    .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
+
+    .kp { background: var(--bg-card); border: 1px solid var(--subject-current); border-radius: 10px; padding: 16px 20px; margin: 24px 0; font-size: 10.5pt; color: var(--text-primary); box-shadow: var(--shadow-card); }
+    .kp-title { font-weight: 700; letter-spacing: .04em; margin-bottom: 10px; font-size: 10pt; text-transform: uppercase; color: var(--subject-current); }
+    .kp ul { margin-bottom: 0; padding-left: 1.3em; }
+    .kp li { margin-bottom: .28em; }
+
+    footer { border-top: 1px solid var(--border-light); padding-top: 24px; margin-top: 48px; text-align: center; font-size: 9pt; color: var(--text-muted); }
+  </style>
+</head>
+<body id="preview" data-subject="operations">
+
+  <div id="reading-progress"></div>
+  <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "dark";
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+        localStorage.setItem("ag-theme", t);
+      }
+      applyTheme(saved);
+      if (toggle) {
+        toggle.addEventListener("click", function() {
+          var c = document.documentElement.getAttribute("data-theme") || "dark";
+          applyTheme(c === "dark" ? "light" : "dark");
+        });
+      }
+      var bar = document.getElementById("reading-progress");
+      window.addEventListener("scroll", function() {
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? Math.min((window.scrollY/d)*100,100) : 0) + "%";
+      }, {passive: true});
+    })();
+  </script>
+
+  <nav class="submodule-nav">
+    <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">⚙️ Theory of Machines:</span>
+    <a href="index.html">[Hub Home]</a>
+    <a href="balancing_reorganized.html">1. Balancing</a>
+    <a href="flywheel_reorganized.html">2. Flywheels</a>
+    <a href="governor_reorganized.html">3. Governors</a>
+    <a href="gyroscope_reorganized.html">4. Gyroscopes</a>
+    <a href="slidercrank_revised.html" class="active">5. Slider-Crank</a>
+  </nav>
+
+  <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+    <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+    <a href="slidercrank_reorganized.html" style="font-weight: 700; text-decoration: underline;">Switch to Comprehensive Long Version &rarr;</a>
+  </div>
+
+  <h1>Slider-Crank Mechanism Dynamics<br><span style="font-size:0.6em; font-weight:400; opacity:0.85;">High-Yield Exam Revision Guide | APGENCO AE &bull; GATE &bull; SSC JE</span></h1>
+
+  <h2>1. Piston Kinematics</h2>
+  <p>Connecting rod obliquity ratio $n = \frac{l}{r}$. As $n \to \infty$, piston motion becomes pure Simple Harmonic Motion (SHM).</p>
+
+  <div class="fc">
+    $$\text{Connecting Rod Obliquity Angle: } \sin\phi = \frac{\sin\theta}{n}$$
+  </div>
+
+  <div class="fc">
+    $$\text{Piston Displacement from IDC: } x = r \left[ (1 - \cos\theta) + \frac{\sin^2\theta}{2n} \right]$$
+  </div>
+
+  <div class="fc">
+    $$\text{Piston Velocity: } v_p = \omega r \left( \sin\theta + \frac{\sin 2\theta}{2n} \right)$$
+  </div>
+
+  <div class="fc">
+    $$\text{Piston Acceleration: } a_p = \omega^2 r \left( \cos\theta + \frac{\cos 2\theta}{n} \right)$$
+  </div>
+  <div class="sym">
+    <span>$r$: crank radius ($\text{m}$)</span>
+    <span>$l$: connecting rod length ($\text{m}$)</span>
+    <span>$n = l/r$: obliquity ratio ($3.5 - 5$)</span>
+  </div>
+
+  <div class="callout callout-trap">
+    <strong>⚠️ EXAM TRAP — Acceleration Extremes:</strong>
+    <ul>
+      <li>At <strong>IDC ($\theta = 0^\circ$)</strong>: $a_p = \omega^2 r \left(1 + \frac{1}{n}\right)$ — Maximum acceleration towards crank!</li>
+      <li>At <strong>ODC ($\theta = 180^\circ$)</strong>: $a_p = -\omega^2 r \left(1 - \frac{1}{n}\right)$ — Maximum deceleration!</li>
+      <li>At <strong>Dead Centres</strong>: Velocity $v_p = 0$, but Acceleration $a_p \neq 0$!</li>
+    </ul>
+  </div>
+
+  <h2>2. Dynamic Force Analysis &amp; Turning Moment</h2>
+
+  <div class="fc">
+    $$\text{Inertia Force: } F_i = m_{\text{rec}} \, \omega^2 r \left(\cos\theta + \frac{\cos 2\theta}{n}\right)$$
+  </div>
+
+  <div class="fc">
+    $$\text{Net Piston Effort: } F_p = F_{\text{gas}} - F_i \mp R_f \pm m_{\text{rec}} g$$
+  </div>
+
+  <div class="fc">
+    $$\text{Crank Effort (Turning Moment): } T = F_p \cdot r \left(\sin\theta + \frac{\sin 2\theta}{2n}\right)$$
+  </div>
+  <div class="sym">
+    <span>$F_p$: net piston effort ($\text{N}$)</span>
+    <span>Side thrust on cylinder wall: $N_s = F_p \tan\phi$</span>
+    <span>Force along connecting rod: $F_q = \frac{F_p}{\cos\phi}$</span>
+  </div>
+
+  <h2>3. Dynamically Equivalent Two-Mass System</h2>
+  <p>To replace a connecting rod of mass $m_{\text{conrod}}$ by two point masses $m_1$ (at gudgeon pin) and $m_2$ (at crank pin), 3 conditions must hold:</p>
+  <div class="fc">
+    $$m_1 + m_2 = m_{\text{conrod}}, \qquad m_1 l_1 = m_2 l_2, \qquad m_1 l_1^2 + m_2 l_2^2 = I_G$$
+  </div>
+
+  <h2>4. Primary &amp; Secondary Unbalanced Forces</h2>
+  <div class="fc">
+    $$\text{Primary Unbalanced Force (at frequency } \omega\text{): } F_P = m_{\text{rec}} r \omega^2 \cos\theta$$
+  </div>
+
+  <div class="fc">
+    $$\text{Secondary Unbalanced Force (at frequency } 2\omega\text{): } F_S = \frac{m_{\text{rec}} r \omega^2}{n} \cos 2\theta$$
+  </div>
+
+  <div class="callout callout-focus">
+    <strong>🔴 Single-Cylinder Balancing Rule:</strong> Complete balance of a single-cylinder reciprocating engine using rotating masses is <strong>IMPOSSIBLE</strong>. Balancing primary force along the stroke creates an equal unbalanced force perpendicular to the stroke!
+  </div>
+
+  <h2>5. Locomotive Balancing Effects (Partial Balance Fraction $c \approx 2/3$)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Effect</th>
+        <th>Formula</th>
+        <th>Peak Crank Angle $\theta$</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hammer Blow</strong> (Vertical rail force)</td>
+        <td>$H = B \cdot b \cdot \omega^2 = c \cdot m_{\text{rec}} \cdot r \cdot \omega^2$</td>
+        <td>When balance weight is vertical ($\theta = 90^\circ, 270^\circ$)</td>
+      </tr>
+      <tr>
+        <td><strong>Tractive Effort Variation</strong> ($\Delta F_T$)</td>
+        <td>$\Delta F_T = \pm \sqrt{2} (1 - c) m_{\text{rec}} r \omega^2$</td>
+        <td>$\theta = 135^\circ$ and $315^\circ$</td>
+      </tr>
+      <tr>
+        <td><strong>Swaying Couple</strong> ($C_{\text{sway}}$)</td>
+        <td>$C_{\text{sway}} = \pm \frac{a}{\sqrt{2}} (1 - c) m_{\text{rec}} r \omega^2$</td>
+        <td>$\theta = 45^\circ$ and $225^\circ$</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-trap">
+    <strong>⚠️ Hammer Blow &amp; Rail Lift:</strong>
+    $$\text{Wheel Lifts Off Rail when: } H \ge W_{\text{static}}$$
+    Hammer blow grows with $\omega^2$ ($N^2$), setting the <strong>maximum safe speed limit</strong> for steam locomotives!
+  </div>
+
+  <h2>6. Key Points to Remember</h2>
+  <div class="kp">
+    <div class="kp-title">Exam Survival Checklist</div>
+    <ul>
+      <li><strong>Obliquity ratio:</strong> $n = l/r$ ($3.5 - 5$). Pure SHM when $n \to \infty$.</li>
+      <li><strong>IDC Acceleration:</strong> $a_p = \omega^2 r (1 + 1/n)$. ODC: $a_p = -\omega^2 r (1 - 1/n)$.</li>
+      <li><strong>Dead Centres:</strong> Velocity $v_p = 0$, Turning Moment $T = 0$, Acceleration $a_p \neq 0$.</li>
+      <li><strong>Side thrust:</strong> $N_s = F_p \tan\phi$. Conrod force: $F_q = F_p / \cos\phi$.</li>
+      <li><strong>Primary vs Secondary Force:</strong> Primary frequency $= \omega$, Secondary frequency $= 2\omega$, magnitude $= \frac{1}{n} F_P$.</li>
+      <li><strong>Single Cylinder:</strong> Cannot be 100% balanced with rotating masses alone.</li>
+      <li><strong>Locomotive Balance:</strong> Partial balance fraction $c \approx 2/3$. Cranks set at $90^\circ$ for self-starting.</li>
+      <li><strong>Hammer Blow:</strong> $H = c \cdot m_{\text{rec}} r \omega^2$. Wheel lifts when $H \ge W_{\text{static}}$.</li>
+      <li><strong>Peak Angles:</strong> Tractive Effort Fluctuation $\to 135^\circ / 315^\circ$; Swaying Couple $\to 45^\circ / 225^\circ$.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Theory of Machines Study Portal &bull; APGENCO AE / GATE / SSC JE Mechanical</p>
+  </footer>
+
+</body>
+</html>

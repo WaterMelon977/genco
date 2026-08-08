@@ -1,379 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gyroscopic Couple, Precession, Stability of Vehicles, Ships & Aircraft — Master Reorganized Study Guide — AP GenCo Exam Guide</title>
-  <script>
-MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-  :root {
-    --bg-page: #F0ECE1; --bg-card: #FFFFFF; --bg-formula: #FAF7F2;
-    --text-primary: #2D2926; --text-secondary: #5C544D; --text-accent: #8C5A37;
-    --border-light: #E2D9CC; --border-accent: #8C5A37;
-    --heading-color: #4A2E1B; --heading-sub: #664229;
-    --nav-bg: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); --nav-text: #FFFDF9;
-    --progress-color: #8C5A37; --code-bg: #EAE1D3; --code-text: #4A2E1B; --pre-bg: #F7F3EC;
-    --callout-concept-bg: #EFF6FF; --callout-concept-border: #3B82F6; --callout-concept-text: #1E40AF;
-    --callout-trap-bg: #FEF2F2; --callout-trap-border: #EF4444; --callout-trap-text: #991B1B;
-    --callout-focus-bg: #FEFCE8; --callout-focus-border: #EAB308; --callout-focus-text: #854D0E;
-  }
-  [data-theme="dark"] {
-    --bg-page: #1C1A17; --bg-card: #262320; --bg-formula: #1F1D1A;
-    --text-primary: #E2D9CC; --text-secondary: #A89A8E; --text-accent: #C8895A;
-    --border-light: #3D3732; --border-accent: #C8895A;
-    --heading-color: #E2D9CC; --heading-sub: #C8895A;
-    --nav-bg: linear-gradient(135deg, #2A1A0E 0%, #3D2510 100%); --nav-text: #E2D9CC;
-    --progress-color: #C8895A; --code-bg: #2A2520; --code-text: #E2D9CC; --pre-bg: #1F1D1A;
-    --callout-concept-bg: #1A2035; --callout-concept-border: #3B6FD4; --callout-concept-text: #93B4F0;
-    --callout-trap-bg: #2A1515; --callout-trap-border: #C04040; --callout-trap-text: #F0A0A0;
-    --callout-focus-bg: #2A2210; --callout-focus-border: #C09820; --callout-focus-text: #E0C060;
-  }
-  * { box-sizing: border-box; }
-  #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--progress-color); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
-  #floating-nav { position: fixed; top: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 50px; padding: 5px 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); z-index: 9998; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap; font-size: 9pt; font-family: system-ui, -apple-system, sans-serif; }
-  #floating-nav.visible { opacity: 1; pointer-events: auto; }
-  .fnav-link { color: var(--text-secondary); text-decoration: none; padding: 3px 9px; border-radius: 20px; font-weight: 500; transition: background 0.15s, color 0.15s; }
-  .fnav-link:hover { background: var(--border-light); color: var(--text-accent); text-decoration: none; }
-  .fnav-link.active-section { background: var(--border-accent); color: var(--nav-text); }
-  .fnav-sep { color: var(--border-light); user-select: none; font-size: 8pt; }
-  #theme-toggle { position: fixed; top: 12px; right: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-secondary); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 15pt; box-shadow: 0 2px 10px rgba(0,0,0,0.10); z-index: 9998; transition: background 0.2s, border-color 0.2s, transform 0.15s; line-height: 1; }
-  #theme-toggle:hover { transform: scale(1.1); border-color: var(--border-accent); }
-  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.85; color: var(--text-primary); background-color: var(--bg-page); margin: 0; padding: 60px 20px 50px; transition: background-color 0.25s, color 0.25s; }
-  .reading-content { max-width: 820px; margin: 0 auto; }
-  h1, h2, h3, h4, h5, h6 { font-family: "Bookman Old Style", Georgia, serif; color: var(--heading-color); font-weight: 700; margin-top: 1.6em; margin-bottom: 0.5em; }
-  h1 { font-size: 22pt; text-align: center; background: var(--nav-bg); color: var(--nav-text); padding: 24px 32px; border-radius: 12px; margin-bottom: 28px; box-shadow: 0 6px 20px rgba(74,46,27,0.18); line-height: 1.3; }
-  h2 { font-size: 17pt; border-bottom: 2px solid var(--border-accent); padding-bottom: 6px; margin-top: 40px; }
-  h3 { font-size: 13.5pt; color: var(--heading-sub); } h4 { font-size: 12pt; color: var(--heading-color); } h5 { font-size: 11pt; color: var(--heading-sub); }
-  a { color: var(--text-accent); text-decoration: none; } a:hover { text-decoration: underline; }
-  p { margin-bottom: 0.9em; }
-  code { font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace; background: var(--code-bg); color: var(--code-text); padding: 0.2em 0.45em; border-radius: 4px; font-size: 0.92em; }
-  pre { background: var(--pre-bg); border: 1px solid var(--border-light); padding: 1em 1.2em; border-radius: 8px; overflow-x: auto; font-size: 10pt; line-height: 1.6; }
-  pre code { background: none; padding: 0; font-size: inherit; color: var(--text-primary); }
-  blockquote { border-left: 4px solid var(--border-accent); background-color: var(--pre-bg); padding: 12px 18px; margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 20px 0; background: var(--bg-card); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,40,20,0.06); font-size: 10.5pt; }
-  th, td { border: 1px solid var(--border-light); padding: 10px 14px; text-align: left; }
-  th { background: #4A2E1B; color: #FFFDF9; font-family: "Bookman Old Style", Georgia, serif; font-weight: 600; }
-  [data-theme="dark"] th { background: #2A1A0E; }
-  tr:nth-child(even) { background-color: var(--pre-bg); }
-  img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-light); }
-  ul, ol { padding-left: 1.5em; margin-bottom: 0.8em; } li { margin-bottom: 0.25em; }
-  .formula-card { background: var(--bg-formula); border: 1px solid var(--border-light); border-left: 4px solid var(--border-accent); border-radius: 0 8px 8px 0; margin: 22px 0; padding: 14px 20px; text-align: center; overflow-x: auto; font-size: 1.05em; box-shadow: 0 2px 8px rgba(140,90,55,0.07); }
-  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 8px 8px 0; font-size: 10.5pt; line-height: 1.65; border-left: 5px solid; }
-  .callout-concept { background-color: var(--callout-concept-bg); border-color: var(--callout-concept-border); color: var(--callout-concept-text); }
-  .callout-trap { background-color: var(--callout-trap-bg); border-color: var(--callout-trap-border); color: var(--callout-trap-text); }
-  .callout-focus { background-color: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text); }
-  .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
-  .submodule-nav { background: var(--nav-bg); padding: 11px 20px; font-family: system-ui, -apple-system, sans-serif; font-size: 10.5pt; border-radius: 10px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(74,46,27,0.15); }
-  .submodule-nav a { color: var(--nav-text); text-decoration: none; font-weight: 600; transition: opacity 0.2s ease; opacity: 0.92; }
-  .submodule-nav a:hover { text-decoration: underline; opacity: 1; }
-  @media (max-width: 700px) { #floating-nav { display: none; } body { padding: 50px 14px 40px; } h1 { font-size: 17pt; padding: 18px; } }
-</style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gyroscopic Couple, Precession, Stability of Vehicles, Ships & Aircraft — Master Reorganized Study Guide — AP
+      GenCo Exam Guide</title>
+   <script>
+      MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true }, svg: { fontCache: 'global' } };
+   </script>
+   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   <style>
+      :root {
+         --bg-page: #F8FAFC;
+         --bg-card: #FFFFFF;
+         --bg-formula: #F1F5F9;
+         --text-primary: #0F172A;
+         --text-secondary: #475569;
+         --text-muted: #94A3B8;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #E2E8F0;
+         --heading-color: #0F172A;
+         --heading-sub: #10B981;
+         --code-bg: #E2E8F0;
+         --code-text: #0F172A;
+         --pre-bg: #F8FAFC;
+         --table-th-bg: #0F172A;
+         --table-even-bg: #F8FAFC;
+         --callout-concept-bg: #EFF6FF;
+         --callout-concept-border: #3B82F6;
+         --callout-concept-text: #1E40AF;
+         --callout-trap-bg: #FEF2F2;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #991B1B;
+         --callout-focus-bg: #FEFCE8;
+         --callout-focus-border: #EAB308;
+         --callout-focus-text: #854D0E;
+         --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+      }
+
+      [data-theme="dark"] {
+         --bg-page: #0E0F12;
+         --bg-card: #16181D;
+         --bg-formula: #111318;
+         --text-primary: #F1F5F9;
+         --text-secondary: #94A3B8;
+         --text-muted: #64748B;
+         --subject-current: #10B981;
+         --subject-current-light: rgba(16, 185, 129, 0.35);
+         --subject-bg-tint: rgba(16, 185, 129, 0.08);
+         --border-light: #262933;
+         --heading-color: #F1F5F9;
+         --heading-sub: #10B981;
+         --code-bg: #262933;
+         --code-text: #F1F5F9;
+         --pre-bg: #111318;
+         --table-th-bg: #111318;
+         --table-even-bg: #121419;
+         --callout-concept-bg: #131D31;
+         --callout-concept-border: #3B6FD4;
+         --callout-concept-text: #93C5FD;
+         --callout-trap-bg: #271415;
+         --callout-trap-border: #EF4444;
+         --callout-trap-text: #FCA5A5;
+         --callout-focus-bg: #2A2210;
+         --callout-focus-border: #C09820;
+         --callout-focus-text: #E0C060;
+         --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      }
+
+      *,
+      *::before,
+      *::after {
+         box-sizing: border-box;
+      }
+
+      #reading-progress {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 0%;
+         height: 3px;
+         background: var(--subject-current);
+         z-index: 9999;
+         transition: width 0.1s linear;
+         border-radius: 0 2px 2px 0;
+      }
+
+      #floating-nav {
+         position: fixed;
+         top: 12px;
+         left: 50%;
+         transform: translateX(-50%);
+         display: flex;
+         align-items: center;
+         gap: 4px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-radius: 50px;
+         padding: 5px 14px;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+         z-index: 9998;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.3s ease;
+         white-space: nowrap;
+         font-size: 8.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      #floating-nav.visible {
+         opacity: 1;
+         pointer-events: auto;
+      }
+
+      .fnav-link {
+         color: var(--text-secondary);
+         text-decoration: none;
+         padding: 3px 10px;
+         border-radius: 20px;
+         font-weight: 600;
+         transition: background 0.15s, color 0.15s;
+      }
+
+      .fnav-link:hover {
+         background: var(--bg-formula);
+         color: var(--subject-current);
+      }
+
+      .fnav-link.active-section {
+         background: var(--subject-current);
+         color: #0E0F12;
+      }
+
+      .fnav-sep {
+         color: var(--border-light);
+         user-select: none;
+         font-size: 8pt;
+      }
+
+      #theme-toggle {
+         position: fixed;
+         top: 18px;
+         right: 24px;
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         color: var(--text-secondary);
+         border-radius: 50%;
+         width: 40px;
+         height: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         font-size: 13pt;
+         z-index: 9998;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+         transition: all 0.2s ease;
+      }
+
+      #theme-toggle:hover {
+         border-color: var(--subject-current);
+         color: var(--subject-current);
+         transform: scale(1.08);
+      }
+
+      body {
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-size: 11.5pt;
+         line-height: 1.9;
+         color: var(--text-primary);
+         background-color: var(--bg-page);
+         margin: 0;
+         padding: 60px 20px 72px;
+         transition: background-color 0.25s, color 0.25s;
+      }
+
+      .reading-content {
+         max-width: 820px;
+         margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-family: "Bookman Old Style", Georgia, serif;
+         color: var(--heading-color);
+         font-weight: 700;
+         margin-top: 1.6em;
+         margin-bottom: 0.5em;
+      }
+
+      h1 {
+         font-size: 22pt;
+         text-align: center;
+         background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+         color: #F8FAFC;
+         border-left: 5px solid var(--subject-current);
+         padding: 28px 24px;
+         border-radius: 12px;
+         margin-bottom: 28px;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+         line-height: 1.35;
+      }
+
+      [data-theme="light"] h1 {
+         background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      }
+
+      h2 {
+         font-size: 16pt;
+         border-bottom: 3px solid var(--subject-current);
+         padding-bottom: 8px;
+         margin-top: 42px;
+      }
+
+      h3 {
+         font-size: 13.5pt;
+         color: var(--subject-current);
+         margin-top: 28px;
+      }
+
+      h4 {
+         font-size: 12pt;
+         color: var(--text-primary);
+         margin-top: 20px;
+      }
+
+      h5 {
+         font-size: 11pt;
+         color: var(--text-secondary);
+         margin-top: 16px;
+      }
+
+      a {
+         color: var(--subject-current);
+         text-decoration: none;
+      }
+
+      a:hover {
+         text-decoration: underline;
+      }
+
+      p {
+         margin-bottom: 0.9em;
+      }
+
+      code {
+         font-family: "SFMono-Regular", Consolas, monospace;
+         background: var(--code-bg);
+         color: var(--subject-current);
+         padding: 0.2em 0.5em;
+         border-radius: 4px;
+         font-size: 9.5pt;
+         font-weight: 600;
+      }
+
+      pre {
+         background: var(--pre-bg);
+         border: 1px solid var(--border-light);
+         padding: 16px;
+         border-radius: 8px;
+         overflow-x: auto;
+         color: var(--text-primary);
+         margin: 18px 0;
+      }
+
+      pre code {
+         background: none;
+         padding: 0;
+         font-size: inherit;
+         color: var(--text-primary);
+      }
+
+      blockquote {
+         border-left: 4px solid var(--subject-current);
+         background-color: var(--pre-bg);
+         padding: 12px 18px;
+         margin: 18px 0;
+         color: var(--text-secondary);
+         border-radius: 0 6px 6px 0;
+      }
+
+      table {
+         border-collapse: collapse;
+         width: 100%;
+         margin: 24px 0;
+         background: var(--bg-card);
+         border-radius: 10px;
+         overflow: hidden;
+         border: 1px solid var(--border-light);
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+         font-size: 10pt;
+      }
+
+      th,
+      td {
+         border: 1px solid var(--border-light);
+         padding: 12px 16px;
+         text-align: left;
+      }
+
+      th {
+         background: var(--table-th-bg);
+         color: var(--subject-current);
+         font-family: "Bookman Old Style", Georgia, serif;
+         font-weight: 600;
+         font-size: 9.5pt;
+         letter-spacing: 0.5px;
+         border-bottom: 2px solid var(--subject-current);
+      }
+
+      tr:nth-child(even) {
+         background-color: var(--table-even-bg);
+      }
+
+      tr:hover {
+         background-color: var(--subject-bg-tint);
+      }
+
+      img {
+         max-width: 100%;
+         height: auto;
+         border-radius: 8px;
+         border: 1px solid var(--border-light);
+      }
+
+      ul,
+      ol {
+         padding-left: 1.5em;
+         margin-bottom: 0.8em;
+      }
+
+      li {
+         margin-bottom: 0.25em;
+      }
+
+      /* Formula Cards — Intense Breathing & Lit Box Effect */
+      @keyframes formulaBreathe {
+
+         0%,
+         100% {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+               0 0 18px 2px var(--subject-current);
+            border-left-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-formula) 75%);
+         }
+
+         50% {
+            box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+               0 0 32px 6px var(--subject-current-light);
+            border-left-color: #34D399;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, var(--bg-formula) 60%);
+         }
+      }
+
+      .formula-card,
+      .fc,
+      .concept-block {
+         border: 1px solid var(--border-light);
+         border-left: 5px solid var(--subject-current);
+         border-radius: 10px;
+         padding: 16px 20px;
+         margin: 22px 0;
+         text-align: center;
+         overflow-x: auto;
+         animation: formulaBreathe 3.5s ease-in-out infinite;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .formula-card:hover,
+      .fc:hover,
+      .concept-block:hover {
+         transform: translateY(-3px) scale(1.01);
+         background: linear-gradient(135deg, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0.10) 100%) !important;
+         box-shadow: 0 0 45px 8px var(--subject-current),
+            0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+         border-color: var(--subject-current);
+      }
+
+      .callout {
+         padding: 16px 20px;
+         margin: 20px 0;
+         border-radius: 8px;
+         font-size: 10.5pt;
+         line-height: 1.6;
+         border-left: 5px solid;
+         box-shadow: var(--shadow-card);
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .callout-concept {
+         background-color: var(--callout-concept-bg);
+         border-color: var(--callout-concept-border);
+         color: var(--callout-concept-text);
+      }
+
+      .callout-trap {
+         background-color: var(--callout-trap-bg);
+         border-color: var(--callout-trap-border);
+         color: var(--callout-trap-text);
+      }
+
+      .callout-focus {
+         background-color: var(--callout-focus-bg);
+         border-color: var(--callout-focus-border);
+         color: var(--callout-focus-text);
+      }
+
+      .katex-display,
+      .MathJax_Display {
+         overflow-x: auto;
+         overflow-y: hidden;
+      }
+
+      .submodule-nav {
+         background: var(--bg-card);
+         border: 1px solid var(--border-light);
+         border-left: 4px solid var(--subject-current);
+         padding: 14px 20px;
+         border-radius: 10px;
+         margin-bottom: 28px;
+         text-align: center;
+         box-shadow: var(--shadow-card);
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         font-size: 9.5pt;
+         font-family: Inter, system-ui, sans-serif;
+      }
+
+      .submodule-nav a {
+         color: var(--text-secondary);
+         font-weight: 600;
+         text-decoration: none;
+         padding: 5px 12px;
+         border-radius: 6px;
+         transition: all 0.2s ease;
+      }
+
+      .submodule-nav a:hover {
+         color: var(--subject-current);
+         background: var(--bg-formula);
+      }
+
+      .submodule-nav a.active {
+         color: var(--subject-current);
+         font-weight: 700;
+         background: var(--bg-formula);
+         border: 1px solid var(--subject-current);
+      }
+
+      @media (max-width: 700px) {
+         #floating-nav {
+            display: none;
+         }
+
+         body {
+            padding: 50px 14px 40px;
+         }
+
+         h1 {
+            font-size: 17pt;
+            padding: 18px;
+         }
+      }
+   </style>
 </head>
-<body id="preview">
-  <div id="reading-progress"></div>
-<div id="floating-nav">
-  <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
-  <span class="fnav-sep">·</span>
-  <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
-</div>
-<button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
-<script>
-(function() {
-  var toggle = document.getElementById("theme-toggle");
-  var saved = localStorage.getItem("ag-theme") || "light";
-  function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
-  applyTheme(saved);
-  toggle.addEventListener("click", function() { var c = document.documentElement.getAttribute("data-theme") || "light"; applyTheme(c === "dark" ? "light" : "dark"); });
-  var bar = document.getElementById("reading-progress");
-  function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s/d)*100,100) : 0) + "%"; }
-  window.addEventListener("scroll", upBar, {passive: true}); upBar();
-  var fn = document.getElementById("floating-nav");
-  var links = fn.querySelectorAll(".fnav-link");
-  var ids = ["section-1-topic-overview","section-2-quick-reference-sheet","section-3-main-body","section-4-theory-qa","section-5-consolidation-notes","section-6-final-quick-fire-pre-exam-checklist"];
-  function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function(id){ var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function(lk){ lk.classList.toggle("active-section", lk.getAttribute("href").replace("#","") === act); }); }
-  window.addEventListener("scroll", upNav, {passive: true}); upNav();
-  links.forEach(function(lk){ lk.addEventListener("click", function(e){ e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#","")); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }); });
-})();
-</script>
-  <div class="reading-content">
-    <div class="submodule-nav">
-    <a href="index.html">&larr; Back to Tom Hub</a>
-    <a href="../index.html" style="font-size: 9.5pt; opacity: 0.85;">Main Exam Portal &rarr;</a>
-  </div>
-  <h1 id="gyroscopic-couple-precession-stability-of-vehicles-ships-aircraft-master-reorganized-study-guide">Gyroscopic Couple, Precession, Stability of Vehicles, Ships &amp; Aircraft — Master Reorganized Study Guide</h1>
-<h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
-<p>This master guide covers the complete principles of Gyroscopic Action, Gyroscopic Couple, Precession, and Vehicle/Vessel Stability for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core topics addressed include Gyroscopic Couple Derivation $C = I \cdot \omega \cdot \omega_p$, Fundamental Axes and Planes (Spin Axis, Precession Axis, Gyroscopic Torque Axis in three mutually perpendicular planes), Active vs Reactive Gyroscopic Couples, Angular Velocity of Precession $\omega_p = \frac{v}{R}$, Gyroscopic Effects on Aeroplanes (Clockwise vs Anticlockwise propeller rotation viewed from tail/front during Left vs Right turns, Nose/Tail pitching effects), Gyroscopic Effects on Naval Ships (Terminology: Bow/Fore, Stern/Aft, Port/Left, Starboard/Right; Steering effects on Bow/Stern; Pitching effects on Port/Starboard with SHM motion $\omega_p = \theta_0 \omega_0$; Proof of ZERO gyroscopic effect during Rolling when spin and rolling axes are parallel), Stability of Four-Wheeled Vehicles on Curved Paths (Combined Centrifugal Couple $C_c = \frac{m v^2 h}{R}$ and Gyroscopic Couple $C_g = (4 I_w \omega_w \pm I_e \omega_e \cdot G) \omega_p$, Inner vs Outer Wheel Reactions $W_i, W_o$, condition to prevent overturning $W_i &gt; 0$), and Stability of Two-Wheeled Motor Vehicles (Angle of heel $\theta$, gyroscopic restoring vs overturning moments, equation $\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w + I_e \cdot G}{m h R}\right]$). All raw syllabus concepts, derivations, direction rules, ASCII decision trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero content loss.</p>
-<hr />
-<h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
-<h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Parameter / Concept</th>
-<th style="text-align: left;">Formula / Governing Relation</th>
-<th style="text-align: left;">Primary Units</th>
-<th style="text-align: left;">Key Conditions &amp; Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Gyroscopic Couple Magnitude $C$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \omega_p}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">$I$ = rotor moment of inertia $\text{kg}\cdot\text{m}^2$, $\omega$ = spin speed $\text{rad/s}$, $\omega_p$ = precession speed $\text{rad/s}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Angular Velocity of Spin $\omega$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega = \frac{2\pi N}{60}}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}$</td>
-<td style="text-align: left;">$N$ = rotational speed of rotor in rpm.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Precession Speed for Curved Path $\omega_p$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_p = \frac{v}{R}}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}$</td>
-<td style="text-align: left;">$v$ = linear velocity $\text{m/s}$, $R$ = turn radius $\text{m}$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Gyroscopic Couple (Linear Form)</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \left(\frac{v}{R}\right)}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Direct substitution of $\omega_p = v/R$.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Gyroscopic Acceleration $\alpha_g$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\alpha_g = \omega \cdot \omega_p}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}^2$</td>
-<td style="text-align: left;">Angular acceleration resulting from precessional motion.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Maximum Pitching Precession $\omega_{p,\text{max}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\omega_{p,\text{max}} = \theta_0 \cdot \omega_0 = \theta_0 \cdot \frac{2\pi}{T_p}}}$$</div></td>
-<td style="text-align: left;">$\text{rad/s}$</td>
-<td style="text-align: left;">$\theta_0$ = amplitude of pitch (rad), $T_p$ = periodic time of pitch (sec).</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Maximum Pitching Couple $C_{\text{max}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot \omega_0)}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Maximum reactive couple experienced during pitching.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Ship Rolling Gyroscopic Couple $C_{\text{roll}}$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C_{\text{roll}} = 0}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Spin axis is parallel to rolling axis $\implies \omega_p = 0 \implies C = 0$!</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>4-Wheeler Centrifugal Couple $C_c$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C_c = \frac{m \cdot v^2}{R} \cdot h}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">Overturning moment about outer wheel contact points.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>4-Wheeler Gyroscopic Couple $C_g$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{C_g = \left(4 I_w \omega_w \pm I_e \omega_e \cdot G\right) \omega_p}}$$</div></td>
-<td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
-<td style="text-align: left;">$+ I_e$ when engine rotates in same sense as wheels, $- I_e$ when opposite.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>4-Wheeler Inner Wheel Reaction $W_i$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{W_i = \frac{W}{4} - \frac{C_c + C_g}{2 x}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">$W = m g$, $x$ = wheel track width $\text{m}$. Inner wheels tend to lift!</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>4-Wheeler Outer Wheel Reaction $W_o$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{W_o = \frac{W}{4} + \frac{C_c + C_g}{2 x}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Outer wheels press down harder on road.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Condition to Prevent Overturning</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{W_i &gt; 0 \implies \frac{W}{4} &gt; \frac{C_c + C_g}{2 x}}}$$</div></td>
-<td style="text-align: left;">$\text{N}$</td>
-<td style="text-align: left;">Inner wheels must maintain positive ground contact force.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>2-Wheeler Angle of Heel $\theta$</strong></td>
-<td style="text-align: left;"><div class="formula-card">$${\boxed{\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm I_e \cdot G}{m \cdot h \cdot r_w}\right]}}$$</div></td>
-<td style="text-align: left;">Dimensionless</td>
-<td style="text-align: left;">$\theta$ = tilt angle with vertical towards turn center ($+$ same rotation, $-$ opposite).</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
-<ul>
-<li><strong>Axis of Spin</strong>: The axis about which a rotor, propeller, wheel, or disc rotates at high angular velocity $\omega$.</li>
-<li><strong>Axis of Precession</strong>: The axis about which the axis of spin rotates or turns at angular velocity $\omega_p$.</li>
-<li><strong>Axis of Gyroscopic Couple</strong>: The axis perpendicular to both the Axis of Spin and Axis of Precession, along which the active/reactive gyroscopic torque acts.</li>
-<li><strong>Active Gyroscopic Couple</strong>: The external torque required to be applied on a spinning body to cause its spin axis to precess at angular speed $\omega_p$.</li>
-<li><strong>Reactive Gyroscopic Couple</strong>: The equal and opposite reaction torque exerted BY the spinning body ON its supporting frame, chassis, vessel, or aircraft structure $C_{\text{reactive}} = -C_{\text{active}}$.</li>
-<li><strong>Pitching (Ship Motion)</strong>: The upward and downward angular oscillation of the ship's bow and stern in a vertical plane about a transverse axis.</li>
-<li><strong>Steering (Ship Motion)</strong>: The turning of a ship to the left (Port) or right (Starboard) in a horizontal plane about a vertical axis.</li>
-<li><strong>Rolling (Ship Motion)</strong>: The side-to-side rocking of a ship in a transverse plane about a longitudinal axis (parallel to the rotor shaft axis).</li>
-<li><strong>Angle of Heel $\theta$</strong>: The inclination angle of a two-wheeled vehicle from the vertical toward the center of curvature while negotiating a turn.</li>
-</ul>
-<hr />
-<h3 id="23-standard-direction-rules-high-yield-exam-tables"><strong>2.3 — Standard Direction Rules (High-Yield Exam Tables)</strong></h3>
-<h4 id="231-aeroplane-gyroscopic-effects"><strong>2.3.1 Aeroplane Gyroscopic Effects</strong></h4>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Propeller Spin View (from Rear / Tail)</th>
-<th style="text-align: left;">Turn Direction</th>
-<th style="text-align: left;">Reactive Gyroscopic Couple Effect on Aeroplane</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Left Turn</strong></td>
-<td style="text-align: left;"><strong>Raises Nose, Dips Tail</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Right Turn</strong></td>
-<td style="text-align: left;"><strong>Dips Nose, Raises Tail</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Left Turn</strong></td>
-<td style="text-align: left;"><strong>Dips Nose, Raises Tail</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Right Turn</strong></td>
-<td style="text-align: left;"><strong>Raises Nose, Dips Tail</strong></td>
-</tr>
-</tbody>
-</table>
-<h4 id="232-ship-steering-gyroscopic-effects"><strong>2.3.2 Ship Steering Gyroscopic Effects</strong></h4>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Rotor Spin View (from Rear / Stern)</th>
-<th style="text-align: left;">Steering Direction</th>
-<th style="text-align: left;">Reactive Gyroscopic Couple Effect on Ship</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Left Turn (Port)</strong></td>
-<td style="text-align: left;"><strong>Raises Bow, Lowers Stern</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Right Turn (Starboard)</strong></td>
-<td style="text-align: left;"><strong>Lowers Bow, Raises Stern</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Left Turn (Port)</strong></td>
-<td style="text-align: left;"><strong>Lowers Bow, Raises Stern</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Right Turn (Starboard)</strong></td>
-<td style="text-align: left;"><strong>Raises Bow, Lowers Stern</strong></td>
-</tr>
-</tbody>
-</table>
-<h4 id="233-ship-pitching-gyroscopic-effects"><strong>2.3.3 Ship Pitching Gyroscopic Effects</strong></h4>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Rotor Spin View (from Rear / Stern)</th>
-<th style="text-align: left;">Pitching Motion</th>
-<th style="text-align: left;">Reactive Gyroscopic Couple Effect on Ship</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Bow Rising</strong></td>
-<td style="text-align: left;"><strong>Turns Ship to Starboard (Right)</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Clockwise</strong></td>
-<td style="text-align: left;"><strong>Bow Falling</strong></td>
-<td style="text-align: left;"><strong>Turns Ship to Port (Left)</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Bow Rising</strong></td>
-<td style="text-align: left;"><strong>Turns Ship to Port (Left)</strong></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Anticlockwise</strong></td>
-<td style="text-align: left;"><strong>Bow Falling</strong></td>
-<td style="text-align: left;"><strong>Turns Ship to Starboard (Right)</strong></td>
-</tr>
-</tbody>
-</table>
-<h4 id="234-ship-rolling-gyroscopic-effect"><strong>2.3.4 Ship Rolling Gyroscopic Effect</strong></h4>
-<ul>
-<li><strong>Rolling Motion</strong>: Spin axis is parallel to rolling axis $\implies$ No angular precession of spin vector $\implies$ <strong>ZERO Gyroscopic Couple Effect $C = 0$</strong>.</li>
-</ul>
-<hr />
-<h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
-<ul>
-<li><strong>Gyroscopic Couple Derivation &amp; 3 Perpendicular Planes</strong>: §3.1.</li>
-<li><strong>Gyroscopic Effects on Aeroplanes</strong>: §3.2.</li>
-<li><strong>Gyroscopic Effects on Naval Ships (Steering, Pitching, Rolling)</strong>: §3.3.</li>
-<li><strong>Stability of Four-Wheeled Automobile on Curved Track</strong>: §3.4.</li>
-<li><strong>Stability of Two-Wheeled Motor Vehicle &amp; Angle of Heel</strong>: §3.5.</li>
-<li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
-<li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
-<li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
-</ul>
-<hr />
-<h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
-<h3 id="31-gyroscopic-couple-derivation-3-perpendicular-planes"><strong>3.1 Gyroscopic Couple Derivation &amp; 3 Perpendicular Planes</strong></h3>
-<h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Derivation of Gyroscopic Couple $C$</strong>:</li>
-<li>Consider a disc of mass moment of inertia $I$ spinning about axis $OX$ with angular velocity $\omega$.</li>
-<li>Angular momentum vector along $OX$: $\vec{H} = I \omega$.</li>
-<li>Let axis $OX$ precess in the horizontal plane $XOY$ through a small angle $\delta\theta$ about vertical axis $OZ$ in time $\delta t$.</li>
-<li>New angular momentum vector $\vec{H}' = I(\omega + \delta\omega)$ along $OX'$.</li>
-<li>Change in angular momentum vector:<ul>
-<li>Change along initial direction $OX$: $I(\omega + \delta\omega) \cos(\delta\theta) - I \omega \approx I \cdot \delta\omega$.</li>
-<li>Change perpendicular to $OX$ (along $OY$): $I(\omega + \delta\omega) \sin(\delta\theta) \approx I \cdot \omega \cdot \delta\theta$.</li>
-</ul>
-</li>
-<li>Active Gyroscopic Torque $C = \lim_{\delta t \to 0} \frac{I \omega \delta\theta}{\delta t} = I \cdot \omega \cdot \frac{d\theta}{dt}$:
-    <div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \omega_p}}$$</div></li>
-<li><strong>The Three Mutually Perpendicular Planes &amp; Axes</strong>:</li>
-<li><strong>Plane of Spin (Axis $OX$)</strong>: Disc rotates in plane $YOZ$ about spin axis $OX$.</li>
-<li><strong>Plane of Precession (Axis $OZ$)</strong>: Spin axis $OX$ precesses in horizontal plane $XOY$ about vertical precession axis $OZ$.</li>
-<li><strong>Plane of Gyroscopic Couple (Axis $OY$)</strong>: Active/reactive gyroscopic couple acts in vertical plane $ZOX$ about couple axis $OY$.</li>
-<li><strong>Fundamental Rule</strong>: Spin axis, precession axis, and couple axis MUST ALWAYS BE MUTUALLY PERPENDICULAR (occupy three mutually perpendicular planes).</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Three Perpendicular Axes Rule</strong>:
-1. Axis of Spin $OX$
-2. Axis of Precession $OZ$
-3. Axis of Couple $OY$
-If any two axes become parallel (e.g., during ship rolling), precession vanishes $\omega_p = 0$ and gyroscopic couple becomes ZERO!</p>
-<p>[!TRAP]
-<strong>Active vs Reactive Couple</strong>:
-- Active Couple = External torque applied to cause precession.
-- Reactive Couple = Torque felt BY the vehicle frame/chassis $C_{\text{reactive}} = -C_{\text{active}}$. In exam MCQs asking "what happens to aircraft/ship", ALWAYS determine the REACTIVE couple direction!</div>
-<h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Gyroscopic Couple Calculation &amp; Plane Verification
+
+<body id="preview" data-subject="operations">
+   <div id="reading-progress"></div>
+   <div id="floating-nav">
+      <a class="fnav-link" href="#section-1-topic-overview">§1 Overview</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-2-quick-reference-sheet">§2 Formulas</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-3-main-body">§3 Deep Dive</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-4-theory-qa">§4 Q&amp;A</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-5-consolidation-notes">§5 Traps</a>
+      <span class="fnav-sep">·</span>
+      <a class="fnav-link" href="#section-6-final-quick-fire-pre-exam-checklist">§6 Checklist</a>
+   </div>
+   <button id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
+   <script>
+      (function () {
+         var toggle = document.getElementById("theme-toggle");
+         var saved = localStorage.getItem("ag-theme") || "dark";
+         function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F"; localStorage.setItem("ag-theme", t); }
+         applyTheme(saved);
+         if (toggle) { toggle.addEventListener("click", function () { var c = document.documentElement.getAttribute("data-theme") || "dark"; applyTheme(c === "dark" ? "light" : "dark"); }); }
+         var bar = document.getElementById("reading-progress");
+         function upBar() { var s = window.scrollY || document.documentElement.scrollTop; var d = document.documentElement.scrollHeight - window.innerHeight; bar.style.width = (d > 0 ? Math.min((s / d) * 100, 100) : 0) + "%"; }
+         window.addEventListener("scroll", upBar, { passive: true }); upBar();
+         var fn = document.getElementById("floating-nav");
+         var links = fn.querySelectorAll(".fnav-link");
+         var ids = ["section-1-topic-overview", "section-2-quick-reference-sheet", "section-3-main-body", "section-4-theory-qa", "section-5-consolidation-notes", "section-6-final-quick-fire-pre-exam-checklist"];
+         function upNav() { var s = window.scrollY || document.documentElement.scrollTop; if (s > 200) fn.classList.add("visible"); else fn.classList.remove("visible"); var act = ids[0]; ids.forEach(function (id) { var el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 100) act = id; }); links.forEach(function (lk) { lk.classList.toggle("active-section", lk.getAttribute("href").replace("#", "") === act); }); }
+         window.addEventListener("scroll", upNav, { passive: true }); upNav();
+         links.forEach(function (lk) { lk.addEventListener("click", function (e) { e.preventDefault(); var el = document.getElementById(lk.getAttribute("href").replace("#", "")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
+      })();
+   </script>
+   <div class="reading-content">
+      <nav class="submodule-nav">
+         <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">⚙️ Theory of Machines:</span>
+         <a href="index.html">[Hub Home]</a>
+         <a href="balancing_reorganized.html">1. Balancing</a>
+         <a href="flywheel_reorganized.html">2. Flywheels</a>
+         <a href="governor_reorganized.html">3. Governors</a>
+         <a href="gyroscope_reorganized.html" class="active">4. Gyroscopes</a>
+         <a href="slidercrank_reorganized.html">5. Slider-Crank</a>
+      </nav>
+
+      <div class="callout callout-concept"
+         style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+         <span><strong>📖 Comprehensive Master Guide:</strong> You are viewing the long deep-dive version.</span>
+         <a href="gyroscope_revised.html" style="font-weight: 700; text-decoration: underline;">&larr; Switch to Concise
+            Revision Guide</a>
+      </div>
+      <h1 id="gyroscopic-couple-precession-stability-of-vehicles-ships-aircraft-master-reorganized-study-guide">
+         Gyroscopic Couple, Precession, Stability of Vehicles, Ships &amp; Aircraft — Master Reorganized Study Guide
+      </h1>
+      <h2 id="section-1-topic-overview"><strong>SECTION 1: TOPIC OVERVIEW</strong></h2>
+      <p>This master guide covers the complete principles of Gyroscopic Action, Gyroscopic Couple, Precession, and
+         Vehicle/Vessel Stability for AP GenCo AE, GATE, ESE, and SSC JE examinations. Core topics addressed include
+         Gyroscopic Couple Derivation $C = I \cdot \omega \cdot \omega_p$, Fundamental Axes and Planes (Spin Axis,
+         Precession Axis, Gyroscopic Torque Axis in three mutually perpendicular planes), Active vs Reactive Gyroscopic
+         Couples, Angular Velocity of Precession $\omega_p = \frac{v}{R}$, Gyroscopic Effects on Aeroplanes (Clockwise
+         vs Anticlockwise propeller rotation viewed from tail/front during Left vs Right turns, Nose/Tail pitching
+         effects), Gyroscopic Effects on Naval Ships (Terminology: Bow/Fore, Stern/Aft, Port/Left, Starboard/Right;
+         Steering effects on Bow/Stern; Pitching effects on Port/Starboard with SHM motion $\omega_p = \theta_0
+         \omega_0$; Proof of ZERO gyroscopic effect during Rolling when spin and rolling axes are parallel), Stability
+         of Four-Wheeled Vehicles on Curved Paths (Combined Centrifugal Couple $C_c = \frac{m v^2 h}{R}$ and Gyroscopic
+         Couple $C_g = (4 I_w \omega_w \pm I_e \omega_e \cdot G) \omega_p$, Inner vs Outer Wheel Reactions $W_i, W_o$,
+         condition to prevent overturning $W_i &gt; 0$), and Stability of Two-Wheeled Motor Vehicles (Angle of heel
+         $\theta$, gyroscopic restoring vs overturning moments, equation $\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2
+         I_w + I_e \cdot G}{m h R}\right]$). All raw syllabus concepts, derivations, direction rules, ASCII decision
+         trees, revision checklists, worked numerical examples, and theory Q&amp;As have been consolidated with zero
+         content loss.</p>
+      <hr />
+      <h2 id="section-2-quick-reference-sheet"><strong>SECTION 2: QUICK REFERENCE SHEET</strong></h2>
+      <h3 id="21-all-formulas-quantitative-relations"><strong>2.1 — All Formulas &amp; Quantitative Relations</strong>
+      </h3>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Parameter / Concept</th>
+               <th style="text-align: left;">Formula / Governing Relation</th>
+               <th style="text-align: left;">Primary Units</th>
+               <th style="text-align: left;">Key Conditions &amp; Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Gyroscopic Couple Magnitude $C$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \omega_p}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">$I$ = rotor moment of inertia $\text{kg}\cdot\text{m}^2$, $\omega$ = spin
+                  speed $\text{rad/s}$, $\omega_p$ = precession speed $\text{rad/s}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Angular Velocity of Spin $\omega$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\omega = \frac{2\pi N}{60}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}$</td>
+               <td style="text-align: left;">$N$ = rotational speed of rotor in rpm.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Precession Speed for Curved Path $\omega_p$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\omega_p = \frac{v}{R}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}$</td>
+               <td style="text-align: left;">$v$ = linear velocity $\text{m/s}$, $R$ = turn radius $\text{m}$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Gyroscopic Couple (Linear Form)</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \left(\frac{v}{R}\right)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Direct substitution of $\omega_p = v/R$.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Gyroscopic Acceleration $\alpha_g$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\alpha_g = \omega \cdot \omega_p}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}^2$</td>
+               <td style="text-align: left;">Angular acceleration resulting from precessional motion.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Maximum Pitching Precession $\omega_{p,\text{max}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\omega_{p,\text{max}} = \theta_0 \cdot \omega_0 = \theta_0 \cdot
+                     \frac{2\pi}{T_p}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{rad/s}$</td>
+               <td style="text-align: left;">$\theta_0$ = amplitude of pitch (rad), $T_p$ = periodic time of pitch
+                  (sec).</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Maximum Pitching Couple $C_{\text{max}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot
+                     \omega_0)}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Maximum reactive couple experienced during pitching.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Ship Rolling Gyroscopic Couple $C_{\text{roll}}$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C_{\text{roll}} = 0}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Spin axis is parallel to rolling axis $\implies \omega_p = 0 \implies C =
+                  0$!</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>4-Wheeler Centrifugal Couple $C_c$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C_c = \frac{m \cdot v^2}{R} \cdot h}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">Overturning moment about outer wheel contact points.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>4-Wheeler Gyroscopic Couple $C_g$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{C_g = \left(4 I_w \omega_w \pm I_e \omega_e \cdot G\right)
+                     \omega_p}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}\cdot\text{m}$</td>
+               <td style="text-align: left;">$+ I_e$ when engine rotates in same sense as wheels, $- I_e$ when opposite.
+               </td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>4-Wheeler Inner Wheel Reaction $W_i$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{W_i = \frac{W}{4} - \frac{C_c + C_g}{2 x}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">$W = m g$, $x$ = wheel track width $\text{m}$. Inner wheels tend to lift!
+               </td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>4-Wheeler Outer Wheel Reaction $W_o$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{W_o = \frac{W}{4} + \frac{C_c + C_g}{2 x}}}$$</div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Outer wheels press down harder on road.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Condition to Prevent Overturning</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{W_i &gt; 0 \implies \frac{W}{4} &gt; \frac{C_c + C_g}{2 x}}}$$
+                  </div>
+               </td>
+               <td style="text-align: left;">$\text{N}$</td>
+               <td style="text-align: left;">Inner wheels must maintain positive ground contact force.</td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>2-Wheeler Angle of Heel $\theta$</strong></td>
+               <td style="text-align: left;">
+                  <div class="formula-card">$${\boxed{\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm I_e \cdot
+                     G}{m \cdot h \cdot r_w}\right]}}$$</div>
+               </td>
+               <td style="text-align: left;">Dimensionless</td>
+               <td style="text-align: left;">$\theta$ = tilt angle with vertical towards turn center ($+$ same rotation,
+                  $-$ opposite).</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr />
+      <h3 id="22-key-definitions-master-concepts"><strong>2.2 — Key Definitions &amp; Master Concepts</strong></h3>
+      <ul>
+         <li><strong>Axis of Spin</strong>: The axis about which a rotor, propeller, wheel, or disc rotates at high
+            angular velocity $\omega$.</li>
+         <li><strong>Axis of Precession</strong>: The axis about which the axis of spin rotates or turns at angular
+            velocity $\omega_p$.</li>
+         <li><strong>Axis of Gyroscopic Couple</strong>: The axis perpendicular to both the Axis of Spin and Axis of
+            Precession, along which the active/reactive gyroscopic torque acts.</li>
+         <li><strong>Active Gyroscopic Couple</strong>: The external torque required to be applied on a spinning body to
+            cause its spin axis to precess at angular speed $\omega_p$.</li>
+         <li><strong>Reactive Gyroscopic Couple</strong>: The equal and opposite reaction torque exerted BY the spinning
+            body ON its supporting frame, chassis, vessel, or aircraft structure $C_{\text{reactive}} =
+            -C_{\text{active}}$.</li>
+         <li><strong>Pitching (Ship Motion)</strong>: The upward and downward angular oscillation of the ship's bow and
+            stern in a vertical plane about a transverse axis.</li>
+         <li><strong>Steering (Ship Motion)</strong>: The turning of a ship to the left (Port) or right (Starboard) in a
+            horizontal plane about a vertical axis.</li>
+         <li><strong>Rolling (Ship Motion)</strong>: The side-to-side rocking of a ship in a transverse plane about a
+            longitudinal axis (parallel to the rotor shaft axis).</li>
+         <li><strong>Angle of Heel $\theta$</strong>: The inclination angle of a two-wheeled vehicle from the vertical
+            toward the center of curvature while negotiating a turn.</li>
+      </ul>
+      <hr />
+      <h3 id="23-standard-direction-rules-high-yield-exam-tables"><strong>2.3 — Standard Direction Rules (High-Yield
+            Exam Tables)</strong></h3>
+      <h4 id="231-aeroplane-gyroscopic-effects"><strong>2.3.1 Aeroplane Gyroscopic Effects</strong></h4>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Propeller Spin View (from Rear / Tail)</th>
+               <th style="text-align: left;">Turn Direction</th>
+               <th style="text-align: left;">Reactive Gyroscopic Couple Effect on Aeroplane</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Left Turn</strong></td>
+               <td style="text-align: left;"><strong>Raises Nose, Dips Tail</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Right Turn</strong></td>
+               <td style="text-align: left;"><strong>Dips Nose, Raises Tail</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Left Turn</strong></td>
+               <td style="text-align: left;"><strong>Dips Nose, Raises Tail</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Right Turn</strong></td>
+               <td style="text-align: left;"><strong>Raises Nose, Dips Tail</strong></td>
+            </tr>
+         </tbody>
+      </table>
+      <h4 id="232-ship-steering-gyroscopic-effects"><strong>2.3.2 Ship Steering Gyroscopic Effects</strong></h4>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Rotor Spin View (from Rear / Stern)</th>
+               <th style="text-align: left;">Steering Direction</th>
+               <th style="text-align: left;">Reactive Gyroscopic Couple Effect on Ship</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Left Turn (Port)</strong></td>
+               <td style="text-align: left;"><strong>Raises Bow, Lowers Stern</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Right Turn (Starboard)</strong></td>
+               <td style="text-align: left;"><strong>Lowers Bow, Raises Stern</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Left Turn (Port)</strong></td>
+               <td style="text-align: left;"><strong>Lowers Bow, Raises Stern</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Right Turn (Starboard)</strong></td>
+               <td style="text-align: left;"><strong>Raises Bow, Lowers Stern</strong></td>
+            </tr>
+         </tbody>
+      </table>
+      <h4 id="233-ship-pitching-gyroscopic-effects"><strong>2.3.3 Ship Pitching Gyroscopic Effects</strong></h4>
+      <table>
+         <thead>
+            <tr>
+               <th style="text-align: left;">Rotor Spin View (from Rear / Stern)</th>
+               <th style="text-align: left;">Pitching Motion</th>
+               <th style="text-align: left;">Reactive Gyroscopic Couple Effect on Ship</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Bow Rising</strong></td>
+               <td style="text-align: left;"><strong>Turns Ship to Starboard (Right)</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Clockwise</strong></td>
+               <td style="text-align: left;"><strong>Bow Falling</strong></td>
+               <td style="text-align: left;"><strong>Turns Ship to Port (Left)</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Bow Rising</strong></td>
+               <td style="text-align: left;"><strong>Turns Ship to Port (Left)</strong></td>
+            </tr>
+            <tr>
+               <td style="text-align: left;"><strong>Anticlockwise</strong></td>
+               <td style="text-align: left;"><strong>Bow Falling</strong></td>
+               <td style="text-align: left;"><strong>Turns Ship to Starboard (Right)</strong></td>
+            </tr>
+         </tbody>
+      </table>
+      <h4 id="234-ship-rolling-gyroscopic-effect"><strong>2.3.4 Ship Rolling Gyroscopic Effect</strong></h4>
+      <ul>
+         <li><strong>Rolling Motion</strong>: Spin axis is parallel to rolling axis $\implies$ No angular precession of
+            spin vector $\implies$ <strong>ZERO Gyroscopic Couple Effect $C = 0$</strong>.</li>
+      </ul>
+      <hr />
+      <h3 id="24-cross-reference-map"><strong>2.4 — Cross-Reference Map</strong></h3>
+      <ul>
+         <li><strong>Gyroscopic Couple Derivation &amp; 3 Perpendicular Planes</strong>: §3.1.</li>
+         <li><strong>Gyroscopic Effects on Aeroplanes</strong>: §3.2.</li>
+         <li><strong>Gyroscopic Effects on Naval Ships (Steering, Pitching, Rolling)</strong>: §3.3.</li>
+         <li><strong>Stability of Four-Wheeled Automobile on Curved Track</strong>: §3.4.</li>
+         <li><strong>Stability of Two-Wheeled Motor Vehicle &amp; Angle of Heel</strong>: §3.5.</li>
+         <li><strong>Theory Q&amp;A (20 Core Conceptual Pairs)</strong>: §4.</li>
+         <li><strong>Consolidation Notes &amp; High-Yield Traps</strong>: §5.</li>
+         <li><strong>Pre-Exam Quick-Fire Checklist</strong>: §6.</li>
+      </ul>
+      <hr />
+      <h2 id="section-3-main-body"><strong>SECTION 3: MAIN BODY</strong></h2>
+      <h3 id="31-gyroscopic-couple-derivation-3-perpendicular-planes"><strong>3.1 Gyroscopic Couple Derivation &amp; 3
+            Perpendicular Planes</strong></h3>
+      <h5 id="1-concept-pointers"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Derivation of Gyroscopic Couple $C$</strong>:</li>
+         <li>Consider a disc of mass moment of inertia $I$ spinning about axis $OX$ with angular velocity $\omega$.</li>
+         <li>Angular momentum vector along $OX$: $\vec{H} = I \omega$.</li>
+         <li>Let axis $OX$ precess in the horizontal plane $XOY$ through a small angle $\delta\theta$ about vertical
+            axis $OZ$ in time $\delta t$.</li>
+         <li>New angular momentum vector $\vec{H}' = I(\omega + \delta\omega)$ along $OX'$.</li>
+         <li>Change in angular momentum vector:<ul>
+               <li>Change along initial direction $OX$: $I(\omega + \delta\omega) \cos(\delta\theta) - I \omega \approx
+                  I \cdot \delta\omega$.</li>
+               <li>Change perpendicular to $OX$ (along $OY$): $I(\omega + \delta\omega) \sin(\delta\theta) \approx I
+                  \cdot \omega \cdot \delta\theta$.</li>
+            </ul>
+         </li>
+         <li>Active Gyroscopic Torque $C = \lim_{\delta t \to 0} \frac{I \omega \delta\theta}{\delta t} = I \cdot \omega
+            \cdot \frac{d\theta}{dt}$:
+            <div class="formula-card">$${\boxed{C = I \cdot \omega \cdot \omega_p}}$$</div>
+         </li>
+         <li><strong>The Three Mutually Perpendicular Planes &amp; Axes</strong>:</li>
+         <li><strong>Plane of Spin (Axis $OX$)</strong>: Disc rotates in plane $YOZ$ about spin axis $OX$.</li>
+         <li><strong>Plane of Precession (Axis $OZ$)</strong>: Spin axis $OX$ precesses in horizontal plane $XOY$ about
+            vertical precession axis $OZ$.</li>
+         <li><strong>Plane of Gyroscopic Couple (Axis $OY$)</strong>: Active/reactive gyroscopic couple acts in vertical
+            plane $ZOX$ about couple axis $OY$.</li>
+         <li><strong>Fundamental Rule</strong>: Spin axis, precession axis, and couple axis MUST ALWAYS BE MUTUALLY
+            PERPENDICULAR (occupy three mutually perpendicular planes).</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Three Perpendicular Axes
+            Rule</strong>:
+         1. Axis of Spin $OX$
+         2. Axis of Precession $OZ$
+         3. Axis of Couple $OY$
+         If any two axes become parallel (e.g., during ship rolling), precession vanishes $\omega_p = 0$ and gyroscopic
+         couple becomes ZERO!</p>
+         <p>[!TRAP]
+            <strong>Active vs Reactive Couple</strong>:
+            - Active Couple = External torque applied to cause precession.
+            - Reactive Couple = Torque felt BY the vehicle frame/chassis $C_{\text{reactive}} = -C_{\text{active}}$. In
+            exam MCQs asking "what happens to aircraft/ship", ALWAYS determine the REACTIVE couple direction!
+      </div>
+      <h5 id="2-ascii-decision-tree"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Gyroscopic Couple Calculation &amp; Plane Verification
 │
 ├── Step 1: Identify 3 Mutually Perpendicular Axes
 │   ├── Axis of Spin (Rotor rotation at w)
@@ -389,75 +887,98 @@ If any two axes become parallel (e.g., during ship rolling), precession vanishes
     ├── w = 2*pi*N / 60  (rad/s)
     └── w_p = v / R  (rad/s)
 </code></pre>
-<h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Active couple $C = I \omega \omega_p$.</li>
-<li>[ ] Spin, precession, and couple axes are mutually perpendicular.</li>
-<li>[ ] Precession rate for turning vehicle: $\omega_p = v/R$.</li>
-<li>[ ] Reactive couple is equal &amp; opposite to active couple.</li>
-<li>[ ] $I = m k^2$ $\text{kg}\cdot\text{m}^2$.</li>
-</ul>
-<h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Basic Gyroscopic Couple Calculation</strong>
-- <strong>Problem</strong>: A rotor of mass $100 \text{ kg}$ has a radius of gyration $k = 0.4 \text{ m}$. It rotates at $1800 \text{ rpm}$. The rotor housing precesses about a vertical axis at $0.2 \text{ rad/s}$. Calculate the gyroscopic couple in $\text{N}\cdot\text{m}$.
-- <strong>Solution</strong>:
-  1. Calculate moment of inertia $I$:
-     <div class="formula-card">$${I = m k^2 = 100 \times (0.4)^2 = 100 \times 0.16 = 16 \text{ kg}\cdot\text{m}^2}$$</div>
-  2. Calculate spin speed $\omega$:
-     <div class="formula-card">$${\omega = \frac{2\pi N}{60} = \frac{2\pi \times 1800}{60} = 60\pi \approx 188.5 \text{ rad/s}}$$</div>
-  3. Precession speed $\omega_p = 0.2 \text{ rad/s}$.
-  4. Calculate Gyroscopic Couple $C$:
-     <div class="formula-card">$${C = I \omega \omega_p = 16 \times 188.5 \times 0.2 = 603.2 \text{ N}\cdot\text{m}}$$</div>
-- <strong>Key Insight</strong>: $C = 603.2 \text{ N}\cdot\text{m}$. Always convert $N$ from rpm to rad/s first!</p>
-<p><strong>Worked Example 2: Turning Vehicle Gyroscopic Couple (PYQ Pattern)</strong>
-- <strong>Problem</strong>: A turbine rotor of a ship has mass moment of inertia $I = 200 \text{ kg}\cdot\text{m}^2$ and rotates at $\omega = 200 \text{ rad/s}$. The ship travels at linear velocity $v = 5 \text{ m/s}$ along a curve of radius $R = 100 \text{ m}$. Calculate the gyroscopic couple exerted on the ship structure.
-- <strong>Solution</strong>:
-  1. Calculate precession speed $\omega_p$:
-     <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{5}{100} = 0.05 \text{ rad/s}}$$</div>
-  2. Calculate Gyroscopic Couple $C$:
-     <div class="formula-card">$${C = I \omega \omega_p = 200 \times 200 \times 0.05 = 2000 \text{ N}\cdot\text{m} = 2 \text{ kN}\cdot\text{m}}$$</div>
-- <strong>Key Insight</strong>: $C = 2000 \text{ N}\cdot\text{m}$. Direct application of $C = I \omega (v/R)$.</p>
-<p><strong>Worked Example 3: Active vs Reactive Vector Couple Direction</strong>
-- <strong>Problem</strong>: A disc of $I = 10 \text{ kg}\cdot\text{m}^2$ spins about horizontal axis $OX$ (pointing North) at $\omega = 100 \text{ rad/s}$ clockwise when viewed from South. The spin axis is turned towards East at precession rate $\omega_p = 0.5 \text{ rad/s}$ in horizontal plane. Determine: (a) Active couple vector direction, (b) Reactive couple vector direction and effect on disc bearings.
-- <strong>Solution</strong>:
-  1. Spin vector $\vec{H} = I \omega = 10 \times 100 = 1000 \text{ kg}\cdot\text{m}^2/\text{s}$ points NORTH.
-  2. Turning spin axis towards EAST causes $\delta\vec{H}$ vector to point EAST.
-  3. Active couple vector $\vec{C}<em>{\text{active}}$ points EAST. By right-hand rule (thumb pointing East), active couple tends to lift the South end and press down the North end.
-  4. Reactive couple vector $\vec{C}</em>{\text{reactive}}$ points WEST. By right-hand rule (thumb pointing West), reactive couple <strong>lifts the North end and presses down the South end</strong> of the bearing support!
-- <strong>Key Insight</strong>: Active couple vector is along $\delta\vec{H}$ (East); Reactive couple vector is opposite (West).</p>
-<hr />
-<h3 id="32-gyroscopic-effects-on-aeroplanes"><strong>3.2 Gyroscopic Effects on Aeroplanes</strong></h3>
-<h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Aeroplane Coordinate Frame</strong>:</li>
-<li>Longitudinal Axis $OX$: Along fuselage from tail to nose (Spin Axis of propeller).</li>
-<li>Lateral/Transverse Axis $OY$: Along wings (Pitching Axis / Couple Axis).</li>
-<li>Vertical Axis $OZ$: Perpendicular to wings &amp; fuselage (Precession Axis during turn / Yawing Axis).</li>
-<li><strong>Step-by-Step Vector Right-Hand Rule Method</strong>:</li>
-<li>Draw spin vector $\vec{H}$ along longitudinal axis pointing forward (or backward depending on view).<ul>
-<li>Clockwise spin viewed from TAIL $\implies$ Vector points towards NOSE.</li>
-</ul>
-</li>
-<li>Turn vector $\vec{H}$ in horizontal plane in direction of turn (Left turn = counter-clockwise from above).</li>
-<li>Active couple vector $\vec{C}_{\text{active}}$ points in direction of angular momentum change $\delta\vec{H}$.</li>
-<li>Reactive couple vector $\vec{C}<em>{\text{reactive}} = -\vec{C}</em>{\text{active}}$.</li>
-<li>Apply right-hand thumb rule to $\vec{C}_{\text{reactive}}$:<ul>
-<li>For Clockwise spin (viewed from tail) + Left turn: Reactive vector points to RIGHT WING $\implies$ <strong>RAISES NOSE, DIPS TAIL</strong>.</li>
-<li>For Clockwise spin (viewed from tail) + Right turn: Reactive vector points to LEFT WING $\implies$ <strong>DIPS NOSE, RAISES TAIL</strong>.</li>
-</ul>
-</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Aeroplane Rule (Clockwise from Tail)</strong>:
-- <strong>LEFT TURN</strong> $\implies$ <strong>RAISE NOSE, DIP TAIL</strong>.
-- <strong>RIGHT TURN</strong> $\implies$ <strong>DIP NOSE, RAISE TAIL</strong>.
-Reversing propeller spin (anticlockwise from tail) REVERSES both effects!</p>
-<p>[!TRAP]
-<strong>Viewpoint Trap (Tail vs Front)</strong>:
-Pay strict attention to the examiner's viewpoint!
-- "Clockwise viewed from TAIL/REAR" = Standard rule (Left turn raises nose).
-- "Clockwise viewed from FRONT/NOSE" = Opposite rule (Left turn dips nose).</div>
-<h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Aeroplane Gyroscopic Pitching Effect Analysis
+      <h5 id="3-revision-checklist"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Active couple $C = I \omega \omega_p$.</li>
+         <li>[ ] Spin, precession, and couple axes are mutually perpendicular.</li>
+         <li>[ ] Precession rate for turning vehicle: $\omega_p = v/R$.</li>
+         <li>[ ] Reactive couple is equal &amp; opposite to active couple.</li>
+         <li>[ ] $I = m k^2$ $\text{kg}\cdot\text{m}^2$.</li>
+      </ul>
+      <h5 id="4-worked-examples"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Basic Gyroscopic Couple Calculation</strong>
+         - <strong>Problem</strong>: A rotor of mass $100 \text{ kg}$ has a radius of gyration $k = 0.4 \text{ m}$. It
+         rotates at $1800 \text{ rpm}$. The rotor housing precesses about a vertical axis at $0.2 \text{ rad/s}$.
+         Calculate the gyroscopic couple in $\text{N}\cdot\text{m}$.
+         - <strong>Solution</strong>:
+         1. Calculate moment of inertia $I$:
+      <div class="formula-card">$${I = m k^2 = 100 \times (0.4)^2 = 100 \times 0.16 = 16 \text{ kg}\cdot\text{m}^2}$$
+      </div>
+      2. Calculate spin speed $\omega$:
+      <div class="formula-card">$${\omega = \frac{2\pi N}{60} = \frac{2\pi \times 1800}{60} = 60\pi \approx 188.5 \text{
+         rad/s}}$$</div>
+      3. Precession speed $\omega_p = 0.2 \text{ rad/s}$.
+      4. Calculate Gyroscopic Couple $C$:
+      <div class="formula-card">$${C = I \omega \omega_p = 16 \times 188.5 \times 0.2 = 603.2 \text{ N}\cdot\text{m}}$$
+      </div>
+      - <strong>Key Insight</strong>: $C = 603.2 \text{ N}\cdot\text{m}$. Always convert $N$ from rpm to rad/s first!
+      </p>
+      <p><strong>Worked Example 2: Turning Vehicle Gyroscopic Couple (PYQ Pattern)</strong>
+         - <strong>Problem</strong>: A turbine rotor of a ship has mass moment of inertia $I = 200 \text{
+         kg}\cdot\text{m}^2$ and rotates at $\omega = 200 \text{ rad/s}$. The ship travels at linear velocity $v = 5
+         \text{ m/s}$ along a curve of radius $R = 100 \text{ m}$. Calculate the gyroscopic couple exerted on the ship
+         structure.
+         - <strong>Solution</strong>:
+         1. Calculate precession speed $\omega_p$:
+      <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{5}{100} = 0.05 \text{ rad/s}}$$</div>
+      2. Calculate Gyroscopic Couple $C$:
+      <div class="formula-card">$${C = I \omega \omega_p = 200 \times 200 \times 0.05 = 2000 \text{ N}\cdot\text{m} = 2
+         \text{ kN}\cdot\text{m}}$$</div>
+      - <strong>Key Insight</strong>: $C = 2000 \text{ N}\cdot\text{m}$. Direct application of $C = I \omega (v/R)$.</p>
+      <p><strong>Worked Example 3: Active vs Reactive Vector Couple Direction</strong>
+         - <strong>Problem</strong>: A disc of $I = 10 \text{ kg}\cdot\text{m}^2$ spins about horizontal axis $OX$
+         (pointing North) at $\omega = 100 \text{ rad/s}$ clockwise when viewed from South. The spin axis is turned
+         towards East at precession rate $\omega_p = 0.5 \text{ rad/s}$ in horizontal plane. Determine: (a) Active
+         couple vector direction, (b) Reactive couple vector direction and effect on disc bearings.
+         - <strong>Solution</strong>:
+         1. Spin vector $\vec{H} = I \omega = 10 \times 100 = 1000 \text{ kg}\cdot\text{m}^2/\text{s}$ points NORTH.
+         2. Turning spin axis towards EAST causes $\delta\vec{H}$ vector to point EAST.
+         3. Active couple vector $\vec{C}<em>{\text{active}}$ points EAST. By right-hand rule (thumb pointing East),
+            active couple tends to lift the South end and press down the North end.
+            4. Reactive couple vector $\vec{C}</em>{\text{reactive}}$ points WEST. By right-hand rule (thumb pointing
+         West), reactive couple <strong>lifts the North end and presses down the South end</strong> of the bearing
+         support!
+         - <strong>Key Insight</strong>: Active couple vector is along $\delta\vec{H}$ (East); Reactive couple vector is
+         opposite (West).</p>
+      <hr />
+      <h3 id="32-gyroscopic-effects-on-aeroplanes"><strong>3.2 Gyroscopic Effects on Aeroplanes</strong></h3>
+      <h5 id="1-concept-pointers_1"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Aeroplane Coordinate Frame</strong>:</li>
+         <li>Longitudinal Axis $OX$: Along fuselage from tail to nose (Spin Axis of propeller).</li>
+         <li>Lateral/Transverse Axis $OY$: Along wings (Pitching Axis / Couple Axis).</li>
+         <li>Vertical Axis $OZ$: Perpendicular to wings &amp; fuselage (Precession Axis during turn / Yawing Axis).</li>
+         <li><strong>Step-by-Step Vector Right-Hand Rule Method</strong>:</li>
+         <li>Draw spin vector $\vec{H}$ along longitudinal axis pointing forward (or backward depending on view).<ul>
+               <li>Clockwise spin viewed from TAIL $\implies$ Vector points towards NOSE.</li>
+            </ul>
+         </li>
+         <li>Turn vector $\vec{H}$ in horizontal plane in direction of turn (Left turn = counter-clockwise from above).
+         </li>
+         <li>Active couple vector $\vec{C}_{\text{active}}$ points in direction of angular momentum change
+            $\delta\vec{H}$.</li>
+         <li>Reactive couple vector $\vec{C}<em>{\text{reactive}} = -\vec{C}</em>{\text{active}}$.</li>
+         <li>Apply right-hand thumb rule to $\vec{C}_{\text{reactive}}$:<ul>
+               <li>For Clockwise spin (viewed from tail) + Left turn: Reactive vector points to RIGHT WING $\implies$
+                  <strong>RAISES NOSE, DIPS TAIL</strong>.</li>
+               <li>For Clockwise spin (viewed from tail) + Right turn: Reactive vector points to LEFT WING $\implies$
+                  <strong>DIPS NOSE, RAISES TAIL</strong>.</li>
+            </ul>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Aeroplane Rule (Clockwise from
+            Tail)</strong>:
+         - <strong>LEFT TURN</strong> $\implies$ <strong>RAISE NOSE, DIP TAIL</strong>.
+         - <strong>RIGHT TURN</strong> $\implies$ <strong>DIP NOSE, RAISE TAIL</strong>.
+         Reversing propeller spin (anticlockwise from tail) REVERSES both effects!</p>
+         <p>[!TRAP]
+            <strong>Viewpoint Trap (Tail vs Front)</strong>:
+            Pay strict attention to the examiner's viewpoint!
+            - "Clockwise viewed from TAIL/REAR" = Standard rule (Left turn raises nose).
+            - "Clockwise viewed from FRONT/NOSE" = Opposite rule (Left turn dips nose).
+      </div>
+      <h5 id="2-ascii-decision-tree_1"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Aeroplane Gyroscopic Pitching Effect Analysis
 │
 ├── What is the propeller rotation sense?
 │   ├── CLOCKWISE (viewed from TAIL / REAR)
@@ -468,90 +989,115 @@ Pay strict attention to the examiner's viewpoint!
 │       ├── LEFT TURN  ──► DIPS NOSE, RAISES TAIL
 │       └── RIGHT TURN ──► RAISES NOSE, DIPS TAIL
 </code></pre>
-<h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Clockwise from tail + Left turn $\implies$ Nose UP, Tail DOWN.</li>
-<li>[ ] Clockwise from tail + Right turn $\implies$ Nose DOWN, Tail UP.</li>
-<li>[ ] Formula $C = I \omega (v/R)$.</li>
-<li>[ ] Convert flight speed to m/s $v = \text{km/h} / 3.6$.</li>
-</ul>
-<h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Aeroplane Gyroscopic Couple Magnitude &amp; Direction</strong>
-- <strong>Problem</strong>: An aeroplane flies at $300 \text{ km/h}$ $83.33 \text{ m/s}$ along a left-hand curve of radius $600 \text{ m}$. The propeller has moment of inertia $I = 60 \text{ kg}\cdot\text{m}^2$ and rotates clockwise at $1200 \text{ rpm}$ when viewed from the tail. Calculate: (a) Gyroscopic couple magnitude, (b) Effect on aeroplane attitude.
-- <strong>Solution</strong>:
-  1. Calculate spin velocity $\omega$:
-     <div class="formula-card">$${\omega = \frac{2\pi \times 1200}{60} = 40\pi \approx 125.66 \text{ rad/s}}$$</div>
-  2. Calculate precession velocity $\omega_p$:
-     <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{83.33}{600} \approx 0.1389 \text{ rad/s}}$$</div>
-  3. Calculate Gyroscopic Couple $C$:
-     <div class="formula-card">$${C = I \omega \omega_p = 60 \times 125.66 \times 0.1389 \approx 1047.2 \text{ N}\cdot\text{m}}$$</div>
-  4. Determine direction:
-     Clockwise spin (from tail) + Left turn $\implies$ Reactive couple <strong>RAISES NOSE AND DIPS TAIL</strong>.
-- <strong>Key Insight</strong>: $C = 1047.2 \text{ N}\cdot\text{m}$; Nose raises, tail dips.</p>
-<p><strong>Worked Example 2: Anticlockwise Propeller Rotation (Viewed from Tail)</strong>
-- <strong>Problem</strong>: An aeroplane engine propeller rotates ANTICLOCKWISE when viewed from the tail. If the plane takes a RIGHT turn, determine the attitude change of the aircraft.
-- <strong>Solution</strong>:
-  1. Base rule for Clockwise from tail + Right turn: Dips nose, raises tail.
-  2. Since spin is ANTICLOCKWISE, reverse the outcome:
-     Anticlockwise from tail + Right turn $\implies$ <strong>RAISES NOSE AND DIPS TAIL</strong>.
-- <strong>Key Insight</strong>: Nose raises, tail dips.</p>
-<p><strong>Worked Example 3: Viewpoint Conversion (Clockwise Viewed from Nose)</strong>
-- <strong>Problem</strong>: An aeroplane propeller rotates CLOCKWISE when viewed from the NOSE (front). The aeroplane makes a LEFT turn. Determine whether the nose raises or dips.
-- <strong>Solution</strong>:
-  1. Clockwise viewed from NOSE $\equiv$ ANTICLOCKWISE viewed from TAIL.
-  2. Anticlockwise from tail + Left turn $\implies$ <strong>DIPS NOSE AND RAISES TAIL</strong>.
-- <strong>Key Insight</strong>: Nose dips, tail raises.</p>
-<p><strong>Worked Example 4: Elevator Control Force Balancing Gyroscopic Pitch</strong>
-- <strong>Problem</strong>: For the aeroplane in Example 1 ($C = 1047.2 \text{ N}\cdot\text{m}$, nose raising effect), the distance between center of gravity and elevator tail control surface is $L = 5 \text{ m}$. Calculate the additional downward aerodynamic force required on the tail elevator to maintain level pitch flight.
-- <strong>Solution</strong>:
-  1. Gyroscopic reactive couple $C = 1047.2 \text{ N}\cdot\text{m}$ acts in pitch plane.
-  2. Downward elevator force $F_e$ at distance $L = 5 \text{ m}$ creates restoring couple $F_e \times L = C$:
-     <div class="formula-card">$${F_e \times 5 = 1047.2 \implies F_e = \frac{1047.2}{5} \approx 209.44 \text{ N}}$$</div>
-- <strong>Key Insight</strong>: Tail elevator must supply $209.44 \text{ N}$ downward aerodynamic force to prevent nose pitching up.</p>
-<hr />
-<h3 id="33-gyroscopic-effects-on-naval-ships-steering-pitching-rolling"><strong>3.3 Gyroscopic Effects on Naval Ships (Steering, Pitching, Rolling)</strong></h3>
-<h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>Ship Terminology</strong>:</li>
-<li><strong>Bow (Fore)</strong>: Front end of the ship.</li>
-<li><strong>Stern (Aft)</strong>: Rear end of the ship.</li>
-<li><strong>Port</strong>: Left side of the ship when facing the bow (front).</li>
-<li><strong>Starboard</strong>: Right side of the ship when facing the bow (front).</li>
-<li><strong>Motion 1: Steering (Turning Left / Right in Horizontal Plane)</strong>:</li>
-<li>Precession axis is VERTICAL $OZ$.</li>
-<li>Spin axis is LONGITUDINAL $OX$.</li>
-<li>Couple axis is TRANSVERSE $OY$ $\implies$ Affects Bow and Stern vertical position!</li>
-<li><strong>Clockwise Rotor (viewed from Stern/Rear)</strong>:<ul>
-<li><strong>Steering LEFT (Port)</strong> $\implies$ Reactive couple <strong>RAISES BOW, LOWERS STERN</strong>.</li>
-<li><strong>Steering RIGHT (Starboard)</strong> $\implies$ Reactive couple <strong>LOWERS BOW, RAISES STERN</strong>.</li>
-</ul>
-</li>
-<li><strong>Motion 2: Pitching (Bow Rising / Falling in Vertical Plane)</strong>:</li>
-<li>Pitching motion is Simple Harmonic Motion (SHM) about transverse axis:
-    <div class="formula-card">$${\theta = \theta_0 \sin(\omega_0 t) \quad \text{where } \omega_0 = \frac{2\pi}{T_p}}$$</div></li>
-<li>Precession velocity $\omega_p = \frac{d\theta}{dt} = \theta_0 \omega_0 \cos(\omega_0 t)$.</li>
-<li>Maximum precession velocity $\omega_{p,\text{max}} = \theta_0 \cdot \omega_0$.</li>
-<li>Maximum Gyroscopic Couple:
-    <div class="formula-card">$${\boxed{C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot \omega_0)}}$$</div></li>
-<li><strong>Direction Rule for Pitching (Clockwise rotor viewed from Stern)</strong>:<ul>
-<li><strong>Bow RISING</strong> $\implies$ Reactive couple <strong>TURNS SHIP TO STARBOARD (RIGHT)</strong>.</li>
-<li><strong>Bow FALLING</strong> $\implies$ Reactive couple <strong>TURNS SHIP TO PORT (LEFT)</strong>.</li>
-</ul>
-</li>
-<li><strong>Motion 3: Rolling (Side-to-Side Rocking)</strong>:</li>
-<li>Rolling takes place about longitudinal axis $OX$.</li>
-<li>Rotor spin axis is ALSO along longitudinal axis $OX$.</li>
-<li>Spin axis and Rolling axis are PARALLEL $\implies$ No rotation of spin vector in space $\implies \omega_p = 0$.</li>
-<li><strong>Gyroscopic Couple during Rolling = ZERO $C_{\text{roll}} = 0$</strong>.</li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ship Summary Table (Clockwise Rotor from Stern)</strong>:
-- <strong>Steering Left</strong> $\implies$ <strong>Bow UP, Stern DOWN</strong>.
-- <strong>Pitching Bow UP</strong> $\implies$ <strong>Turns to STARBOARD (Right)</strong>.
-- <strong>Rolling</strong> $\implies$ <strong>ZERO EFFECT $C = 0$</strong>.</p>
-<p>[!TRAP]
-<strong>Rolling Question Trap</strong>: MCQs often ask "What is the gyroscopic effect during rolling of a ship?". Options list various pitching or steering effects. Correct choice is ALWAYS <strong>NO GYROSCOPIC EFFECT</strong>!</div>
-<h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
-<pre><code>Ship Gyroscopic Effect Classification
+      <h5 id="3-revision-checklist_1"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Clockwise from tail + Left turn $\implies$ Nose UP, Tail DOWN.</li>
+         <li>[ ] Clockwise from tail + Right turn $\implies$ Nose DOWN, Tail UP.</li>
+         <li>[ ] Formula $C = I \omega (v/R)$.</li>
+         <li>[ ] Convert flight speed to m/s $v = \text{km/h} / 3.6$.</li>
+      </ul>
+      <h5 id="4-worked-examples_1"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Aeroplane Gyroscopic Couple Magnitude &amp; Direction</strong>
+         - <strong>Problem</strong>: An aeroplane flies at $300 \text{ km/h}$ $83.33 \text{ m/s}$ along a left-hand
+         curve of radius $600 \text{ m}$. The propeller has moment of inertia $I = 60 \text{ kg}\cdot\text{m}^2$ and
+         rotates clockwise at $1200 \text{ rpm}$ when viewed from the tail. Calculate: (a) Gyroscopic couple magnitude,
+         (b) Effect on aeroplane attitude.
+         - <strong>Solution</strong>:
+         1. Calculate spin velocity $\omega$:
+      <div class="formula-card">$${\omega = \frac{2\pi \times 1200}{60} = 40\pi \approx 125.66 \text{ rad/s}}$$</div>
+      2. Calculate precession velocity $\omega_p$:
+      <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{83.33}{600} \approx 0.1389 \text{ rad/s}}$$</div>
+      3. Calculate Gyroscopic Couple $C$:
+      <div class="formula-card">$${C = I \omega \omega_p = 60 \times 125.66 \times 0.1389 \approx 1047.2 \text{
+         N}\cdot\text{m}}$$</div>
+      4. Determine direction:
+      Clockwise spin (from tail) + Left turn $\implies$ Reactive couple <strong>RAISES NOSE AND DIPS TAIL</strong>.
+      - <strong>Key Insight</strong>: $C = 1047.2 \text{ N}\cdot\text{m}$; Nose raises, tail dips.</p>
+      <p><strong>Worked Example 2: Anticlockwise Propeller Rotation (Viewed from Tail)</strong>
+         - <strong>Problem</strong>: An aeroplane engine propeller rotates ANTICLOCKWISE when viewed from the tail. If
+         the plane takes a RIGHT turn, determine the attitude change of the aircraft.
+         - <strong>Solution</strong>:
+         1. Base rule for Clockwise from tail + Right turn: Dips nose, raises tail.
+         2. Since spin is ANTICLOCKWISE, reverse the outcome:
+         Anticlockwise from tail + Right turn $\implies$ <strong>RAISES NOSE AND DIPS TAIL</strong>.
+         - <strong>Key Insight</strong>: Nose raises, tail dips.</p>
+      <p><strong>Worked Example 3: Viewpoint Conversion (Clockwise Viewed from Nose)</strong>
+         - <strong>Problem</strong>: An aeroplane propeller rotates CLOCKWISE when viewed from the NOSE (front). The
+         aeroplane makes a LEFT turn. Determine whether the nose raises or dips.
+         - <strong>Solution</strong>:
+         1. Clockwise viewed from NOSE $\equiv$ ANTICLOCKWISE viewed from TAIL.
+         2. Anticlockwise from tail + Left turn $\implies$ <strong>DIPS NOSE AND RAISES TAIL</strong>.
+         - <strong>Key Insight</strong>: Nose dips, tail raises.</p>
+      <p><strong>Worked Example 4: Elevator Control Force Balancing Gyroscopic Pitch</strong>
+         - <strong>Problem</strong>: For the aeroplane in Example 1 ($C = 1047.2 \text{ N}\cdot\text{m}$, nose raising
+         effect), the distance between center of gravity and elevator tail control surface is $L = 5 \text{ m}$.
+         Calculate the additional downward aerodynamic force required on the tail elevator to maintain level pitch
+         flight.
+         - <strong>Solution</strong>:
+         1. Gyroscopic reactive couple $C = 1047.2 \text{ N}\cdot\text{m}$ acts in pitch plane.
+         2. Downward elevator force $F_e$ at distance $L = 5 \text{ m}$ creates restoring couple $F_e \times L = C$:
+      <div class="formula-card">$${F_e \times 5 = 1047.2 \implies F_e = \frac{1047.2}{5} \approx 209.44 \text{ N}}$$
+      </div>
+      - <strong>Key Insight</strong>: Tail elevator must supply $209.44 \text{ N}$ downward aerodynamic force to prevent
+      nose pitching up.</p>
+      <hr />
+      <h3 id="33-gyroscopic-effects-on-naval-ships-steering-pitching-rolling"><strong>3.3 Gyroscopic Effects on Naval
+            Ships (Steering, Pitching, Rolling)</strong></h3>
+      <h5 id="1-concept-pointers_2"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>Ship Terminology</strong>:</li>
+         <li><strong>Bow (Fore)</strong>: Front end of the ship.</li>
+         <li><strong>Stern (Aft)</strong>: Rear end of the ship.</li>
+         <li><strong>Port</strong>: Left side of the ship when facing the bow (front).</li>
+         <li><strong>Starboard</strong>: Right side of the ship when facing the bow (front).</li>
+         <li><strong>Motion 1: Steering (Turning Left / Right in Horizontal Plane)</strong>:</li>
+         <li>Precession axis is VERTICAL $OZ$.</li>
+         <li>Spin axis is LONGITUDINAL $OX$.</li>
+         <li>Couple axis is TRANSVERSE $OY$ $\implies$ Affects Bow and Stern vertical position!</li>
+         <li><strong>Clockwise Rotor (viewed from Stern/Rear)</strong>:<ul>
+               <li><strong>Steering LEFT (Port)</strong> $\implies$ Reactive couple <strong>RAISES BOW, LOWERS
+                     STERN</strong>.</li>
+               <li><strong>Steering RIGHT (Starboard)</strong> $\implies$ Reactive couple <strong>LOWERS BOW, RAISES
+                     STERN</strong>.</li>
+            </ul>
+         </li>
+         <li><strong>Motion 2: Pitching (Bow Rising / Falling in Vertical Plane)</strong>:</li>
+         <li>Pitching motion is Simple Harmonic Motion (SHM) about transverse axis:
+            <div class="formula-card">$${\theta = \theta_0 \sin(\omega_0 t) \quad \text{where } \omega_0 =
+               \frac{2\pi}{T_p}}$$</div>
+         </li>
+         <li>Precession velocity $\omega_p = \frac{d\theta}{dt} = \theta_0 \omega_0 \cos(\omega_0 t)$.</li>
+         <li>Maximum precession velocity $\omega_{p,\text{max}} = \theta_0 \cdot \omega_0$.</li>
+         <li>Maximum Gyroscopic Couple:
+            <div class="formula-card">$${\boxed{C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot \omega_0)}}$$
+            </div>
+         </li>
+         <li><strong>Direction Rule for Pitching (Clockwise rotor viewed from Stern)</strong>:<ul>
+               <li><strong>Bow RISING</strong> $\implies$ Reactive couple <strong>TURNS SHIP TO STARBOARD
+                     (RIGHT)</strong>.</li>
+               <li><strong>Bow FALLING</strong> $\implies$ Reactive couple <strong>TURNS SHIP TO PORT (LEFT)</strong>.
+               </li>
+            </ul>
+         </li>
+         <li><strong>Motion 3: Rolling (Side-to-Side Rocking)</strong>:</li>
+         <li>Rolling takes place about longitudinal axis $OX$.</li>
+         <li>Rotor spin axis is ALSO along longitudinal axis $OX$.</li>
+         <li>Spin axis and Rolling axis are PARALLEL $\implies$ No rotation of spin vector in space $\implies \omega_p =
+            0$.</li>
+         <li><strong>Gyroscopic Couple during Rolling = ZERO $C_{\text{roll}} = 0$</strong>.</li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Ship Summary Table (Clockwise Rotor
+            from Stern)</strong>:
+         - <strong>Steering Left</strong> $\implies$ <strong>Bow UP, Stern DOWN</strong>.
+         - <strong>Pitching Bow UP</strong> $\implies$ <strong>Turns to STARBOARD (Right)</strong>.
+         - <strong>Rolling</strong> $\implies$ <strong>ZERO EFFECT $C = 0$</strong>.</p>
+         <p>[!TRAP]
+            <strong>Rolling Question Trap</strong>: MCQs often ask "What is the gyroscopic effect during rolling of a
+            ship?". Options list various pitching or steering effects. Correct choice is ALWAYS <strong>NO GYROSCOPIC
+               EFFECT</strong>!
+      </div>
+      <h5 id="2-ascii-decision-tree_2"><strong>2. ASCII Decision Tree</strong></h5>
+      <pre><code>Ship Gyroscopic Effect Classification
 │
 ├── What type of ship motion is occurring?
 │   ├── ROLLING ──► Spin &amp; Rolling axes are parallel ──► GYRO COUPLE = ZERO!
@@ -564,248 +1110,317 @@ Pay strict attention to the examiner's viewpoint!
 │       ├── Clockwise Rotor from Stern + Bow Rising  ──► TURNS SHIP TO STARBOARD
 │       └── Clockwise Rotor from Stern + Bow Falling ──► TURNS SHIP TO PORT
 </code></pre>
-<h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Steering Left (Port) + Clockwise rotor (Stern) $\implies$ Bow UP, Stern DOWN.</li>
-<li>[ ] Pitching Bow UP + Clockwise rotor (Stern) $\implies$ Turns to STARBOARD.</li>
-<li>[ ] Maximum Pitching Couple $C_{\text{max}} = I \omega (\theta_0 \omega_0)$.</li>
-<li>[ ] Rolling $\implies$ ZERO gyroscopic couple $C = 0$.</li>
-</ul>
-<h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Ship Pitching Gyroscopic Couple</strong>
-- <strong>Problem</strong>: The turbine rotor of a ship has mass $m = 8 \text{ tonnes} = 8000 \text{ kg}$ and radius of gyration $k = 0.6 \text{ m}$. It rotates at $1800 \text{ rpm}$ clockwise when viewed from the stern. The ship pitches with Simple Harmonic Motion with periodic time $T_p = 16 \text{ sec}$ and total amplitude of pitch $= 12^\circ$ ($6^\circ$ on either side of mean position). Calculate: (a) Maximum precession speed $\omega_{p,\text{max}}$, (b) Maximum gyroscopic couple $C_{\text{max}}$, (c) Direction of couple when bow is rising.
-- <strong>Solution</strong>:
-  1. Calculate moment of inertia $I$:
-     <div class="formula-card">$${I = m k^2 = 8000 \times (0.6)^2 = 8000 \times 0.36 = 2880 \text{ kg}\cdot\text{m}^2}$$</div>
-  2. Calculate spin speed $\omega$:
-     <div class="formula-card">$${\omega = \frac{2\pi \times 1800}{60} = 60\pi \approx 188.5 \text{ rad/s}}$$</div>
-  3. Calculate pitch amplitude $\theta_0$ in radians:
-     <div class="formula-card">$${\theta_0 = 6^\circ = 6 \times \frac{\pi}{180} = 0.1047 \text{ rad}}$$</div>
-  4. Calculate SHM angular frequency $\omega_0$:
-     <div class="formula-card">$${\omega_0 = \frac{2\pi}{T_p} = \frac{2\pi}{16} = 0.3927 \text{ rad/s}}$$</div>
-  5. Calculate maximum precession speed $\omega_{p,\text{max}}$:
-     <div class="formula-card">$${\omega_{p,\text{max}} = \theta_0 \cdot \omega_0 = 0.1047 \times 0.3927 \approx 0.0411 \text{ rad/s}}$$</div>
-  6. Calculate Maximum Gyroscopic Couple $C_{\text{max}}$:
-     <div class="formula-card">$${C_{\text{max}} = I \cdot \omega \cdot \omega_{p,\text{max}} = 2880 \times 188.5 \times 0.0411 \approx 22312 \text{ N}\cdot\text{m} = 22.31 \text{ kN}\cdot\text{m}}$$</div>
-  7. Direction:
-     Clockwise rotor from stern + Bow Rising $\implies$ Reactive couple <strong>TURNS SHIP TO STARBOARD (RIGHT)</strong>.
-- <strong>Key Insight</strong>: $C_{\text{max}} = 22.31 \text{ kN}\cdot\text{m}$; Turns ship to Starboard.</p>
-<p><strong>Worked Example 2: Ship Steering Left Numerical Calculation</strong>
-- <strong>Problem</strong>: A ship's turbine rotor has $I = 400 \text{ kg}\cdot\text{m}^2$ and spins at $2400 \text{ rpm}$ clockwise from stern. The ship steers to Port (Left) along a curve of radius $R = 80 \text{ m}$ at speed $v = 10 \text{ m/s}$ $36 \text{ km/h}$. Calculate gyroscopic couple and bow/stern motion.
-- <strong>Solution</strong>:
-  1. $\omega = \frac{2\pi \times 2400}{60} = 80\pi \approx 251.33 \text{ rad/s}$.
-  2. $\omega_p = \frac{v}{R} = \frac{10}{80} = 0.125 \text{ rad/s}$.
-  3. $C = I \omega \omega_p = 400 \times 251.33 \times 0.125 = 12566.4 \text{ N}\cdot\text{m} = 12.57 \text{ kN}\cdot\text{m}$.
-  4. Direction: Clockwise from stern + Left turn $\implies$ <strong>RAISES BOW, LOWERS STERN</strong>.
-- <strong>Key Insight</strong>: $C = 12.57 \text{ kN}\cdot\text{m}$; Bow raises, stern lowers.</p>
-<p><strong>Worked Example 3: Ship Pitching with Bow Falling</strong>
-- <strong>Problem</strong>: For the ship in Example 1, determine the direction of the reactive gyroscopic couple when the bow is FALLING during pitching.
-- <strong>Solution</strong>:
-  1. Base pitching rule (Clockwise from stern + Bow Rising): Turns ship to Starboard (Right).
-  2. When Bow is FALLING, the direction of precession reverses:
-     Clockwise from stern + Bow Falling $\implies$ <strong>TURNS SHIP TO PORT (LEFT)</strong>.
-- <strong>Key Insight</strong>: Turns ship to Port (Left).</p>
-<hr />
-<h3 id="34-stability-of-four-wheeled-automobile-on-curved-track"><strong>3.4 Stability of Four-Wheeled Automobile on Curved Track</strong></h3>
-<h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>System Description</strong>:</li>
-<li>Vehicle of mass $m$ negotiates a turn of radius $R$ at linear velocity $v$.</li>
-<li>4 road wheels each of moment of inertia $I_w$ and radius $r_w$.</li>
-<li>Engine rotor of moment of inertia $I_e$ rotating at speed $\omega_e = G \cdot \omega_w$, where $G$ is gear ratio.</li>
-<li>Track width $= 2 x$, center of gravity height $= h$.</li>
-<li><strong>Centrifugal Overturning Couple $C_c$</strong>:</li>
-<li>Centrifugal force $F_c = \frac{m v^2}{R}$ acts horizontally outward at center of gravity height $h$.</li>
-<li>Centrifugal Couple $C_c = F_c \cdot h = \frac{m v^2 h}{R}$.</li>
-<li>Effect: Tends to overturn vehicle outwards, DECREASING load on inner wheels and INCREASING load on outer wheels by $\frac{C_c}{2 x}$.</li>
-<li><strong>Gyroscopic Couple $C_g$</strong>:</li>
-<li>Wheel precession speed $\omega_p = v/R$, wheel spin speed $\omega_w = v/r_w$.</li>
-<li>Total Wheel Gyroscopic Couple $C_{g,w} = 4 I_w \omega_w \omega_p$.</li>
-<li>Engine Gyroscopic Couple $C_{g,e} = I_e \omega_e \omega_p = I_e (G \omega_w) \omega_p$.</li>
-<li>Total Gyroscopic Couple $C_g = C_{g,w} \pm C_{g,e} = (4 I_w \pm G I_e) \omega_w \omega_p$.<ul>
-<li>$+ G I_e$ when engine rotates in SAME sense as wheels.</li>
-<li>$- G I_e$ when engine rotates in OPPOSITE sense to wheels.</li>
-</ul>
-</li>
-<li>Effect: For engine rotating in wheel direction during turn, reactive gyroscopic couple tilts vehicle OUTWARDS, further DECREASING inner wheel load and INCREASING outer wheel load by $\frac{C_g}{2 x}$.</li>
-<li><strong>Vertical Wheel Reactions</strong>:</li>
-<li>Static reaction per wheel $W_s = \frac{m g}{4}$.</li>
-<li>Inner Wheel Reaction $W_i$:
-    <div class="formula-card">$${\boxed{W_i = \frac{m g}{4} - \frac{C_c + C_g}{2 x}}}$$</div></li>
-<li>Outer Wheel Reaction $W_o$:
-    <div class="formula-card">$${\boxed{W_o = \frac{m g}{4} + \frac{C_c + C_g}{2 x}}}$$</div></li>
-<li><strong>Condition for Stability (No Capsizing / Wheels Lifting)</strong>:</li>
-<li>Inner wheels will lift off the road if $W_i \le 0$:
-    <div class="formula-card">$${\boxed{W_i &gt; 0 \implies \frac{m g}{4} &gt; \frac{C_c + C_g}{2 x}}}$$</div></li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Inner vs Outer Wheel Reaction</strong>:
-Inner wheels lose ground contact force due to both centrifugal and gyroscopic couples! The maximum safe speed is limited by the condition $W_i = 0$.</div>
-<h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] $C_c = \frac{m v^2 h}{R}$.</li>
-<li>[ ] $C_g = (4 I_w \pm G I_e) \omega_w \omega_p$.</li>
-<li>[ ] Inner wheel reaction $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2 x}$.</li>
-<li>[ ] Outer wheel reaction $W_o = \frac{mg}{4} + \frac{C_c + C_g}{2 x}$.</li>
-<li>[ ] Capsizing condition: $W_i \le 0$.</li>
-</ul>
-<h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: 4-Wheeler Wheel Reaction &amp; Maximum Safe Speed</strong>
-- <strong>Problem</strong>: A four-wheeled motor car of mass $m = 1000 \text{ kg}$ has track width $2 x = 1.4 \text{ m}$ $x = 0.7 \text{ m}$ and height of center of gravity $h = 0.6 \text{ m}$. Each of the four wheels has $I_w = 1.2 \text{ kg}\cdot\text{m}^2$ and radius $r_w = 0.3 \text{ m}$. The engine rotating parts have $I_e = 1.5 \text{ kg}\cdot\text{m}^2$ and gear ratio $G = 3$ (same rotation sense as wheels). If car negotiates a turn of radius $R = 50 \text{ m}$ at speed $v = 15 \text{ m/s}$ $54 \text{ km/h}$, calculate: (a) Centrifugal couple $C_c$, (b) Gyroscopic couple $C_g$, (c) Inner and Outer wheel vertical reactions.
-- <strong>Solution</strong>:
-  1. Calculate static load per wheel:
-     <div class="formula-card">$${W_s = \frac{m g}{4} = \frac{1000 \times 9.81}{4} = 2452.5 \text{ N}}$$</div>
-  2. Calculate Centrifugal Couple $C_c$:
-     <div class="formula-card">$${C_c = \frac{m v^2 h}{R} = \frac{1000 \times 15^2 \times 0.6}{50} = \frac{1000 \times 225 \times 0.6}{50} = 2700 \text{ N}\cdot\text{m}}$$</div>
-  3. Calculate wheel spin speed $\omega_w$ and precession speed $\omega_p$:
-     <div class="formula-card">$${\omega_w = \frac{v}{r_w} = \frac{15}{0.3} = 50 \text{ rad/s}}$$</div>
-     <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{15}{50} = 0.3 \text{ rad/s}}$$</div>
-  4. Calculate Total Gyroscopic Couple $C_g$:
-     <div class="formula-card">$${C_g = (4 I_w + G I_e) \omega_w \omega_p = (4(1.2) + 3(1.5)) \times 50 \times 0.3}$$</div>
-     <div class="formula-card">$${C_g = (4.8 + 4.5) \times 15 = 9.3 \times 15 = 139.5 \text{ N}\cdot\text{m}}$$</div>
-  5. Calculate net couple term $\frac{C_c + C_g}{2 x}$:
-     <div class="formula-card">$${\frac{C_c + C_g}{2 x} = \frac{2700 + 139.5}{1.4} = \frac{2839.5}{1.4} \approx 2028.2 \text{ N}}$$</div>
-  6. Calculate vertical reactions:
-     <div class="formula-card">$${W_i = W_s - 2028.2 = 2452.5 - 2028.2 = 424.3 \text{ N}}$$</div>
-     <div class="formula-card">$${W_o = W_s + 2028.2 = 2452.5 + 2028.2 = 4480.7 \text{ N}}$$</div>
-- <strong>Key Insight</strong>: $W_i = 424.3 \text{ N} &gt; 0 \implies$ Vehicle is stable and will not capsize at $15 \text{ m/s}$.</p>
-<p><strong>Worked Example 2: Maximum Capsizing Speed Calculation</strong>
-- <strong>Problem</strong>: For the 4-wheeled car in Example 1, determine the maximum linear speed $v_{\text{max}}$ $\text{m/s}$ at which inner wheel lift occurs $W_i = 0$.
-- <strong>Solution</strong>:
-  1. Set $W_i = 0 \implies \frac{m g}{4} = \frac{C_c + C_g}{2 x}$.
-  2. Express $C_c$ and $C_g$ in terms of $v^2$:
-     <div class="formula-card">$${C_c = \left(\frac{m h}{R}\right) v^2 = \left(\frac{1000 \times 0.6}{50}\right) v^2 = 12 v^2}$$</div>
-     <div class="formula-card">$${C_g = \frac{4 I_w + G I_e}{r_w R} v^2 = \frac{4.8 + 4.5}{0.3 \times 50} v^2 = \frac{9.3}{15} v^2 = 0.62 v^2}$$</div>
-  3. Combine terms: $C_c + C_g = 12.62 v^2$.
-  4. Substitute into limit equation:
-     <div class="formula-card">$${2452.5 = \frac{12.62 v^2}{1.4} = 9.0143 v^2}$$</div>
-  5. Solve for $v^2$ and $v_{\text{max}}$:
-     <div class="formula-card">$${v^2 = \frac{2452.5}{9.0143} \approx 272.07 \implies v_{\text{max}} = \sqrt{272.07} \approx 16.49 \text{ m/s} \approx 59.4 \text{ km/h}}$$</div>
-- <strong>Key Insight</strong>: Maximum safe speed without inner wheel lifting is $16.49 \text{ m/s}$ $59.4 \text{ km/h}$.</p>
-<hr />
-<h3 id="35-stability-of-two-wheeled-motor-vehicle-angle-of-heel"><strong>3.5 Stability of Two-Wheeled Motor Vehicle &amp; Angle of Heel</strong></h3>
-<h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
-<ul>
-<li><strong>System Mechanics</strong>:</li>
-<li>Two-wheeler of mass $m$, center of gravity height $h$, negotiating turn of radius $R$ at velocity $v$.</li>
-<li>Must heel (tilt) inward at angle $\theta$ with vertical to maintain dynamic equilibrium.</li>
-<li><strong>Overturning Couples</strong>:</li>
-<li>Centrifugal overturning couple about contact line: $C_c = \frac{m v^2}{R} h \cos\theta$.</li>
-<li>Total Gyroscopic Couple: $C_g = (2 I_w \omega_w \pm I_e \omega_e \cos\theta) \omega_p = \frac{v^2}{R} \left(2 \frac{I_w}{r_w} \pm G \frac{I_e}{r_w} \cos\theta\right) \cos\theta$.</li>
-<li>Approximating for small angles ($\cos\theta \approx 1$ in gyro term):
-    Total Overturning Couple $C_{\text{overturn}} = \frac{v^2}{R} \left(m h + \frac{2 I_w \pm G I_e}{r_w}\right) \cos\theta$.</li>
-<li><strong>Restoring Gravity Couple</strong>:</li>
-<li>Restoring moment about wheel-road contact line: $C_{\text{restore}} = m g h \sin\theta$.</li>
-<li><strong>Angle of Heel Equation $\theta$</strong>:</li>
-<li>Equating restoring moment to overturning moment $m g h \sin\theta = C_{\text{overturn}}$:
-    <div class="formula-card">$${\boxed{\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm G I_e}{m \cdot h \cdot r_w}\right]}}$$</div></li>
-</ul>
-<div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Angle of Heel Effect</strong>:
-Without gyroscopic couple, $\tan\theta = \frac{v^2}{g R}$. The presence of wheel and engine gyroscopic couples INCREASES the required angle of heel $\theta$ needed to prevent slipping/skidding outwards!</div>
-<h5 id="2-revision-checklist_1"><strong>2. Revision Checklist</strong></h5>
-<ul>
-<li>[ ] Basic tilt angle without gyro: $\tan\theta = \frac{v^2}{g R}$.</li>
-<li>[ ] Complete tilt angle with gyro: $\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$.</li>
-<li>[ ] Gyroscopic action requires GREATER tilt angle $\theta$.</li>
-</ul>
-<h5 id="3-worked-examples_1"><strong>3. Worked Examples</strong></h5>
-<p><strong>Worked Example 1: Two-Wheeler Angle of Heel Calculation</strong>
-- <strong>Problem</strong>: A motorcycle has total mass $m = 250 \text{ kg}$, height of center of gravity $h = 0.6 \text{ m}$, wheel radius $r_w = 0.3 \text{ m}$, wheel moment of inertia $2 I_w = 1.8 \text{ kg}\cdot\text{m}^2$. Engine moment of inertia $I_e = 0.2 \text{ kg}\cdot\text{m}^2$ with gear ratio $G = 5$. If negotiating a curve of radius $R = 40 \text{ m}$ at $v = 20 \text{ m/s}$ $72 \text{ km/h}$, calculate angle of heel $\theta$.
-- <strong>Solution</strong>:
-  1. Calculate term $\frac{2 I_w + G I_e}{m h r_w}$:
-     <div class="formula-card">$${\frac{1.8 + 5(0.2)}{250 \times 0.6 \times 0.3} = \frac{1.8 + 1.0}{45} = \frac{2.8}{45} \approx 0.06222}$$</div>
-  2. Calculate base factor $\frac{v^2}{g R}$:
-     <div class="formula-card">$${\frac{v^2}{g R} = \frac{20^2}{9.81 \times 40} = \frac{400}{392.4} \approx 1.01937}$$</div>
-  3. Calculate $\tan\theta$:
-     <div class="formula-card">$${\tan\theta = 1.01937 \times (1 + 0.06222) = 1.01937 \times 1.06222 \approx 1.0828}$$</div>
-  4. Calculate $\theta$:
-     <div class="formula-card">$${\theta = \tan^{-1}(1.0828) \approx 47.28^\circ}$$</div>
-- <strong>Key Insight</strong>: Angle of heel $\theta = 47.28^\circ$. Gyroscopic effect increased $\tan\theta$ by $6.2\%$.</p>
-<p><strong>Worked Example 2: Motorcycle with Engine Rotating Opposite to Wheels</strong>
-- <strong>Problem</strong>: For the motorcycle in Example 1, calculate the required angle of heel if the engine rotates in OPPOSITE sense to the road wheels.
-- <strong>Solution</strong>:
-  1. Calculate modified term $\frac{2 I_w - G I_e}{m h r_w}$:
-     <div class="formula-card">$${\frac{1.8 - 5(0.2)}{45} = \frac{1.8 - 1.0}{45} = \frac{0.8}{45} \approx 0.01778}$$</div>
-  2. Calculate $\tan\theta$:
-     <div class="formula-card">$${\tan\theta = 1.01937 \times (1 + 0.01778) = 1.01937 \times 1.01778 \approx 1.0375}$$</div>
-  3. Calculate $\theta$:
-     <div class="formula-card">$${\theta = \tan^{-1}(1.0375) \approx 46.06^\circ}$$</div>
-- <strong>Key Insight</strong>: Opposite engine rotation REDUCES the required angle of heel from $47.28^\circ$ to $46.06^\circ$ because engine gyroscopic couple partially cancels wheel gyroscopic couple!</p>
-<hr />
-<h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual Pairs)</strong></h2>
-<p><strong>Q1: What is a Gyroscopic Couple?</strong><br />
-A: The torque generated when the spin axis of a rotating body precesses (changes orientation in space), equal to $C = I \cdot \omega \cdot \omega_p$.</p>
-<p><strong>Q2: Name the three fundamental axes in gyroscopic motion.</strong><br />
-A: Axis of Spin, Axis of Precession, and Axis of Gyroscopic Couple.</p>
-<p><strong>Q3: What is the relative spatial orientation of the three gyroscopic axes?</strong><br />
-A: They are always mutually perpendicular to each other (occupying three perpendicular planes).</p>
-<p><strong>Q4: What is the relation between active and reactive gyroscopic couples?</strong><br />
-A: They are equal in magnitude and opposite in direction $C_{\text{reactive}} = -C_{\text{active}}$.</p>
-<p><strong>Q5: Write the formula for precession velocity $\omega_p$ of a vehicle taking a turn.</strong><br />
-A: $\omega_p = \frac{v}{R}$ (where $v$ is linear speed and $R$ is turn radius).</p>
-<p><strong>Q6: What is the effect of an engine rotor spinning clockwise (viewed from tail) on an aeroplane making a left turn?</strong><br />
-A: The reactive gyroscopic couple raises the nose and dips the tail.</p>
-<p><strong>Q7: What is the effect of an engine rotor spinning clockwise (viewed from tail) on an aeroplane making a right turn?</strong><br />
-A: The reactive gyroscopic couple dips the nose and raises the tail.</p>
-<p><strong>Q8: What is the effect on a ship when rotor spins clockwise (viewed from stern) and ship turns to Port (left)?</strong><br />
-A: The reactive gyroscopic couple raises the bow and lowers the stern.</p>
-<p><strong>Q9: What happens to a ship when rotor spins clockwise (viewed from stern) and bow rises during pitching?</strong><br />
-A: The reactive gyroscopic couple turns the ship towards Starboard (right).</p>
-<p><strong>Q10: What is the gyroscopic effect during rolling of a ship?</strong><br />
-A: ZERO gyroscopic effect, because the spin axis and rolling axis are parallel $\omega_p = 0$.</p>
-<p><strong>Q11: Define Bow, Stern, Port, and Starboard in naval terminology.</strong><br />
-A: Bow = front end, Stern = rear end, Port = left side facing front, Starboard = right side facing front.</p>
-<p><strong>Q12: How does pitching motion of a ship produce precession?</strong><br />
-A: Pitching causes vertical angular oscillation of the longitudinal spin axis, producing precession about the transverse axis with maximum rate $\omega_{p,\text{max}} = \theta_0 \omega_0$.</p>
-<p><strong>Q13: Write the maximum gyroscopic couple formula during ship pitching.</strong><br />
-A: $C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot \omega_0)$.</p>
-<p><strong>Q14: In a 4-wheeled vehicle taking a turn, which wheels experience a reduction in vertical reaction force?</strong><br />
-A: The inner wheels experience reduced load $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$.</p>
-<p><strong>Q15: What is the condition to prevent a 4-wheeled vehicle from capsizing on a curve?</strong><br />
-A: $W_i &gt; 0$, meaning static load per wheel must exceed the combined overturning reaction $\frac{C_c + C_g}{2x}$.</p>
-<p><strong>Q16: Write the formula for Centrifugal Overturning Couple $C_c$ of a vehicle.</strong><br />
-A: $C_c = \frac{m \cdot v^2 \cdot h}{R}$.</p>
-<p><strong>Q17: Write the formula for total Gyroscopic Couple $C_g$ of a 4-wheeler.</strong><br />
-A: $C_g = (4 I_w \pm G I_e) \omega_w \omega_p$.</p>
-<p><strong>Q18: Why does a two-wheeler need to heel (tilt) inward when taking a turn?</strong><br />
-A: To create a restoring gravity moment $m g h \sin\theta$ that balances the combined centrifugal and gyroscopic overturning moments.</p>
-<p><strong>Q19: Write the angle of heel formula for a two-wheeler including gyroscopic effects.</strong><br />
-A: $\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm G I_e}{m h r_w}\right]$.</p>
-<p><strong>Q20: Does gyroscopic action increase or decrease the required angle of heel for a two-wheeler?</strong><br />
-A: Gyroscopic action INCREASES the required angle of heel $\theta$ when engine rotates in wheel direction.</p>
-<hr />
-<h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp; HIGH-YIELD EXAM TRAPS</strong></h2>
-<ul>
-<li><strong>Gyroscopic Couple Formula</strong>:</li>
-<li>$C = I \omega \omega_p = I \omega (v/R)$. Units: $\text{N}\cdot\text{m}$.</li>
-<li><strong>Three Perpendicular Planes</strong>:</li>
-<li>Spin, Precession, and Couple axes MUST be mutually perpendicular!</li>
-<li><strong>Aeroplane Direction Rules (Clockwise from Tail)</strong>:</li>
-<li>Left Turn $\implies$ Raise Nose, Dip Tail.</li>
-<li>Right Turn $\implies$ Dip Nose, Raise Tail.</li>
-<li><strong>Ship Direction Rules (Clockwise from Stern)</strong>:</li>
-<li>Steering Left (Port) $\implies$ Raise Bow, Lower Stern.</li>
-<li>Pitching Bow UP $\implies$ Turn to Starboard (Right).</li>
-<li>Rolling $\implies$ ZERO gyroscopic effect $C = 0$.</li>
-<li><strong>4-Wheeler Stability</strong>:</li>
-<li>$W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$. Inner wheels lift first!</li>
-<li><strong>2-Wheeler Heel</strong>:</li>
-<li>$\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$. Gyro increases tilt!</li>
-</ul>
-<hr />
-<h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM CHECKLIST</strong></h2>
-<ul>
-<li>[ ] Memorize $C = I \omega \omega_p$ and $\omega_p = v/R$.</li>
-<li>[ ] Memorize 3 mutually perpendicular planes rule.</li>
-<li>[ ] Memorize Aeroplane: Clockwise from tail + Left turn $\implies$ Nose UP, Tail DOWN.</li>
-<li>[ ] Memorize Aeroplane: Clockwise from tail + Right turn $\implies$ Nose DOWN, Tail UP.</li>
-<li>[ ] Memorize Ship Steering: Clockwise from stern + Left turn $\implies$ Bow UP, Stern DOWN.</li>
-<li>[ ] Memorize Ship Pitching: Clockwise from stern + Bow UP $\implies$ Turn to Starboard.</li>
-<li>[ ] Memorize Ship Rolling $\implies$ ZERO gyroscopic effect!</li>
-<li>[ ] Memorize Maximum pitching couple $C_{\text{max}} = I \omega (\theta_0 \omega_0)$.</li>
-<li>[ ] Memorize 4-wheeler inner wheel reaction $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$.</li>
-<li>[ ] Memorize 4-wheeler capsizing condition $W_i \le 0$.</li>
-<li>[ ] Memorize 2-wheeler heel $\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$.</li>
-</ul>
-  </div>
+      <h5 id="3-revision-checklist_2"><strong>3. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Steering Left (Port) + Clockwise rotor (Stern) $\implies$ Bow UP, Stern DOWN.</li>
+         <li>[ ] Pitching Bow UP + Clockwise rotor (Stern) $\implies$ Turns to STARBOARD.</li>
+         <li>[ ] Maximum Pitching Couple $C_{\text{max}} = I \omega (\theta_0 \omega_0)$.</li>
+         <li>[ ] Rolling $\implies$ ZERO gyroscopic couple $C = 0$.</li>
+      </ul>
+      <h5 id="4-worked-examples_2"><strong>4. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Ship Pitching Gyroscopic Couple</strong>
+         - <strong>Problem</strong>: The turbine rotor of a ship has mass $m = 8 \text{ tonnes} = 8000 \text{ kg}$ and
+         radius of gyration $k = 0.6 \text{ m}$. It rotates at $1800 \text{ rpm}$ clockwise when viewed from the stern.
+         The ship pitches with Simple Harmonic Motion with periodic time $T_p = 16 \text{ sec}$ and total amplitude of
+         pitch $= 12^\circ$ ($6^\circ$ on either side of mean position). Calculate: (a) Maximum precession speed
+         $\omega_{p,\text{max}}$, (b) Maximum gyroscopic couple $C_{\text{max}}$, (c) Direction of couple when bow is
+         rising.
+         - <strong>Solution</strong>:
+         1. Calculate moment of inertia $I$:
+      <div class="formula-card">$${I = m k^2 = 8000 \times (0.6)^2 = 8000 \times 0.36 = 2880 \text{
+         kg}\cdot\text{m}^2}$$</div>
+      2. Calculate spin speed $\omega$:
+      <div class="formula-card">$${\omega = \frac{2\pi \times 1800}{60} = 60\pi \approx 188.5 \text{ rad/s}}$$</div>
+      3. Calculate pitch amplitude $\theta_0$ in radians:
+      <div class="formula-card">$${\theta_0 = 6^\circ = 6 \times \frac{\pi}{180} = 0.1047 \text{ rad}}$$</div>
+      4. Calculate SHM angular frequency $\omega_0$:
+      <div class="formula-card">$${\omega_0 = \frac{2\pi}{T_p} = \frac{2\pi}{16} = 0.3927 \text{ rad/s}}$$</div>
+      5. Calculate maximum precession speed $\omega_{p,\text{max}}$:
+      <div class="formula-card">$${\omega_{p,\text{max}} = \theta_0 \cdot \omega_0 = 0.1047 \times 0.3927 \approx 0.0411
+         \text{ rad/s}}$$</div>
+      6. Calculate Maximum Gyroscopic Couple $C_{\text{max}}$:
+      <div class="formula-card">$${C_{\text{max}} = I \cdot \omega \cdot \omega_{p,\text{max}} = 2880 \times 188.5
+         \times 0.0411 \approx 22312 \text{ N}\cdot\text{m} = 22.31 \text{ kN}\cdot\text{m}}$$</div>
+      7. Direction:
+      Clockwise rotor from stern + Bow Rising $\implies$ Reactive couple <strong>TURNS SHIP TO STARBOARD
+         (RIGHT)</strong>.
+      - <strong>Key Insight</strong>: $C_{\text{max}} = 22.31 \text{ kN}\cdot\text{m}$; Turns ship to Starboard.</p>
+      <p><strong>Worked Example 2: Ship Steering Left Numerical Calculation</strong>
+         - <strong>Problem</strong>: A ship's turbine rotor has $I = 400 \text{ kg}\cdot\text{m}^2$ and spins at $2400
+         \text{ rpm}$ clockwise from stern. The ship steers to Port (Left) along a curve of radius $R = 80 \text{ m}$ at
+         speed $v = 10 \text{ m/s}$ $36 \text{ km/h}$. Calculate gyroscopic couple and bow/stern motion.
+         - <strong>Solution</strong>:
+         1. $\omega = \frac{2\pi \times 2400}{60} = 80\pi \approx 251.33 \text{ rad/s}$.
+         2. $\omega_p = \frac{v}{R} = \frac{10}{80} = 0.125 \text{ rad/s}$.
+         3. $C = I \omega \omega_p = 400 \times 251.33 \times 0.125 = 12566.4 \text{ N}\cdot\text{m} = 12.57 \text{
+         kN}\cdot\text{m}$.
+         4. Direction: Clockwise from stern + Left turn $\implies$ <strong>RAISES BOW, LOWERS STERN</strong>.
+         - <strong>Key Insight</strong>: $C = 12.57 \text{ kN}\cdot\text{m}$; Bow raises, stern lowers.</p>
+      <p><strong>Worked Example 3: Ship Pitching with Bow Falling</strong>
+         - <strong>Problem</strong>: For the ship in Example 1, determine the direction of the reactive gyroscopic
+         couple when the bow is FALLING during pitching.
+         - <strong>Solution</strong>:
+         1. Base pitching rule (Clockwise from stern + Bow Rising): Turns ship to Starboard (Right).
+         2. When Bow is FALLING, the direction of precession reverses:
+         Clockwise from stern + Bow Falling $\implies$ <strong>TURNS SHIP TO PORT (LEFT)</strong>.
+         - <strong>Key Insight</strong>: Turns ship to Port (Left).</p>
+      <hr />
+      <h3 id="34-stability-of-four-wheeled-automobile-on-curved-track"><strong>3.4 Stability of Four-Wheeled Automobile
+            on Curved Track</strong></h3>
+      <h5 id="1-concept-pointers_3"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>System Description</strong>:</li>
+         <li>Vehicle of mass $m$ negotiates a turn of radius $R$ at linear velocity $v$.</li>
+         <li>4 road wheels each of moment of inertia $I_w$ and radius $r_w$.</li>
+         <li>Engine rotor of moment of inertia $I_e$ rotating at speed $\omega_e = G \cdot \omega_w$, where $G$ is gear
+            ratio.</li>
+         <li>Track width $= 2 x$, center of gravity height $= h$.</li>
+         <li><strong>Centrifugal Overturning Couple $C_c$</strong>:</li>
+         <li>Centrifugal force $F_c = \frac{m v^2}{R}$ acts horizontally outward at center of gravity height $h$.</li>
+         <li>Centrifugal Couple $C_c = F_c \cdot h = \frac{m v^2 h}{R}$.</li>
+         <li>Effect: Tends to overturn vehicle outwards, DECREASING load on inner wheels and INCREASING load on outer
+            wheels by $\frac{C_c}{2 x}$.</li>
+         <li><strong>Gyroscopic Couple $C_g$</strong>:</li>
+         <li>Wheel precession speed $\omega_p = v/R$, wheel spin speed $\omega_w = v/r_w$.</li>
+         <li>Total Wheel Gyroscopic Couple $C_{g,w} = 4 I_w \omega_w \omega_p$.</li>
+         <li>Engine Gyroscopic Couple $C_{g,e} = I_e \omega_e \omega_p = I_e (G \omega_w) \omega_p$.</li>
+         <li>Total Gyroscopic Couple $C_g = C_{g,w} \pm C_{g,e} = (4 I_w \pm G I_e) \omega_w \omega_p$.<ul>
+               <li>$+ G I_e$ when engine rotates in SAME sense as wheels.</li>
+               <li>$- G I_e$ when engine rotates in OPPOSITE sense to wheels.</li>
+            </ul>
+         </li>
+         <li>Effect: For engine rotating in wheel direction during turn, reactive gyroscopic couple tilts vehicle
+            OUTWARDS, further DECREASING inner wheel load and INCREASING outer wheel load by $\frac{C_g}{2 x}$.</li>
+         <li><strong>Vertical Wheel Reactions</strong>:</li>
+         <li>Static reaction per wheel $W_s = \frac{m g}{4}$.</li>
+         <li>Inner Wheel Reaction $W_i$:
+            <div class="formula-card">$${\boxed{W_i = \frac{m g}{4} - \frac{C_c + C_g}{2 x}}}$$</div>
+         </li>
+         <li>Outer Wheel Reaction $W_o$:
+            <div class="formula-card">$${\boxed{W_o = \frac{m g}{4} + \frac{C_c + C_g}{2 x}}}$$</div>
+         </li>
+         <li><strong>Condition for Stability (No Capsizing / Wheels Lifting)</strong>:</li>
+         <li>Inner wheels will lift off the road if $W_i \le 0$:
+            <div class="formula-card">$${\boxed{W_i &gt; 0 \implies \frac{m g}{4} &gt; \frac{C_c + C_g}{2 x}}}$$</div>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Inner vs Outer Wheel
+            Reaction</strong>:
+         Inner wheels lose ground contact force due to both centrifugal and gyroscopic couples! The maximum safe speed
+         is limited by the condition $W_i = 0$.</div>
+      <h5 id="2-revision-checklist"><strong>2. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] $C_c = \frac{m v^2 h}{R}$.</li>
+         <li>[ ] $C_g = (4 I_w \pm G I_e) \omega_w \omega_p$.</li>
+         <li>[ ] Inner wheel reaction $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2 x}$.</li>
+         <li>[ ] Outer wheel reaction $W_o = \frac{mg}{4} + \frac{C_c + C_g}{2 x}$.</li>
+         <li>[ ] Capsizing condition: $W_i \le 0$.</li>
+      </ul>
+      <h5 id="3-worked-examples"><strong>3. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: 4-Wheeler Wheel Reaction &amp; Maximum Safe Speed</strong>
+         - <strong>Problem</strong>: A four-wheeled motor car of mass $m = 1000 \text{ kg}$ has track width $2 x = 1.4
+         \text{ m}$ $x = 0.7 \text{ m}$ and height of center of gravity $h = 0.6 \text{ m}$. Each of the four wheels has
+         $I_w = 1.2 \text{ kg}\cdot\text{m}^2$ and radius $r_w = 0.3 \text{ m}$. The engine rotating parts have $I_e =
+         1.5 \text{ kg}\cdot\text{m}^2$ and gear ratio $G = 3$ (same rotation sense as wheels). If car negotiates a turn
+         of radius $R = 50 \text{ m}$ at speed $v = 15 \text{ m/s}$ $54 \text{ km/h}$, calculate: (a) Centrifugal couple
+         $C_c$, (b) Gyroscopic couple $C_g$, (c) Inner and Outer wheel vertical reactions.
+         - <strong>Solution</strong>:
+         1. Calculate static load per wheel:
+      <div class="formula-card">$${W_s = \frac{m g}{4} = \frac{1000 \times 9.81}{4} = 2452.5 \text{ N}}$$</div>
+      2. Calculate Centrifugal Couple $C_c$:
+      <div class="formula-card">$${C_c = \frac{m v^2 h}{R} = \frac{1000 \times 15^2 \times 0.6}{50} = \frac{1000 \times
+         225 \times 0.6}{50} = 2700 \text{ N}\cdot\text{m}}$$</div>
+      3. Calculate wheel spin speed $\omega_w$ and precession speed $\omega_p$:
+      <div class="formula-card">$${\omega_w = \frac{v}{r_w} = \frac{15}{0.3} = 50 \text{ rad/s}}$$</div>
+      <div class="formula-card">$${\omega_p = \frac{v}{R} = \frac{15}{50} = 0.3 \text{ rad/s}}$$</div>
+      4. Calculate Total Gyroscopic Couple $C_g$:
+      <div class="formula-card">$${C_g = (4 I_w + G I_e) \omega_w \omega_p = (4(1.2) + 3(1.5)) \times 50 \times 0.3}$$
+      </div>
+      <div class="formula-card">$${C_g = (4.8 + 4.5) \times 15 = 9.3 \times 15 = 139.5 \text{ N}\cdot\text{m}}$$</div>
+      5. Calculate net couple term $\frac{C_c + C_g}{2 x}$:
+      <div class="formula-card">$${\frac{C_c + C_g}{2 x} = \frac{2700 + 139.5}{1.4} = \frac{2839.5}{1.4} \approx 2028.2
+         \text{ N}}$$</div>
+      6. Calculate vertical reactions:
+      <div class="formula-card">$${W_i = W_s - 2028.2 = 2452.5 - 2028.2 = 424.3 \text{ N}}$$</div>
+      <div class="formula-card">$${W_o = W_s + 2028.2 = 2452.5 + 2028.2 = 4480.7 \text{ N}}$$</div>
+      - <strong>Key Insight</strong>: $W_i = 424.3 \text{ N} &gt; 0 \implies$ Vehicle is stable and will not capsize at
+      $15 \text{ m/s}$.</p>
+      <p><strong>Worked Example 2: Maximum Capsizing Speed Calculation</strong>
+         - <strong>Problem</strong>: For the 4-wheeled car in Example 1, determine the maximum linear speed
+         $v_{\text{max}}$ $\text{m/s}$ at which inner wheel lift occurs $W_i = 0$.
+         - <strong>Solution</strong>:
+         1. Set $W_i = 0 \implies \frac{m g}{4} = \frac{C_c + C_g}{2 x}$.
+         2. Express $C_c$ and $C_g$ in terms of $v^2$:
+      <div class="formula-card">$${C_c = \left(\frac{m h}{R}\right) v^2 = \left(\frac{1000 \times 0.6}{50}\right) v^2 =
+         12 v^2}$$</div>
+      <div class="formula-card">$${C_g = \frac{4 I_w + G I_e}{r_w R} v^2 = \frac{4.8 + 4.5}{0.3 \times 50} v^2 =
+         \frac{9.3}{15} v^2 = 0.62 v^2}$$</div>
+      3. Combine terms: $C_c + C_g = 12.62 v^2$.
+      4. Substitute into limit equation:
+      <div class="formula-card">$${2452.5 = \frac{12.62 v^2}{1.4} = 9.0143 v^2}$$</div>
+      5. Solve for $v^2$ and $v_{\text{max}}$:
+      <div class="formula-card">$${v^2 = \frac{2452.5}{9.0143} \approx 272.07 \implies v_{\text{max}} = \sqrt{272.07}
+         \approx 16.49 \text{ m/s} \approx 59.4 \text{ km/h}}$$</div>
+      - <strong>Key Insight</strong>: Maximum safe speed without inner wheel lifting is $16.49 \text{ m/s}$ $59.4 \text{
+      km/h}$.</p>
+      <hr />
+      <h3 id="35-stability-of-two-wheeled-motor-vehicle-angle-of-heel"><strong>3.5 Stability of Two-Wheeled Motor
+            Vehicle &amp; Angle of Heel</strong></h3>
+      <h5 id="1-concept-pointers_4"><strong>1. Concept Pointers</strong></h5>
+      <ul>
+         <li><strong>System Mechanics</strong>:</li>
+         <li>Two-wheeler of mass $m$, center of gravity height $h$, negotiating turn of radius $R$ at velocity $v$.</li>
+         <li>Must heel (tilt) inward at angle $\theta$ with vertical to maintain dynamic equilibrium.</li>
+         <li><strong>Overturning Couples</strong>:</li>
+         <li>Centrifugal overturning couple about contact line: $C_c = \frac{m v^2}{R} h \cos\theta$.</li>
+         <li>Total Gyroscopic Couple: $C_g = (2 I_w \omega_w \pm I_e \omega_e \cos\theta) \omega_p = \frac{v^2}{R}
+            \left(2 \frac{I_w}{r_w} \pm G \frac{I_e}{r_w} \cos\theta\right) \cos\theta$.</li>
+         <li>Approximating for small angles ($\cos\theta \approx 1$ in gyro term):
+            Total Overturning Couple $C_{\text{overturn}} = \frac{v^2}{R} \left(m h + \frac{2 I_w \pm G I_e}{r_w}\right)
+            \cos\theta$.</li>
+         <li><strong>Restoring Gravity Couple</strong>:</li>
+         <li>Restoring moment about wheel-road contact line: $C_{\text{restore}} = m g h \sin\theta$.</li>
+         <li><strong>Angle of Heel Equation $\theta$</strong>:</li>
+         <li>Equating restoring moment to overturning moment $m g h \sin\theta = C_{\text{overturn}}$:
+            <div class="formula-card">$${\boxed{\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm G I_e}{m \cdot h
+               \cdot r_w}\right]}}$$</div>
+         </li>
+      </ul>
+      <div class="callout callout-concept"><strong>💡 Key Concept:</strong> <strong>Angle of Heel Effect</strong>:
+         Without gyroscopic couple, $\tan\theta = \frac{v^2}{g R}$. The presence of wheel and engine gyroscopic couples
+         INCREASES the required angle of heel $\theta$ needed to prevent slipping/skidding outwards!</div>
+      <h5 id="2-revision-checklist_1"><strong>2. Revision Checklist</strong></h5>
+      <ul>
+         <li>[ ] Basic tilt angle without gyro: $\tan\theta = \frac{v^2}{g R}$.</li>
+         <li>[ ] Complete tilt angle with gyro: $\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$.
+         </li>
+         <li>[ ] Gyroscopic action requires GREATER tilt angle $\theta$.</li>
+      </ul>
+      <h5 id="3-worked-examples_1"><strong>3. Worked Examples</strong></h5>
+      <p><strong>Worked Example 1: Two-Wheeler Angle of Heel Calculation</strong>
+         - <strong>Problem</strong>: A motorcycle has total mass $m = 250 \text{ kg}$, height of center of gravity $h =
+         0.6 \text{ m}$, wheel radius $r_w = 0.3 \text{ m}$, wheel moment of inertia $2 I_w = 1.8 \text{
+         kg}\cdot\text{m}^2$. Engine moment of inertia $I_e = 0.2 \text{ kg}\cdot\text{m}^2$ with gear ratio $G = 5$. If
+         negotiating a curve of radius $R = 40 \text{ m}$ at $v = 20 \text{ m/s}$ $72 \text{ km/h}$, calculate angle of
+         heel $\theta$.
+         - <strong>Solution</strong>:
+         1. Calculate term $\frac{2 I_w + G I_e}{m h r_w}$:
+      <div class="formula-card">$${\frac{1.8 + 5(0.2)}{250 \times 0.6 \times 0.3} = \frac{1.8 + 1.0}{45} =
+         \frac{2.8}{45} \approx 0.06222}$$</div>
+      2. Calculate base factor $\frac{v^2}{g R}$:
+      <div class="formula-card">$${\frac{v^2}{g R} = \frac{20^2}{9.81 \times 40} = \frac{400}{392.4} \approx 1.01937}$$
+      </div>
+      3. Calculate $\tan\theta$:
+      <div class="formula-card">$${\tan\theta = 1.01937 \times (1 + 0.06222) = 1.01937 \times 1.06222 \approx 1.0828}$$
+      </div>
+      4. Calculate $\theta$:
+      <div class="formula-card">$${\theta = \tan^{-1}(1.0828) \approx 47.28^\circ}$$</div>
+      - <strong>Key Insight</strong>: Angle of heel $\theta = 47.28^\circ$. Gyroscopic effect increased $\tan\theta$ by
+      $6.2\%$.</p>
+      <p><strong>Worked Example 2: Motorcycle with Engine Rotating Opposite to Wheels</strong>
+         - <strong>Problem</strong>: For the motorcycle in Example 1, calculate the required angle of heel if the engine
+         rotates in OPPOSITE sense to the road wheels.
+         - <strong>Solution</strong>:
+         1. Calculate modified term $\frac{2 I_w - G I_e}{m h r_w}$:
+      <div class="formula-card">$${\frac{1.8 - 5(0.2)}{45} = \frac{1.8 - 1.0}{45} = \frac{0.8}{45} \approx 0.01778}$$
+      </div>
+      2. Calculate $\tan\theta$:
+      <div class="formula-card">$${\tan\theta = 1.01937 \times (1 + 0.01778) = 1.01937 \times 1.01778 \approx 1.0375}$$
+      </div>
+      3. Calculate $\theta$:
+      <div class="formula-card">$${\theta = \tan^{-1}(1.0375) \approx 46.06^\circ}$$</div>
+      - <strong>Key Insight</strong>: Opposite engine rotation REDUCES the required angle of heel from $47.28^\circ$ to
+      $46.06^\circ$ because engine gyroscopic couple partially cancels wheel gyroscopic couple!</p>
+      <hr />
+      <h2 id="section-4-theory-qa-20-core-conceptual-pairs"><strong>SECTION 4: THEORY Q&amp;A (20 Core Conceptual
+            Pairs)</strong></h2>
+      <p><strong>Q1: What is a Gyroscopic Couple?</strong><br />
+         A: The torque generated when the spin axis of a rotating body precesses (changes orientation in space), equal
+         to $C = I \cdot \omega \cdot \omega_p$.</p>
+      <p><strong>Q2: Name the three fundamental axes in gyroscopic motion.</strong><br />
+         A: Axis of Spin, Axis of Precession, and Axis of Gyroscopic Couple.</p>
+      <p><strong>Q3: What is the relative spatial orientation of the three gyroscopic axes?</strong><br />
+         A: They are always mutually perpendicular to each other (occupying three perpendicular planes).</p>
+      <p><strong>Q4: What is the relation between active and reactive gyroscopic couples?</strong><br />
+         A: They are equal in magnitude and opposite in direction $C_{\text{reactive}} = -C_{\text{active}}$.</p>
+      <p><strong>Q5: Write the formula for precession velocity $\omega_p$ of a vehicle taking a turn.</strong><br />
+         A: $\omega_p = \frac{v}{R}$ (where $v$ is linear speed and $R$ is turn radius).</p>
+      <p><strong>Q6: What is the effect of an engine rotor spinning clockwise (viewed from tail) on an aeroplane making
+            a left turn?</strong><br />
+         A: The reactive gyroscopic couple raises the nose and dips the tail.</p>
+      <p><strong>Q7: What is the effect of an engine rotor spinning clockwise (viewed from tail) on an aeroplane making
+            a right turn?</strong><br />
+         A: The reactive gyroscopic couple dips the nose and raises the tail.</p>
+      <p><strong>Q8: What is the effect on a ship when rotor spins clockwise (viewed from stern) and ship turns to Port
+            (left)?</strong><br />
+         A: The reactive gyroscopic couple raises the bow and lowers the stern.</p>
+      <p><strong>Q9: What happens to a ship when rotor spins clockwise (viewed from stern) and bow rises during
+            pitching?</strong><br />
+         A: The reactive gyroscopic couple turns the ship towards Starboard (right).</p>
+      <p><strong>Q10: What is the gyroscopic effect during rolling of a ship?</strong><br />
+         A: ZERO gyroscopic effect, because the spin axis and rolling axis are parallel $\omega_p = 0$.</p>
+      <p><strong>Q11: Define Bow, Stern, Port, and Starboard in naval terminology.</strong><br />
+         A: Bow = front end, Stern = rear end, Port = left side facing front, Starboard = right side facing front.</p>
+      <p><strong>Q12: How does pitching motion of a ship produce precession?</strong><br />
+         A: Pitching causes vertical angular oscillation of the longitudinal spin axis, producing precession about the
+         transverse axis with maximum rate $\omega_{p,\text{max}} = \theta_0 \omega_0$.</p>
+      <p><strong>Q13: Write the maximum gyroscopic couple formula during ship pitching.</strong><br />
+         A: $C_{\text{max}} = I \cdot \omega \cdot (\theta_0 \cdot \omega_0)$.</p>
+      <p><strong>Q14: In a 4-wheeled vehicle taking a turn, which wheels experience a reduction in vertical reaction
+            force?</strong><br />
+         A: The inner wheels experience reduced load $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$.</p>
+      <p><strong>Q15: What is the condition to prevent a 4-wheeled vehicle from capsizing on a curve?</strong><br />
+         A: $W_i &gt; 0$, meaning static load per wheel must exceed the combined overturning reaction $\frac{C_c +
+         C_g}{2x}$.</p>
+      <p><strong>Q16: Write the formula for Centrifugal Overturning Couple $C_c$ of a vehicle.</strong><br />
+         A: $C_c = \frac{m \cdot v^2 \cdot h}{R}$.</p>
+      <p><strong>Q17: Write the formula for total Gyroscopic Couple $C_g$ of a 4-wheeler.</strong><br />
+         A: $C_g = (4 I_w \pm G I_e) \omega_w \omega_p$.</p>
+      <p><strong>Q18: Why does a two-wheeler need to heel (tilt) inward when taking a turn?</strong><br />
+         A: To create a restoring gravity moment $m g h \sin\theta$ that balances the combined centrifugal and
+         gyroscopic overturning moments.</p>
+      <p><strong>Q19: Write the angle of heel formula for a two-wheeler including gyroscopic effects.</strong><br />
+         A: $\tan\theta = \frac{v^2}{g R} \left[1 + \frac{2 I_w \pm G I_e}{m h r_w}\right]$.</p>
+      <p><strong>Q20: Does gyroscopic action increase or decrease the required angle of heel for a
+            two-wheeler?</strong><br />
+         A: Gyroscopic action INCREASES the required angle of heel $\theta$ when engine rotates in wheel direction.</p>
+      <hr />
+      <h2 id="section-5-consolidation-notes-high-yield-exam-traps"><strong>SECTION 5: CONSOLIDATION NOTES &amp;
+            HIGH-YIELD EXAM TRAPS</strong></h2>
+      <ul>
+         <li><strong>Gyroscopic Couple Formula</strong>:</li>
+         <li>$C = I \omega \omega_p = I \omega (v/R)$. Units: $\text{N}\cdot\text{m}$.</li>
+         <li><strong>Three Perpendicular Planes</strong>:</li>
+         <li>Spin, Precession, and Couple axes MUST be mutually perpendicular!</li>
+         <li><strong>Aeroplane Direction Rules (Clockwise from Tail)</strong>:</li>
+         <li>Left Turn $\implies$ Raise Nose, Dip Tail.</li>
+         <li>Right Turn $\implies$ Dip Nose, Raise Tail.</li>
+         <li><strong>Ship Direction Rules (Clockwise from Stern)</strong>:</li>
+         <li>Steering Left (Port) $\implies$ Raise Bow, Lower Stern.</li>
+         <li>Pitching Bow UP $\implies$ Turn to Starboard (Right).</li>
+         <li>Rolling $\implies$ ZERO gyroscopic effect $C = 0$.</li>
+         <li><strong>4-Wheeler Stability</strong>:</li>
+         <li>$W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$. Inner wheels lift first!</li>
+         <li><strong>2-Wheeler Heel</strong>:</li>
+         <li>$\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$. Gyro increases tilt!</li>
+      </ul>
+      <hr />
+      <h2 id="section-6-final-quick-fire-pre-exam-checklist"><strong>SECTION 6: FINAL QUICK-FIRE PRE-EXAM
+            CHECKLIST</strong></h2>
+      <ul>
+         <li>[ ] Memorize $C = I \omega \omega_p$ and $\omega_p = v/R$.</li>
+         <li>[ ] Memorize 3 mutually perpendicular planes rule.</li>
+         <li>[ ] Memorize Aeroplane: Clockwise from tail + Left turn $\implies$ Nose UP, Tail DOWN.</li>
+         <li>[ ] Memorize Aeroplane: Clockwise from tail + Right turn $\implies$ Nose DOWN, Tail UP.</li>
+         <li>[ ] Memorize Ship Steering: Clockwise from stern + Left turn $\implies$ Bow UP, Stern DOWN.</li>
+         <li>[ ] Memorize Ship Pitching: Clockwise from stern + Bow UP $\implies$ Turn to Starboard.</li>
+         <li>[ ] Memorize Ship Rolling $\implies$ ZERO gyroscopic effect!</li>
+         <li>[ ] Memorize Maximum pitching couple $C_{\text{max}} = I \omega (\theta_0 \omega_0)$.</li>
+         <li>[ ] Memorize 4-wheeler inner wheel reaction $W_i = \frac{mg}{4} - \frac{C_c + C_g}{2x}$.</li>
+         <li>[ ] Memorize 4-wheeler capsizing condition $W_i \le 0$.</li>
+         <li>[ ] Memorize 2-wheeler heel $\tan\theta = \frac{v^2}{g R} [1 + \frac{2 I_w \pm G I_e}{m h r_w}]$.</li>
+      </ul>
+   </div>
 </body>
+
 </html>
