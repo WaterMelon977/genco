@@ -6,38 +6,40 @@
   <title>Foundry, Welding &amp; Forging — Master Exam Hub</title>
   <style>
     :root {
-      /* Option D Light Mode: High-Contrast Crisp Alabaster & Amber Copper Gold */
       --bg-page: #F8FAFC;
       --bg-card: #FFFFFF;
       --text-primary: #0F172A;
       --text-secondary: #475569;
       --text-muted: #94A3B8;
-      --text-accent: #D97706;
-      --accent-warm: #B45309;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --text-accent: #8B5CF6;
+      --accent-warm: #7C3AED;
       --border-light: #E2E8F0;
-      --border-hover: #D97706;
-      --progress-color: #D97706;
+      --border-hover: #8B5CF6;
+      --progress-color: #8B5CF6;
       --cta-bg: #0F172A;
       --cta-text: #FFFFFF;
       --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-      --card-hover-shadow: 0 12px 30px -4px rgba(217, 119, 6, 0.18);
+      --card-hover-shadow: 0 12px 30px -4px rgba(139, 92, 246, 0.25);
     }
     [data-theme="dark"] {
-      /* Option D Dark Mode: Cyber Obsidian & Copper Gold */
       --bg-page: #0E0F12;
       --bg-card: #16181D;
       --text-primary: #F1F5F9;
       --text-secondary: #94A3B8;
       --text-muted: #64748B;
-      --text-accent: #F59E0B;
-      --accent-warm: #D97706;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --text-accent: #8B5CF6;
+      --accent-warm: #A78BFA;
       --border-light: #262933;
-      --border-hover: #F59E0B;
-      --progress-color: #F59E0B;
-      --cta-bg: #F59E0B;
+      --border-hover: #8B5CF6;
+      --progress-color: #8B5CF6;
+      --cta-bg: #8B5CF6;
       --cta-text: #0E0F12;
       --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
-      --card-hover-shadow: 0 12px 32px -4px rgba(245, 158, 11, 0.22);
+      --card-hover-shadow: 0 12px 32px -4px rgba(139, 92, 246, 0.35);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -191,7 +193,7 @@
     }
   </style>
 </head>
-<body>
+<body data-subject="production">
 
   <div id="reading-progress"></div>
   <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>

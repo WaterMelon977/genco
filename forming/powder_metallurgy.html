@@ -18,58 +18,62 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            /* Option D Light Mode: High-Contrast Crisp Alabaster & Amber Copper Gold */
             --bg-page: #F8FAFC;
             --bg-card: #FFFFFF;
             --bg-formula: #F1F5F9;
             --text-primary: #0F172A;
             --text-secondary: #475569;
             --text-muted: #94A3B8;
-            --text-accent: #D97706;
-            --accent-warm: #B45309;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
             --border-light: #E2E8F0;
-            --border-hover: #D97706;
+            --border-hover: #8B5CF6;
             --heading-color: #0F172A;
-            --heading-sub: #D97706;
-            --progress-color: #D97706;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
             --code-bg: #E2E8F0;
             --code-text: #0F172A;
             --pre-bg: #F8FAFC;
             --table-th-bg: #0F172A;
-            --table-th-text: #F8FAFC;
+            --table-th-text: #8B5CF6;
             --table-even-bg: #F8FAFC;
             --callout-focus-bg: #FEFCE8;
             --callout-focus-border: #EAB308;
             --callout-focus-text: #854D0E;
             --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
-            --shadow-card-hover: 0 10px 28px -4px rgba(217, 119, 6, 0.18);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
         }
         [data-theme="dark"] {
-            /* Option D Dark Mode: Cyber Obsidian & Copper Gold */
             --bg-page: #0E0F12;
             --bg-card: #16181D;
             --bg-formula: #111318;
             --text-primary: #F1F5F9;
             --text-secondary: #94A3B8;
             --text-muted: #64748B;
-            --text-accent: #F59E0B;
-            --accent-warm: #D97706;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
             --border-light: #262933;
-            --border-hover: #F59E0B;
+            --border-hover: #8B5CF6;
             --heading-color: #F1F5F9;
-            --heading-sub: #F59E0B;
-            --progress-color: #F59E0B;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
             --code-bg: #262933;
             --code-text: #F1F5F9;
             --pre-bg: #111318;
             --table-th-bg: #111318;
-            --table-th-text: #F59E0B;
+            --table-th-text: #8B5CF6;
             --table-even-bg: #121419;
             --callout-focus-bg: #2A2210;
             --callout-focus-border: #C09820;
             --callout-focus-text: #E0C060;
             --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
-            --shadow-card-hover: 0 12px 30px -4px rgba(245, 158, 11, 0.22);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -222,52 +226,39 @@
             background-color: var(--table-even-bg);
         }
 
-        .formula-box, .formula-card {
-            margin: 20px 0;
-            padding: 18px 24px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-left: 4px solid var(--text-accent);
-            border-radius: 10px;
-            text-align: center;
-            overflow-x: auto;
-            color: var(--text-primary);
-            box-shadow: var(--shadow-card);
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 9.5pt;
-        }
+    /* Formula Cards — Intense Breathing & Lit Box Effect */
+    @keyframes formulaBreathe {
+      0%, 100% {
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+        border-left-color: var(--subject-current);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+      }
+      50% {
+        box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+        border-left-color: var(--subject-production-light, #A78BFA);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+      }
+    }
 
-        .process-flow {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-left: 4px solid var(--text-accent);
-            padding: 16px 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 10pt;
-            line-height: 1.6;
-            text-align: center;
-            font-weight: 700;
-            color: var(--text-accent);
-            box-shadow: var(--shadow-card);
-        }
+    .formula-box, .formula-card, .fc, .concept-block, .process-flow {
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 10px;
+      padding: 16px 20px; margin: 22px 0;
+      text-align: center; overflow-x: auto;
+      animation: formulaBreathe 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        .concept-block {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-left: 4px solid var(--text-accent);
-            padding: 16px 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: var(--shadow-card);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-        .concept-block:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-card-hover);
-            border-color: var(--border-hover);
-        }
+    .formula-box:hover, .formula-card:hover, .fc:hover, .concept-block:hover, .process-flow:hover {
+      transform: translateY(-3px) scale(1.01);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+      box-shadow: 0 0 45px 8px var(--subject-current),
+                  0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+      border-color: var(--subject-current);
+    }
 
         ul { margin: 14px 0; padding-left: 24px; }
         li { margin: 8px 0; line-height: 1.7; }
@@ -370,7 +361,7 @@
     </style>
 </head>
 
-<body id="preview">
+<body id="preview" data-subject="production">
 
     <div id="reading-progress"></div>
     <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
