@@ -17,260 +17,253 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        * {
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #F59E0B;
+            --subject-current-light: rgba(245, 158, 11, 0.35);
+            --subject-bg-tint: rgba(245, 158, 11, 0.08);
+            --border-light: #E2E8F0;
+            --heading-color: #0F172A;
+            --heading-sub: #F59E0B;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-even-bg: #F8FAFC;
+            --callout-concept-bg: #EFF6FF;
+            --callout-concept-border: #3B82F6;
+            --callout-concept-text: #1E40AF;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #F59E0B;
+            --subject-current-light: rgba(245, 158, 11, 0.35);
+            --subject-bg-tint: rgba(245, 158, 11, 0.08);
+            --border-light: #262933;
+            --heading-color: #F1F5F9;
+            --heading-sub: #F59E0B;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-even-bg: #121419;
+            --callout-concept-bg: #131D31;
+            --callout-concept-border: #3B6FD4;
+            --callout-concept-text: #93C5FD;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
+        #reading-progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+            background: var(--subject-current); z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed; top: 18px; right: 24px;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            color: var(--text-secondary); border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13pt; z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 11pt;
-            line-height: 1.8;
-            color: #2D2926;
-            background-color: #F0ECE1;
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 35px 20px;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Bookman Old Style", Georgia, serif;
-            color: #4A2E1B;
-            font-weight: 700;
-            margin-top: 1.6em;
-            margin-bottom: 0.6em;
-        }
-
-        h1 {
-            font-size: 24pt;
-            text-align: center;
-            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-            color: #FFFDF9;
-            padding: 28px;
-            border-radius: 12px;
-            margin-bottom: 28px;
-            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-        }
-
-        h2 {
-            font-size: 17pt;
-            border-bottom: 3px solid #8C5A37;
-            padding-bottom: 8px;
-            margin-top: 42px;
-        }
-
-        h3 {
-            font-size: 14pt;
-            color: #664229;
-            margin-top: 24px;
-        }
-
-        h4 {
-            font-size: 12pt;
-            color: #4A2E1B;
-            font-weight: 600;
-        }
-
-        a {
-            color: #8C5A37;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        code {
-            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-            background: #EAE1D3;
-            color: #4A2E1B;
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-        }
-
-        pre {
-            background: #F7F3EC;
-            border: 1px solid #E2D9CC;
-            padding: 1em;
-            border-radius: 6px;
-            overflow-x: auto;
-        }
-
-        blockquote {
-            border-left: 4px solid #8C5A37;
-            background-color: #F7F3EC;
-            padding: 12px 18px;
-            margin: 18px 0;
-            color: #5C544D;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 24px 0;
-            background: #FFFFFF;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(60, 40, 20, 0.05);
-        }
-
-        th,
-        td {
-            border: 1px solid #E2D9CC;
-            padding: 12px 14px;
-            text-align: left;
-            font-size: 10.5pt;
-        }
-
-        th {
-            background: #4A2E1B;
-            color: #FFFDF9;
-            font-family: "Bookman Old Style", Georgia, serif;
-            font-weight: 600;
-        }
-
-        tr:nth-child(even) {
-            background-color: #FDFBF7;
-        }
-
-        .formula-box,
-        .formula-card {
-            margin: 18px 0;
-            padding: 16px;
-            background: #F7F3EC;
-            border-left: 4px solid #8C5A37;
-            border-radius: 4px;
-            font-family: "Fira Code", "Ubuntu Mono", Monaco, monospace;
-            font-size: 10pt;
-            line-height: 1.7;
-        }
-
-        .concept-block {
-            background: #FFFDF9;
-            border: 1px solid #E2D9CC;
-            padding: 14px 18px;
-            margin: 16px 0;
-            border-radius: 6px;
-            border-left: 4px solid #664229;
-        }
-
-        ul {
-            margin: 12px 0;
-            padding-left: 24px;
-        }
-
-        li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        strong {
-            color: #4A2E1B;
-        }
-
-        .emphasis {
-            background: #FFEAA7;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-
-        .key-term {
-            color: #664229;
-            font-weight: 600;
-        }
-
-        .exam-focus {
-            background: #FFF8E1;
-            border-left: 4px solid #FF9800;
-            padding: 14px 16px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .exam-focus::before {
-            content: "🔴 EXAM FOCUS: ";
-            font-weight: 700;
-            color: #FF6F00;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #E2D9CC;
-        }
-
-        .img-container {
-            text-align: center;
-            margin: 22px 0;
-        }
-
-        .img-caption {
-            font-size: 9.5pt;
-            color: #5C544D;
-            margin-top: 6px;
-            font-style: italic;
+            font-size: 11pt; line-height: 1.8;
+            color: var(--text-primary); background-color: var(--bg-page);
+            max-width: 920px; margin: 0 auto; padding: 40px 20px 80px;
+            transition: background 0.25s, color 0.25s;
         }
 
         .submodule-nav {
-            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-            padding: 11px 20px;
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            font-size: 10.5pt;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
-            flex-wrap: wrap;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current); padding: 14px 20px;
+            border-radius: 10px; margin-bottom: 28px; text-align: center;
+            box-shadow: var(--shadow-card); display: flex; flex-wrap: wrap;
+            align-items: center; justify-content: center; gap: 8px; font-size: 9.5pt;
+        }
+        .submodule-nav a { color: var(--text-secondary); font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease; }
+        .submodule-nav a:hover { color: var(--subject-current); background: var(--bg-formula); }
+        .submodule-nav a.active { color: var(--subject-current); font-weight: 700; background: var(--bg-formula); border: 1px solid var(--subject-current); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color); font-weight: 700;
+            margin-top: 1.6em; margin-bottom: 0.6em;
         }
 
-        .submodule-nav .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #FFFDF9;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 10pt;
-            background: rgba(255, 255, 255, 0.13);
-            padding: 5px 15px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            transition: background 0.2s ease;
-            white-space: nowrap;
+        h1 {
+            font-size: 22pt; text-align: center;
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+            color: #F8FAFC; border-left: 5px solid var(--subject-current);
+            padding: 28px 24px; border-radius: 12px; margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); line-height: 1.35;
+        }
+        [data-theme="light"] h1 { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
+
+        h2 { font-size: 16pt; border-bottom: 3px solid var(--subject-current); padding-bottom: 8px; margin-top: 42px; }
+        h3 { font-size: 13.5pt; color: var(--subject-current); margin-top: 28px; }
+        h4 { font-size: 12pt; color: var(--text-primary); }
+
+        a { color: var(--subject-current); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, monospace;
+            background: var(--code-bg); color: var(--subject-current);
+            padding: 0.2em 0.5em; border-radius: 4px; font-size: 9.5pt; font-weight: 600;
         }
 
-        .submodule-nav .back-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
+        pre {
+            background: var(--pre-bg); border: 1px solid var(--border-light);
+            padding: 16px; border-radius: 8px; overflow-x: auto;
+            color: var(--text-primary); margin: 18px 0;
         }
 
-        .submodule-nav .nav-title {
-            color: #E8DACF;
-            font-size: 10pt;
-            font-weight: 500;
+        blockquote {
+            border-left: 4px solid var(--subject-current);
+            background-color: var(--pre-bg); padding: 12px 18px;
+            margin: 18px 0; color: var(--text-secondary); border-radius: 0 6px 6px 0;
         }
 
-        .katex-display,
-        .MathJax_Display {
-            overflow-x: auto;
-            overflow-y: hidden;
+        table {
+            border-collapse: collapse; width: 100%; margin: 24px 0;
+            background: var(--bg-card); border-radius: 10px; overflow: hidden;
+            border: 1px solid var(--border-light); box-shadow: var(--shadow-card);
         }
+
+        th, td {
+            border: 1px solid var(--border-light); padding: 12px 16px; text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg); color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif; font-weight: 600;
+            font-size: 9.5pt; border-bottom: 2px solid var(--subject-current);
+        }
+
+        tr:nth-child(even) { background-color: var(--table-even-bg); }
+        tr:hover { background-color: var(--subject-bg-tint); }
+
+        /* Formula Cards — Intense Breathing & Lit Box Effect */
+        @keyframes formulaBreathe {
+            0%, 100% {
+                box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                            0 0 18px 2px var(--subject-current);
+                border-left-color: var(--subject-current);
+                background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--bg-formula) 75%);
+            }
+            50% {
+                box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                            0 0 32px 6px var(--subject-current-light);
+                border-left-color: #FBBF24;
+                background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, var(--bg-formula) 60%);
+            }
+        }
+
+        .formula-box, .formula-card, .fc, .fbox, .concept-block {
+            border: 1px solid var(--border-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 10px;
+            padding: 16px 20px; margin: 22px 0;
+            text-align: center; overflow-x: auto;
+            animation: formulaBreathe 3.5s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .formula-box:hover, .formula-card:hover, .fc:hover, .fbox:hover, .concept-block:hover {
+            transform: translateY(-3px) scale(1.01);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.32) 0%, rgba(245, 158, 11, 0.10) 100%) !important;
+            box-shadow: 0 0 45px 8px var(--subject-current),
+                        0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+            border-color: var(--subject-current);
+        }
+
+        ul { margin: 12px 0; padding-left: 24px; }
+        li { margin: 8px 0; line-height: 1.6; }
+        strong { color: var(--text-primary); }
+        .emphasis { background: var(--subject-bg-tint); color: var(--subject-current); padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+        .key-term { color: var(--subject-current); font-weight: 600; }
+
+        .callout, .exam-focus {
+            padding: 16px 20px; margin: 20px 0; border-radius: 8px; font-size: 10.5pt; line-height: 1.6; border-left: 5px solid; box-shadow: var(--shadow-card);
+            background: var(--callout-focus-bg); border-color: var(--callout-focus-border); color: var(--callout-focus-text);
+        }
+        .katex-display, .MathJax_Display { overflow-x: auto; overflow-y: hidden; }
     </style>
 </head>
 
-<body id="preview">
+<body id="preview" data-subject="industrial">
 
-    <div class="submodule-nav">
-        <a href="industrial_hub.html" class="back-btn">&#8592; Industrial Hub</a>
-        <span class="nav-title">⏱️ Work Study</span>
-    </div>
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                localStorage.setItem("ag-theme", t);
+            }
+            applyTheme(saved);
+            if (toggle) {
+                toggle.addEventListener("click", function() {
+                    var c = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(c === "dark" ? "light" : "dark");
+                });
+            }
+            var bar = document.getElementById("reading-progress");
+            window.addEventListener("scroll", function() {
+                var d = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (d > 0 ? Math.min((window.scrollY/d)*100,100) : 0) + "%";
+            }, {passive: true});
+        })();
+    </script>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--subject-current); font-weight:700; margin-right:4px;">🏭 Industrial Engg:</span>
+        <a href="industrial_hub.html">[Hub Home]</a>
+        <a href="ppc.html">1. PPC</a>
+        <a href="workstudy.html" class="active">2. Work Study</a>
+        <a href="linebalance.html">3. Line Balance</a>
+        <a href="CPM.html">4. CPM/PERT</a>
+        <a href="LPP_simplex_transport.html">5. LPP/Simplex</a>
+        <a href="QC.html">6. Quality Control</a>
+        <a href="break-even_forecasting_inventory.html">7. BEP/EOQ/Forecast</a>
+    </nav>
 
     <h1>WORK STUDY<br />Exam Revision Guide for Competitive Exams</h1>
 

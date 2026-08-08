@@ -9,16 +9,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --subject-current: #F59E0B;
+      --subject-current-light: rgba(245, 158, 11, 0.35);
+      --subject-bg-tint: rgba(245, 158, 11, 0.08);
+      --border-light: #E2E8F0;
+      --heading-color: #0F172A;
+      --heading-sub: #F59E0B;
+      --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+    }
+    [data-theme="dark"] {
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --subject-current: #F59E0B;
+      --subject-current-light: rgba(245, 158, 11, 0.35);
+      --subject-bg-tint: rgba(245, 158, 11, 0.08);
+      --border-light: #262933;
+      --heading-color: #F1F5F9;
+      --heading-sub: #F59E0B;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: #2D2926;
-      background-color: #F0ECE1;
-      padding: 40px 20px;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      padding: 40px 20px 80px;
       min-height: 100vh;
+      transition: background 0.25s, color 0.25s;
     }
+
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
 
     .container {
       max-width: 1100px;
@@ -28,12 +70,13 @@
     /* ─── Header ─── */
     .portal-header {
       text-align: center;
-      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-      color: #FFFDF9;
+      background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+      color: #F8FAFC;
+      border-left: 5px solid var(--subject-current);
       padding: 44px 28px 36px;
       border-radius: 16px;
       margin-bottom: 38px;
-      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.22);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
     .portal-header h1 {
@@ -41,11 +84,12 @@
       font-size: 27pt;
       margin-bottom: 10px;
       letter-spacing: 0.4px;
+      color: #F8FAFC;
     }
 
     .portal-header p {
       font-size: 12pt;
-      color: #E8DACF;
+      color: var(--text-secondary);
       max-width: 700px;
       margin: 0 auto 18px auto;
       line-height: 1.65;
@@ -53,19 +97,18 @@
 
     .back-btn {
       display: inline-block;
-      color: #FFFDF9;
+      color: var(--subject-current);
       text-decoration: none;
       font-weight: 600;
       font-size: 10.5pt;
-      background: rgba(255, 255, 255, 0.12);
+      background: var(--bg-card);
       padding: 6px 16px;
       border-radius: 20px;
       transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid var(--border-light);
       margin-bottom: 18px;
-      display: inline-block;
     }
-    .back-btn:hover { background: rgba(255, 255, 255, 0.25); }
+    .back-btn:hover { border-color: var(--subject-current); background: var(--bg-formula); }
 
     /* ─── Tag pills inside header ─── */
     .header-tags {
@@ -76,12 +119,12 @@
       margin-top: 6px;
     }
     .header-tag {
-      background: rgba(255,255,255,0.13);
-      color: #FFFDF9;
-      border: 1px solid rgba(255,255,255,0.22);
+      background: var(--bg-card);
+      color: var(--subject-current);
+      border: 1px solid var(--border-light);
       border-radius: 20px;
       font-size: 9.5pt;
-      font-weight: 500;
+      font-weight: 600;
       padding: 3px 12px;
       letter-spacing: 0.2px;
     }
@@ -90,8 +133,8 @@
     .section-title {
       font-family: "Bookman Old Style", Georgia, serif;
       font-size: 18pt;
-      color: #4A2E1B;
-      border-bottom: 2px solid #8C5A37;
+      color: var(--heading-color);
+      border-bottom: 3px solid var(--subject-current);
       padding-bottom: 8px;
       margin-top: 10px;
       margin-bottom: 26px;
@@ -102,12 +145,12 @@
 
     .mark-tag {
       font-size: 10pt;
-      background-color: #8C5A37;
-      color: #FFFDF9;
+      background-color: var(--subject-current);
+      color: #0E0F12;
       padding: 3px 11px;
       border-radius: 12px;
       font-family: system-ui, sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       white-space: nowrap;
     }
 
@@ -120,15 +163,16 @@
     }
 
     .module-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E2D9CC;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
       border-radius: 14px;
       padding: 26px 24px 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 4px 15px rgba(60, 40, 20, 0.05);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       text-decoration: none;
       color: inherit;
@@ -136,59 +180,47 @@
     }
 
     .module-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px rgba(74, 46, 27, 0.13);
-      border-color: #8C5A37;
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 0 35px 4px var(--subject-current-light),
+                  0 12px 30px rgba(0, 0, 0, 0.6);
+      border-color: var(--subject-current);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--bg-card) 100%);
     }
-
-    /* Left accent stripe */
-    .module-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 14px;
-      bottom: 14px;
-      width: 4px;
-      border-radius: 0 4px 4px 0;
-      background: #E2D9CC;
-      transition: background 0.25s;
-    }
-    .module-card:hover::before { background: #8C5A37; }
 
     .card-badge {
       font-size: 9pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #8C5A37;
-      background-color: #F7F3EC;
+      color: var(--subject-current);
+      background-color: var(--bg-formula);
       padding: 4px 10px;
       border-radius: 6px;
       display: inline-block;
       margin-bottom: 12px;
       width: fit-content;
-      border: 1px solid #EAE1D3;
+      border: 1px solid var(--border-light);
     }
 
     .card-icon {
       font-size: 22px;
       float: right;
       margin-top: -2px;
-      opacity: 0.55;
+      opacity: 0.85;
     }
 
     .card-title {
       font-family: "Bookman Old Style", Georgia, serif;
       font-size: 14.5pt;
       font-weight: 700;
-      color: #4A2E1B;
+      color: var(--heading-color);
       margin-bottom: 8px;
       line-height: 1.3;
     }
 
     .card-desc {
       font-size: 10.5pt;
-      color: #5C544D;
+      color: var(--text-secondary);
       margin-bottom: 20px;
       line-height: 1.55;
     }
@@ -200,9 +232,9 @@
       margin-bottom: 18px;
     }
     .topic-pill {
-      background: #F0ECE1;
-      color: #664229;
-      border: 1px solid #E2D9CC;
+      background: var(--bg-formula);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
       border-radius: 20px;
       font-size: 8.5pt;
       font-weight: 600;
@@ -211,46 +243,67 @@
 
     .card-footer {
       font-size: 10pt;
-      font-weight: 600;
-      color: #8C5A37;
+      font-weight: 700;
+      color: var(--subject-current);
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 4px;
-      border-top: 1px solid #F0ECE1;
+      border-top: 1px solid var(--border-light);
       padding-top: 12px;
     }
 
     .module-card:hover .card-footer {
-      color: #4A2E1B;
+      color: var(--subject-current);
       text-decoration: underline;
     }
 
     /* ─── Info strip ─── */
     .info-strip {
-      background: #FFFFFF;
-      border: 1px solid #E2D9CC;
-      border-left: 5px solid #8C5A37;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
       border-radius: 10px;
       padding: 16px 20px;
       font-size: 10.5pt;
-      color: #5C544D;
+      color: var(--text-secondary);
       margin-bottom: 40px;
       line-height: 1.65;
+      box-shadow: var(--shadow-card);
     }
-    .info-strip strong { color: #4A2E1B; }
+    .info-strip strong { color: var(--text-primary); }
 
     /* ─── Footer ─── */
     .hub-footer {
       text-align: center;
       font-size: 9.5pt;
-      color: #8C5A37;
+      color: var(--text-muted);
       padding-top: 20px;
-      border-top: 1px solid #E2D9CC;
+      border-top: 1px solid var(--border-light);
     }
   </style>
 </head>
-<body>
+<body id="preview" data-subject="industrial">
+  <button id="theme-toggle" title="Toggle dark mode">&#9728;&#65039;</button>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "dark";
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+        localStorage.setItem("ag-theme", t);
+      }
+      applyTheme(saved);
+      if (toggle) {
+        toggle.addEventListener("click", function() {
+          var c = document.documentElement.getAttribute("data-theme") || "dark";
+          applyTheme(c === "dark" ? "light" : "dark");
+        });
+      }
+    })();
+  </script>
 
   <div class="container">
 
