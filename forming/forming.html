@@ -443,31 +443,49 @@
         rolled at 20°C is hot working (since $T_{\text{recrys}} \approx 0$°C for lead); steel at 400°C is cold working
         (since $T_{\text{recrys}} \approx 700$°C for steel).</p>
 
-    <h4>Metallurgical Defects &amp; Phenomena</h4>
+    <h4>Hot vs Cold Working High-Yield Defect Matrix</h4>
     <table>
         <thead>
             <tr>
                 <th>Defect / Phenomenon</th>
-                <th>Process / Stage</th>
-                <th>Root Cause / Condition</th>
-                <th>Prevention / Remedy</th>
+                <th>Process Association</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Scale / Oxidation</strong></td>
-                <td>Hot Working (Rolling, Forging)</td>
-                <td>Workpiece exposed to high temp in air; thick oxide layer formed at surface.</td>
-                <td>Use protective atmosphere (inert gas, salt bath); apply scale-breaking rolls; descale after each pass.</td>
+                <td><strong>Scale Formation</strong></td>
+                <td>Hot Working</td>
+                <td>Oxidation at high temperature when exposed to atmospheric air; produces thick oxide crust.</td>
             </tr>
             <tr>
-                <td><strong>Segregation</strong></td>
-                <td>Ingot (Prior to Hot Working)</td>
-                <td>Dendritic solidification; alloying elements concentrate at grain boundaries during cooling.</td>
-                <td>Hot working breaks up segregation; recrystallization in hot working refines structure; homogenizing heat treatment.</td>
+                <td><strong>Decarburization</strong></td>
+                <td>Hot Working</td>
+                <td>Loss of carbon from steel surface at high temperature, reducing surface hardness and fatigue strength.</td>
+            </tr>
+            <tr>
+                <td><strong>Surface Cracking</strong></td>
+                <td>Hot/Cold Working</td>
+                <td>Low material ductility at forming temperature or excessive reduction in a single pass.</td>
+            </tr>
+            <tr>
+                <td><strong>Residual Stresses</strong></td>
+                <td>Cold Working</td>
+                <td>Locked-in internal elastic stresses resulting from non-uniform plastic deformation without recrystallization.</td>
+            </tr>
+            <tr>
+                <td><strong>Work Hardening</strong></td>
+                <td>Cold Working</td>
+                <td>Dislocation pile-up during deformation below $T_{\text{recrys}}$, increasing strength and hardness while reducing ductility.</td>
             </tr>
         </tbody>
     </table>
+
+    <div class="exam-focus">
+        <strong>⚠️ EXAM TRAP (HOT VS COLD WORKING):</strong><br />
+        • <strong>Cold Working:</strong> Associated with <strong>Residual Stresses</strong> &amp; <strong>Work Hardening</strong>.<br />
+        • <strong>Hot Working:</strong> Associated with <strong>Scale Formation</strong> &amp; <strong>Decarburization</strong>.
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.2 Rolling Operations &amp; Mechanics</h3>
@@ -733,7 +751,7 @@
             die details; produces precise surface impressions (coins, medals, jewelry dies).</p>
     </div>
 
-    <h4>Forging Defects &amp; Summary</h4>
+    <h4>Forging High-Yield Defect Matrix</h4>
     <div class="img-container">
         <img src="images/forging-defects.jpg" alt="Forging Defects" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
         <div class="img-caption">Figure 1.3C: Forging Defects (Unfilled section, Die shift, Cold shut).</div>
@@ -743,32 +761,59 @@
         <thead>
             <tr>
                 <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
                 <th>Prevention / Remedy</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Barreling</strong></td>
-                <td>Upsetting, Forging</td>
-                <td>Friction at die-workpiece interface prevents flow near surface; center flows faster than outer regions.</td>
-                <td>Reduce friction (lubrication); lower die temp; reduce height-to-diameter ratio; use open-die techniques.</td>
+                <td><strong>Cold Shut</strong></td>
+                <td>Improper metal flow; two streams of metal meet but fail to fuse together due to surface oxide film or low temp.</td>
+                <td>Increase die radius; optimize die design; ensure adequate forging temperature.</td>
             </tr>
             <tr>
-                <td><strong>Flash (Unwanted)</strong></td>
-                <td>Drop Forging</td>
-                <td>Excess material flows out of die cavity into flash gutter during impression forging.</td>
-                <td>Tight die design; optimize flash gutter geometry; trim flash after forging; control stock weight accurately.</td>
+                <td><strong>Laps / Folds</strong></td>
+                <td>Excessive metal flow or sharp die corners causing metal to fold over itself without fusing.</td>
+                <td>Increase fillet and corner radii; proper intermediate blank sizing (fullering/edging).</td>
+            </tr>
+            <tr>
+                <td><strong>Cracks</strong></td>
+                <td>Excessive forging reduction per blow or forging at dangerously low temperature (below plastic range).</td>
+                <td>Control blow energy; reheat stock when temp drops below forging range.</td>
+            </tr>
+            <tr>
+                <td><strong>Flakes (Internal Hairline Cracks)</strong></td>
+                <td>Hydrogen embrittlement / entrapped hydrogen gas during cooling of large alloy steel forgings.</td>
+                <td>Controlled slow cooling after forging; vacuum degassing during steelmaking.</td>
+            </tr>
+            <tr>
+                <td><strong>Underfilling / Unfilled Section</strong></td>
+                <td>Insufficient raw material volume, improper die filling, or premature cooling of metal.</td>
+                <td>Accurate stock weight control; increase forging pressure; optimize flash gutter geometry.</td>
+            </tr>
+            <tr>
+                <td><strong>Barreling</strong></td>
+                <td>Interface friction at die-workpiece surfaces restricting lateral flow near contacts while center bulges.</td>
+                <td>Effective die lubrication; heated dies (isothermal forging); lower height-to-diameter ratio ($H/D \le 2$).</td>
+            </tr>
+            <tr>
+                <td><strong>Flash (Excessive)</strong></td>
+                <td>Improper stock sizing or undersized flash gutter forcing excess material past parting line.</td>
+                <td>Optimize stock weight and die cavity geometry; trim flash post-forging.</td>
             </tr>
             <tr>
                 <td><strong>Fiber Misalignment</strong></td>
-                <td>Forging (Open-Die)</td>
-                <td>Incomplete working; metal flows around obstacles rather than uniformly; insufficient deformation at edges.</td>
-                <td>Increase number of forging blows; use drop forging (closed die) for uniform strain; intermediate fullering to realign flow lines.</td>
+                <td>Improper grain flow line orientation relative to working loads due to poor die design or open-die working.</td>
+                <td>Closed-die drop forging; properly sequence fullering and edging passes.</td>
             </tr>
         </tbody>
     </table>
+
+    <div class="exam-focus">
+        <strong>🔥 MOST-ASKED FORGING MCQ:</strong><br />
+        • <strong>Cold Shut:</strong> Discontinuity formed when two meeting metal streams fail to fuse due to oxide layer.<br />
+        • <strong>Flakes:</strong> Internal hairline cracks caused by <strong>Hydrogen embrittlement</strong> in heavy forgings.
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.4 Extrusion Processes</h3>
@@ -798,7 +843,7 @@
             glass serves as both thermal insulator and lubricant in Sejournet process.</p>
     </div>
 
-    <h4>Extrusion Defects &amp; Summary</h4>
+    <h4>Extrusion High-Yield Defect Matrix</h4>
     <div class="img-container">
         <img src="images/extrusion-defects.jpg" alt="Extrusion Defects" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
         <div class="img-caption">Figure 1.4B: Extrusion Defects (Center burst / Chevron cracking, Pipe defect).</div>
@@ -808,20 +853,39 @@
         <thead>
             <tr>
                 <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
                 <th>Prevention / Remedy</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Chevron Cracks (Center Cracking)</strong></td>
-                <td>Extrusion (High Temp Steel)</td>
-                <td>Hydrostatic tensile stress in center of billet; low ductility at high temp; rapid cooling after extrusion.</td>
-                <td>Lower extrusion speed; increase billet temp (within safe range); use die preheat; hydrostatic extrusion to reduce tensile stress.</td>
+                <td><strong>Surface Cracking (Fir-Tree Cracks)</strong></td>
+                <td>Excessive extrusion speed or high billet temperature causing hot shortness (localized surface melting/cracking under high friction shear).</td>
+                <td>Reduce extrusion speed; lower billet temperature; optimize die lubrication.</td>
+            </tr>
+            <tr>
+                <td><strong>Center Burst (Chevron Cracking)</strong></td>
+                <td>Hydrostatic tensile stresses along central axis of billet in the deformation zone under low die reduction or high die angle.</td>
+                <td>Increase reduction ratio per pass; decrease die semi-angle; use hydrostatic extrusion.</td>
+            </tr>
+            <tr>
+                <td><strong>Pipe Defect (Tailpipe / Funneling)</strong></td>
+                <td>Surface oxides, scale, and container-wall impurities drawn into center of billet toward end of direct extrusion stroke.</td>
+                <td>Leave unextruded dummy block (butt end disc); use dummy block slightly smaller than container diameter.</td>
+            </tr>
+            <tr>
+                <td><strong>Internal Cracking</strong></td>
+                <td>Improper die angle, non-uniform material flow, or excessive reduction ratio generating internal shear stresses.</td>
+                <td>Optimize die geometry; preheat billet uniformly.</td>
             </tr>
         </tbody>
     </table>
+
+    <div class="exam-focus">
+        <strong>🔥 MOST-ASKED EXTRUSION MCQ:</strong><br />
+        • <strong>Center Burst (Chevron Cracking):</strong> Caused by <strong>hydrostatic tensile stresses at the central axis</strong>.<br />
+        • <strong>Pipe Defect:</strong> Surface oxides and impurities drawn into central core near end of stroke.
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.5 Wire Drawing, Swaging &amp; Thread Rolling</h3>
@@ -852,25 +916,81 @@
         <div class="img-caption">Figure 1.5B: Fiber Grain Flow comparison: Continuous grains in Rolled Threads vs Cut Threads.</div>
     </div>
 
-    <h4>Wire &amp; Cold Drawing Defects</h4>
+    <h4>Wire Drawing, Swaging &amp; Thread Rolling High-Yield Defect Matrix</h4>
+
+    <h5>1. Wire Drawing Defects</h5>
     <table>
         <thead>
             <tr>
                 <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
-                <th>Prevention / Remedy</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Poor Surface Finish</strong></td>
-                <td>Cold Drawing, Rolling</td>
-                <td>Scale not removed before forming; die/roll surface rough; inadequate lubrication; micro-scoring.</td>
-                <td>Pickling before cold forming; smooth, polished tooling; premium lubricants; polishing dies and rolls.</td>
+                <td><strong>Center Burst (Cupping)</strong></td>
+                <td>Excessive reduction per pass, improper die approach angle (too large), or low die friction creating internal central tensile stresses.</td>
+            </tr>
+            <tr>
+                <td><strong>Surface Scratches / Longitudinal Marks</strong></td>
+                <td>Poor die lubrication, die wear, or scale pick-up on incoming wire.</td>
+            </tr>
+            <tr>
+                <td><strong>Seams</strong></td>
+                <td>Pre-existing longitudinal surface defects or cracks present in starting rod stock.</td>
             </tr>
         </tbody>
     </table>
+
+    <h5>2. Swaging Defects</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Defect Type</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Laps / Folds</strong></td>
+                <td>Improper die closure, overfilling of swaging die cavity, or misaligned die stroke.</td>
+            </tr>
+            <tr>
+                <td><strong>Surface Cracks</strong></td>
+                <td>Excessive cold deformation without intermediate annealing; embrittlement of workpiece material.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>3. Thread Rolling Defects</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Defect Type</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Incomplete Threads (Crest Truncation)</strong></td>
+                <td>Insufficient die penetration or blank diameter smaller than pitch diameter.</td>
+            </tr>
+            <tr>
+                <td><strong>Double Threads / Drunken Threads</strong></td>
+                <td>Misalignment of stationary/moving thread rolling dies or improper blank rotation start.</td>
+            </tr>
+            <tr>
+                <td><strong>Cracked Thread Crests / Roots</strong></td>
+                <td>Excessive rolling pressure, work hardening, or sharp root radius on rolling dies.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="exam-focus">
+        <strong>🔥 MOST-ASKED WIRE &amp; THREADING MCQs:</strong><br />
+        • <strong>Wire Drawing:</strong> <strong>Center Burst</strong> is caused by excessive die angle or high reduction.<br />
+        • <strong>Thread Rolling:</strong> Produces <strong>continuous grain flow</strong> (higher fatigue strength) with no material removal.
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.6 Sheet Metal Shearing: Blanking vs Punching</h3>
@@ -919,25 +1039,78 @@
     <p><strong>Where:</strong> $t$ = sheet thickness (mm), $\tau$ = shear strength (MPa). Allocate half on punch, half
         on die (or follow design guidelines).</p>
 
-    <h4>Shearing Defects</h4>
+    <h4>Blanking vs Punching Comparison Matrix</h4>
     <table>
         <thead>
             <tr>
-                <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
-                <th>Prevention / Remedy</th>
+                <th>Feature / Parameter</th>
+                <th>Blanking Operation</th>
+                <th>Punching Operation</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Burr Formation</strong></td>
-                <td>Blanking, Punching, Shearing</td>
-                <td>Excessive clearance between punch and die; material ductility causes plastic deformation at shear edge; dull cutting edges.</td>
-                <td>Reduce clearance to optimal value ($C = 0.0032 t\sqrt{\tau}$); maintain sharp tool edges; cold shearing reduces burr.</td>
+                <td><strong>Desired Product</strong></td>
+                <td><strong>Slug / Disc removed</strong> from sheet</td>
+                <td><strong>Remaining sheet</strong> with hole</td>
+            </tr>
+            <tr>
+                <td><strong>Punch Dimension</strong></td>
+                <td>$\text{Punch Size} = D_{\text{blank}} - 2C$ (Clearance subtracted)</td>
+                <td>$\text{Punch Size} = D_{\text{hole}}$ (Exact hole size)</td>
+            </tr>
+            <tr>
+                <td><strong>Die Dimension</strong></td>
+                <td>$\text{Die Size} = D_{\text{blank}}$ (Exact blank size)</td>
+                <td>$\text{Die Size} = D_{\text{hole}} + 2C$ (Clearance added)</td>
             </tr>
         </tbody>
     </table>
+
+    <h4>Sheared Edge Quality &amp; Defect Matrix</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Edge Zone / Defect</th>
+                <th>Description &amp; Key Characteristic</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Excessive Burr</strong></td>
+                <td>Sharp, raised metal projection along bottom edge of cut.</td>
+                <td><strong>Excessive punch-die clearance</strong> or dull cutting edges causing plastic stretching before fracture.</td>
+            </tr>
+            <tr>
+                <td><strong>Rollover Zone</strong></td>
+                <td>Curved depression at top edge of cut surface.</td>
+                <td>Initial elastic/plastic deformation preceding punch penetration into sheet.</td>
+            </tr>
+            <tr>
+                <td><strong>Burnished Zone (Cut Band)</strong></td>
+                <td>Smooth, shiny vertical portion of sheared edge.</td>
+                <td>Direct shearing action as punch penetrates sheet prior to crack initiation.</td>
+            </tr>
+            <tr>
+                <td><strong>Fracture Zone</strong></td>
+                <td>Rough, matte angled surface below burnished zone.</td>
+                <td>Micro-crack propagation meeting between upper punch edge and lower die edge.</td>
+            </tr>
+            <tr>
+                <td><strong>Distortion of Blank</strong></td>
+                <td>Bending or twisting of sheet/blank during shearing stroke.</td>
+                <td>Improper/insufficient pressure-pad holding force or uneven clearance allocation.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="exam-focus">
+        <strong>🔥 MOST-ASKED SHEARING MCQ:</strong><br />
+        • <strong>Burr Formation:</strong> Directly caused by <strong>excessive clearance between punch and die</strong>.<br />
+        • <strong>Blanking Rule:</strong> Die size is exact ($D_{\text{blank}}$); clearance subtracted from punch.<br />
+        • <strong>Punching Rule:</strong> Punch size is exact ($D_{\text{hole}}$); clearance added to die.
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.7 Sheet Metal Bending</h3>
@@ -1026,7 +1199,7 @@
     <p><strong>Limits:</strong> First draw $\beta \le 2.0$ to $2.2$ (depending on material). Subsequent draws lower
         ratio to prevent tearing.</p>
 
-    <h4>Deep Drawing Defects &amp; Summary</h4>
+    <h4>Deep Drawing High-Yield Defect Matrix</h4>
     <div class="img-container">
         <img src="images/deep-drawing-defects.webp" alt="Deep Drawing Defects" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
         <div class="img-caption">Figure 1.8B: Deep Drawing Defects (Wrinkling, Flange tearing, Earing).</div>
@@ -1036,29 +1209,111 @@
         <thead>
             <tr>
                 <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
+                <th>Most-Asked Root Cause &amp; Mechanism</th>
                 <th>Prevention / Remedy</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Tearing / Fracture</strong></td>
-                <td>Drawing, Extrusion</td>
-                <td>Excessive strain rate; high draft in single pass; material brittleness at forming temp; low ductility.</td>
-                <td>Reduce draft / draw ratio per pass; increase temp (hot working); anneal between passes; improve material composition.</td>
+                <td><strong>Wrinkling in Flange</strong></td>
+                <td><strong>Low blank-holder pressure</strong> allowing thin flange metal to buckle under compressive hoop stresses.</td>
+                <td>Increase blank-holder force; improve flange lubrication control; use draw beads.</td>
             </tr>
             <tr>
-                <td><strong>Wrinkling</strong></td>
-                <td>Deep Drawing, Bending</td>
-                <td>Insufficient blank-holder force in flange; compressive hoop stress buckles thin flange; low friction.</td>
-                <td>Increase blank-holder pressure; improve lubrication; use multi-stage drawing; re-anneal between passes.</td>
+                <td><strong>Wrinkling in Wall</strong></td>
+                <td>Improper drawing die clearance, excessive punch corner radius, or unconstrained thin sheet wall.</td>
+                <td>Optimize die and punch corner radii; proper punch-die clearance.</td>
             </tr>
             <tr>
-                <td><strong>Earing</strong></td>
-                <td>Deep Drawing (Cups)</td>
-                <td>Anisotropic material behavior; directional grain structure aligned to rolling direction; asymmetric strain distribution.</td>
-                <td>Rotate blank orientation relative to rolling direction; use isotropic material; four-point drawing die.</td>
+                <td><strong>Tearing / Flange Fracture</strong></td>
+                <td><strong>Excessive blank-holder pressure</strong> or high drawing ratio ($\beta > 2.0$) exceeding tensile strength of cup wall near base.</td>
+                <td>Reduce blank-holder force; increase die corner radius; perform multi-stage drawing with intermediate annealing.</td>
+            </tr>
+            <tr>
+                <td><strong>Earing (Wavy Top Edge)</strong></td>
+                <td><strong>Planar anisotropy ($\Delta R \neq 0$)</strong> of sheet metal due to directional preferred orientation of grains from prior rolling.</td>
+                <td>Use isotropic sheet metal ($\Delta R = 0$); align blank relative to rolling direction; trim ears post-drawing.</td>
+            </tr>
+            <tr>
+                <td><strong>Surface Scratches / Scoring</strong></td>
+                <td>Poor die lubrication, pickup/galling on punch/die surfaces, or rough die radii.</td>
+                <td>Polish die surfaces; use extreme pressure lubricants; apply die surface coatings (TiN/TD).</td>
+            </tr>
+            <tr>
+                <td><strong>Thinning (Neck Down)</strong></td>
+                <td>Excessive tensile stress at cup bottom corner radius during punch penetration.</td>
+                <td>Increase punch/die corner radii; optimize draw ratio.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="exam-focus">
+        <strong>🔥 MOST-ASKED DEEP DRAWING MCQs:</strong><br />
+        • <strong>Earing:</strong> Caused by <strong>planar anisotropy ($\Delta R$)</strong> of sheet metal.<br />
+        • <strong>Wrinkling in Flange:</strong> Caused by <strong>insufficient (low) blank-holder pressure</strong>.<br />
+        • <strong>Tearing at Cup Base:</strong> Caused by <strong>excessive blank-holder pressure</strong> or high draw ratio.
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <h3>1.9 Master 1-Minute MCQ Defect Summary</h3>
+    <!-- ─────────────────────────────────────────────────────────────────── -->
+    <div class="concept-block">
+        <p><strong>Universal Revision Table:</strong> The most-frequently tested matching MCQs across Competitive Exams (SSC JE, RRB JE, APGENCO, TSPSC, GATE):</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Manufacturing Process</th>
+                <th>#1 Most-Asked Exam Defect</th>
+                <th>Primary Root Cause / Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Hot Working</strong></td>
+                <td><strong>Scale Formation / Decarburization</strong></td>
+                <td>High temperature oxidation &amp; carbon loss in air</td>
+            </tr>
+            <tr>
+                <td><strong>Cold Working</strong></td>
+                <td><strong>Residual Stresses / Work Hardening</strong></td>
+                <td>Plastic deformation below $T_{\text{recrys}}$ without grain growth</td>
+            </tr>
+            <tr>
+                <td><strong>Forging</strong></td>
+                <td><strong>Cold Shut</strong></td>
+                <td>Meeting metal streams fail to fuse due to oxide film</td>
+            </tr>
+            <tr>
+                <td><strong>Extrusion</strong></td>
+                <td><strong>Center Burst (Chevron Cracking)</strong></td>
+                <td>Hydrostatic tensile stress at central axis</td>
+            </tr>
+            <tr>
+                <td><strong>Wire Drawing</strong></td>
+                <td><strong>Center Burst (Cupping)</strong></td>
+                <td>Excessive reduction or high die angle creating central tension</td>
+            </tr>
+            <tr>
+                <td><strong>Swaging</strong></td>
+                <td><strong>Laps / Folds</strong></td>
+                <td>Improper die closure or overfilling die cavity</td>
+            </tr>
+            <tr>
+                <td><strong>Thread Rolling</strong></td>
+                <td><strong>Incomplete / Double Threads</strong></td>
+                <td>Insufficient penetration or die misalignment</td>
+            </tr>
+            <tr>
+                <td><strong>Shearing (Blanking/Punching)</strong></td>
+                <td><strong>Excessive Burr</strong></td>
+                <td><strong>Excessive punch-die clearance</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Deep Drawing</strong></td>
+                <td><strong>Earing &amp; Flange Wrinkling</strong></td>
+                <td><strong>Planar anisotropy</strong> (Earing) &amp; <strong>Low blank-holder pressure</strong> (Wrinkling)</td>
             </tr>
         </tbody>
     </table>
