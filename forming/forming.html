@@ -1355,6 +1355,369 @@
             cut threads due to absence of stress-concentration notches.</li>
     </ul>
 
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>3. APGENCO / SSC JE Manufacturing Revision Notes</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>3.1 Forging Fundamentals</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Forging Definition:</strong> Metal forming process in which metal is shaped by <strong>compressive force</strong>. Improves strength because <strong>grain flow follows the part shape</strong>.</li>
+            <li><strong>Drop Forging:</strong> Closed-die process where <strong>hammer + die</strong> strike work at high velocity. Used for mass production of high-strength components.</li>
+            <li><strong>Open-Die Forging:</strong> Simpler process; workpiece compressed between flat dies without full shape enclosure.</li>
+            <li><strong>Fullering (Drawing Out):</strong> Cross-section decreases, length increases.</li>
+            <li><strong>Upsetting:</strong> Opposite of fullering; cross-section increases, length decreases.</li>
+            <li><strong>Common Forging Defects:</strong>
+                <ul>
+                    <li><strong>Cold Shut:</strong> Caused by improper die design / sharp corners; meeting metal streams fail to fuse.</li>
+                    <li><strong>Die Shift:</strong> Caused by misalignment of upper and lower die halves.</li>
+                    <li><strong>Scale Pits:</strong> Caused by improper cleaning of stock scale prior to forging.</li>
+                    <li><strong>Flakes:</strong> Caused by entrapped hydrogen / improper cooling of large forgings.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (FORGING):</strong><br />
+        • <strong>Forging Hammers:</strong> Energy-restricted machines.<br />
+        • <strong>Forging Presses:</strong> Load-restricted machines.<br />
+        • <strong>Grain Flow:</strong> Forged parts have aligned directional fiber flow lines; casting does NOT produce directional fiber flow.
+    </div>
+
+    <h3>3.2 Rolling Mechanics &amp; Formulae</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Deformation Mode:</strong> Rolling relies on <strong>compression + shear</strong> (compression from rolls, shear from friction at contact interface).</li>
+            <li><strong>Bite Angle ($\alpha$):</strong> Increases as draft $\Delta h$ increases.</li>
+            <li><strong>Maximum Possible Draft:</strong> $(\Delta h)_{\max} = \mu^2 R$ (depends on roll radius $R$ and friction $\mu$).</li>
+            <li><strong>Separating Force:</strong> Smaller roll diameter reduces projected contact length, thereby decreasing roll separating force.</li>
+            <li><strong>Backup Rolls:</strong> Used in 4-high and cluster mills to support slender work rolls and minimize roll bending/deflection under load.</li>
+            <li><strong>Wavy Edges:</strong> Associated with material anisotropy and uneven roll gap deformation.</li>
+            <li><strong>Rolling Force Relation:</strong> $\text{Force} \propto \text{Stress} \times \text{Projected Area}$. Projected contact length increases with roll radius.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (ROLLING):</strong><br />
+        • Greater draft $\rightarrow$ Greater bite angle.<br />
+        • Greater roll radius $\rightarrow$ Greater maximum reduction capability.<br />
+        • Backup rolls $\rightarrow$ Support against bending deflection (not a direct forming force component).
+    </div>
+
+    <h3>3.3 Sheet Metal Bending</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Bend Allowance ($BA$):</strong> Length of neutral axis in bend region:
+                $$\text{BA} = \theta (R + kt)$$
+                If neutral axis lies at $0.5t$ from inside surface, then $k = 0.5$.
+            </li>
+            <li><strong>Springback:</strong> Elastic recovery upon load removal caused by the release of <strong>stored elastic energy</strong> (plastic deformation remains permanent).</li>
+            <li><strong>V-Die Bending Force:</strong>
+                $$F = \frac{K L t^2 \sigma_u}{w}$$
+                (where $L$ = bend length, $t$ = sheet thickness, $\sigma_u$ = ultimate tensile strength, $w$ = die opening width).
+            </li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (BENDING):</strong><br />
+        • Springback = Elastic Recovery (NOT plastic strain).<br />
+        • Greater yield strength ($\sigma_y$) $\rightarrow$ Greater springback.
+    </div>
+
+    <h3>3.4 Deep Drawing</h3>
+    <div class="concept-block">
+        <ul>
+            <li>Converts flat blank into 3D cup shape by pushing blank into die cavity.</li>
+            <li><strong>Blank Diameter ($D$):</strong> Found by <strong>surface area conservation</strong>: $D = \sqrt{d^2 + 4dh}$.</li>
+            <li><strong>Wrinkling:</strong> Most common defect; caused by <strong>compressive hoop stress</strong> in flange.</li>
+            <li><strong>Blank Holding Force:</strong> Applied to suppress flange wrinkling; excessive force leads to <strong>tearing</strong> near cup base.</li>
+            <li>Wall thickness may undergo slight variation during drawing due to metal flow.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (DEEP DRAWING):</strong><br />
+        • Wrinkling = Low blank holding force / Compressive hoop stress.<br />
+        • Tearing = Excessive tensile stress / Excessive blank holding force.
+    </div>
+
+    <h3>3.5 Press Work, Cutting Operations &amp; Tool Sequencing</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Blanking:</strong> Desired product is the blank (slug removed); clearance provided on punch ($\text{Punch} = \text{Die} - 2C$).</li>
+            <li><strong>Punching / Piercing:</strong> Desired feature is the hole; punch size equals exact hole size ($\text{Die} = \text{Punch} + 2C$).</li>
+            <li><strong>Trimming:</strong> Press work operation to remove excess flash or flange material post-forming.</li>
+            <li><strong>Countersinking:</strong> Performed after drilling to create a conical seat for screw heads.</li>
+            <li><strong>Tapping:</strong> Final operation in hole-making sequence; cuts internal threads after hole is prepared.</li>
+        </ul>
+    </div>
+    <div class="formula-card">
+        $$\text{Standard Hole-Making Sequence: } \text{Drilling} \longrightarrow \text{Boring} \longrightarrow \text{Countersinking} \longrightarrow \text{Tapping}$$
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (HOLE SEQUENCE):</strong><br />
+        • Drilling = Initial hole creation | Boring = Size &amp; accuracy improvement.<br />
+        • Countersinking = Conical seat | Tapping = Internal thread cutting.
+    </div>
+
+    <h3>3.6 Die Clearance &amp; Press Tool Relief</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Angular Clearance on Dies:</strong> Usually <strong>$0.5^\circ \text{ to } 1^\circ$</strong>.</li>
+            <li>Function: Serves as a <strong>relief angle</strong> on die wall to prevent slug jamming, avoid rubbing, and reduce tool wear while maintaining sharp edge support.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (CLEARANCE):</strong><br />
+        • Linear clearance = Per-side gap between punch and die boundary.<br />
+        • Angular clearance = Tapered relief angle on die cavity wall.
+    </div>
+
+    <h3>3.7 Extrusion &amp; High Energy Rate Forming (HERF)</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Indirect Extrusion:</strong> Provides better surface finish and lower force because billet and container have no relative motion (eliminating wall friction).</li>
+            <li><strong>Forward Hot Extrusion:</strong> Uses <strong>molten glass</strong> (Sejournet process) as lubricant and insulator for steel.</li>
+            <li><strong>Collapsible Tubes:</strong> Manufactured by <strong>impact extrusion</strong> (cold backward extrusion).</li>
+            <li><strong>Spur Gears:</strong> Can be produced by extrusion due to uniform axial cross-section.</li>
+            <li><strong>High-Velocity Forming Threshold:</strong> Forming speeds above <strong>$15\text{ m/s}$</strong>.</li>
+            <li><strong>Explosive Forming:</strong> High Energy Rate Forming (HERF) process best suited for <strong>large, complex, low-volume components</strong> (aerospace panels, domes, wing skins, nose cones; high-strength or difficult materials).</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (HERF &amp; EXTRUSION):</strong><br />
+        • Indirect Extrusion = Better surface finish + Lower punch force.<br />
+        • Impact Extrusion = Collapsible tubes (toothpastes, aluminum cans).<br />
+        • Explosive Forming = Large complex parts, small batch size.
+    </div>
+
+    <h3>3.8 Tube &amp; Seamless Product Manufacturing</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Seamless Tube:</strong> Produced by <strong>piercing</strong> (Mannesmann process); billet is converted into a hollow shell over a mandrel.</li>
+            <li><strong>Plug Rolling:</strong> Used post-piercing to <strong>reduce wall thickness and increase tube diameter</strong>.</li>
+            <li><strong>Rotary Swaging:</strong> Reduces cross-sectional area of rods/tubes by rapid radial impact hammering (an <em>impact process</em>, not steady pressure).</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (TUBE MFG):</strong><br />
+        • Piercing $\rightarrow$ Seamless tube hollow shell.<br />
+        • Plug rolling $\rightarrow$ Wall thinning + Diameter expansion.<br />
+        • Rotary swaging $\rightarrow$ Section reduction via radial impacts.
+    </div>
+
+    <h3>3.9 Wire Drawing, Thread Rolling &amp; Surface Fatigue Improvement</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Ideal Wire Drawing Limit:</strong> Maximum theoretical reduction in area is <strong>$63.2\%$</strong>:
+                $$r_{\max} = 1 - e^{-1} \approx 63.2\%$$
+            </li>
+            <li><strong>Thread Rolling:</strong> Cold-forming process restricted to <strong>ductile materials</strong> (chipless, plastic flow). Produces higher fatigue strength than cut threads due to continuous grain flow and absence of tool marks.</li>
+            <li><strong>Shot Peening:</strong> Introduces <strong>compressive residual stress</strong> on surface, significantly improving fatigue life and prolonging tool life post-grinding.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (WIRE &amp; THREADING):</strong><br />
+        • Thread rolling = Ductile materials only.<br />
+        • Shot peening = Compressive residual stress + Fatigue life improvement.<br />
+        • Ideal wire drawing maximum area reduction limit $\approx 63\%$.
+    </div>
+
+    <h3>3.10 Machining, Finishing &amp; Drill Geometry</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Honing:</strong> High-precision surface finishing process for <strong>internal cylindrical surfaces (bores)</strong>.</li>
+            <li><strong>Broaching:</strong> High-accuracy, high-production finishing process; accuracy typically around <strong>$10\ \mu\text{m}$</strong>.</li>
+            <li><strong>Flat Drill:</strong> Considered a zero-rake cutting tool.</li>
+            <li><strong>Twist Drill Rake Angle:</strong> Rake angle <strong>increases from center to periphery</strong> (zero/negative at chisel edge/center, maximum at outer lip).</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (TOOL GEOMETRY):</strong><br />
+        • Honing $\rightarrow$ Bore finishing.<br />
+        • Broaching $\rightarrow$ High accuracy ($10\ \mu\text{m}$).<br />
+        • Twist drill rake angle $\rightarrow$ Increases outward from center.
+    </div>
+
+    <h3>3.11 Gear Manufacturing Methods</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Gear Forming:</strong> Preferred for <strong>small batches of gears with low accuracy</strong> requirement.</li>
+            <li><strong>Hobbing &amp; Shaping:</strong> Generation methods used for high productivity and accuracy.</li>
+            <li><strong>Broaching Gears:</strong> Expensive tooling, used for high production rate and good accuracy.</li>
+            <li><strong>Spur Gear Extrusion:</strong> Feasible due to constant axial profile.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (GEARS):</strong><br />
+        • Small batch + Low accuracy $\rightarrow$ Gear forming.<br />
+        • High productivity + Accuracy $\rightarrow$ Gear hobbing.<br />
+        • Internal gear cutting $\rightarrow$ Gear shaping / broaching.
+    </div>
+
+    <h3>3.12 Powder Metallurgy Secondary Operations</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Sizing:</strong> Cold pressing post-sintering to improve <strong>dimensional accuracy</strong>.</li>
+            <li><strong>Coining:</strong> Cold pressing to press fine surface details and increase density.</li>
+            <li><strong>Impregnation:</strong> Pores of sintered part are filled with <strong>oil</strong> (self-lubricating bearings).</li>
+            <li><strong>Infiltration:</strong> Pores are filled with a lower-melting-point <strong>molten metal</strong>.</li>
+            <li>Heat treatment, plating, and painting are common post-sintering finishing steps.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (POWDER METALLURGY):</strong><br />
+        • Impregnation = Oil filling.<br />
+        • Infiltration = Molten metal filling.<br />
+        • Sizing = Dimensional accuracy.<br />
+        • Coining = Surface details &amp; density.
+    </div>
+
+    <h3>3.13 Joining, Soldering &amp; Surface Bonding</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Rubber-to-Metal Bonding:</strong> Accomplished by <strong>adhesive bonding</strong>.</li>
+            <li><strong>Sweating:</strong> Process of tinning surfaces, applying flux, and heating so solder flows between joint surfaces by capillary action (soldering-based joining, NOT welding).</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (JOINING):</strong><br />
+        • Sweating = Tinning + Flux + Heating (Capillarity).<br />
+        • Rubber sheet to metal = Adhesive bonding.
+    </div>
+
+    <h3>3.14 Material Behaviour, Room-Temp Exceptions &amp; Special Forming</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Lead and Tin:</strong> Can be <strong>hot worked at room temperature</strong> because their recrystallization temperature is below room temperature ($T_{\text{recrys}} < 20^\circ\text{C}$).</li>
+            <li>Coining, bending, and rolling are all based on plastic deformation.</li>
+            <li><strong>Structural Sections:</strong> Rails, angles, channels, and I-beams are produced by <strong>hot rolling</strong>.</li>
+            <li><strong>Steel Balls:</strong> Manufactured by <strong>cold heading</strong>.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (SPECIAL CASES):</strong><br />
+        • Lead and tin = Room temp hot working exception.<br />
+        • Steel bearing balls = Cold heading.<br />
+        • Structural sections (rails, I-beams) = Hot rolling.
+    </div>
+
+    <h3>3.15 Common Process Classification Matrix</h3>
+    <div class="concept-block">
+        <ul>
+            <li><strong>Coining:</strong> Classified as a <strong>cold forging</strong> operation.</li>
+            <li><strong>Trimming:</strong> Belongs to <strong>press work</strong>.</li>
+            <li><strong>Fullering:</strong> Classified as a <strong>forging</strong> operation.</li>
+            <li><strong>Peen Forming:</strong> Used for forming <strong>shallow contours</strong> and <strong>straightening thin sheet parts</strong>.</li>
+            <li><strong>Shaper Tool Life:</strong> Improved after grinding by <strong>shot peening</strong>.</li>
+        </ul>
+    </div>
+    <div class="exam-focus">
+        <strong>⚡ QUICK TRAP (CLASSIFICATION):</strong><br />
+        • Forging = Fullering, Upsetting, Coining.<br />
+        • Press Work = Trimming, Blanking, Piercing, Punching, Countersinking.<br />
+        • Peen Forming = Shallow contours + Straightening.
+    </div>
+
+    <h3>3.16 High-Yield Defect &amp; Root Cause Summary Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Defect / Effect</th>
+                <th>Manufacturing Process</th>
+                <th>Main Root Cause / Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Cold Shut</strong></td>
+                <td>Forging</td>
+                <td>Improper die design / sharp corners (unfused streams)</td>
+            </tr>
+            <tr>
+                <td><strong>Die Shift</strong></td>
+                <td>Forging</td>
+                <td>Misalignment of upper and lower die halves</td>
+            </tr>
+            <tr>
+                <td><strong>Scale Pits</strong></td>
+                <td>Forging / Hot Working</td>
+                <td>Improper cleaning of scale from stock surface</td>
+            </tr>
+            <tr>
+                <td><strong>Flakes</strong></td>
+                <td>Forging (Large Parts)</td>
+                <td>Hydrogen embrittlement / improper cooling</td>
+            </tr>
+            <tr>
+                <td><strong>Wrinkling</strong></td>
+                <td>Deep Drawing</td>
+                <td>Compressive hoop stress / low blank-holder force</td>
+            </tr>
+            <tr>
+                <td><strong>Wavy Edges</strong></td>
+                <td>Rolling</td>
+                <td>Material anisotropy / edge compression</td>
+            </tr>
+            <tr>
+                <td><strong>Springback</strong></td>
+                <td>Bending</td>
+                <td>Elastic recovery upon unloading</td>
+            </tr>
+            <tr>
+                <td><strong>Tearing</strong></td>
+                <td>Deep Drawing</td>
+                <td>Excessive tensile stress / high blank-holder force</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.17 Formula Snapshot &amp; Sizing Rules</h3>
+    <div class="formula-card">
+        $$\text{Bend Allowance: } \text{BA} = \theta(R + kt)$$
+    </div>
+    <div class="formula-card">
+        $$\text{V-Die Bending Force: } F = \frac{K L t^2 \sigma_u}{w}$$
+    </div>
+    <div class="formula-card">
+        $$\text{Maximum Rolling Draft: } (\Delta h)_{\max} = \mu^2 R$$
+    </div>
+    <div class="formula-card">
+        $$\text{Ideal Max Wire-Drawing Reduction: } r_{\max} = 1 - e^{-1} \approx 63.2\%$$
+    </div>
+    <div class="formula-card">
+        $$\text{Blanking Rule: } \text{Die Size} = \text{Product Size} \quad (\text{Clearance on Punch})$$
+        $$\text{Punching Rule: } \text{Punch Size} = \text{Hole Size} \quad (\text{Clearance on Die})$$
+    </div>
+
+    <h3>3.18 🔑 One-Liners to Memorize (Instant Exam Recall)</h3>
+    <div class="kp">
+        <ul>
+            <li>• <strong>Drop forging</strong> = hammer + die drop together on work.</li>
+            <li>• <strong>Forging hammer</strong> = energy-restricted machine.</li>
+            <li>• <strong>Fullering</strong> = draw out material (cross-section $\downarrow$, length $\uparrow$).</li>
+            <li>• <strong>Rolling</strong> = compression + shear deformation.</li>
+            <li>• <strong>Maximum draft in rolling</strong> depends on roll radius ($\mu^2 R$).</li>
+            <li>• <strong>Blanking</strong> $\rightarrow$ clearance subtracted from punch.</li>
+            <li>• <strong>Springback</strong> = elastic strain recovery.</li>
+            <li>• <strong>Wrinkling in deep drawing</strong> = compressive hoop stress in flange.</li>
+            <li>• <strong>Indirect extrusion</strong> = better surface finish &amp; lower punch force.</li>
+            <li>• <strong>Collapsible tubes</strong> = impact extrusion.</li>
+            <li>• <strong>Seamless tube</strong> = rotary piercing (Mannesmann process).</li>
+            <li>• <strong>Thread rolling</strong> = ductile materials only (cold formed, chipless).</li>
+            <li>• <strong>Ideal wire drawing max reduction limit</strong> $\approx 63\%$.</li>
+            <li>• <strong>Honing</strong> = internal cylindrical surface (bore) finishing.</li>
+            <li>• <strong>Broaching accuracy</strong> $\approx 10\ \mu\text{m}$.</li>
+            <li>• <strong>Small batch gears with low accuracy</strong> = gear forming.</li>
+            <li>• <strong>Sizing</strong> = accuracy; <strong>Coining</strong> = details; <strong>Impregnation</strong> = oil; <strong>Infiltration</strong> = molten metal.</li>
+            <li>• <strong>Rubber to metal bonding</strong> = adhesive bonding.</li>
+            <li>• <strong>Sweating</strong> = tinning + flux + heating (soldering capillarity).</li>
+            <li>• <strong>Explosive forming</strong> = large, complex, small-batch components.</li>
+            <li>• <strong>Steel bearing balls</strong> = cold heading.</li>
+            <li>• <strong>Rails / angles / I-beams</strong> = hot rolling.</li>
+            <li>• <strong>Cold shut</strong> = improper die design defect.</li>
+            <li>• <strong>Wavy edges in sheet</strong> = material anisotropy.</li>
+        </ul>
+    </div>
+
     <hr style="margin-top: 42px; margin-bottom: 24px; border: none; border-top: 2px solid #8C5A37;">
 
     <div style="text-align: center; color: #664229; font-size: 10.5pt; margin-top: 28px;">
