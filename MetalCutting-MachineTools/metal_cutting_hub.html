@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metal Cutting & Machine Tools - AP GenCo Exam Study Hub</title>
+  <title>Metal Cutting &amp; Machine Tools - AP GenCo Exam Study Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --border-light: #E2E8F0;
+      --border-hover: #8B5CF6;
+      --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+      --shadow-card-hover: 0 12px 28px -4px rgba(139, 92, 246, 0.2);
+    }
+    [data-theme="dark"] {
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --subject-current: #8B5CF6;
+      --subject-current-light: rgba(139, 92, 246, 0.25);
+      --border-light: #262933;
+      --border-hover: #8B5CF6;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.25);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: #2D2926;
-      background-color: #F0ECE1;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
       padding: 40px 20px;
       min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .container {
@@ -23,15 +49,15 @@
       margin: 0 auto;
     }
 
-    /* Header matching index.html */
+    /* Header Banner */
     .portal-header {
       text-align: center;
-      background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-      color: #FFFDF9;
-      padding: 40px 28px;
-      border-radius: 16px;
+      background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #8B5CF6 100%);
+      color: #FFFFFF;
+      padding: 42px 28px;
+      border-radius: 18px;
       margin-bottom: 35px;
-      box-shadow: 0 10px 30px rgba(74, 46, 27, 0.2);
+      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.28);
     }
 
     .portal-header h1 {
@@ -39,35 +65,36 @@
       font-size: 26pt;
       margin-bottom: 10px;
       letter-spacing: 0.5px;
+      color: #FFFFFF;
     }
 
     .portal-header p {
       font-size: 12pt;
-      color: #E8DACF;
+      color: #E9D5FF;
       max-width: 700px;
       margin: 0 auto 16px auto;
     }
 
     .back-btn {
       display: inline-block;
-      color: #FFFDF9;
+      color: #FFFFFF;
       text-decoration: none;
       font-weight: 600;
       font-size: 10.5pt;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 18px;
       border-radius: 20px;
       transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    .back-btn:hover { background: rgba(255, 255, 255, 0.25); }
+    .back-btn:hover { background: rgba(255, 255, 255, 0.3); }
 
     /* Section Title */
     .section-title {
       font-family: "Bookman Old Style", Georgia, serif;
       font-size: 18pt;
-      color: #4A2E1B;
-      border-bottom: 2px solid #8C5A37;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--subject-current);
       padding-bottom: 8px;
       margin-top: 20px;
       margin-bottom: 24px;
@@ -78,15 +105,15 @@
 
     .section-title span.mark-tag {
       font-size: 10.5pt;
-      background-color: #8C5A37;
-      color: #FFFDF9;
+      background-color: var(--subject-current);
+      color: #FFFFFF;
       padding: 2px 10px;
       border-radius: 12px;
       font-family: system-ui, sans-serif;
       font-weight: 600;
     }
 
-    /* Grid Layout matching index.html */
+    /* Grid Layout */
     .module-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -95,14 +122,14 @@
     }
 
     .module-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E2D9CC;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
       border-radius: 14px;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 4px 15px rgba(60, 40, 20, 0.05);
+      box-shadow: var(--shadow-card);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       text-decoration: none;
@@ -111,8 +138,8 @@
 
     .module-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(74, 46, 27, 0.12);
-      border-color: #8C5A37;
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--subject-current);
     }
 
     .card-badge {
@@ -120,27 +147,26 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #8C5A37;
-      background-color: #F7F3EC;
+      color: var(--subject-current);
+      background-color: var(--subject-current-light);
       padding: 4px 10px;
       border-radius: 6px;
       display: inline-block;
       margin-bottom: 12px;
       width: fit-content;
-      border: 1px solid #EAE1D3;
     }
 
     .card-title {
       font-family: "Bookman Old Style", Georgia, serif;
       font-size: 15pt;
       font-weight: 700;
-      color: #4A2E1B;
+      color: var(--text-primary);
       margin-bottom: 8px;
     }
 
     .card-desc {
       font-size: 10.5pt;
-      color: #5C544D;
+      color: var(--text-secondary);
       margin-bottom: 20px;
       line-height: 1.5;
     }
@@ -148,28 +174,39 @@
     .card-footer {
       font-size: 10pt;
       font-weight: 600;
-      color: #8C5A37;
+      color: var(--subject-current);
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 4px;
-      border-top: 1px solid #F0ECE1;
+      border-top: 1px solid var(--border-light);
       padding-top: 12px;
     }
 
     .module-card:hover .card-footer {
-      color: #4A2E1B;
       text-decoration: underline;
     }
+
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
   </style>
 </head>
-<body>
+<body data-subject="production">
+
+  <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
 
   <div class="container">
-    <!-- Header Banner matching Warm Portal Theme -->
     <header class="portal-header">
       <a href="../index.html" class="back-btn">&larr; Back to AP GenCo Main Portal</a>
-      <h1 style="margin-top: 16px;">Metal Cutting & Machine Tools</h1>
+      <h1 style="margin-top: 16px;">Metal Cutting &amp; Machine Tools</h1>
       <p>Select any of the 6 sub-module guides below to open its complete HTML revision guide:</p>
     </header>
 
@@ -182,8 +219,8 @@
       <a href="metal_cutting_machine_tools.html" class="module-card">
         <div>
           <span class="card-badge">Module 1</span>
-          <div class="card-title">Metal Cutting & Machine Tools</div>
-          <div class="card-desc">Mechanics of machining, ASA tool signature, chip thickness ratio, Merchant theory, Taylor tool-life, & forces.</div>
+          <div class="card-title">Metal Cutting &amp; Machine Tools</div>
+          <div class="card-desc">Mechanics of machining, ASA tool signature, chip thickness ratio, Merchant theory, Taylor tool-life, &amp; forces.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
       </a>
@@ -192,7 +229,7 @@
       <a href="machine_tools_grinding.html" class="module-card">
         <div>
           <span class="card-badge">Module 2</span>
-          <div class="card-title">Machine Tools & Grinding</div>
+          <div class="card-title">Machine Tools &amp; Grinding</div>
           <div class="card-desc">Lathes, shapers, planers, milling methods (up/down milling), drilling, and grinding wheel specifications.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
@@ -202,8 +239,8 @@
       <a href="metrology.html" class="module-card">
         <div>
           <span class="card-badge">Module 3</span>
-          <div class="card-title">Metrology & Measurement</div>
-          <div class="card-desc">Limits, fits, tolerances, Taylor's principle of gauges, sine bar angle measurement, comparators, & Ra surface roughness.</div>
+          <div class="card-title">Metrology &amp; Measurement</div>
+          <div class="card-desc">Limits, fits, tolerances, Taylor's principle of gauges, sine bar angle measurement, comparators, &amp; Ra surface roughness.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
       </a>
@@ -212,8 +249,8 @@
       <a href="NC.html" class="module-card">
         <div>
           <span class="card-badge">Module 4</span>
-          <div class="card-title">NC & CNC Automation</div>
-          <div class="card-desc">Numerical control systems, G-codes, M-codes, MCU architecture, servo loops, & interpolators.</div>
+          <div class="card-title">NC &amp; CNC Automation</div>
+          <div class="card-desc">Numerical control systems, G-codes, M-codes, MCU architecture, servo loops, &amp; interpolators.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
       </a>
@@ -222,8 +259,8 @@
       <a href="jigs_fixtures.html" class="module-card">
         <div>
           <span class="card-badge">Module 5</span>
-          <div class="card-title">Jigs & Fixtures</div>
-          <div class="card-desc">Difference between jigs & fixtures, 3-2-1 location principle, locators, clamps, & drill bushes.</div>
+          <div class="card-title">Jigs &amp; Fixtures</div>
+          <div class="card-desc">Difference between jigs &amp; fixtures, 3-2-1 location principle, locators, clamps, &amp; drill bushes.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
       </a>
@@ -233,12 +270,30 @@
         <div>
           <span class="card-badge">Module 6</span>
           <div class="card-title">Non-Traditional (EDM/ECM/USM)</div>
-          <div class="card-desc">Spark erosion (EDM), anodic dissolution (ECM), ultrasonic micro-chipping (USM), LBM, EBM, & AJM.</div>
+          <div class="card-desc">Spark erosion (EDM), anodic dissolution (ECM), ultrasonic micro-chipping (USM), LBM, EBM, &amp; AJM.</div>
         </div>
         <div class="card-footer">Open Guide &rarr;</div>
       </a>
     </div>
   </div>
 
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "dark";
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        if(toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+        localStorage.setItem("ag-theme", t);
+      }
+      applyTheme(saved);
+      if(toggle) {
+        toggle.addEventListener("click", function() {
+          var current = document.documentElement.getAttribute("data-theme") || "dark";
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

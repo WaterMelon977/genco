@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="utf-8" />
@@ -20,52 +20,120 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
-        @page {
-            size: A4;
-            margin: 20mm 15mm 20mm 15mm;
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
+            --border-light: #E2E8F0;
+            --border-hover: #8B5CF6;
+            --heading-color: #0F172A;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #F8FAFC;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
+        }
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
+            --border-light: #262933;
+            --border-hover: #8B5CF6;
+            --heading-color: #F1F5F9;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #121419;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             font-size: 10.5pt;
-            line-height: 1.65;
-            color: #2D2926;
-            background-color: #F0ECE1;
-            margin: 0;
-            padding: 35px 15px;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
         }
 
-        /* Box Layout Reader Container */
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--text-accent); z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed; top: 18px; right: 24px;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            color: var(--text-secondary); border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13pt; z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
         .reader-container {
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
-            background-color: #FFFFFF;
+            background-color: var(--bg-card);
             border-radius: 16px;
             padding: 48px 54px;
-            border: 1px solid #E2D9CC;
-            box-shadow: 0 12px 40px rgba(60, 40, 20, 0.08), 0 2px 8px rgba(60, 40, 20, 0.04);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
         }
 
-        /* Document Title Header */
         .doc-title-card {
             text-align: center;
-            background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%);
-            color: #FFFDF9;
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--text-accent);
             padding: 32px 24px;
             border-radius: 12px;
             margin-bottom: 32px;
-            box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
 
         .doc-title-card h1 {
             font-family: "Bookman Old Style", Georgia, serif;
             font-size: 24pt;
             margin: 0 0 10px 0;
-            color: #FFFDF9;
+            color: #F8FAFC;
             border: none;
             letter-spacing: 0.5px;
         }
@@ -73,60 +141,45 @@
         .doc-title-card .subtitle {
             font-size: 11.5pt;
             font-style: italic;
-            color: #E8DACF;
+            color: var(--text-secondary);
             margin: 0;
         }
 
-        /* Headings */
         h1 {
             font-size: 18pt;
-            color: #4A2E1B;
-            border-bottom: 2px solid #8C5A37;
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--text-accent);
             padding-bottom: 6px;
-            margin-top: 36px;
+            margin-top: 32px;
             margin-bottom: 16px;
-            page-break-after: avoid;
         }
 
         h2 {
             font-size: 15pt;
-            color: #5C3A21;
-            border-bottom: 1.5px dashed #CBB8A9;
+            color: var(--heading-sub);
+            border-bottom: 1.5px dashed var(--border-light);
             padding-bottom: 5px;
             margin-top: 28px;
             margin-bottom: 14px;
-            page-break-after: avoid;
         }
 
         h3 {
             font-size: 12pt;
-            color: #7A4B2A;
+            color: var(--text-accent);
             margin-top: 22px;
             margin-bottom: 10px;
-            page-break-after: avoid;
         }
 
         h4 {
             font-size: 11pt;
-            color: #4A2E1B;
+            color: var(--text-primary);
             margin-top: 16px;
             margin-bottom: 8px;
-            page-break-after: avoid;
         }
 
         p {
             margin-top: 0;
             margin-bottom: 12px;
-            text-align: justify;
-        }
-
-        ul, ol {
-            margin-top: 0;
-            margin-bottom: 14px;
-            padding-left: 24px;
-        }
-
-        li {
             margin-bottom: 6px;
         }
 
@@ -805,5 +858,33 @@
         <p><em>[Topic placeholder: add notes here]</em></p>
 
     </div>
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if(toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                localStorage.setItem("ag-theme", t);
+            }
+            applyTheme(saved);
+            if(toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+            var bar = document.getElementById("reading-progress");
+            window.addEventListener("scroll", function() {
+                if(!bar) return;
+                var d = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+            }, { passive: true });
+        })();
+    </script>
 </body>
 </html>

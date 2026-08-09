@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,8 +30,8 @@
             --bg-sidebar: #0f172a;
             --text-primary: #1e293b;
             --text-secondary: #475569;
-            --brand-primary: #2563eb;
-            --brand-dark: #1e40af;
+            --brand-primary: #8B5CF6;
+            --brand-dark: #7C3AED;
 
             --callout-concept-bg: #eff6ff;
             --callout-concept-border: #3b82f6;
@@ -46,9 +46,71 @@
             --callout-focus-text: #854d0e;
 
             --callout-formula-bg: #f0fdf4;
-            --callout-formula-border: #22c55e;
-            --callout-formula-text: #166534;
+            --callout-formula-border: #8B5CF6;
+            --callout-formula-text: #8B5CF6;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --border-light: #E2E8F0;
         }
+
+        [data-theme="dark"] {
+            --bg-body: #0E0F12;
+            --bg-card: #16181D;
+            --bg-sidebar: #07080A;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --brand-primary: #8B5CF6;
+            --brand-dark: #A78BFA;
+
+            --callout-concept-bg: #111827;
+            --callout-concept-border: #3b82f6;
+            --callout-concept-text: #93c5fd;
+
+            --callout-trap-bg: #2A1215;
+            --callout-trap-border: #ef4444;
+            --callout-trap-text: #fca5a5;
+
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+
+            --callout-formula-bg: #111318;
+            --callout-formula-border: #8B5CF6;
+            --callout-formula-text: #A78BFA;
+            --border-light: #262933;
+        }
+
+        @keyframes formulaBreathe {
+          0%, 100% {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 18px 2px var(--subject-current);
+            border-left-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--callout-formula-bg) 75%);
+          }
+          50% {
+            box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7), 0 0 32px 6px var(--subject-current-light);
+            border-left-color: #A78BFA;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--callout-formula-bg) 60%);
+          }
+        }
+
+        .formula-box, .callout-formula {
+          animation: formulaBreathe 3.5s ease-in-out infinite;
+          transition: all 0.3s ease;
+        }
+        .formula-box:hover, .callout-formula:hover {
+          transform: translateY(-3px); box-shadow: 0 0 45px 8px var(--subject-current) !important;
+        }
+
+        #theme-toggle {
+          position: fixed; top: 18px; right: 24px;
+          background: var(--bg-card); border: 1px solid var(--border-light);
+          color: var(--text-secondary); border-radius: 50%;
+          width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+          cursor: pointer; font-size: 13pt; z-index: 9998;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+          transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--brand-primary); color: var(--brand-primary); transform: scale(1.08); }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
 
@@ -721,6 +783,26 @@
                 }
             });
         });
+    </script>
+
+    <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if(toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                localStorage.setItem("ag-theme", t);
+            }
+            applyTheme(saved);
+            if(toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+        })();
     </script>
 </body>
 </html>
