@@ -516,36 +516,188 @@
     <p><strong>For rolling:</strong> Strain relates to draft $\Delta h = h_0 - h_f$. Larger drafts demand lower friction
         or higher roll temperature.</p>
 
-    <h4>Rolling Defects &amp; Summary</h4>
+    <h4>Rolling Defects &amp; Camber Mechanics</h4>
     <div class="img-container">
         <img src="images/rolling_defects.jpg" alt="Rolling Defects" style="max-width:100%; max-height:340px; height:auto; object-fit:contain;" />
         <div class="img-caption">Figure 1.2C: Rolling Defects (Wavy edges, Zipper cracks, Alligatoring).</div>
     </div>
 
+    <div class="concept-block">
+        <p><strong>Root Cause of Rolling Defects:</strong> Rolling defects mainly occur due to <strong>unequal elongation across the strip width</strong>, which creates locked-in <strong>residual stresses</strong>. The single most critical root cause of non-uniform reduction across strip width is <em>improper roll camber (crown)</em>.</p>
+    </div>
+
+    <h5>1. Insufficient Roll Camber (Straight / Under-Cambered Rolls)</h5>
+    <p>Under roll load, rolls deflect (bend). With insufficient camber, the roll gap is smaller at the edges than in the center. Consequently, <strong>edges undergo greater reduction and become longer than the center</strong>.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Defect</th>
+                <th>Stress State</th>
+                <th>Root Cause / Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Wavy Edges</strong></td>
+                <td>Edge Compression</td>
+                <td>Edges elongate more than the center; constrained center puts edges into compression, causing buckling (waving).</td>
+            </tr>
+            <tr>
+                <td><strong>Centerline Cracking (Zipper Cracks)</strong></td>
+                <td>Center Tension</td>
+                <td>Center is stretched longitudinally by the longer, elongating edges until central tensile fracture occurs.</td>
+            </tr>
+            <tr>
+                <td><strong>Warping</strong></td>
+                <td>Uneven Residual Stresses</td>
+                <td>Non-uniform reduction across strip width creates complex 3D residual stress state.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="exam-focus">
+        <strong>Memory Rule (Insufficient Camber):</strong> Edges longer &rarr; <strong>Wavy edges</strong>; Center in tension &rarr; <strong>Centerline (zipper) cracks</strong>.
+    </div>
+
+    <h5>2. Over-Cambering (Excessive Roll Crown)</h5>
+    <p>When rolls have excessive initial camber (crown), the roll gap is smaller at the center than at the edges. Consequently, <strong>the center undergoes greater reduction and becomes longer than the edges</strong>.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Defect</th>
+                <th>Stress State</th>
+                <th>Root Cause / Mechanism</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Wavy Center (Center Buckle)</strong></td>
+                <td>Center Compression</td>
+                <td>Center elongates more than the edges; constrained edges put center into axial compression, causing buckling (center wave).</td>
+            </tr>
+            <tr>
+                <td><strong>Edge Cracking</strong></td>
+                <td>Edge Tension</td>
+                <td>Edges are stretched longitudinally by the longer, elongating center until edge transverse cracking occurs.</td>
+            </tr>
+            <tr>
+                <td><strong>Centerline Splitting</strong></td>
+                <td>Severe Center Deformation</td>
+                <td>Excessive center elongation causes localized necking and longitudinal splitting along centerline.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="exam-focus">
+        <strong>Memory Rule (Over-Cambering):</strong> Center longer &rarr; <strong>Wavy center</strong>; Edges in tension &rarr; <strong>Edge cracks</strong>.
+    </div>
+
+    <h5>3. Camber Comparison Matrix</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter / Feature</th>
+                <th>Insufficient Camber (Bending Deflection)</th>
+                <th>Over-Cambering (Excessive Crown)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Primary Buckling Defect</strong></td>
+                <td><strong>Wavy Edges</strong></td>
+                <td><strong>Wavy Center (Center Buckle)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Primary Cracking Defect</strong></td>
+                <td><strong>Centerline Cracking (Zipper Cracks)</strong></td>
+                <td><strong>Edge Cracking</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Edge Stress State</strong></td>
+                <td>Edge Compression</td>
+                <td>Edge Tension</td>
+            </tr>
+            <tr>
+                <td><strong>Center Stress State</strong></td>
+                <td>Center Tension</td>
+                <td>Center Compression</td>
+            </tr>
+            <tr>
+                <td><strong>Relative Elongation</strong></td>
+                <td>Edges longer than center</td>
+                <td>Center longer than edges</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>4. Important Rolling Defects Reference Table</h5>
     <table>
         <thead>
             <tr>
                 <th>Defect Type</th>
-                <th>Process</th>
-                <th>Root Cause / Condition</th>
+                <th>Process / Mode</th>
+                <th>Key Characteristic &amp; Root Cause</th>
                 <th>Prevention / Remedy</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td><strong>Alligatoring</strong></td>
+                <td>Rolling (Slab/Plate)</td>
+                <td>Strip splits along mid-thickness plane into upper and lower halves; caused by non-uniform frictional shear and tensile stresses at center during heavy reduction.</td>
+                <td>Maintain uniform reduction; optimize roll diameter and lubrication; ensure homogeneous slab temperature.</td>
+            </tr>
+            <tr>
+                <td><strong>Warping</strong></td>
+                <td>Rolling (Strip)</td>
+                <td>Bending/twisting of strip due to non-uniform residual stresses across width or thickness.</td>
+                <td>Perform leveling/roller flattening; ensure symmetric roll cooling and balanced reduction.</td>
+            </tr>
+            <tr>
+                <td><strong>Residual Stresses</strong></td>
+                <td>Cold/Hot Rolling</td>
+                <td>Locked-in internal stresses remaining in material after deformation due to non-uniform plastic flow across thickness.</td>
+                <td>Stress relief annealing; light skin-pass (temper) rolling.</td>
+            </tr>
+            <tr>
+                <td><strong>Lap</strong></td>
+                <td>Rolling / Forging</td>
+                <td>Folded metal rolled into the surface without welding; caused by excessive flash or misaligned passes.</td>
+                <td>Proper pass design; remove surface fins/flash prior to subsequent rolling pass.</td>
+            </tr>
+            <tr>
+                <td><strong>Seam</strong></td>
+                <td>Rolling (Bar/Rod)</td>
+                <td>Longitudinal surface crack or defect resulting from rolled-in gas blowholes or surface inclusions from ingot.</td>
+                <td>Condition ingot surface (conditioning/grinding); clean steelmaking practices.</td>
+            </tr>
+            <tr>
+                <td><strong>Rolled-in Scale</strong></td>
+                <td>Hot Rolling</td>
+                <td>Surface oxide scale pressed into sheet surface during rolling, causing surface pitting/roughness.</td>
+                <td>High-pressure water descaling before roll entry; scale-breaking rolls.</td>
+            </tr>
+            <tr>
                 <td><strong>Surface Cracks (Longitudinal)</strong></td>
                 <td>Hot Rolling</td>
-                <td>Non-uniform cooling; tensile stress at surface during reheating; low ductility at surface due to decarburization or inclusions.</td>
-                <td>Uniform heating; controlled cooling rate; remove surface defects before rolling; increase reheat temp for ductility.</td>
+                <td>Non-uniform cooling; tensile stress at surface during reheating; low surface ductility.</td>
+                <td>Uniform heating; controlled cooling rate; remove surface defects before rolling.</td>
             </tr>
             <tr>
                 <td><strong>Thickness Variation</strong></td>
-                <td>Rolling (Sheet)</td>
-                <td>Uneven wear on rolls; inconsistent feed; non-parallel rolls; roll deflection under load.</td>
-                <td>Use four-high mill (backup rolls reduce deflection); automatic thickness gauge control; regular roll maintenance; crown adjustment.</td>
+                <td>Sheet Rolling</td>
+                <td>Roll bending/deflection under load; non-parallel rolls; uneven roll wear.</td>
+                <td>Four-high / cluster mills with backup rolls; automatic gauge control (AGC); proper roll camber.</td>
             </tr>
         </tbody>
     </table>
+
+    <div class="exam-focus">
+        <strong>⚡ 1-MINUTE ROLLING DEFECT MEMORY FORMULA:</strong><br />
+        • <strong>Edge Compression</strong> &rarr; Wavy Edges<br />
+        • <strong>Center Compression</strong> &rarr; Wavy Center (Center Buckle)<br />
+        • <strong>Center Tension</strong> &rarr; Centerline Cracks (Zipper Cracks)<br />
+        • <strong>Edge Tension</strong> &rarr; Edge Cracks<br />
+        • <strong>Thickness-Direction Split</strong> &rarr; Alligatoring
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────────────── -->
     <h3>1.3 Forging Operations &amp; Upsetting</h3>
