@@ -6,174 +6,182 @@
   <title>Strength of Materials — Master Portal — APGENCO / SSC JE / TSPSC AEE</title>
   <meta name="description" content="Comprehensive Strength of Materials revision hub for APGENCO AE, SSC JE and TSPSC AEE — five modules covering stresses, beams, columns, torsion and springs.">
   <style>
-    /* ---------- token system ---------- */
     :root {
-      --page:       #F5F1EA;
-      --card:       #FFFFFF;
-      --card-hover: #FDFBF7;
-      --formula-bg: #FAF6F0;
-      --ink:        #1E1A16;
-      --ink-mid:    #4A3F35;
-      --ink-soft:   #7A6A5A;
-      --rule:       #D8CEBF;
-      --accent:     #7B3F1A;
-      --accent-lt:  #C4885A;
-      --chapter-bg: #2B1A0D;
-      --chapter-fg: #F5EFE6;
-      --note-bg:    #EEF3FB;
-      --note-bd:    #4A7EC4;
-      --note-fg:    #1A3D7A;
-      --kp-bg:      #FDF6E3;
-      --kp-bd:      #C8940A;
-      --kp-fg:      #5A3E00;
-      --progress:   #7B3F1A;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --subject-current: #EF4444;
+      --subject-current-light: rgba(239, 68, 68, 0.35);
+      --subject-bg-tint: rgba(239, 68, 68, 0.08);
+      --border-light: #E2E8F0;
+      --heading-color: #0F172A;
+      --heading-sub: #EF4444;
+      --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
     }
     [data-theme="dark"] {
-      --page:       #18150F;
-      --card:       #221E18;
-      --card-hover: #2A251F;
-      --formula-bg: #1A1710;
-      --ink:        #E8DFD0;
-      --ink-mid:    #B8A898;
-      --ink-soft:   #8A7A6A;
-      --rule:       #3A3028;
-      --accent:     #C4885A;
-      --accent-lt:  #E0A870;
-      --chapter-bg: #120C05;
-      --chapter-fg: #E8DFD0;
-      --note-bg:    #162030;
-      --note-bd:    #4A7EC4;
-      --note-fg:    #90B8F0;
-      --kp-bg:      #201800;
-      --kp-bd:      #C8940A;
-      --kp-fg:      #E0C060;
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --subject-current: #EF4444;
+      --subject-current-light: rgba(239, 68, 68, 0.35);
+      --subject-bg-tint: rgba(239, 68, 68, 0.08);
+      --border-light: #262933;
+      --heading-color: #F1F5F9;
+      --heading-sub: #EF4444;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
     body {
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: 11.5pt;
-      line-height: 1.8;
-      color: var(--ink);
-      background: var(--page);
-      padding: 56px 20px 72px;
-      transition: background .25s, color .25s;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-page);
+      padding: 40px 20px 80px;
+      min-height: 100vh;
+      transition: background 0.25s, color 0.25s;
     }
-    .wrap { max-width: 960px; margin: 0 auto; }
+    .wrap { max-width: 1050px; margin: 0 auto; }
+
     #rbar {
       position: fixed; top: 0; left: 0; height: 3px;
-      width: 0%; background: var(--progress);
+      width: 0%; background: var(--subject-current);
       z-index: 9999; transition: width .1s linear;
-      border-radius: 0 2px 2px 0;
     }
+
     #ttog {
-      position: fixed; top: 10px; right: 18px;
-      background: var(--card); border: 1px solid var(--rule);
-      border-radius: 50%; width: 34px; height: 34px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; font-size: 14pt;
-      box-shadow: 0 2px 8px rgba(0,0,0,.12);
-      z-index: 9998; transition: transform .15s, border-color .2s;
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
     }
-    #ttog:hover { transform: scale(1.1); border-color: var(--accent); }
+    #ttog:hover { border-color: var(--subject-current); color: var(--subject-current); transform: scale(1.08); }
+
     .nav-back-bar { margin-bottom: 24px; }
     .btn-back {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--chapter-bg); color: var(--chapter-fg);
-      padding: 10px 20px; border-radius: 20px; text-decoration: none;
+      background: var(--bg-card); color: var(--subject-current);
+      padding: 8px 18px; border-radius: 20px; text-decoration: none;
       font-family: system-ui, -apple-system, sans-serif;
       font-weight: 600; font-size: 10pt;
-      box-shadow: 0 4px 14px rgba(43,26,13,0.15);
-      transition: opacity 0.2s ease, transform 0.15s ease;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
     }
-    .btn-back:hover { opacity: 0.92; transform: translateX(-2px); }
+    .btn-back:hover { border-color: var(--subject-current); background: var(--bg-formula); }
+
     .portal-header {
-      text-align: center; background: var(--chapter-bg);
-      color: var(--chapter-fg); padding: 36px 28px 30px;
-      border-radius: 12px; margin-bottom: 32px;
-      box-shadow: 0 6px 22px rgba(43,26,13,.22);
+      text-align: center;
+      background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+      color: #F8FAFC;
+      border-left: 5px solid var(--subject-current);
+      padding: 44px 28px 36px;
+      border-radius: 16px;
+      margin-bottom: 38px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
     .portal-header h1 {
-      font-family: "Georgia", serif; font-size: 22pt; font-weight: 700;
-      margin-bottom: 10px; color: var(--chapter-fg); line-height: 1.3;
+      font-family: "Bookman Old Style", Georgia, serif; font-size: 26pt; font-weight: 700;
+      margin-bottom: 10px; color: #F8FAFC; line-height: 1.3;
     }
     .portal-header p {
-      font-family: system-ui, sans-serif; font-size: 10.5pt;
-      color: var(--chapter-fg); opacity: 0.85;
-      max-width: 660px; margin: 0 auto 16px; line-height: 1.6;
+      font-family: system-ui, sans-serif; font-size: 11pt;
+      color: var(--text-secondary);
+      max-width: 680px; margin: 0 auto 18px; line-height: 1.6;
     }
+
     .tag-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
     .tag {
-      background: rgba(255,255,255,0.12); color: var(--chapter-fg);
-      border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
-      font-family: system-ui, sans-serif; font-size: 9pt; font-weight: 500; padding: 3px 12px;
+      background: var(--bg-card); color: var(--subject-current);
+      border: 1px solid var(--border-light); border-radius: 20px;
+      font-family: system-ui, sans-serif; font-size: 9.5pt; font-weight: 600; padding: 3px 12px;
     }
+
     .info-bar {
-      background: var(--note-bg); border-left: 4px solid var(--note-bd);
-      color: var(--note-fg); border-radius: 0 8px 8px 0;
-      padding: 14px 18px; font-family: system-ui, sans-serif;
-      font-size: 10pt; line-height: 1.65; margin-bottom: 32px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      color: var(--text-secondary); border-radius: 10px;
+      padding: 16px 20px; font-family: system-ui, sans-serif;
+      font-size: 10.5pt; line-height: 1.65; margin-bottom: 36px;
+      box-shadow: var(--shadow-card);
     }
-    .info-bar strong { font-weight: 700; }
+    .info-bar strong { color: var(--text-primary); }
+
     h2.section-heading {
-      font-family: "Georgia", serif; font-size: 15pt; font-weight: 700;
-      color: var(--accent); border-bottom: 2px solid var(--accent);
-      padding-bottom: 6px; margin-bottom: 24px;
+      font-family: "Bookman Old Style", Georgia, serif; font-size: 18pt; font-weight: 700;
+      color: var(--heading-color); border-bottom: 3px solid var(--subject-current);
+      padding-bottom: 8px; margin-bottom: 26px;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
       gap: 22px; margin-bottom: 48px;
     }
+
     .card {
-      background: var(--card); border: 1px solid var(--rule);
-      border-radius: 12px; padding: 22px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      border-radius: 14px;
+      padding: 26px 24px 20px;
       display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(60,40,20,.05);
-      transition: all 0.25s ease; text-decoration: none; color: inherit; position: relative;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer; text-decoration: none; color: inherit; position: relative;
     }
     .card:hover {
-      background: var(--card-hover); transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(43,26,13,.12); border-color: var(--accent-lt);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 0 35px 4px var(--subject-current-light),
+                  0 12px 30px rgba(0, 0, 0, 0.6);
+      border-color: var(--subject-current);
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, var(--bg-card) 100%);
     }
-    .card::before {
-      content: ""; position: absolute; left: 0; top: 14px; bottom: 14px;
-      width: 5px; border-radius: 0 4px 4px 0; background: var(--accent); transition: background 0.22s;
-    }
+
     .card-num {
-      font-family: system-ui, sans-serif; font-size: 8.5pt; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent);
-      background: var(--formula-bg); padding: 3px 10px; border-radius: 6px;
-      display: inline-block; margin-bottom: 10px; border: 1px solid var(--rule);
+      font-family: system-ui, sans-serif; font-size: 9pt; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--subject-current);
+      background-color: var(--bg-formula); padding: 4px 10px; border-radius: 6px;
+      display: inline-block; margin-bottom: 12px; width: fit-content;
+      border: 1px solid var(--border-light);
     }
+
     .card-title {
-      font-family: "Georgia", serif; font-size: 13pt; font-weight: 700;
-      color: var(--ink-mid); margin-bottom: 12px; line-height: 1.4;
+      font-family: "Bookman Old Style", Georgia, serif; font-size: 14pt; font-weight: 700;
+      color: var(--heading-color); margin-bottom: 12px; line-height: 1.35;
     }
+
     .card-topics { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
     .pill {
-      background: var(--formula-bg); color: var(--ink-mid);
-      border: 1px solid var(--rule); border-radius: 20px;
+      background: var(--bg-formula); color: var(--text-primary);
+      border: 1px solid var(--border-light); border-radius: 20px;
       font-family: system-ui, sans-serif; font-size: 8.5pt; font-weight: 600; padding: 2px 9px;
     }
+
     .card-footer {
-      font-family: system-ui, sans-serif; font-size: 9.5pt; font-weight: 600;
-      color: var(--accent); text-align: right; border-top: 1px solid var(--rule);
+      font-family: system-ui, sans-serif; font-size: 10pt; font-weight: 700;
+      color: var(--subject-current); text-align: right; border-top: 1px solid var(--border-light);
       padding-top: 12px; display: flex; justify-content: flex-end; align-items: center; gap: 4px;
     }
-    .card:hover .card-footer { color: var(--accent-lt); }
+    .card:hover .card-footer { color: var(--subject-current); text-decoration: underline; }
+
     footer {
       text-align: center; font-family: system-ui, sans-serif;
-      font-size: 9.5pt; color: var(--ink-soft);
-      padding-top: 22px; border-top: 1px solid var(--rule);
-    }
-    @media(max-width: 640px){
-      body { padding: 50px 14px 56px; }
-      .portal-header h1 { font-size: 17pt; }
+      font-size: 9.5pt; color: var(--text-muted);
+      padding-top: 22px; border-top: 1px solid var(--border-light);
     }
   </style>
 </head>
-<body>
+<body id="preview" data-subject="som">
   <div id="rbar"></div>
   <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">&#9728;&#65039;</button>
 
