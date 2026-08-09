@@ -183,6 +183,26 @@
             margin-bottom: 6px;
         }
 
+        .formula-box, .fc, .concept-block, .formula-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.16) 0%, var(--bg-card) 75%);
+            border: 1px solid rgba(139, 92, 246, 0.32);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 22px 0;
+            text-align: center;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 16px rgba(139, 92, 246, 0.14);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .formula-box:hover, .fc:hover, .concept-block:hover, .formula-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.30) 0%, var(--bg-card) 55%) !important;
+            box-shadow: 0 12px 32px -4px rgba(139, 92, 246, 0.38), 0 0 24px rgba(139, 92, 246, 0.25) !important;
+        }
+
         hr {
             border: none;
             border-top: 1px solid #E0D4C8;

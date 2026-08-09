@@ -46,6 +46,7 @@
             --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
             --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
         }
+
         [data-theme="dark"] {
             --bg-page: #0E0F12;
             --bg-card: #16181D;
@@ -76,8 +77,16 @@
             --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             font-size: 10.5pt;
@@ -92,43 +101,86 @@
         }
 
         #reading-progress {
-            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-            background: var(--text-accent); z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--text-accent);
+            z-index: 9999;
             transition: width 0.1s linear;
         }
 
         #theme-toggle {
-            position: fixed; top: 18px; right: 24px;
-            background: var(--bg-card); border: 1px solid var(--border-light);
-            color: var(--text-secondary); border-radius: 50%;
-            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 13pt; z-index: 9998;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            position: fixed;
+            top: 18px;
+            right: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13pt;
+            z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
             transition: all 0.2s ease;
         }
-        #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
+        #theme-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-accent);
+            transform: scale(1.08);
+        }
 
         .submodule-nav {
-            background: var(--bg-card); border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             border-left: 4px solid var(--subject-current);
-            padding: 14px 20px; border-radius: 10px; margin-bottom: 28px;
-            text-align: center; box-shadow: var(--shadow-card);
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-            gap: 8px; font-size: 9.5pt;
-        }
-        .submodule-nav a {
-            color: var(--text-secondary); font-weight: 600; text-decoration: none;
-            padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease;
-        }
-        .submodule-nav a:hover {
-            color: var(--subject-current); background: var(--bg-formula);
-        }
-        .submodule-nav a.active {
-            color: var(--subject-current); font-weight: 700;
-            background: var(--bg-formula); border: 1px solid var(--subject-current);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 9.5pt;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        .submodule-nav a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .submodule-nav a:hover {
+            color: var(--subject-current);
+            background: var(--bg-formula);
+        }
+
+        .submodule-nav a.active {
+            color: var(--subject-current);
+            font-weight: 700;
+            background: var(--bg-formula);
+            border: 1px solid var(--subject-current);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: "Bookman Old Style", Georgia, serif;
             color: var(--heading-color);
             font-weight: 700;
@@ -148,6 +200,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             line-height: 1.35;
         }
+
         [data-theme="dark"] h1 {
             background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
         }
@@ -177,7 +230,10 @@
             text-decoration: none;
             transition: color 0.15s;
         }
-        a:hover { text-decoration: underline; }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         code {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -222,7 +278,8 @@
             box-shadow: var(--shadow-card);
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid var(--border-light);
             padding: 12px 16px;
             text-align: left;
@@ -242,26 +299,45 @@
             background-color: var(--table-even-bg);
         }
 
-        .formula-card, .fc, .concept-block {
-          border: 1px solid var(--border-light);
-          border-left: 5px solid var(--subject-current);
-          border-radius: 10px;
-          padding: 16px 20px; margin: 22px 0;
-          text-align: center; overflow-x: auto;
-          background: var(--bg-formula);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .formula-card,
+        .fc,
+        .concept-block,
+        .formula-box {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.16) 0%, var(--bg-card) 75%);
+            border: 1px solid rgba(139, 92, 246, 0.32);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 22px 0;
+            text-align: center;
+            overflow-x: auto;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 16px rgba(139, 92, 246, 0.14);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .formula-card:hover, .fc:hover, .concept-block:hover {
-          transform: translateY(-3px) scale(1.01);
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0.08) 100%) !important;
-          box-shadow: var(--shadow-card-hover) !important;
-          border-color: var(--subject-current);
+        .formula-card:hover,
+        .fc:hover,
+        .concept-block:hover,
+        .formula-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.30) 0%, var(--bg-card) 55%) !important;
+            box-shadow: 0 12px 32px -4px rgba(139, 92, 246, 0.38), 0 0 24px rgba(139, 92, 246, 0.25) !important;
         }
 
-        ul { margin: 14px 0; padding-left: 24px; }
-        li { margin: 8px 0; line-height: 1.7; }
-        strong { color: var(--text-primary); }
+        ul {
+            margin: 14px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
 
         .exam-focus {
             background: var(--callout-focus-bg);
@@ -274,6 +350,7 @@
             font-size: 10pt;
             box-shadow: var(--shadow-card);
         }
+
         .exam-focus::before {
             content: "🔴 EXAM FOCUS: ";
             font-weight: 800;
@@ -288,28 +365,39 @@
             background: #FFFFFF;
         }
 
-        .img-container { text-align: center; margin: 24px 0; }
+        .img-container {
+            text-align: center;
+            margin: 24px 0;
+        }
+
         .img-caption {
             font-size: 9.5pt;
             color: var(--text-secondary);
             margin-top: 8px;
             font-style: italic;
         }
-        }
     </style>
 </head>
 
 <body id="preview">
 
-    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+    <div
+        style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
         <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-        <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
-        <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
-        <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-        <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3. Metrology</a> |
+        <a href="metal_cutting_hub.html"
+            style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub
+            Home]</a> |
+        <a href="metal_cutting_machine_tools.html"
+            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+        <a href="machine_tools_grinding.html"
+            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+        <a href="metrology.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">3.
+            Metrology</a> |
         <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
-        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs &amp; Fixtures</a> |
-        <a href="EDM_ECM_USM.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">6. EDM/ECM/USM</a>
+        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs
+            &amp; Fixtures</a> |
+        <a href="EDM_ECM_USM.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">6.
+            EDM/ECM/USM</a>
     </div>
 
     <h1>UNCONVENTIONAL MACHINING PROCESSES<br />EDM, ECM, USM, LBM Revision Guide for Competitive Exams</h1>
@@ -349,7 +437,8 @@
     </div>
 
     <div class="concept-block">
-        <p><strong>Tool Material & Wear:</strong> Electrodes: copper, tungsten alloy, graphite. Tool wear rate depends on
+        <p><strong>Tool Material & Wear:</strong> Electrodes: copper, tungsten alloy, graphite. Tool wear rate depends
+            on
             polarity; with standard polarity, EDM has moderate wear (higher than ECM, lower than USM mechanical wear).
             No material removal from tool in reverse polarity (workpiece is cathode).</p>
     </div>
@@ -367,8 +456,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/uncon/edm_process_setup.jpg" alt="EDM Process Setup Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.1: Electrical Discharge Machining (EDM) Spark Erosion Setup &amp; Dielectric Circuit.</div>
+        <img src="images/uncon/edm_process_setup.jpg" alt="EDM Process Setup Diagram"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: Electrical Discharge Machining (EDM) Spark Erosion Setup &amp; Dielectric
+            Circuit.</div>
     </div>
 
     <h3>1.2 Electrochemical Machining (ECM)</h3>
@@ -420,8 +511,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/uncon/ecm_process_setup.webp" alt="ECM Process Setup Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.2: Electrochemical Machining (ECM) Anodic Dissolution Setup &amp; Electrolyte Circuit.</div>
+        <img src="images/uncon/ecm_process_setup.webp" alt="ECM Process Setup Diagram"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Electrochemical Machining (ECM) Anodic Dissolution Setup &amp; Electrolyte
+            Circuit.</div>
     </div>
 
     <h3>1.3 Ultrasonic Machining (USM)</h3>
@@ -467,8 +560,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/uncon/usm_process_setup.png" alt="USM Process Setup Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.3: Ultrasonic Machining (USM) Transducer, Horn, Vibrating Tool, &amp; Abrasive Slurry Flow.</div>
+        <img src="images/uncon/usm_process_setup.png" alt="USM Process Setup Diagram"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Ultrasonic Machining (USM) Transducer, Horn, Vibrating Tool, &amp; Abrasive
+            Slurry Flow.</div>
     </div>
 
     <h3>1.4 Laser Beam Machining (LBM)</h3>
@@ -508,8 +603,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/uncon/lbm_process_setup.png" alt="LBM Process Setup Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.4: Laser Beam Machining (LBM) Setup — Laser Source, Lens, Assist Gas, &amp; Vaporization.</div>
+        <img src="images/uncon/lbm_process_setup.png" alt="LBM Process Setup Diagram"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Laser Beam Machining (LBM) Setup — Laser Source, Lens, Assist Gas, &amp;
+            Vaporization.</div>
     </div>
 
     <h3>1.5 Electron Beam Machining (EBM)</h3>
@@ -530,8 +627,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/uncon/ebm_process_setup.png" alt="EBM Process Setup Diagram" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.5: Electron Beam Machining (EBM) Setup — Electron Gun, Accelerating Anode, &amp; Vacuum Chamber.</div>
+        <img src="images/uncon/ebm_process_setup.png" alt="EBM Process Setup Diagram"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5: Electron Beam Machining (EBM) Setup — Electron Gun, Accelerating Anode,
+            &amp; Vacuum Chamber.</div>
     </div>
 
     <h3>1.6 Abrasive Jet Machining (AJM)</h3>
@@ -809,33 +908,33 @@
             USM for brittle materials &nbsp; | &nbsp; 4. Process selection by workpiece property &nbsp; | &nbsp; 5. MRR
             & surface finish comparison
         </p>
-    <div id="reading-progress"></div>
-    <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+        <div id="reading-progress"></div>
+        <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
 
-    <script>
-        (function() {
-            var toggle = document.getElementById("theme-toggle");
-            var saved = localStorage.getItem("ag-theme") || "dark";
-            function applyTheme(t) {
-                document.documentElement.setAttribute("data-theme", t);
-                if(toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
-                localStorage.setItem("ag-theme", t);
-            }
-            applyTheme(saved);
-            if(toggle) {
-                toggle.addEventListener("click", function() {
-                    var current = document.documentElement.getAttribute("data-theme") || "dark";
-                    applyTheme(current === "dark" ? "light" : "dark");
-                });
-            }
-            var bar = document.getElementById("reading-progress");
-            window.addEventListener("scroll", function() {
-                if(!bar) return;
-                var d = document.documentElement.scrollHeight - window.innerHeight;
-                bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
-            }, { passive: true });
-        })();
-    </script>
+        <script>
+            (function () {
+                var toggle = document.getElementById("theme-toggle");
+                var saved = localStorage.getItem("ag-theme") || "dark";
+                function applyTheme(t) {
+                    document.documentElement.setAttribute("data-theme", t);
+                    if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                    localStorage.setItem("ag-theme", t);
+                }
+                applyTheme(saved);
+                if (toggle) {
+                    toggle.addEventListener("click", function () {
+                        var current = document.documentElement.getAttribute("data-theme") || "dark";
+                        applyTheme(current === "dark" ? "light" : "dark");
+                    });
+                }
+                var bar = document.getElementById("reading-progress");
+                window.addEventListener("scroll", function () {
+                    if (!bar) return;
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            })();
+        </script>
 </body>
 
 </html>
