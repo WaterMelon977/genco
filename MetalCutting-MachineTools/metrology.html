@@ -46,6 +46,7 @@
             --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
             --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
         }
+
         [data-theme="dark"] {
             --bg-page: #0E0F12;
             --bg-card: #16181D;
@@ -76,8 +77,16 @@
             --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             font-size: 10.5pt;
@@ -92,43 +101,86 @@
         }
 
         #reading-progress {
-            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
-            background: var(--text-accent); z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--text-accent);
+            z-index: 9999;
             transition: width 0.1s linear;
         }
 
         #theme-toggle {
-            position: fixed; top: 18px; right: 24px;
-            background: var(--bg-card); border: 1px solid var(--border-light);
-            color: var(--text-secondary); border-radius: 50%;
-            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 13pt; z-index: 9998;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            position: fixed;
+            top: 18px;
+            right: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13pt;
+            z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
             transition: all 0.2s ease;
         }
-        #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
+        #theme-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-accent);
+            transform: scale(1.08);
+        }
 
         .submodule-nav {
-            background: var(--bg-card); border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             border-left: 4px solid var(--subject-current);
-            padding: 14px 20px; border-radius: 10px; margin-bottom: 28px;
-            text-align: center; box-shadow: var(--shadow-card);
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-            gap: 8px; font-size: 9.5pt;
-        }
-        .submodule-nav a {
-            color: var(--text-secondary); font-weight: 600; text-decoration: none;
-            padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease;
-        }
-        .submodule-nav a:hover {
-            color: var(--subject-current); background: var(--bg-formula);
-        }
-        .submodule-nav a.active {
-            color: var(--subject-current); font-weight: 700;
-            background: var(--bg-formula); border: 1px solid var(--subject-current);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 9.5pt;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        .submodule-nav a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .submodule-nav a:hover {
+            color: var(--subject-current);
+            background: var(--bg-formula);
+        }
+
+        .submodule-nav a.active {
+            color: var(--subject-current);
+            font-weight: 700;
+            background: var(--bg-formula);
+            border: 1px solid var(--subject-current);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: "Bookman Old Style", Georgia, serif;
             color: var(--heading-color);
             font-weight: 700;
@@ -148,6 +200,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             line-height: 1.35;
         }
+
         [data-theme="dark"] h1 {
             background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
         }
@@ -177,7 +230,10 @@
             text-decoration: none;
             transition: color 0.15s;
         }
-        a:hover { text-decoration: underline; }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         code {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -222,7 +278,8 @@
             box-shadow: var(--shadow-card);
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid var(--border-light);
             padding: 12px 16px;
             text-align: left;
@@ -243,41 +300,60 @@
         }
 
         @keyframes formulaBreathe {
-          0%, 100% {
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
-                        0 0 18px 2px var(--subject-current);
-            border-left-color: var(--subject-current);
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
-          }
-          50% {
-            box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
-                        0 0 32px 6px var(--subject-current-light);
-            border-left-color: var(--subject-production-light, #A78BFA);
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
-          }
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+                    0 0 18px 2px var(--subject-current);
+                border-left-color: var(--subject-current);
+                background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, var(--bg-formula) 75%);
+            }
+
+            50% {
+                box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
+                    0 0 32px 6px var(--subject-current-light);
+                border-left-color: var(--subject-production-light, #A78BFA);
+                background: linear-gradient(135deg, rgba(139, 92, 246, 0.22) 0%, var(--bg-formula) 60%);
+            }
         }
 
-        .formula-card, .fc, .concept-block {
-          border: 1px solid var(--border-light);
-          border-left: 5px solid var(--subject-current);
-          border-radius: 10px;
-          padding: 16px 20px; margin: 22px 0;
-          text-align: center; overflow-x: auto;
-          animation: formulaBreathe 3.5s ease-in-out infinite;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .formula-card,
+        .fc,
+        .concept-block {
+            border: 1px solid var(--border-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 22px 0;
+            text-align: center;
+            overflow-x: auto;
+            animation: formulaBreathe 3.5s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .formula-card:hover, .fc:hover, .concept-block:hover {
-          transform: translateY(-3px) scale(1.01);
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
-          box-shadow: 0 0 45px 8px var(--subject-current),
-                      0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
-          border-color: var(--subject-current);
+        .formula-card:hover,
+        .fc:hover,
+        .concept-block:hover {
+            transform: translateY(-3px) scale(1.01);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.32) 0%, rgba(139, 92, 246, 0.10) 100%) !important;
+            box-shadow: 0 0 45px 8px var(--subject-current),
+                0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+            border-color: var(--subject-current);
         }
 
-        ul { margin: 14px 0; padding-left: 24px; }
-        li { margin: 8px 0; line-height: 1.7; }
-        strong { color: var(--text-primary); }
+        ul {
+            margin: 14px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.7;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
 
         .exam-focus {
             background: var(--callout-focus-bg);
@@ -290,6 +366,7 @@
             font-size: 10pt;
             box-shadow: var(--shadow-card);
         }
+
         .exam-focus::before {
             content: "🔴 EXAM FOCUS: ";
             font-weight: 800;
@@ -304,28 +381,39 @@
             background: #FFFFFF;
         }
 
-        .img-container { text-align: center; margin: 24px 0; }
+        .img-container {
+            text-align: center;
+            margin: 24px 0;
+        }
+
         .img-caption {
             font-size: 9.5pt;
             color: var(--text-secondary);
             margin-top: 8px;
             font-style: italic;
         }
-        }
     </style>
 </head>
 
 <body id="preview">
 
-    <div style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
+    <div
+        style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
         <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-        <a href="metal_cutting_hub.html" style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub Home]</a> |
-        <a href="metal_cutting_machine_tools.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
-        <a href="machine_tools_grinding.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-        <a href="metrology.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3. Metrology</a> |
+        <a href="metal_cutting_hub.html"
+            style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub
+            Home]</a> |
+        <a href="metal_cutting_machine_tools.html"
+            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
+        <a href="machine_tools_grinding.html"
+            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
+        <a href="metrology.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3.
+            Metrology</a> |
         <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
-        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs &amp; Fixtures</a> |
-        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6. EDM/ECM/USM</a>
+        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs
+            &amp; Fixtures</a> |
+        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6.
+            EDM/ECM/USM</a>
     </div>
 
     <h1>METROLOGY & MEASUREMENT<br />Revision Guide for Competitive Exams</h1>
@@ -375,8 +463,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/limits_fits_tolerances.jpg" alt="Limits, Fits and Tolerances" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.1: ISO Limits, Fits &amp; Tolerances — Hole-Basis vs Shaft-Basis Systems, Zero Line, &amp; Fundamental Deviations.</div>
+        <img src="images/metrology/limits_fits_tolerances.jpg" alt="Limits, Fits and Tolerances"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.1: ISO Limits, Fits &amp; Tolerances — Hole-Basis vs Shaft-Basis Systems, Zero
+            Line, &amp; Fundamental Deviations.</div>
     </div>
 
     <h3>1.2 Gauging & Limit Gauges</h3>
@@ -405,8 +495,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/go_no_go_gauges.webp" alt="GO NO-GO Limit Gauges" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.2: Limit Gauging &amp; Taylor's Principle — GO (Minimum Material Limit profile) vs NO-GO (Maximum Material Limit feature).</div>
+        <img src="images/metrology/go_no_go_gauges.webp" alt="GO NO-GO Limit Gauges"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.2: Limit Gauging &amp; Taylor's Principle — GO (Minimum Material Limit
+            profile) vs NO-GO (Maximum Material Limit feature).</div>
     </div>
 
     <h3>1.3 Slip Gauges (Precision Gauge Blocks)</h3>
@@ -433,8 +525,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/slip_gauges_wringing.jpg" alt="Slip Gauges Wringing" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.3: Slip Gauges (Gauge Blocks) &amp; Optical Wringing Principle for Stacking Precision Length Standards.</div>
+        <img src="images/metrology/slip_gauges_wringing.jpg" alt="Slip Gauges Wringing"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.3: Slip Gauges (Gauge Blocks) &amp; Optical Wringing Principle for Stacking
+            Precision Length Standards.</div>
     </div>
 
     <h3>1.4 Measuring Instruments — Linear Measurement</h3>
@@ -462,8 +556,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/vernier_micrometer_scales.jpg" alt="Vernier and Micrometer Scales" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.4: Linear Measuring Scales — Vernier Caliper ($0.02\text{ mm}$ LC) &amp; Micrometer Screw Gauge ($0.01\text{ mm}$ LC).</div>
+        <img src="images/metrology/vernier_micrometer_scales.jpg" alt="Vernier and Micrometer Scales"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.4: Linear Measuring Scales — Vernier Caliper ($0.02\text{ mm}$ LC) &amp;
+            Micrometer Screw Gauge ($0.01\text{ mm}$ LC).</div>
     </div>
 
     <h3>1.5 Angular Measurement — Sine Bar</h3>
@@ -490,8 +586,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/sine_bar_setup.png" alt="Sine Bar Setup" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.5: Sine Bar Setup for Precise Angle Measurement using Slip Gauge Height ($h = L \sin \theta$).</div>
+        <img src="images/metrology/sine_bar_setup.png" alt="Sine Bar Setup"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.5: Sine Bar Setup for Precise Angle Measurement using Slip Gauge Height ($h =
+            L \sin \theta$).</div>
     </div>
 
     <h3>1.6 Surface Roughness & Finish Measurement</h3>
@@ -520,8 +618,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/surface_roughness_ra.jpg" alt="Surface Roughness Profile Ra" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.6: Surface Roughness Parameters — Arithmetic Mean Roughness ($R_a$), Peak-to-Valley Deviation, &amp; Centerline.</div>
+        <img src="images/metrology/surface_roughness_ra.jpg" alt="Surface Roughness Profile Ra"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.6: Surface Roughness Parameters — Arithmetic Mean Roughness ($R_a$),
+            Peak-to-Valley Deviation, &amp; Centerline.</div>
     </div>
 
     <h3>1.7 Comparators & Transducers</h3>
@@ -533,7 +633,8 @@
 
     <div class="concept-block">
         <p><strong>Dial Indicator (Mechanical Comparator):</strong> Probe contacts workpiece, movement magnified by
-            gears to pointer on dial. Accuracy: ±0.01–0.05 mm. Must be zeroed against a master gauge before use (since it
+            gears to pointer on dial. Accuracy: ±0.01–0.05 mm. Must be zeroed against a master gauge before use (since
+            it
             reads relative displacement, not absolute).</p>
     </div>
 
@@ -552,8 +653,10 @@
     </div>
 
     <div class="img-container">
-        <img src="images/metrology/lvdt_comparator_schema.jpeg" alt="LVDT Displacement Transducer Schematic" style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
-        <div class="img-caption">Figure 1.7: Linear Variable Differential Transformer (LVDT) Schematic &amp; Inductive Displacement Transducer.</div>
+        <img src="images/metrology/lvdt_comparator_schema.jpeg" alt="LVDT Displacement Transducer Schematic"
+            style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
+        <div class="img-caption">Figure 1.7: Linear Variable Differential Transformer (LVDT) Schematic &amp; Inductive
+            Displacement Transducer.</div>
     </div>
 
     <h3>1.8 Accuracy vs Precision</h3>
@@ -785,7 +888,8 @@
             (vernier division × 0.02). Range typically 0–150 mm.</li>
         <li><strong>Micrometer least count: 0.01 mm</strong> (0.5 mm ÷ 50 divisions). Pitch 0.5 mm per rotation. Ratchet
             stop standardizes measuring pressure. Range 0–25 mm typical.</li>
-        <li><strong>Tolerance formula (ISO): $i = 0.45\sqrt[3]{D} + 0.001D$</strong> (tolerance unit in μm). Used to define
+        <li><strong>Tolerance formula (ISO): $i = 0.45\sqrt[3]{D} + 0.001D$</strong> (tolerance unit in μm). Used to
+            define
             IT grades; IT01 finest, IT18 coarsest. Must memorize for some competitive exams.</li>
         <li><strong>GO gauge checks full form (Taylor's principle);</strong> NO-GO checks one feature at a time. GO must
             pass acceptable parts; NO-GO must not pass acceptable parts.</li>
@@ -796,7 +900,8 @@
         <li><strong>Surface roughness Ra: higher value = rougher surface.</strong> Ra = 0.5–1 μm (excellent), 1–3 μm
             (good), 3–6 μm (normal). Ra is average deviation from centerline (measured in μm).</li>
         <li><strong>Dial indicator (comparator): comparative instrument, must be zeroed to reference.</strong> Reads
-            displacement from master, not absolute dimension. Accuracy ±0.03–0.05 mm depending on range and preload.</li>
+            displacement from master, not absolute dimension. Accuracy ±0.03–0.05 mm depending on range and preload.
+        </li>
         <li><strong>LVDT: displacement transducer, output AC voltage proportional to core displacement.</strong>
             Non-contact, used in automated systems. Linearity excellent (±0.05% full scale).</li>
         <li><strong>Strain gauge: $\Delta R / R = G \times \varepsilon$.</strong> Gauge factor $G$ typically 2–4.
@@ -823,33 +928,33 @@
             Vernier & micrometer least count &nbsp; | &nbsp; 4. Sine bar angle measurement &nbsp; | &nbsp; 5. Surface
             roughness (Ra) and accuracy vs precision
         </p>
-    <div id="reading-progress"></div>
-    <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+        <div id="reading-progress"></div>
+        <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
 
-    <script>
-        (function() {
-            var toggle = document.getElementById("theme-toggle");
-            var saved = localStorage.getItem("ag-theme") || "dark";
-            function applyTheme(t) {
-                document.documentElement.setAttribute("data-theme", t);
-                if(toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
-                localStorage.setItem("ag-theme", t);
-            }
-            applyTheme(saved);
-            if(toggle) {
-                toggle.addEventListener("click", function() {
-                    var current = document.documentElement.getAttribute("data-theme") || "dark";
-                    applyTheme(current === "dark" ? "light" : "dark");
-                });
-            }
-            var bar = document.getElementById("reading-progress");
-            window.addEventListener("scroll", function() {
-                if(!bar) return;
-                var d = document.documentElement.scrollHeight - window.innerHeight;
-                bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
-            }, { passive: true });
-        })();
-    </script>
+        <script>
+            (function () {
+                var toggle = document.getElementById("theme-toggle");
+                var saved = localStorage.getItem("ag-theme") || "dark";
+                function applyTheme(t) {
+                    document.documentElement.setAttribute("data-theme", t);
+                    if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                    localStorage.setItem("ag-theme", t);
+                }
+                applyTheme(saved);
+                if (toggle) {
+                    toggle.addEventListener("click", function () {
+                        var current = document.documentElement.getAttribute("data-theme") || "dark";
+                        applyTheme(current === "dark" ? "light" : "dark");
+                    });
+                }
+                var bar = document.getElementById("reading-progress");
+                window.addEventListener("scroll", function () {
+                    if (!bar) return;
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            })();
+        </script>
 </body>
 
 </html>
