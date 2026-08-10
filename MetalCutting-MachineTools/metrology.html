@@ -379,26 +379,18 @@
     </style>
 </head>
 
-<body id="preview">
+<body id="preview" data-subject="production">
 
-    <div
-        style="background: linear-gradient(135deg, #4A2E1B 0%, #664229 100%); padding: 14px 20px; font-family: system-ui, sans-serif; font-size: 10.5pt; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 6px 16px rgba(74, 46, 27, 0.18);">
-        <span style="color:#E8DACF; font-weight:700; margin-right:10px;">📚 Sub-Module Navigation:</span>
-        <a href="metal_cutting_hub.html"
-            style="color:#FFFDF9; font-weight:600; text-decoration:none; margin:0 6px; background:rgba(255,255,255,0.12); padding:4px 10px; border-radius:14px;">[Hub
-            Home]</a> |
-        <a href="metal_cutting_machine_tools.html"
-            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">1. Metal Cutting</a> |
-        <a href="machine_tools_grinding.html"
-            style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">2. Machine Tools</a> |
-        <a href="metrology.html" style="color:#FFFDF9; font-weight:700; text-decoration:underline; margin:0 6px;">3.
-            Metrology</a> |
-        <a href="NC.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">4. NC/CNC</a> |
-        <a href="jigs_fixtures.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">5. Jigs
-            &amp; Fixtures</a> |
-        <a href="EDM_ECM_USM.html" style="color:#E8DACF; font-weight:600; text-decoration:none; margin:0 6px;">6.
-            EDM/ECM/USM</a>
-    </div>
+    <nav class="submodule-nav">
+        <span style="color:var(--text-accent); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="metal_cutting_hub.html">[Hub Home]</a>
+        <a href="metal_cutting_machine_tools.html">1. Metal Cutting</a>
+        <a href="machine_tools_grinding.html">2. Machine Tools</a>
+        <a href="metrology.html" class="active">3. Metrology</a>
+        <a href="NC.html">4. NC/CNC</a>
+        <a href="jigs_fixtures.html">5. Jigs &amp; Fixtures</a>
+        <a href="EDM_ECM_USM.html">6. EDM/ECM/USM</a>
+    </nav>
 
     <h1>METROLOGY & MEASUREMENT<br />Revision Guide for Competitive Exams</h1>
 
@@ -408,7 +400,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <h2>1. Core Concepts & Definitions</h2>
+    <h2>1. Topic-by-Topic Comprehensive Guide</h2>
     <!-- ═══════════════════════════════════════════════════════════════════ -->
 
     <h3>1.1 Tolerance, Limits & Fits (ISO System)</h3>
@@ -446,6 +438,24 @@
             zone relative to nominal size.</p>
     </div>
 
+    <h4>ISO Tolerance Unit Formula</h4>
+    <div class="formula-card">
+        $$i = 0.45\sqrt[3]{D} + 0.001D$$
+    </div>
+    <p><strong>Where:</strong> $i$ = tolerance unit (μm), $D$ = nominal dimension (mm). Used to calculate IT grades: IT
+        grade = $k \times i$ (where $k$ depends on IT level). Required for competitive exams.</p>
+
+    <h4>Maximum & Minimum Dimensions</h4>
+    <div class="formula-card">
+        $$\text{Max} = \text{Nominal} + \text{Upper Deviation}$$
+        $$\text{Min} = \text{Nominal} + \text{Lower Deviation}$$
+    </div>
+
+    <h4>Tolerance Formula</h4>
+    <div class="formula-card">
+        $$\text{Tolerance} = \text{Max} - \text{Min}$$
+    </div>
+
     <div class="img-container">
         <img src="images/metrology/limits_fits_tolerances.jpg" alt="Limits, Fits and Tolerances"
             style="max-width:100%; max-height:360px; height:auto; object-fit:contain;" />
@@ -476,6 +486,12 @@
         <p><strong>Plug & Ring Gauges:</strong> Plug gauge: for checking internal holes (GO plug enters, NO-GO plug does
             not). Ring gauge: for checking external shafts (GO ring goes on, NO-GO ring does not). Both fixed-limit
             gauges without adjustment.</p>
+    </div>
+
+    <div class="exam-focus">
+        <strong>⚠️ EXAM TRAP (LIMIT GAUGES &amp; TAYLOR'S PRINCIPLE):</strong><br />
+        • <strong>GO Gauge:</strong> Checks <strong>Minimum Material Limit (LML)</strong> &amp; <strong>Full Form / Complete Profile</strong>.<br />
+        • <strong>NO-GO Gauge:</strong> Checks <strong>Maximum Material Limit (MML)</strong> &amp; <strong>Single Element / One Feature at a Time</strong>.
     </div>
 
     <div class="img-container">
@@ -522,10 +538,31 @@
             mm). Range: 0–150 mm typical.</p>
     </div>
 
+    <h4>Vernier Least Count Formula</h4>
+    <div class="formula-card">
+        $$LC = \frac{\text{Main Scale Division}}{\text{Number of Vernier Divisions}} = \frac{1 \text{ mm}}{50} = 0.02
+        \text{ mm}$$
+    </div>
+
+    <h4>Vernier Reading Formula</h4>
+    <div class="formula-card">
+        $$\text{Reading} = \text{Main Scale} + (\text{Vernier Division} \times LC)$$
+    </div>
+
     <div class="concept-block">
         <p><strong>Micrometer Screw Gauge:</strong> Reads to 0.01 mm (least count). Thimble scale has 50 divisions; one
             rotation = 0.5 mm pitch. Reading = main scale (mm) + (thimble division × 0.01 mm). Ratchet stop prevents
             over-tightening (standardizes measuring force). Range: 0–25 mm typical.</p>
+    </div>
+
+    <h4>Micrometer Least Count Formula</h4>
+    <div class="formula-card">
+        $$LC = \frac{\text{Pitch}}{\text{Number of Thimble Divisions}} = \frac{0.5 \text{ mm}}{50} = 0.01 \text{ mm}$$
+    </div>
+
+    <h4>Micrometer Reading Formula</h4>
+    <div class="formula-card">
+        $$\text{Reading} = \text{Main Scale (mm)} + (\text{Thimble Division} \times 0.01)$$
     </div>
 
     <div class="concept-block">
@@ -553,6 +590,23 @@
             between precision rollers (typically 100 mm or 200 mm, fixed).</p>
     </div>
 
+    <h4>Sine Bar Fundamental Relation</h4>
+    <div class="formula-card">
+        $$\sin \theta = \frac{h}{L}$$
+    </div>
+    <p><strong>Where:</strong> $\theta$ = angle to be measured or set, $h$ = height of slip gauge stack (mm), $L$ =
+        center distance between precision rollers (100 or 200 mm, fixed).</p>
+
+    <h4>Required Slip Gauge Height</h4>
+    <div class="formula-card">
+        $$h = L \sin \theta$$
+    </div>
+
+    <h4>Angle Calculation from Height</h4>
+    <div class="formula-card">
+        $$\theta = \arcsin\left(\frac{h}{L}\right)$$
+    </div>
+
     <div class="concept-block">
         <p><strong>Setup:</strong> Sine bar placed on surface plate with one roller on plate, other elevated by slip
             gauge stack. Workpiece secured on bar. Dial indicator or comparator checks if workpiece surface is level
@@ -560,8 +614,7 @@
     </div>
 
     <div class="concept-block">
-        <p><strong>Angle Calculation:</strong> Angle = $\arcsin(h/L)$. For small angles, error ≈ $\frac{L}{2}\theta^2$
-            (in radians). Most accurate within 30° of the horizontal; loss of sensitivity beyond that.</p>
+        <p><strong>Accuracy Limit:</strong> Sine bar is most accurate for angles up to 45° (typically within 30° of horizontal); sensitivity drops significantly beyond that due to rapid change in $\sin \theta$.</p>
     </div>
 
     <div class="concept-block">
@@ -582,6 +635,13 @@
             deviation from centerline over sampling length. Rz (ten-point average) = mean of 5 highest peaks and 5
             deepest valleys. Rq (root mean square) = RMS of deviations.</p>
     </div>
+
+    <h4>Arithmetic Average Roughness (Ra) Formula</h4>
+    <div class="formula-card">
+        $$R_a = \frac{1}{L}\int_0^L |y(x)| \, dx$$
+    </div>
+    <p><strong>Where:</strong> $L$ = sampling length (mm), $y(x)$ = deviation of surface profile from centerline. Ra is
+        measured in μm; higher Ra indicates rougher surface.</p>
 
     <div class="concept-block">
         <p><strong>Ra Interpretation:</strong> Higher Ra = rougher surface. Unit: micrometers (μm). Typical ranges:
@@ -610,31 +670,35 @@
 
     <h3>1.7 Comparators & Transducers</h3>
     <div class="concept-block">
-        <p><strong>Comparator (Comparision Instrument):</strong> Measures deviation from a reference standard, not
+        <p><strong>Comparator (Comparison Instrument):</strong> Measures deviation from a reference standard, not
             absolute dimension. Types: mechanical (dial indicator), electronic (LVDT, inductive), pneumatic, optical.
         </p>
     </div>
 
     <div class="concept-block">
         <p><strong>Dial Indicator (Mechanical Comparator):</strong> Probe contacts workpiece, movement magnified by
-            gears to pointer on dial. Accuracy: ±0.01–0.05 mm. Must be zeroed against a master gauge before use (since
-            it
-            reads relative displacement, not absolute).</p>
+            gears to pointer on dial. Accuracy: ±0.01–0.05 mm. Must be zeroed against a master gauge before use (reads relative displacement).</p>
     </div>
 
     <div class="concept-block">
         <p><strong>LVDT (Linear Variable Differential Transformer):</strong> Non-contact displacement transducer. Core
             slides inside two coils; axial movement changes mutual inductance, producing AC voltage proportional to
-            displacement. Output: 0–10 V for 0–X mm range (depending on setup). Used in automated comparators and
-            inspection systems.</p>
+            displacement. Used in automated comparators and inspection systems.</p>
     </div>
 
     <div class="concept-block">
-        <p><strong>Strain Gauge:</strong> Measures strain via change in electrical resistance. Gauge factor $G$ relates
-            fractional resistance change to strain: $\frac{\Delta R}{R} = G \times \varepsilon$. Typically connected in
+        <p><strong>Strain Gauge:</strong> Measures strain via change in electrical resistance. Typically connected in
             Wheatstone bridge for amplification and temperature compensation. Output: mV signal proportional to applied
             stress.</p>
     </div>
+
+    <h4>Strain Gauge Resistance & Strain Formula</h4>
+    <div class="formula-card">
+        $$\frac{\Delta R}{R} = G \times \varepsilon$$
+    </div>
+    <p><strong>Where:</strong> $\Delta R$ = change in resistance (Ω), $R$ = initial resistance (Ω), $G$ = gauge factor
+        (typically 2–4), $\varepsilon$ = strain (dimensionless). Output voltage in Wheatstone bridge: $V_{\text{out}}
+        \propto \varepsilon$.</p>
 
     <div class="img-container">
         <img src="images/metrology/lvdt_comparator_schema.jpeg" alt="LVDT Displacement Transducer Schematic"
@@ -661,95 +725,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <h2>2. Essential Formulas</h2>
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-
-    <h3>2.1 Tolerance & Limits</h3>
-
-    <h4>Tolerance Unit (ISO)</h4>
-    <div class="formula-card">
-        $$i = 0.45\sqrt[3]{D} + 0.001D$$
-    </div>
-    <p><strong>Where:</strong> $i$ = tolerance unit (μm), $D$ = nominal dimension (mm). Used to calculate IT grades: IT
-        grade = $k \times i$ (where $k$ depends on IT level). Not commonly asked numerically, but formula memorization
-        required for some exams.</p>
-
-    <h4>Maximum & Minimum Dimensions</h4>
-    <div class="formula-card">
-        $$\text{Max} = \text{Nominal} + \text{Upper Deviation}$$
-        $$\text{Min} = \text{Nominal} + \text{Lower Deviation}$$
-    </div>
-
-    <h4>Tolerance</h4>
-    <div class="formula-card">
-        $$\text{Tolerance} = \text{Max} - \text{Min}$$
-    </div>
-
-    <h3>2.2 Vernier Caliper Reading</h3>
-
-    <h4>Vernier Least Count</h4>
-    <div class="formula-card">
-        $$LC = \frac{\text{Main Scale Division}}{\text{Number of Vernier Divisions}} = \frac{1 \text{ mm}}{50} = 0.02
-        \text{ mm}$$
-    </div>
-
-    <h4>Vernier Reading</h4>
-    <div class="formula-card">
-        $$\text{Reading} = \text{Main Scale} + (\text{Vernier Division} \times LC)$$
-    </div>
-
-    <h3>2.3 Micrometer Reading</h3>
-
-    <h4>Micrometer Least Count</h4>
-    <div class="formula-card">
-        $$LC = \frac{\text{Pitch}}{\text{Number of Thimble Divisions}} = \frac{0.5 \text{ mm}}{50} = 0.01 \text{ mm}$$
-    </div>
-
-    <h4>Micrometer Reading</h4>
-    <div class="formula-card">
-        $$\text{Reading} = \text{Main Scale (mm)} + (\text{Thimble Division} \times 0.01)$$
-    </div>
-
-    <h3>2.4 Sine Bar — Angular Measurement</h3>
-
-    <h4>Sine Bar Relation</h4>
-    <div class="formula-card">
-        $$\sin \theta = \frac{h}{L}$$
-    </div>
-    <p><strong>Where:</strong> $\theta$ = angle to be measured or set, $h$ = height of slip gauge stack (mm), $L$ =
-        center distance between precision rollers (100 or 200 mm, fixed).</p>
-
-    <h4>Required Slip Gauge Height</h4>
-    <div class="formula-card">
-        $$h = L \sin \theta$$
-    </div>
-
-    <h4>Angle from Measured Height</h4>
-    <div class="formula-card">
-        $$\theta = \arcsin\left(\frac{h}{L}\right)$$
-    </div>
-
-    <h3>2.5 Surface Roughness</h3>
-
-    <h4>Arithmetic Average Roughness (Ra)</h4>
-    <div class="formula-card">
-        $$R_a = \frac{1}{L}\int_0^L |y(x)| \, dx$$
-    </div>
-    <p><strong>Where:</strong> $L$ = sampling length (mm), $y(x)$ = deviation of surface profile from centerline. Ra is
-        measured in μm; higher Ra indicates rougher surface.</p>
-
-    <h3>2.6 Strain Gauge</h3>
-
-    <h4>Strain & Resistance Relation</h4>
-    <div class="formula-card">
-        $$\frac{\Delta R}{R} = G \times \varepsilon$$
-    </div>
-    <p><strong>Where:</strong> $\Delta R$ = change in resistance (Ω), $R$ = initial resistance (Ω), $G$ = gauge factor
-        (typically 2–4), $\varepsilon$ = strain (dimensionless). Output voltage in Wheatstone bridge: $V_{\text{out}}
-        \propto \varepsilon$.</p>
-
-    <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <h2>3. Instruments & Measurement Parameters Comparison Table</h2>
+    <h2>2. Instruments & Measurement Parameters Comparison Table</h2>
     <!-- ═══════════════════════════════════════════════════════════════════ -->
 
     <table>
@@ -864,7 +840,7 @@
     </table>
 
     <!-- ═══════════════════════════════════════════════════════════════════ -->
-    <h2>4. Key Points to Remember</h2>
+    <h2>3. Key Points to Remember</h2>
     <!-- ═══════════════════════════════════════════════════════════════════ -->
 
     <ul>
@@ -873,8 +849,7 @@
         <li><strong>Micrometer least count: 0.01 mm</strong> (0.5 mm ÷ 50 divisions). Pitch 0.5 mm per rotation. Ratchet
             stop standardizes measuring pressure. Range 0–25 mm typical.</li>
         <li><strong>Tolerance formula (ISO): $i = 0.45\sqrt[3]{D} + 0.001D$</strong> (tolerance unit in μm). Used to
-            define
-            IT grades; IT01 finest, IT18 coarsest. Must memorize for some competitive exams.</li>
+            define IT grades; IT01 finest, IT18 coarsest. Must memorize for competitive exams.</li>
         <li><strong>GO gauge checks full form (Taylor's principle);</strong> NO-GO checks one feature at a time. GO must
             pass acceptable parts; NO-GO must not pass acceptable parts.</li>
         <li><strong>Slip gauges build length standards via wringing</strong> (optical contact, no adhesive). Typical
@@ -912,33 +887,35 @@
             Vernier & micrometer least count &nbsp; | &nbsp; 4. Sine bar angle measurement &nbsp; | &nbsp; 5. Surface
             roughness (Ra) and accuracy vs precision
         </p>
-        <div id="reading-progress"></div>
-        <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+    </div>
 
-        <script>
-            (function () {
-                var toggle = document.getElementById("theme-toggle");
-                var saved = localStorage.getItem("ag-theme") || "dark";
-                function applyTheme(t) {
-                    document.documentElement.setAttribute("data-theme", t);
-                    if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
-                    localStorage.setItem("ag-theme", t);
-                }
-                applyTheme(saved);
-                if (toggle) {
-                    toggle.addEventListener("click", function () {
-                        var current = document.documentElement.getAttribute("data-theme") || "dark";
-                        applyTheme(current === "dark" ? "light" : "dark");
-                    });
-                }
-                var bar = document.getElementById("reading-progress");
-                window.addEventListener("scroll", function () {
-                    if (!bar) return;
-                    var d = document.documentElement.scrollHeight - window.innerHeight;
-                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
-                }, { passive: true });
-            })();
-        </script>
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" title="Toggle dark mode">&#127771;</button>
+
+    <script>
+        (function () {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if (toggle) toggle.textContent = (t === "dark") ? "\u{1F319}" : "\u2600\uFE0F";
+                localStorage.setItem("ag-theme", t);
+            }
+            applyTheme(saved);
+            if (toggle) {
+                toggle.addEventListener("click", function () {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+            var bar = document.getElementById("reading-progress");
+            window.addEventListener("scroll", function () {
+                if (!bar) return;
+                var d = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+            }, { passive: true });
+        })();
+    </script>
 </body>
 
 </html>
