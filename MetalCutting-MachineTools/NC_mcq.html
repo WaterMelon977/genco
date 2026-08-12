@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="production">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC–CNC–CAD/CAM–CIM — MCQ Grind & Master Revision Sheet</title>
+    <meta name="description" content="Ultra-high-yield MCQ Grind & Master Revision Sheet for NC, CNC, DNC, CAD, CAM, CAE, CAPP, FMS, and CIM. APGENCO AE, SSC JE Mechanical, and GATE exam preparation.">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
+            --border-light: #E2E8F0;
+            --border-hover: #8B5CF6;
+            --heading-color: #0F172A;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #F8FAFC;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
+            --border-light: #262933;
+            --border-hover: #8B5CF6;
+            --heading-color: #F1F5F9;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #121419;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--text-accent);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 18px;
+            right: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 13pt;
+            z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        #theme-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-accent);
+            transform: scale(1.08);
+        }
+
+        .submodule-nav {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 9.5pt;
+        }
+
+        .submodule-nav a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .submodule-nav a:hover {
+            color: var(--subject-current);
+            background: var(--bg-formula);
+        }
+
+        .submodule-nav a.active {
+            color: var(--subject-current);
+            font-weight: 700;
+            background: var(--bg-formula);
+            border: 1px solid var(--subject-current);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 22pt;
+            text-align: center;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--text-accent);
+            padding: 28px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.35;
+        }
+
+        [data-theme="dark"] h1 {
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+        }
+
+        h2 {
+            font-size: 15pt;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--text-accent);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 13pt;
+            color: var(--heading-sub);
+            margin-top: 26px;
+        }
+
+        h4 {
+            font-size: 11pt;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        p { margin-bottom: 1em; }
+        ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+        li { margin-bottom: 0.4em; }
+
+        .exam-focus {
+            background: var(--bg-formula);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 10pt;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            color: var(--text-secondary);
+        }
+
+        /* Enlarged MathJax Formula Sizing & Visibility */
+        .mjx-chtml, .MathJax, mjx-container {
+            font-size: 118% !important;
+            line-height: 1.5;
+        }
+
+        .concept-block, .formula-card {
+            background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 75%);
+            border: 1px solid var(--subject-current-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 22px 0;
+            font-size: 11pt;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+
+        .concept-block:hover, .formula-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .callout-trap {
+            background-color: var(--callout-trap-bg);
+            border: 1px solid var(--callout-trap-border);
+            border-left: 5px solid var(--callout-trap-border);
+            color: var(--callout-trap-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            font-size: 9.5pt;
+        }
+
+        th, td {
+            border: 1px solid var(--border-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--table-th-text);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+            font-size: 9.5pt;
+            border-bottom: 2px solid var(--text-accent);
+        }
+
+        tr:nth-child(even) { background-color: var(--table-even-bg); }
+        tr:hover td { background-color: var(--subject-bg-tint); }
+
+        pre.ascii-tree {
+            background: var(--bg-formula);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 9pt;
+            color: var(--text-primary);
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.45;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            color: var(--text-accent);
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
+
+        .oneliners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .oneliner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 9.5pt;
+            box-shadow: var(--shadow-card);
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+
+        .oneliner-card:hover {
+            border-color: var(--subject-current);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .oneliner-num {
+            background: var(--subject-bg-tint);
+            color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 700;
+            font-size: 8.5pt;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--subject-current-light);
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .oneliner-text {
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .oneliner-text strong {
+            color: var(--subject-current);
+            font-weight: 700;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 10pt;
+            margin-bottom: 18px;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: var(--subject-current);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body id="preview" data-subject="production">
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--text-accent); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="metal_cutting_hub.html">[Hub Home]</a>
+        <a href="metal_cutting_machine_tools.html">1. Metal Cutting</a>
+        <a href="machine_tools_grinding.html">2. Machine Tools</a>
+        <a href="metrology.html">3. Metrology</a>
+        <a href="NC.html">4. NC/CNC Guide</a>
+        <a href="NC_mcq.html" class="active">4b. NC MCQ Grind</a>
+        <a href="jigs_fixtures.html">5. Jigs &amp; Fixtures</a>
+        <a href="jigs_fixtures_mcq.html">5b. Jigs &amp; Fixtures MCQ Grind</a>
+        <a href="EDM_ECM_USM.html">6. EDM/ECM/USM</a>
+    </nav>
+
+    <!-- Cross-Link Banner -->
+    <div class="concept-block" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span><strong>⚡ MCQ Grind Mode:</strong> Rapid 20-minute exam formula & MCQ trap revision sheet for NC/CNC/CAD/CAM/CIM.</span>
+        <a href="NC.html" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">&larr; Switch to Comprehensive NC/CNC Guide</a>
+    </div>
+
+    <h1>NC–CNC–CAD/CAM–CIM<br /><span style="font-size: 13pt; font-weight: 400; color: var(--text-secondary);">Ultra-High-Yield MCQ Grind & Master Revision Sheet &bull; APGENCO AE / SSC JE / GATE</span></h1>
+
+    <div class="exam-focus">
+        Exhaustive coverage of 49 topic modules + 50 high-frequency one-liners covering NC, CNC, DNC, G/M codes, Feed Drives, Encoders, Stepper Motors, Machining Centres, APT, DAC resolution, CAD/CAM/CAE, Modelling (CSG/B-Rep), CAPP, FMS, Automation, Computer Systems & FORTRAN.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 1 — ⚙️ NC, CNC & DNC FUNDAMENTALS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>1. NC vs CNC vs DNC</h3>
+    <table>
+        <thead>
+            <tr><th>Feature</th><th>NC</th><th>CNC</th><th>DNC</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Full form</td><td>Numerical Control</td><td>Computer Numerical Control</td><td>Direct/Distributed Numerical Control</td></tr>
+            <tr><td>Program storage</td><td>Punched tape, magnetic media, etc.</td><td><strong>Computer memory</strong></td><td><strong>Central/distributed computer + memory</strong></td></tr>
+            <tr><td>Program editing</td><td>Difficult</td><td><strong>Easy</strong></td><td>Easy</td></tr>
+            <tr><td>Diagnostics</td><td>Limited</td><td><strong>Self-diagnostic</strong></td><td>Central/system monitoring</td></tr>
+            <tr><td>Reprogramming</td><td>Difficult</td><td><strong>Easy</strong></td><td>Easy</td></tr>
+            <tr><td>Unit conversion</td><td>Limited/depends on system</td><td><strong>Possible</strong></td><td>Possible</td></tr>
+            <tr><td>Machine control</td><td>Individual NC controller</td><td>On-board computer</td><td><strong>Multiple NC/CNC machines</strong></td></tr>
+            <tr><td>Communication</td><td>Limited</td><td>Local</td><td><strong>Network/telecommunication lines</strong></td></tr>
+            <tr><td>Flexibility</td><td>Low</td><td>High</td><td><strong>Very high/system-level</strong></td></tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><strong>NC</strong> = programmed numerical instructions control machine movement.</li>
+        <li><strong>CNC</strong> = NC + <strong>computer-based control</strong>, memory, editing and diagnostics.</li>
+        <li><strong>DNC</strong> = computer/network system used to <strong>serve and coordinate multiple NC/CNC machines</strong>.</li>
+    </ul>
+
+    <h3>DNC system components</h3>
+    <ul>
+        <li><strong>Dedicated computer + bulk memory + telecommunication lines</strong> are required for a DNC system.</li>
+        <li><strong>Satellite computers</strong> in DNC serve a <strong>group of NC machines</strong> and can distribute processing/control functions.</li>
+        <li><strong>DNC = Computer + Memory + Communication + Multiple machines</strong>.</li>
+    </ul>
+
+    <h3>2. CNC Advantages over NC</h3>
+    <ul>
+        <li><strong>Easy operation</strong> compared with conventional NC.</li>
+        <li>Programs can be <strong>stored and recalled easily</strong>.</li>
+        <li><strong>Reprogramming/editing is easier</strong> in CNC than NC.</li>
+        <li>CNC provides <strong>self-diagnostic features</strong>.</li>
+        <li>CNC offers higher <strong>flexibility</strong> than NC.</li>
+        <li>CNC generally has lower <strong>data-reading/interpretation errors</strong>.</li>
+        <li><strong>Metric &leftrightarrow; inch conversion</strong> is possible in CNC (Commands: <strong>G20 = inch</strong>, <strong>G21 = mm</strong>).</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>⚠️ MCQ Trap:</strong> “Reprogramming in CNC is more difficult than NC” &rarr; <strong>FALSE</strong>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 2 — 🎯 CNC AXES & CONTROL</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>3. CNC Axis Convention</h3>
+    <h4>CNC lathe</h4>
+    <ul>
+        <li><strong>X-axis</strong> &rarr; cross/radial movement of cutting tool (Controls Diameter).</li>
+        <li><strong>Z-axis</strong> &rarr; longitudinal movement parallel to spindle axis (Controls Length).</li>
+        <li>Positive/negative Z direction is defined according to machine coordinate convention; movement <strong>towards/away from headstock</strong> is associated with Z-axis travel.</li>
+        <li><strong>Y-axis does not control the job</strong>; where provided, it represents an additional tool-axis direction.</li>
+        <li><strong>X, Y, Z are linear axes</strong>; <strong>A, B, C are rotary axes</strong>.</li>
+    </ul>
+
+    <div class="formula-card" style="text-align: center; font-weight: 700;">
+        CNC Lathe Shortcut: X &rarr; Diameter &bull; Z &rarr; Length
+    </div>
+
+    <h3>4. CNC Control Types</h3>
+    <table>
+        <thead>
+            <tr><th>Control</th><th>Typical application</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Point-to-point (PTP)</strong></td><td>Drilling, punching, spot welding</td></tr>
+            <tr><td><strong>Straight-line</strong></td><td>Turning, facing, simple tapering</td></tr>
+            <tr><td><strong>Contouring / continuous path</strong></td><td>Complex profiles and surfaces</td></tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><strong>Straight-line control in X and Z</strong> &rarr; turning + facing + taper turning.</li>
+        <li><strong>Simultaneous X–Y–Z control</strong> &rarr; 3D contour/complex-shape machining.</li>
+        <li>Complex shapes require <strong>coordinated simultaneous axis motion</strong>.</li>
+    </ul>
+
+    <div class="formula-card">
+        <strong>CNC Lathe Motion Combinations:</strong><br />
+        &bull; X only &rarr; Facing<br />
+        &bull; Z only &rarr; Turning<br />
+        &bull; X + Z simultaneous &rarr; Taper turning<br />
+        &bull; Synchronized spindle + axis &rarr; Threading
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 3 — 🧭 CNC INTERPOLATION</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>5. Interpolator</h3>
+    <ul>
+        <li><strong>Interpolator</strong> coordinates feed rates/motion of multiple axes.</li>
+        <li>Calculates intermediate points needed to generate the programmed tool path.</li>
+        <li>Used for <strong>linear, circular and contouring interpolation</strong>.</li>
+        <li>Does <strong>not</strong> directly perform spindle ON/OFF or coolant control.</li>
+    </ul>
+
+    <div class="concept-block">
+        <strong>Key Distinction:</strong><br />
+        &bull; <strong>Interpolator</strong> &rarr; Axis coordination & feed rate management<br />
+        &bull; <strong>Spindle controller</strong> &rarr; Spindle speed<br />
+        &bull; <strong>M-functions</strong> &rarr; Auxiliary machine functions
+    </div>
+
+    <h3>6. Important G-codes</h3>
+    <table>
+        <thead>
+            <tr><th>Code</th><th>Function</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>G00</strong></td><td>Rapid traverse</td></tr>
+            <tr><td><strong>G01</strong></td><td>Linear interpolation</td></tr>
+            <tr><td><strong>G02</strong></td><td>Circular interpolation — <strong>clockwise</strong></td></tr>
+            <tr><td><strong>G03</strong></td><td>Circular interpolation — <strong>counter-clockwise</strong></td></tr>
+            <tr><td><strong>G04</strong></td><td>Dwell</td></tr>
+            <tr><td><strong>G20</strong></td><td>Inch input</td></tr>
+            <tr><td><strong>G21</strong></td><td><strong>Metric/mm input</strong></td></tr>
+            <tr><td><strong>G28</strong></td><td>Return to reference point</td></tr>
+            <tr><td><strong>G32/G76</strong></td><td>Thread-cutting functions (controller dependent)</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout-trap">
+        <strong>MCQ Example:</strong> <code>G02 X45 Y25 R5</code> &rarr; <strong>Clockwise circular interpolation</strong> to endpoint (45, 25) with radius 5.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 4 — 🛠️ CNC M-CODES, F/S/T CODES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>7. M-code (Miscellaneous / Auxiliary Function)</h3>
+    <table>
+        <thead>
+            <tr><th>Code</th><th>Function</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>M00</strong></td><td>Program stop</td></tr>
+            <tr><td><strong>M01</strong></td><td>Optional stop</td></tr>
+            <tr><td><strong>M02</strong></td><td>End of program</td></tr>
+            <tr><td><strong>M03</strong></td><td>Spindle ON, clockwise</td></tr>
+            <tr><td><strong>M05</strong></td><td>Spindle stop</td></tr>
+            <tr><td><strong>M06</strong></td><td><strong>Automatic Tool change</strong></td></tr>
+            <tr><td><strong>M08</strong></td><td>Coolant ON</td></tr>
+            <tr><td><strong>M09</strong></td><td>Coolant OFF</td></tr>
+            <tr><td><strong>M30</strong></td><td>End of program + reset/rewind</td></tr>
+        </tbody>
+    </table>
+
+    <div class="formula-card" style="text-align: center; font-weight: 700;">
+        Memory Rule: G = Motion/Geometry &bull; M = Machine/Miscellaneous
+    </div>
+
+    <h3>8. Address Codes</h3>
+    <table>
+        <thead>
+            <tr><th>Address</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>G</strong></td><td>Preparatory function / motion</td></tr>
+            <tr><td><strong>M</strong></td><td>Miscellaneous/auxiliary function</td></tr>
+            <tr><td><strong>F</strong></td><td><strong>Feed rate</strong></td></tr>
+            <tr><td><strong>S</strong></td><td>Spindle speed</td></tr>
+            <tr><td><strong>T</strong></td><td>Tool selection</td></tr>
+            <tr><td><strong>N</strong></td><td>Block/sequence number</td></tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><strong>F-code</strong> specifies <strong>feed rate</strong> (NOT spindle speed).</li>
+        <li><strong>T-code</strong> selects the tool; <strong>M06 actually executes the tool change</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 5 — 🔄 FEED DRIVES, SPINDLE DRIVES & ENCODERS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>9. CNC Feed Drive</h3>
+    <ul>
+        <li>CNC milling machine <strong>feed drives</strong> are generally provided by <strong>servo motors</strong>.</li>
+        <li>Servo motors provide precise <strong>position + speed control</strong> with closed-loop feedback.</li>
+        <li><strong>Stepper motors</strong> are common in simpler/open-loop systems.</li>
+        <li><strong>Feed drive = axis movement</strong>; spindle drive = spindle rotation.</li>
+    </ul>
+
+    <h3>10. Encoders</h3>
+    <ul>
+        <li>Encoder = <strong>feedback sensing device</strong> for position and speed measurement.</li>
+        <li><strong>Linear encoder</strong> &rarr; table/axis linear position.</li>
+        <li><strong>Rotary encoder</strong> &rarr; angular position and speed.</li>
+        <li><strong>Spindle encoder</strong> &rarr; spindle speed and angular position.</li>
+        <li><strong>Absolute encoder</strong> &rarr; retains absolute position after power loss.</li>
+        <li><strong>Incremental encoder</strong> &rarr; pulse count gives movement; pulse frequency gives speed.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>⚠️ MCQ Trap:</strong> Encoder applications include <strong>spindle speed + spindle position + table position</strong> (all three are valid).
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 6 — ⚙️ STEPPER MOTORS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>11. Stepper Motor Fundamentals</h3>
+    <ul>
+        <li>Rotates through <strong>discrete angular steps</strong> for input pulses.</li>
+        <li><strong>1 pulse &rarr; 1 step</strong>.</li>
+        <li><strong>Number of pulses &rarr; angular position</strong>.</li>
+        <li><strong>Pulse frequency &rarr; rotational speed</strong>.</li>
+        <li>Continuous rotation is achieved when a <strong>continuous pulse train</strong> is applied.</li>
+        <li>Statement: “stepper motor cannot give continuous rotation” &rarr; <strong>FALSE</strong>.</li>
+    </ul>
+
+    <h4>Variable Reluctance Stepper Motor</h4>
+    <ul>
+        <li>Rotor is <strong>soft iron/toothed</strong>, without permanent magnet excitation.</li>
+        <li><strong>Low rotor inertia</strong> &rarr; quick response (less sluggish).</li>
+        <li>Provides relatively small step angles.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 7 — 🏭 MACHINING CENTRE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>12. Machining Centre</h3>
+    <p>Advanced CNC machine designed for multiple operations in one single setup. Logical development beyond basic NC machine tools.</p>
+    <ul>
+        <li><strong>Automatic Tool Changer (ATC)</strong></li>
+        <li>Tool magazine</li>
+        <li>Automatic indexing / pallet changing system</li>
+    </ul>
+    <div class="formula-card">
+        <strong>ATC Mechanism Sequence:</strong> <code>T-code</code> selects tool in magazine &rarr; <code>M06</code> executes physical tool change. Reduces non-productive setup time.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 8 — 💻 NC PART PROGRAMMING & APT</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>13. APT Language</h3>
+    <ul>
+        <li><strong>APT = Automatically Programmed Tools</strong> (High-level NC/CAM programming language).</li>
+        <li>Used to describe <strong>part geometry and tool motion</strong>.</li>
+    </ul>
+
+    <pre class="ascii-tree">
+APT PROGRAMMING WORKFLOW:
+APT Program Source ──► APT Processor ──► Cutter Location (CL) Data ──► Postprocessor ──► Machine G/M Code
+    </pre>
+
+    <h3>14. APT Macro & Geometry Syntax</h3>
+    <div class="formula-card">
+        $$\text{SYMBOL} = \text{MACRO} / \text{PARAMETERS}$$
+        <p style="font-size:9pt; color:var(--text-secondary); margin-top:6px;">
+            Macro termination keyword = <code>TERMAC</code>.
+        </p>
+    </div>
+
+    <ul>
+        <li>Geometry keywords: <code>POINT</code>, <code>LINE</code>, <code>CIRCLE</code>. Motion: <code>GOTO</code>, <code>GOFWD</code>.</li>
+        <li>Modifier keywords: <code>TANTO</code> (tangent), <code>INTOF</code> (intersection), <code>LFT TANTO</code> (left tangent).</li>
+        <li>Example: <code>L1 = LINE/P1, LFT TANTO C1</code></li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 9 — 🧮 DAC & CNC CONTROL ELECTRONICS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>15. DAC Resolution Formula</h3>
+    <div class="formula-card">
+        $$1\text{ LSB} = \frac{V_{\text{FS}}}{2^n - 1}$$
+    </div>
+
+    <div class="concept-block">
+        <strong>Worked Exam Example:</strong><br />
+        For an 8-bit DAC ($n=8$) with full-scale voltage $V_{\text{FS}} = 6\text{ V}$:<br />
+        $$1\text{ LSB} = \frac{6}{2^8 - 1} = \frac{6}{255} \approx \mathbf{0.0235\text{ V}}\quad (\mathbf{0.023\text{ V}})$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 10 — 🧠 CAD, CAM & CAE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>16. CAD vs CAM vs CAE vs CIM</h3>
+    <table>
+        <thead>
+            <tr><th>System</th><th>Primary function</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>CAD</strong></td><td>Product/tool design and drafting</td></tr>
+            <tr><td><strong>CAE</strong></td><td>Engineering analysis/simulation (FEA, CFD)</td></tr>
+            <tr><td><strong>CAM</strong></td><td>Manufacturing/process planning/tool-path generation</td></tr>
+            <tr><td><strong>CIM</strong></td><td>Integrated computer-controlled manufacturing system</td></tr>
+        </tbody>
+    </table>
+
+    <div class="formula-card" style="text-align: center; font-weight: 700;">
+        CAD &rarr; Design &bull; CAE &rarr; Analyse &bull; CAM &rarr; Manufacture &bull; CIM &rarr; Integrate
+    </div>
+
+    <h3>17. CAD–CAE–CAM Integration</h3>
+    <ul>
+        <li>Linked through a <strong>common database and communication system</strong>.</li>
+        <li>NC programming is an output of CAM, not the basic integration mechanism.</li>
+    </ul>
+
+    <h3>18. Tool Design</h3>
+    <ul>
+        <li><strong>Tool design</strong> (cutting tools, dies, moulds, jigs, fixtures) is fundamentally a <strong>CAD activity</strong>.</li>
+        <li>CAM subsequently handles <strong>manufacturing/tool paths</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 11 — 🧱 CAD MODELLING</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>19. Types of Geometric Modelling</h3>
+    <table>
+        <thead>
+            <tr><th>Model</th><th>Main characteristic</th><th>Typical use</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Wireframe</strong></td><td>Edges only</td><td>Basic 2D/3D geometry</td></tr>
+            <tr><td><strong>Surface model</strong></td><td>Exterior surfaces</td><td>Complex shells / free-form surfaces (automobile body, aircraft skin)</td></tr>
+            <tr><td><strong>Solid model</strong></td><td>Complete volume + topology</td><td>Engineering analysis & manufacturing</td></tr>
+        </tbody>
+    </table>
+
+    <h3>20. Geometry vs Topology</h3>
+    <ul>
+        <li><strong>Geometry</strong> &rarr; dimensions, coordinates, curves, surfaces, shape.</li>
+        <li><strong>Topology</strong> &rarr; connectivity/relationships among <strong>vertices, edges and faces</strong>.</li>
+        <li>A solid model's completeness is defined by <strong>Geometry + Topology</strong>.</li>
+    </ul>
+
+    <h3>21. CSG / Boolean Operations</h3>
+    <div class="formula-card">
+        $$\text{Boolean Operations} = n - 1$$
+        <p style="font-size:9pt; color:var(--text-secondary); margin-top:6px;">
+            For $n$ primitives combined into one solid (Union, Intersection, Difference). Example: 10 primitives require $10 - 1 = \mathbf{9}$ operations.
+        </p>
+    </div>
+
+    <h3>22. Mass Properties</h3>
+    <ul>
+        <li>Mass properties (volume, centroid, mass, moments of inertia) require a 3D solid model stored with <strong>geometry + topology</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 12 — 📐 CAD TRANSFORMATIONS & EXCHANGE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>23. Scaling Transformations</h3>
+    <ul>
+        <li>Scale factor $k > 1$ &rarr; enlargement. $0 < k < 1$ &rarr; reduction.</li>
+        <li><strong>Negative scale factor ($k < 0$) &rarr; Reflection / Mirroring</strong> combined with scaling.</li>
+    </ul>
+
+    <h3>24. IGES (Initial Graphics Exchange Specification)</h3>
+    <ul>
+        <li>Used for <strong>CAD data exchange</strong> between different software packages.</li>
+        <li>Uses a <strong>non-binary / text-based representation</strong> (ASCII formatted).</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 13 — 🖥️ COMPUTER GRAPHICS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>25. Calligraphic vs Raster Graphics</h3>
+    <table>
+        <thead>
+            <tr><th>Graphics Type</th><th>Representation</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Calligraphic / Random scan</strong></td><td><strong>Line / vector drawing</strong></td></tr>
+            <tr><td><strong>Raster scan</strong></td><td><strong>Dot / pixel matrix</strong></td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 14 — 🏗️ CAPP</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>26. Computer-Aided Process Planning (CAPP)</h3>
+    <table>
+        <thead>
+            <tr><th>CAPP Type</th><th>Working Principle</th><th>Key Feature</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Variant / Retrieval</strong></td><td>Based on Group Technology (GT) & part coding</td><td><strong>Retrieve</strong> standard plan & <strong>Modify</strong></td></tr>
+            <tr><td><strong>Generative</strong></td><td>Uses logic, algorithms & expert systems</td><td><strong>Generate</strong> new process plan automatically</td></tr>
+            <tr><td><strong>Hybrid</strong></td><td>Combines Variant + Generative</td><td>Both retrieval & automatic logic</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 15 — 🏭 FMS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>27. Flexible Manufacturing System (FMS) Elements</h3>
+    <ul>
+        <li>1. Processing stations &bull; 2. Material handling & storage &bull; 3. Computer control &bull; 4. Human labour.</li>
+    </ul>
+
+    <h3>28. FMS Flexibility & Throughput</h3>
+    <ul>
+        <li>FMS is suitable for <strong>medium-volume, medium-variety</strong> production.</li>
+        <li>Throughput is determined by: <strong>1. Number of machines &bull; 2. Material-handling equipment &bull; 3. System layout</strong>.</li>
+    </ul>
+
+    <h3>29. FMS Tool Identification</h3>
+    <ul>
+        <li>Classic MCQ answer for tool/pallet identification = <strong>Bar code</strong>.</li>
+    </ul>
+
+    <h3>30. AGV (Automated Guided Vehicle)</h3>
+    <ul>
+        <li>Used for automated <strong>transportation of workpieces, pallets, tools, and materials</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 16 — 🏗️ TRANSFER MACHINES & AUTOMATION</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>31. Transfer Machine</h3>
+    <ul>
+        <li>Combines <strong>material processing + material handling/transfer</strong> for high-volume mass production.</li>
+    </ul>
+
+    <h3>32. Hard Automation</h3>
+    <ul>
+        <li>Hard automation = <strong>Fixed automation</strong> (High volume, low variety).</li>
+    </ul>
+
+    <h3>33. Automation Level</h3>
+    <table>
+        <thead>
+            <tr><th>Automation Type</th><th>Production Characteristic</th><th>Machine Example</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Fixed / Hard</strong></td><td>High volume, low variety</td><td>Transfer lines</td></tr>
+            <tr><td><strong>Programmable</strong></td><td>Batch production</td><td>NC / CNC machines</td></tr>
+            <tr><td><strong>Flexible</strong></td><td>Medium volume, medium variety</td><td>FMS / DNC systems</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 17 — 🔄 CAD/CAM DATA TRANSLATION</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>34. Direct vs Indirect Translators</h3>
+    <div class="formula-card">
+        $$\text{Direct Translators} = n(n - 1) \quad \text{vs} \quad \text{Indirect Translators} = 2n$$
+    </div>
+
+    <div class="concept-block">
+        <strong>Exam Calculation (for $n = 7$ CAD Systems):</strong><br />
+        &bull; Direct: $7(7-1) = \mathbf{42\text{ translators}}$<br />
+        &bull; Indirect (via neutral IGES format): $2(7) = \mathbf{14\text{ translators}}$
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 18 — 🧮 CAPACITY & CIM BENEFITS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>35. Capacity Formulas</h3>
+    <div class="formula-card">
+        $$\text{Utilization} = \frac{\text{Actual Output}}{\text{Design Capacity}} \times 100\% \quad \text{vs} \quad \text{Efficiency} = \frac{\text{Actual Output}}{\text{Effective Capacity}} \times 100\%$$
+    </div>
+
+    <h3>36. Benefits of CIM</h3>
+    <ul>
+        <li><strong>Less direct labour &bull; Less scrap and rework &bull; Higher machine utilization</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 19 — 💾 COMPUTER ARCHITECTURE & CODES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>37. SIMD Architecture</h3>
+    <ul>
+        <li><strong>SIMD = Single Instruction, Multiple Data</strong> (One instruction operates on multiple data elements simultaneously).</li>
+    </ul>
+
+    <h3>38. Processor Registers</h3>
+    <table>
+        <thead>
+            <tr><th>Register</th><th>Full Form & Function</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>MAR</strong></td><td>Memory Address Register &rarr; Connected to <strong>address bus</strong></td></tr>
+            <tr><td><strong>MDR / MBR</strong></td><td>Memory Data Register &rarr; Connected to <strong>data bus</strong></td></tr>
+            <tr><td><strong>PC</strong></td><td>Program Counter &rarr; Holds address of <strong>next instruction</strong></td></tr>
+            <tr><td><strong>IR</strong></td><td>Instruction Register &rarr; Holds <strong>current instruction</strong></td></tr>
+        </tbody>
+    </table>
+
+    <h3>39. Character Codes</h3>
+    <ul>
+        <li><strong>EBCDIC</strong> = 8-bit code ($2^8 = 256$ combinations, IBM).</li>
+        <li><strong>ASCII</strong> = Standard 7-bit code ($2^7 = 128$ combinations).</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 20 — 💻 FORTRAN & PROGRAMMING BASICS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>40. FORTRAN</h3>
+    <ul>
+        <li><strong>FORTRAN = Formula Translation</strong> (Developed for scientific/mathematical computation).</li>
+    </ul>
+
+    <h3>41. FORTRAN Syntax</h3>
+    <ul>
+        <li><strong>Comma (,)</strong> = delimiter / separator.</li>
+        <li><strong><code>::</code></strong> = declaration operator (e.g. <code>REAL :: X, Y</code>).</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 21 — 📊 FLOWCHARTS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>42. Flowchart Symbols</h3>
+    <table>
+        <thead>
+            <tr><th>Symbol</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Oval</strong></td><td><strong>Start / End</strong></td></tr>
+            <tr><td><strong>Rectangle</strong></td><td>Process / statement</td></tr>
+            <tr><td><strong>Diamond</strong></td><td>Decision</td></tr>
+            <tr><td><strong>Parallelogram</strong></td><td>Input / output</td></tr>
+        </tbody>
+    </table>
+    <ul>
+        <li><strong>Macro flowchart</strong> &rarr; overall main program structure.</li>
+        <li><strong>Micro flowchart</strong> &rarr; detailed module logic.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 22 TO 28 — ✈️ CAD/CAM ADVANCED MODULES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>43. CAD/CAM Computer Systems</h3>
+    <p>Engineering <strong>Workstations</strong> provide graphic processing power for CAD/CAM.</p>
+
+    <h3>44. Origin of CAD/CAM</h3>
+    <p>Driven by the <strong>aerospace industry</strong> for complex aircraft geometry.</p>
+
+    <h3>45. FMS Configurations</h3>
+    <p>Classes include FMM, FMC, FMG, FMS, FFMAS. Note: <strong>FMT</strong> (Flexible Manufacturing Technology) is a general term, NOT an FMS configuration class.</p>
+
+    <h3>46. Arc Centre Math Shortcut</h3>
+    <div class="formula-card">
+        $$\text{Check Radius}: r = \sqrt{(x - x_c)^2 + (y - y_c)^2}$$
+        <p style="font-size:9pt; color:var(--text-secondary); margin-top:6px;">
+            For $P_1(15,10)$, $P_2(10,15)$, $r=5 \implies \text{Centre } (10,10)$.
+        </p>
+    </div>
+
+    <h3>47. NC Information Storage & Postprocessor</h3>
+    <ul>
+        <li>NC program storage media: paper tape, magnetic tape, memory.</li>
+        <li><strong>Postprocessor is SOFTWARE</strong> (not hardware) that converts neutral CL data into machine-specific G/M code.</li>
+    </ul>
+
+    <h3>48. Open-Loop vs Closed-Loop CNC</h3>
+    <table>
+        <thead>
+            <tr><th>Open Loop</th><th>Closed Loop</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>No feedback</td><td><strong>Feedback present (Encoder/Resolver)</strong></td></tr>
+            <tr><td>Stepper motor</td><td><strong>Servo motor</strong></td></tr>
+            <tr><td>Lower cost</td><td>Higher accuracy</td></tr>
+        </tbody>
+    </table>
+
+    <h3>49. Digitizer vs Encoder</h3>
+    <ul>
+        <li><strong>Digitizer</strong> = CAD graphic input device.</li>
+        <li><strong>Encoder</strong> = CNC position/speed feedback sensor.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>🔑 50 ONE-LINERS TO MEMORIZE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="oneliners-grid" id="oneLinersContainer">
+        <div class="oneliner-card"><span class="oneliner-num">01</span><span class="oneliner-text"><strong>NC</strong> = Numerical Control &bull; <strong>CNC</strong> = Computer Numerical Control &bull; <strong>DNC</strong> = Computer/network control of multiple machines.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">02</span><span class="oneliner-text"><strong>CNC Advantage over NC:</strong> Easy program editing, memory storage, recall, self-diagnostics, and reprogramming.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">03</span><span class="oneliner-text"><strong>CNC Lathe Axes:</strong> <strong>X-axis</strong> = radial/cross motion (diameter) &bull; <strong>Z-axis</strong> = longitudinal motion (length).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">04</span><span class="oneliner-text"><strong>Lathe Motion:</strong> X-only &rarr; <strong>Facing</strong> &bull; Z-only &rarr; <strong>Turning</strong> &bull; X+Z simultaneous &rarr; <strong>Taper Turning</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">05</span><span class="oneliner-text"><strong>Complex 3D Machining:</strong> Requires coordinated, simultaneous <strong>X–Y–Z control</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">06</span><span class="oneliner-text"><strong>Circular Interpolation:</strong> <strong>G02</strong> = Clockwise (CW) &bull; <strong>G03</strong> = Counter-Clockwise (CCW).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">07</span><span class="oneliner-text"><strong>Units &amp; Zero Return:</strong> <strong>G21</strong> = Metric (mm) &bull; <strong>G20</strong> = Inch &bull; <strong>G28</strong> = Reference point return.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">08</span><span class="oneliner-text"><strong>Motion Codes:</strong> <strong>G00</strong> = Rapid traverse &bull; <strong>G01</strong> = Linear interpolation &bull; <strong>G04</strong> = Dwell.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">09</span><span class="oneliner-text"><strong>M-Code:</strong> Controls <strong>miscellaneous / auxiliary machine functions</strong> (coolant, spindle, tool change).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">10</span><span class="oneliner-text"><strong>Program Stop/End:</strong> <strong>M00</strong> = Stop &bull; <strong>M01</strong> = Optional stop &bull; <strong>M02</strong> = End &bull; <strong>M30</strong> = End + Reset/Rewind.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">11</span><span class="oneliner-text"><strong>Tool Change:</strong> <strong>M06</strong> = Automatic tool change execution.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">12</span><span class="oneliner-text"><strong>Address Codes:</strong> <strong>F</strong> = Feed rate &bull; <strong>S</strong> = Spindle speed &bull; <strong>T</strong> = Tool selection &bull; <strong>N</strong> = Block number.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">13</span><span class="oneliner-text"><strong>Interpolator:</strong> Coordinates simultaneous axis motions to generate programmed tool paths.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">14</span><span class="oneliner-text"><strong>Feed Drives:</strong> Industrial CNC uses <strong>Servo Motors</strong> &bull; Open-loop uses <strong>Stepper Motors</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">15</span><span class="oneliner-text"><strong>Encoder:</strong> Feedback sensor measuring axis/spindle position and rotational speed.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">16</span><span class="oneliner-text"><strong>Stepper Motor:</strong> 1 input pulse = 1 angular step &bull; Pulse frequency = rotational speed.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">17</span><span class="oneliner-text"><strong>Continuous Rotation:</strong> Stepper motors <strong>CAN rotate continuously</strong> with a continuous pulse train.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">18</span><span class="oneliner-text"><strong>APT Language:</strong> <strong>Automatically Programmed Tools</strong>; high-level CAM part programming language.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">19</span><span class="oneliner-text"><strong>APT Macro Syntax:</strong> <code>SYMBOL = MACRO / PARAMETERS</code> (Terminated by <code>TERMAC</code>).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">20</span><span class="oneliner-text"><strong>ATC (Automatic Tool Changer):</strong> <strong>T-code</strong> selects tool in magazine &bull; <strong>M06</strong> executes change.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">21</span><span class="oneliner-text"><strong>Machining Centre:</strong> CNC + <strong>ATC</strong> + Tool Magazine + Automatic Indexing / Pallet Changer.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">22</span><span class="oneliner-text"><strong>CAD/CAM/CAE/CIM:</strong> <strong>CAD</strong> = Design &bull; <strong>CAE</strong> = Analysis &bull; <strong>CAM</strong> = Manufacture &bull; <strong>CIM</strong> = Integration.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">23</span><span class="oneliner-text"><strong>CAD–CAE–CAM Integration:</strong> Achieved through a <strong>common database</strong> and communication system.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">24</span><span class="oneliner-text"><strong>Geometric Models:</strong> <strong>Surface model</strong> = Complex exterior shells &bull; <strong>Solid model</strong> = Complete volumetric object.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">25</span><span class="oneliner-text"><strong>Solid Model Completeness:</strong> Requires both <strong>Geometry + Topology</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">26</span><span class="oneliner-text"><strong>CSG Boolean Operations:</strong> Combining $n$ primitives requires <strong>$(n - 1)$ Boolean operations</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">27</span><span class="oneliner-text"><strong>Negative Scale Factor:</strong> Represents <strong>Reflection / Mirroring</strong> combined with scaling.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">28</span><span class="oneliner-text"><strong>IGES Standard:</strong> Initial Graphics Exchange Specification using <strong>non-binary / text representation</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">29</span><span class="oneliner-text"><strong>Graphics Types:</strong> <strong>Calligraphic</strong> = Vector/line drawing &bull; <strong>Raster</strong> = Pixel/dot matrix.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">30</span><span class="oneliner-text"><strong>CAPP Systems:</strong> <strong>Variant</strong> = Retrieve + Modify &bull; <strong>Generative</strong> = Generate using rules/logic.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">31</span><span class="oneliner-text"><strong>FMS Elements:</strong> Processing stations + Material handling + Computer control + Human element.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">32</span><span class="oneliner-text"><strong>FMS Flexibility:</strong> Enables <strong>quick and inexpensive product changes</strong> (medium volume/variety).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">33</span><span class="oneliner-text"><strong>FMS Tool Identification:</strong> Classic MCQ standard answer = <strong>Bar code</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">34</span><span class="oneliner-text"><strong>AGV (Automated Guided Vehicle):</strong> Material-handling system for automated transport of parts/tools.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">35</span><span class="oneliner-text"><strong>Transfer Machine:</strong> Combines <strong>material processing + material handling</strong> for mass production.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">36</span><span class="oneliner-text"><strong>Hard Automation:</strong> Fixed automation; best for <strong>high-volume, low-variety</strong> production.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">37</span><span class="oneliner-text"><strong>Data Translators ($n$ systems):</strong> <strong>Direct</strong> = $n(n-1)$ &bull; <strong>Indirect (Neutral)</strong> = $2n$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">38</span><span class="oneliner-text"><strong>Capacity Metrics:</strong> <strong>Efficiency</strong> = $\frac{\text{Actual}}{\text{Effective}}$ &bull; <strong>Utilization</strong> = $\frac{\text{Actual}}{\text{Design}}$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">39</span><span class="oneliner-text"><strong>SIMD Architecture:</strong> Single Instruction, Multiple Data.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">40</span><span class="oneliner-text"><strong>Registers:</strong> <strong>MAR</strong> &rarr; Address bus &bull; <strong>MDR</strong> &rarr; Data bus &bull; <strong>PC</strong> &rarr; Next instruction &bull; <strong>IR</strong> &rarr; Current instruction.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">41</span><span class="oneliner-text"><strong>Character Bit Size:</strong> <strong>EBCDIC</strong> = 8-bit &bull; <strong>Standard ASCII</strong> = 7-bit.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">42</span><span class="oneliner-text"><strong>Programming Languages:</strong> <strong>FORTRAN</strong> = Scientific/math computation &bull; <strong>COBOL</strong> = Business data.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">43</span><span class="oneliner-text"><strong>Flowchart Symbols:</strong> <strong>Oval</strong> = Start/End &bull; <strong>Rectangle</strong> = Process &bull; <strong>Diamond</strong> = Decision.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">44</span><span class="oneliner-text"><strong>Flowchart Scope:</strong> <strong>Macro</strong> = Overall program structure &bull; <strong>Micro</strong> = Detailed module logic.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">45</span><span class="oneliner-text"><strong>DNC Architecture:</strong> Dedicated host computer + Bulk memory + Communication network.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">46</span><span class="oneliner-text"><strong>DNC Satellite Computer:</strong> Serves and distributes control for a specific group of NC machines.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">47</span><span class="oneliner-text"><strong>DAC 1-LSB Value:</strong> $1\text{ LSB} = \frac{V_{\text{FS}}}{2^n - 1}$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">48</span><span class="oneliner-text"><strong>DAC Calculation Example:</strong> For 8-bit, 6V DAC $\implies 1\text{ LSB} = \frac{6}{255} \approx \mathbf{0.0235\text{ V}}$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">49</span><span class="oneliner-text"><strong>CNC Encoders:</strong> <strong>Linear encoders</strong> for table position &bull; <strong>Rotary encoders</strong> for spindle/servo speed & position.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">50</span><span class="oneliner-text"><strong>Postprocessor:</strong> <strong>SOFTWARE</strong> (not hardware) that converts neutral CLDATA into machine G/M code.</span></div>
+    </div>
+
+    <footer>
+        NC–CNC–CAD/CAM–CIM MCQ Grind &bull; APGENCO AE / SSC JE / GATE Examination Series
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if (toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+                localStorage.setItem("ag-theme", t);
+            }
+
+            applyTheme(saved);
+
+            if (toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+
+            var bar = document.getElementById("reading-progress");
+            if (bar) {
+                window.addEventListener("scroll", function() {
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            }
+        })();
+
+        function filterOneLiners() {
+            var input = document.getElementById('oneLinerSearch');
+            var filter = input.value.toLowerCase();
+            var container = document.getElementById('oneLinersContainer');
+            var cards = container.getElementsByClassName('oneliner-card');
+
+            for (var i = 0; i < cards.length; i++) {
+                var text = cards[i].textContent || cards[i].innerText;
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

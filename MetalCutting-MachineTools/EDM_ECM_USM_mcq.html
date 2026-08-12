@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="production">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDM, ECM &amp; USM — MCQ Grind &amp; Master Revision Sheet</title>
+    <meta name="description" content="Rapid 20-minute MCQ Grind & Master Revision Sheet for EDM, ECM, and USM. Features Faraday's law formulas, MRR comparisons, process selection rules, and 30 memory one-liners.">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
+            --border-light: #E2E8F0;
+            --border-hover: #8B5CF6;
+            --heading-color: #0F172A;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #F8FAFC;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
+            --border-light: #262933;
+            --border-hover: #8B5CF6;
+            --heading-color: #F1F5F9;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #121419;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--text-accent); z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed; top: 18px; right: 24px;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            color: var(--text-secondary); border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13pt; z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
+        .submodule-nav {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 20px; border-radius: 10px; margin-bottom: 28px;
+            text-align: center; box-shadow: var(--shadow-card);
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+            gap: 8px; font-size: 9.5pt;
+        }
+        .submodule-nav a {
+            color: var(--text-secondary); font-weight: 600; text-decoration: none;
+            padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease;
+        }
+        .submodule-nav a:hover {
+            color: var(--subject-current); background: var(--bg-formula);
+        }
+        .submodule-nav a.active {
+            color: var(--subject-current); font-weight: 700;
+            background: var(--bg-formula); border: 1px solid var(--subject-current);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 22pt;
+            text-align: center;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--text-accent);
+            padding: 28px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.35;
+        }
+        [data-theme="dark"] h1 {
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+        }
+
+        h2 {
+            font-size: 15pt;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--text-accent);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 13pt;
+            color: var(--heading-sub);
+            margin-top: 26px;
+        }
+
+        /* Enlarged MathJax Formula Sizing & Visibility */
+        .mjx-chtml, .MathJax, mjx-container {
+            font-size: 118% !important;
+            line-height: 1.5;
+        }
+
+        .concept-block, .formula-card {
+            background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 75%);
+            border: 1px solid var(--subject-current-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 22px 0;
+            font-size: 11pt;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+        .concept-block:hover, .formula-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .callout-concept {
+            background: var(--callout-focus-bg);
+            border: 1px solid var(--callout-focus-border);
+            border-left: 5px solid var(--callout-focus-border);
+            color: var(--callout-focus-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        .callout-trap {
+            background: var(--callout-trap-bg);
+            border: 1px solid var(--callout-trap-border);
+            border-left: 5px solid var(--callout-trap-border);
+            color: var(--callout-trap-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            font-size: 9.5pt;
+        }
+
+        th, td {
+            border: 1px solid var(--border-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--table-th-text);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+            font-size: 9.5pt;
+            border-bottom: 2px solid var(--text-accent);
+        }
+
+        tr:nth-child(even) { background-color: var(--table-even-bg); }
+        tr:hover td { background-color: var(--subject-bg-tint); }
+
+        ul, ol {
+            margin: 14px 0 14px 24px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            color: var(--text-accent);
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
+
+        /* Single-Column One-Liners List */
+        .oneliners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .oneliner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 9.5pt;
+            box-shadow: var(--shadow-card);
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+
+        .oneliner-card:hover {
+            border-color: var(--subject-current);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .oneliner-num {
+            background: var(--subject-bg-tint);
+            color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 700;
+            font-size: 8.5pt;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--subject-current-light);
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .oneliner-text {
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .oneliner-text strong {
+            color: var(--subject-current);
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body id="preview" data-subject="production">
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--text-accent); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="metal_cutting_hub.html">[Hub Home]</a>
+        <a href="metal_cutting_machine_tools.html">1. Metal Cutting</a>
+        <a href="machine_tools_grinding.html">2. Machine Tools</a>
+        <a href="metrology.html">3. Metrology</a>
+        <a href="metrology_mcq.html">3b. Metrology MCQ Grind</a>
+        <a href="NC.html">4. NC/CNC</a>
+        <a href="NC_mcq.html">4b. NC MCQ Grind</a>
+        <a href="jigs_fixtures.html">5. Jigs &amp; Fixtures</a>
+        <a href="jigs_fixtures_mcq.html">5b. Jigs &amp; Fixtures MCQ Grind</a>
+        <a href="EDM_ECM_USM.html">6. EDM/ECM/USM Guide</a>
+        <a href="EDM_ECM_USM_mcq.html" class="active">6b. EDM/ECM/USM MCQ Grind</a>
+    </nav>
+
+    <!-- Cross-Link Banner -->
+    <div class="concept-block" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span><strong>⚡ MCQ Grind Mode:</strong> Rapid 20-minute exam formula &amp; MCQ trap revision sheet.</span>
+        <a href="EDM_ECM_USM.html" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">&larr; Switch to Comprehensive EDM/ECM/USM Guide</a>
+    </div>
+
+    <h1>EDM, ECM &amp; USM<br /><span style="font-size: 13pt; font-weight: 400; color: var(--text-secondary);">Ultra-High-Yield MCQ Grind &bull; APGENCO AE / SSC JE / GATE</span></h1>
+
+    <div class="callout-concept">
+        This sheet consolidates <strong>all concepts from solved MCQs</strong> into a high-density, last-minute revision guide. Focus is on <strong>MRR, tool materials, dielectric/electrolyte, process selection, parameter effects, formulas, limitations, and comparison traps</strong>.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>1. Electrical Discharge Machining (EDM)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Principle &amp; Working</h3>
+    <ul>
+        <li><strong>EDM is an electro-thermal machining process</strong>.</li>
+        <li>Material removal occurs by <strong>spark erosion</strong> between tool and workpiece.</li>
+        <li>Spark energy causes <strong>localized melting and vaporization</strong>.</li>
+        <li>Both <strong>tool and workpiece must be electrically conductive</strong>.</li>
+        <li>No mechanical cutting force acts on the workpiece.</li>
+    </ul>
+
+    <h3>Spark Gap &amp; Servo Mechanism</h3>
+    <ul>
+        <li>A small <strong>inter-electrode gap</strong> is maintained between tool and workpiece.</li>
+        <li><strong>Servo mechanism maintains the spark gap automatically</strong>.</li>
+        <li>Proper gap prevents <strong>short circuiting and unstable sparking</strong>.</li>
+    </ul>
+
+    <h3>Dielectric Fluid</h3>
+    <p><strong>Common Dielectric:</strong> <strong>Kerosene-based oil</strong> is the most commonly used dielectric. Wire EDM commonly uses <strong>deionized water</strong>.</p>
+    <p><strong>Functions of Dielectric:</strong></p>
+    <ul>
+        <li>Acts as an <strong>insulator before breakdown</strong>.</li>
+        <li><strong>Controls spark discharge</strong>.</li>
+        <li><strong>Helps spark formation</strong> after ionization.</li>
+        <li><strong>Cools tool and workpiece</strong>.</li>
+        <li><strong>Flushes away eroded particles</strong>.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>MCQ Trap:</strong> If insulation, cooling, flushing, and spark control are listed together &rarr; <strong>All are correct</strong>.
+    </div>
+
+    <h3>Tool Materials</h3>
+    <p>Common EDM electrode materials: <strong>Copper</strong>, Graphite, Brass, Tellurium copper.</p>
+    <p><strong>Most common exam answer:</strong> <strong>Copper</strong>.</p>
+
+    <h3>Temperature</h3>
+    <ul>
+        <li>Spark temperature &approx; <strong>10,000°C</strong>.</li>
+        <li>Thermal energy is responsible for material removal.</li>
+    </ul>
+
+    <h3>Surface Finish &amp; Pulse Energy</h3>
+    <p>Surface quality depends on pulse energy:</p>
+    <div class="formula-card">
+        $$\mathbf{E_p = V \cdot I \cdot t_{\text{on}}}$$
+    </div>
+    <ul>
+        <li><strong>Better Surface Finish:</strong> High frequency, low discharge current, low pulse energy, small crater size.</li>
+        <li><strong>Poor Surface Finish:</strong> Low frequency, high current, large pulse energy, deep craters.</li>
+    </ul>
+
+    <h3>Frequency Relation</h3>
+    <div class="formula-card">
+        $$\mathbf{f = \frac{1}{t_{\text{on}} + t_{\text{off}}}}$$
+        <p style="margin-top: 8px; font-size: 9.5pt; color: var(--text-secondary);">If $t_{\text{on}} \ll t_{\text{off}} \implies \mathbf{f \approx \frac{1}{t_{\text{off}}}}$</p>
+    </div>
+
+    <h3>Effect of Current</h3>
+    <ul>
+        <li>Current &uparrow; &rarr; Crater size &uparrow; &rarr; Surface roughness &uparrow;.</li>
+        <li>Finishing operation uses <strong>low current</strong>.</li>
+    </ul>
+
+    <h3>Material Removal Rate (MRR)</h3>
+    <ul>
+        <li>Maximum MRR &approx; <strong>5000 mm³/min</strong>.</li>
+        <li>EDM MRR is <strong>lower than ECM</strong>.</li>
+    </ul>
+
+    <h3>Applications, Advantages &amp; Limitations</h3>
+    <p><strong>Applications:</strong> Hardened die steels, tool steels, carbides, intricate cavities, thin delicate conductive components.</p>
+    <p><strong>Advantages:</strong> Machines <strong>very hard conductive materials</strong>, good dimensional accuracy, complex cavity generation, zero cutting force.</p>
+    <p><strong>Limitations:</strong> Low MRR, tool wear, heat affected zone (HAZ), recast layer, <strong>conductive materials only</strong>.</p>
+
+    <div class="callout-trap">
+        <strong>Important EDM MCQ Traps:</strong>
+        <ul>
+            <li>EDM can machine <strong>thin sections</strong> without distortion.</li>
+            <li>Copper is the most common electrode.</li>
+            <li>Kerosene is the common dielectric.</li>
+            <li>Servo mechanism maintains <strong>spark gap</strong>, NOT dielectric flow rate.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>2. Electrochemical Machining (ECM)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Principle &amp; Arrangement</h3>
+    <ul>
+        <li>Material removal occurs by <strong>anodic dissolution</strong> at the <strong>atomic level</strong>.</li>
+        <li>Based on <strong>Faraday's laws of electrolysis</strong>.</li>
+        <li><strong>Workpiece = Anode (+)</strong> &bull; <strong>Tool = Cathode (−)</strong>.</li>
+    </ul>
+
+    <h3>Electrolytes &amp; Inter-Electrode Gap</h3>
+    <ul>
+        <li>Common electrolytes: <strong>NaCl</strong>, <strong>NaNO₃</strong>.</li>
+        <li>Preferred electrolyte for Copper alloys: <strong>Sodium nitrate (NaNO₃)</strong>.</li>
+        <li>Inter-electrode gap: <strong>0.1–0.6 mm</strong> (Common exam value: <strong>0.5 mm</strong>).</li>
+    </ul>
+
+    <h3>Characteristics</h3>
+    <ul>
+        <li><strong>Surface Finish:</strong> Excellent, mirror finish, zero thermal damage, zero residual stress.</li>
+        <li><strong>Tool Wear:</strong> <strong>Negligible</strong>.</li>
+        <li><strong>Cutting Forces &amp; HAZ:</strong> <strong>Negligible / Absent</strong>.</li>
+        <li><strong>MRR:</strong> <strong>Highest</strong> among common non-traditional machining processes.</li>
+    </ul>
+
+    <h3>Faraday's Law Formulas (Most Important)</h3>
+    <div class="formula-card">
+        <p style="margin-bottom: 8px; font-weight: 700;">Mass Removed ($m$):</p>
+        $$\mathbf{m = \frac{M \cdot I \cdot t}{z \cdot F}}$$
+        <p style="margin-top: 14px; margin-bottom: 8px; font-weight: 700;">Volumetric MRR ($Q$):</p>
+        $$\mathbf{Q = \frac{M \cdot I}{z \cdot F \cdot \rho}}$$
+        <p style="margin-top: 14px; margin-bottom: 8px; font-weight: 700;">Required Current ($I$):</p>
+        $$\mathbf{I = \frac{Q \cdot z \cdot F \cdot \rho}{M} = \frac{m \cdot z \cdot F}{M \cdot t}}$$
+        <p style="margin-top: 10px; font-size: 9.5pt; color: var(--text-secondary);">Where: $M$ = atomic weight, $z$ = valency, $F = 96500\text{ C/mol}$, $\rho$ = density.</p>
+    </div>
+
+    <div class="callout-concept">
+        <strong>Current Calculation Problem Hint (for Iron):</strong><br />
+        Given $M = 56, z = 2, F = 96500\text{ C/mol} \implies$ Always use $\mathbf{I = \frac{m \cdot z \cdot F}{M \cdot t}}$.
+    </div>
+
+    <h3>Advantages &amp; Limitations</h3>
+    <p><strong>Advantages:</strong> Very high MRR, mirror finish, zero tool wear, no thermal damage, no burrs, no residual stress, suitable for superalloys (Nimonic, Inconel).</p>
+    <p><strong>Limitations:</strong> High capital cost, electrolyte handling/corrosion problems, stray machining overcut, conductive materials only.</p>
+
+    <div class="callout-trap">
+        <strong>Sharp Corner Limitation:</strong> Current spreads in electrolyte causing lateral dissolution &rarr; <strong>Internal sharp corners are difficult to produce</strong> (True in MCQs).
+    </div>
+
+    <p><strong>ECG (Electrochemical Grinding):</strong> Combination of <strong>ECM + grinding</strong>; electrolyte acts as both <strong>electrolyte &amp; coolant</strong>.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>3. Ultrasonic Machining (USM)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Principle &amp; Operating Parameters</h3>
+    <ul>
+        <li>Material removal occurs by <strong>abrasive impact and brittle fracture</strong>.</li>
+        <li>Tool vibrates at <strong>high frequency and low amplitude</strong> while abrasive slurry flows in the gap.</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Typical Value</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Frequency</td><td><strong>20–30 kHz</strong></td></tr>
+            <tr><td>Amplitude</td><td><strong>0.01–0.06 mm</strong></td></tr>
+        </tbody>
+    </table>
+
+    <h3>Tool &amp; Work Materials</h3>
+    <p><strong>Tool Material:</strong> Must be <strong>ductile and tough</strong> (Mild steel, Brass, Copper, Stainless steel).</p>
+    <div class="callout-trap">
+        <strong>MCQ Trap:</strong> Carbides and ceramics are brittle and <strong>NOT used as USM tools</strong>.
+    </div>
+    <p><strong>Abrasives:</strong> <strong>Boron carbide ($B_4C$)</strong> — most common, Silicon carbide (SiC), $Al_2O_3$.</p>
+    <p><strong>Best Work Materials:</strong> Glass, ceramics, quartz, sapphire, diamond, carbides (hard &amp; brittle non-conductors).</p>
+
+    <h3>Parameter Effects on USM MRR</h3>
+    <ul>
+        <li><strong>Grain Size Effect:</strong> Grain size &uparrow; &rarr; MRR &uparrow; initially up to optimum size; larger particles reduce active participation &rarr; MRR &downarrow;.</li>
+        <li><strong>Amplitude Effect:</strong> Amplitude &uparrow; &rarr; MRR &uparrow;.</li>
+        <li><strong>Frequency Effect:</strong> Maximum MRR occurs near <strong>resonance frequency</strong>.</li>
+        <li><strong>Material Property Effect:</strong> Toughness &downarrow; &rarr; MRR &uparrow; &bull; Brittleness &uparrow; &rarr; MRR &uparrow; &bull; Ductility &uparrow; &rarr; MRR &downarrow;.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>Important USM MCQ Traps:</strong>
+        <ul>
+            <li>USM uses <strong>abrasive slurry</strong>.</li>
+            <li>Tool is <strong>ductile</strong> (mild steel/brass).</li>
+            <li>Work material is preferably <strong>hard &amp; brittle</strong>.</li>
+            <li>Frequency is <strong>20–30 kHz</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>4. Process Comparison</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>EDM vs ECM vs USM</h3>
+    <table>
+        <thead>
+            <tr><th>Feature</th><th>EDM</th><th>ECM</th><th>USM</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Principle</td><td>Spark erosion</td><td>Anodic dissolution</td><td>Abrasive impact</td></tr>
+            <tr><td>Conductive required</td><td>Yes</td><td>Yes</td><td><strong>No</strong></td></tr>
+            <tr><td>Thermal process</td><td>Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>Tool wear</td><td>High</td><td><strong>Negligible</strong></td><td>Moderate</td></tr>
+            <tr><td>HAZ</td><td>Present</td><td><strong>Absent</strong></td><td><strong>Absent</strong></td></tr>
+            <tr><td>Surface finish</td><td>Very good</td><td><strong>Excellent (Mirror)</strong></td><td>Moderate</td></tr>
+            <tr><td>MRR</td><td>Moderate</td><td><strong>Very high</strong></td><td>Very low</td></tr>
+            <tr><td>Cutting force</td><td>Negligible</td><td>Negligible</td><td>Small</td></tr>
+            <tr><td>Burr formation</td><td>No</td><td>No</td><td>No</td></tr>
+            <tr><td>Residual stress</td><td>Possible</td><td>None</td><td>None</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Comparative Rankings</h3>
+    <p><strong>MRR Ranking (Highest to Lowest):</strong></p>
+    <div class="concept-block">
+        $$\mathbf{\text{ECM } (\sim 10,000) > \text{EDM } (\sim 5,000) > \text{USM } (\sim 180\text{ mm}^3/\text{min})}$$
+    </div>
+
+    <p><strong>Surface Finish Ranking (Best to Poorest):</strong></p>
+    <div class="concept-block">
+        $$\mathbf{\text{ECM} > \text{EDM} > \text{USM}}$$
+    </div>
+
+    <p><strong>Tool Wear Ranking (Least to Highest):</strong></p>
+    <div class="concept-block">
+        $$\mathbf{\text{ECM (Negligible)} < \text{USM} < \text{EDM}}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>5. Process Selection Rules (Exam Favorite)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <table>
+        <thead>
+            <tr><th>Workpiece / Requirement</th><th>Best Process Selection</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Glass, ceramics, quartz</td><td><strong>USM</strong></td></tr>
+            <tr><td>Diamond machining</td><td><strong>USM</strong></td></tr>
+            <tr><td>Hardened die steel cavity</td><td><strong>EDM</strong></td></tr>
+            <tr><td>Precision profile in hardened steel</td><td><strong>Wire EDM</strong></td></tr>
+            <tr><td>Nimonic / Inconel turbine blade</td><td><strong>ECM</strong></td></tr>
+            <tr><td>Burr-free machining</td><td><strong>ECM</strong></td></tr>
+            <tr><td>Stress-free machining</td><td><strong>ECM</strong></td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>6. Frequently Asked Parameter Effects</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>EDM Parameter Effects</h3>
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Current &uparrow;</td><td>MRR &uparrow;, Roughness &uparrow;</td></tr>
+            <tr><td>Frequency &uparrow;</td><td>Surface finish &uparrow;</td></tr>
+            <tr><td>Pulse energy &uparrow;</td><td>Crater size &uparrow;</td></tr>
+        </tbody>
+    </table>
+
+    <h3>ECM Parameter Effects</h3>
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Current &uparrow;</td><td>MRR &uparrow;</td></tr>
+            <tr><td>Gap &uparrow;</td><td>Accuracy &downarrow;</td></tr>
+            <tr><td>Electrolyte flow &uparrow;</td><td>Process stability &uparrow;</td></tr>
+        </tbody>
+    </table>
+
+    <h3>USM Parameter Effects</h3>
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Amplitude &uparrow;</td><td>MRR &uparrow;</td></tr>
+            <tr><td>Grain size &uparrow;</td><td>MRR first &uparrow; then &downarrow;</td></tr>
+            <tr><td>Toughness &downarrow;</td><td>MRR &uparrow;</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>7. Formula Sheet</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="formula-card">
+        <p style="font-weight:700; margin-bottom:6px;">ECM Faraday Formulas:</p>
+        $$m = \frac{M \cdot I \cdot t}{z \cdot F}, \quad Q = \frac{M \cdot I}{z \cdot F \cdot \rho}, \quad I = \frac{Q \cdot z \cdot F \cdot \rho}{M}$$
+        <p style="font-weight:700; margin-top:14px; margin-bottom:6px;">EDM Energy &amp; Frequency Formulas:</p>
+        $$E_p = V \cdot I \cdot t_{\text{on}}, \quad f = \frac{1}{t_{\text{on}} + t_{\text{off}}}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>🔑 ONE-LINERS TO MEMORIZE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="oneliners-grid">
+        <div class="oneliner-card"><span class="oneliner-num">01</span><span class="oneliner-text"><strong>USM</strong> = Hard brittle non-conductors + abrasive impact.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">02</span><span class="oneliner-text"><strong>USM frequency:</strong> 20–30 kHz.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">03</span><span class="oneliner-text"><strong>USM tool</strong> must be ductile (mild steel / brass).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">04</span><span class="oneliner-text"><strong>Boron carbide ($B_4C$)</strong> is the most common USM abrasive.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">05</span><span class="oneliner-text"><strong>Lower toughness</strong> gives higher USM MRR.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">06</span><span class="oneliner-text"><strong>EDM</strong> requires electrically conductive work material.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">07</span><span class="oneliner-text"><strong>Copper</strong> is the most common EDM electrode.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">08</span><span class="oneliner-text"><strong>Kerosene</strong> is the common EDM dielectric.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">09</span><span class="oneliner-text"><strong>Servo mechanism</strong> maintains the EDM spark gap.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">10</span><span class="oneliner-text"><strong>EDM spark temperature:</strong> &approx; 10,000°C.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">11</span><span class="oneliner-text"><strong>Better EDM finish:</strong> High frequency + low current.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">12</span><span class="oneliner-text"><strong>EDM rough machining:</strong> Low frequency + high current.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">13</span><span class="oneliner-text"><strong>Pulse energy</strong> controls crater size in EDM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">14</span><span class="oneliner-text"><strong>ECM</strong> gives the highest MRR among EDM, ECM, and USM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">15</span><span class="oneliner-text"><strong>ECM</strong> gives mirror finish due to atomic-level dissolution.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">16</span><span class="oneliner-text"><strong>Workpiece is anode (+)</strong> in ECM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">17</span><span class="oneliner-text"><strong>Tool is cathode (−)</strong> in ECM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">18</span><span class="oneliner-text"><strong>ECM gap:</strong> &approx; 0.5 mm.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">19</span><span class="oneliner-text"><strong>Copper alloys in ECM</strong> use $NaNO_3$ electrolyte.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">20</span><span class="oneliner-text"><strong>ECM tool wear:</strong> Negligible.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">21</span><span class="oneliner-text"><strong>ECM features:</strong> No HAZ and no residual stresses.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">22</span><span class="oneliner-text"><strong>Sharp corners</strong> are difficult in ECM due to stray machining.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">23</span><span class="oneliner-text"><strong>Electrolyte in ECG</strong> acts as both electrolyte and coolant.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">24</span><span class="oneliner-text"><strong>USM MRR</strong> increases with amplitude.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">25</span><span class="oneliner-text"><strong>USM MRR vs Grain Size:</strong> First increases then decreases.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">26</span><span class="oneliner-text"><strong>EDM</strong> can machine thin delicate conductive sections.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">27</span><span class="oneliner-text"><strong>ECM</strong> is best for Nimonic and turbine blades.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">28</span><span class="oneliner-text"><strong>Surface finish order:</strong> ECM &gt; EDM &gt; USM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">29</span><span class="oneliner-text"><strong>MRR order:</strong> ECM &gt; EDM &gt; USM.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">30</span><span class="oneliner-text"><strong>Tool wear order:</strong> ECM &lt; USM &lt; EDM.</span></div>
+    </div>
+
+    <div class="callout-concept" style="text-align: center; font-weight: 700; margin-top: 24px;">
+        ⚡ Final Memory Code: USM (brittle non-conductor), EDM (hard conductive), ECM (superalloy + highest MRR + mirror finish).
+    </div>
+
+    <footer>
+        EDM, ECM &amp; USM MCQ Grind &bull; APGENCO AE / SSC JE / GATE Examination Series
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if(toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+                localStorage.setItem("ag-theme", t);
+            }
+
+            applyTheme(saved);
+
+            if(toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+
+            var bar = document.getElementById("reading-progress");
+            if(bar) {
+                window.addEventListener("scroll", function() {
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            }
+        })();
+    </script>
+</body>
+
+</html>

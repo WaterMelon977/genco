@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="production">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrology — MCQ Grind & Master Revision Sheet</title>
+    <meta name="description" content="Rapid 20-minute MCQ Grind & Master Revision Sheet for Metrology & Measurement. APGENCO AE, SSC JE Mechanical, and GATE exam prep.">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
+            --border-light: #E2E8F0;
+            --border-hover: #8B5CF6;
+            --heading-color: #0F172A;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #F8FAFC;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
+            --border-light: #262933;
+            --border-hover: #8B5CF6;
+            --heading-color: #F1F5F9;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #121419;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--text-accent);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 18px;
+            right: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: cursor;
+            font-size: 13pt;
+            z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        #theme-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-accent);
+            transform: scale(1.08);
+        }
+
+        .submodule-nav {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 9.5pt;
+        }
+
+        .submodule-nav a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .submodule-nav a:hover {
+            color: var(--subject-current);
+            background: var(--bg-formula);
+        }
+
+        .submodule-nav a.active {
+            color: var(--subject-current);
+            font-weight: 700;
+            background: var(--bg-formula);
+            border: 1px solid var(--subject-current);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 22pt;
+            text-align: center;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--text-accent);
+            padding: 28px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.35;
+        }
+
+        [data-theme="dark"] h1 {
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+        }
+
+        h2 {
+            font-size: 16pt;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--text-accent);
+            padding-bottom: 8px;
+            margin-top: 42px;
+        }
+
+        h3 {
+            font-size: 13.5pt;
+            color: var(--heading-sub);
+            margin-top: 28px;
+        }
+
+        h4 {
+            font-size: 11.5pt;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        p { margin-bottom: 1em; }
+        ul, ol { padding-left: 1.5em; margin-bottom: 1em; }
+        li { margin-bottom: 0.4em; }
+
+        .exam-focus {
+            background: var(--bg-formula);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 10pt;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            color: var(--text-secondary);
+        }
+
+        /* Enlarged MathJax Formula Sizing & Visibility */
+        .mjx-chtml, .MathJax, mjx-container {
+            font-size: 118% !important;
+            line-height: 1.5;
+        }
+
+        .concept-block, .formula-card {
+            background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 75%);
+            border: 1px solid var(--subject-current-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 22px 0;
+            font-size: 11pt;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+
+        .concept-block:hover, .formula-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .callout-trap {
+            background-color: var(--callout-trap-bg);
+            border: 1px solid var(--callout-trap-border);
+            border-left: 5px solid var(--callout-trap-border);
+            color: var(--callout-trap-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            font-size: 9.5pt;
+        }
+
+        th, td {
+            border: 1px solid var(--border-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--table-th-text);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+            font-size: 9.5pt;
+            border-bottom: 2px solid var(--text-accent);
+        }
+
+        tr:nth-child(even) { background-color: var(--table-even-bg); }
+        tr:hover td { background-color: var(--subject-bg-tint); }
+
+        .oneliners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .oneliner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 9.5pt;
+            box-shadow: var(--shadow-card);
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+
+        .oneliner-card:hover {
+            border-color: var(--subject-current);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .oneliner-num {
+            background: var(--subject-bg-tint);
+            color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 700;
+            font-size: 8.5pt;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--subject-current-light);
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .oneliner-text {
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .oneliner-text strong {
+            color: var(--subject-current);
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body id="preview" data-subject="production">
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--text-accent); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="metal_cutting_hub.html">[Hub Home]</a>
+        <a href="metal_cutting_machine_tools.html">1. Metal Cutting</a>
+        <a href="machine_tools_grinding.html">2. Machine Tools</a>
+        <a href="metrology.html">3. Metrology Guide</a>
+        <a href="metrology_mcq.html" class="active">3b. Metrology MCQ Grind</a>
+        <a href="NC.html">4. NC/CNC</a>
+        <a href="NC_mcq.html">4b. NC MCQ Grind</a>
+        <a href="jigs_fixtures.html">5. Jigs &amp; Fixtures</a>
+        <a href="jigs_fixtures_mcq.html">5b. Jigs &amp; Fixtures MCQ Grind</a>
+        <a href="EDM_ECM_USM.html">6. EDM/ECM/USM</a>
+    </nav>
+
+    <!-- Cross-Link Banner -->
+    <div class="concept-block" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span><strong>⚡ MCQ Grind Sheet:</strong> Rapid 20-minute exam formula & MCQ trap revision sheet.</span>
+        <a href="metrology.html" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">&larr; Switch to Comprehensive Metrology Guide</a>
+    </div>
+
+    <h1>Metrology — Master Revision Sheet<br><span style="font-size: 13pt; font-weight: 400; color: var(--text-secondary);">For APGENCO AE • SSC JE Mechanical • GATE</span></h1>
+
+    <div class="exam-focus">
+        This sheet is structured around <strong>exam frequency</strong>, <strong>MCQ traps</strong>, and <strong>inter-topic connections</strong> for maximum recall during rapid 20-minute revision.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Measurement Fundamentals</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>What examiners repeatedly ask</h3>
+    <ul>
+        <li><strong>Accuracy</strong> = closeness to the true value.</li>
+        <li><strong>Precision</strong> = closeness of repeated readings to each other.</li>
+        <li><strong>Repeatability</strong> = same reading under identical conditions.</li>
+        <li><strong>Sensitivity</strong> = output change per unit input.</li>
+        <li><strong>Resolution</strong> = smallest detectable input change.</li>
+        <li><strong>Readability</strong> = ease of reading the instrument.</li>
+    </ul>
+
+    <h3>The most common confusion: accuracy vs precision</h3>
+    <ul>
+        <li>High precision + low accuracy = repeated wrong readings.</li>
+        <li>High accuracy + low precision = average near true value but scattered readings.</li>
+        <li>In competitive exams, <strong>“most important characteristic” → accuracy</strong>.</li>
+    </ul>
+
+    <h3>Measurement characteristics</h3>
+    <table>
+        <thead>
+            <tr><th>Characteristic</th><th>Meaning</th><th>Exam clue</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Accuracy</td><td>Closeness to true value</td><td>Most important characteristic</td></tr>
+            <tr><td>Precision</td><td>Consistency</td><td>Repeatability</td></tr>
+            <tr><td>Sensitivity</td><td>Detect small changes</td><td>Output/input</td></tr>
+            <tr><td>Resolution</td><td>Smallest measurable increment</td><td>Least count related</td></tr>
+            <tr><td>Repeatability</td><td>Same conditions</td><td>Precision</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Sensitivity and range</h3>
+    <ul>
+        <li>Sensitivity is <strong>inversely proportional to range</strong>.</li>
+        <li>For a fixed scale length:
+            <ul>
+                <li>Large range → low sensitivity.</li>
+                <li>Small range → high sensitivity.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Errors in measurement</h3>
+    <table>
+        <thead>
+            <tr><th>Error</th><th>Cause</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Gross</td><td>Human mistake</td></tr>
+            <tr><td>Random</td><td>Unpredictable variation</td></tr>
+            <tr><td>Instrumental</td><td>Instrument defects</td></tr>
+            <tr><td>Environmental</td><td>Temperature, humidity, vibration</td></tr>
+        </tbody>
+    </table>
+    <p>Error of judgment by observer = <strong>gross error</strong>.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Measuring Instruments</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Accuracy order (very important)</h3>
+    <div class="formula-card" style="text-align: center; font-weight: 700; font-size: 11pt;">
+        Steel rule &lt; Vernier caliper &lt; Micrometer &lt; Optical projector
+    </div>
+
+    <h3>Typical least counts</h3>
+    <table>
+        <thead>
+            <tr><th>Instrument</th><th>Least count</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Steel rule</td><td>0.5–1 mm</td></tr>
+            <tr><td>Vernier caliper</td><td>0.02 mm</td></tr>
+            <tr><td>Micrometer</td><td>0.01 mm</td></tr>
+            <tr><td>Dial indicator</td><td>0.01 mm or better</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Micrometer screw gauge</h3>
+
+    <h4>Ratchet stop</h4>
+    <ul>
+        <li>Ensures <strong>constant measuring force</strong>.</li>
+        <li>Prevents over-tightening.</li>
+        <li>Improves repeatability.</li>
+    </ul>
+
+    <h4>Types of micrometers</h4>
+    <table>
+        <thead>
+            <tr><th>Type</th><th>Application</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Outside micrometer</td><td>External dimensions</td></tr>
+            <tr><td>Inside micrometer</td><td>Internal dimensions</td></tr>
+            <tr><td>Depth micrometer</td><td>Depth measurement</td></tr>
+            <tr><td>Blade micrometer</td><td>Narrow grooves, slots</td></tr>
+            <tr><td>Disc micrometer</td><td>Gear tooth span</td></tr>
+            <tr><td>Thread micrometer</td><td>Effective diameter of threads</td></tr>
+        </tbody>
+    </table>
+    <div class="callout-trap">
+        <strong>⚠️ Repeated MCQ:</strong> Gear tooth span → <strong>disc micrometer</strong>.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Gauges and Gauge Blocks</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Slip gauges (gauge blocks)</h3>
+    <ul>
+        <li>Precision length standards.</li>
+        <li>Made of hardened steel, carbide, ceramic, or quartz.</li>
+        <li>Joined by <strong>wringing</strong>.</li>
+    </ul>
+
+    <h4>Wringing</h4>
+    <ul>
+        <li>Molecular attraction + surface tension.</li>
+        <li>Requires extremely flat and smooth surfaces.</li>
+    </ul>
+
+    <h4>Standard cross-section</h4>
+    <ul>
+        <li>Above 10 mm: <strong>35 × 9 mm</strong>.</li>
+    </ul>
+
+    <h3>GO and NO GO gauges</h3>
+
+    <h4>Principle</h4>
+    <ul>
+        <li><strong>GO gauge</strong> checks maximum material condition (MMC).</li>
+        <li><strong>NO GO gauge</strong> checks minimum material condition (LMC).</li>
+    </ul>
+
+    <h4>Taylor’s principle (extremely important)</h4>
+    <table>
+        <thead>
+            <tr><th>GO gauge</th><th>NO GO gauge</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Full form</td><td>Partial form</td></tr>
+            <tr><td>Checks all related dimensions</td><td>Checks one dimension</td></tr>
+            <tr><td>Must pass</td><td>Must not pass</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Wear allowance</h4>
+    <ul>
+        <li>Provided only on the <strong>GO gauge</strong>.</li>
+        <li>Reason: GO gauge is used more frequently.</li>
+    </ul>
+
+    <h3>Types of gauges</h3>
+    <table>
+        <thead>
+            <tr><th>Gauge</th><th>Checks</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Snap gauge</td><td>External diameter</td></tr>
+            <tr><td>Plug gauge</td><td>Hole diameter</td></tr>
+            <tr><td>Ring gauge</td><td>External diameter only</td></tr>
+            <tr><td>Feeler gauge</td><td>Clearance</td></tr>
+            <tr><td>Radius gauge</td><td>Radius</td></tr>
+            <tr><td>Thread gauge</td><td>Thread form</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Feeler gauge</h4>
+    <ul>
+        <li>Measures <strong>thickness of clearance</strong>.</li>
+        <li>Common uses:
+            <ul>
+                <li>Valve clearance.</li>
+                <li>Spark plug gap.</li>
+                <li>Bearing clearance.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Snap gauge</h4>
+    <ul>
+        <li>Used for <strong>rapid production inspection</strong>.</li>
+        <li>Commonly used as <strong>GO–NO GO gauge</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Limits, Fits, and Tolerances (Highest-Weight Topic)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Basic terminology</h3>
+    <ul>
+        <li><strong>Basic size</strong> = nominal size.</li>
+        <li><strong>Actual size</strong> = measured size.</li>
+        <li><strong>Limit size</strong> = maximum or minimum permissible size.</li>
+        <li><strong>Tolerance</strong> = upper limit − lower limit.</li>
+        <li><strong>Deviation</strong> = difference from basic size.</li>
+    </ul>
+
+    <h3>Hole basis system</h3>
+    <h4>Key property</h4>
+    <ul>
+        <li>Lower deviation of hole = <strong>zero</strong>.</li>
+    </ul>
+    <p>Therefore: Minimum hole size = <strong>basic size</strong>.</p>
+    <p>Example: H7</p>
+    <ul>
+        <li>Lower deviation = 0.</li>
+        <li>Tolerance zone lies above basic size.</li>
+    </ul>
+
+    <h3>Shaft basis system</h3>
+    <ul>
+        <li>Upper deviation of shaft = <strong>zero</strong>.</li>
+        <li>Maximum shaft size = <strong>basic size</strong>.</li>
+    </ul>
+
+    <h3>Unilateral vs bilateral tolerance</h3>
+
+    <h4>Unilateral</h4>
+    <ul>
+        <li>Entire tolerance on one side of basic size.</li>
+        <li>Examples:
+            <ul>
+                <li>$50^{+0.02}_{0}$</li>
+                <li>$50^{0}_{-0.02}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Bilateral</h4>
+    <ul>
+        <li>Tolerance on both sides.</li>
+        <li>Example: $50 \pm 0.02$</li>
+    </ul>
+
+    <h3>Allowance</h3>
+    <h4>Definition</h4>
+    <p>Difference between <strong>maximum material limits of mating parts</strong>.</p>
+    <p>For clearance fit: Allowance = minimum clearance.</p>
+    <p>For interference fit: Allowance = maximum interference.</p>
+
+    <h3>Clearance, transition, and interference fits</h3>
+    <table>
+        <thead>
+            <tr><th>Fit</th><th>Condition</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Clearance</td><td>Hole always larger</td></tr>
+            <tr><td>Transition</td><td>May clear or interfere</td></tr>
+            <tr><td>Interference</td><td>Shaft always larger</td></tr>
+        </tbody>
+    </table>
+
+    <h4>Interference fit condition</h4>
+    <p>Lower limit of shaft &gt; upper limit of hole.</p>
+
+    <h3>Fit notation (must memorize)</h3>
+    <p>Example: <strong>50 H7/g6</strong></p>
+    <ul>
+        <li>50 = <strong>basic size</strong>.</li>
+        <li>H7 = hole.</li>
+        <li>g6 = shaft.</li>
+    </ul>
+
+    <h4>Common fits</h4>
+    <table>
+        <thead>
+            <tr><th>Fit</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>H7/g6</td><td>Clearance</td></tr>
+            <tr><td>H7/h6</td><td>Close clearance</td></tr>
+            <tr><td>H7/n6</td><td>Light interference / press fit</td></tr>
+            <tr><td>H7/s6</td><td>Interference</td></tr>
+            <tr><td>H7/p5</td><td>Heavy interference</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Tolerance Grades (IT Grades)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Frequently asked table</h3>
+    <table>
+        <thead>
+            <tr><th>Grade</th><th>Tolerance</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>IT5</td><td>7i</td></tr>
+            <tr><td>IT6</td><td>10i</td></tr>
+            <tr><td>IT7</td><td>16i</td></tr>
+            <tr><td>IT8</td><td>25i</td></tr>
+            <tr><td>IT9</td><td>40i</td></tr>
+        </tbody>
+    </table>
+    <div class="callout-trap">
+        <strong>⚡ Most repeated MCQ:</strong> IT7 = <strong>16i</strong>.
+    </div>
+
+    <h3>Fundamental tolerance unit</h3>
+    <div class="formula-card">
+        $$i = 0.45\sqrt[3]{D} + 0.001D\quad (\mu\text{m})$$
+        <p style="font-size: 9pt; color: var(--text-secondary); margin-top: 6px;">
+            $D$ = geometric mean diameter ($\text{mm}$).
+        </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Surface Roughness and Texture</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>What roughness actually measures</h3>
+    <ul>
+        <li>Micro-irregularities on a surface.</li>
+        <li>Different from <strong>flatness</strong>.</li>
+        <li>Roughness = local texture.</li>
+        <li>Flatness = overall geometry.</li>
+    </ul>
+
+    <h3>Important parameters</h3>
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Ra</td><td>Arithmetic mean roughness</td></tr>
+            <tr><td>Rq</td><td>RMS roughness</td></tr>
+            <tr><td>Rp</td><td>Maximum peak height</td></tr>
+            <tr><td>Rz</td><td>Average peak-to-valley</td></tr>
+            <tr><td>tp</td><td>Material ratio (%)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Ra formula</h3>
+    <div class="formula-card">
+        $$\text{Ra} = \frac{\sum |\text{profile areas}|}{\text{sampling length}}$$
+    </div>
+
+    <h4>Area method shortcut</h4>
+    <ul>
+        <li>Add all areas above datum.</li>
+        <li>Add all areas below datum.</li>
+        <li>Use total absolute area.</li>
+        <li>Apply magnification corrections.</li>
+    </ul>
+
+    <h3>Roughness instruments</h3>
+    <table>
+        <thead>
+            <tr><th>Instrument</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Talysurf</td><td>Surface roughness</td></tr>
+            <tr><td>Profilometer</td><td>Surface profile</td></tr>
+            <tr><td>Pertho meter</td><td>Direct roughness measurement</td></tr>
+            <tr><td>Optical flat</td><td>Flatness</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Roughness symbols</h3>
+    <p>Old triangle system:</p>
+    <ul>
+        <li>4 triangles → N1–N3.</li>
+        <li>3 triangles → N4–N6.</li>
+        <li><strong>2 triangles → N7–N8</strong>.</li>
+        <li>1 triangle → N9–N12.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Comparators (Very Important)</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Purpose</h3>
+    <ul>
+        <li>Compare dimensions with a standard.</li>
+        <li>Do not directly measure absolute dimensions.</li>
+    </ul>
+
+    <h3>Comparator types</h3>
+    <table>
+        <thead>
+            <tr><th>Comparator</th><th>Magnification</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Mechanical</td><td>Moderate</td></tr>
+            <tr><td>Optical</td><td>High</td></tr>
+            <tr><td>Pneumatic</td><td>Very high</td></tr>
+            <tr><td>Electrical</td><td>Very high</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Mechanical comparator</h3>
+    <ul>
+        <li>Most common: <strong>dial indicator</strong>.</li>
+    </ul>
+
+    <h3>Optical comparator</h3>
+    <ul>
+        <li>Uses <strong>mechanical movement + optical magnification</strong>.</li>
+        <li>Optical gauge works on <strong>reflection</strong>.</li>
+    </ul>
+
+    <h3>Pneumatic comparator</h3>
+    <ul>
+        <li>Extremely high sensitivity.</li>
+        <li>Suitable for close tolerance inspection.</li>
+    </ul>
+
+    <h3>Comparator principle</h3>
+    <ul>
+        <li>Works by comparison with <strong>slip gauges or standards</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Optical Metrology</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Optical flat</h3>
+    <h4>Material</h4>
+    <ul>
+        <li><strong>Quartz (fused quartz)</strong>.</li>
+    </ul>
+
+    <h4>Principle</h4>
+    <ul>
+        <li><strong>Interference of monochromatic light</strong>.</li>
+    </ul>
+
+    <h4>Use</h4>
+    <ul>
+        <li>Flatness testing.</li>
+    </ul>
+
+    <h3>Interference facts</h3>
+    <ul>
+        <li>Bright to next bright = <strong>$\lambda$</strong>.</li>
+        <li>Dark to next dark = <strong>$\lambda$</strong>.</li>
+        <li>Bright to adjacent dark = <strong>$\lambda/2$</strong>.</li>
+    </ul>
+
+    <h3>Fractional coincidence method</h3>
+    <ul>
+        <li>Used for <strong>slip (end) gauge measurement</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Autocollimator</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Principle</h3>
+    <ul>
+        <li>Reflection of a <strong>collimated monochromatic light beam</strong>.</li>
+    </ul>
+
+    <h3>Key relationship</h3>
+    <div class="formula-card" style="text-align: center;">
+        Mirror tilt = $\theta$ &nbsp;&nbsp;&implies;&nbsp;&nbsp; Reflected beam deflection = <strong>$2\theta$</strong>
+    </div>
+
+    <h3>Applications</h3>
+    <ul>
+        <li>Small angle measurement.</li>
+        <li>Straightness.</li>
+        <li>Flatness.</li>
+        <li>Parallelism.</li>
+        <li>Squareness.</li>
+        <li>Machine alignment.</li>
+    </ul>
+    <div class="callout-trap">
+        <strong>⚠️ Exam trap:</strong> Primary use = <strong>angle measurement</strong>.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Sine Bar and Angle Measurement</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Sine bar</h3>
+
+    <h4>Specification</h4>
+    <ul>
+        <li>By <strong>centre distance between rollers</strong>.</li>
+    </ul>
+
+    <h4>Surface finish</h4>
+    <ul>
+        <li>Working surfaces &approx; <strong>0.2 &mu;m</strong>.</li>
+    </ul>
+
+    <h4>Formula</h4>
+    <div class="formula-card">
+        $$\theta = \sin^{-1}\left(\frac{h}{L}\right)$$
+        <p style="font-size: 9pt; color: var(--text-secondary); margin-top: 6px;">
+            Where $h$ = slip gauge height, $L$ = roller centre distance.
+        </p>
+    </div>
+
+    <h3>Uses</h3>
+    <ul>
+        <li>External taper.</li>
+        <li>Precise angle setting.</li>
+        <li>Angle measurement.</li>
+    </ul>
+
+    <h3>Angle gauges</h3>
+    <p>Degree series:</p>
+    <ul>
+        <li><strong>1°, 3°, 9°, 27°, 41°</strong></li>
+    </ul>
+
+    <h3>Bevel protractor</h3>
+    <ul>
+        <li>Acute angle attachment is provided with <strong>bevel protractor</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Flatness, Straightness, and Form Measurement</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Instrument selection</h3>
+    <table>
+        <thead>
+            <tr><th>Quantity</th><th>Instrument</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Flatness</td><td>Optical flat / CMM</td></tr>
+            <tr><td>Straightness</td><td>Autocollimator</td></tr>
+            <tr><td>Surface roughness</td><td>Talysurf</td></tr>
+            <tr><td>Angle</td><td>Autocollimator / sine bar</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Cylindricity</h3>
+    <ul>
+        <li>Standard evaluation method:
+            <ul>
+                <li><strong>Minimum-zone method</strong>.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Thread and Gear Metrology</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Thread measurement</h3>
+    <h4>Tool room microscope measures</h4>
+    <ul>
+        <li>Major diameter.</li>
+        <li>Minor diameter.</li>
+        <li>Effective diameter.</li>
+        <li>Pitch.</li>
+        <li>Thread angle.</li>
+        <li>Thread profile.</li>
+    </ul>
+
+    <h3>Best wire size</h3>
+    <div class="formula-card">
+        $$d = \left(\frac{P}{2}\right) \sec\left(\frac{\theta}{2}\right)$$
+    </div>
+
+    <h3>Gear measurement</h3>
+    <ul>
+        <li>Composite error:
+            <ul>
+                <li><strong>Parkinson rolling gear tester</strong>.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Strain Measurement</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Resistance strain gauge</h3>
+    <h4>Principle</h4>
+    <ul>
+        <li>Resistance changes proportional to strain.</li>
+    </ul>
+
+    <h4>Gauge factor</h4>
+    <div class="formula-card">
+        $$\text{GF} = \frac{\Delta R / R}{\varepsilon}$$
+    </div>
+
+    <h4>Example</h4>
+    <p>$\text{GF} = 2.1,\quad R = 50\ \Omega,\quad \varepsilon = 0.001 \implies \Delta R = \mathbf{0.105\ \Omega}$</p>
+
+    <h3>Mechanical strain gauge</h3>
+    <ul>
+        <li>Measures:
+            <ul>
+                <li>Static strain.</li>
+                <li>Quasi-static strain.</li>
+            </ul>
+        </li>
+    </ul>
+    <p>Not suitable for: High-frequency dynamic strain.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Transducers and Instrumentation</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>LVDT</h3>
+    <ul>
+        <li>Measures <strong>linear displacement</strong>.</li>
+        <li>Output proportional to displacement.</li>
+    </ul>
+
+    <h3>Photoconductive cell (LDR)</h3>
+    <ul>
+        <li>Resistance changes with <strong>light intensity</strong>.</li>
+    </ul>
+
+    <h3>Piezoelectric transducer</h3>
+    <ul>
+        <li>Stress &rarr; electric charge.</li>
+        <li>Best for <strong>dynamic measurements</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Pressure and Flow Measurement</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Dead weight tester</h3>
+    <h4>Purpose</h4>
+    <ul>
+        <li>Primary pressure standard.</li>
+        <li>Calibration of pressure gauges.</li>
+    </ul>
+    <h4>Formula</h4>
+    <div class="formula-card">
+        $$P = \frac{W}{A}$$
+    </div>
+
+    <h3>Electromagnetic flow meter</h3>
+    <ul>
+        <li>Induced voltage &propto; <strong>flow rate</strong>.</li>
+    </ul>
+
+    <h3>Variable head flow meters</h3>
+    <ul>
+        <li>Used for:
+            <ul>
+                <li>Liquids.</li>
+                <li>Gases.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Temperature Measurement</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Thermocouples</h3>
+    <table>
+        <thead>
+            <tr><th>Thermocouple</th><th>Range</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Iron–Constantan (J)</td><td>~750°C</td></tr>
+            <tr><td>Chromel–Alumel (K)</td><td>~1260°C</td></tr>
+            <tr><td>Platinum–Rhodium</td><td>~1600–1700°C</td></tr>
+        </tbody>
+    </table>
+    <p>Highest range: <strong>Platinum–Rhodium</strong>.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Control and Instrumentation</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>PID</h3>
+    <ul>
+        <li>Proportional.</li>
+        <li>Integral.</li>
+        <li>Derivative.</li>
+    </ul>
+
+    <h3>Dynamic characteristics</h3>
+    <ul>
+        <li>Time response from input change to steady state.</li>
+    </ul>
+
+    <h3>Regulator problem</h3>
+    <ul>
+        <li>Main objective: <strong>Reject disturbances</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Statistical Quality Control</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Normal distribution</h3>
+    <ul>
+        <li>&plusmn;1&sigma; = 68.27%.</li>
+        <li>&plusmn;2&sigma; = 95.45%.</li>
+        <li><strong>&plusmn;3&sigma; = 99.73%</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>Master Comparison Tables</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>Instrument vs application</h3>
+    <table>
+        <thead>
+            <tr><th>Instrument</th><th>Application</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Disc micrometer</td><td>Gear tooth span</td></tr>
+            <tr><td>Tool room microscope</td><td>Thread measurement</td></tr>
+            <tr><td>Talysurf</td><td>Roughness</td></tr>
+            <tr><td>Optical flat</td><td>Flatness</td></tr>
+            <tr><td>Autocollimator</td><td>Small angles</td></tr>
+            <tr><td>Sine bar</td><td>Angle / taper</td></tr>
+            <tr><td>CMM</td><td>Geometric tolerances</td></tr>
+            <tr><td>LVDT</td><td>Linear displacement</td></tr>
+            <tr><td>Dead weight tester</td><td>Pressure calibration</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Gauge selection</h3>
+    <table>
+        <thead>
+            <tr><th>Feature</th><th>Gauge</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>External diameter</td><td>Snap gauge</td></tr>
+            <tr><td>Internal diameter</td><td>Plug gauge</td></tr>
+            <tr><td>Clearance</td><td>Feeler gauge</td></tr>
+            <tr><td>Radius</td><td>Radius gauge</td></tr>
+            <tr><td>Thread form</td><td>Thread gauge</td></tr>
+            <tr><td>Precision standard</td><td>Slip gauge</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>🔑 30 One-Liners to Memorize</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="oneliners-grid">
+        <div class="oneliner-card"><span class="oneliner-num">01</span><span class="oneliner-text"><strong>Accuracy</strong> = Closeness to true value.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">02</span><span class="oneliner-text"><strong>Precision</strong> = Repeatability under identical conditions.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">03</span><span class="oneliner-text"><strong>Sensitivity</strong> = Output change per unit input.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">04</span><span class="oneliner-text"><strong>Sensitivity Relation:</strong> Inversely proportional to measuring range.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">05</span><span class="oneliner-text"><strong>Micrometer Ratchet:</strong> Ensures <strong>constant measuring force</strong> &amp; prevents over-tightening.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">06</span><span class="oneliner-text"><strong>Slip Gauges:</strong> Precision length standards joined by <strong>wringing</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">07</span><span class="oneliner-text"><strong>Hole Basis System:</strong> Lower deviation of hole = <strong>Zero</strong> (Minimum hole size = basic size).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">08</span><span class="oneliner-text"><strong>Minimum Hole Size:</strong> Equals <strong>basic size</strong> in H system (e.g. H7).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">09</span><span class="oneliner-text"><strong>Shaft Basis System:</strong> Upper deviation of shaft = <strong>Zero</strong> (Maximum shaft size = basic size).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">10</span><span class="oneliner-text"><strong>Allowance:</strong> Defined at <strong>Maximum Material Condition (MMC)</strong> of mating parts.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">11</span><span class="oneliner-text"><strong>IT7 Grade:</strong> Tolerance value = <strong>$16i$</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">12</span><span class="oneliner-text"><strong>Tolerance Unit:</strong> $i = 0.45\sqrt[3]{D} + 0.001D\ (\mu\text{m})$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">13</span><span class="oneliner-text"><strong>H7/g6 Fit:</strong> Standard <strong>Clearance fit</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">14</span><span class="oneliner-text"><strong>H7/s6 Fit:</strong> Heavy <strong>Interference fit</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">15</span><span class="oneliner-text"><strong>GO Gauge:</strong> Full form; checks maximum material condition (MMC); must pass.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">16</span><span class="oneliner-text"><strong>NO GO Gauge:</strong> Partial form; checks minimum material condition (LMC); must not pass.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">17</span><span class="oneliner-text"><strong>Wear Allowance:</strong> Provided ONLY on <strong>GO gauges</strong> (used more frequently).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">18</span><span class="oneliner-text"><strong>Feeler Gauge:</strong> Measures <strong>thickness of clearance</strong> (valve gap, bearing clearance).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">19</span><span class="oneliner-text"><strong>Ring Gauge:</strong> Checks <strong>external diameter only</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">20</span><span class="oneliner-text"><strong>Talysurf:</strong> Measures <strong>surface roughness</strong> ($Ra$).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">21</span><span class="oneliner-text"><strong>Optical Flat:</strong> Quartz disc working on <strong>light interference</strong> for flatness testing.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">22</span><span class="oneliner-text"><strong>Autocollimator:</strong> Primary use = <strong>small angle measurement</strong> ($2\theta$ deflection).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">23</span><span class="oneliner-text"><strong>Sine Bar:</strong> Specified by <strong>centre distance between rollers ($L$)</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">24</span><span class="oneliner-text"><strong>Sine Bar Equation:</strong> $\theta = \sin^{-1}(h/L)$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">25</span><span class="oneliner-text"><strong>Tool Room Microscope:</strong> Measures major/minor/effective diameter, pitch, &amp; thread profile.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">26</span><span class="oneliner-text"><strong>Strain Gauge:</strong> Resistance change proportional to strain ($\Delta R \propto \varepsilon$).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">27</span><span class="oneliner-text"><strong>LVDT:</strong> Transducer for measuring <strong>linear displacement</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">28</span><span class="oneliner-text"><strong>Dead Weight Tester:</strong> Primary standard for <strong>pressure gauge calibration</strong> ($P = W/A$).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">29</span><span class="oneliner-text"><strong>Electromagnetic Flow Meter:</strong> Induced voltage is <strong>proportional to flow rate</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">30</span><span class="oneliner-text"><strong>Normal Distribution:</strong> Covers <strong>99.73% within &plusmn;3&sigma; limits</strong>.</span></div>
+    </div>
+
+    <footer>
+        Metrology — Master Revision Sheet &bull; APGENCO AE / SSC JE / GATE Examination Series
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if (toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+                localStorage.setItem("ag-theme", t);
+            }
+
+            applyTheme(saved);
+
+            if (toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+
+            var bar = document.getElementById("reading-progress");
+            if (bar) {
+                window.addEventListener("scroll", function() {
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            }
+        })();
+    </script>
+</body>
+
+</html>

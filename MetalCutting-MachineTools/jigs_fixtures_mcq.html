@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="production">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigs &amp; Fixtures — MCQ Grind &amp; Master Revision Sheet</title>
+    <meta name="description" content="Rapid 20-minute MCQ Grind & Master Revision Sheet for Jigs & Fixtures. Includes 3-2-1 principle math, locator vs clamp tables, surface roughness formulas, and 30 memory one-liners.">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-formula: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #7C3AED;
+            --border-light: #E2E8F0;
+            --border-hover: #8B5CF6;
+            --heading-color: #0F172A;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #E2E8F0;
+            --code-text: #0F172A;
+            --pre-bg: #F8FAFC;
+            --table-th-bg: #0F172A;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #F8FAFC;
+            --callout-focus-bg: #FEFCE8;
+            --callout-focus-border: #EAB308;
+            --callout-focus-text: #854D0E;
+            --callout-trap-bg: #FEF2F2;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #991B1B;
+            --shadow-card: 0 4px 18px -2px rgba(15, 23, 42, 0.06);
+            --shadow-card-hover: 0 10px 28px -4px rgba(139, 92, 246, 0.18);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0E0F12;
+            --bg-card: #16181D;
+            --bg-formula: #111318;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            --subject-current: #8B5CF6;
+            --subject-current-light: rgba(139, 92, 246, 0.25);
+            --subject-bg-tint: rgba(139, 92, 246, 0.08);
+            --text-accent: #8B5CF6;
+            --accent-warm: #A78BFA;
+            --border-light: #262933;
+            --border-hover: #8B5CF6;
+            --heading-color: #F1F5F9;
+            --heading-sub: #8B5CF6;
+            --progress-color: #8B5CF6;
+            --code-bg: #262933;
+            --code-text: #F1F5F9;
+            --pre-bg: #111318;
+            --table-th-bg: #111318;
+            --table-th-text: #8B5CF6;
+            --table-even-bg: #121419;
+            --callout-focus-bg: #2A2210;
+            --callout-focus-border: #C09820;
+            --callout-focus-text: #E0C060;
+            --callout-trap-bg: #271415;
+            --callout-trap-border: #EF4444;
+            --callout-trap-text: #FCA5A5;
+            --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+            --shadow-card-hover: 0 12px 30px -4px rgba(139, 92, 246, 0.22);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.75;
+            color: var(--text-primary);
+            background-color: var(--bg-page);
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            transition: background 0.25s, color 0.25s;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #reading-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: var(--text-accent); z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        #theme-toggle {
+            position: fixed; top: 18px; right: 24px;
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            color: var(--text-secondary); border-radius: 50%;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 13pt; z-index: 9998;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
+        }
+        #theme-toggle:hover { border-color: var(--border-hover); color: var(--text-accent); transform: scale(1.08); }
+
+        .submodule-nav {
+            background: var(--bg-card); border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 20px; border-radius: 10px; margin-bottom: 28px;
+            text-align: center; box-shadow: var(--shadow-card);
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+            gap: 8px; font-size: 9.5pt;
+        }
+        .submodule-nav a {
+            color: var(--text-secondary); font-weight: 600; text-decoration: none;
+            padding: 5px 12px; border-radius: 6px; transition: all 0.2s ease;
+        }
+        .submodule-nav a:hover {
+            color: var(--subject-current); background: var(--bg-formula);
+        }
+        .submodule-nav a.active {
+            color: var(--subject-current); font-weight: 700;
+            background: var(--bg-formula); border: 1px solid var(--subject-current);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Bookman Old Style", Georgia, serif;
+            color: var(--heading-color);
+            font-weight: 700;
+            margin-top: 1.6em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 22pt;
+            text-align: center;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #F8FAFC;
+            border-left: 5px solid var(--text-accent);
+            padding: 28px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            line-height: 1.35;
+        }
+        [data-theme="dark"] h1 {
+            background: linear-gradient(135deg, #07080A 0%, #16181D 100%);
+        }
+
+        h2 {
+            font-size: 15pt;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--text-accent);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 13pt;
+            color: var(--heading-sub);
+            margin-top: 26px;
+        }
+
+        /* Enlarged MathJax Formula Sizing & Visibility */
+        .mjx-chtml, .MathJax, mjx-container {
+            font-size: 118% !important;
+            line-height: 1.5;
+        }
+
+        .concept-block, .formula-card {
+            background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 75%);
+            border: 1px solid var(--subject-current-light);
+            border-left: 5px solid var(--subject-current);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 22px 0;
+            font-size: 11pt;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+        .concept-block:hover, .formula-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--subject-current);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .callout-concept {
+            background: var(--callout-focus-bg);
+            border: 1px solid var(--callout-focus-border);
+            border-left: 5px solid var(--callout-focus-border);
+            color: var(--callout-focus-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        .callout-trap {
+            background: var(--callout-trap-bg);
+            border: 1px solid var(--callout-trap-border);
+            border-left: 5px solid var(--callout-trap-border);
+            color: var(--callout-trap-text);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 10pt;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 24px 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            font-size: 9.5pt;
+        }
+
+        th, td {
+            border: 1px solid var(--border-light);
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--table-th-bg);
+            color: var(--table-th-text);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 600;
+            font-size: 9.5pt;
+            border-bottom: 2px solid var(--text-accent);
+        }
+
+        tr:nth-child(even) { background-color: var(--table-even-bg); }
+        tr:hover td { background-color: var(--subject-bg-tint); }
+
+        ul, ol {
+            margin: 14px 0 14px 24px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            color: var(--text-accent);
+            padding: 0.2em 0.5em;
+            border-radius: 4px;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
+
+        /* Single-Column One-Liners List */
+        .oneliners-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .oneliner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--subject-current);
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 9.5pt;
+            box-shadow: var(--shadow-card);
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+        }
+
+        .oneliner-card:hover {
+            border-color: var(--subject-current);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .oneliner-num {
+            background: var(--subject-bg-tint);
+            color: var(--subject-current);
+            font-family: "Bookman Old Style", Georgia, serif;
+            font-weight: 700;
+            font-size: 8.5pt;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--subject-current-light);
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .oneliner-text {
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .oneliner-text strong {
+            color: var(--subject-current);
+            font-weight: 700;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            font-size: 9pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body id="preview" data-subject="production">
+
+    <div id="reading-progress"></div>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+    <nav class="submodule-nav">
+        <span style="color:var(--text-accent); font-weight:700; margin-right:4px;">📚 Sub-Module Nav:</span>
+        <a href="metal_cutting_hub.html">[Hub Home]</a>
+        <a href="metal_cutting_machine_tools.html">1. Metal Cutting</a>
+        <a href="machine_tools_grinding.html">2. Machine Tools</a>
+        <a href="metrology.html">3. Metrology</a>
+        <a href="metrology_mcq.html">3b. Metrology MCQ Grind</a>
+        <a href="NC.html">4. NC/CNC</a>
+        <a href="NC_mcq.html">4b. NC MCQ Grind</a>
+        <a href="jigs_fixtures.html">5. Jigs &amp; Fixtures Guide</a>
+        <a href="jigs_fixtures_mcq.html" class="active">5b. Jigs &amp; Fixtures MCQ Grind</a>
+        <a href="EDM_ECM_USM.html">6. EDM/ECM/USM</a>
+    </nav>
+
+    <!-- Cross-Link Banner -->
+    <div class="concept-block" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <span><strong>⚡ MCQ Grind Mode:</strong> Rapid 20-minute exam formula &amp; MCQ trap revision sheet.</span>
+        <a href="jigs_fixtures.html" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">&larr; Switch to Comprehensive Jigs &amp; Fixtures Guide</a>
+    </div>
+
+    <h1>JIGS &amp; FIXTURES<br /><span style="font-size: 13pt; font-weight: 400; color: var(--text-secondary);">Ultra-High-Yield Revision Sheet &bull; APGENCO AE / SSC JE / GATE</span></h1>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 1 — 📋 JIGS vs FIXTURES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ Basic Definitions</h3>
+    <ul>
+        <li><strong>Jig</strong> = device that <strong>holds + locates workpiece + guides cutting tool</strong>.</li>
+        <li><strong>Fixture</strong> = device that <strong>holds + locates workpiece</strong> during manufacturing/inspection; <strong>does not guide the cutting tool</strong>.</li>
+        <li><strong>Jigs</strong> are mainly associated with <strong>drilling, reaming, tapping, boring</strong> and similar tool-guiding operations.</li>
+        <li><strong>Turning</strong> generally does <strong>not use a jig</strong>; tool is guided by the <strong>lathe/tool post</strong>.</li>
+        <li>Both jigs and fixtures improve <strong>accuracy, repeatability, interchangeability, productivity and safety</strong>.</li>
+    </ul>
+
+    <h3>📊 Jig vs Fixture</h3>
+    <table>
+        <thead>
+            <tr><th>Feature</th><th>Jig</th><th>Fixture</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Holds workpiece</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Locates workpiece</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Guides cutting tool</td><td><strong>✓</strong></td><td><strong>✗</strong></td></tr>
+            <tr><td>Typical use</td><td>Drilling, reaming, tapping</td><td>Milling, turning, grinding, etc.</td></tr>
+            <tr><td>Main advantage</td><td>Tool guidance + accurate location</td><td>Rigid work holding + accurate location</td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout-trap">
+        <strong>🎯 MCQ Traps (Must Memorize):</strong>
+        <ul>
+            <li><strong>“Jig is only a locating device” → FALSE</strong>; it also holds and guides the tool.</li>
+            <li><strong>“Fixture guides the cutting tool” → FALSE</strong>.</li>
+            <li><strong>“Turning uses a jig” → FALSE</strong> in standard machining terminology.</li>
+            <li><strong>“Jigs/fixtures do not improve production rate” → FALSE</strong>.</li>
+            <li><strong>“Higher cutting speeds cannot be used with jigs/fixtures” → FALSE</strong>.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 2 — 📍 FUNCTIONS &amp; ADVANTAGES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ Major Functions</h3>
+    <ul>
+        <li><strong>Location</strong> &rarr; establishes the correct position of the workpiece.</li>
+        <li><strong>Clamping</strong> &rarr; firmly holds workpiece against locating surfaces.</li>
+        <li><strong>Tool guidance</strong> &rarr; function of <strong>jigs</strong> through bushes/guide elements.</li>
+        <li><strong>Repeatability</strong> &rarr; same position for every workpiece.</li>
+        <li><strong>Accuracy</strong> &rarr; reduces operator-dependent positioning errors.</li>
+        <li><strong>Safety</strong> &rarr; reduces manual handling and holding of workpieces.</li>
+        <li><strong>Productivity</strong> &rarr; rapid loading/unloading and reduced setup time.</li>
+    </ul>
+
+    <h3>🔑 Advantages</h3>
+    <ul>
+        <li><strong>Rapid production</strong> due to quick and repeatable setup.</li>
+        <li><strong>Higher production rate</strong> permits increased machine utilization.</li>
+        <li><strong>Higher speeds/feeds</strong> can often be used because the work is rigidly located and clamped.</li>
+        <li><strong>Consistent dimensions</strong> and improved interchangeability.</li>
+        <li><strong>Reduced manufacturing cost</strong> in mass/batch production.</li>
+        <li><strong>Automatic/positive location</strong> reduces operator skill requirement.</li>
+        <li>Improved <strong>operator safety</strong>.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>🚨 Important Exam Questions (Identify FALSE statements):</strong><br />
+        &bull; NOT true for jigs &amp; fixtures: <strong>“Fast production speed is not possible”</strong> &rarr; <strong>FALSE statement</strong><br />
+        &bull; NOT true: <strong>“Higher speeds cannot be used”</strong> &rarr; <strong>FALSE statement</strong>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 3 — 📍 WORKPIECE LOCATION</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ 3-2-1 Locating Principle</h3>
+    <ul>
+        <li><strong>3-2-1 principle</strong> uses <strong>3 + 2 + 1 = 6 locating points</strong>.</li>
+        <li><strong>Primary datum plane &rarr; 3 points</strong>.</li>
+        <li><strong>Secondary datum plane &rarr; 2 points</strong>.</li>
+        <li><strong>Tertiary datum plane &rarr; 1 point</strong>.</li>
+        <li>Purpose = obtain <strong>stable, repeatable and deterministic location</strong> of a rectangular workpiece.</li>
+    </ul>
+
+    <h3>📌 What does 3, 2, 1 mean?</h3>
+    <table>
+        <thead>
+            <tr><th>Datum</th><th>Locating points</th><th>Main role</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Primary</strong></td><td><strong>3</strong></td><td>Establishes base/support plane</td></tr>
+            <tr><td><strong>Secondary</strong></td><td><strong>2</strong></td><td>Establishes second reference</td></tr>
+            <tr><td><strong>Tertiary</strong></td><td><strong>1</strong></td><td>Establishes final reference</td></tr>
+        </tbody>
+    </table>
+    <p><strong>3</strong> in “3-2-1” = <strong>number of locating positions/points on the primary face</strong> (does not mean number of clamps or setups).</p>
+
+    <div class="callout-concept">
+        <strong>⚠️ 6 DOF vs 9 Movements — VERY IMPORTANT EXAM DISTINCTION:</strong>
+        <ul>
+            <li>A rigid body in 3D space has <strong>6 Degrees of Freedom (DOF)</strong>: 3 translational + 3 rotational.</li>
+            <li>In jig/fixture MCQs, movement is often counted as <strong>12 possible positive/negative direction movements</strong> ($+X, -X, +Y, -Y, +Z, -Z$ + 6 rotations).</li>
+            <li><strong>3-2-1 locators are commonly stated to arrest 9 movements</strong>.</li>
+            <li>The <strong>remaining 3 movements are resisted by clamping</strong>.</li>
+            <li>Therefore, exam convention: <strong>6 locating points &rarr; 9 movements arrested by locators &rarr; 3 by clamps &rarr; 12 total movements</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="callout-trap">
+        <strong>🎯 Exam Rule Summary:</strong><br />
+        &bull; Asked <strong>“DOF of rigid body”</strong> &rarr; <strong>6</strong><br />
+        &bull; Asked <strong>“movements restricted by 3-2-1 locating system”</strong> &rarr; <strong>9</strong><br />
+        &bull; Asked <strong>“number of locating points in 3-2-1”</strong> &rarr; <strong>6</strong><br />
+        &bull; Asked <strong>“total positive/negative movements”</strong> &rarr; <strong>12</strong>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 4 — 📍 LOCATING DEVICES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ V-Block</h3>
+    <ul>
+        <li><strong>V-block</strong> is used to <strong>locate/support cylindrical jobs</strong>.</li>
+        <li>Provides stable line/edge contact with the cylindrical surface.</li>
+        <li>Common application = <strong>round/cylindrical workpieces</strong>.</li>
+    </ul>
+
+    <h3>🔑 Typical Matching</h3>
+    <table>
+        <thead>
+            <tr><th>Workpiece / Requirement</th><th>Locator</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Cylindrical job</strong></td><td><strong>V-block</strong></td></tr>
+            <tr><td>Two-hole location with tolerance</td><td><strong>Round pin + diamond pin</strong></td></tr>
+            <tr><td>Flat rectangular job</td><td><strong>3-2-1 locating system</strong></td></tr>
+        </tbody>
+    </table>
+
+    <h3>⚙️ Diamond Locating Pin</h3>
+    <ul>
+        <li>Diamond pin is primarily a <strong>locating device</strong>, <strong>not a clamping device</strong>.</li>
+        <li>Used with a <strong>round locating pin</strong> when two holes are used for location.</li>
+        <li>Main purpose = <strong>accommodate variation in centre distance between two holes</strong>.</li>
+        <li>Prevents <strong>binding/over-constraint</strong> caused by hole-spacing tolerances.</li>
+        <li>Diamond shape occupies less constraint in one direction while maintaining location.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>🎯 MCQ Trap:</strong><br />
+        Diamond pin used because <strong>“diamond is hard/wear-resistant”</strong> &rarr; <strong>NOT the primary reason</strong>.<br />
+        Correct reason = <strong>accommodates tolerance on centre distance between two holes</strong>.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 5 — 🔒 CLAMPING DEVICES</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ Common Clamping Devices</h3>
+    <ul>
+        <li><strong>Strap clamp</strong></li>
+        <li><strong>Toggle clamp</strong></li>
+        <li><strong>Swing latch / swing clamp</strong></li>
+        <li><strong>Quick-acting nut</strong></li>
+        <li><strong>C-clamp</strong></li>
+        <li><strong>Equaliser clamp</strong></li>
+    </ul>
+
+    <h3>🔑 Strap Clamp</h3>
+    <ul>
+        <li><strong>Strap clamp = simplest and low-cost clamp</strong> used in jigs/fixtures.</li>
+        <li>Basic construction &rarr; strap + bolt + support.</li>
+        <li>Used where simple, economical clamping is required.</li>
+    </ul>
+
+    <h3>📊 Locator vs Clamp</h3>
+    <table>
+        <thead>
+            <tr><th>Device</th><th>Main function</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Locator</strong></td><td>Positions workpiece</td><td><strong>Diamond pin, V-block</strong></td></tr>
+            <tr><td><strong>Clamp</strong></td><td>Holds workpiece against locators</td><td><strong>Strap clamp, C-clamp, toggle clamp</strong></td></tr>
+        </tbody>
+    </table>
+
+    <div class="callout-trap">
+        <strong>🚨 Direct MCQs:</strong><br />
+        &bull; <strong>NOT a clamping device:</strong> <strong>Diamond pin</strong><br />
+        &bull; <strong>Simplest and low-cost clamp:</strong> <strong>Strap clamp</strong>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 6 — 🧭 LOCATION vs CLAMPING</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>Location</strong> determines <strong>where</strong> the workpiece is.</li>
+        <li><strong>Clamping</strong> maintains the workpiece <strong>against the locators</strong>.</li>
+        <li>Clamps should <strong>not disturb the established location</strong>.</li>
+        <li>Proper design sequence &rarr; <strong>Locate first &rarr; Clamp second</strong>.</li>
+        <li>Excessive locating points may cause <strong>redundancy, binding and inaccuracy</strong>.</li>
+    </ul>
+
+    <div class="callout-trap">
+        <strong>🔑 Common Trap:</strong><br />
+        &bull; Clamping device ≠ locating device.<br />
+        &bull; A <strong>strap clamp is not a locator</strong>.<br />
+        &bull; A <strong>diamond pin is not a clamp</strong>.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 7 — 🔄 FLOATING FIXTURE IN ROTARY TRANSFER</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>Floating holding fixture</strong> permits small relative movement/self-alignment.</li>
+        <li>Used to compensate for <strong>small locating/indexing errors</strong>.</li>
+        <li>Main purpose in competitive exam MCQs = <strong>improve accuracy of location</strong>.</li>
+        <li>Floating arrangement helps prevent rigid misalignment between fixture and locating elements.</li>
+    </ul>
+
+    <div class="callout-concept">
+        <strong>🎯 MCQ Answer:</strong> <strong>Floating fixture &rarr; improves location accuracy</strong>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 8 — 🤖 ROBOT AXIS MOVEMENT</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li>Robot axis movement may involve <strong>elbow rotation</strong>.</li>
+        <li><strong>Wrist rotation</strong> is another axis movement.</li>
+        <li><strong>X-Y coordinate motion</strong> represents Cartesian movement.</li>
+        <li>Hence, when all are listed together, the appropriate answer is <strong>elbow + wrist + X-Y coordinate motion</strong>.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 9 — 📐 TURNING SURFACE ROUGHNESS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>⚙️ Round-Nose Tool Formula</h3>
+    <p>For turning with Feed = $f$ and Nose radius = $r$, theoretical peak-to-valley surface roughness is given by:</p>
+
+    <div class="formula-card">
+        $$\mathbf{h = \frac{f^2}{8r}}$$
+        <p style="margin-top: 8px; font-size: 9.5pt; color: var(--text-secondary);">Where:<br />
+        $h$ = peak-to-valley roughness height<br />
+        $f$ = feed per revolution<br />
+        $r$ = tool nose radius</p>
+    </div>
+
+    <ul>
+        <li>Roughness <strong>increases strongly with feed</strong> &rarr; ($h \propto f^2$).</li>
+        <li>Roughness <strong>decreases with larger nose radius</strong> &rarr; ($h \propto 1/r$).</li>
+    </ul>
+
+    <h3>🔑 Related Formula (Arithmetic Average)</h3>
+    <div class="formula-card">
+        $$\mathbf{R_a \approx \frac{f^2}{32r}}$$
+    </div>
+
+    <div class="callout-trap">
+        <strong>🚨 MCQ Trap:</strong><br />
+        &bull; $h = \frac{f^2}{8r}$ &rarr; Theoretical <strong>maximum peak-to-valley</strong> roughness.<br />
+        &bull; $R_a = \frac{f^2}{32r}$ &rarr; Approximate <strong>arithmetic average</strong> roughness.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 10 — 🧠 HIGH-YIELD MCQ CONNECTIONS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <h3>📋 Question &rarr; Instant Recall</h3>
+    <table>
+        <thead>
+            <tr><th>MCQ Pattern</th><th>Answer</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Operation that does <strong>not</strong> use a jig</td><td><strong>Turning</strong></td></tr>
+            <tr><td>Jig guides the tool?</td><td><strong>Yes</strong></td></tr>
+            <tr><td>Fixture guides cutting tool?</td><td><strong>No</strong></td></tr>
+            <tr><td>Cylindrical job locator</td><td><strong>V-block</strong></td></tr>
+            <tr><td>Diamond pin purpose</td><td><strong>Accommodate centre-distance tolerance</strong></td></tr>
+            <tr><td>NOT a clamping device</td><td><strong>Diamond pin</strong></td></tr>
+            <tr><td>Simplest low-cost clamp</td><td><strong>Strap clamp</strong></td></tr>
+            <tr><td>3 in 3-2-1</td><td><strong>3 locating points on primary plane</strong></td></tr>
+            <tr><td>3-2-1 locating points</td><td><strong>6</strong></td></tr>
+            <tr><td>3-2-1 movements arrested by locators</td><td><strong>9</strong></td></tr>
+            <tr><td>Total movements considered</td><td><strong>12</strong></td></tr>
+            <tr><td>Remaining movements resisted by clamp</td><td><strong>3</strong></td></tr>
+            <tr><td>DOF of rigid body</td><td><strong>6</strong></td></tr>
+            <tr><td>Floating fixture</td><td><strong>Improve location accuracy</strong></td></tr>
+            <tr><td>Jigs/fixtures increase production speed?</td><td><strong>Yes</strong></td></tr>
+            <tr><td>Higher speeds/feeds possible?</td><td><strong>Yes</strong></td></tr>
+            <tr><td>Jigs improve dimensional consistency?</td><td><strong>Yes</strong></td></tr>
+            <tr><td>Device holding + locating + tool guiding</td><td><strong>Jig</strong></td></tr>
+            <tr><td>Device holding + locating only</td><td><strong>Fixture</strong></td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>PART 11 — 🚨 MOST IMPORTANT EXAM TRAPS</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <ul>
+        <li><strong>Jig ≠ fixture:</strong> jig <strong>guides tool</strong>; fixture <strong>does not</strong>.</li>
+        <li><strong>V-block ≠ jig:</strong> V-block is a <strong>locating/supporting device</strong> for cylindrical work.</li>
+        <li><strong>Diamond pin ≠ clamp:</strong> diamond pin is a <strong>locator</strong>.</li>
+        <li><strong>Strap clamp ≠ locator:</strong> strap clamp is a <strong>clamping device</strong>.</li>
+        <li><strong>6 DOF ≠ 9 movements:</strong> 6 = rigid-body DOF; 9 = commonly used <strong>3-2-1 locator movement count</strong>.</li>
+        <li><strong>3-2-1 has 6 locating points</strong>, not 9.</li>
+        <li><strong>9 movements + 3 clamping movements = 12 total movements</strong> in conventional fixture-design treatment.</li>
+        <li><strong>Turning generally does not use a jig</strong> because tool guidance comes from the lathe.</li>
+        <li><strong>Diamond pin is selected for tolerance accommodation</strong>, not primarily because of hardness.</li>
+        <li><strong>Floating fixture improves locating accuracy</strong>, not primarily production speed.</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <h2>🔑 ONE-LINERS TO MEMORIZE</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+
+    <div class="oneliners-grid">
+        <div class="oneliner-card"><span class="oneliner-num">01</span><span class="oneliner-text"><strong>Jig</strong> = Hold + Locate + Guide tool.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">02</span><span class="oneliner-text"><strong>Fixture</strong> = Hold + Locate; <strong>no tool guidance</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">03</span><span class="oneliner-text"><strong>Turning</strong> generally does <strong>not use a jig</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">04</span><span class="oneliner-text"><strong>Drilling</strong> is the classic application of a jig.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">05</span><span class="oneliner-text"><strong>V-block</strong> = Cylindrical-job locator.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">06</span><span class="oneliner-text"><strong>Diamond pin</strong> = Centre-distance tolerance compensator.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">07</span><span class="oneliner-text"><strong>Diamond pin</strong> = Locator, <strong>not a clamp</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">08</span><span class="oneliner-text"><strong>Strap clamp</strong> = Simplest low-cost clamp.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">09</span><span class="oneliner-text">Proper design sequence: <strong>Locate first, clamp second</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">10</span><span class="oneliner-text"><strong>3-2-1 Principle:</strong> 3 primary + 2 secondary + 1 tertiary locating points.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">11</span><span class="oneliner-text"><strong>3-2-1 Locating System:</strong> Contains <strong>6 locating points</strong> total.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">12</span><span class="oneliner-text"><strong>3-2-1 Locators:</strong> Arrest <strong>9 movements</strong> in common exam convention.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">13</span><span class="oneliner-text"><strong>Remaining 3 movements</strong> are resisted by <strong>clamping</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">14</span><span class="oneliner-text"><strong>Total considered movements</strong> = 12 ($6\text{ translation} + 6\text{ rotation}$).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">15</span><span class="oneliner-text"><strong>Rigid Body DOF</strong> = <strong>6</strong> (3 translation + 3 rotation).</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">16</span><span class="oneliner-text"><strong>3 in 3-2-1:</strong> Three locating positions on primary face.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">17</span><span class="oneliner-text"><strong>Jigs and fixtures</strong> increase production rate and machine utilization.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">18</span><span class="oneliner-text"><strong>Higher speeds/feeds</strong> are permitted when rigidity allows.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">19</span><span class="oneliner-text"><strong>Jigs/fixtures</strong> improve dimensional consistency and repeatability.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">20</span><span class="oneliner-text"><strong>Operator Safety:</strong> Enhanced by positive location and rigid clamping.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">21</span><span class="oneliner-text"><strong>Floating fixture:</strong> Self-alignment + <strong>improved location accuracy</strong>.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">22</span><span class="oneliner-text"><strong>Robot axis movements:</strong> Elbow + wrist + X-Y motion.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">23</span><span class="oneliner-text"><strong>Round-nose turning roughness:</strong> $h = \frac{f^2}{8r}$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">24</span><span class="oneliner-text"><strong>Arithmetic roughness approximation:</strong> $R_a \approx \frac{f^2}{32r}$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">25</span><span class="oneliner-text"><strong>Turning roughness relation:</strong> Varies as $f^2$ and inversely as $r$.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">26</span><span class="oneliner-text"><strong>Two-hole location:</strong> Diamond pin + round pin for centre-distance tolerance.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">27</span><span class="oneliner-text"><strong>Clamping vs Location:</strong> Clamping maintains contact; location establishes position.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">28</span><span class="oneliner-text"><strong>Excess locators:</strong> Cause binding, over-constraint, and inaccuracy.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">29</span><span class="oneliner-text"><strong>Higher production speed:</strong> Advantage, not a disadvantage, of jigs/fixtures.</span></div>
+        <div class="oneliner-card"><span class="oneliner-num">30</span><span class="oneliner-text"><strong>Exam Choice Rule:</strong> For "DOF" choose <strong>6</strong>; for 3-2-1 "movements arrested" choose <strong>9</strong>.</span></div>
+    </div>
+
+    <footer>
+        Jigs &amp; Fixtures MCQ Grind &bull; APGENCO AE / SSC JE / GATE Examination Series
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById("theme-toggle");
+            var saved = localStorage.getItem("ag-theme") || "dark";
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute("data-theme", t);
+                if(toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+                localStorage.setItem("ag-theme", t);
+            }
+
+            applyTheme(saved);
+
+            if(toggle) {
+                toggle.addEventListener("click", function() {
+                    var current = document.documentElement.getAttribute("data-theme") || "dark";
+                    applyTheme(current === "dark" ? "light" : "dark");
+                });
+            }
+
+            var bar = document.getElementById("reading-progress");
+            if(bar) {
+                window.addEventListener("scroll", function() {
+                    var d = document.documentElement.scrollHeight - window.innerHeight;
+                    bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+                }, { passive: true });
+            }
+        })();
+    </script>
+</body>
+
+</html>
