@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="materials">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Science & Metallurgy — Subject Portal — AP GenCo / SSC JE</title>
+  <meta name="description" content="Master Study Portal for Material Science & Metallurgy. Includes concise revision and comprehensive deep-dive guides for AP GenCo AE, SSC JE, and state engineering exams.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bookman+Old+Style&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Subject Material Science Accent System */
+      --subject-materials-primary: #EC4899;
+      --subject-materials-light: #F472B6;
+      --subject-materials-dark: #831843;
+      
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-accent: #EC4899;
+      --border-light: #262933;
+      --border-hover: #EC4899;
+      --heading-color: #F1F5F9;
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      
+      --subject-current: var(--subject-materials-primary);
+      --subject-current-light: rgba(236, 72, 153, 0.25);
+      --subject-bg-tint: rgba(236, 72, 153, 0.08);
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --text-accent: #DB2777;
+      --border-light: #E2E8F0;
+      --border-hover: #DB2777;
+      --heading-color: #0F172A;
+      --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+      --subject-current: #DB2777;
+      --subject-current-light: rgba(219, 39, 119, 0.15);
+      --subject-bg-tint: rgba(219, 39, 119, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      padding: 48px 24px 72px;
+      transition: background 0.25s, color 0.25s;
+    }
+    
+    .container { max-width: 880px; margin: 0 auto; }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current); z-index: 9999;
+      transition: width 0.1s linear, background 0.3s ease;
+    }
+
+    /* Floating Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { 
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.08);
+    }
+
+    /* Swiss Minimalist Header */
+    .hub-header { margin-bottom: 32px; }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-accent); text-decoration: none;
+      font-size: 9pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 20px;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .back-btn:hover { color: var(--text-primary); transform: translateX(-3px); }
+    
+    .header-title-row {
+      display: flex; align-items: baseline; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .hub-header h1 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 28pt; font-weight: 700; letter-spacing: -0.5px;
+      line-height: 1.15; color: var(--heading-color);
+    }
+    .hub-meta {
+      font-family: monospace; font-size: 8.5pt; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--text-muted);
+    }
+
+    .divider {
+      border: none; height: 1px; background: var(--border-light);
+      margin: 28px 0 36px;
+    }
+
+    /* Guide Tier Card Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--subject-current);
+      box-shadow: 0 12px 32px -4px var(--subject-current-light);
+    }
+
+    .card-num-large {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 28pt; font-weight: 700;
+      color: var(--subject-current);
+      opacity: 0.85; margin-bottom: 12px;
+    }
+    .card-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; font-weight: 700; color: var(--heading-color);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 9.5pt; color: var(--text-secondary); margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .card-topics-list {
+      display: flex; flex-wrap: wrap; gap: 6px 10px;
+      font-size: 8.5pt; color: var(--text-muted); margin-bottom: 24px;
+    }
+    .topic-dot { color: var(--subject-current); }
+
+    .card-action { margin-top: auto; }
+    .link-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--subject-current); color: #0E0F12;
+      font-weight: 700; font-size: 9.5pt; text-decoration: none;
+      padding: 10px 18px; border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .link-cta:hover {
+      background: var(--subject-materials-light);
+      transform: translateX(3px);
+    }
+
+    /* Modules Overview Breakdown */
+    .modules-section { margin-top: 56px; }
+    .section-title {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 16pt; color: var(--heading-color);
+      border-bottom: 2px solid var(--subject-current);
+      padding-bottom: 8px; margin-bottom: 24px;
+    }
+
+    .module-list { display: flex; flex-direction: column; gap: 16px; }
+    .module-item {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-radius: 10px; padding: 18px 20px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 12px; transition: border-color 0.2s ease;
+    }
+    .module-item:hover { border-color: var(--subject-current); }
+    .module-info h3 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      font-size: 12pt; color: var(--text-primary); margin-bottom: 4px;
+    }
+    .module-info p { font-size: 9pt; color: var(--text-secondary); }
+    .module-tag {
+      font-size: 8pt; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; padding: 4px 10px; border-radius: 20px;
+      background: var(--subject-bg-tint); color: var(--subject-current);
+      border: 1px solid var(--subject-current-light);
+    }
+
+    footer {
+      margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border-light);
+      display: flex; justify-content: space-between; font-size: 8.5pt; color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 24px 16px 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .hub-header h1 { font-size: 22pt; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress"></div>
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+
+  <div class="container">
+    <!-- Minimal Swiss Header -->
+    <header class="hub-header">
+      <a href="../index.html" class="back-btn">&larr; Main Engineering Portal</a>
+      <div class="header-title-row">
+        <h1>Material Science & Metallurgy</h1>
+        <span class="hub-meta">2 Guide Tiers &bull; Core ME Syllabus</span>
+      </div>
+    </header>
+
+    <hr class="divider">
+
+    <!-- Dual-Tier Study Guide Cards -->
+    <main class="grid">
+      <!-- Card 01: Short Revised -->
+      <article class="card">
+        <div>
+          <div class="card-num-large">01</div>
+          <h2 class="card-title">Concise Revision Guide</h2>
+          <p class="card-desc">High-yield exam review guide featuring crystal structures, APF formulas, Fe-C critical points, microstructural phases, heat treatment, alloy steels, and powder metallurgy.</p>
+          <div class="card-topics-list">
+            <span>Crystal Geometry</span><span class="topic-dot">&bull;</span>
+            <span>Fe-C Diagram</span><span class="topic-dot">&bull;</span>
+            <span>Heat Treatment</span><span class="topic-dot">&bull;</span>
+            <span>Powder Metallurgy</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="mat_sci_revised.html" class="link-cta">Open Revision Guide <span>&rarr;</span></a>
+        </div>
+      </article>
+
+      <!-- Card 02: Long Reorganized -->
+      <article class="card">
+        <div>
+          <div class="card-num-large">02</div>
+          <h2 class="card-title">Comprehensive Master Guide</h2>
+          <p class="card-desc">Deep-dive master study guide with exhaustive theory, iron & steel manufacture routes, TTT/CCT curves, non-ferrous alloys, ASCII decision trees, 20+ core theory Q&As, and pre-exam checklist.</p>
+          <div class="card-topics-list">
+            <span>Iron & Steelmaking</span><span class="topic-dot">&bull;</span>
+            <span>TTT Curves</span><span class="topic-dot">&bull;</span>
+            <span>Non-Ferrous Alloys</span><span class="topic-dot">&bull;</span>
+            <span>Theory Q&As</span>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="mat_sci_reorganized.html" class="link-cta">Open Master Guide <span>&rarr;</span></a>
+        </div>
+      </article>
+    </main>
+
+    <!-- Syllabus Modules Breakdown -->
+    <section class="modules-section">
+      <h2 class="section-title">Syllabus Coverage Breakdown</h2>
+      <div class="module-list">
+        <div class="module-item">
+          <div class="module-info">
+            <h3>1. Atomic Bonding & Crystal Geometry</h3>
+            <p>Metallic, Covalent, Ionic & Van der Waals bonding; SC, BCC, FCC, HCP unit cell parameters, APF, CN, and density formulas.</p>
+          </div>
+          <span class="module-tag">Core Fundamentals</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>2. Crystal Imperfections & Strengthening</h3>
+            <p>Point defects (vacancies, interstitials, Schottky, Frenkel), dislocations (edge, screw, Burgers vector), grain boundaries & Hall-Petch strengthening law.</p>
+          </div>
+          <span class="module-tag">Defects & Mechanics</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>3. Structure of Alloys & Iron-Carbon System</h3>
+            <p>Solid solutions, Hume-Rothery rules, Fe-C phase diagram, Eutectic/Eutectoid/Peritectic reactions, Ferrite, Austenite, Cementite, Pearlite, Martensite & Bainite.</p>
+          </div>
+          <span class="module-tag">High Yield</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>4. Manufacture of Iron & Steel</h3>
+            <p>Blast furnace pig iron production, slag formation reactions, steelmaking routes (BOF/LD, EAF, Bessemer, Open Hearth) and deoxidation practices.</p>
+          </div>
+          <span class="module-tag">Process Metallurgy</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>5. Heat Treatment of Steel</h3>
+            <p>Annealing, Normalising, Hardening, Tempering, Austempering, Martempering, Spheroidising, Case hardening, TTT/CCT diagrams & quenching media.</p>
+          </div>
+          <span class="module-tag">High Yield</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>6. Alloy Steels & Non-Ferrous Alloys</h3>
+            <p>Alloying element roles (Cr, Ni, Mo, V, W), stainless steels (18/8), HSS (M2), brasses (Yellow, Muntz, Naval), bronzes (Gun metal, Phosphor), Babbitt bearing metals & Duralumin.</p>
+          </div>
+          <span class="module-tag">Engineering Materials</span>
+        </div>
+        <div class="module-item">
+          <div class="module-info">
+            <h3>7. Principles of Powder Metallurgy</h3>
+            <p>Mandatory 4-step sequence (Production &rarr; Blending &rarr; Compacting &rarr; Sintering), green compact mechanics, sintering diffusion, impregnation, infiltration & WC-Co tools.</p>
+          </div>
+          <span class="module-tag">Manufacturing Route</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>Material Science & Metallurgy Hub</span>
+      <span>AP GenCo AE / SSC JE / State Engineering Exams</span>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        if (toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+        localStorage.setItem("ag-theme", t);
+      }
+
+      applyTheme(saved);
+
+      if (toggle) {
+        toggle.addEventListener("click", function() {
+          var current = document.documentElement.getAttribute("data-theme") || "dark";
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      }
+
+      var bar = document.getElementById("reading-progress");
+      if (bar) {
+        window.addEventListener("scroll", function() {
+          var d = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+        }, { passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-subject="materials">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Science & Metallurgy — High-Yield Revision Guide</title>
+  <meta name="description" content="Concise high-yield revision guide for Material Science & Metallurgy for AP GenCo AE, SSC JE, and ME competitive exams. Covers crystal structures, Fe-C diagram, heat treatment, alloy steels, non-ferrous alloys, and powder metallurgy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bookman+Old+Style&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      /* Material Science Subject Palette */
+      --subject-materials-primary: #EC4899;
+      --subject-materials-light: #F472B6;
+      --subject-materials-dark: #831843;
+
+      --bg-page: #0E0F12;
+      --bg-card: #16181D;
+      --bg-formula: #111318;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --text-accent: #EC4899;
+      --border-light: #262933;
+      --border-hover: #EC4899;
+      --heading-color: #F1F5F9;
+      
+      --callout-concept-bg: #131D31;
+      --callout-concept-border: #3B6FD4;
+      --callout-concept-text: #93C5FD;
+      --callout-trap-bg: #271415;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #FCA5A5;
+      
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.40);
+      --subject-current: var(--subject-materials-primary);
+      --subject-current-light: rgba(236, 72, 153, 0.25);
+      --subject-bg-tint: rgba(236, 72, 153, 0.08);
+    }
+
+    [data-theme="light"] {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-formula: #F1F5F9;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --text-accent: #DB2777;
+      --border-light: #E2E8F0;
+      --border-hover: #DB2777;
+      --heading-color: #0F172A;
+      --callout-concept-bg: #EFF6FF;
+      --callout-concept-border: #3B82F6;
+      --callout-concept-text: #1E40AF;
+      --callout-trap-bg: #FEF2F2;
+      --callout-trap-border: #EF4444;
+      --callout-trap-text: #991B1B;
+      --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+      --subject-current: #DB2777;
+      --subject-current-light: rgba(219, 39, 119, 0.15);
+      --subject-bg-tint: rgba(219, 39, 119, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg-page);
+      padding: 0 0 90px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--subject-current); z-index: 9999;
+      transition: width 0.1s linear, background 0.3s ease;
+    }
+
+    /* Floating Theme Toggle */
+    #theme-toggle {
+      position: fixed; top: 18px; right: 24px;
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      color: var(--text-secondary); border-radius: 50%;
+      width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13pt; z-index: 9998;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      transition: all 0.2s ease;
+    }
+    #theme-toggle:hover { 
+      border-color: var(--subject-current);
+      color: var(--subject-current);
+      transform: scale(1.08);
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 36px 24px 0; }
+
+    /* Sub-Module Navigation */
+    .submodule-nav {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current);
+      padding: 12px 18px; border-radius: 10px; margin-bottom: 24px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 6px 12px; font-size: 9pt; box-shadow: var(--shadow-card);
+    }
+    .submodule-nav a {
+      color: var(--text-secondary); font-weight: 600; text-decoration: none;
+      padding: 4px 10px; border-radius: 6px; transition: all 0.2s ease;
+    }
+    .submodule-nav a:hover {
+      color: var(--subject-current); background: var(--bg-formula);
+    }
+    .submodule-nav a.active {
+      color: var(--subject-current); font-weight: 700;
+      background: var(--bg-formula); border: 1px solid var(--subject-current);
+    }
+
+    /* Headings */
+    h1, h2, h3, h4 {
+      font-family: "Bookman Old Style", Georgia, serif;
+      color: var(--heading-color); font-weight: 700;
+    }
+
+    h1 {
+      font-size: 24pt; text-align: center;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-formula) 100%);
+      color: var(--heading-color);
+      border-left: 5px solid var(--subject-current);
+      padding: 24px 20px; border-radius: 12px; margin-bottom: 24px;
+      box-shadow: var(--shadow-card); line-height: 1.3;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+
+    .subject-badge {
+      font-family: "Inter", sans-serif; font-size: 7.5pt; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px; text-transform: uppercase;
+      letter-spacing: 1px; background: var(--subject-current); color: #0E0F12;
+    }
+
+    h2.section-head {
+      font-size: 16pt; color: var(--heading-color);
+      border-bottom: 3px solid var(--subject-current);
+      padding-bottom: 6px; margin: 40px 0 18px;
+    }
+
+    h3.sub-head {
+      font-size: 13pt; color: var(--subject-current);
+      margin: 24px 0 12px;
+    }
+
+    p { margin-bottom: 1em; }
+
+    /* Callout Box Syntax */
+    .callout {
+      padding: 16px 20px; margin: 20px 0; border-radius: 8px;
+      font-size: 10pt; line-height: 1.6; border-left: 5px solid;
+      box-shadow: var(--shadow-card);
+    }
+    .callout-concept {
+      background-color: var(--callout-concept-bg);
+      border-color: var(--callout-concept-border);
+      color: var(--callout-concept-text);
+    }
+    .callout-trap {
+      background-color: var(--callout-trap-bg);
+      border-color: var(--callout-trap-border);
+      color: var(--callout-trap-text);
+    }
+    .callout-focus {
+      background: var(--subject-bg-tint);
+      border-color: var(--subject-current);
+      color: var(--text-primary);
+    }
+
+    /* Formula Cards & Concept Blocks */
+    .formula-card, .fc, .concept-block, .formula-box {
+      background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 75%);
+      border: 1px solid var(--subject-current-light);
+      border-left: 5px solid var(--subject-current);
+      border-radius: 12px; padding: 18px 22px; margin: 22px 0;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .formula-card:hover, .fc:hover, .concept-block:hover, .formula-box:hover {
+      transform: translateY(-3px);
+      border-color: var(--subject-current);
+      box-shadow: 0 12px 32px -4px var(--subject-current-light);
+    }
+    .flabel {
+      font-size: 8pt; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--subject-current); font-weight: 700; margin-bottom: 6px;
+    }
+
+    /* Tables */
+    table {
+      border-collapse: collapse; width: 100%; margin: 20px 0;
+      background: var(--bg-card); border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border-light); box-shadow: var(--shadow-card);
+      font-size: 9.5pt;
+    }
+    th, td {
+      border: 1px solid var(--border-light); padding: 10px 14px; text-align: left;
+    }
+    th {
+      background: var(--bg-formula); color: var(--subject-current);
+      font-family: "Bookman Old Style", Georgia, serif; font-weight: 600;
+      font-size: 9.5pt; border-bottom: 2px solid var(--subject-current);
+    }
+    tr:nth-child(even) td { background-color: rgba(255,255,255,0.02); }
+    tr:hover td { background-color: var(--subject-bg-tint); }
+
+    .alloy-table td:first-child { font-weight: 700; color: var(--subject-current); }
+
+    /* Grid Layouts */
+    .crystal-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px; margin: 20px 0;
+    }
+    .crystal-card {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-top: 4px solid var(--subject-current); border-radius: 10px;
+      padding: 16px; box-shadow: var(--shadow-card);
+    }
+    .crystal-card .cc-name {
+      font-family: "Bookman Old Style", Georgia, serif; font-size: 13pt;
+      font-weight: 700; color: var(--subject-current); margin-bottom: 8px;
+    }
+    .crystal-card .cc-row {
+      font-size: 9pt; color: var(--text-secondary); margin-bottom: 4px;
+    }
+    .crystal-card .cc-row strong { color: var(--text-primary); }
+
+    .ht-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px; margin: 20px 0;
+    }
+    .ht-card {
+      border: 1px solid var(--border-light); border-top: 3px solid var(--subject-current);
+      padding: 14px; background: var(--bg-card); border-radius: 8px;
+    }
+    .ht-card .ht-name {
+      font-weight: 700; font-size: 10.5pt; color: var(--subject-current); margin-bottom: 6px;
+    }
+    .ht-card .ht-body { font-size: 9pt; color: var(--text-secondary); line-height: 1.5; }
+
+    .keypoints {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-left: 4px solid var(--subject-current); border-radius: 10px;
+      padding: 20px 24px; margin: 24px 0; box-shadow: var(--shadow-card);
+    }
+    .keypoints h3 { font-size: 11.5pt; color: var(--subject-current); margin-bottom: 12px; }
+    .keypoints ul { padding-left: 1.2em; }
+    .keypoints li { margin-bottom: 8px; font-size: 9.5pt; color: var(--text-secondary); }
+
+    footer {
+      margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border-light);
+      text-align: center; font-size: 8.5pt; color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .container { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 18pt; }
+      table { font-size: 8.5pt; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress"></div>
+  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <div class="container">
+    <!-- Sub-Module Header Navigation -->
+    <nav class="submodule-nav">
+      <span style="color:var(--subject-current); font-weight:700;">📚 Nav:</span>
+      <a href="index.html">[Hub Home]</a>
+      <a href="#sec-bonding">1. Bonding</a>
+      <a href="#sec-crystal">2. Crystals</a>
+      <a href="#sec-imperfections">3. Imperfections</a>
+      <a href="#sec-fe-c">4. Fe-C Diagram</a>
+      <a href="#sec-phases">5. Phases</a>
+      <a href="#sec-steelmaking">6. Steelmaking</a>
+      <a href="#sec-ht">7. Heat Treatment</a>
+      <a href="#sec-alloy-steel">8. Alloy Steels</a>
+      <a href="#sec-nonferrous">9. Non-Ferrous</a>
+      <a href="#sec-pm">10. Powder Met</a>
+    </nav>
+
+    <!-- Dual-Tier Cross-Link Banner -->
+    <div class="callout callout-concept" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <span><strong>⚡ Concise Revision Mode:</strong> You are viewing the high-yield core exam guide.</span>
+      <a href="mat_sci_reorganized.html" style="color: var(--callout-concept-text); font-weight: 700; text-decoration: underline;">Switch to Comprehensive Master Guide &rarr;</a>
+    </div>
+
+    <!-- Title Header -->
+    <h1>
+      Material Science & Metallurgy
+      <span class="subject-badge">High-Yield Revision Guide</span>
+    </h1>
+
+    <!-- Table of Contents -->
+    <div class="formula-card">
+      <div class="flabel">Quick Table of Contents</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 16px; font-size: 9.5pt;">
+        <a href="#sec-bonding" style="color: var(--text-primary); text-decoration: none;">1. Atomic Bonding in Solids</a>
+        <a href="#sec-crystal" style="color: var(--text-primary); text-decoration: none;">2. Crystal Structures & Allotropy</a>
+        <a href="#sec-imperfections" style="color: var(--text-primary); text-decoration: none;">3. Crystal Imperfections</a>
+        <a href="#sec-fe-c" style="color: var(--text-primary); text-decoration: none;">4. Iron-Carbon Phase Diagram</a>
+        <a href="#sec-phases" style="color: var(--text-primary); text-decoration: none;">5. Microstructural Phases</a>
+        <a href="#sec-steelmaking" style="color: var(--text-primary); text-decoration: none;">6. Manufacture of Iron & Steel</a>
+        <a href="#sec-ht" style="color: var(--text-primary); text-decoration: none;">7. Heat Treatment of Steel</a>
+        <a href="#sec-alloy-steel" style="color: var(--text-primary); text-decoration: none;">8. Alloy Steels & Elements</a>
+        <a href="#sec-nonferrous" style="color: var(--text-primary); text-decoration: none;">9. Non-Ferrous Alloys</a>
+        <a href="#sec-pm" style="color: var(--text-primary); text-decoration: none;">10. Powder Metallurgy</a>
+        <a href="#sec-formulas" style="color: var(--text-primary); text-decoration: none;">11. Key Formulas Sheet</a>
+        <a href="#sec-keypoints" style="color: var(--text-primary); text-decoration: none;">12. Key Points & Traps</a>
+      </div>
+    </div>
+
+    <!-- §1 Bonding -->
+    <section id="sec-bonding">
+      <h2 class="section-head">1. Atomic Bonding in Solids</h2>
+      <p>Atomic bonding dictates mechanical ductility, electrical/thermal conductivity, optical transparency, and melting point in engineering materials.</p>
+
+      <table>
+        <thead><tr><th>Bond Type</th><th>Mechanism</th><th>Typical Materials</th><th>Key Properties</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Metallic</strong></td>
+            <td>Delocalised electron "sea" surrounding positive ion cores</td>
+            <td>Metals, alloys (Fe, Cu, Al)</td>
+            <td>Ductile, malleable, high thermal/electrical conductivity, opaque</td>
+          </tr>
+          <tr>
+            <td><strong>Covalent</strong></td>
+            <td>Directional shared electron pairs between specific valence shells</td>
+            <td>Diamond, Si, SiC, polymers</td>
+            <td>Extremely hard, brittle, high MP, electrical insulator (usually)</td>
+          </tr>
+          <tr>
+            <td><strong>Ionic</strong></td>
+            <td>Electrostatic attraction between cation (+) and anion (-)</td>
+            <td>NaCl, MgO, Al₂O₃ ceramics</td>
+            <td>Hard, brittle, high MP, insulator when solid, conductor when molten</td>
+          </tr>
+          <tr>
+            <td><strong>Van der Waals</strong></td>
+            <td>Secondary weak fluctuating or permanent dipole attractions</td>
+            <td>Inter-chain polymer bonds, paraffin</td>
+            <td>Weakest bond, low MP, flexible, low strength</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-focus">
+        <strong>💡 Bond Energy Order:</strong> Covalent ≈ Ionic &gt; Metallic &gt;&gt; Van der Waals.<br>
+        Melting point directly scales with bond energy: Diamond (covalent) &gt; MgO (ionic) &gt; Iron (metallic) &gt; Polymers (Van der Waals).
+      </div>
+    </section>
+
+    <!-- §2 Crystal Structures -->
+    <section id="sec-crystal">
+      <h2 class="section-head">2. Crystal Structures & Allotropy</h2>
+
+      <div class="crystal-grid">
+        <div class="crystal-card">
+          <div class="cc-name">BCC (Body-Centred Cubic)</div>
+          <div class="cc-row"><strong>Atoms/cell ($N$):</strong> 2</div>
+          <div class="cc-row"><strong>APF:</strong> 0.68</div>
+          <div class="cc-row"><strong>Coordination No.:</strong> 8</div>
+          <div class="cc-row"><strong>Lattice Relation:</strong> $4r = a\sqrt{3}$</div>
+          <div class="cc-row"><strong>Metals:</strong> $\alpha$-Fe (&lt;912°C), W, Cr, Mo, V</div>
+          <div class="cc-row"><strong>Note:</strong> Less dense; no close-packed planes &rarr; higher yield strength, lower ductility than FCC</div>
+        </div>
+
+        <div class="crystal-card">
+          <div class="cc-name">FCC (Face-Centred Cubic)</div>
+          <div class="cc-row"><strong>Atoms/cell ($N$):</strong> 4</div>
+          <div class="cc-row"><strong>APF:</strong> 0.74 (maximum)</div>
+          <div class="cc-row"><strong>Coordination No.:</strong> 12</div>
+          <div class="cc-row"><strong>Lattice Relation:</strong> $4r = a\sqrt{2}$</div>
+          <div class="cc-row"><strong>Metals:</strong> $\gamma$-Fe (912–1394°C), Al, Cu, Ni, Pb, Au</div>
+          <div class="cc-row"><strong>Note:</strong> Maximum packing density; {111} close-packed planes &rarr; most ductile</div>
+        </div>
+
+        <div class="crystal-card">
+          <div class="cc-name">HCP (Hexagonal Close-Packed)</div>
+          <div class="cc-row"><strong>Atoms/cell ($N$):</strong> 6</div>
+          <div class="cc-row"><strong>APF:</strong> 0.74</div>
+          <div class="cc-row"><strong>Coordination No.:</strong> 12</div>
+          <div class="cc-row"><strong>Ideal $c/a$ ratio:</strong> 1.633</div>
+          <div class="cc-row"><strong>Metals:</strong> Mg, Zn, Ti, Be, Co</div>
+          <div class="cc-row"><strong>Note:</strong> Same APF as FCC, but fewer slip systems &rarr; lower room temp ductility</div>
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="flabel">Unit Cell Atom Calculation Formula</div>
+        $$N = \frac{N_c}{8} + \frac{N_f}{2} + \frac{N_e}{4} + N_i$$
+        <p style="font-size: 9pt; color: var(--text-secondary); margin-top: 6px;">
+          Where $N_c$ = corner atoms (shared by 8 cells), $N_f$ = face-centre atoms (shared by 2 cells), $N_e$ = edge-centre atoms (shared by 4 cells), $N_i$ = interior atoms (100% inside).
+        </p>
+      </div>
+
+      <h3 class="sub-head">Iron Allotropy (Polymorphism)</h3>
+      <table>
+        <thead><tr><th>Allotrope</th><th>Temperature Range</th><th>Crystal Structure</th><th>Max Carbon Solubility</th></tr></thead>
+        <tbody>
+          <tr><td><strong>$\alpha$-Ferrite</strong></td><td>Below 912°C</td><td>BCC</td><td>0.022% C at 727°C</td></tr>
+          <tr><td><strong>$\gamma$-Austenite</strong></td><td>912°C – 1394°C</td><td>FCC</td><td>2.14% C at 1147°C</td></tr>
+          <tr><td><strong>$\delta$-Ferrite</strong></td><td>1394°C – 1538°C (MP)</td><td>BCC</td><td>0.09% C at 1493°C</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-trap">
+        <strong>⚠️ Exam Trap:</strong> FCC Austenite dissolves nearly 100 times more carbon (2.14%) than BCC Ferrite (0.022%) because FCC has larger interstitial octahedral voids (0.414r vs 0.291r in BCC). This dramatic solubility collapse during cooling forms the base for martensitic hardening!
+      </div>
+    </section>
+
+    <!-- §3 Imperfections -->
+    <section id="sec-imperfections">
+      <h2 class="section-head">3. Crystal Imperfections & Strengthening</h2>
+      
+      <h3 class="sub-head">Point Defects (0D)</h3>
+      <table>
+        <thead><tr><th>Defect</th><th>Description</th><th>Effect on Properties</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vacancy</strong></td><td>Missing atom at lattice site</td><td>Enables solid-state atomic diffusion; equilibrium concentration increases exponentially with temp</td></tr>
+          <tr><td><strong>Interstitial</strong></td><td>Extra small atom crammed in void</td><td>Causes severe local lattice distortion; hardens matrix (e.g., C in Fe)</td></tr>
+          <tr><td><strong>Substitutional</strong></td><td>Host atom replaced by solute atom</td><td>Forms solid solution; strength depends on atomic size mismatch</td></tr>
+          <tr><td><strong>Schottky Defect</strong></td><td>Cation-anion vacancy pair in ionic crystal</td><td>Maintains charge neutrality; lowers bulk density</td></tr>
+          <tr><td><strong>Frenkel Defect</strong></td><td>Ion moves to interstitial site, leaving vacancy</td><td>Cation displacement in ionic crystal; density unchanged</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-head">Line Defects (1D Dislocations)</h3>
+      <table>
+        <thead><tr><th>Dislocation Type</th><th>Burgers Vector ($\mathbf{b}$) vs Line ($\mathbf{t}$)</th><th>Motion Direction</th><th>Deformation Mechanism</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Edge Dislocation</strong></td>
+            <td>Perpendicular ($\mathbf{b} \perp \mathbf{t}$)</td>
+            <td>Parallel to Burgers vector</td>
+            <td>Extra half-plane of atoms inserted in lattice</td>
+          </tr>
+          <tr>
+            <td><strong>Screw Dislocation</strong></td>
+            <td>Parallel ($\mathbf{b} \parallel \mathbf{t}$)</td>
+            <td>Perpendicular to Burgers vector</td>
+            <td>Helical spiral ramp structure around dislocation line</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="formula-card">
+        <div class="flabel">Hall-Petch Relation — Grain Size Strengthening</div>
+        $$\sigma_y = \sigma_0 + k_y \cdot d^{-1/2}$$
+        <p style="font-size:9pt; color:var(--text-secondary); margin-top:6px;">
+          $\sigma_y$ = yield strength, $\sigma_0$ = friction stress, $k_y$ = locking parameter, $d$ = average grain diameter.<br>
+          <strong>Grain refinement</strong> is the ONLY strengthening mechanism that simultaneously increases both yield strength AND impact toughness!
+        </p>
+      </div>
+    </section>
+
+    <!-- §4 Fe-C Diagram -->
+    <section id="sec-fe-c">
+      <h2 class="section-head">4. Iron-Carbon Phase Diagram</h2>
+
+      <h3 class="sub-head">Key Invariant Reactions</h3>
+      <table>
+        <thead><tr><th>Reaction</th><th>Temp (°C)</th><th>Carbon %</th><th>Phase Transformation Equation</th><th>Product Name</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Eutectoid</strong></td>
+            <td>727°C ($A_1$)</td>
+            <td>0.80% C</td>
+            <td>$\gamma\text{ (Austenite, solid)} \rightleftharpoons \alpha\text{ (Ferrite)} + \text{Fe}_3\text{C (Cementite)}$</td>
+            <td>Pearlite (Lamellar microconstituent)</td>
+          </tr>
+          <tr>
+            <td><strong>Eutectic</strong></td>
+            <td>1147°C</td>
+            <td>4.30% C</td>
+            <td>$L\text{ (Liquid)} \rightleftharpoons \gamma\text{ (Austenite)} + \text{Fe}_3\text{C}$</td>
+            <td>Ledeburite</td>
+          </tr>
+          <tr>
+            <td><strong>Peritectic</strong></td>
+            <td>1493°C</td>
+            <td>0.17% C</td>
+            <td>$L\text{ (Liquid)} + \delta\text{-Ferrite} \rightleftharpoons \gamma\text{ (Austenite)}$</td>
+            <td>Austenite ($\gamma$)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="formula-card">
+        <div class="flabel">Classification of Steels & Cast Irons</div>
+        <ul style="padding-left: 1.2em; font-size: 9.5pt; color: var(--text-secondary);">
+          <li><strong>Hypoeutectoid Steel (0.008% – 0.80% C):</strong> Microstructure = Proeutectoid Ferrite + Pearlite</li>
+          <li><strong>Eutectoid Steel (0.80% C):</strong> Microstructure = 100% Pearlite</li>
+          <li><strong>Hypereutectoid Steel (0.80% – 2.14% C):</strong> Microstructure = Pearlite + Proeutectoid Cementite network</li>
+          <li><strong>Cast Irons (2.14% – 6.67% C):</strong> Commercial range 2.5% – 4.0% C</li>
+        </ul>
+      </div>
+
+      <div class="formula-card">
+        <div class="flabel">Lever Rule Formula (Phase Fraction)</div>
+        $$W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha} \times 100\%$$
+        <p style="font-size: 9pt; color: var(--text-secondary); margin-top: 6px;">
+          $C_0$ = overall alloy composition, $C_\alpha, C_\beta$ = phase boundaries of tie-line at given temperature.
+        </p>
+      </div>
+    </section>
+
+    <!-- §5 Microstructural Phases -->
+    <section id="sec-phases">
+      <h2 class="section-head">5. Microstructural Phases of Steel</h2>
+
+      <table>
+        <thead><tr><th>Phase / Constituent</th><th>Crystal Structure</th><th>Hardness (HB)</th><th>Cooling / Formation Route</th><th>Key Characteristics</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ferrite ($\alpha$)</strong></td>
+            <td>BCC</td>
+            <td>~80 HB</td>
+            <td>Equilibrium slow cool below $A_3$/$A_1$</td>
+            <td>Soft, highly ductile, magnetic below 768°C (Curie point)</td>
+          </tr>
+          <tr>
+            <td><strong>Austenite ($\gamma$)</strong></td>
+            <td>FCC</td>
+            <td>~200 HB</td>
+            <td>Stable above $A_1$/$A_3$ line</td>
+            <td>Non-magnetic, high toughness, high carbon solubility (2.14%)</td>
+          </tr>
+          <tr>
+            <td><strong>Cementite ($\text{Fe}_3\text{C}$)</strong></td>
+            <td>Orthorhombic</td>
+            <td>~700–800 HB</td>
+            <td>Intermetallic compound (6.67% C)</td>
+            <td>Extremely hard, extremely brittle</td>
+          </tr>
+          <tr>
+            <td><strong>Pearlite</strong></td>
+            <td>Lamellar ($\alpha + \text{Fe}_3\text{C}$)</td>
+            <td>~200–250 HB</td>
+            <td>Slow furnace/air cool across $A_1$</td>
+            <td>Alternating layers of ferrite (88%) and cementite (12%)</td>
+          </tr>
+          <tr>
+            <td><strong>Martensite</strong></td>
+            <td>BCT (Tetragonal)</td>
+            <td>~500–700 HB</td>
+            <td>Rapid quench below $M_s$ (Diffusionless)</td>
+            <td>Supersaturated carbon trapped in BCT distortion; extremely hard & brittle</td>
+          </tr>
+          <tr>
+            <td><strong>Bainite</strong></td>
+            <td>Non-lamellar ($\alpha + \text{Fe}_3\text{C}$)</td>
+            <td>~400–500 HB</td>
+            <td>Isothermal hold between 250°C–550°C</td>
+            <td>Upper bainite (feathery) vs Lower bainite (acicular); high toughness</td>
+          </tr>
+          <tr>
+            <td><strong>Spheroidite</strong></td>
+            <td>Spherical $\text{Fe}_3\text{C}$ in $\alpha$</td>
+            <td>~160–190 HB</td>
+            <td>Prolonged sub-critical heating (700°C for 24h)</td>
+            <td>Maximum machinability & ductility; lowest strength</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §6 Manufacture of Iron & Steel -->
+    <section id="sec-steelmaking">
+      <h2 class="section-head">6. Manufacture of Iron & Steel</h2>
+
+      <h3 class="sub-head">Ironmaking — Blast Furnace</h3>
+      <p>Iron ore (Hematite $\text{Fe}_2\text{O}_3$), Coke (fuel & reductant), and Limestone ($\text{CaCO}_3$ flux) are charged at the top. Hot air blast is injected through tuyeres.</p>
+
+      <div class="formula-card">
+        <div class="flabel">Blast Furnace Reaction Chemistry</div>
+        <ul style="padding-left: 1.2em; font-size: 9.5pt; color: var(--text-secondary);">
+          <li><strong>Combustion & Gas Generation:</strong> $\text{C} + \text{O}_2 \rightarrow \text{CO}_2 \quad (\Delta H &lt; 0)$; $\text{CO}_2 + \text{C} \rightarrow 2\text{CO}$</li>
+          <li><strong>Reduction of Ore:</strong> $3\text{Fe}_2\text{O}_3 + \text{CO} \rightarrow 2\text{Fe}_3\text{O}_4 + \text{CO}_2 \rightarrow 6\text{FeO} \rightarrow 6\text{Fe} + 6\text{CO}_2$</li>
+          <li><strong>Fluxing & Slag Formation:</strong> $\text{CaCO}_3 \rightarrow \text{CaO} + \text{CO}_2$; $\text{CaO} + \text{SiO}_2 \rightarrow \text{CaSiO}_3\text{ (Slag)}$</li>
+        </ul>
+        <p style="font-size: 9pt; color: var(--text-secondary); margin-top: 8px;">
+          Product = <strong>Pig Iron</strong> (~4% C, High Si, Mn, P, S). Very brittle, unforgeable.
+        </p>
+      </div>
+
+      <h3 class="sub-head">Steelmaking Processes</h3>
+      <table>
+        <thead><tr><th>Process Route</th><th>Primary Raw Material</th><th>Refining Action</th><th>Key Features</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Basic Oxygen Furnace (BOF / LD)</strong></td>
+            <td>75% Molten Pig Iron + 25% Scrap</td>
+            <td>Supersonic $O_2$ lance burns out C, Si, Mn</td>
+            <td>Dominant global steelmaking process; fast tap time (40 min)</td>
+          </tr>
+          <tr>
+            <td><strong>Electric Arc Furnace (EAF)</strong></td>
+            <td>100% Cold Steel Scrap / DRI</td>
+            <td>Graphite electrodes melt charge via high-current arc</td>
+            <td>Used for high-alloy, stainless, and tool steels</td>
+          </tr>
+          <tr>
+            <td><strong>Deoxidation Types</strong></td>
+            <td>Killed Steel ($\text{Al}/\text{Si}$ added)</td>
+            <td>Semi-killed Steel / Rimmed Steel ($\text{FeMnO}$)</td>
+            <td>Killed steel has zero gas porosity, uniform properties</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §7 Heat Treatment -->
+    <section id="sec-ht">
+      <h2 class="section-head">7. Heat Treatment of Steel</h2>
+
+      <div class="ht-strip">
+        <div class="ht-card">
+          <div class="ht-name">Annealing</div>
+          <div class="ht-body">Heat $30\text{--}50^\circ\text{C}$ above $A_3$ (hypo) or $A_1$ (hyper). Slow furnace cool. Result: Maximum softness, stress relief, coarse pearlite.</div>
+        </div>
+
+        <div class="ht-card">
+          <div class="ht-name">Normalising</div>
+          <div class="ht-body">Heat $30\text{--}50^\circ\text{C}$ above $A_3$ or $A_{cm}$. Air cool in still air. Result: Grain refinement, fine pearlite, higher yield strength than annealing.</div>
+        </div>
+
+        <div class="ht-card">
+          <div class="ht-name">Hardening (Quenching)</div>
+          <div class="ht-body">Heat above $A_3$/$A_1$, hold to austenitise, rapid quench in water/oil below $M_s$. Result: 100% Martensite (Maximum hardness, brittle).</div>
+        </div>
+
+        <div class="ht-card">
+          <div class="ht-name">Tempering</div>
+          <div class="ht-body">Reheat hardened steel ($150\text{--}650^\circ\text{C}$), air cool. Result: Relieves internal quenching stress, restores toughness, sacrifices slight hardness.</div>
+        </div>
+
+        <div class="ht-card">
+          <div class="ht-name">Austempering</div>
+          <div class="ht-body">Quench into salt bath at $250\text{--}450^\circ\text{C}$, hold isothermally until transformed. Result: 100% Bainite. High toughness, zero temper brittleness.</div>
+        </div>
+
+        <div class="ht-card">
+          <div class="ht-name">Martempering</div>
+          <div class="ht-body">Quench to just above $M_s$, hold to equalise temperature, air cool. Result: Martensite with minimal thermal distortion/cracking.</div>
+        </div>
+      </div>
+
+      <div class="callout callout-trap">
+        <strong>⚠️ Quenching Media Severity Ranking (Cooling Rate):</strong><br>
+        $$\text{Brine (Salt Water)} &gt; \text{Plain Water} &gt; \text{Oil} &gt; \text{Air}$$
+        Brine cools fastest because salt prevents stable vapor blanket formation. Oil reduces thermal shock & distortion in alloy steels.
+      </div>
+    </section>
+
+    <!-- §8 Alloy Steels -->
+    <section id="sec-alloy-steel">
+      <h2 class="section-head">8. Alloy Steels & Alloying Elements</h2>
+
+      <table>
+        <thead><tr><th>Element</th><th>Primary Function</th><th>Carbide Former?</th><th>Key Effects & Applications</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Chromium (Cr)</strong></td><td>Corrosion resistance & Hardenability</td><td>Strong</td><td>&gt;12% Cr yields Stainless Steel. Forms hard $\text{Cr}_7\text{C}_3$ carbides.</td></tr>
+          <tr><td><strong>Nickel (Ni)</strong></td><td>Toughness & Impact strength</td><td>Non-carbide</td><td>Stabilises Austenite; improves low-temperature notch toughness.</td></tr>
+          <tr><td><strong>Molybdenum (Mo)</strong></td><td>High-temp creep resistance</td><td>Strong</td><td>Prevents temper brittleness; refines grain size.</td></tr>
+          <tr><td><strong>Vanadium (V)</strong></td><td>Grain refinement & Wear resistance</td><td>Very Strong</td><td>Inhibits grain growth at high heat; key in HSS tools.</td></tr>
+          <tr><td><strong>Tungsten (W)</strong></td><td>Hot Hardness (Red Hardness)</td><td>Very Strong</td><td>Retains cutting hardness up to 600°C in HSS ($18\text{-}4\text{-}1$ W-Cr-V).</td></tr>
+          <tr><td><strong>Manganese (Mn)</strong></td><td>Deoxidiser & Hardenability</td><td>Moderate</td><td>Binds harmful sulphur to form harmless MnS inclusions.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-head">Special Alloys Quick Reference</h3>
+      <table>
+        <thead><tr><th>Alloy Name</th><th>Nominal Composition</th><th>Key Properties & Applications</th></tr></thead>
+        <tbody>
+          <tr><td><strong>18/8 Stainless (AISI 304)</strong></td><td>18% Cr, 8% Ni, Balance Fe</td><td>Austenitic, non-magnetic, superior corrosion resistance</td></tr>
+          <tr><td><strong>High-Speed Steel (M2)</strong></td><td>6% W, 5% Mo, 4% Cr, 2% V, 0.85% C</td><td>Retains cutting edge at 600°C (hot hardness)</td></tr>
+          <tr><td><strong>Invar</strong></td><td>36% Ni, 64% Fe</td><td>Near-zero thermal expansion coefficient ($\alpha \approx 1.2 \times 10^{-6}/\text{K}$)</td></tr>
+          <tr><td><strong>Permalloy</strong></td><td>78% Ni, 22% Fe</td><td>Ultra-high magnetic permeability; transformer cores & magnetic shielding</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §9 Non-Ferrous Alloys -->
+    <section id="sec-nonferrous">
+      <h2 class="section-head">9. Non-Ferrous Alloys & Bearing Metals</h2>
+
+      <h3 class="sub-head">Copper Alloys (Brasses & Bronzes)</h3>
+      <table class="alloy-table">
+        <thead><tr><th>Alloy Name</th><th>Nominal Composition</th><th>Distinctive Property</th><th>Typical Applications</th></tr></thead>
+        <tbody>
+          <tr><td>Yellow Brass</td><td>70% Cu, 30% Zn</td><td>Ductile, cold-workable</td><td>Cartridge cases, sheets, tubes</td></tr>
+          <tr><td>Muntz Metal</td><td>60% Cu, 40% Zn</td><td>$\alpha+\beta$ structure, hot-workable</td><td>Condenser tubes, ship sheathing</td></tr>
+          <tr><td>Naval Brass</td><td>60% Cu, 39% Zn, 1% Sn</td><td>Tin addition prevents dezincification</td><td>Marine fittings, propeller shafts</td></tr>
+          <tr><td>Gun Metal</td><td>88% Cu, 10% Sn, 2% Zn</td><td>High strength, corrosion resistant</td><td>Hydraulic valves, bearings, pumps</td></tr>
+          <tr><td>Phosphor Bronze</td><td>90% Cu, 9.7% Sn, 0.3% P</td><td>High fatigue resistance, wear proof</td><td>Heavy duty gears, springs, bearings</td></tr>
+          <tr><td>German Silver</td><td>60% Cu, 20% Ni, 20% Zn</td><td>Silver color despite 0% Silver</td><td>Cutlery, musical instruments, contacts</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-head">Bearing Metals & Light Alloys</h3>
+      <table class="alloy-table">
+        <thead><tr><th>Alloy Name</th><th>Nominal Composition</th><th>Microstructure Mechanism</th><th>Typical Applications</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Babbitt Metal (Tin-base)</td>
+            <td>86% Sn, 10% Sb, 4% Cu</td>
+            <td>Hard $\text{Sb}_3\text{Sn}$ & $\text{Cu}_6\text{Sn}_5$ cuboids in soft Sn matrix</td>
+            <td>High-speed IC engine main crankshaft journal bearings</td>
+          </tr>
+          <tr>
+            <td>White Metal (Lead-base)</td>
+            <td>75% Pb, 15% Sb, 10% Sn</td>
+            <td>Cheaper lead matrix carrying hard particles</td>
+            <td>Railway axle bearings, low-speed shafts</td>
+          </tr>
+          <tr>
+            <td>Duralumin</td>
+            <td>94.5% Al, 4% Cu, 0.5% Mg, 0.5% Mn</td>
+            <td>Age-hardenable ($\text{CuAl}_2$ precipitate)</td>
+            <td>Aircraft fuselage structures, rivets</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §10 Powder Metallurgy -->
+    <section id="sec-pm">
+      <h2 class="section-head">10. Principles of Powder Metallurgy</h2>
+
+      <div class="formula-card">
+        <div class="flabel">Mandatory 4-Step Production Sequence</div>
+        <p style="text-align: center; font-weight: 700; font-size: 11pt; color: var(--subject-current);">
+          Powder Production &nbsp;&rarr;&nbsp; Blending & Mixing &nbsp;&rarr;&nbsp; Compacting (Green Compact) &nbsp;&rarr;&nbsp; Sintering
+        </p>
+      </div>
+
+      <table>
+        <thead><tr><th>PM Step</th><th>Process Mechanism</th><th>Key Operational Parameters</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Powder Production</strong></td>
+            <td>Atomisation (liquid metal stream sprayed by air/water gas jet), Oxide Reduction, Electrolysis</td>
+            <td>Yields controlled particle size distribution ($1\text{--}100\ \mu\text{m}$)</td>
+          </tr>
+          <tr>
+            <td><strong>2. Blending & Mixing</strong></td>
+            <td>Homogenising elemental powders + solid lubricants (zinc stearate, wax)</td>
+            <td>Reduces die wall friction and ejection pressure</td>
+          </tr>
+          <tr>
+            <td><strong>3. Compacting</strong></td>
+            <td>Uniaxial pressing in rigid die at $100\text{--}800\ \text{MPa}$</td>
+            <td>Produces <strong>Green Compact</strong> (interlocking & cold welding). Weight = Powder Weight!</td>
+          </tr>
+          <tr>
+            <td><strong>4. Sintering</strong></td>
+            <td>Heating in controlled reducing atmosphere at $0.7\text{--}0.9\ T_m$</td>
+            <td>Solid-state atomic diffusion seals pores; particles bond <strong>without bulk melting</strong>!</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-focus">
+        <strong>💡 Secondary PM Operations:</strong><br>
+        &bull; <strong>Impregnation:</strong> Pores filled with lubricating oil (10–30% by vol) &rarr; Self-lubricating porous bronze bearings.<br>
+        &bull; <strong>Infiltration:</strong> Pores filled with lower-melting liquid metal (e.g. molten Cu into Fe compact) &rarr; Eliminates porosity, boosts strength.<br>
+        &bull; <strong>Primary PM Application:</strong> Tungsten Carbide ($\text{WC-Co}$) cutting tools. WC grains (~90%) bonded with Cobalt binder (~10%).
+      </div>
+    </section>
+
+    <!-- §11 Key Formulas -->
+    <section id="sec-formulas">
+      <h2 class="section-head">11. Key Formulas Sheet</h2>
+      <table>
+        <thead><tr><th>Concept / Relation</th><th>Mathematical Formula</th><th>Variables & Units</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Unit Cell Atom Count</td>
+            <td>$N = \frac{N_c}{8} + \frac{N_f}{2} + \frac{N_e}{4} + N_i$</td>
+            <td>$\text{SC}=1, \text{BCC}=2, \text{FCC}=4, \text{HCP}=6$</td>
+          </tr>
+          <tr>
+            <td>Atomic Packing Factor</td>
+            <td>$\text{APF} = \frac{N \cdot \frac{4}{3}\pi r^3}{V_{\text{unit cell}}}$</td>
+            <td>$\text{SC}=0.52, \text{BCC}=0.68, \text{FCC}=\text{HCP}=0.74$</td>
+          </tr>
+          <tr>
+            <td>BCC Lattice Parameter</td>
+            <td>$a = \frac{4r}{\sqrt{3}}$</td>
+            <td>Body diagonal = $4r$</td>
+          </tr>
+          <tr>
+            <td>FCC Lattice Parameter</td>
+            <td>$a = \frac{4r}{\sqrt{2}} = 2\sqrt{2}\,r$</td>
+            <td>Face diagonal = $4r$</td>
+          </tr>
+          <tr>
+            <td>Theoretical Density</td>
+            <td>$\rho = \frac{n \cdot A}{V_c \cdot N_A}$</td>
+            <td>$n$=atoms/cell, $A$=atomic mass, $V_c$=volume, $N_A$=$6.023 \times 10^{23}$</td>
+          </tr>
+          <tr>
+            <td>Hall-Petch Yield Stress</td>
+            <td>$\sigma_y = \sigma_0 + k_y \cdot d^{-1/2}$</td>
+            <td>$d$=average grain diameter ($\text{mm}$)</td>
+          </tr>
+          <tr>
+            <td>Tie-Line Lever Rule</td>
+            <td>$W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha} \times 100\%$</td>
+            <td>Weight fraction of phase $\alpha$</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §12 Key Points & Traps -->
+    <section id="sec-keypoints">
+      <h2 class="section-head">12. Key Points & Exam Traps</h2>
+      <div class="keypoints">
+        <h3>Exam Summary Checklist</h3>
+        <ul>
+          <li><strong>APF Values:</strong> SC = 0.52, BCC = 0.68, FCC = HCP = 0.74. FCC and HCP possess maximum close packing.</li>
+          <li><strong>Coordination Numbers:</strong> SC = 6, BCC = 8, FCC = HCP = 12.</li>
+          <li><strong>Fe-C Invariant Temps:</strong> Eutectoid = 727°C (0.80% C), Eutectic = 1147°C (4.30% C), Peritectic = 1493°C (0.17% C).</li>
+          <li><strong>Hardest Microstructure:</strong> Martensite (BCT structure). Softest/Ductile: Ferrite ($\alpha$). Maximum Machinability: Spheroidite.</li>
+          <li><strong>Quenching Severity:</strong> Brine &gt; Water &gt; Oil &gt; Air.</li>
+          <li><strong>Stainless Steel:</strong> Minimum 12% Cr required for self-healing passive $\text{Cr}_2\text{O}_3$ oxide layer. 18/8 (304) is non-magnetic austenitic.</li>
+          <li><strong>Hot Hardness Element:</strong> Tungsten (W) and Cobalt (Co) preserve cutting tool hardness up to 600°C.</li>
+          <li><strong>German Silver:</strong> Contains ZERO Silver! Composition: 60% Cu, 20% Ni, 20% Zn.</li>
+          <li><strong>Babbitt Microstructure:</strong> Hard $\text{Sb}_3\text{Sn}$ cuboids embedded in soft tin/lead matrix to accommodate shaft misalignment and absorb grit particles.</li>
+          <li><strong>Powder Metallurgy Rule:</strong> Sintering occurs BELOW the bulk melting point ($0.7\text{--}0.9\ T_m$) via solid-state atomic diffusion!</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>Material Science & Metallurgy — High-Yield Revision Guide</span><br>
+      <span>AP GenCo AE / SSC JE / Mechanical Engineering Examination Series</span>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById("theme-toggle");
+      var saved = localStorage.getItem("ag-theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        if (toggle) toggle.textContent = (t === "dark") ? "🌙" : "☀️";
+        localStorage.setItem("ag-theme", t);
+      }
+
+      applyTheme(saved);
+
+      if (toggle) {
+        toggle.addEventListener("click", function() {
+          var current = document.documentElement.getAttribute("data-theme") || "dark";
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      }
+
+      var bar = document.getElementById("reading-progress");
+      if (bar) {
+        window.addEventListener("scroll", function() {
+          var d = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (d > 0 ? Math.min(window.scrollY / d * 100, 100) : 0) + "%";
+        }, { passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>
