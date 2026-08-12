@@ -176,38 +176,31 @@
         tr:nth-child(even) { background-color: var(--table-even-bg); }
         tr:hover { background-color: var(--subject-bg-tint); }
 
-        /* Formula Cards — Intense Breathing & Lit Box Effect */
-        @keyframes formulaBreathe {
-            0%, 100% {
-                box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
-                            0 0 18px 2px var(--subject-current);
-                border-left-color: var(--subject-current);
-                background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--bg-formula) 75%);
-            }
-            50% {
-                box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.7),
-                            0 0 32px 6px var(--subject-current-light);
-                border-left-color: #FBBF24;
-                background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, var(--bg-formula) 60%);
-            }
+        /* Enlarged MathJax Formula Sizing & Visibility */
+        .mjx-chtml, .MathJax, mjx-container, .katex, .katex-display {
+            font-size: 118% !important;
+            line-height: 1.5;
         }
 
         .formula-box, .formula-card, .fc, .fbox, .concept-block {
-            border: 1px solid var(--border-light);
+            background: linear-gradient(135deg, var(--subject-bg-tint) 0%, var(--bg-card) 75%);
+            border: 1px solid var(--subject-current-light);
             border-left: 5px solid var(--subject-current);
-            border-radius: 10px;
-            padding: 16px 20px; margin: 22px 0;
-            text-align: center; overflow-x: auto;
-            animation: formulaBreathe 3.5s ease-in-out infinite;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 22px 0;
+            text-align: center;
+            overflow-x: auto;
+            font-size: 11pt;
+            box-shadow: var(--shadow-card), 0 0 16px var(--subject-bg-tint);
+            transition: all 0.25s ease;
         }
 
         .formula-box:hover, .formula-card:hover, .fc:hover, .fbox:hover, .concept-block:hover {
-            transform: translateY(-3px) scale(1.01);
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.32) 0%, rgba(245, 158, 11, 0.10) 100%) !important;
-            box-shadow: 0 0 45px 8px var(--subject-current),
-                        0 12px 35px -2px rgba(0, 0, 0, 0.9) !important;
+            transform: translateY(-3px);
             border-color: var(--subject-current);
+            background: linear-gradient(135deg, var(--subject-current-light) 0%, var(--bg-card) 60%) !important;
+            box-shadow: 0 10px 28px -4px rgba(245, 158, 11, 0.25), 0 0 20px var(--subject-current-light) !important;
         }
 
         ul { margin: 12px 0; padding-left: 24px; }
