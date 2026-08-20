@@ -1,0 +1,3011 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prep Prompts & Revision Templates — AP GenCo Mechanical</title>
+    <meta name="description"
+        content="Ready-to-use AI prompts and templates for solved MCQ extraction, formula-first revision sheets, rapid cramming, and topic-wise AP GenCo exam prep.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ── Design Tokens ─────────────────────────────────────────────── */
+        :root {
+            --page: #F5F1EA;
+            --card: #FFFFFF;
+            --card-hover: #FDFBF7;
+            --ink: #1E1A16;
+            --ink-mid: #4A3F35;
+            --ink-soft: #7A6A5A;
+            --rule: #D8CEBF;
+            --accent: #7B3F1A;
+            --accent-lt: #C4885A;
+            --chapter-bg: #2B1A0D;
+            --chapter-fg: #F5EFE6;
+            --code-bg: #1A1714;
+            --code-fg: #E6DFD5;
+            --shadow-sm: 0 1px 4px rgba(44, 28, 14, 0.07);
+            --shadow-md: 0 6px 24px rgba(44, 28, 14, 0.10);
+            --shadow-lg: 0 16px 48px rgba(44, 28, 14, 0.14);
+            --radius: 14px;
+            --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Subject Accents */
+            --subject-som: #EF4444;
+            --subject-fluid: #06B6D4;
+            --subject-thermo: #F97316;
+            --subject-production: #8B5CF6;
+            --subject-operations: #10B981;
+            --subject-materials: #EC4899;
+            --subject-general: #6366F1;
+            --subject-all: #C4885A;
+        }
+
+        [data-theme="dark"] {
+            --page: #18150F;
+            --card: #221E18;
+            --card-hover: #2A251F;
+            --ink: #E8DFD0;
+            --ink-mid: #B8A898;
+            --ink-soft: #8A7A6A;
+            --rule: #3A3028;
+            --accent: #C4885A;
+            --accent-lt: #E0A870;
+            --chapter-bg: #120C05;
+            --chapter-fg: #E8DFD0;
+            --code-bg: #0F0D0A;
+            --code-fg: #EDE6DC;
+            --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.25);
+            --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ── Reset & Base ──────────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--page);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ── Progress Bar ─────────────────────────────────────────────── */
+        #rbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--accent-lt);
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* ── Dark Mode Toggle ─────────────────────────────────────────── */
+        #ttog {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card);
+            border: 1.5px solid var(--rule);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            transition: var(--transition);
+            user-select: none;
+        }
+
+        #ttog:hover {
+            transform: scale(1.12);
+            border-color: var(--accent);
+        }
+
+        /* ── Wrapper ─────────────────────────────────────────────────── */
+        .wrap {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 48px 24px 72px;
+        }
+
+        /* ── Top Navigation Bar ──────────────────────────────────────── */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: var(--card);
+            border: 1px solid var(--rule);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-lt);
+            transform: translateX(-2px);
+        }
+
+        .nav-breadcrumbs {
+            font-size: 9.5pt;
+            color: var(--ink-soft);
+        }
+
+        /* ── Hero Header ─────────────────────────────────────────────── */
+        .portal-header {
+            background: var(--chapter-bg);
+            color: var(--chapter-fg);
+            border-radius: 20px;
+            padding: 50px 40px 42px;
+            margin-bottom: 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portal-header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 136, 90, 0.20) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .portal-header-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .portal-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .portal-tag {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(196, 136, 90, 0.5);
+            color: var(--accent-lt);
+            background: rgba(196, 136, 90, 0.08);
+        }
+
+        .portal-header h1 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: clamp(22pt, 4vw, 28pt);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            color: var(--chapter-fg);
+        }
+
+        .portal-header h1 em {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent-lt);
+        }
+
+        .portal-header p {
+            font-size: 11.5pt;
+            color: rgba(232, 223, 208, 0.8);
+            max-width: 680px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .quick-guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(196, 136, 90, 0.25);
+        }
+
+        .quick-guide-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 136, 90, 0.25);
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+
+        .quick-guide-item h4 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent-lt);
+            margin-bottom: 4px;
+        }
+
+        .quick-guide-item p {
+            font-size: 8.5pt;
+            color: rgba(232, 223, 208, 0.7);
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        /* ── Search & Filter Bar ─────────────────────────────────────── */
+        .search-bar-wrap {
+            margin-bottom: 32px;
+            position: sticky;
+            top: 14px;
+            z-index: 100;
+            background: var(--page);
+            padding: 10px 0;
+            border-radius: 12px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--card);
+            border: 1.5px solid var(--rule);
+            border-radius: 12px;
+            padding: 13px 20px 13px 46px;
+            font-size: 11pt;
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            box-shadow: var(--shadow-sm);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-lt);
+            box-shadow: 0 0 0 3px rgba(196, 136, 90, 0.15), var(--shadow-sm);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill-filter {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1.5px solid var(--rule);
+            background: var(--card);
+            color: var(--ink-mid);
+            transition: var(--transition);
+            user-select: none;
+        }
+
+        .pill-filter:hover {
+            border-color: var(--accent-lt);
+            color: var(--accent);
+        }
+
+        .pill-filter.active-pill {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* ── Prompt Box Container ────────────────────────────────────── */
+        .prompts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .prompt-box {
+            background: var(--card);
+            border: 1.5px solid var(--rule);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prompt-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-lt);
+            transition: var(--transition);
+        }
+
+        .prompt-box[data-subject="som"]::before { background: var(--subject-som); }
+        .prompt-box[data-subject="fluid"]::before { background: var(--subject-fluid); }
+        .prompt-box[data-subject="thermo"]::before { background: var(--subject-thermo); }
+        .prompt-box[data-subject="production"]::before { background: var(--subject-production); }
+        .prompt-box[data-subject="operations"]::before { background: var(--subject-operations); }
+        .prompt-box[data-subject="materials"]::before { background: var(--subject-materials); }
+        .prompt-box[data-subject="general"]::before { background: var(--subject-general); }
+
+        .prompt-box:hover {
+            border-color: var(--accent-lt);
+            box-shadow: var(--shadow-md);
+        }
+
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .prompt-title-group {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .prompt-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .prompt-badge {
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--accent-lt);
+            color: #1A0E05;
+        }
+
+        .prompt-cat-badge {
+            font-size: 7.5pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--page);
+            color: var(--ink-soft);
+            border: 1px solid var(--rule);
+        }
+
+        .prompt-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 13.5pt;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .prompt-desc {
+            font-size: 9.5pt;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        .prompt-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--accent);
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 600;
+            padding: 9px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(123, 63, 26, 0.25);
+            user-select: none;
+        }
+
+        .btn-copy:hover {
+            background: var(--accent-lt);
+            color: #1E0E00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 136, 90, 0.4);
+        }
+
+        .btn-copy.copied {
+            background: #10B981 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+        }
+
+        /* ── Code Box ────────────────────────────────────────────────── */
+        .prompt-body {
+            background: var(--code-bg);
+            border-radius: 10px;
+            border: 1px solid rgba(196, 136, 90, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .prompt-code-preview {
+            font-family: 'Fira Code', Consolas, Monaco, monospace;
+            font-size: 9pt;
+            line-height: 1.6;
+            color: var(--code-fg);
+            padding: 16px 18px;
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 240px;
+            overflow-y: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .prompt-box.expanded .prompt-code-preview {
+            max-height: 4000px;
+            overflow-y: visible;
+        }
+
+        /* ── Footer ──────────────────────────────────────────────────── */
+        .prompt-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--rule);
+        }
+
+        .btn-toggle-view {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            font-size: 9pt;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .btn-toggle-view:hover {
+            background: var(--page);
+            color: var(--accent-lt);
+        }
+
+        .toggle-arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .prompt-box.expanded .toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+        .prompt-char-count {
+            font-size: 8.5pt;
+            color: var(--ink-soft);
+        }
+
+        /* Toast notification */
+        .toast-notify {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #10B981;
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-size: 10pt;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .toast-notify.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* No results */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--ink-soft);
+            font-size: 11pt;
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px dashed var(--rule);
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 72px;
+            padding-top: 28px;
+            border-top: 1px solid var(--rule);
+            color: var(--ink-soft);
+            font-size: 9pt;
+        }
+
+        @media (max-width: 640px) {
+            .wrap {
+                padding: 28px 16px 56px;
+            }
+
+            .portal-header {
+                padding: 32px 20px 28px;
+            }
+
+            .prompt-box {
+                padding: 18px 16px;
+            }
+
+            .prompt-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-copy {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="rbar"></div>
+
+    <!-- Dark Mode Toggle -->
+    <button id="ttog" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button>
+
+    <!-- Toast Notification -->
+    <div class="toast-notify" id="toastNotify">
+        <span>✅</span>
+        <span id="toastMsg">Prompt copied to clipboard!</span>
+    </div>
+
+    <div class="wrap">
+        <!-- Top Nav -->
+        <nav class="top-nav">
+            <a href="index.html" class="back-link">
+                ← Back to Study Portal
+            </a>
+            <div class="nav-breadcrumbs">
+                Home / Prompts &amp; AI Revision Guides
+            </div>
+        </nav>
+
+        <!-- Hero Header -->
+        <header class="portal-header">
+            <div class="portal-header-inner">
+                <div class="portal-eyebrow">
+                    <span class="portal-tag">AP GenCo 2025–26</span>
+                    <span class="portal-tag">AI Study Prompts Library</span>
+                    <span class="portal-tag">19 Structured Prompts</span>
+                </div>
+
+                <h1>Exam Revision <em>AI Prompts &amp; Templates</em></h1>
+
+                <p>Curated, tested prompt templates for converting solved MCQ question banks into high-yield revision summaries, formula sheets, comparison tables, and last-minute exam cram sheets.</p>
+
+                <div class="quick-guide-grid">
+                    <div class="quick-guide-item">
+                        <h4>Formula-First Style</h4>
+                        <p>Best for calculation-heavy topics (SOM, TOM, Thermo, Fluid).</p>
+                    </div>
+                    <div class="quick-guide-item">
+                        <h4>Concept-Map Style</h4>
+                        <p>Best for process &amp; comparison topics (Production, Ops, Materials).</p>
+                    </div>
+                    <div class="quick-guide-item">
+                        <h4>Rapid Fire Style</h4>
+                        <p>Best when exam is 3–7 days away for maximum density.</p>
+                    </div>
+                    <div class="quick-guide-item">
+                        <h4>Topic-Specific Prompts</h4>
+                        <p>Ready-to-use chapter syllabus lists to paste solved MCQs into.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search & Filter -->
+        <div class="search-bar-wrap">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="promptSearchInput"
+                    placeholder="Search prompts by topic, keyword, formula, or subject…" autocomplete="off">
+            </div>
+            <div class="filter-pills">
+                <span class="pill-filter active-pill" data-filter="all">All Prompts (19)</span>
+                <span class="pill-filter" data-filter="solver">Universal Solvers (1)</span>
+                <span class="pill-filter" data-filter="core">Core Styles (3)</span>
+                <span class="pill-filter" data-filter="topic">Topic-Wise MCQs (14)</span>
+                <span class="pill-filter" data-filter="som">SOM &amp; TOM</span>
+                <span class="pill-filter" data-filter="thermo">Thermodynamics &amp; HMT</span>
+                <span class="pill-filter" data-filter="production">Production &amp; Forming</span>
+                <span class="pill-filter" data-filter="operations">Operations &amp; Industrial</span>
+                <span class="pill-filter" data-filter="general">General Aptitude / IT</span>
+            </div>
+        </div>
+
+        <!-- Prompts Box List -->
+        <main class="prompts-container" id="promptsContainer">
+
+        <div class="prompt-box" id="prompt-chapter-synopsis" data-category="solver" data-subject="all">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Quick Synopsis</span>
+                        <span class="prompt-cat-badge">ALL</span>
+                    </div>
+                    <h3 class="prompt-title">Chapter-End Synopsis &amp; Crux Revision Extractor</h3>
+                    <p class="prompt-desc">Universal extraction template that transforms raw solved MCQs into a clean chapter-end textbook synopsis with tight bullet points and One-Liners to Memorize.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-chapter-synopsis', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level). Extract **crux revision points** from all the solutions and organize them **topic-wise**, like a chapter-end synopsis in a textbook.
+
+Format rules:
+- Group points under clear topic headings (e.g., ## Turning &amp; Heat Distribution, ## Milling, ## Grinding Wheels)
+- Under each topic, use tight bullet points — facts, formulas, key distinctions
+- No verbose explanation
+- End with a **🔑 One-Liners to Memorize** block — the single most important fact per topic
+
+[PASTE YOUR SOLVED MCQ QUESTIONS HERE]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level). Extract **crux revision points** from all the solutions and organize them **topic-wise**, like a chapter-end synopsis in a textbook.
+
+Format rules:
+- Group points under clear topic headings (e.g., ## Turning &amp; Heat Distribution, ## Milling, ## Grinding Wheels)
+- Under each topic, use tight bullet points — facts, formulas, key distinctions
+- No verbose explanation
+- End with a **🔑 One-Liners to Memorize** block — the single most important fact per topic
+
+[PASTE YOUR SOLVED MCQ QUESTIONS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-chapter-synopsis', this)">
+                    <span class="toggle-text">Show Full Prompt (9 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">593 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-mcq-solver" data-category="solver" data-subject="all">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Universal Solver</span>
+                        <span class="prompt-cat-badge">ALL</span>
+                    </div>
+                    <h3 class="prompt-title">MCQ Fast Solver &amp; Mode Switch Protocol</h3>
+                    <p class="prompt-desc">Competitive-exam solving format with standard notation, essential 3–6 line steps, verified official answer keys, and instant follow-up mode switching.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-mcq-solver', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>## Mode switch (check first)
+If the message is a follow-up like &quot;Why is (C) wrong?&quot;, &quot;Explain step 2&quot;, or a clarification request — drop the template entirely. Answer briefly and directly in plain text.
+
+---
+
+## For every new MCQ question:
+
+**Step 1 — Search**
+Search the exact question text (or its key phrase) online. Target: official SSC JE / AP GenCo / TSPSC AEE answer keys first, then Testbook, Made Easy, or reputed coaching portals. Use the most consistent or official result as the answer. If sources conflict, note it.
+
+**Step 2 — Solve and respond in this format:**
+
+
+... [Click "Show Full Prompt" below to view all 34 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">## Mode switch (check first)
+If the message is a follow-up like &quot;Why is (C) wrong?&quot;, &quot;Explain step 2&quot;, or a clarification request — drop the template entirely. Answer briefly and directly in plain text.
+
+---
+
+## For every new MCQ question:
+
+**Step 1 — Search**
+Search the exact question text (or its key phrase) online. Target: official SSC JE / AP GenCo / TSPSC AEE answer keys first, then Testbook, Made Easy, or reputed coaching portals. Use the most consistent or official result as the answer. If sources conflict, note it.
+
+**Step 2 — Solve and respond in this format:**
+
+[ competitive-exam method — essential steps only, 3–6 lines. Use standard notation: ω, τ, η, σ, etc. No preamble, no question restatement. if any formulas used neat formulas , well  formatted.]
+
+must address the core point of the question.
+must give the right answer
+
+**Answer: (X)**
+
+**Concept tested:** [One-line name, e.g. Gyroscopic Couple, Bernoulli&#x27;s Equation, Tool Life — Taylor&#x27;s Equation]
+
+**Related topics** *(include only if directly useful for revision):* [2–3 linked concepts, else omit this line]
+
+---
+
+## Rules
+
+- Never repeat or paraphrase the question.
+- Never sacrifice accuracy for brevity.
+- If confidence &lt; 90%: state &quot;Low confidence — verify against official key.&quot;
+- If the question is ambiguous: flag it explicitly, then give the most exam-likely answer.
+- Related topics: include only when the concept connects to a commonly tested cluster; skip otherwise.
+
+---</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-mcq-solver', this)">
+                    <span class="toggle-text">Show Full Prompt (34 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,463 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-formula-first" data-category="core" data-subject="som">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Calculation Heavy</span>
+                        <span class="prompt-cat-badge">SOM</span>
+                    </div>
+                    <h3 class="prompt-title">PROMPT 1: Formula-First Revision Style</h3>
+                    <p class="prompt-desc">For SOM, TOM, Thermodynamics, and Fluid Mechanics. Extracts core concepts, boxed key formulae, boundary conditions, shortcuts, and MCQ traps.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-formula-first', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>## PROMPT 1: Formula-First Style
+
+*For SOM, TOM, Thermodynamics, Fluid Mechanics*
+
+Copy and paste this when starting a revision session on a calculation-heavy topic:
+
+```
+You are my APGENCO AE Mechanical exam revision partner.
+I am revising SOLVED MCQ questions from my exam prep.
+Topic: [ENTER TOPIC NAME — e.g., Stress and Strain, Bending Moment, 
+Gear Trains, First Law of Thermodynamics, etc.]
+
+
+... [Click "Show Full Prompt" below to view all 75 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">## PROMPT 1: Formula-First Style
+
+*For SOM, TOM, Thermodynamics, Fluid Mechanics*
+
+Copy and paste this when starting a revision session on a calculation-heavy topic:
+
+```
+You are my APGENCO AE Mechanical exam revision partner.
+I am revising SOLVED MCQ questions from my exam prep.
+Topic: [ENTER TOPIC NAME — e.g., Stress and Strain, Bending Moment, 
+Gear Trains, First Law of Thermodynamics, etc.]
+
+I will paste the solved MCQ questions and solutions below.
+
+YOUR JOB:
+Extract and organize these into an exam revision sheet following EXACTLY this structure:
+
+---
+
+## [TOPIC NAME]
+
+### Core Concept
+[2–3 lines max. What is it? What does it measure? State precisely, no fluff.]
+
+### Key Formulae
+For each formula that appears in the questions:
+
+┌─────────────────────────────────────────┐
+│ [Formula, neatly written]               │
+│ where: [variable] = [definition],       │
+│        [variable] = [definition]        │
+│ ✓ Applies when: [condition]             │
+└─────────────────────────────────────────┘
+
+[Repeat for each formula]
+
+### Conditions &amp; Edge Cases
+- [When does the formula NOT apply?]
+- [What happens at boundary values?]
+- [Special cases (e.g., when something = 0)]
+- [Common assumption to watch for]
+
+### Derivation Shortcut (if helpful)
+- [Memory hook or quick-check method — NOT a full derivation]
+- [Example: &quot;σ = F/A is linear; more force = more stress&quot;]
+
+### MCQ Traps
+- **Trap 1:** [What the question tries to confuse you with]
+  ← **Correct answer:** [Why this trap is wrong]
+
+- **Trap 2:** [Another common mistake or reversal]
+  ← **Correct answer:** [The fix]
+
+### Numbers You Must Recall
+- [Value 1: context and range]
+- [Value 2: when it matters]
+
+### Quick Recall Anchor
+[One sentence or mnemonic that locks this concept for exam day]
+
+---
+
+RULES:
+- Assume I know the basics; don&#x27;t re-teach.
+- Every formula must be used or tested in the questions you see.
+- If a formula appears in 2+ questions, it&#x27;s high-priority.
+- Flag any ambiguities or errors in the original solutions.
+- No verbose paragraphs — bullets and tables only.
+- End with something I can recite in 10 seconds under exam stress.
+
+Here are the solved MCQ questions:
+
+[PASTE YOUR SOLVED MCQ QUESTIONS HERE]
+
+```</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-formula-first', this)">
+                    <span class="toggle-text">Show Full Prompt (75 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,204 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-concept-map" data-category="core" data-subject="production">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Process &amp; Comparison</span>
+                        <span class="prompt-cat-badge">PRODUCTION</span>
+                    </div>
+                    <h3 class="prompt-title">PROMPT 2: Concept-Map Revision Style</h3>
+                    <p class="prompt-desc">For Production Engineering, Manufacturing, and Operations Management. Creates topic roadmaps, process flows, comparison tables, and distinction traps.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-concept-map', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>## PROMPT 2: Concept-Map Style
+
+*For Production Engineering, Manufacturing, Operations Management*
+
+Copy and paste this when starting a revision session on a process/comparison-heavy topic:
+
+```
+You are my APGENCO AE Mechanical exam revision partner.
+I am revising SOLVED MCQ questions from my exam prep.
+Topic: [ENTER TOPIC NAME — e.g., Milling &amp; Grinding, Lathe Operations, 
+Shaping &amp; Planing, CPM/PERT, Inventory Control, etc.]
+
+
+... [Click "Show Full Prompt" below to view all 98 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">## PROMPT 2: Concept-Map Style
+
+*For Production Engineering, Manufacturing, Operations Management*
+
+Copy and paste this when starting a revision session on a process/comparison-heavy topic:
+
+```
+You are my APGENCO AE Mechanical exam revision partner.
+I am revising SOLVED MCQ questions from my exam prep.
+Topic: [ENTER TOPIC NAME — e.g., Milling &amp; Grinding, Lathe Operations, 
+Shaping &amp; Planing, CPM/PERT, Inventory Control, etc.]
+
+I will paste the solved MCQ questions and solutions below.
+
+YOUR JOB:
+Extract and organize these into an exam revision sheet following EXACTLY this structure:
+
+---
+
+## [TOPIC NAME]
+
+### Topic Roadmap
+[Show how this topic breaks down into sub-areas using indented bullets or a simple tree]
+
+Example:
+Milling
+├── Types (Slab, Face, etc.)
+├── Chip Thickness Factors
+├── Speed &amp; Feed Relationships
+└── Cutting Tools &amp; Wear
+
+[Your version for this topic]
+
+### What Happens: The Process Flow
+[In one clear sentence or arrow flow: Input → Tool Action → Output]
+
+Example: 
+Workpiece (stationary) ← Tool (reciprocates) → Flat/grooved surface
+
+### Comparison Table
+[Show key differences between commonly confused processes/machines in THIS topic]
+
+Example for Shaping vs. Planing:
+
+| Feature | Shaper | Planer |
+|---------|--------|--------|
+| **What moves?** | Tool reciprocates | Workpiece reciprocates |
+| **Best for** | Slots, keyways (small work) | Large flat surfaces |
+| **Cutting stroke** | Forward | Forward or reciprocating |
+| **Work holding** | Clamp on table | Heavy bed |
+
+[Create similar table for your topic]
+
+### Key Numbers (Exam-Likely)
+- [Number 1: context, range, when it appears]
+- [Number 2: typical value or ratio]
+- [Number 3: if relevant from the MCQs]
+
+Example:
+- Heat ratio in turning: 70% chip, 20% tool, 10% work
+- Quick-return mechanism: cutting:return = 3:2 or 2:1
+
+### MCQ Traps &amp; Distinctions
+- **Trap 1:** [What confuses people]
+  ← **Key distinction:** [What separates correct from wrong answer]
+
+- **Trap 2:** [Another common reversal or confusion]
+  ← **Key distinction:** [The giveaway difference]
+
+Example:
+- **Trap:** Radial drill vs. Pillar drill → both drill, right?
+  ← **Key:** Radial drill&#x27;s arm moves; pillar drill&#x27;s table moves. Heavy work → don&#x27;t move it.
+
+### Quick Recall Anchors
+[One-liners or mnemonics for each major subtopic]
+
+Example:
+- Shaper: &quot;Reciprocating tool, stationary work — slots and grooves&quot;
+- Planer: &quot;Reciprocating work, fixed tool — large flat surfaces&quot;
+- Radial drill: &quot;Move the drill, not the heavy job&quot;
+
+---
+
+RULES:
+- Assume I know what these machines/processes are; don&#x27;t teach basics.
+- Every process/machine in the MCQs should appear in your table or flow.
+- Trap pairs are HIGH value — prioritize them.
+- If 2+ questions test the same distinction, highlight it.
+- Use tables instead of paragraphs for comparisons.
+- End with instantly-recall facts I can use under pressure.
+
+Here are the solved MCQ questions:
+
+[PASTE YOUR SOLVED MCQ QUESTIONS HERE]
+
+```
+
+---</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-concept-map', this)">
+                    <span class="toggle-text">Show Full Prompt (98 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,958 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-rapid-fire" data-category="core" data-subject="thermo">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Last-Week Cram</span>
+                        <span class="prompt-cat-badge">THERMO</span>
+                    </div>
+                    <h3 class="prompt-title">PROMPT 3: Rapid Fire Exam Cram Style</h3>
+                    <p class="prompt-desc">For high-density last-minute exam prep. Ranked Top 5 exam frequency points, trap pairs, trigger-response pairs, and red flag mistakes.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-rapid-fire', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>## PROMPT 3: Rapid Fire Revision
+
+*For Last-Week Revision (Any Topic)*
+
+Copy and paste this when the exam is days away and you need maximum density:
+
+```
+You are my APGENCO AE exam cram partner.
+The exam is in [X] days. I need ruthless, high-density revision.
+Topic: [ENTER TOPIC NAME]
+
+I will paste the solved MCQ questions below.
+
+... [Click "Show Full Prompt" below to view all 83 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">## PROMPT 3: Rapid Fire Revision
+
+*For Last-Week Revision (Any Topic)*
+
+Copy and paste this when the exam is days away and you need maximum density:
+
+```
+You are my APGENCO AE exam cram partner.
+The exam is in [X] days. I need ruthless, high-density revision.
+Topic: [ENTER TOPIC NAME]
+
+I will paste the solved MCQ questions below.
+
+YOUR JOB:
+Extract ONLY what I need to know for the exam, formatted as:
+
+---
+
+## [TOPIC NAME]
+
+### The 5 Things You Must Know (Ranked by Exam Frequency)
+
+1. **[Most critical fact/formula]**
+   Formula (if applicable): [...]
+   When: [applies in what situation]
+
+2. **[Second most critical]**
+   Formula (if applicable): [...]
+   When: [...]
+
+3. **[...]**
+
+4. **[...]**
+
+5. **[...]**
+
+### Formulae (Only Exam-Likely Ones)
+- [Formula 1] | Used when: [X]
+- [Formula 2] | Used when: [Y]
+- [etc.]
+
+### Trap Pairs (What the Exam Confuses)
+
+| Looks Similar | Actually Different | Exam Giveaway |
+|---|---|---|
+| [Trap A] vs [Trap B] | [Key difference] | [What you read in the question] |
+| [Trap C] vs [Trap D] | [Key difference] | [What you read in the question] |
+
+### Trigger-Response Pairs (If you see X → think Y)
+- See &quot;[keyword from question]&quot; → Answer involves [concept/formula]
+- See &quot;[keyword]&quot; → Watch out for [common mistake]
+- See &quot;[keyword]&quot; → The formula is [specific one]
+
+Example:
+- See &quot;spindle&quot; + &quot;rotates&quot; → Horizontal boring machine
+- See &quot;maximum chip thickness&quot; + &quot;slab milling&quot; → f_z × sin(φ)
+- See &quot;heat distribution&quot; + &quot;turning&quot; → 70:20:10 ratio
+
+### Mnemonics &amp; Memory Hooks
+- [One-liner or phrase for locked recall]
+- [Acronym if helpful]
+- [Visual anchor or comparison]
+
+### Red Flags (What kills you in MCQs)
+⚠️ [Common mistake 1]
+⚠️ [Common mistake 2]
+⚠️ [Common mistake 3]
+
+---
+
+RULES FOR THIS STYLE:
+- Every single line must be testable.
+- No teaching, no context, no philosophy.
+- Assume prior knowledge.
+- If it&#x27;s not in the MCQs, it doesn&#x27;t go here.
+- Ranked by exam frequency (most tested first).
+- Trigger-response pairs are your mental shortcuts under pressure.
+
+Here are the solved MCQ questions:
+
+[PASTE YOUR SOLVED MCQ QUESTIONS HERE]
+
+```</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-rapid-fire', this)">
+                    <span class="toggle-text">Show Full Prompt (83 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,106 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-1" data-category="topic" data-subject="som">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">SOM</span>
+                        <span class="prompt-cat-badge">SOM</span>
+                    </div>
+                    <h3 class="prompt-title">Strength of Materials (SOM) — MCQ Extraction</h3>
+                    <p class="prompt-desc">Stresses &amp; Strains, Mohr&#x27;s Circle, SFD/BMD, Bending &amp; Shear, Deflections, Columns, Torsion, and Strain Energy.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-1', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Simple Stresses &amp; Strains, ## Hooke&#x27;s Law &amp; Elastic Constants, ## Bending &amp; Shear Stress)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 29 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Simple Stresses &amp; Strains, ## Hooke&#x27;s Law &amp; Elastic Constants, ## Bending &amp; Shear Stress)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Simple Stresses &amp; Strains
+- Hooke&#x27;s Law &amp; Elastic Constants
+- Stress–Strain Curve (Mild Steel)
+- Compound Bars
+- Temperature Stresses
+- Stresses on Oblique Planes &amp; Principal Stresses
+- Mohr&#x27;s Circle
+- Shear Force &amp; Bending Moment Diagrams
+- Bending &amp; Shear Stresses in Beams
+- Beam Deflections
+- Columns &amp; Struts
+- Strain Energy
+- Torsion of Circular Shafts &amp; Springs
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-1', this)">
+                    <span class="toggle-text">Show Full Prompt (29 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,107 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-2" data-category="topic" data-subject="fluid">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Fluid</span>
+                        <span class="prompt-cat-badge">FLUID</span>
+                    </div>
+                    <h3 class="prompt-title">Fluid Mechanics &amp; Machinery — MCQ Extraction</h3>
+                    <p class="prompt-desc">Fluid Statics, Buoyancy, Kinematics, Bernoulli&#x27;s Equation, Pipe Losses, Boundary Layer, Turbines, and Pumps.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-2', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Basic Fluid Properties, ## Pressure Measurements, ## Bernoulli&#x27;s Equation)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 33 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Basic Fluid Properties, ## Pressure Measurements, ## Bernoulli&#x27;s Equation)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Basic Fluid Properties
+- Fluid Statics – Pressure Measurements
+- Buoyancy &amp; Flotation
+- Fluid Kinematics
+- Euler&#x27;s Equation
+- Bernoulli&#x27;s Equation &amp; Applications
+- Impulse-Momentum Equations
+- Laminar Flow
+- Turbulent Flow
+- Flow Through Pipes &amp; Pipe Losses
+- Losses in Bends &amp; Fittings
+- Boundary Layer Theory
+- Compressible Fluid Flow
+- Impact of Jets
+- Hydraulic Turbines
+- Hydraulic Pumps
+- Ram, Accumulator &amp; Intensifier
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-2', this)">
+                    <span class="toggle-text">Show Full Prompt (33 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,149 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-3" data-category="topic" data-subject="materials">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Materials</span>
+                        <span class="prompt-cat-badge">MATERIALS</span>
+                    </div>
+                    <h3 class="prompt-title">Material Science &amp; Metallurgy — MCQ Extraction</h3>
+                    <p class="prompt-desc">Crystal Structures, Defects, Iron-Carbon Diagram, Heat Treatments (TTT/CCT), Alloy Steels, and Corrosion.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-3', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Crystal Structure, ## Phase Diagrams, ## Heat Treatment)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include definitions and symbol notations where relevant
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 31 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Crystal Structure, ## Phase Diagrams, ## Heat Treatment)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include definitions and symbol notations where relevant
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Atomic Bonding in Solids
+- Crystal Structures &amp; Lattices
+- Imperfections in Crystals (Point, Line, Surface Defects)
+- Grain Boundaries &amp; Grain Size
+- Structure of Alloys (Solid Solutions, Intermetallic Compounds)
+- Phase Diagrams &amp; Binary Phase Systems
+- Iron-Carbon Phase Diagram
+- Manufacture of Iron (Blast Furnace)
+- Manufacture of Steel (Bessemer, Open Hearth, Electric)
+- Heat Treatment of Steel
+- Annealing, Normalizing, Hardening &amp; Tempering
+- Case Hardening &amp; Surface Treatment
+- Alloy Steels (Carbon, Low-Alloy, Stainless, Tool Steels)
+- Mechanical Properties &amp; Testing
+- Corrosion &amp; Corrosion Prevention
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-3', this)">
+                    <span class="toggle-text">Show Full Prompt (31 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,336 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-4" data-category="topic" data-subject="som">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">TOM</span>
+                        <span class="prompt-cat-badge">SOM</span>
+                    </div>
+                    <h3 class="prompt-title">Theory of Machines (TOM) — MCQ Extraction</h3>
+                    <p class="prompt-desc">Kinematic Chains, Velocity &amp; Acceleration Analysis, Slider-Crank, Gear Trains (Epicyclic), and Flywheels.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-4', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Kinematics of Mechanisms, ## Slider-Crank Mechanism, ## Gear Trains)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 34 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Kinematics of Mechanisms, ## Slider-Crank Mechanism, ## Gear Trains)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Introduction to Mechanisms &amp; Kinematic Chains
+- Displacement Analysis (Position, Paths)
+- Velocity Analysis (Relative Velocity, Velocity Diagrams)
+- Acceleration Analysis (Relative Acceleration, Coriolis Acceleration)
+- Four-Bar Linkage Mechanism
+- Slider-Crank Mechanism – Kinematics
+- Slider-Crank Mechanism – Dynamics
+- Force Analysis &amp; Inertia Forces
+- Power &amp; Work in Mechanisms
+- Gear Types &amp; Classification
+- Gear Ratios &amp; Velocity Ratios
+- Simple Gear Trains
+- Compound Gear Trains
+- Reverted Gear Trains
+- Epicyclic Gear Trains
+- Flywheel – Moment of Inertia
+- Flywheel – Energy Storage &amp; Fluctuation
+- Flywheel – Sizing &amp; Coefficient of Fluctuation
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-4', this)">
+                    <span class="toggle-text">Show Full Prompt (34 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,376 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-5" data-category="topic" data-subject="som">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Vibrations</span>
+                        <span class="prompt-cat-badge">SOM</span>
+                    </div>
+                    <h3 class="prompt-title">Mechanical Vibrations — MCQ Extraction</h3>
+                    <p class="prompt-desc">Free &amp; Damped Vibrations, Logarithmic Decrement, Forced Resonance, Transmissibility, and Whirling Speeds.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-5', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Free Undamped Vibrations, ## Damping, ## Resonance)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 32 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Free Undamped Vibrations, ## Damping, ## Resonance)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Simple Harmonic Motion (SHM) Basics
+- Free Vibrations – Undamped (Natural Frequency, Period)
+- Free Vibrations – Damped (Underdamped, Critically Damped, Overdamped)
+- Damping Ratio &amp; Critical Damping
+- Logarithmic Decrement
+- Forced Vibrations – Undamped
+- Forced Vibrations – Damped
+- Resonance (Amplitude, Frequency)
+- Resonance Conditions &amp; Amplification
+- Vibration Isolation (Isolation Mounts, Transmissibility)
+- Transmissibility Ratio
+- Critical Speeds of Shafts (Whirling)
+- Whipping &amp; Whirling Speed Calculation
+- Dunkerley&#x27;s Method
+- Energy Methods in Vibrations
+- Torsional Vibrations
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-5', this)">
+                    <span class="toggle-text">Show Full Prompt (32 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,296 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-6" data-category="topic" data-subject="production">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Machine Design</span>
+                        <span class="prompt-cat-badge">PRODUCTION</span>
+                    </div>
+                    <h3 class="prompt-title">Design of Machine Elements — MCQ Extraction</h3>
+                    <p class="prompt-desc">Failure Theories (Tresca/von Mises), Fatigue S-N Curves, Shafts, Bearings, Gears, Joints, Springs, Clutches, and Brakes.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-6', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Failure Theories, ## Fatigue &amp; S-N Diagram, ## Shaft Design)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 50 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Failure Theories, ## Fatigue &amp; S-N Diagram, ## Shaft Design)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Static Loading &amp; Stress
+- Dynamic Loading &amp; Stress
+- Failure Theories – Rankine (Max. Stress)
+- Failure Theories – von Mises (Max. Strain Energy)
+- Failure Theories – Tresca (Max. Shear Stress)
+- Factor of Safety &amp; Design
+- Fatigue &amp; Cyclic Loading
+- S-N Diagram &amp; Fatigue Strength
+- Endurance Limit &amp; Reduction Factors
+- Stress Concentration &amp; Stress Concentration Factor
+- Surface Finish, Size, Temperature Effects on Fatigue
+- Design of Shafts (Solid &amp; Hollow)
+- Shaft Design for Bending &amp; Torsion
+- Design of Bearings (Types &amp; Selection)
+- Rolling Bearings – Life &amp; Load Capacity
+- Design of Gears (Spur, Helical, Bevel)
+- Gear Strength &amp; Wear
+- Design of Bolted Joints &amp; Riveted Joints
+- Stress in Bolts &amp; Preload
+- Design of Welded Joints
+- Design of Springs (Helical, Leaf)
+- Spring Rate &amp; Deflection
+- Design of Screws &amp; Fasteners
+- Design of Clutches (Friction)
+- Clutch Torque Capacity
+- Design of Brakes (Friction, Band)
+- Brake Power &amp; Torque
+- Design of Cranks &amp; Crank Pins
+- Piston &amp; Connecting Rod Design
+- Gyroscopic Motion &amp; Gyroscopic Couple
+- Static &amp; Dynamic Balancing
+- Balancing of Rotating Masses
+- Governors – Centrifugal &amp; Inertia
+- Governor Characteristics &amp; Sensitivity
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-6', this)">
+                    <span class="toggle-text">Show Full Prompt (50 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,906 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-7" data-category="topic" data-subject="thermo">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Heat Transfer</span>
+                        <span class="prompt-cat-badge">THERMO</span>
+                    </div>
+                    <h3 class="prompt-title">Heat Transfer (HMT) — MCQ Extraction</h3>
+                    <p class="prompt-desc">Fourier Conduction, Fins, Lumped Capacitance (Bi, Fo), Dimensionless Numbers, LMTD/NTU, Stefan-Boltzmann Radiation, and Boiling.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-7', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Heat Conduction, ## Convection, ## Radiation)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 51 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Heat Conduction, ## Convection, ## Radiation)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Heat Conduction – Fourier&#x27;s Law
+- Thermal Conductivity &amp; Resistance
+- One-Dimensional Steady Heat Conduction
+- Composite/Compound Walls
+- Thermal Contact Resistance
+- Fins – Types &amp; Effectiveness
+- Fin Efficiency &amp; Overall Surface Efficiency
+- Unsteady State Heat Conduction (Lumped System)
+- Biot Number &amp; Fourier Number
+- Transient Heat Conduction – Charts &amp; Solutions
+- Dimensionless Parameters (Re, Pr, Nu, Gr, Ra, St)
+- Free (Natural) Convection
+- Forced Convection – External Flow
+- Heat Transfer Over Flat Plates
+- Thermal Boundary Layer &amp; Laminar vs Turbulent
+- Forced Convection – Internal Flow (Pipes)
+- Entrance Effects &amp; Fully Developed Flow
+- Pressure Drop &amp; Friction Factor in Pipes
+- Effect of Turbulence on Heat Transfer
+- Correlations for Laminar &amp; Turbulent Flow
+- Heat Exchangers – Classification
+- Parallel Flow &amp; Counter Flow Heat Exchangers
+- LMTD (Log Mean Temperature Difference) Method
+- Effectiveness-NTU (Number of Transfer Units) Method
+- Heat Exchanger Design &amp; Performance
+- Radiative Heat Transfer – Stefan-Boltzmann Law
+- Emissivity &amp; Absorptivity
+- View Factors (Shape Factors) &amp; Reciprocity
+- Radiation in Enclosures
+- Radiation Network Analysis
+- Boiling – Types (Pool, Flow)
+- Boiling Curve &amp; Critical Heat Flux
+- Condensation – Types (Film, Dropwise)
+- Condensation on Vertical &amp; Horizontal Surfaces
+- Combined Modes of Heat Transfer
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-7', this)">
+                    <span class="toggle-text">Show Full Prompt (51 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,065 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-8" data-category="topic" data-subject="thermo">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Thermodynamics</span>
+                        <span class="prompt-cat-badge">THERMO</span>
+                    </div>
+                    <h3 class="prompt-title">Basic Thermodynamics &amp; Psychrometry — MCQ Extraction</h3>
+                    <p class="prompt-desc">First &amp; Second Laws, Carnot, Otto, Diesel, Brayton, Rankine, Pure Substances, Psychrometric Charts, and Vapor Compression.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-8', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## First Law of Thermodynamics, ## Carnot Cycle, ## Air-Standard Cycles)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 52 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## First Law of Thermodynamics, ## Carnot Cycle, ## Air-Standard Cycles)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Thermodynamic Systems (Open, Closed, Isolated)
+- Thermodynamic Properties (Intensive, Extensive)
+- State &amp; Process (Reversible, Irreversible)
+- Zeroth Law of Thermodynamics (Temperature)
+- First Law of Thermodynamics (Energy Conservation)
+- Internal Energy &amp; Enthalpy
+- Heat &amp; Work in Various Processes
+- Second Law of Thermodynamics (Entropy)
+- Entropy Change &amp; Irreversibility
+- Available Energy &amp; Exergy
+- Carnot Cycle (Efficiency, Reversibility)
+- Otto Cycle (Petrol Engine)
+- Diesel Cycle (Compression Ignition)
+- Dual Cycle
+- Brayton Cycle (Gas Turbine)
+- Rankine Cycle (Steam Power)
+- Air-Standard Cycles &amp; Efficiency Comparison
+- Properties of Pure Substances (Tables, Diagrams)
+- Phase Diagrams (P-T, P-V, T-S)
+- Critical Point &amp; Reduced Properties
+- Two-Phase Systems (Dryness Fraction, Quality)
+- Psychrometry – Moist Air Properties
+- Dry Bulb, Wet Bulb &amp; Dew Point Temperatures
+- Humidity Ratio &amp; Relative Humidity
+- Psychrometric Chart &amp; Applications
+- Refrigeration Cycles (Reversed Carnot, Ideal)
+- Vapor Compression Cycle
+- COP (Coefficient of Performance) &amp; Efficiency
+- Refrigerants &amp; Their Properties
+- Refrigeration Systems &amp; Components
+- Air Conditioning – Sensible &amp; Latent Cooling
+- Comfort Conditions &amp; ASHRAE Standards
+- Air Conditioning Cycles &amp; Processes
+- Cooling &amp; Dehumidification
+- Heating &amp; Humidification
+- Mixing of Air Streams
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-8', this)">
+                    <span class="toggle-text">Show Full Prompt (52 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,080 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-9" data-category="topic" data-subject="thermo">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Applied Thermo</span>
+                        <span class="prompt-cat-badge">THERMO</span>
+                    </div>
+                    <h3 class="prompt-title">Applied Thermodynamics (IC Engines &amp; Compressors) — MCQ Extraction</h3>
+                    <p class="prompt-desc">Reciprocating/Rotary Compressors, Volumetric Efficiency, 2/4-Stroke SI/CI Engines, Knocking, Octane/Cetane, and Carburetors.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-9', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Compressors, ## Spark Ignition Engines, ## Combustion Chambers)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 62 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Compressors, ## Spark Ignition Engines, ## Combustion Chambers)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Classification of Compressors (Reciprocating, Rotary)
+- Reciprocating Compressor – Working Principle
+- Single-Stage &amp; Multi-Stage Compressors
+- Clearance Volume &amp; Clearance Ratio
+- Volumetric Efficiency
+- Isothermal &amp; Isentropic Processes
+- Power Required &amp; Theoretical Work
+- Intercooling &amp; Aftercooling
+- Rotary Compressors (Centrifugal, Axial)
+- Compressor Performance &amp; Head
+- Surge, Stall &amp; Choke Conditions
+- Classification of I.C. Engines (SI, CI)
+- Four-Stroke &amp; Two-Stroke Engines
+- Spark Ignition (Petrol) Engine – Working Principle
+- Compression Ignition (Diesel) Engine – Working Principle
+- Engine Performance Parameters (BP, IP, Mechanical Efficiency)
+- Thermal Efficiency &amp; Fuel Consumption
+- Mean Effective Pressure (MEP)
+- Brake Power &amp; Indicated Power
+- Specific Fuel Consumption (SFC)
+- Power &amp; Speed Characteristics
+- Combustion Chamber Design – S.I. Engines
+- Combustion Chamber Types (Wedge, Hemispherical, Bathtub)
+- Combustion Chamber Design – C.I. Engines
+- Direct &amp; Indirect Injection Systems
+- Swirl &amp; Turbulence in Combustion Chambers
+- Knocking in S.I. Engines (Spark Knock)
+- Knocking in C.I. Engines (Diesel Knock)
+- Anti-Knock Measures &amp; Additives
+- Octane Number &amp; Rating (MON, RON)
+- Cetane Number &amp; Rating
+- Fuel Specifications &amp; Properties
+- Self-Ignition Temperature
+- Volatility &amp; Distillation Range
+- Lubrication Systems (Splash, Pressure, Mist)
+- Lubricant Types &amp; Viscosity
+- SAE Viscosity Grading
+- Engine Oil Properties &amp; Requirements
+- Ignition Systems – Battery &amp; Magneto
+- Coil Ignition System
+- Distributor &amp; Spark Plug Function
+- Ignition Timing &amp; Advance
+- Electronic Ignition Systems
+- Fuel Injection Systems (Mechanical, Electronic)
+- Fuel Pump &amp; Fuel Filter
+- Carburetors – Types &amp; Operation
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-9', this)">
+                    <span class="toggle-text">Show Full Prompt (62 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">2,456 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-10" data-category="topic" data-subject="thermo">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Turbo Machines</span>
+                        <span class="prompt-cat-badge">THERMO</span>
+                    </div>
+                    <h3 class="prompt-title">Turbo Machines &amp; Jet Propulsion — MCQ Extraction</h3>
+                    <p class="prompt-desc">Gas &amp; Steam Turbines (Impulse/Reaction, Curtis/Rateau), Rankine Reheat/Regeneration, De Laval Nozzles, and Jet Propulsion.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-10', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Gas Turbines, ## Steam Turbines, ## Rankine Cycle)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 53 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Gas Turbines, ## Steam Turbines, ## Rankine Cycle)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Classification of Turbo Machines
+- Gas Turbine – Working Principle
+- Gas Turbine – Components (Compressor, Combustor, Turbine)
+- Brayton Cycle &amp; Gas Turbine Cycle
+- Pressure Ratio &amp; Turbine Efficiency
+- Thermal Efficiency of Gas Turbines
+- Compressor &amp; Turbine Matching
+- Part Load Operation
+- Intercooling, Reheating &amp; Regeneration
+- Steam Turbine – Working Principle
+- Steam Turbine – Types (Impulse, Reaction)
+- Staging &amp; Velocity Diagrams
+- Blade Efficiency &amp; Overall Efficiency
+- Reaction Turbine – Parsons Type
+- Impulse Turbine – Curtis &amp; Rateau Types
+- Steam Turbine Performance &amp; Load Variation
+- Rankine Cycle – Ideal Cycle
+- Rankine Cycle – Processes (4 stages)
+- Efficiency &amp; Mean Temperature
+- Thermal Efficiency vs Carnot Efficiency
+- Work Output &amp; Heat Addition
+- Modified Rankine Cycle – Superheat
+- Reheat Cycle
+- Regenerative Cycle &amp; Feedwater Heating
+- Regenerator &amp; Efficiency Improvement
+- Combined Cycle (Gas + Steam Turbine)
+- Jet Propulsion – Fundamentals
+- Turbojets &amp; Ramjets
+- Thrust &amp; Specific Impulse
+- Nozzles – Convergent &amp; Divergent
+- Mach Number &amp; Subsonic/Supersonic Flow
+- Critical Pressure Ratio
+- Throat Area &amp; Choked Flow
+- De Laval Nozzle
+- Nozzle Efficiency
+- Momentum Principle in Jet Propulsion
+- Propulsive Efficiency &amp; Overall Efficiency
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-10', this)">
+                    <span class="toggle-text">Show Full Prompt (53 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">1,981 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-11" data-category="topic" data-subject="production">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Machining &amp; Tools</span>
+                        <span class="prompt-cat-badge">PRODUCTION</span>
+                    </div>
+                    <h3 class="prompt-title">Metal Cutting &amp; Machine Tools — MCQ Extraction</h3>
+                    <p class="prompt-desc">Merchant Circle, Taylor&#x27;s Tool Life, Tool Angles, Lathe/Drilling/Milling/Grinding, Non-Traditional EDM/ECM/USM, and CNC G-code.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-11', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Mechanics of Machining, ## Tool Geometry, ## Lathe Operations)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 90 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Mechanics of Machining, ## Tool Geometry, ## Lathe Operations)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+- Mechanics of Machining – Orthogonal Cutting
+- Oblique Cutting &amp; Chip Formation
+- Chip Types (Continuous, Built-up Edge, Segmented)
+- Shear Plane Angle &amp; Chip Thickness Ratio
+- Cutting Tool Materials (HSS, Carbides, Ceramics, Coatings)
+- Single-Point Cutting Tools (Geometry &amp; Nomenclature)
+- Multi-Point Cutting Tools (Drills, Mills, etc.)
+- Tool Angles – Rake, Clearance, Wedge Angles
+- Tool Geometry – Effects on Performance
+- Tool Life &amp; Taylor&#x27;s Tool Life Equation
+- Tool Wear Types (Flank, Crater, Notch Wear)
+- Wear Mechanism &amp; Progression
+- Factors Affecting Tool Life (Speed, Feed, Depth)
+- Cutting Force Analysis &amp; Components
+- Merchant&#x27;s Circle &amp; Force Relationships
+- Power Requirement in Machining
+- Heat Generation &amp; Temperature in Cutting
+- Thermal Stresses &amp; Tool Failure
+- Micro-Finishing – EDM (Electrical Discharge Machining)
+- EDM Process Parameters &amp; Material Removal
+- ECM (Electrochemical Machining)
+- ECM Setup &amp; Electrode-Workpiece Gap
+- USM (Ultrasonic Machining)
+- USM Abrasive Media &amp; Material Removal Rate
+- NC (Numerical Control) Machines – Principle
+- CNC Machines &amp; Automation
+- DNC (Direct Numerical Control)
+- Programming Basics (G-code, M-code)
+- Coordinate Systems &amp; Work Offsets
+- Jigs – Types &amp; Functions
+- Jigs – Design Principles
+- Fixtures – Types &amp; Applications
+- Fixture Clamping &amp; Locating
+- Slip Gauges &amp; Precision Measurement
+- Limits, Fits &amp; Tolerances – Definitions
+- Hole Basis &amp; Shaft Basis Systems
+- Tolerance Grades (IT Grades)
+- Dimensional Accuracy &amp; Surface Finish
+- Linear Measurements (Vernier, Micrometer)
+- Angular Measurements (Sine Bar, Bevel Protractor)
+- Comparators (Dial Gauge, Optical, Electronic)
+- Coordinate Measuring Machine (CMM)
+- Lathes – Types &amp; Components
+- Lathe Operations (Turning, Facing, Boring)
+- Threading &amp; Knurling on Lathe
+- Lathe Cutting Speed &amp; Feed
+- Drilling Machines – Types
+- Twist Drill Geometry &amp; Design
+- Drill Wear &amp; Breakage
+- Drilling Parameters &amp; Torque
+- Reaming &amp; Countersinking
+- Shaping Machine – Principle &amp; Operation
+- Shaper Stroke &amp; Speed
+- Planing Machine – Principle
+- Planer vs Shaper Differences
+- Milling Machines – Types (Vertical, Horizontal)
+- Milling Operations (Face, Peripheral, End Milling)
+- Milling Cutter Types &amp; Selection
+- Feed &amp; Speed in Milling
+- Up-Cutting &amp; Down-Cutting
+- Gear Cutting – Methods (Form, Hobbing, Shaping)
+- Hobbing Machine &amp; Process
+- Gear Shaping &amp; Accuracy
+- Module &amp; Diametral Pitch
+- Broaching Machine – Principle
+- Broach Design &amp; Cutting Edges
+- Internal &amp; External Broaching
+- Grinding Machines – Types
+- Grinding Wheel Composition (Abrasive, Bond, Grade)
+- Wheel Selection &amp; Balancing
+- Surface Grinding &amp; Cylindrical Grinding
+- Grinding Parameters &amp; Surface Finish
+- Dressing &amp; Truing of Grinding Wheel
+- Grinding Wheel Markings (ISO Standard)
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-11', this)">
+                    <span class="toggle-text">Show Full Prompt (90 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">3,506 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-12" data-category="topic" data-subject="production">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Foundry &amp; Forming</span>
+                        <span class="prompt-cat-badge">PRODUCTION</span>
+                    </div>
+                    <h3 class="prompt-title">Foundry, Welding, Forging &amp; Forming — MCQ Extraction</h3>
+                    <p class="prompt-desc">Pattern Allowances, Gating/Riser Design, Arc/Resistance/TIG/MIG Welding, HAZ, Rolling, Forging, Extrusion, Drawing, and Shearing.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-12', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Pattern Design, ## Mould Design, ## Arc Welding)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 116 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Pattern Design, ## Mould Design, ## Arc Welding)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+### FOUNDRY:
+- Pattern Types (One-Piece, Split, Loose Piece)
+- Pattern Allowances (Shrinkage, Draft, Machining)
+- Pattern Materials &amp; Selection
+- Mould Types (Green Sand, Dry Sand, Skin-Dried)
+- Mould Making Process
+- Mould Strength &amp; Permeability
+- Core Types &amp; Core Making
+- Core Binders &amp; Baking
+- Gating System – Components &amp; Function
+- Gate Location &amp; Design
+- Runner Design &amp; Taper Ratio
+- Riser Design &amp; Placement
+- Riser Height &amp; Diameter
+- Riser Efficiency &amp; Modulus Method
+- Feeding Distance &amp; Feeding Range
+- Solidification Process (Directional Solidification)
+- Cooling Rate &amp; Grain Structure
+- Segregation &amp; Porosity
+- Dendrite Formation &amp; Crystal Growth
+- Metal Flow in Mould
+- Casting Defects (Shrinkage, Porosity, Cracks)
+- Casting Quality &amp; Inspection
+- Pouring Temperature &amp; Time
+
+### WELDING:
+- Physics of Welding – Heat Source &amp; Arc
+- Temperature Distribution in Weld
+- Heat Affected Zone (HAZ)
+- Weld Microstructure &amp; Properties
+- Arc Welding – Principle
+- Shielded Metal Arc Welding (SMAW)
+- Gas Tungsten Arc Welding (GTAW/TIG)
+- Gas Metal Arc Welding (GMAW/MIG)
+- Submerged Arc Welding (SAW)
+- Flux-Cored Arc Welding (FCAW)
+- Electrode Selection &amp; Flux
+- Welding Current, Voltage &amp; Speed
+- Penetration &amp; Weld Bead Profile
+- Ductility &amp; Strength of Weld
+- Residual Stresses in Welding
+- Distortion &amp; Warping
+- Resistance Welding (Spot, Seam, Projection)
+- Oxyacetylene Welding
+- Laser &amp; Electron Beam Welding
+- Brazing – Principle &amp; Process
+- Brazing Materials &amp; Filler
+- Soldering – Principle &amp; Applications
+- Solder &amp; Flux Types
+- Adhesive Bonding – Types &amp; Mechanism
+- Surface Preparation for Bonding
+- Weld Defects (Cracks, Porosity, Inclusions)
+- Weld Inspection &amp; Testing (NDT)
+- Weld Design &amp; Stress Concentration
+
+### FORGING:
+- Hot Working vs Cold Working
+- Recrystallization Temperature
+- Hot Working Benefits &amp; Process
+- Forging Methods (Open Die, Closed Die)
+- Forging Operations (Drawing, Upsetting, Bending)
+- Forging Defects (Laps, Surface Cracks)
+- Impression Die Forging
+- Hammer &amp; Press Types
+- Forging Temperature &amp; Control
+- Lubrication in Forging
+- Cold Forging – Advantages &amp; Limitations
+- Cold Working Defects &amp; Residual Stresses
+
+### ROLLING:
+- Rolling Process – Principle
+- Types of Rolling (Hot, Cold)
+- Rolling Mills (Two-High, Four-High, Cluster)
+- Draft &amp; Reduction Ratio
+- Rolling Speed &amp; Surface Finish
+- Spread, Draft &amp; Elongation
+- Defects in Rolling (Edge Cracks, Surface Defects)
+- Residual Stresses in Cold Rolled Material
+
+### EXTRUSION:
+- Extrusion Process – Principle
+- Direct vs Indirect Extrusion
+- Extrusion Die Design
+- Extrusion Ratio &amp; Area Reduction
+- Extrusion Speed &amp; Temperature
+- Extrusion Force Calculation
+- Defects (Center Burst, Surface Cracks)
+
+### DRAWING:
+- Wire &amp; Rod Drawing – Principle
+- Drawing Die Geometry (Reduction Angle)
+- Reductions per Pass &amp; Total Reduction
+- Drawing Speed &amp; Lubrication
+- Work Hardening &amp; Annealing
+- Drawing Defects &amp; Fracture Conditions
+
+### SHEARING &amp; BENDING:
+- Shearing Process – Principle
+- Shear Stress &amp; Strain
+- Clearance &amp; Burr Formation
+- Punch &amp; Die Design
+- Cutting Force Estimation
+- Bending</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-12', this)">
+                    <span class="toggle-text">Show Full Prompt (116 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">3,743 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-13" data-category="topic" data-subject="operations">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Industrial &amp; Ops</span>
+                        <span class="prompt-cat-badge">OPERATIONS</span>
+                    </div>
+                    <h3 class="prompt-title">Production &amp; Operations Management — MCQ Extraction</h3>
+                    <p class="prompt-desc">Plant Layout, PPC, CPM/PERT, Work Study, Quality Control Charts, Break-Even, Simplex LPP, Transportation, and EOQ Inventory.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-13', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Plant Layout, ## Material Handling, ## Production Planning)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 141 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## Plant Layout, ## Material Handling, ## Production Planning)
+- Under each topic: tight bullet points only — formulas, key facts, distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include formula with symbol definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+### PLANT LAYOUT:
+- Layout Types (Product, Process, Group Technology, Fixed Position)
+- Product Layout – Line Production
+- Process Layout – Job Shop
+- Group Technology – Cellular Manufacturing
+- Fixed Position Layout – Large Assemblies
+- Layout Objectives &amp; Principles
+- Space Utilization &amp; Efficiency
+- Material Flow Path &amp; Distance
+- Flow Pattern Analysis
+- Rectilinear &amp; Euclidean Distance Measures
+- Layout Optimization &amp; Simulation
+
+### MATERIAL HANDLING:
+- Material Handling Equipment Classification
+- Conveyors (Belt, Roller, Screw)
+- Cranes &amp; Hoists (Overhead, Mobile)
+- Trucks &amp; Forklifts
+- Automated Guided Vehicles (AGV)
+- Stackers &amp; Retrieval Systems (AS/RS)
+- Material Handling Principles
+- Unit Load Concept
+- Handling Cost Reduction
+- Safety in Material Handling
+
+### PRODUCTION PLANNING &amp; CONTROL:
+- Demand Forecasting Methods (Time Series, Qualitative)
+- Aggregate Planning &amp; Strategies
+- Master Scheduling (MPS)
+- Capacity Planning &amp; CRP (Capacity Requirements Planning)
+- Production Control System
+- Job Sequencing &amp; Dispatching Rules
+- Critical Path Method (CPM)
+- PERT (Program Evaluation &amp; Review Technique)
+- Gantt Charts &amp; Network Analysis
+- Lead Time &amp; Lag Time
+- Crashing &amp; Resource Allocation
+- Schedule Performance Monitoring
+
+### MATERIALS MANAGEMENT:
+- Procurement Process &amp; Vendor Selection
+- Make vs Buy Decision
+- Supply Chain Management
+- Supplier Relationship &amp; Performance
+- Purchase Order &amp; Documentation
+- Receiving &amp; Inspection
+- Stores Management &amp; Organization
+- Inventory Valuation Methods (FIFO, LIFO, Weighted Average)
+- Material Classification (ABC, XYZ)
+- Just-In-Time (JIT) Concept
+
+### WORK STUDIES:
+- Time Study – Procedure &amp; Stopwatch Method
+- Rating &amp; Allowances
+- Standard Time Calculation
+- Motion Study &amp; Therbligs
+- Micro &amp; Macro Motion Studies
+- Work Sampling &amp; Confidence Level
+- Fatigue &amp; Rest Allowances
+- Performance Rating &amp; Leveling
+- Method Study &amp; Improvement
+
+### INSPECTIONS &amp; QUALITY CONTROL:
+- Quality Definition &amp; Dimensions
+- Inspection Types (100%, Sampling, Acceptance)
+- Inspection Points (Raw Material, In-Process, Final)
+- Quality Control Charts (X-bar, R, p, c Charts)
+- Control Limits &amp; Process Capability
+- Sampling Inspection (AQL, LTPD, OC Curve)
+- Acceptance Sampling Plans (Single, Double)
+- Statistical Quality Control
+- Non-Conformance &amp; Rejection
+- Quality Improvement Cycles (PDCA)
+- Six Sigma Basics
+
+### COST ANALYSIS:
+- Cost Classification (Fixed, Variable, Semi-Variable)
+- Cost Behavior &amp; Break-Even Analysis
+- Break-Even Point Calculation
+- Contribution Margin &amp; Profit
+- Cost Estimation Methods
+- Standard Costing &amp; Variance Analysis
+- Material Variance &amp; Labor Variance
+- Overhead Analysis
+- Value Engineering &amp; Cost Reduction
+
+### OPERATIONS RESEARCH:
+- Linear Programming Problem (LPP)
+- Simplex Method &amp; Graphical Method
+- Feasible Region &amp; Optimal Solution
+- Sensitivity Analysis
+- Transportation Problem &amp; Vogel&#x27;s Approximation
+- Assignment Problem &amp; Hungarian Method
+- Queuing Theory (M/M/1, M/M/c Models)
+- Waiting Time &amp; Service Level
+- Inventory Models (EOQ, Reorder Point)
+- Game Theory Basics
+- Decision Making Under Uncertainty
+
+### CAD/CAM:
+- CAD Fundamentals &amp; Components
+- 2D &amp; 3D Modeling
+- Solid Modeling (Boolean Operations)
+- Surface Modeling &amp; Wireframe
+- CAM Basics &amp; CNC Programming
+- G-code &amp; M-code
+- Tool Path Generation
+- Post-Processor &amp; Machine Code
+- CAD-CAM Integration
+- Rapid Prototyping &amp; 3D Printing Basics
+- Data Exchange Formats (IGES, STEP)
+
+### INVENTORY CONTROL:
+- Inventory Functions &amp; Costs
+- Carrying Cost vs Ordering Cost
+- Economic Order Quantity (EOQ) Formula
+- Reorder Point &amp; Lead Time
+- Safety Stock Calculation
+- Service Level &amp; Stock-Out Probability
+- ABC Analysis &amp; Selective Control
+- Periodic vs Perpetual Systems
+- Inventory Turnover Ratio
+- Obsolescence &amp; Scrap Management
+- Inventory Optimization Techniques
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-13', this)">
+                    <span class="toggle-text">Show Full Prompt (141 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">4,565 characters</span>
+            </div>
+        </div>
+
+        <div class="prompt-box" id="prompt-topic-14" data-category="topic" data-subject="general">
+            <div class="prompt-header">
+                <div class="prompt-title-group">
+                    <div class="prompt-badge-row">
+                        <span class="prompt-badge">Computer Knowledge</span>
+                        <span class="prompt-cat-badge">GENERAL</span>
+                    </div>
+                    <h3 class="prompt-title">Computer Knowledge &amp; IT Proficiency — MCQ Extraction</h3>
+                    <p class="prompt-desc">Von Neumann Architecture, CPU/RAM/Cache, Windows OS, MS Word/Excel/PPT Shortcuts, Networking Protocols, and Cyber Security.</p>
+                </div>
+                <div class="prompt-actions">
+                    <button class="btn-copy" onclick="copyPromptText('prompt-topic-14', this)" title="Copy full prompt to clipboard">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Prompt</span>
+                    </button>
+                </div>
+            </div>
+            <div class="prompt-body">
+                <pre class="prompt-code-preview"><code>Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## CPU &amp; Processors, ## Memory Organization, ## Windows OS)
+- Under each topic: tight bullet points only — facts, formulas, key distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include technical specifications and definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+... [Click "Show Full Prompt" below to view all 253 lines]</code></pre>
+                <textarea class="prompt-raw-text" style="display:none;" aria-hidden="true">Below are solved MCQ questions with explanations from a competitive exam (APGENCO/SSC JE level).
+
+Extract **core revision points** from all the solutions and organize them **topic-wise**, like a textbook chapter summary.
+
+**Format rules:**
+- Group points under clear topic headings (e.g., ## CPU &amp; Processors, ## Memory Organization, ## Windows OS)
+- Under each topic: tight bullet points only — facts, formulas, key distinctions, MCQ traps, no derivations
+- Keep sentences short (one fact per line)
+- Include technical specifications and definitions
+- End with a **🔑 One-Liner to Memorize** block — ONE takeaway per topic
+
+**Topics to cover:**
+
+**COMPUTER ORGANIZATION &amp; HARDWARE:**
+- Computer Architecture – Von Neumann Model
+- Hardware Components (CPU, Memory, I/O, Storage)
+- Data Representation (Bits, Bytes, Binary)
+- Number Systems (Binary, Decimal, Hexadecimal)
+- Data Units (Byte, KB, MB, GB, TB)
+
+**CPU &amp; MICROPROCESSORS:**
+- CPU – Components (ALU, Control Unit, Registers)
+- Clock Speed &amp; GHz (Gigahertz)
+- Multi-Core Processors
+- Cache Memory (L1, L2, L3)
+- CPU Performance Metrics
+- Instruction Set Architecture (ISA)
+- Processor Generations &amp; Evolution
+
+**INPUT DEVICES:**
+- Keyboard – Layout &amp; Types
+- Mouse – Optical &amp; Mechanical
+- Trackpad &amp; Touchscreen
+- Scanner – Types &amp; Resolution (DPI)
+- Microphone &amp; Audio Input
+- Gaming Input Devices (Joystick, Game Pad)
+
+**OUTPUT DEVICES:**
+- Monitor – Types (LED, LCD, OLED)
+- Resolution, Refresh Rate, Aspect Ratio
+- Printers (Inkjet, Laser, Dot Matrix)
+- Speakers &amp; Audio Output
+- Projectors &amp; Display Technologies
+
+**COMPUTER MEMORY:**
+- Memory Hierarchy (Fast, Costly to Slow, Cheap)
+- RAM (Random Access Memory) – Volatile
+- ROM (Read-Only Memory) – Non-Volatile
+- RAM Types (DRAM, SRAM, DDR)
+- Cache Memory &amp; Hit Rate
+- Virtual Memory &amp; Paging
+- Memory Access Time &amp; Bandwidth
+
+**MEMORY ORGANIZATION:**
+- Address Space &amp; Memory Map
+- Word Size &amp; Byte Addressability
+- Main Memory Organization
+- Secondary Memory Integration
+- Memory Protection &amp; Segmentation
+- Virtual Address Space
+
+**BACKUP &amp; STORAGE DEVICES:**
+- Hard Disk Drive (HDD) – Platter, Spindle, Head
+- Solid State Drive (SSD) – Flash Memory
+- External Hard Drives
+- USB Flash Drives &amp; Memory Cards
+- Optical Media (CD, DVD, Blu-ray)
+- Magnetic Tape – Archive Storage
+- Cloud Storage Services
+- Backup Strategies (Full, Incremental, Differential)
+
+**PORTS &amp; INTERFACES:**
+- USB Ports (USB 2.0, 3.0, 3.1, Type-C)
+- HDMI &amp; DisplayPort
+- VGA &amp; DVI Connectors
+- Ethernet Port (RJ-45)
+- Audio Jack (3.5mm, 6.35mm)
+- Serial &amp; Parallel Ports (Legacy)
+- Thunderbolt Port
+- Port Speed &amp; Data Transfer Rates
+
+**WINDOWS EXPLORER &amp; FILE MANAGEMENT:**
+- File System Structure (Folders, Files, Hierarchy)
+- Path Notation (Absolute, Relative)
+- File Naming Conventions &amp; Extensions
+- File Attributes (Read-Only, Hidden, System)
+- File Operations (Copy, Move, Delete, Rename)
+- Compressed Files &amp; Archives (.zip, .rar)
+- Recycle Bin &amp; File Recovery
+- Properties &amp; Permissions
+
+**KEYBOARD SHORTCUTS:**
+- Windows Key Functions (Win, Win+E, Win+D, Win+X)
+- File Operations (Ctrl+C, Ctrl+X, Ctrl+V, Ctrl+Z)
+- Text Navigation (Ctrl+A, Ctrl+F, Ctrl+H)
+- Window Management (Alt+Tab, Alt+F4, Win+Snap)
+- System Functions (Ctrl+Alt+Delete, Win+L)
+- Application Shortcuts (Common across Office)
+
+**WINDOWS OPERATING SYSTEM:**
+- OS Layers (Kernel, Services, Shell)
+- Boot Process &amp; Startup Sequence
+- Task Manager – Processes, Performance, Startup
+- System Settings &amp; Control Panel
+- User Accounts &amp; Permissions (Admin, Standard, Guest)
+- File &amp; Folder Permissions (NTFS)
+- System Updates &amp; Windows Update
+- Device Manager &amp; Driver Management
+- Windows Defender &amp; Built-in Security
+- System Restore &amp; Recovery Options
+
+**MICROSOFT WORD:**
+- Document Creation &amp; Formatting
+- Font &amp; Paragraph Formatting
+- Styles &amp; Templates
+- Headers, Footers &amp; Page Numbers
+- Table Insertion &amp; Editing
+- Bullet Points &amp; Numbering
+- Mail Merge &amp; Mass Mailing
+- Track Changes &amp; Comments
+- Page Layout (Margins, Orientation, Size)
+- Find &amp; Replace with Wildcards
+- Spell Check &amp; Grammar
+
+**MICROSOFT EXCEL:**
+- Spreadsheet Structure (Rows, Columns, Cells)
+- Cell References (Absolute, Relative, Mixed)
+- Data Entry &amp; Formatting
+- Formulas &amp; Functions (SUM, AVERAGE, COUNT, IF)
+- Lookup Functions (VLOOKUP, HLOOKUP)
+- Conditional Formatting
+- Charts &amp; Graphs (Bar, Line, Pie, Scatter)
+- Pivot Tables &amp; Data Analysis
+- Sorting &amp; Filtering
+- Data Validation &amp; Protection
+- Printing &amp; Page Setup
+
+**POWERPOINT:**
+- Presentation Structure (Slides, Layouts)
+- Slide Master &amp; Themes
+- Text, Images &amp; Shapes on Slides
+- Animations &amp; Transitions
+- Slide Sorter &amp; Normal View
+- Presenter Notes &amp; Handouts
+- Running Slideshows (Full Screen Mode)
+- Hyperlinks &amp; Action Buttons
+- Design Consistency &amp; Templates
+
+**WEB BROWSING &amp; SEARCHING:**
+- Web Browsers (Chrome, Firefox, Edge, Safari)
+- URL Structure (http, https, Domain)
+- Hyperlinks &amp; Navigation
+- Search Engines (Google, Bing, Yahoo)
+- Search Operators &amp; Advanced Search
+- Bookmarks &amp; Favorites Management
+- Browser History &amp; Cache Clearing
+- Tab Management &amp; Tabbed Browsing
+- Extensions &amp; Add-ons
+
+**DOWNLOADING &amp; UPLOADING:**
+- File Downloads – Location &amp; Progress
+- Download Managers
+- File Upload via Web Forms
+- Cloud Storage Upload (Google Drive, OneDrive)
+- FTP (File Transfer Protocol) Basics
+- P2P File Sharing
+- Bandwidth &amp; Speed Measurement (Mbps, Gbps)
+- Download Safety &amp; Verification
+
+**EMAIL MANAGEMENT:**
+- Email Account Creation &amp; Setup
+- SMTP &amp; POP3 / IMAP Protocols
+- Inbox Organization – Folders &amp; Labels
+- Composing &amp; Formatting Email
+- Attachments – Size Limits &amp; Formats
+- Forwarding &amp; Reply-All
+- Contacts &amp; Address Book
+- Spam Filtering &amp; Blocking
+- Email Signatures
+- Calendar &amp; Task Integration
+
+**E-BANKING:**
+- Online Banking Portal &amp; Login
+- Account Access &amp; Statement View
+- Fund Transfer – NEFT, RTGS, IMPS
+- Bill Payment &amp; Utilities
+- Cheque Status &amp; Tracking
+- Two-Factor Authentication (2FA)
+- OTP (One-Time Password) Security
+- Digital Signature &amp; Encryption
+- Mobile Banking Apps
+- Phishing &amp; Banking Fraud Prevention
+
+**NETWORKING BASICS:**
+- Network Definition &amp; Types (LAN, MAN, WAN)
+- Network Topology (Bus, Ring, Star, Mesh)
+- Network Devices (Router, Switch, Hub, Modem)
+- Network Protocols (TCP/IP, HTTP, FTP, SMTP)
+- IP Address – IPv4 &amp; IPv6
+- MAC Address &amp; Physical Layer Identification
+- Bandwidth &amp; Latency
+- Network Speed (Kbps, Mbps, Gbps)
+- Wireless Networking (WiFi, Bluetooth)
+- Network Security Basics
+
+**NETWORK DEVICES &amp; PROTOCOLS:**
+- Router – Packet Forwarding &amp; Routing Tables
+- Switch – Layer 2 Switching &amp; VLAN
+- Hub – Broadcast Domain
+- Modem – Modulation &amp; Demodulation
+- Repeater &amp; Amplification
+- Gateway &amp; Protocol Translation
+- Firewall – Packet Filtering
+- Access Point (AP) – Wireless Coverage
+- DNS Server – Domain Name Resolution
+- DHCP Server – IP Allocation
+
+**CYBERSECURITY THREATS:**
+- Malware – Definition &amp; Types
+- Viruses – Reproduction &amp; Propagation
+- Worms – Self-Replicating Malware
+- Trojan Horse – Disguised Malicious Code
+- Ransomware – Encryption &amp; Extortion
+- Spyware &amp; Adware
+- Rootkits – Privilege Escalation
+- Botnet &amp; Distributed Attacks
+- Phishing &amp; Social Engineering
+- Man-in-the-Middle (MITM) Attack
+- SQL Injection &amp; Cross-Site Scripting (XSS)
+- Denial of Service (DoS) &amp; DDoS Attacks
+- Zero-Day Vulnerability
+- Password Attacks (Brute Force, Dictionary)
+
+**CYBERSECURITY PREVENTIVE MEASURES:**
+- Antivirus &amp; Anti-Malware Software
+- Firewall Protection (Software &amp; Hardware)
+- Password Security &amp; Strong Passwords
+- Two-Factor Authentication (2FA)
+- Encryption &amp; Decryption Basics
+- SSL/TLS Certificate &amp; HTTPS
+- Regular Software Updates &amp; Patches
+- Operating System Security Updates
+- Data Backup &amp; Recovery Plan
+- User Awareness &amp; Training
+- Email Security &amp; Attachment Scanning
+- Network Segmentation &amp; DMZ
+- Access Control &amp; User Permissions
+- Security Audit &amp; Vulnerability Assessment
+- Incident Response &amp; Reporting
+
+**MCQ Solutions to Extract:**
+
+[PASTE YOUR SOLVED Q&amp;A BLOCKS HERE]</textarea>
+            </div>
+            <div class="prompt-footer">
+                <button class="btn-toggle-view" onclick="togglePromptExpand('prompt-topic-14', this)">
+                    <span class="toggle-text">Show Full Prompt (253 lines)</span>
+                    <span class="toggle-arrow">▾</span>
+                </button>
+                <span class="prompt-char-count">8,011 characters</span>
+            </div>
+        </div>
+        </main>
+
+        <!-- No results message -->
+        <div class="no-results" id="noPromptResults">
+            No prompts found matching your query. Try searching for "SOM", "Fluid", "Formula", or "Welding".
+        </div>
+
+        <footer>
+            &copy; AP GenCo Mechanical Study Guide Portal &nbsp;·&nbsp; Prompt Library for Exam Revision
+        </footer>
+    </div>
+
+    <script>
+        // ── Reading Progress Bar ─────────────────────────────────────────
+        const rbar = document.getElementById('rbar');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            rbar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+        });
+
+        // ── Dark Mode ────────────────────────────────────────────────────
+        const ttog = document.getElementById('ttog');
+        const saved = localStorage.getItem('ag-theme') || 'light';
+
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            ttog.textContent = (t === 'dark') ? '🌙' : '☀️';
+            localStorage.setItem('ag-theme', t);
+        }
+
+        applyTheme(saved);
+
+        ttog.addEventListener('click', function () {
+            const cur = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(cur === 'dark' ? 'light' : 'dark');
+        });
+
+        // ── Toast Notification ───────────────────────────────────────────
+        let toastTimeout = null;
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotify');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = msg || 'Prompt copied to clipboard!';
+            toast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2400);
+        }
+
+        // ── Copy Prompt Function ─────────────────────────────────────────
+        function copyPromptText(boxId, btn) {
+            const box = document.getElementById(boxId);
+            if (!box) return;
+            const textarea = box.querySelector('.prompt-raw-text');
+            if (!textarea) return;
+
+            const textToCopy = textarea.value;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                btn.classList.add('copied');
+                const label = btn.querySelector('.copy-label');
+                const prevLabel = label ? label.textContent : 'Copy Prompt';
+                if (label) label.textContent = 'Copied!';
+
+                showToast('Prompt copied to clipboard!');
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    if (label) label.textContent = prevLabel;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                textarea.style.display = 'block';
+                textarea.select();
+                document.execCommand('copy');
+                textarea.style.display = 'none';
+                showToast('Prompt copied to clipboard!');
+            });
+        }
+
+        // ── Expand / Collapse Prompt ─────────────────────────────────────
+        function togglePromptExpand(boxId, btn) {
+            const box = document.getElementById(boxId);
+            if (!box) return;
+            const isExpanded = box.classList.toggle('expanded');
+            const toggleText = btn.querySelector('.toggle-text');
+            const codeBlock = box.querySelector('.prompt-code-preview code');
+            const rawText = box.querySelector('.prompt-raw-text').value;
+
+            if (isExpanded) {
+                codeBlock.textContent = rawText;
+                if (toggleText) toggleText.textContent = 'Collapse Preview';
+            } else {
+                // Revert to truncated
+                const lines = rawText.split('\n');
+                let preview = lines.slice(0, 12).join('\n');
+                if (lines.length > 12) {
+                    preview += '\n\n... [Click "Show Full Prompt" below to view all ' + lines.length + ' lines]';
+                }
+                codeBlock.textContent = preview;
+                if (toggleText) toggleText.textContent = 'Show Full Prompt (' + lines.length + ' lines)';
+            }
+        }
+
+        // ── Search & Filter ──────────────────────────────────────────────
+        const searchInput = document.getElementById('promptSearchInput');
+        const allPromptBoxes = document.querySelectorAll('.prompt-box');
+        const filterPills = document.querySelectorAll('.pill-filter');
+        const noResults = document.getElementById('noPromptResults');
+
+        let activeFilter = 'all';
+
+        function filterPrompts() {
+            const query = searchInput.value.toLowerCase().trim();
+            let anyVisible = false;
+
+            allPromptBoxes.forEach(box => {
+                const title = (box.querySelector('.prompt-title')?.textContent || '').toLowerCase();
+                const desc = (box.querySelector('.prompt-desc')?.textContent || '').toLowerCase();
+                const badge = (box.querySelector('.prompt-badge')?.textContent || '').toLowerCase();
+                const raw = (box.querySelector('.prompt-raw-text')?.value || '').toLowerCase();
+                const cat = box.dataset.category || '';
+                const subject = box.dataset.subject || '';
+
+                const matchesSearch = !query || title.includes(query) || desc.includes(query) || badge.includes(query) || raw.includes(query);
+                
+                let matchesFilter = false;
+                if (activeFilter === 'all') {
+                    matchesFilter = true;
+                } else if (activeFilter === 'solver' || activeFilter === 'core' || activeFilter === 'topic') {
+                    matchesFilter = (cat === activeFilter);
+                } else if (activeFilter === 'som') {
+                    matchesFilter = (subject === 'som');
+                } else if (activeFilter === 'thermo') {
+                    matchesFilter = (subject === 'thermo');
+                } else if (activeFilter === 'production') {
+                    matchesFilter = (subject === 'production' || subject === 'materials');
+                } else if (activeFilter === 'operations') {
+                    matchesFilter = (subject === 'operations');
+                } else if (activeFilter === 'general') {
+                    matchesFilter = (subject === 'general');
+                } else {
+                    matchesFilter = (subject === activeFilter);
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    box.style.display = 'block';
+                    anyVisible = true;
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+
+            noResults.classList.toggle('visible', !anyVisible);
+        }
+
+        searchInput.addEventListener('input', filterPrompts);
+
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                filterPills.forEach(p => p.classList.remove('active-pill'));
+                pill.classList.add('active-pill');
+                activeFilter = pill.dataset.filter;
+                filterPrompts();
+            });
+        });
+    </script>
+</body>
+
+</html>
